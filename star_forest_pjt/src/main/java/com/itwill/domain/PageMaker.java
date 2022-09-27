@@ -1,7 +1,7 @@
 package com.itwill.domain;
 
 public class PageMaker {
-		 
+		//공부중..... 공부중....... 공부중......
 	    // 페이지당 게시물 수
 	    public static final int PAGE_SCALE = 10;
 	    // 화면당 페이지 수
@@ -29,5 +29,9 @@ public class PageMaker {
 	    private int blockBegin; // 현재 페이지 블록의 시작번호   --> 그럼 이게 51 ?
 	    // [이전] 41 42 43 44 45 46 47 48 49 50 <- blockEnd [다음]
 	    private int blockEnd;   // 현재 페이지 블록의 끝번호  --> 55?
+	    
+	    
+	   //오 다 이해됐는데 System.out.println("13.DB에서select할게시물시작번호 :"+pageBegin);
+		//System.out.println("14.DB에서select할게시물끝번호   :"+pageEnd); 이것만 물어보기!
 	     
 }

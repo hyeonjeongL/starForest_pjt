@@ -21,6 +21,7 @@ DROP SEQUENCE SEQ_Book_book_no;
 DROP SEQUENCE SEQ_Book_club_club_no;
 DROP SEQUENCE SEQ_favorite_favorite_no;
 DROP SEQUENCE SEQ_Notice_notice_no;
+DROP SEQUENCE SEQ_Rental_rental_no;
 DROP SEQUENCE SEQ_Request_board_board_no;
 DROP SEQUENCE SEQ_Reservation_res_no;
 DROP SEQUENCE SEQ_Seat_seat_no;
@@ -35,6 +36,7 @@ CREATE SEQUENCE SEQ_Book_book_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Book_club_club_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_favorite_favorite_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Notice_notice_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_Rental_rental_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Request_board_board_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Reservation_res_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Seat_seat_no INCREMENT BY 1 START WITH 1;
@@ -113,6 +115,7 @@ CREATE TABLE Rental
 (
 	rental_no number NOT NULL,
 	rental_date date,
+	return_duedate date,
 	return_date date,
 	rental_status number DEFAULT 1 NOT NULL,
 	book_no number NOT NULL,

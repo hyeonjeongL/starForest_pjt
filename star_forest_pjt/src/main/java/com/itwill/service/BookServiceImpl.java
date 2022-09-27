@@ -11,7 +11,7 @@ import com.itwill.repository.BookDao;
 @Transactional
 public class BookServiceImpl {
 	@Autowired(required=false) //해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
-	BookDao bookDataDao;
+	BookDao bookDao;
 	
 	
 

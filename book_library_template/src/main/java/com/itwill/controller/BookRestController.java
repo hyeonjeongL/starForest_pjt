@@ -7,15 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.itwill.service.BookService;
 
 
-@Controller
 public class BookRestController {
-	@Autowired
-	BookService service;
-	
-	@RequestMapping("\test")
-	public String test() {
-		System.out.println("test");
-		return "index";
-	}
+
 
 }

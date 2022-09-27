@@ -1,5 +1,5 @@
 package com.itwill.service;
 
-public class UserInfoServiceImpl {
+public class UserServiceImpl {
 
 }

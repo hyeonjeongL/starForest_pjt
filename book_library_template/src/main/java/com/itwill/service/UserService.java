@@ -1,5 +1,5 @@
 package com.itwill.service;
 
-public interface UserInfoService {
+public interface UserService {
 
 }

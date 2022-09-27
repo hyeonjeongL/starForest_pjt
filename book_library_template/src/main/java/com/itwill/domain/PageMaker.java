@@ -1,5 +1,5 @@
 package com.itwill.domain;
 
-public class Paging {
+public class PageMaker {
 	public int page;
 }

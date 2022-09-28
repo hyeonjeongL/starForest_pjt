@@ -10,13 +10,13 @@ import com.itwill.service.BookService;
 @RestController
 public class BookRestController {
 	
-	@Autowired
+	@Autowired(required = true)
 	private BookService bookService;
 	
-	@RequestMapping("/detail")
+	@RequestMapping("/main")
 	public String test() {
 		System.out.println("test");
-		return "detail";
+		return "main";
 	}
 	
 	

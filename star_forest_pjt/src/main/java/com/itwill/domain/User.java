@@ -15,7 +15,7 @@ public class User {
 	private String user_rental_status;
 	private int user_book_cnt_limit;
 	private int user_book_weight;
-	private BookCategory bookCategory;
+	private BookCategory bookCategory; //Int category_no 로 수정? 필요?
 	
 	public User() {
 		// TODO Auto-generated constructor stub

@@ -16,14 +16,16 @@ public class User {
 	private int user_book_cnt_limit;
 	private int user_book_weight;
 	private BookCategory bookCategory;
+	private BookClub bookClub;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public User(String user_id, String user_name, String user_password, String user_email, Date user_birth,
 			String user_gender, String user_phone, String user_address, String user_qr, String user_rental_status,
-			int user_book_cnt_limit, int user_book_weight, BookCategory bookCategory) {
+			int user_book_cnt_limit, int user_book_weight, BookCategory bookCategory, BookClub bookClub) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
@@ -38,112 +40,162 @@ public class User {
 		this.user_book_cnt_limit = user_book_cnt_limit;
 		this.user_book_weight = user_book_weight;
 		this.bookCategory = bookCategory;
+		this.bookClub = bookClub;
 	}
+	
+
 
 	public String getUser_id() {
 		return user_id;
 	}
 
+
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
+
 
 	public String getUser_name() {
 		return user_name;
 	}
 
+
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
 	}
+
 
 	public String getUser_password() {
 		return user_password;
 	}
 
+
 	public void setUser_password(String user_password) {
 		this.user_password = user_password;
 	}
+
 
 	public String getUser_email() {
 		return user_email;
 	}
 
+
 	public void setUser_email(String user_email) {
 		this.user_email = user_email;
 	}
+
 
 	public Date getUser_birth() {
 		return user_birth;
 	}
 
+
 	public void setUser_birth(Date user_birth) {
 		this.user_birth = user_birth;
 	}
+
 
 	public String getUser_gender() {
 		return user_gender;
 	}
 
+
 	public void setUser_gender(String user_gender) {
 		this.user_gender = user_gender;
 	}
+
 
 	public String getUser_phone() {
 		return user_phone;
 	}
 
+
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
+
 
 	public String getUser_address() {
 		return user_address;
 	}
 
+
 	public void setUser_address(String user_address) {
 		this.user_address = user_address;
 	}
+
 
 	public String getUser_qr() {
 		return user_qr;
 	}
 
+
 	public void setUser_qr(String user_qr) {
 		this.user_qr = user_qr;
 	}
+
 
 	public String getUser_rental_status() {
 		return user_rental_status;
 	}
 
+
 	public void setUser_rental_status(String user_rental_status) {
 		this.user_rental_status = user_rental_status;
 	}
+
 
 	public int getUser_book_cnt_limit() {
 		return user_book_cnt_limit;
 	}
 
+
 	public void setUser_book_cnt_limit(int user_book_cnt_limit) {
 		this.user_book_cnt_limit = user_book_cnt_limit;
 	}
+
 
 	public int getUser_book_weight() {
 		return user_book_weight;
 	}
 
+
 	public void setUser_book_weight(int user_book_weight) {
 		this.user_book_weight = user_book_weight;
 	}
+
 
 	public BookCategory getBookCategory() {
 		return bookCategory;
 	}
 
+
 	public void setBookCategory(BookCategory bookCategory) {
 		this.bookCategory = bookCategory;
 	}
-	
+
+
+	public BookClub getBookClub() {
+		return bookClub;
+	}
+
+
+	public void setBookClub(BookClub bookClub) {
+		this.bookClub = bookClub;
+	}
+
+
+	@Override
+	public String toString() {
+		return "User [user_id=" + user_id + ", user_name=" + user_name + ", user_password=" + user_password
+				+ ", user_email=" + user_email + ", user_birth=" + user_birth + ", user_gender=" + user_gender
+				+ ", user_phone=" + user_phone + ", user_address=" + user_address + ", user_qr=" + user_qr
+				+ ", user_rental_status=" + user_rental_status + ", user_book_cnt_limit=" + user_book_cnt_limit
+				+ ", user_book_weight=" + user_book_weight + ", bookCategory=" + bookCategory + ", bookClub=" + bookClub
+				+ "]";
+	}
+
+
 	// 비밀번호 일치 확인
 	public boolean isMatchPassword(String password) {
 		boolean isMatch = false;
@@ -153,13 +205,5 @@ public class User {
 		return isMatch;
 	}
 
-	@Override
-	public String toString() {
-		return "UserInfo [user_id=" + user_id + ", user_name=" + user_name + ", user_password=" + user_password
-				+ ", user_email=" + user_email + ", user_birth=" + user_birth + ", user_gender=" + user_gender
-				+ ", user_phone=" + user_phone + ", user_address=" + user_address + ", user_qr=" + user_qr
-				+ ", user_rental_status=" + user_rental_status + ", user_book_cnt_limit=" + user_book_cnt_limit
-				+ ", user_book_weight=" + user_book_weight + ", bookCategory=" + bookCategory + "]";
-	}
 	
 }

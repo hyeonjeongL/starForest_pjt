@@ -10,14 +10,14 @@ public class BookClub {
 	private String club_content;
 	private int club_readcount;
 	private BookCategory bookCategory;
-	private String user_id;
+	
 	
 	public BookClub() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public BookClub(int club_no, String club_name, int club_count, String club_person, String club_time,
-			String club_place, String club_content, int club_readcount, BookCategory bookCategory, String user_id) {
+			String club_place, String club_content, int club_readcount, BookCategory bookCategory) {
 		super();
 		this.club_no = club_no;
 		this.club_name = club_name;
@@ -28,7 +28,6 @@ public class BookClub {
 		this.club_content = club_content;
 		this.club_readcount = club_readcount;
 		this.bookCategory = bookCategory;
-		this.user_id = user_id;
 	}
 
 	public int getClub_no() {
@@ -103,20 +102,12 @@ public class BookClub {
 		this.bookCategory = bookCategory;
 	}
 
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
-
 	@Override
 	public String toString() {
 		return "BookClub [club_no=" + club_no + ", club_name=" + club_name + ", club_count=" + club_count
 				+ ", club_person=" + club_person + ", club_time=" + club_time + ", club_place=" + club_place
 				+ ", club_content=" + club_content + ", club_readcount=" + club_readcount + ", bookCategory="
-				+ bookCategory + ", user_id=" + user_id + "]";
+				+ bookCategory +  "]";
 	}
 	
 }

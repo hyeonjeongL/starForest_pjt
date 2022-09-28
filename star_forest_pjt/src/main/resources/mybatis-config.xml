@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE configuration PUBLIC "//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd" >
 <configuration>
-	<!--mapper에서 매칭할 parmeter Type 별칭 설정-->
+	<!--mapper에서 매칭할 parameter Type 별칭 설정-->
 	<typeAliases>
-		<typeAlias type="com.itwill.domain" alias="domain"/>
+		<typeAlias type="com.itwill.domain"/>
 	</typeAliases>
 	
 	
@@ -25,7 +25,7 @@
 	<mappers>
 		<mapper resource="com/itwill/mapper/BookCategoryMapper.xml"/> 
 		<mapper resource="com/itwill/mapper/BookClubMapper.xml"/> 
-		<mapper resource="com/itwill/mapper/BookMapper.xml"/> 
+		<mapper resource="com.itwill.mapper.BookMapper.xml"/> 
 		<mapper resource="com/itwill/mapper/FavoriteMapper.xml"/> 
 		<mapper resource="com/itwill/mapper/NoticeMapper.xml"/> 
 		<mapper resource="com/itwill/mapper/RentalMapper.xml"/> 

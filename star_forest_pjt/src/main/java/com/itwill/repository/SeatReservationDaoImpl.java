@@ -20,22 +20,22 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	
 	@Override
 	public int reservation(SeatReservation seatReservation) throws Exception {
-		return seatReservationMapper.reservation();
+		return seatReservationMapper.reservation(seatReservation);
 	}
 
 	@Override
 	public int returnByUser(SeatReservation seatReservation) throws Exception {
-		return seatReservationMapper.returnByUser();
+		return seatReservationMapper.returnByUser(seatReservation);
 	}
 
 	@Override
 	public int returnByAuto(SeatReservation seatReservation) throws Exception {
-		return seatReservationMapper.returnByAuto();
+		return seatReservationMapper.returnByAuto(seatReservation);
 	}
 
 	@Override
 	public int continueSeat(SeatReservation seatReservation) throws Exception {
-		return seatReservationMapper.continueSeat();
+		return seatReservationMapper.continueSeat(seatReservation);
 	}
 
 	@Override

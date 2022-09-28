@@ -35,11 +35,6 @@ update seat_reservation set seat_end_time=case when to_char(sysdate,'HH24:MI:SS'
 then to_char(to_date(seat_end_time,'HH24:MI:SS')+2/24,'HH24:MI:SS') else seat_end_time end where user_id='jeonghyun';
 
 
-
-
-
-
-
 --사용하고 있는 좌석 목록 뽑기
 select seat_no from seat_reservation where seat_status=1;
 

@@ -2,6 +2,8 @@ package com.itwill.domain;
 
 import java.util.Date;
 
+import org.apache.ibatis.type.Alias;
+@Alias("Book")
 public class Book {
 	
 	int book_no;

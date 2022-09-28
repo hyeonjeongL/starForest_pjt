@@ -22,12 +22,16 @@ public interface BookClubDao {
 	//회원이 가입한 동아리조회
 	List<BookClub> selectById(String user_id) throws Exception;
 	
+	//동아리상세보기
+	BookClub selectByNo(int club_no) throws Exception;
+	
 	//동아리수정
-	int update(int club_no) throws Exception;
+	int update(BookClub bookClub) throws Exception;
 	
 	//동아리 인원수 카운트
 	int clubCount(int club_no) throws Exception;
 	
 	//동아리삭제
 	int remove(int club_no) throws Exception;
+	
 }

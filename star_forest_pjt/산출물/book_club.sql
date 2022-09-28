@@ -50,6 +50,8 @@ insert into book_club values(SEQ_book_club_club_no.nextval,'다독다독',5,'따
 select * from book_club;
 /*카테고리별 동아리 출력*/
 select club_name,club_count,club_person,club_time,club_place,club_content from book_club where category_no=700;
+/*동아리 상세보기*/
+select club_name,club_count,club_person,club_time,club_place,club_content from book_club where club_no=1;
 /*'yeji'가 가입한 동아리내역*/
 select club_name,club_person,club_time,club_place,club_content from book_club where user_id='yeji';
 

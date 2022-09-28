@@ -27,10 +27,14 @@ public interface BookClubMapper {
 			+ "			where user_id=#{user_id}")
 	public List<BookClub> selectById(String user_id);
 	
+	@Select("select club_name,club_count,club_person,club_time,club_place,club_content from book_club"
+			+ "			where club_no=#{club_no}")
+	public BookClub selectByNo(int club_no);
+	
 	@Update("update book_club set club_name=#{club_name},club_count=#{club_count},club_person=#{club_person},"
 			+ "							 club_time=#{club_time},club_place=#{club_place},club_content=#{club_content}"
 			+ "							 where club_no=#{club_no}")
-	public int update(int club_no);
+	public int update(BookClub bookClub);
 	
 	@Update("update book_club set club_count=club_count-1 where club_count>0 and club_no=#{club_no}")
 	public int clubCount(int club_no);

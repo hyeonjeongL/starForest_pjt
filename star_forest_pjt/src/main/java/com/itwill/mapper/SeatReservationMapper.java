@@ -11,25 +11,25 @@ public interface SeatReservationMapper {
 	@Update("update seat_reservation set seat_date=sysdate, seat_start_time=to_char(sysdate,'HH24:MI:SS'),\r\n"
 			+ "								seat_end_time=to_char(sysdate+5/24,'HH24:MI:SS'),\r\n"
 			+ "								user_id=#{user_id}, seat_status=1 where seat_no=#{seat_no}")
-	public int reservation();
+	public int reservation(SeatReservation seatReservation);
 	
 	@Update("update seat_reservation set seat_date=null, seat_start_time=null,\r\n"
 			+ "								seat_end_time=null,user_id=null,\r\n"
 			+ "								seat_status=0\r\n"
 			+ "								where seat_no=#{seat_no}")
-	public int returnByUser();
+	public int returnByUser(SeatReservation seatReservation);
 	
 	@Update("update seat_reservation set seat_date=null,seat_start_time=null,\r\n"
 			+ "								seat_end_time=null,user_id=null,\r\n"
 			+ "								seat_status=0\r\n"
 			+ "								where seat_no=#{seat_no} and\r\n"
 			+ "								seat_end_time&lt;(to_char(sysdate,'HH24:MI:SS'))")
-	public int returnByAuto();
+	public int returnByAuto(SeatReservation seatReservation);
 	
 	@Update("update seat_reservation set \r\n"
 			+ "	seat_end_time= <![CDATA[(case when to_char(sysdate,'HH24:MI:SS')<=to_char(to_date(#{seat_end_time},'HH24:MI:SS')-30/(24*60),'HH24:MI:SS')\r\n"
 			+ "	then to_char(to_date(#{seat_end_time},'HH24:MI:SS')+2/24,'HH24:MI:SS') else #{seat_end_time} end where user_id=#{user_id}]]>")
-	public int continueSeat();
+	public int continueSeat(SeatReservation seatReservation);
 	
 	@Select("select * from seat_reservation")
 	public List<SeatReservation> selectAll();

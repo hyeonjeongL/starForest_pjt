@@ -5,10 +5,10 @@ DROP TABLE favorite CASCADE CONSTRAINTS;
 DROP TABLE Rental CASCADE CONSTRAINTS;
 DROP TABLE Reservation CASCADE CONSTRAINTS;
 DROP TABLE Book CASCADE CONSTRAINTS;
-DROP TABLE Book_club CASCADE CONSTRAINTS;
 DROP TABLE Request_board CASCADE CONSTRAINTS;
 DROP TABLE Seat_reservation CASCADE CONSTRAINTS;
 DROP TABLE User_info CASCADE CONSTRAINTS;
+DROP TABLE Book_club CASCADE CONSTRAINTS;
 DROP TABLE Book_category CASCADE CONSTRAINTS;
 DROP TABLE Notice CASCADE CONSTRAINTS;
 
@@ -21,6 +21,7 @@ DROP SEQUENCE SEQ_Book_book_no;
 DROP SEQUENCE SEQ_Book_club_club_no;
 DROP SEQUENCE SEQ_favorite_favorite_no;
 DROP SEQUENCE SEQ_Notice_notice_no;
+DROP SEQUENCE SEQ_Rental_rental_no;
 DROP SEQUENCE SEQ_Request_board_board_no;
 DROP SEQUENCE SEQ_Reservation_res_no;
 DROP SEQUENCE SEQ_Seat_seat_no;
@@ -35,6 +36,7 @@ CREATE SEQUENCE SEQ_Book_book_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Book_club_club_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_favorite_favorite_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Notice_notice_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_Rental_rental_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Request_board_board_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Reservation_res_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Seat_seat_no INCREMENT BY 1 START WITH 1;
@@ -83,7 +85,6 @@ CREATE TABLE Book_club
 	club_content varchar2(500),
 	club_readcount number,
 	category_no number NOT NULL,
-	user_id varchar2(100) NOT NULL UNIQUE,
 	PRIMARY KEY (club_no)
 );
 
@@ -113,6 +114,7 @@ CREATE TABLE Rental
 (
 	rental_no number NOT NULL,
 	rental_date date,
+	return_duedate date,
 	return_date date,
 	rental_status number DEFAULT 1 NOT NULL,
 	book_no number NOT NULL,
@@ -177,6 +179,7 @@ CREATE TABLE User_info
 	user_book_cnt_limit number,
 	user_book_weight number,
 	category_no number NOT NULL,
+	club_no number NOT NULL,
 	PRIMARY KEY (user_id)
 );
 
@@ -226,9 +229,9 @@ ALTER TABLE User_info
 ;
 
 
-ALTER TABLE Book_club
-	ADD FOREIGN KEY (user_id)
-	REFERENCES User_info (user_id)
+ALTER TABLE User_info
+	ADD FOREIGN KEY (club_no)
+	REFERENCES Book_club (club_no)
 ;
 
 

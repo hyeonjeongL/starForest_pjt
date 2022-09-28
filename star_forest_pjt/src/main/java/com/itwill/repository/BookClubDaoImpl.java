@@ -16,31 +16,6 @@ public class BookClubDaoImpl implements BookClubDao {
 	@Autowired
 	private BookClubMapper bookClubMapper;
 	//private static final String NAMESPACE="com.itwill.mapper.BookClubMapper.";
-	
-//	@Override
-//	public int create(BookClub bookClub) throws Exception {
-//		return sqlSession.insert(NAMESPACE+"create",bookClub);
-//	}
-//
-//	@Override
-//	public List<BookClub> selectAll() throws Exception {
-//		return sqlSession.selectList(NAMESPACE+"selectAll");
-//	}
-//
-//	@Override
-//	public List<BookClub> selectByCategory(BookClub bookCategory) throws Exception {
-//		return sqlSession.selectList(NAMESPACE+"selectByCategory",bookCategory);
-//	}
-//
-//	@Override
-//	public List<BookClub> selectById(String user_id) throws Exception {
-//		return sqlSession.selectList(NAMESPACE+"selectById",user_id);
-//	}
-//	
-//	@Override
-//	public BookClub selectByNo(int club_no) throws Exception {
-//		return sqlSession.selectOne(NAMESPACE+"selectByNo",club_no);
-//	}
 
 	@Override
 	public int update(BookClub bookClub) throws Exception {
@@ -82,6 +57,31 @@ public class BookClubDaoImpl implements BookClubDao {
 	public int remove(int club_no) throws Exception {
 		return bookClubMapper.remove(club_no);
 	}
+
+//	@Override
+//	public int create(BookClub bookClub) throws Exception {
+//		return sqlSession.insert(NAMESPACE+"create",bookClub);
+//	}
+//
+//	@Override
+//	public List<BookClub> selectAll() throws Exception {
+//		return sqlSession.selectList(NAMESPACE+"selectAll");
+//	}
+//
+//	@Override
+//	public List<BookClub> selectByCategory(BookClub bookCategory) throws Exception {
+//		return sqlSession.selectList(NAMESPACE+"selectByCategory",bookCategory);
+//	}
+//
+//	@Override
+//	public List<BookClub> selectById(String user_id) throws Exception {
+//		return sqlSession.selectList(NAMESPACE+"selectById",user_id);
+//	}
+//	
+//	@Override
+//	public BookClub selectByNo(int club_no) throws Exception {
+//		return sqlSession.selectOne(NAMESPACE+"selectByNo",club_no);
+//	}
 
 //	@Override
 //	public int clubCount(int club_no) throws Exception {

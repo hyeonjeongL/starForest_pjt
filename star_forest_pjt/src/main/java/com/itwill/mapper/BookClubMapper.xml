@@ -16,8 +16,7 @@
 			where category_no=#{category_no}
 	</select>
 	<select id="selectById" parameterType="String" resultType="com.itwill.domain.BookClub">
-		select club_name,club_person,club_time,club_place,club_content from book_club c 
-			inner join user_info u on c.club_no=u.club_no where user_id=#{user_id}
+		select club_name,club_person,club_time,club_place,club_content from book_club where user_id=#{user_id}
 	</select>
 	<select id="selectByNo" parameterType="int" resultType="com.itwill.domain.BookClub">
 		select club_name,club_count,club_person,club_time,club_place,club_content from book_club 

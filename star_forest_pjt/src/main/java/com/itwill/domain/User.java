@@ -16,16 +16,14 @@ public class User {
 	private int user_book_cnt_limit;
 	private int user_book_weight;
 	private BookCategory bookCategory;
-	private BookClub bookClub;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
 	public User(String user_id, String user_name, String user_password, String user_email, Date user_birth,
 			String user_gender, String user_phone, String user_address, String user_qr, String user_rental_status,
-			int user_book_cnt_limit, int user_book_weight, BookCategory bookCategory, BookClub bookClub) {
+			int user_book_cnt_limit, int user_book_weight, BookCategory bookCategory) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
@@ -40,7 +38,6 @@ public class User {
 		this.user_book_cnt_limit = user_book_cnt_limit;
 		this.user_book_weight = user_book_weight;
 		this.bookCategory = bookCategory;
-		this.bookClub = bookClub;
 	}
 	
 
@@ -175,24 +172,13 @@ public class User {
 	}
 
 
-	public BookClub getBookClub() {
-		return bookClub;
-	}
-
-
-	public void setBookClub(BookClub bookClub) {
-		this.bookClub = bookClub;
-	}
-
-
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", user_name=" + user_name + ", user_password=" + user_password
 				+ ", user_email=" + user_email + ", user_birth=" + user_birth + ", user_gender=" + user_gender
 				+ ", user_phone=" + user_phone + ", user_address=" + user_address + ", user_qr=" + user_qr
 				+ ", user_rental_status=" + user_rental_status + ", user_book_cnt_limit=" + user_book_cnt_limit
-				+ ", user_book_weight=" + user_book_weight + ", bookCategory=" + bookCategory + ", bookClub=" + bookClub
-				+ "]";
+				+ ", user_book_weight=" + user_book_weight + ", bookCategory=" + bookCategory + "]";
 	}
 
 

@@ -2,11 +2,12 @@ package com.itwill.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.itwill.domain.SeatReservation;
-
+@Mapper
 public interface SeatReservationMapper {
 	@Update("update seat_reservation set seat_date=sysdate, seat_start_time=to_char(sysdate,'HH24:MI:SS'),\r\n"
 			+ "								seat_end_time=to_char(sysdate+5/24,'HH24:MI:SS'),\r\n"

@@ -2,6 +2,7 @@ package com.itwill.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,17 +14,6 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	@Autowired
 	private SeatReservationDao seatReservationDao;
 	
-	public SeatReservationServiceImpl() {
-		
-	}
-	
-	public SeatReservationServiceImpl(SeatReservationDao seatReservationDao) {
-		this.seatReservationDao=seatReservationDao;
-	}
-	
-	public void setSeatReservationDao(SeatReservationDao seatReservationDao) {
-		this.seatReservationDao = seatReservationDao;
-	}
 	
 	@Override
 	public int reservation(SeatReservation seatReservation) throws Exception {

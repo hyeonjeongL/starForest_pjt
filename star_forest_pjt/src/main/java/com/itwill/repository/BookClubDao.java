@@ -12,7 +12,7 @@ public interface BookClubDao {
 
 	//동아리생성
 	int create(BookClub bookClub) throws Exception;	
-	
+	 
 	//동아리 전체리스트
 	List<BookClub> selectAll() throws Exception;
 	

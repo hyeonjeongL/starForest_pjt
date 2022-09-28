@@ -5,9 +5,9 @@
 	<insert id="create" parameterType="com.itwill.domain.BookClub">
 		insert into book_club values(SEQ_book_club_club_no.nextval,#{club_name},#{club_count},
 									 #{club_person},#{club_time},#{club_place},#{club_content},
-									 #{club_readcount},#{category_no},#{user_id})
+					 				 #{club_readcount},#{category_no},#{user_id})
 	</insert>
-
+ 
 	<select id="selectAll" resultType="com.itwill.domain.BookClub">
 		select * from book_club
 	</select>

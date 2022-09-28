@@ -3,7 +3,7 @@
 <configuration>
 	<!--mapper에서 매칭할 parameter Type 별칭 설정-->
 	<typeAliases>
-		<package name="com/itwill/domain"/>
+		<package name="com.itwill.domain"/>
 	</typeAliases>
 	
 	

@@ -1,5 +1,6 @@
 package com.itwill.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.itwill.domain.Favorite;
@@ -10,7 +11,7 @@ public interface FavoriteService {
 		int create(Favorite favorite) throws Exception;
 		
 		//즐겨찾기 중복체크
-		int isExisted(String user_id,int book_no) throws Exception;
+		HashMap<String, Integer> isExisted(String user_id,int book_no) throws Exception;
 		
 		//회원의 즐겨찾기 목록
 		List<Favorite> selectById(String user_id) throws Exception;

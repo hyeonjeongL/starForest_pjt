@@ -1,5 +1,6 @@
 package com.itwill.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 
 	//즐겨찾기 중복체크
 	@Override
-	public int isExisted(String user_id, int book_no) throws Exception {
+	public HashMap<String, Integer> isExisted(String user_id, int book_no) throws Exception {
 		return favoriteDao.isExisted(user_id, book_no);
 	}
 

@@ -20,8 +20,11 @@
 	update seat_reservation set seat_date=null,seat_start_time=null,
 								seat_end_time=null,user_id=null,
 								seat_status=0
-								where seat_no=#{seat_no} and
-								<![CDATA[seat_end_time&lt;(to_char(sysdate,'HH24:MI:SS'))]]>
+								where seat_no=#{seat_no}
+	<if test="seat_end_time!=null">
+		<![CDATA[where seat_end_time<(to_char(sysdate,'HH24:MI:SS'))]]>
+	</if>
+							
 </update>
 
 <update id="continueSeat" parameterType="com.itwill.domain.SeatReservation">

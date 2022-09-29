@@ -23,8 +23,10 @@ public interface SeatReservationMapper {
 	@Update("update seat_reservation set seat_date=null,seat_start_time=null,\r\n"
 			+ "								seat_end_time=null,user_id=null,\r\n"
 			+ "								seat_status=0\r\n"
-			+ "								where seat_no=#{seat_no} and\r\n"
-			+ "								<![CDATA[seat_end_time<to_char(sysdate,'HH24:MI:SS')]]")
+			+ "								where seat_no=#{seat_no}\r\n"
+			+ "	<if test=\"seat_end_time!=null\">\r\n"
+			+ "		<![CDATA[where seat_end_time<(to_char(sysdate,'HH24:MI:SS'))]]>\r\n"
+			+ "	</if>")
 	public int returnByAuto(SeatReservation seatReservation);
 	
 	@Update("update seat_reservation set \r\n"

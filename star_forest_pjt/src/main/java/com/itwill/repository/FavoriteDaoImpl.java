@@ -1,5 +1,6 @@
 package com.itwill.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -20,8 +21,8 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	}
 
 	@Override
-	public int isExisted(String user_id, int book_no) throws Exception {
-		return favoriteMapper.isExisted(user_id,book_no);
+	public HashMap<String, Integer> isExisted(String user_id,int favorite_no) throws Exception {
+		return favoriteMapper.isExisted(user_id,favorite_no);
 	}
 
 	@Override
@@ -43,5 +44,7 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	public int remove(String user_id) throws Exception {
 		return favoriteMapper.remove(user_id);
 	}
+
+	
 
 }

@@ -1,5 +1,6 @@
 package com.itwill.mapper;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -16,7 +17,7 @@ public interface FavoriteMapper {
 	public int create(Favorite favorite);
 	
 	@Select("select count(*) from favorite where user_id=#{user_id} and book_no=#{book_no}")
-	public int isExisted(String user_id, int book_no);
+	public HashMap<String, Integer> isExisted(String user_id, int favorite_no);
 	
 	@Select("select f.favorite_no,b.isbn,b.book_title,b.book_author from favorite f"
 			+ "			join book b on f.book_no=b.book_no where user_id=#{user_id}")
@@ -30,4 +31,6 @@ public interface FavoriteMapper {
 	
 	@Delete("delete from favorite where user_id=#{user_id}")
 	public int remove(String user_id);
+
+	
 }

@@ -17,6 +17,7 @@ public class SoyoonDaoTestController {
 	
 	@RequestMapping("/seatReservationDao_test")
 	public String seatReservationDao_test() throws Exception{
+
 		//System.out.println(seatReservationDao.selectAll());
 		//System.out.println(seatReservationDao.reservation(new SeatReservation("A01", null, null, null, 0, "soyoon")));
 		SeatReservation usingSeat = seatReservationDao.selectTimeUsingSeat("B01", 1);
@@ -25,5 +26,6 @@ public class SoyoonDaoTestController {
 		System.out.println();
 		System.out.println();
 		return "test/dao_test";
+
 	}
 }

@@ -93,7 +93,7 @@ CREATE TABLE Book_club
 CREATE TABLE favorite
 (
 	favorite_no number NOT NULL,
-	user_id varchar2(100) NOT NULL UNIQUE,
+	user_id varchar2(100) NOT NULL,
 	book_no number NOT NULL,
 	PRIMARY KEY (favorite_no)
 );

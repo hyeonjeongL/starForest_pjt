@@ -17,14 +17,14 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	
 	@Override
 	public int insert(Favorite favorite) throws Exception {
-		return favoriteMapper.insert(favorite);
+		return favoriteMapper.insert(favorite.getUser_id(),favorite.getBook_no());
 	}
 
 	@Override
 	public boolean isExisted(String user_id,int book_no) throws Exception {
 		Favorite favorite=new Favorite(0, user_id, book_no);
 		boolean isExisted=false;
-		int insertCount=favoriteMapper.insert(favorite);
+		int insertCount=favoriteMapper.insert(favorite.getUser_id(),favorite.getBook_no());
 		if(insertCount==0) {
 			isExisted=false;
 		}else if(insertCount>0) {

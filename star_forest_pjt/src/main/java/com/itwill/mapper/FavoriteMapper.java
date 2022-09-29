@@ -13,8 +13,8 @@ import com.itwill.domain.Favorite;
 @Mapper
 public interface FavoriteMapper {
 
-	@Insert("insert into favorite values(SEQ_favorite_favorite_no.nextval,#{book_no},#{user_id})")
-	public int insert(Favorite favorite);
+	@Insert("insert into favorite values(SEQ_favorite_favorite_no.nextval,#{user_id},#{book_no})")
+	public int insert(String user_id, int book_no);
 	
 	@Select("select count(*) from favorite where user_id=#{user_id} and book_no=#{book_no}")
 	public int isExisted(String user_id, int book_no);

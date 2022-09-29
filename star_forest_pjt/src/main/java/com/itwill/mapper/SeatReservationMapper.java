@@ -24,7 +24,7 @@ public interface SeatReservationMapper {
 			+ "								seat_end_time=null,user_id=null,\r\n"
 			+ "								seat_status=0\r\n"
 			+ "								where seat_no=#{seat_no} and\r\n"
-			+ "								seat_end_time&lt;(to_char(sysdate,'HH24:MI:SS'))")
+			+ "								<![CDATA[seat_end_time<to_char(sysdate,'HH24:MI:SS')]]")
 	public int returnByAuto(SeatReservation seatReservation);
 	
 	@Update("update seat_reservation set \r\n"
@@ -41,7 +41,7 @@ public interface SeatReservationMapper {
 	@Select("select count(*) from seat_reservation where seat_status=0")
 	public int countAvailableSeat(int seat_status);
 	
-	@Select("select seat_start_time, seat_end_time\r\n"
+	@Select("select seat_no, seat_start_time, seat_end_time\r\n"
 			+ "	from seat_reservation\r\n"
 			+ "	where seat_no=#{seat_no} and seat_status=1")
 	public SeatReservation selectTimeUsingSeat(String seat_no, int seat_status);

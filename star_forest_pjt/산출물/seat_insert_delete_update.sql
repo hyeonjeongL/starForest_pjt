@@ -3,7 +3,7 @@ desc seat_reservation;
 --좌석 상태 업데이트
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'soyun',seat_status=1 where seat_no='A01';
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'hyeonjeong',seat_status=1 where seat_no='C01';
-update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time='20:54:01',user_id= 'jeonghyun',seat_status=1 where seat_no='B01';
+update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time='12:08:01',user_id= 'jeonghyun',seat_status=1 where seat_no='B01';
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'jeonghyun',seat_status=1 where seat_no='B01';
 --반납
 update seat_reservation set seat_date=null,seat_start_time=null,seat_end_time=null,user_id=null,seat_status=0 where seat_no='C01'and user_id='hyeonjeong';
@@ -26,7 +26,7 @@ select * from seat_reservation;
 
 
 --사용하고 있는 좌석에 대한 정보 뽑기(시작한 시간, 종료될 시간)
-select seat_start_time, seat_end_time 
+select seat_no, seat_start_time, seat_end_time
 from seat_reservation
 where seat_no='A01' and seat_status=1;
 

@@ -27,6 +27,7 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 
 	@Override
 	public int returnByAuto(SeatReservation seatReservation) throws Exception {
+		SeatReservation usingSeat = seatReservationDao.selectTimeUsingSeat(seatReservation.seat_no, seatReservation.seat_status);
 		return seatReservationDao.returnByAuto(seatReservation);
 	}
 

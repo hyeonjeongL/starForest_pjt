@@ -42,10 +42,18 @@ public class DaoTestController {
 										"강남역 2번출구앞", "동아리내용", 2, 
 										100, "yeji");
 		System.out.println(bookClubDao.create(bookClub));
+		System.out.println(bookClubDao.selectAll());
+		System.out.println(bookClubDao.selectByCategory(200));
+		System.out.println(bookClubDao.selectById("yeji"));
+		System.out.println(bookClubDao.selectByNo(3));
 		
-		
-		
-		
+		//동아리수정
+		BookClub update=new BookClub(1, "제목수정", 9, "누구든환영", 
+									"시간수정","장소수정", "내용수정", 2, 
+									100, "yeji");
+		System.out.println(bookClubDao.update(update));
+		System.out.println(bookClubDao.clubCount(6));
+		System.out.println(bookClubDao.remove(20));
 		
 		return "test/dao_test";
 	}

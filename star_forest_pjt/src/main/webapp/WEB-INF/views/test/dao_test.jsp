@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>console창 확인하기:D</h1><hr>
+	<h1>이클립스 console창 확인하기:D</h1><hr>
 	<h2> ☆from. 별숲도서관★</h2>
 </body>
 </html>

@@ -22,7 +22,7 @@ public interface BookClubMapper {
 	
 	@Select("select club_name,club_count,club_person,club_time,club_place,club_content from book_club"
 			+ "			where category_no=#{category_no}")
-	public List<BookClub> selectBycategory(BookClub bookClub);
+	public List<BookClub> selectBycategory(int category_no);
 	
 	@Select("select club_name,club_person,club_time,club_place,club_content from book_club where user_id=#{user_id}")
 	public List<BookClub> selectById(String user_id);

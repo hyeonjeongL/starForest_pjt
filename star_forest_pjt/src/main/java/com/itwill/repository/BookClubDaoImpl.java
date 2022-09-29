@@ -30,8 +30,8 @@ public class BookClubDaoImpl implements BookClubDao {
 	}
 
 	@Override
-	public List<BookClub> selectByCategory(BookClub bookCategory) throws Exception {
-		return bookClubMapper.selectBycategory(bookCategory);
+	public List<BookClub> selectByCategory(int category_no) throws Exception {
+		return bookClubMapper.selectBycategory(category_no);
 	}
 
 	@Override

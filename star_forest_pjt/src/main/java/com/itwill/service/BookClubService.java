@@ -13,7 +13,7 @@ public interface BookClubService {
 		List<BookClub> selectAll() throws Exception;
 		
 		//카테고리별 동아리조회
-		List<BookClub> selectByCategory(BookClub bookCategory) throws Exception;
+		List<BookClub> selectByCategory(int category_no) throws Exception;
 		
 		//회원이 가입한 동아리조회
 		List<BookClub> selectById(String user_id) throws Exception;

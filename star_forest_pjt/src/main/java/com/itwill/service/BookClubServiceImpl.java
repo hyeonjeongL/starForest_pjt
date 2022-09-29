@@ -28,8 +28,8 @@ public class BookClubServiceImpl implements BookClubService {
 
 	//카테고리별 동아리리스트 조회
 	@Override
-	public List<BookClub> selectByCategory(BookClub bookCategory) throws Exception {
-		return bookClubDao.selectByCategory(bookCategory);
+	public List<BookClub> selectByCategory(int category_no) throws Exception {
+		return bookClubDao.selectByCategory(category_no);
 	}
 
 	//내가 신청한 동아리 리스트

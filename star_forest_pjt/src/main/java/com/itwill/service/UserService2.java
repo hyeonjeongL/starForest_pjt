@@ -1,13 +1,12 @@
-package com.itwill.repository;
+package com.itwill.service;
 
 import java.util.List;
 
 import com.itwill.domain.User;
 
+public interface UserService2 {
 
 
-public interface UserDao2 {
-	
 	//회원가입
 	int insertUser(User user) throws Exception;
 	
@@ -24,12 +23,10 @@ public interface UserDao2 {
 	int deleteUser(String user_id) throws Exception;
 	
 	
-	//아이디중복
-	String existUserId(String user_Id)throws Exception;
 	
+	//아이디중복?
+	int create(User user)throws Exception;
 	
-	
-	
-	
-
+	//로그인체크
+	int login(String user_Id, String user_password)throws Exception;
 }

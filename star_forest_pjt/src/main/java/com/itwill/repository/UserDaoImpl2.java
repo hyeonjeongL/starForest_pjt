@@ -51,6 +51,7 @@ public class UserDaoImpl2 implements UserDao2{
 	}
 	
 	//회원 아이디 검색
+	/*
 	@Override
 	public User selectByUserId(String user_id) throws Exception {
 		User user=null;
@@ -80,8 +81,8 @@ public class UserDaoImpl2 implements UserDao2{
 		}
 		con.close();
 		return user ;
-	}
-	
+	}*/
+	/*
 	//회원 검색
 	@Override
 	public List<User> selectAll() throws Exception {
@@ -110,7 +111,7 @@ public class UserDaoImpl2 implements UserDao2{
 		}
 		con.close();
 		return userList;
-	}
+	}*/
 	
 	//회원수정
 	@Override
@@ -133,10 +134,38 @@ public class UserDaoImpl2 implements UserDao2{
 	
 	//회원탈퇴
 	@Override
-	public int deleteUser(User user) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteUser(String user_id) throws Exception {
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(UserSQL2.USER_DELETE_BY_ID);
+		pstmt.setString(1, user_id);
+		int rowCount = pstmt.executeUpdate();
+		pstmt.close();
+		con.close();
+		return rowCount;
 	}
 	
+	//아이디중복
+	@Override
+	public String existUserId(String user_Id)throws Exception {
+		String u_id = null;
+		Connection con = dataSource.getConnection();
+		PreparedStatement pstmt = con.prepareStatement(UserSQL2.USER_SELECT_BY_ID);
+		pstmt.setString(1, user_Id);
+		ResultSet rs = pstmt.executeQuery();
+		if(rs.next()) {
+			u_id = rs.getString("u_id");
+		}
+		return u_id;
+	}
+	@Override
+	public User selectByUserId(String user_id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<User> selectAll() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }

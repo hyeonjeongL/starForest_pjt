@@ -16,7 +16,7 @@
 	</insert>
 
 	<!-- 북 상세 페이지 -->
-	<select id="bookDetail" parameterType="int"
+	<select id="selectBookDetail" parameterType="int"
 		resultType="com.itwill.domain.Book">
 		select
 		book_no,isbn,book_title,book_author,book_publisher,book_summary,
@@ -71,6 +71,15 @@
 		where u.user_id = #{user_id}
 		and r.book_no=#{book_no}
 	</update>
+	
+	
+	<!-- 도서 전체 출력 -->
+	<select id="selectAll" resultType="com.itwill.domain.Book">
+		select book_no,isbn,book_title,book_author,book_publisher,book_summary,
+			   book_publish_date,book_input_date,book_image,book_image_src,book_page,
+			   book_qty,book_res_cnt,book_rental_cnt,category_no 
+		from book order by book_no asc
+	</select>
 	
 	
 </mapper>

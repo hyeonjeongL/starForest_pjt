@@ -1,5 +1,6 @@
 package com.itwill.mapper;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -13,7 +14,7 @@ public interface BookMapper {
 	
 	public Book insertBook(Book book);
 	
-	public Book bookDetail(int book_no);
+	public Book selectBookDetail(int book_no);
 	
 	public int updateRentalBookQty(int book_no);
 	
@@ -22,5 +23,7 @@ public interface BookMapper {
 	public String updateById(String user_id);
 	
 	public Map<String, Object> updateByIdNo(String user_id, int book_no);
+	
+	public List<Book> selectAll();
 
 }

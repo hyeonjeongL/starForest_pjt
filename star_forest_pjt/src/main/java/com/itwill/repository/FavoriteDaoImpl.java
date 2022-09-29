@@ -16,13 +16,21 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	private FavoriteMapper favoriteMapper;
 	
 	@Override
-	public int create(Favorite favorite) throws Exception {
-		return favoriteMapper.create(favorite);
+	public int insert(Favorite favorite) throws Exception {
+		return favoriteMapper.insert(favorite);
 	}
 
 	@Override
-	public HashMap<String, Integer> isExisted(String user_id,int favorite_no) throws Exception {
-		return favoriteMapper.isExisted(user_id,favorite_no);
+	public boolean isExisted(String user_id,int book_no) throws Exception {
+		Favorite favorite=new Favorite(0, user_id, book_no);
+		boolean isExisted=false;
+		int insertCount=favoriteMapper.insert(favorite);
+		if(insertCount==0) {
+			isExisted=false;
+		}else if(insertCount>0) {
+			isExisted=true;
+		}
+		return isExisted;
 	}
 
 	@Override

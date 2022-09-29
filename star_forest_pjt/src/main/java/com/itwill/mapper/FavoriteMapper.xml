@@ -2,11 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.mapper.FavoriteMapper">
 	<!--  
-	<insert id="create" parameterType="com.itwill.domain.Favorite">
+	<insert id="insert" parameterType="com.itwill.domain.Favorite">
 		insert into favorite values(SEQ_favorite_favorite_no.nextval,#{book_no},#{user_id})
 	</insert>
 
-	<select id="isExisted" parameterType="HashMap" resultType="int">
+	<select id="isExisted" parameterType="com.itwill.domain.Favorite" resultType="int">
 		select count(*) from favorite where user_id=#{user_id} and book_no=#{book_no}
 	</select>
 	<select id="selectById" parameterType="String" resultType="com.itwill.domain.Favorite">

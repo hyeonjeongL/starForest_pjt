@@ -16,14 +16,15 @@ public class FavoriteServiceImpl implements FavoriteService {
 	
 	//즐겨찾기추가
 	@Override
-	public int create(Favorite favorite) throws Exception {
-		return favoriteDao.create(favorite);
-	}
-
-	//즐겨찾기 중복체크
-	@Override
-	public HashMap<String, Integer> isExisted(String user_id, int book_no) throws Exception {
-		return favoriteDao.isExisted(user_id, book_no);
+	public int insert(Favorite favorite) throws Exception {
+		
+		if(favoriteDao.isExisted(favorite.getUser_id(), favorite.getBook_no())) {
+			System.out.println("이미 내 서재에 존재합니다.");
+			return 0;
+		}else {
+			return favoriteDao.insert(favorite);
+		}
+		
 	}
 
 	//회원의 즐겨찾기 목록보기

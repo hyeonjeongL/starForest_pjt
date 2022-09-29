@@ -3,6 +3,7 @@
 <mapper namespace="com.itwill.mapper.BookMapper">
 
 	<!-- admin 새책 추가하기 -->
+	<!--  
 	<insert id="insertBook" parameterType="com.itwill.domain.Book">
 		insert into book
 		(book_no,isbn,book_title,book_author,book_publisher,book_summary,
@@ -14,7 +15,7 @@
 		#{book_publish_date},#{book_input_date},#{book_image},#{book_image_src},#{book_page},
 		#{book_qty},#{book_res_cnt},#{book_rental_cnt},#{category_no})
 	</insert>
-
+-->
 	<!-- 북 상세 페이지 -->
 	<select id="selectBookDetail" parameterType="int"
 		resultType="com.itwill.domain.Book">

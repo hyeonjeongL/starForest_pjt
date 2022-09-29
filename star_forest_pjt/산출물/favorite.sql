@@ -2,8 +2,8 @@
 이름          널?       유형            
 ----------- -------- ------------- 
 FAVORITE_NO NOT NULL NUMBER        
-BOOK_NO     NOT NULL NUMBER        
 USER_ID     NOT NULL VARCHAR2(100) 
+BOOK_NO     NOT NULL NUMBER  
 */
 
 desc favorite;
@@ -11,11 +11,11 @@ desc book;
 
 
 --insert--
-insert into favorite values(SEQ_favorite_favorite_no.nextval,1,'yeji');
-insert into favorite values(SEQ_favorite_favorite_no.nextval,1,'soyoon');
-insert into favorite values(SEQ_favorite_favorite_no.nextval,1,'hyeonjeong');
-insert into favorite values(SEQ_favorite_favorite_no.nextval,2,'junghyun');
-insert into favorite values(SEQ_favorite_favorite_no.nextval,3,'woohyuk');
+insert into favorite values(SEQ_favorite_favorite_no.nextval,'yeji',1);
+insert into favorite values(SEQ_favorite_favorite_no.nextval,'soyoon',1);
+insert into favorite values(SEQ_favorite_favorite_no.nextval,'hyeonjeong',3);
+insert into favorite values(SEQ_favorite_favorite_no.nextval,'junghyun',4);
+insert into favorite values(SEQ_favorite_favorite_no.nextval,'woohyuk',5);
 
 
 --select--

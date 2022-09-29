@@ -30,7 +30,7 @@ public class DaoTestController {
 		System.out.println(favoriteDao.deleteByNo(5));
 		System.out.println(favoriteDao.remove("yeji"));
 		
-		return "test/dao_test";
+		return "test/test_result";
 	}
 	
 	//도서동아리
@@ -55,6 +55,6 @@ public class DaoTestController {
 		System.out.println(bookClubDao.clubCount(6));
 		System.out.println(bookClubDao.remove(20));
 		
-		return "test/dao_test";
+		return "test/test_result";
 	}
 }

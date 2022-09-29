@@ -16,6 +16,6 @@ public class SoyoonDaoTestController {
 	public String seatReservationDao_test() throws Exception{
 		System.out.println(seatReservationDao.selectAll());
 		System.out.println(seatReservationDao.reservation(new SeatReservation("A01", null, null, null, 0, "soyoon")));
-		return "test/dao_test";
+		return "test/test_result";
 	}
 }

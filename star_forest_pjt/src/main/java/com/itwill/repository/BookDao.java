@@ -24,7 +24,7 @@ public interface BookDao {
 	int updateReturnBookQty(int book_no)throws Exception;
 	
 	// 회원이 대여한 도서 전체 반납시 수량변경 (admin)
-	String updateById(String user_id)throws Exception;
+	int updateById(String user_id)throws Exception;
 	
 	// 각각 반납시 수량변경 (admin)
 	Map<String, Object> updateByIdNo(String user_id, int book_no)throws Exception;

@@ -26,10 +26,7 @@ public interface BookMapper {
 	public int insertBook(Book book);
 	
 	// 북 상세 페이지 
-	@Select("select book_no,isbn,book_title,book_author,book_publisher,"
-				 + "book_summary,book_publish_date,book_input_date,book_image,"
-				 + "book_image_src,book_page,book_qty,book_res_cnt,book_rental_cnt,category_no"
-				 + "from book "
+	@Select("select * from book "
 				 + "where book_no=#{book_no}")
 	public Book selectBookDetail(int book_no);
 	
@@ -45,15 +42,15 @@ public interface BookMapper {
 	@Update("update book set book_qty = book_qty +1 "
 			+ "where booK_no in"
 		 + "(select r.book_no from rental r inner join user_info u "
-		 + "on r.user_id = u.user_id where u.user_id = #{user_id}")
-	public String updateById(String user_id);
+		 + "on r.user_id = u.user_id where u.user_id = #{user_id})")
+	public int updateById(String user_id);
 	
 	//각각 반납시 수량변경 (admin)
 	@Update("update book set book_qty = book_qty +1 "
 			+ "where booK_no in "
 			+ "(select r.book_no from rental r inner join user_info u "
 			+ "on r.user_id = u.user_id "
-			+ "where u.user_id = #{user_id} and r.book_no=#{book_no}")
+			+ "where u.user_id = #{user_id} and r.book_no=#{book_no})")
 	public Map<String, Object> updateByIdNo(String user_id, int book_no);
 	
 	//도서 전체 출력 

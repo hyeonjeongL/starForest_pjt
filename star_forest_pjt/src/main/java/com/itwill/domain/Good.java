@@ -8,6 +8,7 @@ private String book_title;
 private String book_author;
 private String book_publisher;
 private String book_image;
+//private String book_image_src; 필요?
 private int category_no; //
 private String category_name; // no, name 둘중하나 없애도 될듯?
 

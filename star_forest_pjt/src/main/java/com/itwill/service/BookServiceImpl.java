@@ -52,7 +52,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public String updateById(String user_id) throws Exception {
+	public int updateById(String user_id) throws Exception {
 		return bookMapper.updateById(user_id);
 	}
 

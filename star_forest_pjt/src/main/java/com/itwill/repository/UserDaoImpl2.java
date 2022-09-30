@@ -40,7 +40,7 @@ public class UserDaoImpl2 implements UserDao2{
 		pstmt.setString(2,user.getUser_name());
 		pstmt.setString(3,user.getUser_password());
 		pstmt.setString(4,user.getUser_email());
-		pstmt.setDate(5,user.getUser_birth());
+		pstmt.setString(5,user.getUser_birth());
 		pstmt.setString(6,user.getUser_gender());
 		pstmt.setString(7,user.getUser_phone());
 		pstmt.setString(8,user.getUser_address());
@@ -122,7 +122,7 @@ public class UserDaoImpl2 implements UserDao2{
 		pstmt.setString(2,user.getUser_name());
 		pstmt.setString(3,user.getUser_password());
 		pstmt.setString(4,user.getUser_email());
-		pstmt.setDate(5,user.getUser_birth());
+		pstmt.setString(5,user.getUser_birth());
 		pstmt.setString(6,user.getUser_gender());
 		pstmt.setString(7,user.getUser_phone());
 		pstmt.setString(8,user.getUser_address());

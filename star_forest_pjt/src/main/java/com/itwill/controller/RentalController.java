@@ -11,11 +11,11 @@ public class RentalController {
 	@Autowired
 	BookServiceImpl service;
 	
-	@RequestMapping(value = "detail")
-	public String test() {
-		System.out.println("test");
-		return "detail";
-	}
-	
+//	@RequestMapping(value = "detail")
+//	public String test() {
+//		System.out.println("test");
+//		return "detail";
+//	}
+//	
 	
 }

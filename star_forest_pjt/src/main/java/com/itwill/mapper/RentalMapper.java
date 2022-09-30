@@ -19,12 +19,18 @@ public interface RentalMapper {
 	public int updateDate(String user_id, int book_no );
 	
 	
+	
+//	select b.book_no, b.book_title, b.book_author, 
+//	b.book_publisher, b.book_input_date, b.category_no
+//	from rental r inner join book b on r.book_no = b.book_no where r.user_id = ?order by r.rental_date asc
+	
 	/** user_id로 대출 리스트 뽑기*/
 	@Select("select b.book_no, b.book_title, b.book_author, "
-				 + "b.book_publisher, b.book_input_date, b.category_no"
-		  + "FROM RENTAL r INNER JOIN BOOK b on r.BOOK_NO = b.BOOK_NO "
-		  + "WHERE r.USER_ID = #{user_id}")
-	public List<Rental> selectById(String user_id); //이게 맞나?
+				 + "b.book_publisher, b.book_input_date, b.category_no "
+		  + "from rental r inner join book b on r.book_no = b.book_no "
+		  + "where r.user_id = #{user_id}"
+		  + "order by r.rental_date asc")
+	public List<Rental> selectById(String user_id); //이게 맞나? 
 	
 	/** book_no로 대출유저 리스트*/
 	@Select("select u.user_id, u.user_name, u.user_rental_status, "

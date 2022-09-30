@@ -25,8 +25,8 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public int update(int notice_no) throws Exception {
-		return noticeDao.update(notice_no);
+	public int update(Notice notice) throws Exception {
+		return noticeDao.update(notice);
 	}
 
 	@Override

@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itwill.mapper.NoticeMapper"></mapper>
+<mapper namespace="com.itwill.mapper.NoticeMapper">
+
+
+	<!-- <resultMap id="selectByNo"
+				type="com.itwill.domain.Notice" >
+			<result column="notice_no" property="notice_no"/>
+			<result column="notice_title" property="notice_title"/>
+			<result column="notice_date" property="notice_date"/>
+			<result column="notice_content" property="notice_content"/>
+			<result column="notice_image" property="notice_image"/>
+			<result column="notice_readcount" property="notice_readcount"/>
+			
+	</resultMap> -->
+</mapper>

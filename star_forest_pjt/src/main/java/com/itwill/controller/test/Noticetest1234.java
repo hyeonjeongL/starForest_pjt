@@ -15,8 +15,6 @@ public class Noticetest1234 {
 	@Autowired
 	private NoticeDao noticeDao;
 	
-	
-	//book 
 	@RequestMapping("/notice_test")
 	public String notice_dao_test() throws Exception {
 		

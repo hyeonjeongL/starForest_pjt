@@ -21,9 +21,11 @@ public interface NoticeMapper {
 	public List<Notice> selectAll() throws Exception;
 	
 	@Update("update notice set notice_title=#{notice_title},notice_date=sysdate,notice_content=#{notice_content},"
-			+ 								"notice_image=#{notice_image},notice_readcount=#{notice_readcount}"
-			+ 								"where notice_no=#{notice_no}")
+			+ 								"notice_image=#{notice_image},where notice_no=#{notice_no}")
 	public int update(int notice_no) throws Exception;
+	
+	@Update("update notice set notice_readcount=notice_readcount+1")
+	public int updateCount() throws Exception;
 	
 	@Delete("delete form notice where notice_no=#{notice_no}")
 	public int delete(int notice_no) throws Exception;

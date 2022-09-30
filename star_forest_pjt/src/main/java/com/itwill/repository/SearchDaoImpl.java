@@ -1,6 +1,120 @@
 package com.itwill.repository;
 
-public class SearchBookDaoImpl {
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.itwill.domain.Search;
+import com.itwill.domain.SearchSQL;
+
+@Repository
+public class SearchDaoImpl implements SearchDao{
+	@Autowired
+	private DataSource dataSource;
+	
+	public SearchDaoImpl() {
+	}
+	
+	public SearchDaoImpl(DataSource dataSource) {
+		this.dataSource=dataSource;
+	}
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource=dataSource;
+	}
+	
+//제목 검색
+	@Override
+	public List<Search> selectByTitle(String keyword) throws Exception {
+		ArrayList<Search> searchList = new ArrayList<Search>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_TITLE);
+			pstmt.setString(1, "%" + keyword + "%");
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Search search = new Search(
+						rs.getInt("book_no"), 
+						rs.getInt("isbn"), 
+						rs.getString("book_title"), 
+						rs.getString("book_author"), 
+						rs.getString("book_publisher"),
+						rs.getString("book_summary"), 
+						rs.getString("book_publish_date"), 
+						rs.getString("book_image"),
+						rs.getDate("book_input_date"),
+						rs.getString("book_image_src"),
+						rs.getInt("book_page"),
+						rs.getInt("book_qty"),
+						rs.getInt("book_res_cnt"),
+						rs.getInt("book_rental_cnt"),
+						rs.getInt("category_no")
+						);
+				searchList.add(search);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		
+		return searchList;
+	}
+
+	//제목 검색 페이지
+	@Override
+	public List<Search> selectByTitle(String keyword, int start, int last) throws Exception {
+		ArrayList<Search> searchList = new ArrayList<Search>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = dataSource.getConnection();
+			pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_TITLE_LIST);
+			pstmt.setString(1, "%" + keyword + "%");
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, last);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Search search = new Search(
+						rs.getInt("book_no"), 
+						rs.getInt("isbn"), 
+						rs.getString("book_title"), 
+						rs.getString("book_author"), 
+						rs.getString("book_publisher"),
+						rs.getString("book_summary"), 
+						rs.getString("book_publish_date"), 
+						rs.getString("book_image"),
+						rs.getDate("book_input_date"),
+						rs.getString("book_image_src"),
+						rs.getInt("book_page"),
+						rs.getInt("book_qty"),
+						rs.getInt("book_res_cnt"),
+						rs.getInt("book_rental_cnt"),
+						rs.getInt("category_no")
+						);
+				searchList.add(search);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (rs != null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		return searchList;
+	}
 
 }
 /*public class BookDao {
@@ -18,63 +132,7 @@ public class SearchBookDaoImpl {
 		dataSource = basicDataSource;
 	}
 
-	// 제목 검색
-	public ArrayList<Book> selectByName(String keyword) throws Exception {
-		ArrayList<Book> bookList = new ArrayList<Book>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			conn = dataSource.getConnection();
-			pstmt = conn.prepareStatement(BookSQL.BOOK_SELECT_BY_NAME);
-			pstmt.setString(1, "%" + keyword + "%");
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				Book book = new Book(rs.getInt("b_no"), rs.getString("b_class"), rs.getString("b_name"), rs.getInt("b_price"),
-						rs.getString("b_summary"), rs.getString("b_image"), rs.getString("b_author"),
-						rs.getString("b_publisher"));
-				bookList.add(book);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (rs != null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();
-		}
-		
-		return bookList;
-	}
 	
-	//제목 검색 페이지
-	public ArrayList<Book> selectByName(String keyword, int start, int last) throws Exception {
-		ArrayList<Book> bookList = new ArrayList<Book>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			conn = dataSource.getConnection();
-			pstmt = conn.prepareStatement(BookSQL.BOOK_SELECT_BY_NAME_LIST);
-			pstmt.setString(1, "%" + keyword + "%");
-			pstmt.setInt(2, start);
-			pstmt.setInt(3, last);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				Book book = new Book(rs.getInt("b_no"), rs.getString("b_class"), rs.getString("b_name"), rs.getInt("b_price"),
-						rs.getString("b_summary"), rs.getString("b_image"), rs.getString("b_author"),
-						rs.getString("b_publisher"));
-				bookList.add(book);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (rs != null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();
-		}
-		
-		return bookList;
-	}
  
 	//번호 검색
 	public Book selectByNo(int b_no) throws Exception {

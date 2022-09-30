@@ -1,11 +1,18 @@
 package com.itwill.repository;
+
+import java.util.List;
+
+import com.itwill.domain.Search;
+
+
 //검색기능
-public class SearchBookDao {
+public interface SearchDao {
 
 	// 제목 검색
-	
+	List<Search> selectByTitle(String keyword) throws Exception;
 	
 	//제목 검색 페이지
+	List<Search> selectByTitle(String keyword, int start, int last) throws Exception;
 	
 	//번호 검색
 	

@@ -10,6 +10,7 @@ import org.apache.ibatis.annotations.Update;
 
 import com.itwill.domain.Good;
 
+//분야 번호 추천
 @Mapper
 public interface GoodMapper {
 

@@ -8,24 +8,26 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.FilterType;
 
-import com.itwill.mapper.GoodMapper;
-import com.itwill.repository.GoodDao;
+import com.itwill.mapper.SearchMapper;
+import com.itwill.repository.SearchDao;
 
-//분야 번호 추천_성공이었는데 안됨?
+//검색 기능
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itwill"},includeFilters= {
 		@Filter(type= FilterType.ASSIGNABLE_TYPE,
-				classes= {GoodDao.class,GoodMapper.class}
+				classes= {SearchDao.class,SearchMapper.class}
 		)
 })
-public class GoodDaoTest {
+public class SearchDaoTest {
 	public static void main(String[] args) throws Exception {
 		SpringApplication application = 
-				new SpringApplication(GoodDaoTest.class);
+				new SpringApplication(SearchDaoTest.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		GoodDao goodDao=(GoodDao)context.getBean(GoodDao.class);
-		System.out.println(goodDao.goodCategoryNo(100)); //분야 번호 추천
+		SearchDao searchDao=(SearchDao)context.getBean(SearchDao.class);
+		
+		//제목 검색_안됨
+		System.out.println(searchDao.selectByTitle("2023년"));
 	}
 }

@@ -19,7 +19,7 @@ public class Search {
 	private int book_res_cnt;
 	private int book_rental_cnt;
 	private int category_no;
-	private String category_name;
+	//private String category_name;
 	
 	public Search() {
 		// TODO Auto-generated constructor stub
@@ -27,8 +27,8 @@ public class Search {
 	
 	public Search(int book_no, int isbn, String book_title, String book_author, String book_publisher,
 			String book_summary, String book_publish_date, String book_image, Date book_input_date,
-			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no,
-			String category_name) {
+			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no
+			) {
 		super();
 		this.book_no = book_no;
 		this.isbn = isbn;
@@ -45,7 +45,7 @@ public class Search {
 		this.book_res_cnt = book_res_cnt;//필요?
 		this.book_rental_cnt = book_rental_cnt;//필요?
 		this.category_no = category_no;
-		this.category_name = category_name;
+		//this.category_name = category_name;//필요?
 	}
 
 	public int getBook_no() {
@@ -167,7 +167,7 @@ public class Search {
 	public void setCategory_no(int category_no) {
 		this.category_no = category_no;
 	}
-
+/*
 	public String getCategory_name() {
 		return category_name;
 	}
@@ -175,7 +175,7 @@ public class Search {
 	public void setCategory_name(String category_name) {
 		this.category_name = category_name;
 	}
-	
+	*/
 	
 	
 }

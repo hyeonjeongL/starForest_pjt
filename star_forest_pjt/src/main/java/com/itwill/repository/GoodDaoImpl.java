@@ -42,16 +42,7 @@ public class GoodDaoImpl implements GoodDao{
 		pstmt.setInt(1, category_no);
 		ResultSet rs=pstmt.executeQuery();
 		while (rs.next()) {
-			int book_no=rs.getInt("book_no");
-			int isbn=rs.getInt("isbn");
-			String book_title=rs.getString("book_title");
-			String book_author=rs.getString("book_author");
-			String book_publisher=rs.getString("book_publisher");
-			String book_image=rs.getString("book_image");
-		//	int category_no=rs.getInt("category_no");
-			String category_name=rs.getString("category_name");
-			/*
-			goodList.add(
+					goodList.add(new Good(
 					rs.getInt("book_no"),
 					rs.getInt("isbn"),
 					rs.getString("book_title"),
@@ -60,8 +51,8 @@ public class GoodDaoImpl implements GoodDao{
 					rs.getString("book_image"),
 					rs.getInt("category_no"),
 					rs.getString("category_name")
-				);
-				*/
+				));
+				
 		}
 		con.close();
 		return goodList;

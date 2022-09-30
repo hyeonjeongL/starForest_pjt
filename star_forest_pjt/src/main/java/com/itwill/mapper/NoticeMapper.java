@@ -28,5 +28,6 @@ public interface NoticeMapper {
 	@Delete("delete form notice where notice_no=#{notice_no}")
 	public int delete(int notice_no) throws Exception;
 	
+	@Select("select count(*) from notice")
 	public int noticeCount() throws Exception;
 }

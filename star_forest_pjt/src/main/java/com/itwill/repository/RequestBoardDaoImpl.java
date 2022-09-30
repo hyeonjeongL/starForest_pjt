@@ -1,8 +1,12 @@
 package com.itwill.repository;
 
+import java.io.InputStream;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +16,7 @@ import com.itwill.mapper.RequestBoardMapper;
 @Repository
 public class RequestBoardDaoImpl implements RequestBoardDao{
 	@Autowired
-	private RequestBoardMapper requestBoardMapper;	
+	private RequestBoardMapper requestBoardMapper;
 	
 	@Override
 	public int create(RequestBoard requestBoard) throws Exception {
@@ -21,9 +25,8 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 
 	@Override
 	public int createReply(RequestBoard requestBoard) throws Exception {
-		int rowCount = requestBoardMapper.addStep(requestBoard);
-		requestBoardMapper.createReply(new RequestBoard(0, requestBoard.getBoard_title(), null, requestBoard.getBoard_content(), 0, requestBoard.getBoard_status(), 
-														0, requestBoard.getBoard_depth(), requestBoard.getBoard_step(), requestBoard.getGroupno(), 0, requestBoard.getUser_id()));
+		int rowCount = requestBoardMapper.createReply(requestBoard);
+		
 		return rowCount;
 	}
 

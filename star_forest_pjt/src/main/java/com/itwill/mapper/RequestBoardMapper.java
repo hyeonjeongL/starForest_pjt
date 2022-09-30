@@ -28,17 +28,16 @@ public interface RequestBoardMapper {
 	public int create(RequestBoard requestBoard);
 	
 	//답글생성
-	@Insert("insert into request_board values(#{board_no},#{board_title},sysdate,\r\n"
-			+ "									 #{board_content},0,0,2,#{board_depth}+1,#{board_step}+1,\r\n"
+	
+	@Insert("insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval ,#{board_title},sysdate,\r\n"
+			+ "									 #{board_content},0,#{board_status},2,#{board_depth}+1,#{board_step}+1,\r\n"
 			+ "									 #{groupno},#{category_no},#{user_id})\r\n")
-	@SelectKey(statement = "select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual",
-	   keyColumn = "board_no",
-	   keyProperty = "board_no",
-	   before = true,
-	   resultType = Integer.class
-		)
 	public int createReply(RequestBoard requestBoard);
+	/*
 	@Update("update request_board set board_step = board_step+1 where board_step>#{board_step} and groupno=#{groupno}")
+	public int addStep(RequestBoard requestBoard);
+	*/
+	@Update("update request_board set board_step=board_step+1 where groupno=#{groupno}")
 	public int addStep(RequestBoard requestBoard);
 	
 	//내가 쓴 게시물들 확인

@@ -31,6 +31,7 @@ public class RequestBoardTestController {
 	    		  					//null, "피프티피플 보고싶어요", 0, null, 0, 0, 0, 0, 700, "woohyuck"));
 	      //System.out.println(rowCount);
 	      int rowCount = requestBoardDao.createReply(new RequestBoard(0, "[re]피프티피플 신청합니다", null, "신청완료됐습니다", 0, "신청접수완료", 0, 0, 0, 21, 700, "manager"));
+	      
 	      System.out.println(rowCount);
 	      
 	}

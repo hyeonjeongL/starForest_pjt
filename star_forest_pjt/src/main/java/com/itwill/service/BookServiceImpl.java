@@ -32,7 +32,7 @@ public class BookServiceImpl implements BookService {
 	
 
 	@Override
-	public Book insertBook(Book book) throws Exception {
+	public int insertBook(Book book) throws Exception {
 		return bookMapper.insertBook(book);
 	}
 

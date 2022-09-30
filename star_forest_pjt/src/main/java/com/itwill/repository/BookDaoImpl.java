@@ -17,7 +17,7 @@ public class BookDaoImpl implements BookDao {
 	private BookMapper bookMapper;
 
 	@Override
-	public Book insertBook(Book book) throws Exception {
+	public int insertBook(Book book) throws Exception {
 		return bookMapper.insertBook(book);
 	}
 

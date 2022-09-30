@@ -28,7 +28,7 @@ public class SoyoonDaoTestController {
 
    public static void main(String[] args) throws Exception{
       SpringApplication application = 
-            new SpringApplication(Noticetest1234.class);
+            new SpringApplication(SeatReservationDao.class);
       application.setWebApplicationType(WebApplicationType.NONE);
       ConfigurableApplicationContext context=application.run(args);
       SeatReservationDao seatReservationDao=(SeatReservationDao)context.getBean(SeatReservationDao.class);

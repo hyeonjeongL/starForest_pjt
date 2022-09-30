@@ -29,8 +29,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int remove(String user_id) throws Exception {
-		return userMapper.remove(user_id);
+	public int remove(User user) throws Exception {
+		return userMapper.remove(user.getUser_id());
 	}
 
 	@Override
@@ -45,7 +45,23 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean existedUser(String user_id) throws Exception {
-		return userMapper.existedUser(user_id);
+		int count=userMapper.existedUser(user_id);
+		if(count>0) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean PWcheck(String user_id, String user_password) throws Exception {
+		int count=userMapper.PWcheck(user_id, user_password);
+		if(count>0) {
+			return true;
+		}else {
+			return false;
+		}
+		
 	}
 
 	@Override
@@ -53,4 +69,7 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.userRentalCount(user_id);
 	}
 
+
+	
+	
 }

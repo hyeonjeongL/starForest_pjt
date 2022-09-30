@@ -16,7 +16,7 @@ public interface UserDao {
 	int update(User user) throws Exception;
 
 	// 회원 삭제
-	int remove(String user_id) throws Exception;
+	int remove(User user) throws Exception;
 
 	// 회원리스트
 	List<User> userList() throws Exception;
@@ -27,6 +27,10 @@ public interface UserDao {
 	// 아이디 중복체크
 	boolean existedUser(String user_id) throws Exception;
 
+	// 비밀번호 체크
+	boolean PWcheck(String user_id,String user_password) throws Exception;
+	
 	// 대출권수 카운트
 	int userRentalCount(String user_id) throws Exception;
+	
 }

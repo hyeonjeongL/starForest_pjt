@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService {
 		 * -1:아이디중복 1:회원가입성공
 		 */
 		if (userDao.existedUser(user.getUser_id())) {
-			// 중복될 경우 -1반환
+			// 중복될 경우 -1 반환
 			return -1;
 		} else {
 			// 회원가입성공
@@ -57,22 +57,38 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	// 비밀번호변경
+	// 비밀번호 확인 후 비밀번호변경
 	@Override
 	public int updatePassword(User user) throws Exception {
-		return userDao.updatePassword(user);
+		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
+			return userDao.updatePassword(user);
+		}else {
+			System.out.println("비밀번호가 일치하지 않습니다.");
+			return 0;
+		}
+			
 	}
 
-	// 회원정보수정
+	// 비밀번호 확인 후 회원정보수정
 	@Override
 	public int update(User user) throws Exception {
-		return userDao.update(user);
+		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
+			return userDao.update(user);
+		}else {
+			System.out.println("비밀번호를 다시 입력해주세요.");
+			return 0;
+		}
 	}
 
-	// 회원탈퇴
+	// 비밀번호 확인 후 회원탈퇴
 	@Override
-	public int remove(String user_id) throws Exception {
-		return userDao.remove(user_id);
+	public int remove(User user) throws Exception {
+		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
+			return userDao.remove(user);
+		}else {
+			System.out.println("비밀번호가 일치하지 않습니다.");
+			return 0;
+		}
 	}
 
 	// 회원전체리스트
@@ -97,6 +113,7 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 	}
+
 
 	// 회원당 대출권수카운트
 	@Override

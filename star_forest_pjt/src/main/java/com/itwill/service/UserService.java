@@ -19,7 +19,7 @@ public interface UserService {
 	int update(User user) throws Exception;
 
 	// 회원탈퇴
-	int remove(String user_id) throws Exception;
+	int remove(User user) throws Exception;
 
 	// 전체회원리스트
 	List<User> userList() throws Exception;

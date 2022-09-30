@@ -31,18 +31,17 @@ public class UserServiceTest {
 		System.out.println("user service test!!");
 		User user=new User("yeji3", "예지3", "3333", "ye@naver.com", "1995-02-02", "F", 
 							"01025894567", "서울시강남구", "qr", "대출가능", 3, 89, 300);
-		System.out.println(userService.create(user));
-		System.out.println(userService.login("yeji3", "2222"));
+		System.out.println("가입:"+userService.create(user));
 		
-		System.out.println(userService.updatePassword(new User("soyoon", "4567")));
+		System.out.println("비밀번호변경:"+userService.updatePassword(new User("soyoon", "4567")));
 		User updateUser=new User("yeji", "예찌", "3333", "han@naver.com", 
 									"1997-03-03", null, "01023456789", "서울", null, 
 									null, 0, 0, 600);
-		System.out.println(userService.update(updateUser));
-		System.out.println(userService.remove("yeji4"));
-		System.out.println(userService.userList());
-		System.out.println(userService.findUser("yeji2"));
-		System.out.println(userService.existedUser("soyoon"));
-		System.out.println(userService.userRentalCount("junghyeon"));
+		System.out.println("수정:"+userService.update(updateUser));
+		System.out.println("삭제:"+userService.remove(new User("yeji3", "7878")));
+		System.out.println("회원목록"+userService.userList());
+		System.out.println("아이디찾기:"+userService.findUser("yeji2"));
+		System.out.println("아이디중복체크:"+userService.existedUser("soyoon"));
+		System.out.println("대출가능권수:"+userService.userRentalCount("junghyeon"));
 	}
 }

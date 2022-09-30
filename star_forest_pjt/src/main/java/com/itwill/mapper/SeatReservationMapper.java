@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Update;
 import com.itwill.domain.SeatReservation;
 @Mapper
 public interface SeatReservationMapper {
-	@Update("update seat_reservation set seat_date=sysdate, seat_start_time=to_char(sysdate,'HH24:MI:SS'),\r\n"
+	@Update("update seat_reservation set seat_date=to_char(sysdate,'YYYY/MM/DD'), seat_start_time=to_char(sysdate,'HH24:MI:SS'),\r\n"
 			+ "								seat_end_time=to_char(sysdate+5/24,'HH24:MI:SS'),\r\n"
 			+ "								user_id=#{user_id}, seat_status=1 where seat_no=#{seat_no}")
 	public int reservation(SeatReservation seatReservation);
@@ -38,8 +38,8 @@ public interface SeatReservationMapper {
 	@Select("select count(*) from seat_reservation where seat_status=0")
 	public int countAvailableSeat(int seat_status);
 	
-	@Select("select seat_no, seat_start_time, seat_end_time, user_id\r\n"
+	@Select("select seat_no, seat_date, seat_start_time, seat_end_time, user_id,seat_status\r\n"
 			+ "	from seat_reservation\r\n"
-			+ "	where seat_no=#{seat_no} and seat_status=1")
-	public SeatReservation selectTimeUsingSeat(String seat_no, int seat_status);
+			+ "	where seat_no=#{seat_no}")
+	public SeatReservation selectTimeUsingSeat(String seat_no);
 }

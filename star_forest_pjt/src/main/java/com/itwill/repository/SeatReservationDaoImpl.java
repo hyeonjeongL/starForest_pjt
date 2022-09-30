@@ -54,8 +54,8 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	}
 
 	@Override
-	public SeatReservation selectTimeUsingSeat(String seat_no, int seat_status) throws Exception {
-		return seatReservationMapper.selectTimeUsingSeat(seat_no, seat_status);
+	public SeatReservation selectTimeUsingSeat(String seat_no) throws Exception {
+		return seatReservationMapper.selectTimeUsingSeat(seat_no);
 	}
 
 	

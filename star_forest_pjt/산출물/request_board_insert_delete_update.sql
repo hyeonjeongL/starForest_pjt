@@ -25,9 +25,40 @@ select *
 from request_board
 where user_id = 'soyoon';
 
+--게시물 존재 여부
+SELECT count(*) cnt FROM request_board WHERE groupno = 8 AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC;
+
 --신청 게시물 삭제
+--게시물번호
 delete from request_board where board_no=8;
+--게시물 그룹번호로 전체삭제
+delete from request_board where group_no=8;
 
 --신청 게시물 수정
 update request_board set board_title='',board_content='' where board_no=8;
 
+
+--8번 게시물 조회수 추가
+update request_board set board_readcount=board_readcount+1 where board_no=8;
+
+--모든 게시물 리스트
+select * 
+from request_board;
+
+--게시물 건수 확인
+select count(*)
+from request_board;
+
+--8번 게시물 보기
+select *
+from request_board
+where board_no=8;
+
+
+SELECT * FROM
+		( SELECT rownum idx, s.*  FROM
+				( SELECT board_no, board_title, user_id,board_date,board_readcount,groupno,board_step, board_depth FROM request_board
+					ORDER BY groupno DESC,board_step ASC
+				) s
+		 )
+WHERE idx >=1 AND idx <= 7 ;

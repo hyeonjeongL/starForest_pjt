@@ -17,7 +17,17 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	
 	@Override
 	public int reservation(SeatReservation seatReservation) throws Exception {
-		return seatReservationDao.reservation(seatReservation);
+		SeatReservation seat = seatReservationDao.selectTimeUsingSeat(seatReservation.getSeat_no());
+		/*
+		 * 자리가 이미 있을 경우 : 0
+		 * 자리가 없을 경우 : 1
+		 */
+		if(seat.getSeat_status()==1) {
+			return 0;
+		}else {
+			int rowCount = seatReservationDao.reservation(seatReservation);
+			return rowCount;
+		}
 	}
 
 	@Override
@@ -27,7 +37,6 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 
 	@Override
 	public int returnByAuto(SeatReservation seatReservation) throws Exception {
-		SeatReservation usingSeat = seatReservationDao.selectTimeUsingSeat(seatReservation.seat_no, seatReservation.seat_status);
 		return seatReservationDao.returnByAuto(seatReservation);
 	}
 
@@ -52,8 +61,8 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	}
 
 	@Override
-	public SeatReservation selectTimeUsingSeat(String seat_no, int seat_status) throws Exception {
-		return seatReservationDao.selectTimeUsingSeat(seat_no, seat_status);
+	public SeatReservation selectTimeUsingSeat(String seat_no) throws Exception {
+		return seatReservationDao.selectTimeUsingSeat(seat_no);
 	}
 
 	

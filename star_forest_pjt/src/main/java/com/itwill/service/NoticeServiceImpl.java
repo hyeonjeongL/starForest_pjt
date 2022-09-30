@@ -38,6 +38,11 @@ public class NoticeServiceImpl implements NoticeService{
 	public int noticeCount() throws Exception {
 		return noticeDao.noticeCount();
 	}
+
+	@Override
+	public int updateCount() throws Exception {
+		return noticeDao.updateCount();
+	}
 	
 	
 }

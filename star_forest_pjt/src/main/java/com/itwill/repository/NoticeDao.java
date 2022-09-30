@@ -7,8 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.Notice;
 
-@Mapper
-@Repository
 public interface NoticeDao {
 	
 	//공지사항 생성
@@ -19,6 +17,9 @@ public interface NoticeDao {
 	
 	//공지사항 수정
 	int update(int notice_no) throws Exception;
+	
+	//공지사항 조회수
+	int updateCount() throws Exception;
 	
 	//공지사항 삭제
 	int delete(int notice_no) throws Exception;

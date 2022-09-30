@@ -15,6 +15,9 @@ public interface NoticeService {
 		//공지사항 수정
 		int update(int notice_no) throws Exception;
 		
+		//공지사항 조회수
+		int updateCount() throws Exception;
+		
 		//공지사항 삭제
 		int delete(int notice_no) throws Exception;
 		

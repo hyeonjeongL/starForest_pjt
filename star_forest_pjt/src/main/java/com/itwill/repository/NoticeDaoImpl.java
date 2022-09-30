@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.itwill.domain.Notice;
 import com.itwill.mapper.NoticeMapper;
 
-@Mapper
 @Repository
 public class NoticeDaoImpl implements NoticeDao{
 	
@@ -39,6 +38,11 @@ public class NoticeDaoImpl implements NoticeDao{
 	@Override
 	public int noticeCount() throws Exception {
 		return noticeMapper.noticeCount();
+	}
+
+	@Override
+	public int updateCount() throws Exception {
+		return noticeMapper.updateCount();
 	}
 	
 	

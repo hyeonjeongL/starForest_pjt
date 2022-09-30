@@ -41,7 +41,11 @@ select  * from user_info u join book_category c on u.category_no=c.category_no;
 /*'yeji'회원의 정보 출력*/
 select * from user_info u join book_category c on u.category_no=c.category_no where user_id='yeji';
 /*아이디 중복체크*/
-select count(*) from user_info where user_id='soyun';
+select count(*) cnt from user_info where user_id='soyun';
+/*비밀번호 체크*/
+select count(*) cnt from user_info where user_id='yeji' and user_password='1111';
+/*대출가능권수 확인*/
+select user_book_cnt_limit from user_info where user_id='soyoon';
 
 --update--
 /*회원 비밀번호변경*/

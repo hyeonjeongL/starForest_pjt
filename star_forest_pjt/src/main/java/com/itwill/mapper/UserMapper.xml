@@ -21,6 +21,10 @@
 	<select id="PWcheck" parameterType="com.itwill.domain.User" resultType="int">
 		select count(*) from user_info where user_id=#{user_id} and user_password=#{user_password}
 	</select>
+	<select id="userRentalAvailable" parameterType="String" resultType="int">
+		select user_book_cnt_limit from user_info where user_id=#{user_id}
+	</select>
+	
 	
 	<update id="updatePassword" parameterType="String">
 		update user_info set user_password=#{user_password} where user_id=#{user_id}

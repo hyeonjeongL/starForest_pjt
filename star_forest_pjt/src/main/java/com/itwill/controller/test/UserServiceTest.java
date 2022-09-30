@@ -34,7 +34,8 @@ public class UserServiceTest {
 		System.out.println("가입:"+userService.create(user));
 		
 		System.out.println("비밀번호변경:"+userService.updatePassword(new User("soyoon", "4567")));
-		User updateUser=new User("yeji", "예찌", "3333", "han@naver.com", 
+		
+		User updateUser=new User("yeji2", "예찌", "1234", "han@naver.com", 
 									"1997-03-03", null, "01023456789", "서울", null, 
 									null, 0, 0, 600);
 		System.out.println("수정:"+userService.update(updateUser));
@@ -42,6 +43,7 @@ public class UserServiceTest {
 		System.out.println("회원목록"+userService.userList());
 		System.out.println("아이디찾기:"+userService.findUser("yeji2"));
 		System.out.println("아이디중복체크:"+userService.existedUser("soyoon"));
-		System.out.println("대출가능권수:"+userService.userRentalCount("junghyeon"));
+		System.out.println("대출가능권수카운트:"+userService.userRentalCount("junghyun"));
+		System.out.println("대출가능수량:"+userService.userRentalAvailable("yeji3"));
 	}
 }

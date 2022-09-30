@@ -69,6 +69,11 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.userRentalCount(user_id);
 	}
 
+	@Override
+	public int userRentalAvailable(String user_id) throws Exception {
+		return userMapper.userRentalAvailable(user_id);
+	}
+
 
 	
 	

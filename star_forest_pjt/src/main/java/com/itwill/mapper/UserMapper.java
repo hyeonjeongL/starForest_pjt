@@ -41,6 +41,9 @@ public interface UserMapper {
 	@Select("select count(*) from user_info where user_id=#{user_id} and user_password=#{user_password}")
 	public int PWcheck(String user_id,String user_password);
 
+	@Select("select user_book_cnt_limit from user_info where user_id=#{user_id}")
+	public int userRentalAvailable(String user_id);
+	
 	@Update("update user_info set user_book_cnt_limit=user_book_cnt_limit-1"
 			+ "		where user_book_cnt_limit>0 and user_id=#{user_id}")
 	public int userRentalCount(String user_id);

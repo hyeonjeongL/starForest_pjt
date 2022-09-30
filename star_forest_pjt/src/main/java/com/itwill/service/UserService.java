@@ -32,4 +32,7 @@ public interface UserService {
 
 	// 회원당 대출권수 카운트
 	int userRentalCount(String user_id) throws Exception;
+	
+	// 회원의 대출가능 수량
+	int userRentalAvailable(String user_id) throws Exception;
 }

@@ -30,7 +30,7 @@ public interface BookService {
 	int updateById(String user_id) throws Exception;
 	
 	/**각각 반납시 수량변경 (admin)*/
-	Map<String, Object> updateByIdNo(String user_id, int book_no);
+	int updateByIdNo(String user_id, int book_no);
 	
 	/**도서 전체 출력*/
 	List<Book> selectAll() throws Exception;

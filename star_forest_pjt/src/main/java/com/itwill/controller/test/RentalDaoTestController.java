@@ -31,10 +31,11 @@ public class RentalDaoTestController {
 		ConfigurableApplicationContext context = application.run(args);
 		RentalDao rentalDao = (RentalDao) context.getBean(RentalDao.class);
 //		System.out.println(rentalDao.updateDate("hyeonjeong", 4));
-//		System.out.println(rentalDao.selectById("hyeonjeong")); //리스트 렌탈이라서 렌탈정보만 나옴
-//		System.out.println(rentalDao.selectByNo(2)); //하쒸 맵 속썩이네
-		System.out.println(rentalDao.updateRentalStatus("hyeonjeong", 2));
+//		System.out.println(rentalDao.selectById("hyeonjeong")); //리스트 렌탈이라서 렌탈정보만 나옴 이게맞나
+		System.out.println(rentalDao.selectByNo(2)); 
+//		System.out.println(rentalDao.updateRentalStatus("hyeonjeong", 2));
 	}
 
 }
+//일단 테스트 완료
 	

@@ -57,7 +57,7 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public Map<String, Object> updateByIdNo(String user_id, int book_no) {
+	public int updateByIdNo(String user_id, int book_no) {
 		return bookMapper.updateByIdNo(user_id, book_no);
 	}
 	

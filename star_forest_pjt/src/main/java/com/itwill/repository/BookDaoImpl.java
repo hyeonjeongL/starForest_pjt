@@ -42,7 +42,7 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public Map<String, Object> updateByIdNo(String user_id, int book_no) throws Exception {
+	public int updateByIdNo(String user_id, int book_no) throws Exception {
 		return bookMapper.updateByIdNo(user_id, book_no);
 	}
 

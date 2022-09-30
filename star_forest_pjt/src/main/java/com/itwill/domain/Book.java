@@ -13,8 +13,8 @@ public class Book {
 	String book_publisher;
 	String book_summary;
 	String book_publish_date;
-	String book_image;
 	Date book_input_date;
+	String book_image;
 	String book_image_src;
 	int book_page;
 	int book_qty;
@@ -26,7 +26,7 @@ public class Book {
 	}
 
 	public Book(int book_no, int isbn, String book_title, String book_author, String book_publisher,
-			String book_summary, String book_publish_date, String book_image, Date book_input_date,
+			String book_summary, String book_publish_date, Date book_input_date, String book_image,
 			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt,
 			int category_no) {
 		super();
@@ -37,8 +37,8 @@ public class Book {
 		this.book_publisher = book_publisher;
 		this.book_summary = book_summary;
 		this.book_publish_date = book_publish_date;
-		this.book_image = book_image;
 		this.book_input_date = book_input_date;
+		this.book_image = book_image;
 		this.book_image_src = book_image_src;
 		this.book_page = book_page;
 		this.book_qty = book_qty;
@@ -103,13 +103,6 @@ public class Book {
 		this.book_publish_date = book_publish_date;
 	}
 
-	public String getBook_image() {
-		return book_image;
-	}
-
-	public void setBook_image(String book_image) {
-		this.book_image = book_image;
-	}
 
 	public Date getBook_input_date() {
 		return book_input_date;
@@ -119,6 +112,14 @@ public class Book {
 		this.book_input_date = book_input_date;
 	}
 
+	public String getBook_image() {
+		return book_image;
+	}
+	
+	public void setBook_image(String book_image) {
+		this.book_image = book_image;
+	}
+	
 	public String getBook_image_src() {
 		return book_image_src;
 	}
@@ -171,8 +172,8 @@ public class Book {
 	public String toString() {
 		return "BookDto [book_no=" + book_no + ", isbn=" + isbn + ", book_title=" + book_title + ", book_author="
 				+ book_author + ", book_publisher=" + book_publisher + ", book_summary=" + book_summary
-				+ ", book_publish_date=" + book_publish_date + ", book_image=" + book_image + ", book_input_date="
-				+ book_input_date + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
+				+ ", book_publish_date=" + book_publish_date + ", book_input_date=" + book_input_date 
+				+ ", book_image=" + book_image + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
 				+ book_qty + ", book_res_cnt=" + book_res_cnt + ", book_rental_cnt=" + book_rental_cnt
 				+ ", category_no=" + category_no + "]";
 	}

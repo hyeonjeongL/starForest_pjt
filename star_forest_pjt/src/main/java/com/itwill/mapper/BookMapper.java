@@ -51,7 +51,7 @@ public interface BookMapper {
 			+ "(select r.book_no from rental r inner join user_info u "
 			+ "on r.user_id = u.user_id "
 			+ "where u.user_id = #{user_id} and r.book_no=#{book_no})")
-	public Map<String, Object> updateByIdNo(String user_id, int book_no);
+	public int updateByIdNo(String user_id, int book_no);
 	
 	//도서 전체 출력 
 	@Select("select book_no,isbn,book_title,book_author,book_publisher,book_summary, "

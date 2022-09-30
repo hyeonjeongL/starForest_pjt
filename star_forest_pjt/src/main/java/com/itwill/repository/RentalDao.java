@@ -16,7 +16,7 @@ public interface RentalDao {
 	
 	List<Rental> selectById(String user_id);
 	
-	Map<String, Object> selectByNo(int book_no);
+	List<Rental> selectByNo(int book_no);
 	
 	int updateRentalStatus(String user_id, int book_no);
 

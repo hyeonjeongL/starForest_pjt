@@ -20,13 +20,9 @@ public interface RentalMapper {
 	
 	
 	
-//	select b.book_no, b.book_title, b.book_author, 
-//	b.book_publisher, b.book_input_date, b.category_no
-//	from rental r inner join book b on r.book_no = b.book_no where r.user_id = ?order by r.rental_date asc
-	
 	/** user_id로 대출 리스트 뽑기*/
 	@Select("select b.book_no, b.book_title, b.book_author, "
-				 + "b.book_publisher, b.book_input_date, b.category_no "
+				 + "b.book_publisher, b.book_input_date, b.category_no, r.rental_date "
 		  + "from rental r inner join book b on r.book_no = b.book_no "
 		  + "where r.user_id = #{user_id}"
 		  + "order by r.rental_date asc")
@@ -39,7 +35,7 @@ public interface RentalMapper {
 			+ "from rental r left join user_info u on r.user_id = u.user_id "
 			+ "inner join book b on r.book_no = b.book_no "
 			+ "where b.book_no = #{book_no} and u.user_id is not null")
-	public Map<String, Object> selectByNo(int book_no);
+	public List<Rental> selectByNo(int book_no);
 	
 	
 	/** 반납했을 때 렌탈테이블 업데이트 (admin)*/

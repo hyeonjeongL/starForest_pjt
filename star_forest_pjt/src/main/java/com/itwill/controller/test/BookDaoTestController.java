@@ -1,5 +1,7 @@
 package com.itwill.controller.test;
 
+import java.util.Date;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
+import com.itwill.domain.Book;
 import com.itwill.mapper.BookMapper;
 import com.itwill.mapper.NoticeMapper;
 import com.itwill.repository.BookDao;
@@ -23,12 +26,16 @@ public class BookDaoTestController {
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context = application.run(args);
 		BookDao bookDao = (BookDao) context.getBean(BookDao.class);
+//		Date date = new Date();
+//		Book insertNBookd = new Book(0, 0, "책제목", "저자", "출판사", "책줄거리", "2022년 1월", date, "이미지", "이미지rul", 200, 3, 0, 0, 400);
+//		System.out.println(bookDao.insertBook(insertNBookd));
 //		System.out.println(bookDao.selectBookDetail(12));
 // 		System.out.println(bookDao.updateRentalBookQty(1));
 // 		System.out.println(bookDao.updateReturnBookQty(2));
-		System.out.println(bookDao.updateById("hyeonjeong")); //왜 한권빌린애는 처리되는데 3권빌린 나는 처리 안되지 밀당오지네 완료
-//		System.out.println(bookDao.updateByIdNo("yeji",2)); //맵만 해결하면 완료
+//		System.out.println(bookDao.updateById("hyeonjeong")); 
+//		System.out.println(bookDao.updateByIdNo("yeji",2)); 
 //		System.out.println(bookDao.selectAll());
+		//테스트 완료
 	}
 
 }

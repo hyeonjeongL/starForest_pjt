@@ -1,13 +1,12 @@
 package com.itwill.domain;
 
-import java.sql.Date;
 
 public class User {
 	private String user_id;
 	private String user_name;
 	private String user_password;
 	private String user_email;
-	private Date user_birth;
+	private String user_birth;
 	private String user_gender;
 	private String user_phone;
 	private String user_address;
@@ -15,15 +14,16 @@ public class User {
 	private String user_rental_status;
 	private int user_book_cnt_limit;
 	private int user_book_weight;
-	private BookCategory bookCategory; //Int category_no 로 수정? 필요?
+	private int category_no; 
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
-
-	public User(String user_id, String user_name, String user_password, String user_email, Date user_birth,
+	
+	
+	public User(String user_id, String user_name, String user_password, String user_email, String user_birth,
 			String user_gender, String user_phone, String user_address, String user_qr, String user_rental_status,
-			int user_book_cnt_limit, int user_book_weight, BookCategory bookCategory) {
+			int user_book_cnt_limit, int user_book_weight, int category_no) {
 		super();
 		this.user_id = user_id;
 		this.user_name = user_name;
@@ -37,10 +37,10 @@ public class User {
 		this.user_rental_status = user_rental_status;
 		this.user_book_cnt_limit = user_book_cnt_limit;
 		this.user_book_weight = user_book_weight;
-		this.bookCategory = bookCategory;
+		this.category_no = category_no;
 	}
-	
 
+	
 
 	public String getUser_id() {
 		return user_id;
@@ -82,12 +82,12 @@ public class User {
 	}
 
 
-	public Date getUser_birth() {
+	public String getUser_birth() {
 		return user_birth;
 	}
 
 
-	public void setUser_birth(Date user_birth) {
+	public void setUser_birth(String user_birth) {
 		this.user_birth = user_birth;
 	}
 
@@ -162,13 +162,13 @@ public class User {
 	}
 
 
-	public BookCategory getBookCategory() {
-		return bookCategory;
+	public int getCategory_no() {
+		return category_no;
 	}
 
 
-	public void setBookCategory(BookCategory bookCategory) {
-		this.bookCategory = bookCategory;
+	public void setCategory_no(int category_no) {
+		this.category_no = category_no;
 	}
 
 
@@ -178,7 +178,7 @@ public class User {
 				+ ", user_email=" + user_email + ", user_birth=" + user_birth + ", user_gender=" + user_gender
 				+ ", user_phone=" + user_phone + ", user_address=" + user_address + ", user_qr=" + user_qr
 				+ ", user_rental_status=" + user_rental_status + ", user_book_cnt_limit=" + user_book_cnt_limit
-				+ ", user_book_weight=" + user_book_weight + ", bookCategory=" + bookCategory + "]";
+				+ ", user_book_weight=" + user_book_weight + ", category_no=" + category_no + "]";
 	}
 
 

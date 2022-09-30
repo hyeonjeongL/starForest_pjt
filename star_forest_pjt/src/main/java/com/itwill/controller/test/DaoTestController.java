@@ -32,18 +32,17 @@ public class DaoTestController {
 	@RequestMapping("/user_dao_test")
 	public String user_dao_test() throws Exception {
 		System.out.println("user dao test~~");
-		SimpleDateFormat birthFormat = new SimpleDateFormat("yyyy-MM-dd");
-//		User user = new User("yeji2", "예지한", "1234", "han@gmail.com", "1995-01-30", "F", 
-//							 "0102349808", "서울시 강남구", null, "대출가능",
-//				4, 80, new BookCategory(100, null));
-//		System.out.println(userDao.create(user));
+		User user = new User("yeji2", "예지한", "1234", "han@gmail.com", "1995-01-30", "F", 
+							 "0102349808", "서울시 강남구", null, "대출가능",
+							  4, 80, 100);
+		System.out.println(userDao.create(user));
 		System.out.println(userDao.updatePassword(new User("yeji", null, "3445", null, 
 															null, null, null, null, null,
-															null, 0, 0, null)));
+															null, 0, 0, 500)));
 		;
 		System.out.println(userDao.update(new User("soyoon", "소윤", "3333", "so@naver.com", 
 													null, "F", "01023456789", "분당", null, 
-													"대출가능", 3, 34, new BookCategory(300, null))));
+													"대출가능", 3, 34, 300)));
 		System.out.println(userDao.remove("hyeonjeong"));
 		System.out.println(userDao.userList());
 		System.out.println(userDao.findUser("yeji"));

@@ -22,18 +22,18 @@ public class NoticeController {
 	@LoginCheck
 	@RequestMapping("/notice_write_form")
 	public String notice_write_form() {
-		return "notice_write_form";
+		return "forward:/WEB-INF/views/notice_write_form";
 	}
 	
 	@LoginCheck
 	@RequestMapping("/notice_modify_action")
 	public String notice_modify_action() {
-		return "notice_modify_action";
+		return "forward:/WEB-INF/views/notice_modify_action";
 	}
 	
 	@LoginCheck
 	@RequestMapping("/notice_remove_action")
 	public String notice_remove_action() {
-		return "notice_remove_action";
+		return "forward:/WEB-INF/views/notice_remove_action";
 	}
 }

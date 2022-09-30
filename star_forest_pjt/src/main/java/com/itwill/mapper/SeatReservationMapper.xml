@@ -17,18 +17,12 @@
 </update>
 
 <update id="returnByAuto" parameterType="com.itwill.domain.SeatReservation">
-	update seat_reservation set seat_date=null,seat_start_time=null,
-								seat_end_time=null,user_id=null,
-								seat_status=0
-								where seat_no=#{seat_no}
-	<if test="seat_end_time!=null">
-		<![CDATA[where seat_end_time<(to_char(sysdate,'HH24:MI:SS'))]]>
-	</if>
-							
+	update seat_reservation set seat_date=null,seat_start_time=null,seat_end_time=null,user_id=null,seat_status=0 
+	where seat_no=#{seat_no} and seat_end_time<to_char(sysdate,'HH24:MI:SS')
 </update>
 
 <update id="continueSeat" parameterType="com.itwill.domain.SeatReservation">
-	update seat_reservation set 
+	update seat_reservation set
 	seat_end_time= <![CDATA[(case when to_char(sysdate,'HH24:MI:SS')<=to_char(to_date(#{seat_end_time},'HH24:MI:SS')-30/(24*60),'HH24:MI:SS')
 	then to_char(to_date(#{seat_end_time},'HH24:MI:SS')+2/24,'HH24:MI:SS') else #{seat_end_time} end where user_id=#{user_id}]]>
 </update>
@@ -48,7 +42,7 @@
 </select>
 
 <select id="selectTimeUsingSeat" parameterType="Map" resultType="com.itwill.domain.SeatReservation">
-	select seat_no, seat_start_time, seat_end_time
+	select seat_no, seat_start_time, seat_end_time, user_id
 	from seat_reservation
 	where seat_no=#{seat_no} and seat_status=1
 </select>

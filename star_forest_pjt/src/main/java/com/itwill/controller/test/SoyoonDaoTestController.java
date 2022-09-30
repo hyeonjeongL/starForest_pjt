@@ -21,10 +21,11 @@ public class SoyoonDaoTestController {
 		//System.out.println(seatReservationDao.selectAll());
 		//System.out.println(seatReservationDao.reservation(new SeatReservation("A01", null, null, null, 0, "soyoon")));
 		SeatReservation usingSeat = seatReservationDao.selectTimeUsingSeat("B01", 1);
-		System.out.println(usingSeat);
-		System.out.println(seatReservationDao.returnByAuto(usingSeat));
-		System.out.println();
-		System.out.println();
+		
+		//System.out.println(usingSeat);
+		//System.out.println(seatReservationDao.returnByAuto(usingSeat));
+		//System.out.println(seatReservationDao.continueSeat(usingSeat));
+		System.out.println(seatReservationDao.countAvailableSeat(0));
 		return "test/test_result";
 
 	}

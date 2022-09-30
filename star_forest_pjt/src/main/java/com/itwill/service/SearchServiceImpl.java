@@ -23,8 +23,8 @@ public class SearchServiceImpl implements SearchService{
 
 	//제목 검색
 	@Override
-	public List<Search> selectByTitle(String book_title) throws Exception {
-		return searchDao.selectByTitle(book_title);
+	public List<Search> selectByTitle(String keyword) throws Exception {
+		return searchDao.selectByTitle(keyword);
 	}
 	//제목 검색_페이지
 	@Override

@@ -20,6 +20,10 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 	
+	public User(String user_id,String user_password) {
+		this.user_id=user_id;
+		this.user_password=user_password;
+	}
 	
 	public User(String user_id, String user_name, String user_password, String user_email, String user_birth,
 			String user_gender, String user_phone, String user_address, String user_qr, String user_rental_status,

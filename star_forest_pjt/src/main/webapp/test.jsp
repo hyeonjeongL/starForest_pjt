@@ -12,6 +12,7 @@
 		<li><a href="favorite_dao_test">Favorite Dao Test</a></li>
 		<li><a href="bookClub_dao_test">BookClub Dao Test</a></li>
 		<li><a href="seatReservationDao_test">seatReservationDao Test</a></li>
+		<li><a href="user_dao_test">User Dao Test</a></li>
 	
 	</ol>
 	

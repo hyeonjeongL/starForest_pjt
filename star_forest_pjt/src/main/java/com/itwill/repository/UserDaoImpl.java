@@ -1,11 +1,56 @@
 package com.itwill.repository;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.session.SqlSessionFactory;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Mapper
+import com.itwill.domain.User;
+import com.itwill.mapper.UserMapper;
+
 @Repository
 public class UserDaoImpl implements UserDao {
-	
+	@Autowired
+	private UserMapper userMapper;
+
+	@Override
+	public int create(User user) throws Exception {
+		return userMapper.create(user);
+	}
+
+	@Override
+	public int updatePassword(User user) throws Exception {
+		return userMapper.updatePassword(user);
+	}
+
+	@Override
+	public int update(User user) throws Exception {
+		return userMapper.update(user);
+	}
+
+	@Override
+	public int remove(String user_id) throws Exception {
+		return userMapper.remove(user_id);
+	}
+
+	@Override
+	public List<User> userList() throws Exception {
+		return userMapper.userList();
+	}
+
+	@Override
+	public User findUser(String user_id) throws Exception {
+		return userMapper.findUser(user_id);
+	}
+
+	@Override
+	public boolean existedUser(String user_id) throws Exception {
+		return userMapper.existedUser(user_id);
+	}
+
+	@Override
+	public int userRentalCount(String user_id) throws Exception {
+		return userMapper.userRentalCount(user_id);
+	}
+
 }

@@ -17,8 +17,6 @@ public class BookClubDaoImpl implements BookClubDao {
 	private BookClubMapper bookClubMapper;
 	
 
-	
-
 	@Override
 	public int create(BookClub bookClub) throws Exception {
 		return bookClubMapper.create(bookClub);

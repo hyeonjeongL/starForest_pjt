@@ -18,6 +18,7 @@ public class DaoTestController {
 	@Autowired
 	private BookClubDao bookClubDao;
 	
+	//!!!!!!!!!!!!!!!예지지금 하고있는중~!~!~!!!!!!!!
 	
 	//favorite 내서재
 	@RequestMapping("/favorite_dao_test")

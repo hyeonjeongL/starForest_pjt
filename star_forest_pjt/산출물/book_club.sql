@@ -60,6 +60,8 @@ select club_name,club_person,club_time,club_place,club_content from book_club wh
 update book_club set club_name='코난들 모여라',club_count=6,club_person='추리에 관심많은 성인분들',club_time='매주 토요일 오후 5시',club_place='서울시 강남구 어디든',club_content='전국코난들 환영합니다.' where club_no=2;
 /*동아리 인원수 카운트*/
 update book_club set club_count=club_count-1 where club_count>0 and club_no=4;
+/*조회수 증가*/
+update book_club set club_readcount=club_readcount+1 where club_no=5;
 
 --delete--
 /*게시물 삭제*/

@@ -37,9 +37,9 @@ insert into user_info values('admin','관리자','0000','admin@naver.com','1980-
 
 --select--
 /*모든 회원의 정보 출력*/
-select * from user_info;
+select  * from user_info u join book_category c on u.category_no=c.category_no;
 /*'yeji'회원의 정보 출력*/
-select * from user_info where user_id='yeji';
+select * from user_info u join book_category c on u.category_no=c.category_no where user_id='yeji';
 /*아이디 중복체크*/
 select count(*) from user_info where user_id='soyun';
 

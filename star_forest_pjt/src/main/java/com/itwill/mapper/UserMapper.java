@@ -29,10 +29,10 @@ public interface UserMapper {
 	@Delete("delete from user_info where user_id=#{user_id}")
 	public int remove(String user_id);
 
-	@Select("select * from user_info")
+	@Select("select  * from user_info u join book_category c on u.category_no=c.category_no")
 	public List<User> userList();
 
-	@Select("select * from user_info where user_id=#{user_id}")
+	@Select("select * from user_info u join book_category c on u.category_no=c.category_no where user_id=#{user_id}")
 	public User findUser(String user_id);
 
 	@Select("select count(*) from user_info where user_id=#{user_id}")

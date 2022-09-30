@@ -171,7 +171,7 @@ CREATE TABLE User_info
 	user_name varchar2(50) NOT NULL,
 	user_password varchar2(20),
 	user_email varchar2(100),
-	user_birth date,
+	user_birth varchar2(50),
 	user_gender varchar2(50),
 	user_phone varchar2(30),
 	user_address varchar2(50),

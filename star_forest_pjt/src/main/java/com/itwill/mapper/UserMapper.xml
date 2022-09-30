@@ -10,10 +10,10 @@
 	</insert>
 	
 	<select id="selectAll" resultType="user.User">
-		select * from user_info
+		select  * from user_info u join book_category c on u.category_no=c.category_no
 	</select>
 	<select id="findUser" parameterType="int" resultType="user.User" >
-		select * from user_info where user_id=#{user_id}
+		select * from user_info u join book_category c on u.category_no=c.category_no where user_id=#{user_id}
 	</select>
 	<select id="existedUser" parameterType="String" resultType="int">
 		select count(*) from user_info where user_id=#{user_id}

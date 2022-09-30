@@ -1,6 +1,7 @@
 package com.itwill.controller.test;
 
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -29,11 +30,11 @@ public class SeatReservationTestController {
       SeatReservationDao seatReservationDao=(SeatReservationDao)context.getBean(SeatReservationDao.class);
       //System.out.println(seatReservationDao.reservation(new SeatReservation("C01", null, null, null, 0, "hyeonjeong")));
       System.out.println(seatReservationDao.selectAll());
-      System.out.println(seatReservationDao.countAvailableSeat(0));
-      System.out.println(seatReservationDao.selectAvailableSeat(0));
-      SeatReservation usingSeat = seatReservationDao.selectTimeUsingSeat("B01");
-      System.out.println(usingSeat);
-      System.out.println(seatReservationDao.returnByAuto(usingSeat));
+      //System.out.println(seatReservationDao.countAvailableSeat(0));
+      //System.out.println(seatReservationDao.selectAvailableSeat(0));
+     //SeatReservation usingSeat = seatReservationDao.selectTimeUsingSeat("B01");
+      //System.out.println(usingSeat);
+      //System.out.println(seatReservationDao.returnByAuto(usingSeat));
       
       //좌석 테스트 완료
    }

@@ -10,7 +10,8 @@
 </insert>
 selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받아볼 수 있다.
  -->
- <!-- 게시물생성 -->
+ <!-- 
+ //게시물생성
 <insert id="create" parameterType="com.itwill.domain.RequestBoard">
 	<selectKey order="BEFORE" resultType="int" keyProperty="board_no">
 		select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual  
@@ -19,7 +20,7 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 									 sysdate,#{board_content},0,0,#{board_type_no},0,1,
 									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_no},#{user_id})
 </insert>
-<!-- 답글생성 -->
+//답글생성 
 <insert id="createReply" parameterType="com.itwill.domain.RequestBoard">
 		<selectKey order="BEFORE" resultType="int" keyProperty="board_no">
 			select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual  
@@ -34,62 +35,62 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 	 	END
 </insert>
 
-<!-- 내가 쓴 게시물들 확인 -->
+//내가 쓴 게시물들 확인 
 <select id="findUserBoard" parameterType="String" resultType="com.itwill.domain.RequestBoard">
 	select * 
 	from request_board
 	where user_id = #{user_id}
 </select>
 
-<!-- 게시물 존재 여부 -->
+//게시물 존재 여부 
 <select id="isExisted" parameterType="com.itwill.domain.RequestBoard" resultType="Integer">
-	SELECT count(*) FROM request_board WHERE groupno = #{groupno} AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC;
+	SELECT count(*) FROM request_board WHERE groupno = #{groupno} AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC
 
 </select>
 
-<!-- 게시물 삭제 -->
-<delete id="delete">
+//게시물 삭제
+<delete id="delete" parameterType="int">
 	delete from request_board where board_no=#{board_no}
 </delete>
 
-<delete id="deleteByGroupno">
+<delete id="deleteByGroupno" parameterType="int">
 	delete from request_board where groupno=#{groupno}
 </delete>
 
-<!-- 게시물 수정 -->
+//게시물 수정
 <update id="update" parameterType="com.itwill.domain.RequestBoard">
 	update request_board set board_title=#{board_title}, board_content=#{board_content},
 							 category_no=#{category_no}
 							 where board_no=#{board_no}
 </update>
 
-<!-- 조회수 증가 -->
-<update id="addReadCount">
+// 조회수 증가
+<update id="addReadCount" parameterType="int">
 	update request_board set board_readcount = board_readcount+1 
 	where board_no=#{board_no}
 </update>
 
-<!-- 게시물 전체 리스트 -->
+// 게시물 전체 리스트
 <select id="selectAll" resultType="com.itwill.domain.RequestBoard">
 	select * from
 	request_board
-	order by groupno desc, board_step asc;
+	order by groupno desc, board_step asc
 </select>
 
-<!-- 게시물 총 갯수 -->
+//게시물 총 갯수 
 <select id="countAll" resultType="Integer">
 	select count(*)
-	from request_board;
+	from request_board
 </select>
 
-<!-- 게시물 상세 보기 -->
+// 게시물 상세 보기 
 <select id="selectOne" parameterType="int" resultType="com.itwill.domain.RequestBoard">
 	select *
 	from request_board
 	where board_no=#{board_no}
 </select>
 
-<!-- 페이지에 있는 게시물 시작번호 / 끝번호  -->
+// 페이지에 있는 게시물 시작번호 / 끝번호  
 <select id="list" resultType="com.itwill.domain.RequestBoard"> 
 
 SELECT * FROM
@@ -98,6 +99,7 @@ SELECT * FROM
 					ORDER BY groupno DESC,board_step ASC
 				) s
 		 )
-WHERE idx between #{pageBegin} and #{pageEnd} ;
+WHERE idx between #{pageBegin} and #{pageEnd}
 </select>
+ -->
 </mapper>

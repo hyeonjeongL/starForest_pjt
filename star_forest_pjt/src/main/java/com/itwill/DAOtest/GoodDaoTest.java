@@ -11,7 +11,7 @@ import org.springframework.context.annotation.FilterType;
 import com.itwill.mapper.GoodMapper;
 import com.itwill.repository.GoodDao;
 
-//분야 번호 추천_성공
+//분야 번호 추천_성공_근데 이거 맞나?
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itwill"},includeFilters= {

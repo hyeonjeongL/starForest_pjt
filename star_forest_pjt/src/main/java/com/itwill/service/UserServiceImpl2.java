@@ -22,45 +22,38 @@ public class UserServiceImpl2 implements UserService2{
 		this.userDao2=userDao2;
 	}
 	
-	
+	//회원가입
 	@Override
 	public int insertUser(User user) throws Exception {
 		return userDao2.insertUser(user);
 	}
 
+	//회원 아이디 검색_내정보
 	@Override
 	public User selectByUserId(String user_id) throws Exception {
 		return userDao2.selectByUserId(user_id);
 	}
 
+	//회원리스트
 	@Override
 	public List<User> selectAll() throws Exception {
 		return userDao2.selectAll();
 	}
 
+	//정보수정
 	@Override
 	public int updateUser(User user) throws Exception {
 		return userDao2.updateUser(user);
 	}
 
+	//회원탈퇴
 	@Override
 	public int deleteUser(String user_id) throws Exception {
 		return userDao2.deleteUser(user_id);
 	}
 
 	
-	@Override
-	public int create(User user) throws Exception {
-		/*
-		 * 0: 오류
-		 * 1: 생성
-		 * 2: 아이디중복
-		 */
-		if(!(userDao2.existUserId(user.getUser_id())==null)) {
-			return 2;
-		}
-		return userDao2.insertUser(user);
-	}
+	//로그인체크
 	@Override
 	public int login(String user_Id, String user_password) throws Exception {
 		/*
@@ -78,5 +71,52 @@ public class UserServiceImpl2 implements UserService2{
 		}
 		return 1;
 	}
+	
+	//아이디중복
+	@Override
+	public boolean existUserId(String user_Id) throws Exception {
+		boolean isExist = userDao2.existUserId(user_Id);
+		if (isExist) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//전화번호 중복
+	@Override
+	public boolean existUserPhone(String user_phone) throws Exception {
+		boolean isExist = userDao2.existUserPhone(user_phone);
+		if (isExist) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//이메일중복
+	@Override
+	public boolean existUserEmail(String user_email) throws Exception {
+		boolean isExist = userDao2.existUserEmail(user_email);
+		if (isExist) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//아이디찾기
+	@Override
+	public String findId(String user_name, String user_phone) throws Exception {
+		return userDao2.findId(user_name, user_phone);
+	}
+	
+	//비밀번호찾기
+	@Override
+	public String findPassword(String user_Id, String user_email) throws Exception {
+		return userDao2.findPassword(user_Id, user_email);
+	}
+	
+	
 
 }

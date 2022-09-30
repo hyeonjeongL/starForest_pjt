@@ -11,6 +11,6 @@ public interface SearchService {
 	public List<Search> selectByTitle(String keyword) throws Exception;
 	
 	//제목 검색_페이지
-	public List<Search> selectByTitle(String keyword, int start, int last) throws Exception;
+	//public List<Search> selectByTitle(String keyword, int start, int last) throws Exception;
 
 }

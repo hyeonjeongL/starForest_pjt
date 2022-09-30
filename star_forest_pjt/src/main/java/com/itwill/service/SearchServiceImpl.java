@@ -26,11 +26,12 @@ public class SearchServiceImpl implements SearchService{
 	public List<Search> selectByTitle(String keyword) throws Exception {
 		return searchDao.selectByTitle(keyword);
 	}
+	/*
 	//제목 검색_페이지
 	@Override
 	public List<Search> selectByTitle(String keyword, int start, int last) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
-	}
+	}*/
 
 }

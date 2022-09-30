@@ -27,7 +27,7 @@ public class SearchDaoTest {
 		ConfigurableApplicationContext context=application.run(args);
 		SearchDao searchDao=(SearchDao)context.getBean(SearchDao.class);
 		
-		//제목 검색_안됨
+		//제목 검색_안됨_되는데 이상함
 		System.out.println(searchDao.selectByTitle("2023년"));
 	}
 }

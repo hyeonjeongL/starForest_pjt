@@ -31,6 +31,9 @@
 	<update id="clubCount" parameterType="int">
 		update book_club set club_count=club_count-1 where club_count>0 and club_no=#{club_no}
 	</update>
+	<update id="addReadCount" parameterType="int">
+		update book_club set club_readcount=club_readcount+1 where club_no=#{club_no}
+	</update>
 	
 	<delete id="remove" parameterType="int">
 		delete from book_club where club_no=#{club_no}

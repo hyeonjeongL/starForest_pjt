@@ -44,6 +44,5 @@ public class UserServiceTest {
 		System.out.println("아이디찾기:"+userService.findUser("yeji2"));
 		System.out.println("아이디중복체크:"+userService.existedUser("soyoon"));
 		System.out.println("대출가능권수카운트:"+userService.userRentalCount("junghyun"));
-		System.out.println("대출가능수량:"+userService.userRentalAvailable("yeji3"));
 	}
 }

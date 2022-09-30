@@ -35,6 +35,7 @@ public class BookClubServiceTest {
 										"장소수정", "내용수정", 2, 100, "yeji");
 		System.out.println(bookClubService.update(update));
 		System.out.println(bookClubService.clubCount(4));
+		System.out.println(bookClubService.addReadCount(8));
 		System.out.println(bookClubService.remove(28));
 	}
 }

@@ -55,6 +55,12 @@ public class BookClubServiceImpl implements BookClubService {
 	public int clubCount(int club_no) throws Exception {
 		return bookClubDao.clubCount(club_no);
 	}
+	
+	//동아리 조회수 증가
+	@Override
+	public int addReadCount(int club_no) throws Exception {
+		return bookClubDao.addReadCount(club_no);
+	}
 
 	//동아리 삭제
 	@Override
@@ -62,6 +68,7 @@ public class BookClubServiceImpl implements BookClubService {
 		return bookClubDao.remove(club_no);
 	}
 
+	
 	
 	
 }

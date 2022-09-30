@@ -51,7 +51,11 @@ public class BookClubDaoImpl implements BookClubDao {
 	public int clubCount(int club_no) throws Exception {
 		return bookClubMapper.clubCount(club_no);
 	}
-
+	@Override
+	public int addReadCount(int club_no) throws Exception{
+		return bookClubMapper.addReadCount(club_no);
+	}
+	
 	@Override
 	public int remove(int club_no) throws Exception {
 		return bookClubMapper.remove(club_no);

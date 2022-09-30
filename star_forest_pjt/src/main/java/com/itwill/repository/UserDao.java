@@ -33,7 +33,6 @@ public interface UserDao {
 	// 대출권수 카운트
 	int userRentalCount(String user_id) throws Exception;
 	
-	//대출 가능 수량
-	int userRentalAvailable(String user_id) throws Exception;
+	
 	
 }

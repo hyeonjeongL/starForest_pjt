@@ -120,10 +120,5 @@ public class UserServiceImpl implements UserService {
 		return userDao.userRentalCount(user_id);
 	}
 	
-	// 회원의 대출 가능 수량
-	@Override
-	public int userRentalAvailable(String user_id) throws Exception {
-		return userDao.userRentalAvailable(user_id);
-	}
 
 }

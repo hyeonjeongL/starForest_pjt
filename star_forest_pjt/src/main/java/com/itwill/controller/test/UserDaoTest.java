@@ -45,7 +45,6 @@ public class UserDaoTest {
 		System.out.println(userDao.findUser("yeji"));
 		System.out.println(userDao.existedUser("yeji"));
 		System.out.println(userDao.userRentalCount("yeji"));
-		System.out.println("대출가능수량:"+userDao.userRentalAvailable("yeji"));
 
 	}
 	

@@ -27,6 +27,9 @@ public interface BookClubService {
 		//동아리 인원수 카운트
 		int clubCount(int club_no) throws Exception;
 		
+		//동아리 조회수 증가
+		int addReadCount(int club_no) throws Exception;
+		
 		//동아리삭제
 		int remove(int club_no) throws Exception; 
 	

@@ -46,6 +46,7 @@ public class BookClubDaoTest {
 										"장소수정", "내용수정", 2, 100, "yeji");
 		System.out.println(bookClubDao.update(update));
 		System.out.println(bookClubDao.clubCount(6));
+		System.out.println(bookClubDao.addReadCount(3));
 		System.out.println(bookClubDao.remove(20));
 	}
 }

@@ -13,7 +13,7 @@ public interface NoticeService {
 		List<Notice> selectAll() throws Exception;
 		
 		//공지사항 수정
-		int update(int notice_no) throws Exception;
+		int update(Notice notice) throws Exception;
 		
 		//공지사항 조회수
 		int updateCount() throws Exception;

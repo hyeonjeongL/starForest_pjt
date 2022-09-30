@@ -71,7 +71,7 @@ public class SearchDaoImpl implements SearchDao{
 		
 		return searchList;
 	}
-
+/*
 	//제목 검색 페이지
 	@Override
 	public List<Search> selectByTitle(String keyword, int start, int last) throws Exception {
@@ -114,7 +114,7 @@ public class SearchDaoImpl implements SearchDao{
 			if (conn != null) conn.close();
 		}
 		return searchList;
-	}
+	}*/
 
 }
 /*public class BookDao {

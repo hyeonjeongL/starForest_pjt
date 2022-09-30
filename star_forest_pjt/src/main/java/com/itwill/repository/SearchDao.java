@@ -12,7 +12,7 @@ public interface SearchDao {
 	List<Search> selectByTitle(String keyword) throws Exception;
 	
 	//제목 검색 페이지
-	List<Search> selectByTitle(String keyword, int start, int last) throws Exception;
+	//List<Search> selectByTitle(String keyword, int start, int last) throws Exception;
 	
 	//번호 검색
 	

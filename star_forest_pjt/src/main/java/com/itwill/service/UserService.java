@@ -32,4 +32,7 @@ public interface UserService {
 
 	// 회원당 대출권수 카운트
 	int userRentalCount(String user_id) throws Exception;
+	
+	//연체에 따른 대출정지기간
+	int rentalStopPeriod(String user_id) throws Exception;
 }

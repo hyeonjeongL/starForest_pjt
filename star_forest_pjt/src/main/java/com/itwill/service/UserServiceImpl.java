@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 		/*
 		 * 회원로그인
 		 * 
-		 * 0:아이디존재안함 1:패쓰워드 불일치 2:로그인성공
+		 * 0:아이디존재안함 -1:패쓰워드 불일치 1:로그인성공
 		 */
 
 		if (userDao.existedUser(user_id)) {
@@ -45,10 +45,10 @@ public class UserServiceImpl implements UserService {
 			User user = userDao.findUser(user_id);
 			if (user.getUser_password().equals(user_password)) {
 				// 패스워드일치
-				return 2;
+				return 1;
 			} else {
 				// 패스워드불일치
-				return 1;
+				return -1;
 			}
 		} else {
 			// 아이디존재안함
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserService {
 		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
 			return userDao.updatePassword(user);
 		}else {
-			System.out.println("비밀번호가 일치하지 않습니다.");
+			System.out.println("비밀번호를 다시 입력해주세요.");
 			return 0;
 		}
 			
@@ -86,7 +86,7 @@ public class UserServiceImpl implements UserService {
 		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
 			return userDao.remove(user);
 		}else {
-			System.out.println("비밀번호가 일치하지 않습니다.");
+			System.out.println("비밀번호를 다시 입력해주세요.");
 			return 0;
 		}
 	}
@@ -118,6 +118,27 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int userRentalCount(String user_id) throws Exception {
 		return userDao.userRentalCount(user_id);
+	}
+
+	//연체에 따른 대출정지기간
+	@Override
+	public int rentalStopPeriod(String user_id) throws Exception {
+		try {
+		int stopPeriod=userDao.rentalStopPeriod(user_id);
+		/*
+		 * 대출정지 : -1
+		 * 대출가능 : 1
+		 */
+		if(stopPeriod>0) {
+			System.out.println("연체로 인해 "+stopPeriod+" 일 동안 대출정지입니다.");
+			return  -1;
+		}else {
+			return 1;
+		}
+		}catch (Exception e) {
+			e.printStackTrace();
+			return -2;
+		}
 	}
 	
 

@@ -45,23 +45,23 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public boolean existedUser(String user_id) throws Exception {
-		int count=userMapper.existedUser(user_id);
-		if(count>0) {
+		int count = userMapper.existedUser(user_id);
+		if (count > 0) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
 	}
-	
+
 	@Override
 	public boolean PWcheck(String user_id, String user_password) throws Exception {
-		int count=userMapper.PWcheck(user_id, user_password);
-		if(count>0) {
+		int count = userMapper.PWcheck(user_id, user_password);
+		if (count > 0) {
 			return true;
-		}else {
+		} else {
 			return false;
 		}
-		
+
 	}
 
 	@Override
@@ -69,6 +69,9 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.userRentalCount(user_id);
 	}
 
-	
-	
+	@Override
+	public int rentalStopPeriod(String user_id) throws Exception {
+		return userMapper.rentalStopPeriod(user_id);
+	}
+
 }

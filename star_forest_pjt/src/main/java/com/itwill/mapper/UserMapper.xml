@@ -21,6 +21,9 @@
 	<select id="PWcheck" parameterType="com.itwill.domain.User" resultType="int">
 		select count(*) from user_info where user_id=#{user_id} and user_password=#{user_password}
 	</select>
+	<select id="rentalStopPeriod" parameterType="String" resultType="int">
+		select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id where u.user_id=#{user_id}
+	</select>
 	
 	<update id="updatePassword" parameterType="String">
 		update user_info set user_password=#{user_password} where user_id=#{user_id}

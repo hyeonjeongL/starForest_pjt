@@ -23,7 +23,7 @@ public interface FavoriteMapper {
 			+ "			join book b on f.book_no=b.book_no where user_id=#{user_id}")
 	public List<Favorite> selectById(String user_id);
 	
-	@Select("select * from favorite f join book b on f.book_no=b.book_no where favorite_no=#{favorite_no}")
+	@Select("select b.isbn,b.book_title,b.book_author,b.book_publisher from favorite f join book b on f.book_no=b.book_no where favorite_no=#{favorite_no}")
 	public Favorite selectByNo(int favorite_no);
 	
 	@Delete("delete from favorite where favorite_no=#{favorite_no}")

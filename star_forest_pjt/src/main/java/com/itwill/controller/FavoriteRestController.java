@@ -57,15 +57,6 @@ public class FavoriteRestController {
 		
 		return resultMap;
 	}
-	//상세보기
-	public Map favorite_view(HttpServletRequest request) {
-		Map resultMap=new HashMap();
-		int code=2;
-		String url="";
-		String msg="";
-		
-		return resultMap;
-	}
 	
 	
 	//즐겨찾기삭제

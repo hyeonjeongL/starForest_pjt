@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!doctype html>
 <html lang="ko-KR">
 <head>
@@ -13,8 +12,8 @@
 		<meta property="og:image" content="https://library.korea.ac.kr/wp-content/uploads/2021/11/kulib_logo.png" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
 	<title>별숲 도서관</title>
-	<link rel="alternate" hreflang="ko" href="https://library.korea.ac.kr" />
-<link rel="alternate" hreflang="en" href="https://library.korea.ac.kr/?lang=en" />
+	<link rel="alternate" hreflang="ko" href="https://library.korea.ac.kr/login/" />
+<link rel="alternate" hreflang="en" href="https://library.korea.ac.kr/login/?lang=en" />
 
 <!-- WordPress KBoard plugin 5.8 - https://www.cosmosfarm.com/products/kboard -->
 <link rel="alternate" href="https://library.korea.ac.kr/wp-content/plugins/kboard/rss.php" type="application/rss+xml" title="고려대학교 도서관 &raquo; KBoard 통합 피드">
@@ -24,8 +23,8 @@
 <link rel='dns-prefetch' href='//use.fontawesome.com' />
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
-<link rel="alternate" type="application/rss+xml" title="고려대학교 도서관 &raquo; 피드" href="https://library.korea.ac.kr/feed/" />
-<link rel="alternate" type="application/rss+xml" title="고려대학교 도서관 &raquo; 댓글 피드" href="https://library.korea.ac.kr/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="별숲 도서관 &raquo; 피드" href="https://library.korea.ac.kr/feed/" />
+<link rel="alternate" type="application/rss+xml" title="별숲 도서관 &raquo; 댓글 피드" href="https://library.korea.ac.kr/comments/feed/" />
 		<script type="text/javascript">
 			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/library.korea.ac.kr\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.5.10"}};
 			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
@@ -84,19 +83,19 @@ img.emoji {
 <script type='text/javascript' src='https://library.korea.ac.kr/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp' id='jquery-core-js'></script>
 <script type='text/javascript' id='graphina-charts-for-elementor-public-js-extra'>
 /* <![CDATA[ */
-var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/admin-ajax.php","nonce":"8f34bab399","graphinaAllGraphs":[],"graphinaAllGraphsOptions":[],"graphinaBlockCharts":[]};
+var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/admin-ajax.php","nonce":"ad0f36c761","graphinaAllGraphs":[],"graphinaAllGraphsOptions":[],"graphinaBlockCharts":[]};
 /* ]]> */
 </script>
 <script type='text/javascript' src='https://library.korea.ac.kr/wp-content/plugins/graphina-elementor-charts-and-graphs/elementor/js/graphina-charts-for-elementor-public.js?ver=1.5.4' id='graphina-charts-for-elementor-public-js'></script>
 <script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/chartjs/Chart.min.js?ver=5.5.10' id='kulib-chartjs-js'></script>
 <script type='text/javascript' src='https://library.korea.ac.kr/wp-content/plugins/kboard/template/js/jquery.timepicker.js?ver=5.8' id='jquery-timepicker-js'></script>
-<link rel="https://api.w.org/" href="https://library.korea.ac.kr/wp-json/" /><link rel="alternate" type="application/json" href="https://library.korea.ac.kr/wp-json/wp/v2/pages/9" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://library.korea.ac.kr/xmlrpc.php?rsd" />
+<link rel="https://api.w.org/" href="https://library.korea.ac.kr/wp-json/" /><link rel="alternate" type="application/json" href="https://library.korea.ac.kr/wp-json/wp/v2/pages/78" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://library.korea.ac.kr/xmlrpc.php?rsd" />
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://library.korea.ac.kr/wp-includes/wlwmanifest.xml" /> 
 <meta name="generator" content="WordPress 5.5.10" />
-<link rel="canonical" href="https://library.korea.ac.kr/" />
-<link rel='shortlink' href='https://library.korea.ac.kr/' />
-<link rel="alternate" type="application/json+oembed" href="https://library.korea.ac.kr/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flibrary.korea.ac.kr%2F" />
-<link rel="alternate" type="text/xml+oembed" href="https://library.korea.ac.kr/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flibrary.korea.ac.kr%2F&#038;format=xml" />
+<link rel="canonical" href="https://library.korea.ac.kr/login/" />
+<link rel='shortlink' href='https://library.korea.ac.kr/?p=78' />
+<link rel="alternate" type="application/json+oembed" href="https://library.korea.ac.kr/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flibrary.korea.ac.kr%2Flogin%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://library.korea.ac.kr/wp-json/oembed/1.0/embed?url=https%3A%2F%2Flibrary.korea.ac.kr%2Flogin%2F&#038;format=xml" />
 <!-- Analytics by WP-Statistics v12.6.13 - https://wp-statistics.com/ -->
 <meta name="generator" content="WPML ver:4.3.10 stt:1,29;" />
 
@@ -119,7 +118,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 </head>
 
 
-<body class="home page-template-default page page-id-9 wp-custom-logo wp-embed-responsive singular image-filters-enabled elementor-default elementor-kit-14083">
+<body class="page-template page-template-page-without-title page-template-page-without-title-php page page-id-78 wp-custom-logo wp-embed-responsive has-fixed-top singular image-filters-enabled elementor-default elementor-kit-14083">
 
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content">내용으로 건너뛰기</a>
@@ -162,22 +161,6 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 
 <div class="site-branding">
 
-		<div class="site-banner">
-		<div class="container">
-			<span class="site-banner-icon d-none d-lg-block"><svg class="svg-icon" width="32" height="32" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M21.849,7.689l-5.628-5.627c-0.202-0.203-0.533-0.203-0.736,0l-0.023,0.023 c-0.346,0.346-0.535,0.805-0.535,1.292c0,0.314,0.08,0.616,0.229,0.883l-5.89,5.054C8.814,8.911,8.24,8.69,7.63,8.69 c-0.656,0-1.272,0.256-1.738,0.721L5.857,9.445c-0.203,0.203-0.203,0.533,0,0.737l3.371,3.371l-3.283,3.281 c-0.065,0.069-1.619,1.669-2.641,2.945c-0.972,1.213-1.166,1.435-1.175,1.445c-0.18,0.207-0.171,0.516,0.023,0.711 c0.102,0.102,0.234,0.152,0.368,0.152c0.123,0,0.245-0.042,0.343-0.129c0.01-0.006,0.227-0.196,1.447-1.175 c1.273-1.021,2.875-2.576,2.949-2.646l3.277-3.278l3.19,3.191c0.101,0.101,0.236,0.152,0.369,0.152s0.265-0.052,0.366-0.152 l0.035-0.035c0.465-0.465,0.721-1.082,0.721-1.737c0-0.609-0.221-1.185-0.623-1.635l5.053-5.888 c0.269,0.147,0.569,0.227,0.884,0.227c0.488,0,0.947-0.189,1.292-0.535l0.024-0.022C22.052,8.222,22.052,7.892,21.849,7.689z"></path></svg></span>
-			<div class="site-banner-content d-lg-flex justify-content-lg-center">
-				
-			    			    						    						<a href="https://library.korea.ac.kr/about/notice/?mod=document&uid=18356" class="site-banner-text">
-							<svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>			 				도서관 내 사회적 거리두기 변경 안내						</a>
-								    			    						    						<a href="https://library.korea.ac.kr/datause/campaign/" class="site-banner-text">
-							<svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>			 				[독서 캠페인 시즌2] 코로나 시대 고대인의 독서 						</a>
-								    			    						    						<a href="https://give.korea.ac.kr/front/s0112.do" class="site-banner-text" target="_blank">
-							<svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path></svg>			 				과학도서관 리노베이션 기금 모금						</a>
-								    			    				    			    				    			    				    			    				    			    				    			    				    
-			</div><!-- .site-banner-content -->
-			<a role="button" class="site-banner-closer"><svg class="svg-icon" width="36" height="36" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M19.85,19.511c0.094,0.094,0.094,0.245,0,0.339c-0.047,0.047-0.108,0.07-0.17,0.07s-0.122-0.023-0.169-0.07L12,12.34 l-7.511,7.51c-0.047,0.047-0.107,0.07-0.169,0.07s-0.123-0.023-0.17-0.07c-0.094-0.094-0.094-0.245,0-0.339L11.66,12L4.15,4.49 c-0.094-0.094-0.094-0.246,0-0.34s0.245-0.094,0.339,0L12,11.661l7.511-7.511c0.094-0.094,0.245-0.094,0.339,0s0.094,0.246,0,0.34 L12.34,12L19.85,19.511z"></path></svg></a>
-		</div><!-- .container -->
-	</div><!-- .site-banner -->
 		
 	<div class="site-brand-bar">
 		<div class="container">
@@ -189,11 +172,26 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 						</a>
 					</div>
 				</div>
+								<div class="col col-lg-4 order-last order-lg-2">
+					<div class="main-search">
+						<form action="/main-search-result/" method="get" id="main-search-result">
+														<div class="input-group">
+								<label class="sr-only" for="total-search">통합검색</label>
+								<input type="text" name="q" id="total-search" class="form-control input-tot-search-terms" autocomplete="off" placeholder="통합검색" onclick="javascript:n2ezast_init('libmain', 'main-search-result', 'total-search', 'n2autoterms', 350, 60, 0);" />
+								<div class="input-group-append">
+									<button type="submit" class="btn btn-theme submit-tot-search-button">
+								  	<svg class="svg-icon" width="19" height="19" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg>									</button>
+								</div>
+							</div>
+						</form>
+						<div id="n2autoterms" style="position:relative;left:0px;top:0px;z-index:2000; padding-top:0px;"></div>
+					</div>
+				</div>
 								<div class="col-10 col-lg-4 order-3 d-flex justify-content-end align-items-center">
 													<a class="aside-menu-item user-menu-item" href="/login/">
 						LOGIN											</a>
 					
-										<a href="/?&lang=en" class="aside-menu-item">ENG</a>
+										<a href="/login/?&lang=en" class="aside-menu-item">ENG</a>
 					<a class="aside-menu-item site-search-trigger"><svg class="svg-icon" width="22" height="22" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg></a>
 										<a class="aside-menu-item mobile-nav-trigger">
 						<span class="menu-icon">
@@ -357,6 +355,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 <li class="menu-item menu-item-type-post_type menu-item-object-page"><a  href="https://library.korea.ac.kr/my-library/private-notice/">개인공지</a> </li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page"><a  href="https://library.korea.ac.kr/my-library/my-info/">이용자정보 관리</a> </li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page"><a  href="https://library.korea.ac.kr/my-library/membership/">연회비·이용증</a> </li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page"><a  href="https://library.korea.ac.kr/my-library/dcollection/">학위논문제출(dCollection)</a> </li>
 	</ul>
 </li>
 <li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"><a >이용현황</a> 
@@ -539,757 +538,95 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 	
-								
-				<article id="post-9" class="post-9 page type-page status-publish hentry entry">
+									
+				<article id="post-78" class="post-78 page type-page status-publish hentry entry">
 		
 					
-<script>
-	jQuery(function($) {		// 메인 검색창 처리
+<header class="entry-header">
+	
+	<div class="entry-header-bar">
 
-		var edslink = "https://oca.korea.ac.kr/link.n2s?url=https%3A%2F%2Fsearch.ebscohost.com%2Flogin.aspx%3Fdirect%3Dtrue%26site%3Deds-live%26scope%3Dsite%26profile%3Deds%26facetfilter%3D1%252CSourceType%253AAcademic%2520Journals%252CSourceType%253AMagazines%252CSourceType%253AConference%2520Materials%252CSourceType%253AReports%252CSourceType%253ADissertations%26limiter%3DFT%253ay%26bquery%3D";
-
-		$("#home-main-search-options").change(function(e) {				// 검색대상별 FORM action 변경 - 통합검색(t), 소장자료(l), 전자자료(e)
-			var purpose = this.value;
-			var q = $("#home-main-search-keyword").val().trim();
-			if (purpose == "l") {						// 소장자료
-				// [주] 아래와 같은 파라미터들이 포함된 FROM action 값은 FORM이 반드시 POST Method 설정되어야 한다.
-				$("#home-main-search-form").attr("action", "/datause/advanced-search/advanced-search-form/advanced-search-result/?verb=detail&target=catalog&st=KWRD&fi1=TOTAL");
-				$("#home-main-search-form").attr('target', '_top');
-			} else if (purpose == "e") {		// 전자자료
-				edslink += encodeURIComponent(q);
-				$("#home-main-search-form").attr("action", edslink);
-				$("#home-main-search-form").attr('target', '_blank');
-			} else {		// 기본값=t(통합검색)
-				$("#home-main-search-form").attr("action", "/main-search-result/");
-				$("#home-main-search-form").attr('target', '_top');
-			}
-			if (q !== '') {		// 검색어가 입력된 상태이면 바로 전송
-				$("#home-main-search-form")[0].submit();
-			}
-		});
-		$("#home-main-search-keyword").keydown(function(e) {		// 메인 페이지 중간 검색어 입력박스 엔터-키 처리
-			if (e.keyCode == 13) {
-				$( ".btn-home-main-search" ).trigger( "click" );
-			}
-		});
-		$(".btn-home-main-search").click(function(e) {					// 메인 페이지 중간 검색어 입력박스 옆 전송버튼 클릭시
-			var q = $("#home-main-search-keyword").val().trim();
-			if (q == '') {
-				alert("검색어를 입력하세요.");
-				return false;
-			}
-			var purpose = $("#home-main-search-options").val().trim();
-			if (purpose == "e") {		// 전자자료
-				edslink += encodeURIComponent(q);
-				$("#home-main-search-form").attr("action", edslink);
-			}
-		});
-	});
-</script>
-<style>           
-@media (min-width: 1200px){
-  .closer_webchat_chat_wrapper{
-      max-height: 850px;
-      height:80%;
-  }
-}
-</style>
-<script botId="Bdzzm4" src="https://www.closer.ai/js/webchat.min.js"></script>
-
-<div id="n2autocompti" style="position:relative;left:0px;top:0px;z-index:2000; padding-top:0px;"></div>
-
+		<div class="entry-nav">
+			<!-- Breadcrumb NavXT 6.5.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to 고려대학교 도서관." href="https://library.korea.ac.kr" class="home" ><span property="name">HOME</span></a><meta property="position" content="1"></span> &gt; <span class="post post-page current-item">로그인</span>					</div><!-- .entry-nav -->
+		
+		<h1 class="entry-title">로그인</h1>
+	</div><!-- .entry-header-bar -->
+	
+	
+</header><!-- .entry-header -->
 <div class="entry-content">
-	<div class="home-main-search">
-		<div class="container-fluid">
-			<div class="row justify-content-center align-items-center">
-				<form name="main_search_form" action="/main-search-result/" method="POST" id="home-main-search-form">
-					<div class="input-group">
-						<div class="input-group-prepend rounded-0">
-							<label class="sr-only" for="home-main-search-options">검색옵션</label>
-							<select class="form-control form-control-lg rounded-0 border-0 selectpicker" id="home-main-search-options" data-style="btn-theme" data-width="160px">
-							  <option value="t">통합검색</option>
-							  <option value="l">소장자료</option>
-							  <option value="e">전자자료</option>
-							</select>
+		
+	<div class="container container-small">
+		
+		<div class="login">
+		
+			<div class="login-header d-lg-flex justify-content-between align-items-end">
+				<h3>로그인</h3>
+				<small>로그인을 하시면 더 많은 도서관 서비스를 이용하실 수 있습니다.</small>
+			</div><!-- .login-header -->
+		
+			<div class="login-content">
+			
+				<form class="needs-validation" novalidate="novalidate" method="post">
+					<input type="hidden" name="accessKey" value="Ris3pYGfx0OJBlLnPX8I" />
+					<input type="hidden" name="returl" value="/" />
+				
+					<div class="form-group">
+						<label class="sr-only" for="user-id">아이디</label>
+						<input name="uid" type="text" class="form-control" id="user-id" placeholder="아이디" required="required" />
+						<div class="invalid-feedback">아이디를 입력하세요.</div>
+					</div>
+					<div class="form-group">
+						<label class="sr-only" for="user-pw">비밀번호</label>
+						<input name="upw" type="password" class="form-control" id="user-pw" placeholder="비밀번호" required="required" />
+						<div class="invalid-feedback">비밀번호가 맞지 않습니다.</div>
+					</div>
+					<div class="form-row">
+						<div class="col">
+							
+							<div class="find-idpw d-none invisible">
+								<a class="btn btn-black btn-sm btn-sub" href="/find-id-pw/find-id/">아이디/비밀번호 찾기</a>
+							</div>
 						</div>
-						<label class="sr-only" for="home-main-search-keyword">검색어를 입력하세요.</label>
-						<input type="text" name="q" class="form-control form-control-lg border-0" id="home-main-search-keyword" autocomplete="off" onclick="javascript:n2ezast_init('libmain', 'home-main-search-form', 'home-main-search-keyword', 'n2autocompti', 580, 100, 0);" />
-						<div class="input-group-append">
-							<button type="submit" class="btn btn-theme-positive rounded-0 border-0 btn-home-main-search">
-								<svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg>							</button>
+						<div class="col text-left">
+							<button type="submit" class="btn btn-primary">아이디/비밀번호 찾기</button>
+						</div>
+						<div class="col text-left">
+							<button type="submit" class="btn btn-primary">회원가입</button>
+						</div>
+						<div class="col text-right">
+							<button type="submit" class="btn btn-primary">로그인</button>
 						</div>
 					</div>
 				</form>
-
-			</div><!-- .row -->
-		</div><!-- .container -->
-		<div class="home-main-search-slider-container">
-			<div class="home-main-search-slider">
-														
-										
-												
-													<div class="home-main-search-slide" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2020/06/SEASON_050.jpg)"></div>
-							
-										
-												
-													<div class="home-main-search-slide" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2021/04/main_lib_20210422.jpg)"></div>
-							
-										
-												
-													<div class="home-main-search-slide" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2020/06/ccl.jpg)"></div>
-							
-										
-												
-													<div class="home-main-search-slide" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2021/04/리씽크스페이스1_크기변경-2.jpg)"></div>
-							
-										
-				
-				
-			</div><!-- .home-main-search-slider -->			
-		</div><!-- .home-main-search-slider-container -->
-	</div><!-- .home-main-search -->
-	
-<div class="home-services">
-		
-		<div class="home-service-items">
-			<div class="container">
-				<div class="row align-items-center mx-lg-1">
-					<div class="col-3 col-lg home-service-item home-service-item-trigger">
-						<a role="button" class="link-monotone" data-target=".home-service-link-group-1">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-01.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">학술정보<br />큐레이션</span>
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item home-service-item-trigger">
-						<a role="button" class="link-monotone" data-target=".home-service-link-group-2">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-02.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">추천학술<br />정보</span>
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item home-service-item-trigger">
-						<a role="button" class="link-monotone" data-target=".home-service-link-group-3">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-03.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">컬렉션/<br />아카이빙</span>
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item home-service-item-trigger">
-						<a role="button" class="link-monotone" data-target=".home-service-link-group-4">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-04.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">개관<br />시간</span>
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item home-service-item-trigger">
-						<a role="button" class="link-monotone" data-target=".home-service-link-group-5">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-05.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">이용자별<br />안내</span>
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item">
-						<a href="/my-library/membership/membership-term/"  class="link-monotone">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-06.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">연회비/<br />이용증</span>
-							<!--<span class="d-block text-center">이용증/<br />연회비</span>   -->
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item">
-						<a href="/hodi_site_link/"  class="link-monotone" target="_blank">
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-07.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">좌석/<br />시설예약</span>
-						</a>
-					</div>
-					<div class="col-3 col-lg home-service-item">
-						<a href="/about/ask-us/inquiry/"  class="link-monotone">
-						<!--<a href="/facilities/ask-us/inquiry/"  class="link-monotone">-->
-							<img src="https://library.korea.ac.kr/wp-content/themes/kulib/images/service-08.svg" alt="" class="animated-fill svg animated-up d-block ml-auto mr-auto" />
-							<span class="d-block text-center">1:1<br />문의</span>
-						</a>
-					</div>
-				</div><!-- .row -->
-			</div><!-- .container -->
-		</div><!-- .home-service-items -->
-		
-		<div class="home-service-links">
-			<div class="container">
-			</div><!-- .container -->
-		</div><!-- .home-service-links -->
-		
-		<div class="home-service-link-gorups">
 			
-						<div class="home-service-link-group home-service-link-group-1">
-				<ul>
-								
-										<li><a href="https://sics.korea.ac.kr" target="_blank">SICS 안내</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/econ" target="_blank">경제학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/edu" target="_blank">교육학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/ru" target="_blank">노어노문학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/media" target="_blank">미디어학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/law" target="_blank">법학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/psy" target="_blank">심리학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/lingu" target="_blank">언어학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/politics" target="_blank">정치외교학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/cs" target="_blank">컴퓨터학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/kh" target="_blank">한국사학</a></li>
-													
-										<li><a href="https://sics.korea.ac.kr/pa" target="_blank">행정학</a></li>
-													</ul>
-			</div><!-- .home-service-link-group : 1 -->
-						
-						<div class="home-service-link-group home-service-link-group-2">
-				
-								<ul>
-																	<li><a href="https://library.korea.ac.kr/datause/database/database-search-a/">전체 DB리스트</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://search.ebscohost.com/login.aspx?profile=eds" target="_blank">K-eArticles</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.dbpia.co.kr" target="_blank">DBpia</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://kiss.kstudy.com" target="_blank">KISS</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://scholar.dkyobobook.co.kr" target="_blank">스콜라(교보/학지사)</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.earticle.net" target="_blank">학술교육원</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://korea.lawnb.com" target="_blank">로앤비(LAWnB)</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.wipson.com/service/lgn/csLogin.wips?comUrl=korea" target="_blank">윕스(WIPS)</a></li>
-					
-					
-				</ul>
-				
-								<ul>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.cambridge.org/core" target="_blank">Cambridge</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://chn.oversea.cnki.net" target="_blank">CNKI</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://search.ebscohost.com/login.aspx?profile=ehost" target="_blank">EBSCO</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://ieeexplore.ieee.org/" target="_blank">IEEE/IET</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.jstor.org" target="_blank">JSTOR</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.nature.com/" target="_blank">Nature</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://academic.oup.com/journals" target="_blank">Oxford</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://search.proquest.com/index" target="_blank">ProQuest</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://journals.sagepub.com" target="_blank">SAGE</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://science.sciencemag.org" target="_blank">Science</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.sciencedirect.com/" target="_blank">ScienceDirect</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.tandfonline.com/" target="_blank">T&amp;F</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://onlinelibrary.wiley.com" target="_blank">Wiley</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://www.scopus.com/search/form.uri?display=basic" target="_blank">Scopus</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=http://webofknowledge.com" target="_blank">Web of Science</a></li>
-																	<li><a href="https://oca.korea.ac.kr/link.n2s?url=https://scholar.google.com" target="_blank">Google Scholar</a></li>
-					
-					
-				</ul>
-				
-			</div><!-- .home-service-link-group : 2 -->
-						
-						<div class="home-service-link-group home-service-link-group-3">
-				
-								<ul>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/">컬렉션 리스트</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/new/total/">신착도서</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/pop/total/">인기도서</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/best/total/">베스트 대출도서</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/dvd/total/">소장 DVD자료</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/by-dept/liberal-arts/">학과별 필독도서</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/beautiful-fund/">아름다운재단도서</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/collection/organizations/guide/">UN/EU/OECD</a></li>
-														</ul>
-				
-								<ul>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/">아카이빙 리스트</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/thesis/thesis_collection/">학위논문</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/rarebook-oldbook/">귀중서(고서)</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/rarebook-oldserial/">귀중서(연속간행물)</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/specialbook-oldbook/">희구서(고서)</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/old-map/">고지도</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/kyungsungmain/kyungsung/">경성지방법원 DB</a></li>
-																	<li><a href="https://library.korea.ac.kr/datause/archiving/old-book-preserve/guide/">고서배접</a></li>
-										
-					
-				</ul>
-				
-			</div><!-- .home-service-link-group : 3 -->
+			</div><!-- .login-content -->
 			
-			
-			<div class="home-service-link-group home-service-link-group-4">
-
-				<ul>
-					<li class="home-service-hours-today">
-						<span class="home-service-date">2022 / 09 / 25</span>
-						<span class="home-service-day">SUN(일)</span>
-					</li>
-										<li class="home-service-hours">
-						<span class="home-service-library">중앙도서관</span>
-						<span class="home-service-time"><svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12,0C5.383,0,0,5.382,0,11.999C0,18.618,5.383,24,12,24s12-5.382,12-12.001C24,5.382,18.617,0,12,0z M12.001,22.128 c-5.603,0-10.16-4.542-10.16-10.129c0-5.584,4.557-10.126,10.16-10.126c5.603,0,10.159,4.542,10.159,10.126 C22.16,17.586,17.604,22.128,12.001,22.128z M12.938,11.612V4.339c0-0.516-0.42-0.935-0.936-0.935c-0.517,0-0.938,0.419-0.938,0.935 v7.659c0,0.249,0.101,0.492,0.275,0.665l3.75,3.75c0.177,0.176,0.41,0.272,0.662,0.272c0.249,0,0.483-0.099,0.662-0.272 c0.177-0.177,0.274-0.413,0.274-0.662c0-0.252-0.099-0.485-0.274-0.662L12.938,11.612z"></path></svg>휴관(Closed)</span>
-					</li>
-										<li class="home-service-hours">
-						<span class="home-service-library">중앙도서관(대학원)</span>
-						<span class="home-service-time"><svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12,0C5.383,0,0,5.382,0,11.999C0,18.618,5.383,24,12,24s12-5.382,12-12.001C24,5.382,18.617,0,12,0z M12.001,22.128 c-5.603,0-10.16-4.542-10.16-10.129c0-5.584,4.557-10.126,10.16-10.126c5.603,0,10.159,4.542,10.159,10.126 C22.16,17.586,17.604,22.128,12.001,22.128z M12.938,11.612V4.339c0-0.516-0.42-0.935-0.936-0.935c-0.517,0-0.938,0.419-0.938,0.935 v7.659c0,0.249,0.101,0.492,0.275,0.665l3.75,3.75c0.177,0.176,0.41,0.272,0.662,0.272c0.249,0,0.483-0.099,0.662-0.272 c0.177-0.177,0.274-0.413,0.274-0.662c0-0.252-0.099-0.485-0.274-0.662L12.938,11.612z"></path></svg>휴관(Closed)</span>
-					</li>
-										<li class="home-service-hours">
-						<span class="home-service-library">백주년기념삼성관</span>
-						<span class="home-service-time"><svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12,0C5.383,0,0,5.382,0,11.999C0,18.618,5.383,24,12,24s12-5.382,12-12.001C24,5.382,18.617,0,12,0z M12.001,22.128 c-5.603,0-10.16-4.542-10.16-10.129c0-5.584,4.557-10.126,10.16-10.126c5.603,0,10.159,4.542,10.159,10.126 C22.16,17.586,17.604,22.128,12.001,22.128z M12.938,11.612V4.339c0-0.516-0.42-0.935-0.936-0.935c-0.517,0-0.938,0.419-0.938,0.935 v7.659c0,0.249,0.101,0.492,0.275,0.665l3.75,3.75c0.177,0.176,0.41,0.272,0.662,0.272c0.249,0,0.483-0.099,0.662-0.272 c0.177-0.177,0.274-0.413,0.274-0.662c0-0.252-0.099-0.485-0.274-0.662L12.938,11.612z"></path></svg>휴관(Closed)</span>
-					</li>
-										<li class="home-service-hours">
-						<span class="home-service-library">법학도서관</span>
-						<span class="home-service-time"><svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12,0C5.383,0,0,5.382,0,11.999C0,18.618,5.383,24,12,24s12-5.382,12-12.001C24,5.382,18.617,0,12,0z M12.001,22.128 c-5.603,0-10.16-4.542-10.16-10.129c0-5.584,4.557-10.126,10.16-10.126c5.603,0,10.159,4.542,10.159,10.126 C22.16,17.586,17.604,22.128,12.001,22.128z M12.938,11.612V4.339c0-0.516-0.42-0.935-0.936-0.935c-0.517,0-0.938,0.419-0.938,0.935 v7.659c0,0.249,0.101,0.492,0.275,0.665l3.75,3.75c0.177,0.176,0.41,0.272,0.662,0.272c0.249,0,0.483-0.099,0.662-0.272 c0.177-0.177,0.274-0.413,0.274-0.662c0-0.252-0.099-0.485-0.274-0.662L12.938,11.612z"></path></svg>휴관(Closed)</span>
-					</li>
-										<li class="home-service-hours">
-						<span class="home-service-library">과학도서관</span>
-						<span class="home-service-time"><svg class="svg-icon" width="14" height="14" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12,0C5.383,0,0,5.382,0,11.999C0,18.618,5.383,24,12,24s12-5.382,12-12.001C24,5.382,18.617,0,12,0z M12.001,22.128 c-5.603,0-10.16-4.542-10.16-10.129c0-5.584,4.557-10.126,10.16-10.126c5.603,0,10.159,4.542,10.159,10.126 C22.16,17.586,17.604,22.128,12.001,22.128z M12.938,11.612V4.339c0-0.516-0.42-0.935-0.936-0.935c-0.517,0-0.938,0.419-0.938,0.935 v7.659c0,0.249,0.101,0.492,0.275,0.665l3.75,3.75c0.177,0.176,0.41,0.272,0.662,0.272c0.249,0,0.483-0.099,0.662-0.272 c0.177-0.177,0.274-0.413,0.274-0.662c0-0.252-0.099-0.485-0.274-0.662L12.938,11.612z"></path></svg>휴관(Closed)</span>
-					</li>
-					
-					
-					<li class="home-service-hours home-service-hours-more">
-						<!-- 2020.08.13 링크 수정 및 기존 소스 주석처리 -->
-						<a href="https://librsv.korea.ac.kr/" target="_blank">
-						<!--  <a href="/about/hours/reading-room/"> -->						
-							<span>일반열람실<br />상세보기</span>
-							<span><svg class="svg-icon" width="12" height="12" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M6,4l12,8L6,20V4z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span>
-						</a>
-					</li>
-				</ul>
-			</div><!-- .home-service-link-group : 4 -->
-			
-						<div class="home-service-link-group home-service-link-group-5">
-				<ul>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/student/">학부생</a></li>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/graduate-school/">대학원생</a></li>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/faculty/">교직원</a></li>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/graduate/">졸업생/퇴직자</a></li>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/donor/">기부자</a></li>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/disabled/">장애인</a></li>
-										
-												<li><a href="https://library.korea.ac.kr/about/by-user/visitor/">외부인</a></li>
-					
-									</ul>
-			</div><!-- .home-service-link-group : 5 -->
+			<div class="login-footer">
+				
+				<div class="login-guide">
+					<ul>
 						
-		</div><!-- .home-service-link-groups -->
-		
-	</div><!-- .home-services -->
-	
-	<div class="home-services-delimeter">
-		<div class="container">
-			<hr />
-		</div>
-	</div>
-	
-	<div class="home-notice-and-schedule">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-8">
-					<div class="home-notice">						
-						<div class="home-section-header d-flex justify-content-between align-items-center">					
-							<h3 class="home-section-heading">공지사항</h3>
-							<a class="view-all" href="/about/notice/">전체보기<svg class="svg-icon" width="12" height="12" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M6,4l12,8L6,20V4z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-						</div><!-- .home-section-header -->
-						<div class="home-notice-content row">
-							<div class="home-notice-text col-lg-6 order-lg-2"><!-- <div class="home-notice-text col-lg-7 order-lg-2"> -->
-								
-<ul>
-		<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=15600">
-			<i class="material-icons" style="color: #AE0E36; vertical-align: middle !important;">campaign</i>			[2022년 9월 30일] 도서관 귀중서고 견학 신청 안내					</a>
-		<span class="home-notice-date">05-14</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19730">
-			<i class="material-icons" style="color: #AE0E36; vertical-align: middle !important;">campaign</i>			특허정보검색 DB KIPRIS 이용교육 안내					</a>
-		<span class="home-notice-date">09-19</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19773">
-			<i class="material-icons" style="color: #AE0E36; vertical-align: middle !important;">campaign</i>			CCL 편집실 및 멀티미디어 교육 임시 중단 안내					</a>
-		<span class="home-notice-date">09-20</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19689">
-			<i class="material-icons" style="color: #AE0E36; vertical-align: middle !important;">campaign</i>			DBpia 국내 학술지 논문 투고료 지원사업 안내					</a>
-		<span class="home-notice-date">09-14</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19562">
-			<i class="material-icons" style="color: #AE0E36; vertical-align: middle !important;">campaign</i>			9월 도서관 정보이용교육 안내					</a>
-		<span class="home-notice-date">08-30</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19561">
-						[마감-추가모집] 과학도서관 Re-Think Space 2022학년도 2학기 신청 안내					</a>
-		<span class="home-notice-date">08-30</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19757">
-						[마감]중앙도서관 1층 인포메이션 센터 근로장학생 모집(휴학생)					</a>
-		<span class="home-notice-date">09-20</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19778">
-						IEEE 논문 투고 및 Open Access 국내 저자 특강 안내					</a>
-		<span class="home-notice-date">09-21</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19756">
-						학술정보큐레이션서비스 뉴스레터 2022. 9월호 발행					</a>
-		<span class="home-notice-date">09-20</span>
-	</li>
-				<li class="home-notice-item d-flex justify-content-between">
-		<a href="/about/notice/?mod=document&uid=19457">
-						학술정보큐레이션서비스 뉴스레터 2022. 8월호 발행					</a>
-		<span class="home-notice-date">08-19</span>
-	</li>
-			</ul>
-
-							</div><!-- .home-notice-text -->
-							<div class="home-notice-banner col-lg-6 order-lg-1"><!-- <div class="home-notice-banner col-lg-5 order-lg-1"> -->
-								<div class="home-notice-banner-slider">
-
-																			
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/publication/?mod=list&amp;category1=%EC%9D%B4%EC%9A%A9&amp;pageid=1"><img src="https://library.korea.ac.kr/wp-content/uploads/2022/09/banner_library.png" alt="도서관 이용백서" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;uid=19000"><img src="https://library.korea.ac.kr/wp-content/uploads/2022/06/banner_태블릿PC_대출.png" alt="태블릿 PC 대출 서비스 안내" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/publication/?mod=list&amp;category1=%EC%B1%85%EB%8B%B4%28%E5%86%8A%E8%AB%87%29&amp;pageid=1"><img src="https://library.korea.ac.kr/wp-content/uploads/2022/04/1-7.jpg" alt="책담-책, 사람을 잇다" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;uid=16639&amp;pageid=1"><img src="https://library.korea.ac.kr/wp-content/uploads/2021/10/photo_2021-10-01_17-21-36.jpg" alt="모리스 쿠랑을 찾아서" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;uid=16630"><img src="https://library.korea.ac.kr/wp-content/uploads/2021/10/211005_교보배너.png" alt="교보문고 핫트랙스 현장할인" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/datause/campaign/"><img src="https://library.korea.ac.kr/wp-content/uploads/2021/07/banner_0702.png" alt="코로나시대 고대인의 독서 시즌2" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;uid=14487"><img src="https://library.korea.ac.kr/wp-content/uploads/2020/12/notice_1.png" alt="도서관 챗봇" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/publication/?mod=document&amp;uid=13226&amp;pageid=1"><img src="https://library.korea.ac.kr/wp-content/uploads/2020/07/귀중서도록배너.jpg" alt="도서관 귀중서 도록" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;uid=13495"><img src="https://library.korea.ac.kr/wp-content/uploads/2020/08/코로나-공지문.jpg" alt="코로나19 도서관 이용 수칙" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																						
-																																			<div>
-													<!--  2020.04.10 공지사항 새창으로 열기 수정 -->
-																										<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;uid=11785"><img src="https://library.korea.ac.kr/wp-content/uploads/2020/04/DBsearch-banner.png" alt="데이터베이스 검색방법" /></a>												</div>
-												<!--  2020.04.10 공지사항 새창으로 열기  -->
-																
-																				
-																	</div>
-							</div><!-- .home-notice-banner -->
-						</div><!-- .home-notice-content -->
-					</div><!-- .home-notice -->
-				</div><!-- .col -->
-				<div class="col-xl-4">
-					<div class="home-schedule">
-						<div class="home-section-header d-flex justify-content-between align-items-center">			
-							<h3 class="home-section-heading">교육일정</h3>
-							<!-- 2022.09.01 아래 전체보기 URL 변경 - 변경전=/research/education/schedule/ -->
-							<a class="view-all" href="/research/education/schedule-2/">전체보기<svg class="svg-icon" width="12" height="12" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M6,4l12,8L6,20V4z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-						</div><!-- .home-section-header -->
-						<div class="home-schedule-content">
-							<ul>
-		
-		<li class="home-schedule-item d-flex">
-		<div class="home-schedule-date">
-			<div>화 </div>
-			<div>09-27</div>
-		</div>
-		<div class="home-schedule-title">
-			<a href="/research/education/schedule-2/?mod=document&uid=19549">[DBpia x 드림셀파] 대학원생이 꼭 들어야 하는 논문 작성법</a>
-			<div>18:00 ~ 21:00</div>
-		</div>
-	</li>
-		
-		<li class="home-schedule-item d-flex">
-		<div class="home-schedule-date">
-			<div>수 </div>
-			<div>09-28</div>
-		</div>
-		<div class="home-schedule-title">
-			<a href="/research/education/schedule-2/?mod=document&uid=19550">[DBpia x 드림셀파] 대학원생이 꼭 들어야 하는 논문 통계 특강</a>
-			<div>18:00 ~ 21:00</div>
-		</div>
-	</li>
-		
-		<li class="home-schedule-item d-flex">
-		<div class="home-schedule-date">
-			<div>수 </div>
-			<div>09-28</div>
-		</div>
-		<div class="home-schedule-title">
-			<a href="/research/education/schedule-2/?mod=document&uid=19552">KIPRIS 이용교육(고려대학교 전용교육)</a>
-			<div>14:00 ~ 17:00</div>
-		</div>
-	</li>
-		
-		<li class="home-schedule-item d-flex">
-		<div class="home-schedule-date">
-			<div>목 </div>
-			<div>09-29</div>
-		</div>
-		<div class="home-schedule-title">
-			<a href="/research/education/schedule-2/?mod=document&uid=19532">InCites 이용교육</a>
-			<div>14:00 ~ 15:00</div>
-		</div>
-	</li>
-	</ul>
-
-
-
-
-
-
-
-
+						<li>
+							아이디 및 비밀번호 분실시 "아이디/비밀번호 찾기" 기능을 이용하여 주시기 바랍니다.						</li>
+							<br>						
+						<li>
+							회원이 아니신 경우에는 "회원가입" 버튼을 눌러주시기 바랍니다.						</li>
 							
-						</div><!-- .home-schedule-content -->
-					</div>
-				</div>
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</div><!-- .home-notice-and-schedule -->
-	
-	
-	
-	
-		
-	<div class="home-card-links">
-		<div class="container">
-			<div class="row home-card-link-slider">
-										
-						
-								
-				<div>
-					
-										
-					<a href="https://library.korea.ac.kr/about/notice/?mod=document&amp;pageid=1&amp;keyword=%EA%B7%80%EC%A4%91%EC%84%9C%EA%B3%A0&amp;uid=15600" target="_blank">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2021/05/1.png)">
-						<div>
-							<h5>귀중서고 견학</h5>
-							<div>숨겨진 보물 같은 책 이야기</div>
 						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-								
-				<div>
-					
-										
-					<a href="https://sics.korea.ac.kr" target="_blank">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2019/10/5dba109d32b412733389.jpg)">
-						<div>
-							<h5>SICS</h5>
-							<div>학술정보큐레이션서비스(Scholarly Information Curation Service)</div>
-						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-								
-				<div>
-					
-										
-					<a href="http://www.fric.kr/user/centerMainView.do?centerId=korea" target="_blank">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2020/01/fric_korea.jpg)">
-						<div>
-							<h5>FRIC</h5>
-							<div>인문학분야 외국학술지지원센터 - 무료 원문복사 서비스 제공</div>
-						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-								
-				<div>
-					
-										
-					<a href="https://library.korea.ac.kr/oldmap/" target="_blank">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2020/01/고지도.jpg)">
-						<div>
-							<h5>고지도</h5>
-							<div>소장 고지도 중 학술적 가치와 희귀성이 높은 자료를 선별하여 디지털화</div>
-						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-								
-				<div>
-					
-										
-					<a href="https://library.korea.ac.kr/facilities/cclcj-creator-library/">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2019/10/5dba10d4cc7155737045.jpg)">
-						<div>
-							<h5>CCL</h5>
-							<div>새롭고 이상한 도서관인 동시에 모두가 꿈꿔보는 理想한 도서관(CJ Creator Library)</div>
-						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-								
-				<div>
-					
-										
-					<a href="https://library.korea.ac.kr/give/" target="_blank">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2019/10/5dba1082a76151797117.jpg)">
-						<div>
-							<h5>기부/기증</h5>
-							<div>도서관 기부/기증 통합 페이지</div>
-						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-								
-				<div>
-					
-										
-					<a href="http://dcollection.korea.ac.kr/browse/broColDir" target="_blank">					
-					<div class="home-card-link-item d-flex align-items-end" style="background-image:url(https://library.korea.ac.kr/wp-content/uploads/2019/10/5dba10addda811326760.jpg)">
-						<div>
-							<h5>귀중서</h5>
-							<div>고서와 연간물 중 학술적 가치와 희귀성이 높은 자료를 선별하여 디지털화</div>
-						</div>
-						<div class="home-card-link-screen"></div>
-					</div>
-					
-					</a>				</div>
-				
-						
-			</div><!-- .row.home-card-link-slider -->
-
-			<div class="home-card-link-nav d-flex justify-content-center align-items-center clearfix">
-				<div class="slick-arrows d-flex justify-content-center align-items-center order-2">
-					<a class="home-card-link-prev"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-					<a class="home-card-link-next"><svg class="svg-icon" width="24" height="24" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-				</div>
-			</div><!-- .home-card-link-nav -->
-
-		</div><!-- .container -->
-	</div><!-- .home-card-links -->
-										
-	
-				
-<script>
-	var retrieve_collection = function(collection) {
-		var ajaxurl = "/n2app/las/collection_main.php?collection="+collection+"";
-		jQuery(function($) {
-			$.ajax({
-				cache: false,
-				async: true,
-				type: 'get',
-				dataType: 'jsonp',
-				url: ajaxurl,
-				success: function(data) {
-					document.getElementById("collection-"+collection+"-result").innerHTML = data['html'];
-				}
-			});
-		});
-	}
-	
-	retrieve_collection('new');		// 메인: 신착도서
-	retrieve_collection('pop');		// 메인: 인기도서
-	retrieve_collection('best');	// 메인: 베스트대출
-</script>
-			
-	
-	<div class="home-recommended">
-		<div class="container">
-			<div class="row m-0">
-				<div class="col-xl-8 col-lg-6 p-0 home-recommended-books">
-					<ul class="sub-heading nav nav-tabs" role="tablist">			
-						<li class="nav-item"><a class="nav-link" id="featured-books-1-tab" data-toggle="tab" href="#featured-books-1" role="tab"><h3 class="home-section-heading">신착도서</h3></a></li>
-						<li class="nav-item"><a class="nav-link active" id="featured-books-2-tab" data-toggle="tab" href="#featured-books-2" role="tab"><h3 class="home-section-heading">인기도서</h3></a></li>
-						<li class="nav-item"><a class="nav-link" id="featured-books-3-tab" data-toggle="tab" href="#featured-books-3" role="tab"><h3 class="home-section-heading">베스트대출</h3></a></li>
 					</ul>
-					<div class="tab-content">
-						<div class="tab-pane fade" id="featured-books-1" role="tabpanel" aria-labelledby="featured-books-1-tab">
-							<div id="collection-new-result"><!--신착도서--></div>
-													</div><!-- #featured-books-1 -->
-						<div class="tab-pane fade show active" id="featured-books-2" role="tabpanel" aria-labelledby="featured-books-2-tab">
-							<div id="collection-pop-result"><!--인기도서--></div>
-													</div><!-- #featured-books-2 -->
-						<div class="tab-pane fade" id="featured-books-3" role="tabpanel" aria-labelledby="featured-books-3-tab">
-							<div id="collection-best-result"><!--베스트대출--></div>
-													</div><!-- #featured-books-3 -->
-					</div><!-- .tab-content -->
 				</div>
-				<div class="col-xl-4 col-lg-6 p-0 home-recommended-video">
-					<div class="sub-heading"><h3>Youtube</h3></div>
-					<div class="sns-video">
-						<iframe src="https://www.youtube.com/embed/DaLvX_lxx00?controls=0" title="YouTube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-					</div>
-				</div>
-			</div><!-- .row -->
-		</div><!-- .container -->
-	</div><!-- .home-recommend -->
-
+				
+			</div><!-- .login-footer -->
+			
+		</div><!-- .login -->
+		
+	</div><!-- .container -->
+	
 </div><!-- .entry-content -->
 	
-						
-				</article><!-- #post-9 -->
+				</article><!-- #post-78 -->
 	
 					
 			</main><!-- #main -->
@@ -1323,7 +660,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 						</div>
 						<div class="delimeter"></div>
 						<div class="col-auto d-flex justify-content-between align-items-center">
-							<a href="https://www.korea.ac.kr/" target="_blank" class="footer-link-item link-monotone">고려대학교</a>
+							<a href="https://www.korea.ac.kr/" target="_blank" class="footer-link-item link-monotone">별숲 도서관</a>
 						</div>
 										
 				</div><!-- .row -->
@@ -1502,7 +839,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 							<a href="/facilities/location/" class="link-monotone">찾아오는 길</a>
 						</div>
 						<div class="site-footer-text">
-							(02841) 서울시 성북구 안암로 145 고려대학교 도서관 &copy; KOREA UNIVERSITY LIBRARY ALL RIGHTS RESERVED.
+							(02841) 서울시 강남구 별숲로 별숲 도서관 &copy; STAR FOREST LIBRARY ALL RIGHTS RESERVED.
 						</div>
 					</div>
 					
@@ -1520,8 +857,31 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 
 </div><!-- #page -->
 
-
-
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap/js/bootstrap.bundle.js?ver=20190905' id='kulib-bootstrap-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-select/js/bootstrap-select.min.js?ver=20190905' id='kulib-bootstrap-select-js'></script>
+<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js?ver=20190927' id='kulib-moment-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js?ver=20190927' id='kulib-bootstrap-datetimepicker-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/slick-slider/slick.js?ver=20190905' id='kulib-slick-slider-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/no-ui-slider/nouislider.min.js?ver=20191003' id='kulib-no-ui-slider-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/no-ui-slider/wnumb/wNumb.js?ver=20191003' id='kulib-no-ui-slider-wnumb-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/themes/kulib/functions.js?ver=20220105' id='kulib-functions-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-includes/js/jquery/ui/core.min.js?ver=1.11.4' id='jquery-ui-core-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-includes/js/jquery/ui/datepicker.min.js?ver=1.11.4' id='jquery-ui-datepicker-js'></script>
+<script type='text/javascript' id='jquery-ui-datepicker-js-after'>
+jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeText":"\ub2eb\uae30","currentText":"\uc624\ub298","monthNames":["1\uc6d4","2\uc6d4","3\uc6d4","4\uc6d4","5\uc6d4","6\uc6d4","7\uc6d4","8\uc6d4","9\uc6d4","10\uc6d4","11\uc6d4","12\uc6d4"],"monthNamesShort":["1\uc6d4","2\uc6d4","3\uc6d4","4\uc6d4","5\uc6d4","6\uc6d4","7\uc6d4","8\uc6d4","9\uc6d4","10\uc6d4","11\uc6d4","12\uc6d4"],"nextText":"\ub2e4\uc74c","prevText":"\uc774\uc804","dayNames":["\uc77c\uc694\uc77c","\uc6d4\uc694\uc77c","\ud654\uc694\uc77c","\uc218\uc694\uc77c","\ubaa9\uc694\uc77c","\uae08\uc694\uc77c","\ud1a0\uc694\uc77c"],"dayNamesShort":["\uc77c","\uc6d4","\ud654","\uc218","\ubaa9","\uae08","\ud1a0"],"dayNamesMin":["\ud1a0","\uc6d4","\ubaa9","\uc218","\ubaa9","\uae08","\ud1a0"],"dateFormat":"yy\ub144 MM d\uc77c","firstDay":0,"isRTL":false});});
+</script>
+<script type='text/javascript' id='kboard-script-js-extra'>
+/* <![CDATA[ */
+var kboard_settings = {"version":"5.8","home_url":"\/","site_url":"\/","post_url":"https:\/\/library.korea.ac.kr\/wp-admin\/admin-post.php","ajax_url":"https:\/\/library.korea.ac.kr\/wp-admin\/admin-ajax.php","plugin_url":"https:\/\/library.korea.ac.kr\/wp-content\/plugins\/kboard","media_group":"6337bfb7ef50f","view_iframe":"","locale":"ko_KR","ajax_security":"42f4166be4"};
+var kboard_localize_strings = {"kboard_add_media":"KBoard \ubbf8\ub514\uc5b4 \ucd94\uac00","next":"\ub2e4\uc74c","prev":"\uc774\uc804","required":"%s\uc740(\ub294) \ud544\uc218\uc785\ub2c8\ub2e4.","please_enter_the_title":"\uc81c\ubaa9\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_author":"\uc791\uc131\uc790\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_password":"\ube44\ubc00\ubc88\ud638\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_CAPTCHA":"\uc606\uc5d0 \ubcf4\uc774\ub294 \ubcf4\uc548\ucf54\ub4dc\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_name":"\uc774\ub984\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_email":"\uc774\uba54\uc77c\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","you_have_already_voted":"\uc774\ubbf8 \ud22c\ud45c\ud588\uc2b5\ub2c8\ub2e4.","please_wait":"\uae30\ub2e4\ub824\uc8fc\uc138\uc694.","newest":"\ucd5c\uc2e0\uc21c","best":"\ucd94\ucc9c\uc21c","updated":"\uc5c5\ub370\uc774\ud2b8\uc21c","viewed":"\uc870\ud68c\uc21c","yes":"\uc608","no":"\uc544\ub2c8\uc694","did_it_help":"\ub3c4\uc6c0\uc774 \ub418\uc5c8\ub098\uc694?","hashtag":"\ud574\uc2dc\ud0dc\uadf8","tag":"\ud0dc\uadf8","add_a_tag":"\ud0dc\uadf8 \ucd94\uac00","removing_tag":"\ud0dc\uadf8 \uc0ad\uc81c","changes_you_made_may_not_be_saved":"\ubcc0\uacbd\uc0ac\ud56d\uc774 \uc800\uc7a5\ub418\uc9c0 \uc54a\uc744 \uc218 \uc788\uc2b5\ub2c8\ub2e4.","name":"\uc774\ub984","email":"\uc774\uba54\uc77c","address":"\uc8fc\uc18c","postcode":"\uc6b0\ud3b8\ubc88\ud638","phone_number":"\ud734\ub300\ud3f0\ubc88\ud638","mobile_phone":"\ud734\ub300\ud3f0\ubc88\ud638","phone":"\ud734\ub300\ud3f0\ubc88\ud638","company_name":"\ud68c\uc0ac\uba85","vat_number":"\uc0ac\uc5c5\uc790\ub4f1\ub85d\ubc88\ud638","bank_account":"\uc740\ud589\uacc4\uc88c","name_of_deposit":"\uc785\uae08\uc790\uba85","find":"\ucc3e\uae30","rate":"\ub4f1\uae09","ratings":"\ub4f1\uae09","waiting":"\ub300\uae30","complete":"\uc644\ub8cc","question":"\uc9c8\ubb38","answer":"\ub2f5\ubcc0","notify_me_of_new_comments_via_email":"\uc774\uba54\uc77c\ub85c \uc0c8\ub85c\uc6b4 \ub313\uae00 \uc54c\ub9bc \ubc1b\uae30","ask_question":"\uc9c8\ubb38\ud558\uae30","categories":"\uce74\ud14c\uace0\ub9ac","pages":"\ud398\uc774\uc9c0","all_products":"\uc804\uccb4\uc0c1\ud488","your_orders":"\uc8fc\ubb38\uc870\ud68c","your_sales":"\ud310\ub9e4\uc870\ud68c","my_orders":"\uc8fc\ubb38\uc870\ud68c","my_sales":"\ud310\ub9e4\uc870\ud68c","new_product":"\uc0c1\ud488\ub4f1\ub85d","edit_product":"\uc0c1\ud488\uc218\uc815","delete_product":"\uc0c1\ud488\uc0ad\uc81c","seller":"\ud310\ub9e4\uc790","period":"\uae30\uac04","period_of_use":"\uc0ac\uc6a9\uae30\uac04","last_updated":"\uc5c5\ub370\uc774\ud2b8 \ub0a0\uc9dc","list_price":"\uc815\uc0c1\uac00\uaca9","price":"\ud310\ub9e4\uac00\uaca9","total_price":"\ucd1d \uac00\uaca9","amount":"\uacb0\uc81c\uae08\uc561","quantity":"\uc218\ub7c9","use_points":"\ud3ec\uc778\ud2b8 \uc0ac\uc6a9","my_points":"\ub0b4 \ud3ec\uc778\ud2b8","available_points":"\uc0ac\uc6a9 \uac00\ub2a5 \ud3ec\uc778\ud2b8","apply_points":"\ud3ec\uc778\ud2b8 \uc0ac\uc6a9","buy_it_now":"\uad6c\ub9e4\ud558\uae30","sold_out":"\ud488\uc808","for_free":"\ubb34\ub8cc","pay_s":"%s \uacb0\uc81c","payment_method":"\uacb0\uc81c\uc218\ub2e8","credit_card":"\uc2e0\uc6a9\uce74\ub4dc","make_a_deposit":"\ubb34\ud1b5\uc7a5\uc785\uae08","reward_point":"\uc801\ub9bd \ud3ec\uc778\ud2b8","download_expiry":"\ub2e4\uc6b4\ub85c\ub4dc \uae30\uac04","checkout":"\uc8fc\ubb38\uc815\ubcf4\ud655\uc778","buyer_information":"\uc8fc\ubb38\uc790","applying_cash_receipts":"\ud604\uae08\uc601\uc218\uc99d \uc2e0\uccad","applying_cash_receipt":"\ud604\uae08\uc601\uc218\uc99d \uc2e0\uccad","cash_receipt":"\ud604\uae08\uc601\uc218\uc99d","privacy_policy":"\uac1c\uc778 \uc815\ubcf4 \uc815\ucc45","i_agree_to_the_privacy_policy":"\uac1c\uc778 \uc815\ubcf4 \uc815\ucc45\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.","i_confirm_the_terms_of_the_transaction_and_agree_to_the_payment_process":"\uac70\ub798\uc870\uac74\uc744 \ud655\uc778\ud588\uc73c\uba70 \uacb0\uc81c\uc9c4\ud589\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.","today":"\uc624\ub298","yesterday":"\uc5b4\uc81c","this_month":"\uc774\ubc88\ub2ec","last_month":"\uc9c0\ub09c\ub2ec","last_30_days":"\ucd5c\uadfc30\uc77c","agree":"\ucc2c\uc131","disagree":"\ubc18\ub300","opinion":"\uc758\uacac","comment":"\ub313\uae00","comments":"\ub313\uae00","your_order_has_been_cancelled":"\uc8fc\ubb38\uc774 \ucde8\uc18c\ub418\uc5c8\uc2b5\ub2c8\ub2e4.","order_information_has_been_changed":"\uc8fc\ubb38\uc815\ubcf4\uac00 \ubcc0\uacbd\ub418\uc5c8\uc2b5\ub2c8\ub2e4.","order_date":"\uc8fc\ubb38\uc77c","point_payment":"\ud3ec\uc778\ud2b8 \uacb0\uc81c","cancel_point_payment":"\ud3ec\uc778\ud2b8 \uacb0\uc81c \ucde8\uc18c","paypal":"\ud398\uc774\ud314","point":"\ud3ec\uc778\ud2b8","zipcode":"\uc6b0\ud3b8\ubc88\ud638","this_year":"\uc62c\ud574","last_year":"\uc791\ub144","period_total":"\uae30\uac04 \ud569\uacc4","total_revenue":"\uc804\uccb4 \uc218\uc775","terms_of_service":"\uc774\uc6a9\uc57d\uad00","i_agree_to_the_terms_of_service":"\uc774\uc6a9\uc57d\uad00\uc5d0 \ub3d9\uc758\ud569\ub2c8\ub2e4.","your_shopping_cart_is_empty":"\uc7a5\ubc14\uad6c\ub2c8\uac00 \ube44\uc5b4 \uc788\uc2b5\ub2c8\ub2e4!","category":"\uce74\ud14c\uace0\ub9ac","select":"\uc120\ud0dd","category_select":"Category select"};
+var kboard_comments_localize_strings = {"reply":"\ub2f5\uae00","cancel":"\ucde8\uc18c","please_enter_the_author":"\uc791\uc131\uc790\uba85\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_password":"\ube44\ubc00\ubc88\ud638\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_CAPTCHA":"\ubcf4\uc548\ucf54\ub4dc\ub97c \uc785\ub825\ud574\uc8fc\uc138\uc694.","please_enter_the_content":"\ub0b4\uc6a9\uc744 \uc785\ub825\ud574\uc8fc\uc138\uc694.","are_you_sure_you_want_to_delete":"\uc0ad\uc81c \ud558\uc2dc\uaca0\uc2b5\ub2c8\uae4c?","please_wait":"\uc7a0\uc2dc\ub9cc \uae30\ub2e4\ub824\uc8fc\uc138\uc694.","name":"\uc774\ub984","email":"\uc774\uba54\uc77c","address":"\uc8fc\uc18c","postcode":"\uc6b0\ud3b8\ubc88\ud638","phone_number":"\uc5f0\ub77d\ucc98","find":"\ucc3e\uae30","rate":"\ub4f1\uae09","ratings":"\ub4f1\uae09","waiting":"\ub300\uae30","complete":"\uc644\ub8cc","question":"\uc9c8\ubb38","answer":"\ub2f5\ubcc0","notify_me_of_new_comments_via_email":"\uc774\uba54\uc77c\ub85c \uc0c8\ub85c\uc6b4 \ub313\uae00 \uc54c\ub9bc \ubc1b\uae30","comment":"\ub313\uae00","comments":"\ub313\uae00"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/plugins/kboard/template/js/script.js?ver=5.8' id='kboard-script-js'></script>
+<script type='text/javascript' src='https://library.korea.ac.kr/wp-content/plugins/cosmosfarm-korealib/assets/js/list.js?ver=1.0' id='cosmosfarm-korealib-list-js'></script>
+	<script>
+	/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+	</script>
 
 </body>
 </html>

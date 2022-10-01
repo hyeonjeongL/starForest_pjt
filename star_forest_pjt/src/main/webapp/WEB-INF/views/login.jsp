@@ -6,7 +6,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta property="og:type" content="website" />
-	<meta property="og:title" content="고려대학교 도서관" />
+	<meta property="og:title" content="별숲 도서관" />
 	<meta property="og:url" content="https://library.korea.ac.kr" />
 	<meta property="og:description" content="" />
 		<meta property="og:image" content="https://library.korea.ac.kr/wp-content/uploads/2021/11/kulib_logo.png" />

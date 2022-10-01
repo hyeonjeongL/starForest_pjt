@@ -1,0 +1,26 @@
+<HTML>
+<HEAD>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="qrcode.js"></script>
+<style>
+	h1 {text-align:center;}
+</style>
+</HEAD>
+<BODY>
+		<h1>회원 QR Code 발급</h1><hr><br><br>
+		<div id="qrcode"></div>
+</BODY>
+<script type="text/javascript">
+
+	var qrcode = new QRCode(document.getElementById("qrcode"), {
+		text: "https://blog.naver.com/rnflekrhdy",
+		width: 128,
+		height: 128,
+		colorDark : "#000000",
+		colorLight : "#ffffff",
+		correctLevel : QRCode.CorrectLevel.H
+	});
+
+	$("#qrcode > img").css({"margin":"auto"});
+</script>
+</HTML>

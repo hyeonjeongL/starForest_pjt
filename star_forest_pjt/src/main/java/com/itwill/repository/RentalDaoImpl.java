@@ -29,7 +29,7 @@ public class RentalDaoImpl implements RentalDao{
 
 	
 	@Override
-	public List<Rental> selectByNo(int book_no) {
+	public List<Map<String, Object>> selectByNo(int book_no) {
 		return rentalMapper.selectByNo(book_no);
 	}
 

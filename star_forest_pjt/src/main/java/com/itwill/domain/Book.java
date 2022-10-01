@@ -1,6 +1,7 @@
 package com.itwill.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.apache.ibatis.type.Alias;
 @Alias("Book")
@@ -21,14 +22,17 @@ public class Book {
 	int book_res_cnt;
 	int book_rental_cnt;
 	int category_no;
+	Rental rental;
+	
 	
 	public Book() {
 	}
 
+	
 	public Book(int book_no, int isbn, String book_title, String book_author, String book_publisher,
 			String book_summary, String book_publish_date, Date book_input_date, String book_image,
-			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt,
-			int category_no) {
+			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no,
+			Rental rental) {
 		super();
 		this.book_no = book_no;
 		this.isbn = isbn;
@@ -45,6 +49,7 @@ public class Book {
 		this.book_res_cnt = book_res_cnt;
 		this.book_rental_cnt = book_rental_cnt;
 		this.category_no = category_no;
+		this.rental = rental;
 	}
 
 	public int getBook_no() {
@@ -168,17 +173,26 @@ public class Book {
 		this.category_no = category_no;
 	}
 
+	public Rental getRental() {
+		return rental;
+	}
+
+	public void setRental(Rental rental) {
+		this.rental = rental;
+	}
+
+
 	@Override
 	public String toString() {
-		return "BookDto [book_no=" + book_no + ", isbn=" + isbn + ", book_title=" + book_title + ", book_author="
+		return "Book [book_no=" + book_no + ", isbn=" + isbn + ", book_title=" + book_title + ", book_author="
 				+ book_author + ", book_publisher=" + book_publisher + ", book_summary=" + book_summary
-				+ ", book_publish_date=" + book_publish_date + ", book_input_date=" + book_input_date 
-				+ ", book_image=" + book_image + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
+				+ ", book_publish_date=" + book_publish_date + ", book_input_date=" + book_input_date + ", book_image="
+				+ book_image + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
 				+ book_qty + ", book_res_cnt=" + book_res_cnt + ", book_rental_cnt=" + book_rental_cnt
-				+ ", category_no=" + category_no + "]";
+				+ ", category_no=" + category_no + ", rental=" + rental + "]";
 	}
-	
-	
+
+
 
 }
 

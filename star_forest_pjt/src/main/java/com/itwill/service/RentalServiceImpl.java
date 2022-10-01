@@ -27,7 +27,7 @@ public class RentalServiceImpl implements RentalService{
 	}
 
 	@Override
-	public List<Rental> selectByNo(int book_no) {
+	public List<Map<String, Object>> selectByNo(int book_no) {
 		return rentalDao.selectByNo(book_no);
 	}
 

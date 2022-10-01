@@ -17,4 +17,19 @@ public interface SearchMapper {
 	@Select("select * from book where book_title like ?")
 	public List<Search> TitleList();
 
+	//번호검색
+	@Select("select * from book where book_no=?")
+	public Search selectByNo(int book_no);
+	
+	//저자검색
+	@Select("select * from book where book_author like ?")
+	public List<Search> AuthorList();
+	
+	//출판사검색
+	@Select("select * from book where book_publisher like ?")
+	List<Search> PublisherList(String keyword);
+	
+	//분야검색
+	@Select("select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no  where bc.category_name like ?")
+	public List<Search> CategoryList();
 }

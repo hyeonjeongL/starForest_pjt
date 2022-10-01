@@ -19,7 +19,7 @@ public class Search {
 	private int book_res_cnt;
 	private int book_rental_cnt;
 	private int category_no;
-	//private String category_name;
+	private String category_name;
 	
 	public Search() {
 		// TODO Auto-generated constructor stub
@@ -45,7 +45,14 @@ public class Search {
 		this.book_res_cnt = book_res_cnt;//필요?
 		this.book_rental_cnt = book_rental_cnt;//필요?
 		this.category_no = category_no;
-		//this.category_name = category_name;//필요?
+	}
+
+	public String getCategory_name() {
+		return category_name;
+	}
+
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
 	}
 
 	public int getBook_no() {
@@ -167,15 +174,17 @@ public class Search {
 	public void setCategory_no(int category_no) {
 		this.category_no = category_no;
 	}
-/*
-	public String getCategory_name() {
-		return category_name;
+
+	@Override
+	public String toString() {
+		return "Search [book_no=" + book_no + ", isbn=" + isbn + ", book_title=" + book_title + ", book_author="
+				+ book_author + ", book_publisher=" + book_publisher + ", book_summary=" + book_summary
+				+ ", book_publish_date=" + book_publish_date + ", book_image=" + book_image + ", book_input_date="
+				+ book_input_date + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
+				+ book_qty + ", book_res_cnt=" + book_res_cnt + ", book_rental_cnt=" + book_rental_cnt
+				+ ", category_no=" + category_no + "]";
 	}
 
-	public void setCategory_name(String category_name) {
-		this.category_name = category_name;
-	}
-	*/
 	
 	
 }

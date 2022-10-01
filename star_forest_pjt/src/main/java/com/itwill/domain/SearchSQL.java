@@ -9,14 +9,14 @@ public class SearchSQL {
 	public static final String BOOK_SELECT_BY_TITLE_LIST
 	="select * from (select rownum idx, s.* from (select * from book where book_title like ? order by book_title) s) where idx >= ? and idx <= ?";
 	
-	/*
+	
 	//통합 검색(제목,저자,카테고리)
 	public static final String BOOK_SELECT_ALL
 	="select * from book where book_title like ? or book_author like ? or category_no like ? or book_publisher like ?";
 	
 	public static final String BOOK_SELECT_ALL_LIST
 	="select * from (select rownum idx, s.* from (select * from book where b_name like ? or b_author like ? or b_class like ? or b_publisher like ? order by b_name) s) where idx >= ? and idx <= ?";
-	*/
+	
 	
 	//저자 검색
 	public static final String BOOK_SELECT_BY_AUTHOR
@@ -32,14 +32,21 @@ public class SearchSQL {
 	public static final String BOOK_SELECT_BY_PUBLISHER_LIST
 	="select * from (select rownum idx, s.* from (select * from book where book_publisher like ? order by book_publisher) s) where idx >= ? and idx <= ?";
 	
-	/*
-	//카테고리 검색?
-	public static final String BOOK_SELECT_BY_CLASS
-	="select * from book where b_class like ?";
 	
-	public static final String BOOK_SELECT_BY_CLASS_LIST
-	="select * from (select rownum idx, s.* from (select * from book where b_class like ? order by b_class) s) where idx >= ? and idx <= ?";
-	*/
+	//카테고리 검색_번호
+	public static final String BOOK_SELECT_BY_CATEGORY_NO
+	="select * from book where category_no like ?";
+	
+	public static final String BOOK_SELECT_BY_CATEGORY_NO_LIST
+	="select * from (select rownum idx, s.* from (select * from book where category_no like ? order by category_no) s) where idx >= ? and idx <= ?";
+	
+	//카테고리 검색_분야명
+	public static final String BOOK_SELECT_BY_CATEGORY_NAME
+	="select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no  where bc.category_name like ?";
+	
+	public static final String BOOK_SELECT_BY_CATEGORY_NAME_LIST
+	="select * from (select rownum idx, s.* from (select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no where bc.category_name like ? order by bc.category_name) s) where idx >= ? and idx <= ?";
+	
 	
 	//도서 리스트
 	public static final String BOOK_LIST

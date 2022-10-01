@@ -33,5 +33,29 @@ public class SearchServiceImpl implements SearchService{
 		// TODO Auto-generated method stub
 		return null;
 	}*/
+	
+	//번호 검색
+	@Override
+	public Search selectByNo(int book_no) throws Exception {
+		return searchDao.selectByNo(book_no);
+	}
+	
+	//저자 검색
+	@Override
+	public List<Search> selectByAuthor(String keyword) throws Exception {
+		return searchDao.selectByAuthor(keyword);
+	}
+	
+	//출판사검색
+	@Override
+	public List<Search> selectByPublisher(String keyword) throws Exception {
+		return searchDao.selectByPublisher(keyword);
+	}
+	
+	//
+	@Override
+	public List<Search> selectByCategoryName(String keyword) throws Exception {
+		return searchDao.selectByCategoryName(keyword);
+	}
 
 }

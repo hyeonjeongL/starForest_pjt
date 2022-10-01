@@ -25,13 +25,13 @@ public interface UserDao2 {
 	
 	
 	//아이디중복
-	boolean existUserId(String user_Id)throws Exception;
+	boolean  existUserId(String user_Id)throws Exception;
 	
 	//전화번호 중복
-	boolean existUserPhone(String user_phone)throws Exception;
+	boolean  existUserPhone(String user_phone)throws Exception;
 	
 	//이메일 중복
-	boolean existUserEmail(String user_email)throws Exception;
+	boolean  existUserEmail(String user_email)throws Exception;
 	
 	//아이디 찾기 
 	 String findId(String user_name, String user_phone)throws Exception;

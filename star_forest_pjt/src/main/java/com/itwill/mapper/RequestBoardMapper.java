@@ -3,6 +3,7 @@ package com.itwill.mapper;
 import java.util.List;
 
 
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -46,9 +47,10 @@ public interface RequestBoardMapper {
 			+ "	where user_id = #{user_id}")
 	public List<RequestBoard> findUserBoard(String user_id);
 	
-	//게시물 존재 여부
-	@Select("SELECT count(*) FROM request_board WHERE groupno = #{groupno} AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC")
-	public int isExisted(RequestBoard requestBoard);
+	//게시물 존재 여부  ..?
+	@Select("SELECT count(*) FROM request_board WHERE groupno = #{groupno} AND board_depth > 0 AND board_step > 1 ORDER BY board_step,board_depth ASC")
+	public boolean isExisted(int groupno);
+	
 	
 	//게시물 삭제(게시판번호)
 	@Delete("delete from request_board where board_no=#{board_no}")
@@ -70,7 +72,7 @@ public interface RequestBoardMapper {
 	public int addReadCount(int board_no);
 	
 	//게시물 전체 리스트
-	@Select("select * from\r\n"
+	@Select("select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_no,user_id from\r\n"
 			+ "	request_board\r\n"
 			+ "	order by groupno desc, board_step asc")
 	public List<RequestBoard> selectAll();

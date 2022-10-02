@@ -22,7 +22,7 @@ public class RequestBoard {
 	public String board_title;
 	public Date board_date;
 	public String board_content;
-	public int readcount;
+	public int board_readcount;
 	public String board_status;
 	public int board_type_no;
 	public int board_depth;
@@ -43,7 +43,7 @@ public class RequestBoard {
 		this.board_title = board_title;
 		this.board_date = board_date;
 		this.board_content = board_content;
-		this.readcount = readcount;
+		this.board_readcount = readcount;
 		this.board_status = board_status;
 		this.board_type_no = board_type_no;
 		this.board_depth = board_depth;
@@ -86,11 +86,11 @@ public class RequestBoard {
 	}
 
 	public int getReadcount() {
-		return readcount;
+		return board_readcount;
 	}
 
 	public void setReadcount(int readcount) {
-		this.readcount = readcount;
+		this.board_readcount = readcount;
 	}
 
 	public String getBoard_status() {
@@ -152,7 +152,7 @@ public class RequestBoard {
 	@Override
 	public String toString() {
 		return "RequestBoard [board_no=" + board_no + ", board_title=" + board_title + ", board_date=" + board_date
-				+ ", board_content=" + board_content + ", readcount=" + readcount + ", board_status=" + board_status
+				+ ", board_content=" + board_content + ", board_readcount=" + board_readcount + ", board_status=" + board_status
 				+ ", board_type_no=" + board_type_no + ", board_depth=" + board_depth + ", board_step=" + board_step
 				+ ", groupno=" + groupno + ", category_no=" + category_no + ", user_id=" + user_id + "]";
 	}

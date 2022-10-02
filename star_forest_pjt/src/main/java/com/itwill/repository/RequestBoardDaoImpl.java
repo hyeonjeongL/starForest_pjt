@@ -25,9 +25,7 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 
 	@Override
 	public int createReply(RequestBoard requestBoard) throws Exception {
-		int rowCount = requestBoardMapper.createReply(requestBoard);
-		
-		return rowCount;
+		return requestBoardMapper.createReply(requestBoard);
 	}
 
 	@Override
@@ -36,8 +34,14 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public int isExisted(RequestBoard requestBoard) throws Exception {
-		return requestBoardMapper.isExisted(requestBoard);
+	public boolean isExisted(int groupno) throws Exception {
+		boolean isExisted=false;
+		if(requestBoardMapper.isExisted(groupno)==true) {
+			isExisted=true;
+		}else {
+			isExisted=false;
+		}
+		return isExisted;
 	}
 
 	@Override

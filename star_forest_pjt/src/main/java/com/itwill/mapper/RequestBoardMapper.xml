@@ -43,8 +43,8 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 </select>
 
 //게시물 존재 여부 
-<select id="isExisted" parameterType="com.itwill.domain.RequestBoard" resultType="Integer">
-	SELECT count(*) FROM request_board WHERE groupno = #{groupno} AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC
+<select id="isExisted" parameterType="com.itwill.domain.RequestBoard" resultType="boolean">
+	SELECT if(count(*) =1,1,0) FROM request_board WHERE groupno = #{groupno} AND board_depth >= 0 AND board_step >= 1 ORDER BY board_step,board_depth ASC
 
 </select>
 
@@ -72,8 +72,8 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 
 // 게시물 전체 리스트
 <select id="selectAll" resultType="com.itwill.domain.RequestBoard">
-	select * from
-	request_board
+	select select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_no,user_id
+	from request_board
 	order by groupno desc, board_step asc
 </select>
 

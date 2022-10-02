@@ -20,7 +20,7 @@ public interface RequestBoardDao {
 		List<RequestBoard> findUserBoard(String user_id) throws Exception;
 		
 		//게시물 존재 여부
-		int isExisted(RequestBoard requestBoard) throws Exception;
+		boolean isExisted(int groupno) throws Exception;
 		
 		//게시물 삭제(게시판번호)
 		int delete(int board_no) throws Exception;

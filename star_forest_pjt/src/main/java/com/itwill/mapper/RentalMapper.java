@@ -3,6 +3,7 @@ package com.itwill.mapper;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Result;
 import org.apache.ibatis.annotations.ResultMap;
@@ -15,6 +16,13 @@ import com.itwill.domain.Rental;
 
 @Mapper
 public interface RentalMapper {
+	
+	/** 대여 시 insert*/
+	@Insert("insert into rental (rental_no,rental_date,return_duedate,"
+			+ "					 return_date,rental_status,book_no,user_id) "
+			+ "values(#{rental_no},#{rental_date},#{return_duedate},#{return_date},"
+			+ "		  #{rental_status},#{book_no},#{user_id})")
+	public int insertRental(Rental rental);
 	
 	/** 대여 기간 연장*/
 	@Update("update rental set return_duedate = return_duedate+7"
@@ -42,9 +50,19 @@ public interface RentalMapper {
 	
 	
 	/** 반납했을 때 렌탈테이블 업데이트 (admin)*/
-	@Update("update rental set rental_status = 0 "
+	@Update("update rental set rental_status = 0, return_date=sysdate "
 			+ "where user_id = #{user_id} and book_no = #{book_no}")
 	public int updateRentalStatus(String user_id, int book_no);
+	
+	
+	//Dao, service 추가해야함
+	
+	
+	/** 연체중일 때 status 2(연체)로 변경*/
+	@Update("update rental set rental_status=2"
+			+ "where rental_no=#{rental_no}")
+	public int updateRentalStatusOverdue(int rental_no);
+	
 	
 
 }

@@ -18,6 +18,11 @@ public class RentalDaoImpl implements RentalDao{
 	private RentalMapper rentalMapper;
 
 	@Override
+	public int insertRental(Rental rental) {
+		return rentalMapper.insertRental(rental);
+	}
+	
+	@Override
 	public int updateDate(String user_in, int book_no) {
 		return rentalMapper.updateDate(user_in, book_no);
 	}
@@ -37,6 +42,7 @@ public class RentalDaoImpl implements RentalDao{
 	public int updateRentalStatus(String user_id, int book_no) {
 		return rentalMapper.updateRentalStatus(user_id, book_no);
 	}
+
 
 
 	

@@ -148,7 +148,7 @@ CREATE TABLE Reservation
 	res_date date,
 	res_status number DEFAULT 1,
 	book_no number NOT NULL,
-	user_id varchar2(100) NOT NULL UNIQUE,
+	user_id varchar2(100) NOT NULL,
 	PRIMARY KEY (res_no)
 );
 

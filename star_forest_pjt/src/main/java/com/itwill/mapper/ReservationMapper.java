@@ -19,6 +19,8 @@ public interface ReservationMapper {
 	@Delete("delete from reservation where user_id=#{user_id} and book_no=#{book_no}")
 	public int deleteReservation(String user_id, int book_no);
 	
+	//예약 리스트 출력
+	
 	
 
 }

@@ -12,6 +12,8 @@ import com.itwill.domain.Rental;
 
 public interface RentalDao {
 	
+	int insertRental(Rental rental);
+	
 	int updateDate(String user_id, int book_no);
 	
 	List<Rental> selectById(String user_id);

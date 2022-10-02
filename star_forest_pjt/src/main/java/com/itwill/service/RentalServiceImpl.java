@@ -46,6 +46,11 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.updateRentalStatus(user_id, book_no);
 	}
 
+	@Override
+	public int updateRentalStatusOverdue(int rental_no) {
+		return rentalDao.updateRentalStatusOverdue(rental_no);
+	}
+
 
 	
 }

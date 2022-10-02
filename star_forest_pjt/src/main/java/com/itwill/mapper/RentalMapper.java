@@ -55,14 +55,14 @@ public interface RentalMapper {
 	public int updateRentalStatus(String user_id, int book_no);
 	
 	
-	//Dao, service 추가해야함
+	//Dao, service 추가해야함 테스트도 해야함
 	
-	
-	/** 연체중일 때 status 2(연체)로 변경*/
+	/** 연체중일 때 status 2(연체)로 변경 자동으로 구현할 수 있을까?*/
 	@Update("update rental set rental_status=2"
 			+ "where rental_no=#{rental_no}")
 	public int updateRentalStatusOverdue(int rental_no);
-	
+//	
+
 	
 
 }

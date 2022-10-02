@@ -1,5 +1,7 @@
 package com.itwill.service;
 
+import java.util.List;
+
 import com.itwill.domain.Reservation;
 
 public interface ReservationService {
@@ -9,5 +11,8 @@ public interface ReservationService {
 	
 	//예약이 대출로 변경되면 예약리스트 삭제
 	int deleteReservation(String user_id, int book_no);
+	
+	//책에 대한 예약 리스트 출력
+	List<Reservation> selectReservationList(int book_no); 
 
 }

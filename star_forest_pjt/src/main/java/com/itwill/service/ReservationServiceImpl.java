@@ -1,5 +1,7 @@
 package com.itwill.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +24,13 @@ public class ReservationServiceImpl implements ReservationService {
 	public int deleteReservation(String user_id, int book_no) {
 		return reservationDao.deleteReservation(user_id, book_no);
 	}
+
+	//책에 대한 예약 리스트 출력
+	@Override
+	public List<Reservation> selectReservationList(int book_no) {
+		return reservationDao.selectReservationList(book_no);
+	}
+
 	
 	
 }

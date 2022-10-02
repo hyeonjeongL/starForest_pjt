@@ -43,7 +43,10 @@ public class RentalDaoImpl implements RentalDao{
 		return rentalMapper.updateRentalStatus(user_id, book_no);
 	}
 
-
+	@Override
+	public int updateRentalStatusOverdue(int rental_no) {
+		return rentalMapper.updateRentalStatusOverdue(rental_no);
+	}
 
 	
 	

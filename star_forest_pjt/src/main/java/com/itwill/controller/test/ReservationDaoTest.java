@@ -39,8 +39,9 @@ public class ReservationDaoTest {
 		Date date = new Date();
 		Reservation newRes = new Reservation(100, date, 1, 100, "woohyuk");
 //		System.out.println(reservationDao.insertReservation(newRes));
-		System.out.println(reservationDao.deleteReservation("woohyuk", 100));
+//		System.out.println(reservationDao.deleteReservation("woohyuk", 100));
+		System.out.println(reservationDao.selectReservationList(7));
 	
 	}
 }
-//테스트완료
+//테스트완료 --> 예약리스트 출력 안됨 왜??????

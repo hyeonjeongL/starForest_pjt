@@ -21,5 +21,8 @@ public interface RentalDao {
 	List<Map<String, Object>> selectByNo(int book_no);
 	
 	int updateRentalStatus(String user_id, int book_no);
+	
+	int updateRentalStatusOverdue(int rental_no);
+	
 
 }

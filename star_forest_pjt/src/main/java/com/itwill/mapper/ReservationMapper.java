@@ -1,9 +1,13 @@
 package com.itwill.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
+import com.itwill.domain.Rental;
 import com.itwill.domain.Reservation;
 
 @Mapper
@@ -19,8 +23,9 @@ public interface ReservationMapper {
 	@Delete("delete from reservation where user_id=#{user_id} and book_no=#{book_no}")
 	public int deleteReservation(String user_id, int book_no);
 	
-	//예약 리스트 출력
-	
+	//책에 대한 예약 리스트 출력
+	@Select("select * from reservation where book_no=#{book_no}")
+	public List<Reservation> selectReservationList(int book_no);
 	
 
 }

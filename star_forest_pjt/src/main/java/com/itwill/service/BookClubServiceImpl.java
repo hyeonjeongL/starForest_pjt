@@ -56,7 +56,7 @@ public class BookClubServiceImpl implements BookClubService {
 		return bookClubDao.update(bookClub);
 	}
 
-	//동아리 가입되면서 인원수 카운트
+	//동아리 가입 (동시에 인원수 카운트)
 	@Override
 	public int clubJoin(String user_id,int club_no) throws Exception {
 		return bookClubDao.clubJoin(user_id,club_no);

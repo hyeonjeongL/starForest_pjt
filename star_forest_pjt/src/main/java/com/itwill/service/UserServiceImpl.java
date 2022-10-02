@@ -19,7 +19,8 @@ public class UserServiceImpl implements UserService {
 		/*
 		 * 아이디중복체크
 		 * 
-		 * -1:아이디중복 1:회원가입성공
+		 * -1:아이디중복 
+		 * 1:회원가입성공
 		 */
 		if (userDao.existedUser(user.getUser_id())) {
 			// 중복될 경우 -1 반환
@@ -37,7 +38,9 @@ public class UserServiceImpl implements UserService {
 		/*
 		 * 회원로그인
 		 * 
-		 * 0:아이디존재안함 -1:패쓰워드 불일치 1:로그인성공
+		 * 0:아이디존재안함 
+		 * -1:패쓰워드 불일치 
+		 * 1:로그인성공
 		 */
 
 		if (userDao.existedUser(user_id)) {

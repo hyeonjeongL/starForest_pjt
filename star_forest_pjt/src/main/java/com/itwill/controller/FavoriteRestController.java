@@ -32,7 +32,7 @@ public class FavoriteRestController {
 		String msg = "";
 		List<Favorite> resultList = new ArrayList<Favorite>();
 		if (book_no == null) {
-			code = -1;
+			code = 2;
 			url = "";
 			msg = "잘못된 접근입니다.";
 		}
@@ -44,7 +44,7 @@ public class FavoriteRestController {
 				url = "favorite_list";
 				msg = "내 서재에 보관하였습니다.";
 			} else {
-				code = 2;
+				code = -1;
 				url = "";
 				msg = "내 서재에 이미 존재합니다.";
 			}
@@ -125,6 +125,7 @@ public class FavoriteRestController {
 		return resultMap;
 	}
 	
+
 	
 	
 	

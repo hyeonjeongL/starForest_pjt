@@ -153,14 +153,14 @@ public class BookClubRestController {
 				msg = "동아리 내용을 수정하였습니다.";
 				resultList.add(bookClubService.selectByNo(bookClub.getClub_no()));
 			} else {
-				code = 2;
+				code = -1;
 				url = "club_list";
 				msg = "동아리 내용이 수정되지 않았습니다.";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			code = 3;
-			url = "club_list";
+			code = 2;
+			url = "main";
 			msg = "잘못된 접근입니다.";
 		}
 		resultMap.put("code", code);
@@ -212,7 +212,7 @@ public class BookClubRestController {
 	}
 
 	// 신청한 동아리인지 중복체크
-	/*
+
 	@LoginCheck
 	@PostMapping("/club_duplicate")
 	public Map club_duplicate(@RequestParam int club_no, HttpServletRequest request) {
@@ -234,12 +234,11 @@ public class BookClubRestController {
 				url = "club_list";
 				msg = "이미 신청한 동아리입니다.";
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
-			code=3;
-			url="main";
-			msg="관리자에게 문의하세요.";
+			code = 2;
+			url = "main";
+			msg = "잘못된 접근입니다.";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);
@@ -247,13 +246,13 @@ public class BookClubRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 
-	}*/
+	}
 
 	// 동아리 가입(인원수 카운트)
-	/* 중복체크 진행 후 가입되면서 카운트 0이면 정원초과
+	/* 중복체크 진행 후 가입되면서 카운트 0이면 정원초과 */
 	@LoginCheck
-	@PostMapping("/club_count")
-	public Map club_count(@RequestParam int club_no) {
+	@PostMapping("/club_join")
+	public Map club_join(@RequestParam int club_no, HttpServletRequest request) {
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
@@ -261,23 +260,31 @@ public class BookClubRestController {
 		List<BookClub> resultList = new ArrayList<BookClub>();
 
 		try {
-			int result=bookClubService.clubJoin(club_no);
-			if(result==0) {
-				code=-1;
-				url="";
-				msg="정원 초과로 신청할 수 없습니다.";
-			}else {
-				code=2;
-				url="";
-				msg="성공";
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
+			// 동아리 가입여부 중복체크
+			int duplicateCount = bookClubService.isDuplicate(sUserId, club_no);
+			if (duplicateCount == 1) {
+				code = -2;
+				url = "";
+				msg = "이미 가입된 동아리입니다.";
+			} else {
+				// 정원가능 시 가입성공
+				int joinCount = bookClubService.clubJoin(sUserId, club_no);
+				if (joinCount == 0) {
+					code = -1;
+					url = "";
+					msg = "정원 초과로 신청할 수 없습니다.";
+				} else {
+					code = 1;
+					url = "";
+					msg = "가입성공";
+				}
 			}
-			
-			
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			code=3;
-			url="main";
-			msg="관리자에게 문의하세요.";
+			code = 2;
+			url = "main";
+			msg = "잘못된 접근입니다.";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);
@@ -285,6 +292,38 @@ public class BookClubRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	*/
+	
+	//내가 신청한 동아리내역(마이페이지)
+	@LoginCheck
+	@PostMapping("/club_user_list")
+	public Map club_user_list(HttpServletRequest request) {
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<BookClub> resultList = new ArrayList<BookClub>();
+		
+		try {
+			String sUserId=(String)request.getSession().getAttribute("sUserId");
+			resultList=bookClubService.selectById(sUserId);
+			code=1;
+			url="";
+			msg="성공";
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code = 2;
+			url = "main";
+			msg = "잘못된 접근입니다.";
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+		
+	}
+	
+	
 
 }

@@ -7,13 +7,13 @@
 </style>
 </HEAD>
 <BODY>
-		<h1>회원 QR Code 발급</h1><hr><br><br>
+		<h1>별숲회원 QR Code 발급</h1><hr><br><br>
 		<div id="qrcode"></div>
 </BODY>
 <script type="text/javascript">
-
+//다른 위치에서 실행이 안됨_
 	var qrcode = new QRCode(document.getElementById("qrcode"), {
-		text: "https://blog.naver.com/rnflekrhdy",
+		text: "yeji", //user_id값으로 넣는방법....?
 		width: 128,
 		height: 128,
 		colorDark : "#000000",

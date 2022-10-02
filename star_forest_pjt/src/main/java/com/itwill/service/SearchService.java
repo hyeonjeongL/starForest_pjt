@@ -24,4 +24,7 @@ public interface SearchService {
 	
 	//분야검색
 	public List<Search> selectByCategoryName(String keyword) throws Exception;
+	
+	//통합검색
+	public List<Search> selectByAll(String keyword) throws Exception;
 }

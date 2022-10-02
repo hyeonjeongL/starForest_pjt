@@ -41,16 +41,16 @@ public class User2Test {
 		//회원리스트_성공
 		System.out.println(userService2.selectAll());
 		
-		//아이디중복? 
+		//아이디중복
 		System.out.println(userService2.existUserId("jjjj"));//false
 		System.out.println(userService2.existUserId("admin"));//true
 		
-		//전화번호 중복?
+		//전화번호 중복
 		System.out.println(userService2.existUserPhone("01011112222"));//false
 		System.out.println(userService2.existUserPhone("01025894567"));//true
 		System.out.println(userService2.existUserPhone("01012345678"));//false????? 같은값 여러개
 		
-		//이메일 중복?
+		//이메일 중복
 		System.out.println(userService2.existUserEmail("jjjj@naver.com"));//false
 		System.out.println(userService2.existUserEmail("so@naver.com"));//true
 		
@@ -60,8 +60,15 @@ public class User2Test {
 		//비밀번호 찾기_성공
 		System.out.println(userService2.findPassword("soyoon", "so@naver.com"));
 		
-		//로그인 체크
-		System.out.println(userService2.login("junghyun", "4444"));
-		System.out.println(userService2.login("jung", "9999"));
+		
+		//로그인 체크_성공
+		/*
+		 * 0: 아이디 존재하지않음
+		 * 1: 로그인
+		 * 2: 패스워드 불일치
+		 */
+		System.out.println(userService2.login("junghyun", "4444")); //1
+		System.out.println(userService2.login("jung", "9999")); //0
+		System.out.println(userService2.login("junghyun", "1111")); //2
 }
 }

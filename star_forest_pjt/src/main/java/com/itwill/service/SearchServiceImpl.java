@@ -52,10 +52,17 @@ public class SearchServiceImpl implements SearchService{
 		return searchDao.selectByPublisher(keyword);
 	}
 	
-	//
+	//분야검색
 	@Override
 	public List<Search> selectByCategoryName(String keyword) throws Exception {
 		return searchDao.selectByCategoryName(keyword);
 	}
 
+	//통합검색
+	@Override
+	public List<Search> selectByAll(String keyword) throws Exception {
+		return searchDao.selectByAll(keyword);
+	}
+
+	
 }

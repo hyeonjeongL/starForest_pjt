@@ -32,4 +32,9 @@ public interface SearchMapper {
 	//분야검색
 	@Select("select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no  where bc.category_name like ?")
 	public List<Search> CategoryList();
+	
+	//통합검색
+	@Select("select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no where book_title like ? or book_author like ? or bc.category_name like ? or book_publisher like ?")
+	List<Search> SearchList(String keyword);
+	
 }

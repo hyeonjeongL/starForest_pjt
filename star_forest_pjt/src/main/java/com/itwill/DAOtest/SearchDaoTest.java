@@ -28,7 +28,7 @@ public class SearchDaoTest {
 		ConfigurableApplicationContext context=application.run(args);
 		SearchDao searchDao=(SearchDao)context.getBean(SearchDao.class);
 		SearchService searchService=(SearchService)context.getBean(SearchService.class);
-		
+		/*
 		//제목 검색_성공
 		System.out.println(searchDao.selectByTitle("2023년"));
 		System.out.println(searchService.selectByTitle("2022"));
@@ -48,6 +48,14 @@ public class SearchDaoTest {
 		//분야검색_성공
 		System.out.println(searchDao.selectByCategoryName("만화"));
 		System.out.println(searchService.selectByCategoryName("건강"));
+		*/
+		
+		//통합검색_성공
+		System.out.println(searchDao.selectByAll("축구"));
+		System.out.println(searchDao.selectByAll("미르북"));
+		System.out.println(searchService.selectByAll("부크크"));
+		System.out.println(searchService.selectByAll("소설"));
+		System.out.println(searchService.selectByAll("명화"));
 		
 		
 	}

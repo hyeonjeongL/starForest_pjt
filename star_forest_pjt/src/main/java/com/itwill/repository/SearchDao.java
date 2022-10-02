@@ -43,6 +43,7 @@ public interface SearchDao {
 	
 	
 	//통합 검색(제목, 저자, 분야, 출판사)
+	List<Search> selectByAll(String keyword) throws Exception;
 	
 	//통합 검색(제목, 저자, 분야, 출판사) 페이지
 	

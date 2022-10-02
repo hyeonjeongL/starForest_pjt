@@ -25,11 +25,14 @@ public interface BookClubDao {
 	//동아리상세보기
 	BookClub selectByNo(int club_no) throws Exception;
 	
+	//가입된 동아리 중복체크
+	int isDuplicate(String user_id,int club_no) throws Exception;
+	
 	//동아리수정
 	int update(BookClub bookClub) throws Exception;
 	
-	//동아리 인원수 카운트
-	int clubCount(int club_no) throws Exception;
+	//동아리 가입되면서 인원수 카운트
+	int clubJoin(String user_id,int club_no) throws Exception;
 	
 	//동아리 조회수 증가
 	int addReadCount(int club_no) throws Exception;

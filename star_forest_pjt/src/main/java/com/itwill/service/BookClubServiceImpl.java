@@ -44,16 +44,22 @@ public class BookClubServiceImpl implements BookClubService {
 		return bookClubDao.selectByNo(club_no);
 	}
 	
+	//가입된 동아리 중복체크
+	@Override
+	public int isDuplicate(String user_id,int club_no) throws Exception{
+		return bookClubDao.isDuplicate(user_id, club_no);
+	}
+	
 	//동아리 내용 수정
 	@Override
 	public int update(BookClub bookClub) throws Exception {
 		return bookClubDao.update(bookClub);
 	}
 
-	//동아리 정원 카운트
+	//동아리 가입되면서 인원수 카운트
 	@Override
-	public int clubCount(int club_no) throws Exception {
-		return bookClubDao.clubCount(club_no);
+	public int clubJoin(String user_id,int club_no) throws Exception {
+		return bookClubDao.clubJoin(user_id,club_no);
 	}
 	
 	//동아리 조회수 증가

@@ -19,7 +19,7 @@ insert into favorite values(SEQ_favorite_favorite_no.nextval,'woohyuk',5);
 
 
 --select--
-/*즐겨찾기목록에 이미 있는지확인*/
+/*즐겨찾기 중복체크*/
 select count(*) from favorite where user_id='yeji' and book_no=3;
 /*즐겨찾기 상세보기*/
 select b.isbn,b.book_title,b.book_author,b.book_publisher from favorite f join book b on f.book_no=b.book_no where favorite_no=3;   

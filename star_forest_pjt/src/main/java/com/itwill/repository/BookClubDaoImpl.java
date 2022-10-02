@@ -41,6 +41,11 @@ public class BookClubDaoImpl implements BookClubDao {
 	public BookClub selectByNo(int club_no) throws Exception {
 		return bookClubMapper.selectByNo(club_no);
 	}
+	
+	@Override
+	public int isDuplicate(String user_id,int club_no) throws Exception{
+		return bookClubMapper.isDuplicate(user_id, club_no);
+	}
 
 	@Override
 	public int update(BookClub bookClub) throws Exception {
@@ -48,8 +53,8 @@ public class BookClubDaoImpl implements BookClubDao {
 		
 	}
 	@Override
-	public int clubCount(int club_no) throws Exception {
-		return bookClubMapper.clubCount(club_no);
+	public int clubJoin(String user_id,int club_no) throws Exception {
+		return bookClubMapper.clubJoin(user_id,club_no);
 	}
 	@Override
 	public int addReadCount(int club_no) throws Exception{
@@ -60,6 +65,8 @@ public class BookClubDaoImpl implements BookClubDao {
 	public int remove(int club_no) throws Exception {
 		return bookClubMapper.remove(club_no);
 	}
+
+	
 
 	
 	

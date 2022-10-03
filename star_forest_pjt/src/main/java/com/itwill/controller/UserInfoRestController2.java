@@ -52,14 +52,14 @@ public class UserInfoRestController2 {
 		return !isDuplicate+"";
 	}
 	//이메일 중복체크
-	@RequestMapping(value = "/user_id_duplicate_check_rest",produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/user_email_check",produces = "text/plain;charset=UTF-8")
 	public String user_email_check(@RequestParam String user_email) throws Exception{
 		boolean isDuplicate= userService2.existUserEmail(user_email);
 		System.out.println(!isDuplicate+"-->"+user_email);
 		return !isDuplicate+"";
 	}
 	//전화번호 중복체크
-	@RequestMapping(value = "/user_id_duplicate_check_rest",produces = "text/plain;charset=UTF-8")
+	@RequestMapping(value = "/user_phone_check",produces = "text/plain;charset=UTF-8")
 	public String user_phone_check(@RequestParam String user_phone) throws Exception{
 		boolean isDuplicate= userService2.existUserPhone(user_phone);
 		System.out.println(!isDuplicate+"-->"+user_phone);
@@ -67,7 +67,7 @@ public class UserInfoRestController2 {
 	}
 	
 	//회원가입
-	@PostMapping(value ="/user_write_action_rest" ,produces = "application/json;charset=UTF-8")
+	@PostMapping(value ="/user_write_action_post" ,produces = "application/json;charset=UTF-8")
 	public Map user_write_action_post(@ModelAttribute User user,Model model,HttpServletRequest request) throws Exception{
 		
 		int result = userService2.insertUser(user);

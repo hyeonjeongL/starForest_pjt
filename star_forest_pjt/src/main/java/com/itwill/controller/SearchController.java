@@ -22,7 +22,7 @@ public class SearchController {
 	
 	@RequestMapping(value = {"/book_search_form","*.do"})
 	public String main() {
-		return "forward:/WEB-INF/views/main.jsp";
+		return "forward:/WEB-INF/views/book_search_form.jsp";
 	}
 	
 	//제목

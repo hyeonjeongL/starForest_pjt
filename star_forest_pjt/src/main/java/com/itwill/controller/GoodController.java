@@ -22,7 +22,7 @@ public class GoodController {
 	}
 	@RequestMapping(value = {"/good","*.do"})
 	public String main() {
-		return "forward:/WEB-INF/views/main.jsp";
+		return "forward:/WEB-INF/views/good.jsp";
 	}
 	
 	@RequestMapping(value = {"/good"})
@@ -30,7 +30,7 @@ public class GoodController {
 		String forwardPath = "";
 		List<Good> goodlist=goodService.goodCategoryNo(category_no);
 		model.addAttribute("goodlist",goodlist);
-		forwardPath = "forward:/WEB-INF/views/main.jsp";
+		forwardPath = "forward:/WEB-INF/views/good.jsp";
 		return forwardPath;
 	}
 

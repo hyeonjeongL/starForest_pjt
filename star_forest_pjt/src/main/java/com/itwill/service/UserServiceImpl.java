@@ -60,41 +60,22 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	// 비밀번호 확인 후 비밀번호변경
+	// 비밀번호변경
 	@Override
 	public int updatePassword(User user) throws Exception {
-		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
-			int result=userDao.updatePassword(user);
-			return result;
-		}else {
-			System.out.println("비밀번호를 다시 입력해주세요.");
-			return 0;
-		}
-			
+		return userDao.updatePassword(user);
 	}
 
-	// 비밀번호 확인 후 회원정보수정
+	// 회원정보수정
 	@Override
 	public int update(User user) throws Exception {
-		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
-			int result=userDao.update(user);
-			return result;
-		}else {
-			System.out.println("비밀번호를 다시 입력해주세요.");
-			return 0;
-		}
+		return userDao.update(user);
 	}
 
-	// 비밀번호 확인 후 회원탈퇴
+	// 회원탈퇴
 	@Override
-	public int remove(User user) throws Exception {
-		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
-			int result=userDao.remove(user.getUser_id());
-			return result;
-		}else {
-			System.out.println("비밀번호를 다시 입력해주세요.");
-			return 0;
-		}
+	public int remove(String user_id) throws Exception {
+		return userDao.remove(user_id);
 	}
 
 	// 회원전체리스트
@@ -120,6 +101,17 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	// 비밀번호체크
+	@Override
+	public int PWcheck(String user_id,String user_password) throws Exception {
+		boolean isExist=userDao.PWcheck(user_id, user_password);
+		if(isExist) {
+			return 1; //비밀번호 체크성공
+		}else {
+			return 0; //비밀번호 불일치
+		}
+	}
+	
 	// 회원당 대출권수카운트
 	@Override
 	public int userRentalCount(String user_id) throws Exception {
@@ -129,22 +121,7 @@ public class UserServiceImpl implements UserService {
 	//연체에 따른 대출정지기간
 	@Override
 	public int rentalStopPeriod(String user_id) throws Exception {
-		try {
-		int stopPeriod=userDao.rentalStopPeriod(user_id);
-		/*
-		 * 대출정지 : -1
-		 * 대출가능 : 1
-		 */
-		if(stopPeriod>0) {
-			System.out.println("연체로 인해 "+stopPeriod+" 일 동안 대출정지입니다.");
-			return  -1;
-		}else {
-			return 1;
-		}
-		}catch (Exception e) {
-			e.printStackTrace();
-			return -2;
-		}
+		return userDao.rentalStopPeriod(user_id);
 	}
 	
 

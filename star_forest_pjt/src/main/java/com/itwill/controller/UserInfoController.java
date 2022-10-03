@@ -11,8 +11,8 @@ public class UserInfoController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping("/login_form")
-	public String login_form() {
-		return "forward:/WEB-INF/views/login.jsp";
+	@RequestMapping("/user")
+	public String user() {
+		return "user";
 	}
 }

@@ -38,7 +38,7 @@ public class UserServiceTest {
 		User updateUser=new User("yeji2", "예찌", "1234", "han@naver.com", 
 									"1997-03-03", null, "01023456789", "서울", 600);
 		System.out.println("수정:"+userService.update(updateUser));
-		System.out.println("삭제:"+userService.remove(new User("yeji3", "7878")));
+		System.out.println("삭제:"+userService.remove("yeji3"));
 		System.out.println("회원목록"+userService.userList());
 		System.out.println("아이디찾기:"+userService.findUser("yeji2"));
 		System.out.println("아이디중복체크:"+userService.existedUser("soyoon"));

@@ -19,7 +19,7 @@ public interface UserService {
 	int update(User user) throws Exception;
 
 	// 회원탈퇴
-	int remove(User user) throws Exception;
+	int remove(String user_id) throws Exception;
 
 	// 전체회원리스트
 	List<User> userList() throws Exception;
@@ -29,6 +29,9 @@ public interface UserService {
 
 	// 아이디 중복체크
 	boolean existedUser(String user_id) throws Exception;
+	
+	// 비밀번호 체크
+	int PWcheck(String user_id,String user_password) throws Exception;
 
 	// 회원당 대출권수 카운트
 	int userRentalCount(String user_id) throws Exception;

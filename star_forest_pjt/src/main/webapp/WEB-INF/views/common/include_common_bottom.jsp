@@ -1,5 +1,190 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <footer id="colophon" class="site-footer">
+		
+		<div class="footer-links d-none d-xl-block">
+			<div class="container">
+				<div class="row justify-content-between align-items-center">
+										<div class="col-auto d-flex justify-content-between align-items-center" aria-hidden="true">
+						<a role="button" class="footer-link-item link-monotone blank-node footer-nav-trigger">사이트맵</a>
+					</div>
+					<div class="delimeter d-flex"></div>
+										
+																<div class="col-auto d-flex justify-content-between align-items-center">
+							<a href="https://oca.korea.ac.kr/link.n2s?url=https://www.riss.kr/OrganLogin.do" target="_blank" class="footer-link-item link-monotone">RISS</a>	<a href="https://oca.korea.ac.kr/link.n2s?url=https://scienceon.kisti.re.kr/" target="_blank" class="footer-link-item link-monotone">ScienceON</a>	<a href="https://dcollection.korea.ac.kr" target="_blank" class="footer-link-item link-monotone">dCollection</a>	<a href="http://www.kocw.net" target="_blank" class="footer-link-item link-monotone">KOCW</a>	<a href="http://www.fric.kr" target="_blank" class="footer-link-item link-monotone">외국학술지원센터</a>
+						</div>
+						<div class="delimeter"></div>
+						<div class="col-auto d-flex justify-content-between align-items-center">
+							<a href="https://medlib.korea.ac.kr" target="_blank" class="footer-link-item link-monotone">의학도서관</a>
+							<a href="https://libs.korea.ac.kr/" target="_blank" class="footer-link-item link-monotone">세종학술정보원</a>
+						</div>
+						<div class="delimeter"></div>
+						<div class="col-auto d-flex justify-content-between align-items-center">
+							<a href="https://library.korea.ac.kr/give/" target="_blank" class="footer-link-item link-monotone">도서관 기부기증</a>
+						</div>
+						<div class="delimeter"></div>
+						<div class="col-auto d-flex justify-content-between align-items-center">
+							<a href="https://www.korea.ac.kr/" target="_blank" class="footer-link-item link-monotone">별숲 도서관</a>
+						</div>
+										
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</div><!-- .footer-links -->
+		
+					<nav class="footer-navigation" aria-label="하단 메뉴" aria-hidden="true">
+				<div class="container">
+					<div class="menu-%ec%a0%84%ec%9a%a9-%ea%b3%b5%ea%b0%84-container"><ul id="menu-%ec%a0%84%ec%9a%a9-%ea%b3%b5%ea%b0%84-2" class="footer-menu d-flex justify-content-start"><li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-20"><a>자료이용<small class="menu-item-description">도서관 소장자료, 전자자료, 도서관 구축 원문 콘텐츠에 대한 검색과 미소장 자료 이용 방법을 제공합니다.</small></a>
+<ul class="sub-menu">
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40"><a>자료찾기</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-264"><a href="https://library.korea.ac.kr/datause/advanced-search/">상세검색</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11464"><a href="https://library.korea.ac.kr/datause/lecture_class/">강의수업자료</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-265"><a href="https://library.korea.ac.kr/datause/database/">데이터베이스</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a href="https://library.korea.ac.kr/datause/ejournal/">전자저널</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-267"><a href="https://library.korea.ac.kr/datause/ebook/">전자책·이러닝</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-269"><a href="https://library.korea.ac.kr/datause/collection/">컬렉션</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a href="https://library.korea.ac.kr/datause/archiving/">아카이빙</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13036"><a href="https://library.korea.ac.kr/datause/campaign/">독서 캠페인</a></li>
+	</ul>
+</li>
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-41"><a>자료이용안내</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-391"><a href="https://library.korea.ac.kr/datause/search-loan-return/">검색·대출·반납</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-440"><a href="https://library.korea.ac.kr/datause/proxy/">교외접속</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4067"><a href="https://library.korea.ac.kr/datause/ill/">상호대차·신청</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4068"><a href="https://library.korea.ac.kr/datause/dds/">원문복사·신청</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4071"><a href="https://library.korea.ac.kr/datause/fric/">FRIC(외국학술지지원센터)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4069"><a href="https://library.korea.ac.kr/datause/nat-assem-library/">국중·국회 원문 이용</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4070"><a href="https://library.korea.ac.kr/datause/other-library/">타도서관 이용</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-439"><a href="https://library.korea.ac.kr/datause/old-books/">고서자료 이용</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-537"><a href="https://library.korea.ac.kr/datause/makerspace/">멀티미디어 자료 제작 신청</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36"><a>연구지원<small class="menu-item-description">최신 학술연구정보를 주제별로 제공하는 학술정보큐레이션서비스(SICS)와 등재저널리스트, 서지관리도구 및 표절예방도구, 연구윤리, 정보이용교육 등 연구지원도구를 제공합니다.</small></a>
+<ul class="sub-menu">
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-42"><a target="_blank" rel="noopener noreferrer">학술정보큐레이션</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/econ">경제학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-63"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/edu">교육학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9586"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/ru">노어노문학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-64"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/media">미디어학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-65"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/law">법학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/psy">심리학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/lingu">언어학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a target="_blank" rel="noopener noreferrer" href="http://sics.korea.ac.kr/politics">정치외교학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-88"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/cs">컴퓨터학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13505"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/kh">한국사학</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-89"><a target="_blank" rel="noopener noreferrer" href="https://sics.korea.ac.kr/pa">행정학</a></li>
+	</ul>
+</li>
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-43"><a>연구지원도구</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-316"><a href="https://library.korea.ac.kr/research/journal-list/">등재저널리스트</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-317"><a href="https://library.korea.ac.kr/research/writing-guide/">서지관리도구</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-476"><a href="https://library.korea.ac.kr/research/turnitin/">표절예방도구</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5033"><a href="https://library.korea.ac.kr/research/research-ethics/">연구윤리</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14571"><a href="https://library.korea.ac.kr/oa-publishing/">OA 논문 게재료 지원</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-477"><a href="https://library.korea.ac.kr/research/education/">정보이용교육</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-37"><a>시설이용<small class="menu-item-description">도서관 분관과 시설에 대한 상세한 안내와 시설/좌석 예약/배정 메뉴를 이용할 수 있습니다.</small></a>
+<ul class="sub-menu">
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-44"><a>시설찾기</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2772"><a target="_blank" rel="noopener noreferrer" href="/hodi_site_link">시설·좌석 예약·현황</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4331"><a href="https://library.korea.ac.kr/facilities/main-library/">중앙도서관</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4332"><a href="https://library.korea.ac.kr/facilities/old-library/">중앙도서관(대학원)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4333"><a href="https://library.korea.ac.kr/facilities/cdl/">학술정보관(CDL)</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4334"><a href="https://library.korea.ac.kr/facilities/science-library/">과학도서관</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4335"><a href="https://library.korea.ac.kr/facilities/law-library/">법학도서관</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4426"><a href="https://library.korea.ac.kr/facilities/cclcj-creator-library/">중앙광장 CCL</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a href="https://library.korea.ac.kr/facilities/libraries/">기타도서관</a></li>
+	</ul>
+</li>
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-45"><a>시설이용안내</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6633"><a href="https://library.korea.ac.kr/facilities/hodi-site-link1/">시설 유형별 소개</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5616"><a href="https://library.korea.ac.kr/facilities/hodi_site_link2/">그룹스터디룸</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5617"><a href="https://library.korea.ac.kr/facilities/hodi_site_link3/">집중학습공간</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5618"><a href="https://library.korea.ac.kr/facilities/hodi_site_link4/">전용 공간</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4356"><a href="https://library.korea.ac.kr/facilities/hodi_site_link7/">시설 이용방법</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-538"><a href="https://library.korea.ac.kr/facilities/copy-service/">편의시설</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38"><a>커뮤니티<small class="menu-item-description">도서관 공지사항 및 각종 통계, 도서관 조직과 규정, 개관시간 등을 안내합니다.</small></a>
+<ul class="sub-menu">
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a>도서관 소식</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-612"><a href="https://library.korea.ac.kr/about/notice/">공지사항</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-614"><a href="https://library.korea.ac.kr/about/press-release/">보도자료</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3780"><a href="https://library.korea.ac.kr/about/publication/">홍보자료</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-542"><a href="https://library.korea.ac.kr/about/stats/">현황·통계</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-615"><a href="https://library.korea.ac.kr/about/calendar/">도서관 일정</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-546"><a href="https://library.korea.ac.kr/about/ask-us/">FAQ &#038; QnA</a></li>
+	</ul>
+</li>
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3764"><a>도서관 안내</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-539"><a href="https://library.korea.ac.kr/about/overview/">소개</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-540"><a href="https://library.korea.ac.kr/about/policy/">정책·규정</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-541"><a href="https://library.korea.ac.kr/about/staff-directory/">조직·직원</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-543"><a href="https://library.korea.ac.kr/about/hours/">개관시간</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-544"><a href="https://library.korea.ac.kr/about/location/">찾아오는 길</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545"><a href="https://library.korea.ac.kr/about/by-user/">이용자별 안내</a></li>
+		<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2052"><a target="_blank" rel="noopener noreferrer" href="https://library.korea.ac.kr/give/">기부·기증</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39"><a>나의공간<small class="menu-item-description">개인화 서비스 메뉴로 로그인한 개인별 도서관 이용 현황을 통합해서 제공합니다.</small></a>
+<ul class="sub-menu">
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-109"><a>내정보</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-651"><a href="https://library.korea.ac.kr/my-library/private-library/">내서재</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-652"><a href="https://library.korea.ac.kr/my-library/private-notice/">개인공지</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2336"><a href="https://library.korea.ac.kr/my-library/my-info/">이용자정보 관리</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-392"><a href="https://library.korea.ac.kr/my-library/membership/">연회비·이용증</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7948"><a href="https://library.korea.ac.kr/my-library/dcollection/">학위논문제출(dCollection)</a></li>
+	</ul>
+</li>
+	<li class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3763"><a>이용현황</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-653"><a href="https://library.korea.ac.kr/my-library/loan/">자료대출·예약 현황</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-654"><a href="https://library.korea.ac.kr/my-library/purchase/">자료구입 신청·현황</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-655"><a href="https://library.korea.ac.kr/my-library/ill-dds/">상호대차·원문복사 신청현황</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+</ul></div>				</div><!-- .container -->
+			</nav><!-- .footer-navigation -->
+			
+				<div class="footer-links d-block d-xl-none">
+			<div class="container">
+				<div class="row">
+					<div class="dropup">
+						<a class="dropdown-toggle footer-dropdown-toggle link-monotone" href="#" id="home-dropdown-links" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">관련사이트</a>
+						<div class="dropdown-menu" aria-labelledby="home-dropdown-links">
+							<a href="https://oca.korea.ac.kr/link.n2s?url=https://www.riss.kr/OrganLogin.do" target="_blank" class="dropdown-item link-monotone">RISS</a>	<a href="https://oca.korea.ac.kr/link.n2s?url=https://scienceon.kisti.re.kr/" target="_blank" class="dropdown-item link-monotone">ScienceON</a>	<a href="https://dcollection.korea.ac.kr" target="_blank" class="dropdown-item link-monotone">dCollection</a>	<a href="http://www.kocw.net" target="_blank" class="dropdown-item link-monotone">KOCW</a>	<a href="http://www.fric.kr" target="_blank" class="dropdown-item link-monotone">외국학술지원센터</a>
+							<div class="dropdown-divider"></div>
+							<a href="https://medlib.korea.ac.kr" target="_blank" class="dropdown-item link-monotone">의학도서관</a>
+							<a href="https://libs.korea.ac.kr/" target="_blank" class="dropdown-item link-monotone">세종학술정보원</a>
+							<div class="dropdown-divider"></div>
+							<a href="https://library.korea.ac.kr/give/" target="_blank" class="dropdown-item link-monotone">도서관 기부기증</a>
+							<div class="dropdown-divider"></div>
+							<a href="https://www.korea.ac.kr/" target="_blank" class="dropdown-item link-monotone">고려대학교</a>
+						</div>
+					</div>
+				</div><!-- .row -->
+			</div><!-- .container -->
+		</div><!-- .footer-dropdown-links -->
+		
 <div class="footer-info">
 		
 			<div class="container">

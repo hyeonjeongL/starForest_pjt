@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 	public int create(User user) throws Exception {
 
 		/*
-		 * 아이디중복체크
+		 * 회원가입
 		 * 
 		 * -1:아이디중복 
 		 * 1:회원가입성공
@@ -64,7 +64,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int updatePassword(User user) throws Exception {
 		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
-			return userDao.updatePassword(user);
+			int result=userDao.updatePassword(user);
+			return result;
 		}else {
 			System.out.println("비밀번호를 다시 입력해주세요.");
 			return 0;
@@ -76,7 +77,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int update(User user) throws Exception {
 		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
-			return userDao.update(user);
+			int result=userDao.update(user);
+			return result;
 		}else {
 			System.out.println("비밀번호를 다시 입력해주세요.");
 			return 0;
@@ -87,7 +89,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int remove(User user) throws Exception {
 		if(userDao.PWcheck(user.getUser_id(), user.getUser_password())) {
-			return userDao.remove(user);
+			int result=userDao.remove(user.getUser_id());
+			return result;
 		}else {
 			System.out.println("비밀번호를 다시 입력해주세요.");
 			return 0;
@@ -111,9 +114,9 @@ public class UserServiceImpl implements UserService {
 	public boolean existedUser(String user_id) throws Exception {
 		boolean isExist = userDao.existedUser(user_id);
 		if (isExist) {
-			return true;
+			return true;  //아이디 중복
 		} else {
-			return false;
+			return false; //아이디 중복X
 		}
 	}
 

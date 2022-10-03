@@ -20,12 +20,12 @@ public class GoodController {
 	public GoodController() {
 		
 	}
-	@RequestMapping(value = {"/main","*.do"})
+	@RequestMapping(value = {"/good","*.do"})
 	public String main() {
 		return "forward:/WEB-INF/views/main.jsp";
 	}
 	
-	@RequestMapping(value = {"/main"})
+	@RequestMapping(value = {"/good"})
 	public String good_list(@RequestParam int category_no, Model model) throws Exception{
 		String forwardPath = "";
 		List<Good> goodlist=goodService.goodCategoryNo(category_no);

@@ -693,7 +693,16 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">
-											핸드폰 번호
+											성별
+										</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											<input type="text" style="width: 150px" name="gender"
+											value="">
+										</td>
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="E6ECDE" height="22">
+											전화 번호
 										</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input type="text" style="width: 150px" name="phone"
@@ -702,10 +711,19 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 									</tr>
 									<tr>
 										<td width=100 align=center bgcolor="E6ECDE" height="22">
-											이메일 주소
+											이메일
 										</td>
 										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
 											<input type="text" style="width: 150px" name="email"
+											value="">
+										</td>
+									</tr>
+									<tr>
+										<td width=100 align=center bgcolor="E6ECDE" height="22">
+											주소
+										</td>
+										<td width=490 bgcolor="ffffff" style="padding-left: 10px" align="left">
+											<input type="text" style="width: 150px" name="address"
 											value="">
 										</td>
 									</tr>

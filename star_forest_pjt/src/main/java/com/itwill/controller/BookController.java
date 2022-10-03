@@ -2,21 +2,39 @@ package com.itwill.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.domain.Book;
 import com.itwill.service.BookService;
 
 
 @Controller
 public class BookController {
 	@Autowired
-	BookService BookService;
+	BookService bookService;
 	
-	@RequestMapping("\test")
-	public String test() {
-		System.out.println("test");
-		return "index";
+	
+	@RequestMapping("/book_detail")
+	public String book_detail(@RequestParam(value = "book_no", required = false) String book_noStr,Model model ) {
+		String forwardPath = "";
+		try {
+			Book book = bookService.selectBookDetail(Integer.parseInt(book_noStr));
+			model.addAttribute("book", book);
+			forwardPath = "forward:/WEB-INF/views/book_detail.jsp";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			forwardPath = "forward:/WEB-INF/views/error.jsp";
+			
+		}
+		
+		
+		return forwardPath ;
 	}
+	
+
 
 
 }

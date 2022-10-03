@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 
 import com.itwill.domain.Reservation;
 import com.itwill.mapper.ReservationMapper;
-import com.itwill.repository.ReservationDao;
+import com.itwill.service.ReservationService;
 
 /**
  * @author itwill
@@ -22,21 +22,21 @@ import com.itwill.repository.ReservationDao;
 @ComponentScan(basePackages = { "com.itwill" }, includeFilters = {
 		@Filter(
 				type = FilterType.ASSIGNABLE_TYPE, 
-				classes = { ReservationDao.class, ReservationMapper.class 
+				classes = { ReservationService.class, ReservationMapper.class 
 				}) 
 		})
-public class ReservationDaoTest {
+public class ReservationServiceTest {
 	public static void main(String[] args) throws Exception {
 		SpringApplication application=
-				new SpringApplication(ReservationDaoTest.class);
+				new SpringApplication(ReservationServiceTest.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		ReservationDao reservationDao=(ReservationDao)context.getBean(ReservationDao.class);
+		ReservationService reservationService=(ReservationService)context.getBean(ReservationService.class);
 		Date date = new Date();
 		Reservation newRes = new Reservation(100, date, 1, 100, "woohyuk");
-//		System.out.println(reservationDao.insertReservation(newRes));
-//		System.out.println(reservationDao.deleteReservation("woohyuk", 100));
-		System.out.println(reservationDao.selectReservationList(3));
+//		System.out.println(reservationService.insertReservation(newRes));
+//		System.out.println(reservationService.deleteReservation("woohyuk", 100));
+		System.out.println(reservationService.selectReservationList(3));
 	
 	}
 }

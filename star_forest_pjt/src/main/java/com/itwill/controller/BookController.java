@@ -5,13 +5,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.service.BookService;
-import com.itwill.service.BookServiceImpl;
 
 
 @Controller
 public class BookController {
 	@Autowired
-	BookServiceImpl service;
+	BookService BookService;
 	
 	@RequestMapping("\test")
 	public String test() {

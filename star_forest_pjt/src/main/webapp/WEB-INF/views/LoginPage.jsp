@@ -24,24 +24,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 	 <script type="text/javascript">
-	  <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-	  /* $(function(){
-	  	$(".mypage").click(function(event){
-	  		if(${cust_no == null}){
-	  			event.preventDefault();
-	  			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-	  			console.log(loginOk);
-	  			if(loginOk){
-	  				console.log("로그인하러갑니다.");
-	  				window.location.href = "LoginPage.do";
-	  			}
-	  		}else{
-	  			window.location.href="Home.do";
-	  		}
-	  	});
-	  }); */
 	  </script>
-  <title>로그인 - 딜리브러리</title>
+  <title>로그인 - 별숲도서관</title>
 </head>
 
 <body class="d-flex flex-column">
@@ -211,57 +195,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 	crossorigin="anonymous"></script>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
-
-	$('#findMyEmail').click(function(){
-		console.log('findmyEmail Ok!');
-		const name = $('#findEmail_name').val();
-		const m_phone = $('#findEmail_cell').val();
-		
-		$.ajax({
-			url:'/findEmail.do',
-			type:"POST",
-			data: {
-				'name': name,
-				'm_phone': m_phone
-			},
-			success:function(re){				
-				alert('가입하신 이메일은 ' + re + ' 입니다.'); 
-			},
-			error:function(){
-				alert('가입 정보가 없습니다. 입력값을 확인해 주시거나 회원가입을 해주시기 바랍니다.');
-			}
-
-		});
-	});
-
-	$('#findPw_btn').click(function(){
-		console.log('findPw Ok!');
-		const name =$('#findPw_name').val();
-		const email =$('#findPw_email').val();
-		$.ajax({
-			url:'/pwEmail.do',
-			type:'POST',
-			data: {
-				'name': name,
-				'email': email
-			},
-			success:function(result){
-				if(result > 0){
-					alert('가입하신 이메일로 임시 비밀번호를 발급하여 보내드렸습니다. 메일을 확인해 주시기 바랍니다.'); 
-				} else {
-					alert('가입 정보가 없습니다. 입력값을 확인해 주시거나 회원가입을 해주시기 바랍니다.');
-				}	
-			},
-		 	error: function(){
-		 		alert('비밀번호 변경 오류');
-			}
-		});		
-	});
-    
-  </script>
 </body>
 
 </html>

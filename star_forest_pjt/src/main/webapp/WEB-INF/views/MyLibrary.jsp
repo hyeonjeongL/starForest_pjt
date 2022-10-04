@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <title>도서정보 - 딜리브러리</title>
+  <title>도서정보 - 별숲도서관</title>
   <style>
 
  	.img-fluid {
@@ -149,33 +149,6 @@
       <script type="text/javascript"	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript"	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
-
-    $('.slider').click({
-      infinite: true,
-      slideToShow: 1,
-      slideToScroll: 1
-    });
-
-    <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-    $(function(){
-    	$(".mypage").click(function(event){
-    		if(${cust_no == null}){
-    			event.preventDefault();
-    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-    			console.log(loginOk);
-    			if(loginOk){
-    				console.log("로그인하러갑니다.");
-    				window.location.href = "LoginPage.do";
-    			}
-    		}else{
-    			window.location.href="Home.do";
-    		}
-    	});
-    });
-  </script>
 </body>
 
 </html>

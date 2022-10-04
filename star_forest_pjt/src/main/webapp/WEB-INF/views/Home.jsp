@@ -52,21 +52,6 @@
 
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">
-<!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-$(function(){
-   /* $(".mypage").click(function(event){
-      if(${cust_no == null}){
-         event.preventDefault();
-         const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-         console.log(loginOk);
-         if(loginOk){
-            console.log("로그인하러갑니다.");
-            window.location.href = "LoginPage.do";
-         }
-      }else{
-         window.location.href="Home.do";
-      }
-   }); */
 
    $("#phone_a").click(function(){
 		alert("고객센터 : 070) 1234-5678 \n"

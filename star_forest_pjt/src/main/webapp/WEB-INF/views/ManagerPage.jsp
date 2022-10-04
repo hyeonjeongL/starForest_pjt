@@ -10,7 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Insert title here</title>
+<title>별숲도서관</title>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -28,110 +28,6 @@
 <link rel="stylesheet" href="css/HomeCSS.css">
 <script type="text/javascript" src="/js/HomeJS.js"></script>
 
-<script type="text/javascript">
-	window.onload = function() {
-		let radios = document.getElementsByClassName('radios');
-		let tables = document.getElementsByClassName('manage-table');
-		let areas = document.getElementsByClassName('manage-area')
-		let trs = document.getElementsByTagName('tr');
-		let update_inputs = document.getElementsByClassName('update-imput');
-		let update_buttons = document.getElementsByClassName('update-btn');
-		let delete_buttons = document.getElementsByClassName('delete-btn');
-		let update_ok_buttons = document.getElementsByClassName('update-ok');
-		let delete_ok_buttons = document.getElementsByClassName('delete-ok');
-		let update_tds;
-		let inputs;
-		let data = {};
-
-		function makeInputsAndTds(idx) {
-			update_tds = update_buttons[idx].parentNode.parentNode.childNodes;
-			inputs = update_tds[0].parentNode.parentNode.parentNode.parentNode.parentNode.childNodes;
-			for(let i = 1; i < update_tds.length-3; i+=2) {
-				inputs[i].value = update_tds[i].innerText;
-			}
-		}
-
-		for(let i = 0; i < tables.length; i++) {
-			tables[i].style.display = 'none';
-			areas[i].style.display = 'none';
-		}
-		tables[0].style.display = '';
-		areas[0].style.display = '';
-		
-
-		for(let i = 0; i < radios.length; i++) {
-			radios[i].onclick = function() {
-				for(let i = 0; i < tables.length; i++) {
-					tables[i].style.display = 'none';
-					areas[i].style.display = 'none';
-				}
-				tables[i].style.display = '';
-				areas[i].style.display = '';
-			}
-		}
-
-		for(let i = 0; i < update_buttons.length; i++) {
-			update_buttons[i].addEventListener('click', function(e) {
-				makeInputsAndTds(i);
-			}, true);
-		}
-
-		for(let i = 0; i < delete_buttons.length; i++) {
-			delete_buttons[i].addEventListener('click', function(e) {
-				makeInputsAndTds(i);
-			}, true);
-		}
-
-		for(let i = 0; i < delete_ok_buttons.length; i++) {
-			delete_ok_buttons[i].addEventListener('click', function(e) {
-				data['i'] = i;
-				console.log("i : " + data['i'])
-				data['pk'] = inputs[1].value;
-				alert(data['i']);
-				alert(data['pk']);
-	             $.ajax({
-	                 url:"/deletefrommanager.do",
-	                 type:"POST",
-	                 async: false,
-	                 data: data,
-	                 success:function(data){
-	                    alert('ok');
-	                    data = {};
-	                    location.reload();
-	                 }, 
-	                 error:function(){
-	                    alert("에러발생");
-	                 }
-	              });
-			}, true);
-		}
-
-		for(let i = 0; i < update_ok_buttons.length; i++) {
-			update_ok_buttons[i].addEventListener('click', function(e) {
-				data['i'] = i;
-				console.log("i : " + data['i'])
-				for(let i = 1; i < inputs.length-3; i+=2) {
-					data[inputs[i].name] = inputs[i].value;
-				}
-				
-	             $.ajax({
-	                 url:"/updatefrommanager.do",
-	                 type:"POST",
-	                 async: false,
-	                 data: data,
-	                 success:function(data){
-	                    alert('ok');
-	                    data = {};
-	                    location.reload();
-	                 }, 
-	                 error:function(){
-	                    alert("에러발생");
-	                 }
-	              });
-			}, true);
-		}
-	}
-</script>
 
 <style type="text/css">
 	#tabs {

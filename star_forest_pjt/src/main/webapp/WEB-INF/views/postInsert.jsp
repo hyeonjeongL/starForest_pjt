@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="css/post.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <title>커뮤니티 - 딜리브러리</title>
+  <title>커뮤니티 - 별빛도서관</title>
 </head>
 
 <body class="d-flex flex-column">

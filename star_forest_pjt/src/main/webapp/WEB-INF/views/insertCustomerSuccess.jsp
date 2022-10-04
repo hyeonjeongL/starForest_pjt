@@ -20,7 +20,7 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/yurim.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-   <title>회원가입 - 딜리브러리</title>
+   <title>회원가입 - 별숲도서관</title>
 </head>
 
 <body class="d-flex flex-column">
@@ -59,7 +59,7 @@
     		</div>
         <div class="col-md-12">
           <p>Copyright &copy;
-            <span id="year"></span> Delibrary</p>
+            <span id="year"></span> 별숲도서관</p>
         </div>
       </div>
     </div>

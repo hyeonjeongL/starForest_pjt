@@ -30,7 +30,7 @@
 		});
 	});
 	</script>
-  <title>나의도서 - 딜리브러리</title>
+  <title>나의도서 - 별빛도서관</title>
 </head>
 
 <body class="d-flex flex-column">

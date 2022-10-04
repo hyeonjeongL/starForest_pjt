@@ -24,7 +24,7 @@
 	<!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <title>도서정보 - 딜리브러리</title>
+  <title>도서정보 - 별빛도서관</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 </head>
@@ -125,16 +125,6 @@
       <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
-  <script>
-    // Get the current year for the copyright
-    $('#year').text(new Date().getFullYear());
-
-    $('.slider').click({
-      infinite: true,
-      slideToShow: 1,
-      slideToScroll: 1
-    });
-  </script>
   
   <script type="text/javascript">
       window.onload = function() {
@@ -145,21 +135,6 @@
          footer_display.textContent = quotes[getQuote];
       }   
 
-      <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-	    $(function(){
-	    	$(".mypage").click(function(event){
-	    		if(${cust_no == null}){
-	    			event.preventDefault();
-	    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-	    			console.log(loginOk);
-	    			if(loginOk){
-	    				console.log("로그인하러갑니다.");
-	    				window.location.href = "LoginPage.do";
-	    			}
-	    		}else{
-	    			window.location.href="Home.do";
-	    		}
-	    	});
 	    });
    </script>
 </body>

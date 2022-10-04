@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>딜리브러리 - 대출/반납/연장</title>
+<title>별숲도서관 - 대출/반납/연장</title>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
@@ -35,21 +35,6 @@
 		
 	}
 
-	<!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-    $(function(){
-    	$(".mypage").click(function(event){
-    		if(${cust_no == null}){
-    			event.preventDefault();
-    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-    			console.log(loginOk);
-    			if(loginOk){
-    				console.log("로그인하러갑니다.");
-    				window.location.href = "LoginPage.do";
-    			}
-    		}else{
-    			window.location.href="Home.do";
-    		}
-    	});
     });
 </script>
 

@@ -68,41 +68,6 @@
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="JQuery-Session-Plugin-master/jquery.session.js"></script>
-	<script type="text/javascript">
-	$(function(){
-		$("#a").dialog({
-			autoOpen:false,
-			buttons:{
-				수정:function(){
-					var content = $("#event_content").val();
-					$("#open_button").html(content);
-					//$.session.set("my_content", content);
-					$("#a").dialog("close");
-				},
-				되돌리기:function(){
-					$("#event_content").val('${p.p_content}');
-				},
-				취소:function(){
-					$("#event_content").val("");
-					$("#a").dialog("close");
-				}
-			},
-
-			modal:true
-		});
-		/* $("#btn_save").click(){
-			var my_content = $.session.get("my_content");
-			
-		}; */
-	});
-
-	function pro(${p.p_content}){
-		content = $(this).text();
-		${p.p_content} = "";
-		$("#a").dialog("open");
-	}
-	
-	</script>
 </head>
 <body>
 	<header id="main_header">

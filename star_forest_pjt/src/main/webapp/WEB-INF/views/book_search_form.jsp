@@ -9,15 +9,6 @@ request.setCharacterEncoding("UTF-8");
 <meta charset="UTF-8">
 <title>별숲도서관</title>
 <script type="text/javascript">
-	function keywordCheck() {
-		var str_keyword = window.searchform.keyword.value;
-		if (!str_keyword || str_keyword === "") {
-			window.alert("검색어를 입력하세요.");
-			window.searchform.keyword.focus();
-			return false;
-		}
-		window.searchform.submit();
-	}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">

@@ -24,23 +24,8 @@
 	 <script type="text/javascript">
 	 
 	  <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-	  $(function(){
-	  	$(".mypage").click(function(event){
-	  		if(${cust_no == null}){
-	  			event.preventDefault();
-	  			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-	  			console.log(loginOk);
-	  			if(loginOk){
-	  				console.log("로그인하러갑니다.");
-	  				window.location.href = "LoginPage.do";
-	  			}
-	  		}else{
-	  			window.location.href="Home.do";
-	  		}
-	  	});
-	  });
 	  </script>
-  <title>로그인 - 딜리브러리</title>
+  <title>별숲도서관</title>
 </head>
 
 <body class="d-flex flex-column">

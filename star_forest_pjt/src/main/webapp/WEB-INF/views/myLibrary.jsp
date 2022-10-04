@@ -40,7 +40,7 @@
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 	/************로딩시세션체크*********/
-	$.ajax({
+	$.ajax({//도서정보 클릭 시 바로 세션확인
 		url : 'user_session_check',
 		method : 'POST',
 		dataType : 'json',
@@ -58,7 +58,10 @@
 
 	/*********************favorite(내서재)**********************/
 
-	/*--------------*/
+	/*-------내서재 등록-------*/
+	
+	
+	
 </script>
 
 </head>

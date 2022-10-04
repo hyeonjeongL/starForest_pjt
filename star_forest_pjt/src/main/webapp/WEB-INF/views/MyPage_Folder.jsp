@@ -20,7 +20,6 @@
 	<!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-<link rel="stylesheet" type="text/css" href="css/folder_hw.css">
 <link rel="stylesheet" type="text/css" href="css/wang_hw.css">
 <link rel="stylesheet" type="text/css" href="css/delete_btn_hw.css">
 
@@ -32,7 +31,7 @@
  * 창 새로 고침 할때 폴더가 계속 생성되는것을 막기 위한, 새로고침 할때 폼태그 양식 재제출 방지 코드 *
  *************************************************************************/
 if ( window.history.replaceState ) {
-    window.history.replaceState( null, null, "MyPage_Folder.do?cust_no="+${cust_no }+"&group=50" );
+    window.history.replaceState( null, null, "MyPage_Folder.do?user_id="+${user_id});
 }
 
 $(function(){
@@ -276,8 +275,7 @@ $(function(){
        		<input type="hidden" name="cust_no" value="${c.cust_no }">
          	<div class="card noto-serif">
          		<div class="card-body" id="fol_card">
-			    	<img src="img/${c.fname }" width="170" height="170" align="left" style="background: white;"><br>
-					<p id="fol_card_name" style="padding-top: 10%">${c.name } 님의 서재</p>
+					<p id="fol_card_name">${c.name } 님의 서재</p>
          		</div>
 			</div>
 			
@@ -285,24 +283,10 @@ $(function(){
 			<div class="row">
 				<div class="col-sm-6" id="fol_list_title">
 					<form action="MyPage_Folder.do" method="post">
-		   				<font style="font-size: x-large; font-weight: bold; font-family: 'Noto Serif KR', serif;" >내서재</font>&nbsp;&nbsp;&nbsp;폴더 : ${totalFol }개&nbsp;|&nbsp;도서 : ${totalFile }권
+		   				<font style="font-size: x-large; font-weight: bold; font-family: 'Noto Serif KR', serif;" >내서재</font>
 						<input type="hidden" value="${c.cust_no }" name="cust_no">
 						<input type="hidden" value=50 name="group">
 						
-						<button type='button' id="modal_btn_fol" style="width: 85px;">폴더 추가</button>
-						  
-						<div class="black_bg_fol"></div>
-					    <div class="modal_wrap_fol">
-			  			    <div class="fol_title_title">폴더 추가</div>
-							<br><br><br>
-						    <div class="fol_title_name">폴더 이름</div>
-							<div class="fol_title">
-								<input type="text" id="fol_title_text" name="fol_title_text" placeholder="폴더 이름을 입력하세요.">				
-							</div>
-							<br>
-							<button id="btn_fol_add" type="submit">확인</button>
-							<input type="button" class="modal_close" value="창 닫기">
-						</div>
 					</form>
 		        </div>
 			        
@@ -314,7 +298,6 @@ $(function(){
 				          <div class="catalog-search">
 				          <input type="hidden" value="${c.cust_no}" name="cust_no">
 				          <input type="hidden" value=50 name="group">
-				            <input class="shuffle-search input_field " type="search" autocomplete="off" value="" maxlength="128" id="input-search" placeholder="검색어를 입력하세요." name="search"/>
 				            <label class="input_label" for="input-search">
 				              <span class="input_label-content"></span>
 				              <span class="input_label-search"></span>
@@ -327,6 +310,70 @@ $(function(){
        	</div>
 	        <hr>
 	        <div style="text-align: left;">
+	        <div class="col-lg-9">
+
+											<div
+												class="items-header directory-header d-flex justify-content-lg-between align-items-baseline">
+												<h4 class="selected-dir-name">전체</h4>
+												<div class="item-count">
+													<span class="number">${favorite.length}</span>건
+												</div>
+											</div>
+											<!-- .items-header -->
+
+											<div class="e-items list">
+
+												<div class="e-item item-headings" style="width:20%;">
+													<div class="item-index">번호</div>
+													<div class="item-data">ISBN</div>
+													<div class="item-data">제목</div>
+													<div class="item-data">저자</div>
+													<div class="item-data">출판사</div>
+													<div class="item-functions">작업</div>
+												</div>
+												<!-- .item-headings -->
+												<c:if test="${favoriteList.size() == 0}">			
+													<div class="content">등록된 서재목록이 없습니다. 내서재에 등록해주세요 🙂</div>								
+												</c:if>
+												<c:forEach var="favorite" items="${favoriteList}">
+													<div class="e-item d-md-flex align-items-center">
+													<div class="item-no">${favorite.favorite_no}</div>
+													<div class="item item-data d-flex">
+														<div class="item-cover">
+															<a href="/detail/?cid=CAT000000949038&ctype=m"></a>
+														</div>
+														<div class="item-meta">
+															<div class="item-isbn">${favorite.book.isbn}</div>
+															<div class="item-title">
+																<h4>
+																	<a href="/detail/?cid=CAT000000949038&ctype=m">${favorite.book.book_title}</a>
+																</h4>
+															</div>
+															<div class="item-author">${favorite.book.book_author}</div>
+															<div class="item-pub">${favorite.book.book_publisher}</div>
+														</div>
+													</div>
+													<div class="item-functions">
+														<a role="button"
+															class="btn btn-sm btn-primary favorite_item-del-trigger"
+															item-val="234279">삭제</a>
+													</div>
+												</div>
+												<!-- item : 1 -->
+												</c:forEach>
+												
+
+											</div>
+											<!-- .e-items.list -->
+										<div class="favorite_delete">
+											<div class="back-to-main">
+												<c:if test="${favoriteList.size()!=0}">
+													<a href="#" class="btn btn-primary favorite_item_del_btn">전체삭제</a>
+												</c:if>
+											</div>
+										</div>
+										
+										</div>
 			<button id="manage_btn">관리</button>
 	       		<div class="btn">
 	       		
@@ -338,22 +385,6 @@ $(function(){
 				  <div class="btn-front">삭제</div>
 				</div>
 	       	  
-			</div>
-	        <div class="grid-container">
-	        <c:forEach items="${flist}" var="f">
-			 	 <a href="MyPage_File.do?group=50&cust_no=${c.cust_no }&fol_no=${f.fol_no}&fol_name=${f.fol_name}">
-				     <span class="grid-cont-font">
-					 	 <div class="folder">
-						   <div class="paper one"></div>
-						   <div class="paper two"></div>
-						   <div class="paper three"></div>
-						  <div class="paper four"></div>
-						</div>
-						<input type="checkbox" name="delete_check_name" value="${f.fol_no }" style="display: none;" class="delete_check">
-				     	${f.fol_name }
-				     </span>
-					</a>
-	        </c:forEach>
 			</div>
         </div>
       </div>

@@ -323,3 +323,11 @@ html, body{
 .howtoText {
 	font-family: 'Noto Sans KR', sans-serif;
 }
+
+.e-items list{
+	display:table;
+	width:100%
+}
+
+
+

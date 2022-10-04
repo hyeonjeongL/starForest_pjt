@@ -71,4 +71,9 @@ public class BookDaoImpl implements BookDao {
 		return bookMapper.selectNew(category_no);
 	}
 
+	@Override
+	public List<Book> selectFavorite9() throws Exception {
+		return bookMapper.selectFavorite9();
+	}
+
 }

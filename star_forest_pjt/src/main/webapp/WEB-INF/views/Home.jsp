@@ -73,6 +73,15 @@ $(function(){
 			+ "이용시간 : 평일 9:00 - 18:00, 점심시간 12:00 - 13:30 \n              ( 주말/공휴일 휴무 ) \n"	
 			+ "팩스번호 : 0504-123-1234 \n"); 
    });
+   
+   
+   $(function() {
+		console.log('dsds');
+		$(document).on('click','#btn_seatReservation_menu',function(e){
+			console.log('야야야야ㅑ');
+			
+		});
+	});
 });
 
 </script>
@@ -137,9 +146,9 @@ $(function(){
                      <li><a class="dropdown-item mypage"
                         href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
                   </ul></li>
-                   <li class="nav-item dropdown"><a
+                   <li><a
                   href="seatReservation.do"
-                  class="nav-link dropdown-toggle mypage" data-toggle="dropdown">열람실예약</a>
+                  id="btn_seatReservation_menu" >열람실예약</a>
             </ul>
             </ul>
             <ul id="app" class="navbar-nav ml-auto">

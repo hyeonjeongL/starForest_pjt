@@ -16,7 +16,7 @@ import com.itwill.service.SeatReservationService;
 public class SeatReservationController {
 	@Autowired
 	private SeatReservationService seatReservationService;
-	@RequestMapping("/seat_reservation")
+	@RequestMapping("/seatReservation")
 	public String seat_list(HttpServletRequest request) {
 		String forwardPath="";
 		try {

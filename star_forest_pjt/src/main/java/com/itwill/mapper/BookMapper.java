@@ -65,8 +65,12 @@ public interface BookMapper {
 	public List<Book> selectCategory(int category_no);
 	
 	//인기도서 출력
-	@Select("select * from (select * from book order by book_rental_cnt desc) where rownum<=9")
+	@Select("select * from book order by book_rental_cnt desc")
 	public List<Book> selectFavorite();
+	
+	//인기도서 출력
+	@Select("select * from (select * from book order by book_rental_cnt desc) where rownum<=9")
+	public List<Book> selectFavorite9();
 	
 	//관련분야 인기도서 출력
 	@Select("select * from (select * from book order by book_rental_cnt desc) where category_no=#{category_no} and rownum<=9")

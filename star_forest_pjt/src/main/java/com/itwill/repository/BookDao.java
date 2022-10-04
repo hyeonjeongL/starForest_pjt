@@ -37,6 +37,9 @@ public interface BookDao {
 	//인기도서 출력
 	List<Book> selectFavorite() throws Exception;
 	
+	//인기도서 출력
+	List<Book> selectFavorite9() throws Exception;
+	
 	//관련분야 인기도서 출력
 	List<Book> selectRelateion(int category_no) throws Exception;
 	

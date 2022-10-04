@@ -6,11 +6,13 @@ btn-success #28A745
 btn-secondary #6C757D
 btn-warning #DC3545
 
-½ºÇÁ¸µ ¿¬ #75BD43
-½ºÇÁ¸µ Áø #107637
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ #75BD43
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ #107637
 */
 
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
+@import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
 
 #modal_btn_fol {
   margin-top: 10px;

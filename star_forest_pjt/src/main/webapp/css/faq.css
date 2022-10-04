@@ -5,8 +5,8 @@ bg-dark #343a40
 btn-success #28A745
 btn-secondary #6C757D
 
-½ºÇÁ¸µ ¿¬ #75BD43
-½ºÇÁ¸µ Áø #107637
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ #75BD43
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ #107637
 */
 
 @charset "EUC-KR";
@@ -60,7 +60,7 @@ input[id*="answer"]:checked  + label + div{
 	padding: 20px 0;
 }
 	
-/* ¿À½Ã´Â±æ Å×ÀÌºí */
+/* ï¿½ï¿½ï¿½Ã´Â±ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ */
 #info-table th{
 	padding: 5px 10px;
 }

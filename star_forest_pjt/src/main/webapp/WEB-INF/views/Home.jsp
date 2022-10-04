@@ -88,6 +88,7 @@ $(function(){
 
 </head>
 <body>
+<<<<<<< HEAD
    <nav
       class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
       <div class="container container-fluid">
@@ -200,6 +201,15 @@ $(function(){
          </div>
       </div>
    </nav>
+=======
+	<!-- navigation start-->
+			<div id="navigation">
+				<!-- include_common_left.jsp start-->
+				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+				<!-- include_common_left.jsp end-->
+			</div>
+			<!-- navigation end-->
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-starForest_library.git
 
    <!-- HOME HEADING SECTION -->
    <section id="home-heading" class="p-4 noto-serif">

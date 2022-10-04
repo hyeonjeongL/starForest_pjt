@@ -26,13 +26,16 @@ public class BookDaoTestController {
 		BookDao bookDao = (BookDao) context.getBean(BookDao.class);
 		Date date = new Date();
 		Book insertNBookd = new Book(0, 0, "책제목", "저자", "출판사", "책줄거리", "2022년 1월", date, "이미지", "이미지rul", 200, 3, 0, 0, 400,null);
-		System.out.println(bookDao.insertBook(insertNBookd));
+//		System.out.println(bookDao.insertBook(insertNBookd));
 //		System.out.println(bookDao.selectBookDetail(12));
 // 		System.out.println(bookDao.updateRentalBookQty(1));
 // 		System.out.println(bookDao.updateReturnBookQty(2));
 //		System.out.println(bookDao.updateById("hyeonjeong")); 
 //		System.out.println(bookDao.updateByIdNo("yeji",2)); 
 //		System.out.println(bookDao.selectAll());
+//		System.out.println(bookDao.updateRentalCnt(1));
+//		System.out.println(bookDao.updateResCnt(2));
+		
 		//테스트 완료
 	}
 

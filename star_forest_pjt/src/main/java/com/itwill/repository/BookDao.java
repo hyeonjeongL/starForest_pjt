@@ -31,11 +31,21 @@ public interface BookDao {
 	// 도서 전체 출력
 	List<Book> selectAll() throws Exception;
 	
+	//대여시 대여횟수 증가
+	int updateRentalCnt(int book_no) throws Exception;
+	
+	//예약시 예약카운트 증가 최대 5명
+	int updateResCnt(int book_no) throws Exception;
+	
+	//우혁
 	//카테고리별 출력
 	List<Book> selectCategory(int category_no) throws Exception;
 	
 	//인기도서 출력
 	List<Book> selectFavorite() throws Exception;
+	
+	//인기도서 출력
+	List<Book> selectFavorite9() throws Exception;
 	
 	//관련분야 인기도서 출력
 	List<Book> selectRelateion(int category_no) throws Exception;

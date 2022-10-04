@@ -1298,7 +1298,7 @@ $(function(){
 																	<a href="/detail/?cid=CAT000000949038&ctype=m">${favorite.book.book_title}</a>
 																</h4>
 															</div>
-															<div class="item-author">${favorite.book.book_author}</div>
+															<div class="item-author">${favorite.book.boo	k_author}</div>
 															<div class="item-pub">${favorite.book.book_publisher}</div>
 														</div>
 													</div>

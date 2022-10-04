@@ -17,6 +17,7 @@
 		INNER JOIN BOOK b
 		on r.BOOK_NO = b.BOOK_NO
 		WHERE r.USER_ID = #{user_id}
+		and r.rental_status!=0
 	</select>
 	<resultMap type="book" id="BookResultMap">
 		<!-- <id column="user_id" property="user_id"/> -->

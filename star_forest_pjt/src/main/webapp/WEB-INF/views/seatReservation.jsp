@@ -58,6 +58,7 @@
 </head>
 <body class="d-flex flex-column">
 	<div id="page-content">
+<<<<<<< HEAD
 		<nav
 			class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
 			<div class="container">
@@ -151,9 +152,15 @@
 					</script>
 					-->
 				</ul>
+=======
+			<!-- navigation start-->
+			<div id="navigation">
+				<!-- include_common_left.jsp start-->
+				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+				<!-- include_common_left.jsp end-->
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-starForest_library.git
 			</div>
-		</div>
-	</nav>
+			<!-- navigation end-->
 
 		<!-- PAGE HEADER -->
 		<header id="page-header" class="noto-serif">

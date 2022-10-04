@@ -10,22 +10,25 @@ public interface RentalService {
 
 	/** 대여 시 insert */
 
-	int insertRental(Rental rental);
+	int insertRental(Rental rental) throws Exception;
 
 	/** 대여 기간 연장 */
-	int updateDate(String user_id, int book_no);
+	int updateDate(String user_id, int book_no) throws Exception;
 
 	/** user_id로 대출 리스트 뽑기 */
-	List<Rental> selectById(String user_id);
+	List<Rental> selectById(String user_id) throws Exception;
 
 	/** book_no로 대출유저 리스트 */
-	List<Map<String, Object>> selectByNo(int book_no);
+	List<Map<String, Object>> selectByNo(int book_no) throws Exception;
 
 	/** 반납했을 때 렌탈테이블 업데이트 (admin) */
-	int updateRentalStatus(String user_id, int book_no);
+	int updateRentalStatus(String user_id, int book_no) throws Exception;
 
 	/** 연체중일 때 status 2(연체)로 변경*/
-	int updateRentalStatusOverdue(int rental_no);
+	int updateRentalStatusOverdue(int rental_no) throws Exception;
+	
+	/** 3권 모두 대여중일 시 가장 빠른 반납예정일 출력*/
+	String selectMostReturn_duedate(int book_no)throws Exception;
 
 
 }

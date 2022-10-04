@@ -18,37 +18,42 @@ public class RentalServiceImpl implements RentalService{
 
 	/** 대여 시 insert*/
 	@Override
-	public int insertRental(Rental rental) {
+	public int insertRental(Rental rental)  throws Exception{
 		return rentalDao.insertRental(rental);
 	}
 	
 	/** 대여 기간 연장*/
 	@Override
-	public int updateDate(String user_id, int book_no) {
+	public int updateDate(String user_id, int book_no)  throws Exception{
 		return rentalDao.updateDate(user_id, book_no);
 	}
 
 	/** user_id로 대출 리스트 뽑기*/
 	@Override
-	public List<Rental> selectById(String user_id) {
+	public List<Rental> selectById(String user_id)  throws Exception{
 		return rentalDao.selectById(user_id);
 	}
 
 	/** book_no로 대출유저 리스트*/
 	@Override
-	public List<Map<String, Object>> selectByNo(int book_no) {
+	public List<Map<String, Object>> selectByNo(int book_no) throws Exception {
 		return rentalDao.selectByNo(book_no);
 	}
 
 	/** 반납했을 때 렌탈테이블 업데이트 (admin)*/
 	@Override
-	public int updateRentalStatus(String user_id, int book_no) {
+	public int updateRentalStatus(String user_id, int book_no)  throws Exception{
 		return rentalDao.updateRentalStatus(user_id, book_no);
 	}
 
 	@Override
-	public int updateRentalStatusOverdue(int rental_no) {
+	public int updateRentalStatusOverdue(int rental_no)  throws Exception{
 		return rentalDao.updateRentalStatusOverdue(rental_no);
+	}
+
+	@Override
+	public String selectMostReturn_duedate(int book_no) throws Exception {
+		return rentalDao.selectMostReturn_duedate(book_no);
 	}
 
 

@@ -12,9 +12,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 
 import com.itwill.domain.Book;
 import com.itwill.mapper.BookMapper;
-import com.itwill.mapper.NoticeMapper;
 import com.itwill.repository.BookDao;
-import com.itwill.repository.NoticeDao;
 
 @SpringBootApplication
 @ComponentScan(basePackages = { "com.itwill" }, includeFilters = {

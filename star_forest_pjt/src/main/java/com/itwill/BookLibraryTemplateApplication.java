@@ -14,10 +14,10 @@ import org.springframework.context.annotation.ComponentScan;
 이 세게를 @SpringBootApplication 얘가 해주는거임
  */
 @SpringBootApplication
-public class star_forest_pjtTemplateApplication {
+public class BookLibraryTemplateApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(star_forest_pjtTemplateApplication.class, args);
+		SpringApplication.run(BookLibraryTemplateApplication.class, args);
 	}
 
 }

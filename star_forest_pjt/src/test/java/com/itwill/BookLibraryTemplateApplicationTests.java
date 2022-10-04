@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class star_forest_pjtTemplateApplicationTests {
+class BookLibraryTemplateApplicationTests {
 
 	@Test
 	void contextLoads() {

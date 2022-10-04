@@ -7,7 +7,7 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(star_forest_pjtTemplateApplication.class);
+		return application.sources(BookLibraryTemplateApplication.class);
 	}
 
 }

@@ -137,6 +137,7 @@ $(function(){
                      <li><a class="dropdown-item mypage"
                         href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
                   </ul></li>
+                  
             </ul>
             <ul id="app" class="navbar-nav ml-auto">
                <c:if test="${cust_no == 1}">

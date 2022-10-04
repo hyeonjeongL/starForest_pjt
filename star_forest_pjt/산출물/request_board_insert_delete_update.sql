@@ -16,9 +16,9 @@ insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'나는 소�
 
 --4번 글에 대한 답글 생성
 insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'신청완료',sysdate, 
-'신청하신 해당 책 신청됐습니다.',0,0,2,0,2,4,700,'manager');
+'신청하신 해당 책 신청됐습니다.',0,0,2,0,2,21,700,'manager');
 
-update request_board set board_step=board_step+1 where board_step>1 and groupno=4;
+update request_board set board_step=board_step+1 where board_step>1 and groupno=21;
 
 --soyoon이 쓴 신청 게시물 확인
 select *
@@ -42,8 +42,16 @@ update request_board set board_title='',board_content='' where board_no=8;
 update request_board set board_readcount=board_readcount+1 where board_no=8;
 
 --모든 게시물 리스트
-select * 
-from request_board;
+select * from
+request_board
+order by groupno desc, board_step asc;
+
+select * from
+( SELECT rownum idx, s.*  FROM
+				( SELECT * FROM request_board
+					ORDER BY groupno DESC,board_step ASC
+				) s
+		 );
 
 --게시물 건수 확인
 select count(*)

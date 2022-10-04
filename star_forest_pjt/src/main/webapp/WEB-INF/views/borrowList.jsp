@@ -58,7 +58,7 @@
    
 <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
 $(function(){
-   $(".mypage").click(function(event){
+  /*  $(".mypage").click(function(event){
       if(${cust_no == null}){
          event.preventDefault();
          const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
@@ -69,7 +69,7 @@ $(function(){
          }
       }else{
          window.location.href="Home.do";
-      }
+      } */
    });
 
    /*************************************************************************

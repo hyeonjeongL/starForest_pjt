@@ -64,8 +64,9 @@
                      <li><a class="dropdown-item mypage"
                         href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
                   </ul></li>
-                   <li class="nav-item dropdown"><a href="seatReservation.do"
-                  class="nav-link dropdown-toggle" data-toggle="dropdown">열람실예약</a>
+                   <li><a
+                  href="seatReservation.do"
+                  id="btn_seatReservation_menu" >열람실예약</a>
             </ul>
             <ul id="app" class="navbar-nav ml-auto">
                <c:if test="${cust_no == 1}">

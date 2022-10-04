@@ -223,21 +223,15 @@
    </section>
    </div>
 
-  <!-- FOOTER -->
-  <footer id="main-footer" class="text-center p-4 noto-serif">
-    <div class="container">
-      <div class="row">
-         <div class="col-md-12 pb-2">
-            <!--  책 관련된 명언 랜덤으로 보여주기 -->
-            <p id="footer-display"></p>
-          </div>
-        <div class="col-md-12">
-          <p>Copyright &copy;
-            <span id="year"></span> Delibrary</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+ <!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
+
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -253,18 +247,6 @@
 
   </script>
   <script type="text/javascript">
-     <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-    /*   function postInsert(){
-            if(${cust_no}==0){
-               const loginOk=confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-               if(loginOk){
-                  window.location="LoginPage.do";
-               }
-            }else{
-               window.location="postInsert.do?group="+${group}+"&&cust_no="+${cust_no};
-            }
-         }
- */
       window.onload=function(){
          //푸터 명언
          const footer_display = document.getElementById('footer-display');
@@ -272,16 +254,6 @@
          const footer_getQuote = Math.floor(Math.random() * footer_quotes.length);
          footer_display.textContent =footer_quotes[footer_getQuote];
       }
-
-      <!-- 사이드바 active 속성 붙여주기 -->
-       if(${group}){
-            document.getElementById(`post${group}`).classList.add('active');
-         } 
-         
-        <!-- 페이징 active 속성 붙여주기 -->
-       if(${pageNUM}){
-            document.getElementById(`page${pageNUM}`).classList.add('active');
-         } 
   </script>
  
   

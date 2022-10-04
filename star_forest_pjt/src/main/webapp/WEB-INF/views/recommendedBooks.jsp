@@ -102,22 +102,14 @@
 		</section>
 		</div>
 
-		<!-- FOOTER -->
-		<footer id="main-footer" class="text-center p-4 noto-serif">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 pb-2">
-						<!--  책 관련된 명언 랜덤으로 보여주기? -->
-						<p id="footer-display"></p>
-					</div>
-					<div class="col-md-12">
-						<p>
-							Copyright &copy; <span id="year"></span> Delibrary
-						</p>
-					</div>
-				</div>
-			</div>
-		</footer>
+<!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
 
 
 		<script src="http://code.jquery.com/jquery-3.3.1.min.js"
@@ -167,22 +159,6 @@
 				footer_display.textContent = footer_quotes[footer_getQuote];
 			}
 
-			<!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-		    $(function(){
-		    	$(".mypage").click(function(event){
-		    		if(${cust_no == null}){
-		    			event.preventDefault();
-		    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-		    			console.log(loginOk);
-		    			if(loginOk){
-		    				console.log("로그인하러갑니다.");
-		    				window.location.href = "LoginPage.do";
-		    			}
-		    		}else{
-		    			window.location.href="Home.do";
-		    		}
-		    	});
-		    });
 		</script>
 </body>
 

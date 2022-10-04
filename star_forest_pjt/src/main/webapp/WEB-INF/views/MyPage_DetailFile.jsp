@@ -179,13 +179,15 @@
 	</div>
 		</section>
 	</div>
-	<footer id="main_footer">
-		<p>&copy; 탈주금지조. All rights reserved. | Design by members of 탈주금지조</a>.</p>
-		<img alt="" src="img/twitter_icon.png">
-		<img alt="" src="img/facebook_icon.png">
-		<img alt="" src="img/insta_icon.png">
-		<img alt="" src="img/youtube_icon.png">
-	</footer>
+	<!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
+
 	
 </body>
 </html>

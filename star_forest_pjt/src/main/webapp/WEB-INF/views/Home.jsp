@@ -529,22 +529,15 @@
       </section>
    </div>
 
-   <!-- FOOTER -->
-   <footer id="main-footer" class="text-center p-4 noto-serif">
-      <div class="container">
-         <div class="row">
-            <div class="col-md-12 pb-2">
-               <!--  책 관련된 명언 랜덤으로 보여주기 -->
-               <p id="footer-display"></p>
-            </div>
-            <div class="col-md-12">
-               <p>
-                  Copyright &copy; <span id="year"></span> Delibrary
-               </p>
-            </div>
-         </div>
-      </div>
-   </footer>
+  <!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
+
 
    <script type="text/javascript">
    

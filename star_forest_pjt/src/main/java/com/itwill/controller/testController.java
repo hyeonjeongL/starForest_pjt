@@ -182,5 +182,10 @@ public class testController {
 		System.out.println("test");
 		return "seatReservation";
 	}
+	@RequestMapping("/book_search_form.do")
+	public String test38() {
+		System.out.println("test");
+		return "book_search_form";
+	}
 
 }

@@ -126,17 +126,15 @@
 						</c:forEach>
 						
 	</section>
-  <!-- FOOTER -->
-  <footer id="main-footer" class="text-center p-4">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <p>Copyright &copy;
-            <span id="year"></span> Glozzom</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
+
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

@@ -1201,7 +1201,6 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 	<!-- #content -->
 
 	<!-- .footer-navigation -->
-	<!--  footer -->
 	<!-- footer start-->
 	<div id="navigation">
 		<!-- include_common_left.jsp start-->

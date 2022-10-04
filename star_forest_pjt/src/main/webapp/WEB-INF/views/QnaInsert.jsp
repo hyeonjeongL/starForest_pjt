@@ -137,21 +137,6 @@
   	</div>
   </section>
 </div>
-  <!-- FOOTER -->
-  <footer id="main-footer" class="text-center p-4 noto-serif">
-    <div class="container">
-      <div class="row">
-      	<div class="col-md-12 pb-2">
-	      	<!--  책 관련된 명언 랜덤으로 보여주기 -->
-      		<p id="footer-display"></p>
-    		</div>
-        <div class="col-md-12">
-          <p>Copyright &copy;
-            <span id="year"></span> Delibrary</p>
-        </div>
-      </div>
-    </div>
-  </footer>
 
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="

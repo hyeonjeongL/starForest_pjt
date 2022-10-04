@@ -21,7 +21,7 @@
 	<link rel="stylesheet" href="css/BookCart.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
-  <title>북카트 - 딜리브러리</title>
+  <title>북카트 - 별숲도서관</title>
   <style>
 	 	.img-fluid {
 		  height: 250px;
@@ -30,62 +30,6 @@
   </style>
 	<script type="text/javascript"	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript"	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
-	<script type="text/javascript">
-	//전역변수
-	
-	
-	$(function(){
-		
-		$(document).ready(function(){
-			  var zindex = 10;
-			  
-			  $("div.card").click(function(e){
-			    e.preventDefault();
-	
-			    var isShowing = false;
-	
-			    if ($(this).hasClass("show")) {
-			      isShowing = true
-			    }
-	
-			    if ($("div.cards").hasClass("showing")) {
-			      // a card is already in view
-			      $("div.card.show")
-			        .removeClass("show");
-	
-			      if (isShowing) {
-			        // this card was showing - reset the grid
-			        $("div.cards")
-			          .removeClass("showing");
-			      } else {
-			        // this card isn't showing - get in with it
-			        $(this)
-			          .css({zIndex: zindex})
-			          .addClass("show");
-	
-			      }
-	
-			      zindex++;
-	
-			    } else {
-			      // no cards in view
-			      $("div.cards")
-			        .addClass("showing");
-			      $(this)
-			        .css({zIndex:zindex})
-			        .addClass("show");
-	
-			      zindex++;
-			    }
-			    
-			  });
-			});
-	
-		
-	    	
-	});
-		
-	</script>
 </head>
 <body class="d-flex flex-column">
 	<div id="page-content">
@@ -151,21 +95,15 @@
 		  </div>
 	</section>
   </div>
-  <!-- FOOTER -->
-  <footer id="main-footer" class="text-center p-4 noto-serif">
-    <div class="container">
-      <div class="row">
-      	<div class="col-md-12 pb-2">
-	      	<!--  책 관련된 명언 랜덤으로 보여주기 -->
-      		<p id="footer-display"></p>
-    		</div>
-        <div class="col-md-12">
-          <p>Copyright &copy;
-            <span id="year"></span> Delibrary</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
+
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

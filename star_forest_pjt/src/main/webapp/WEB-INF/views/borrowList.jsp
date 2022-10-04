@@ -36,45 +36,6 @@
   
 <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
-<script type="text/javascript">
-
-
-/*************************************************************************
- * 창 새로 고침 할때 폴더가 계속 생성되는것을 막기 위한, 새로고침 할때 폼태그 양식 재제출 방지 코드 *
- *************************************************************************/
-//if ( window.history.replaceState ) {
-   // window.history.replaceState( null, null, "bookList.do?cust_no="+${cust_no } );
-//}
-   
-
-
-      /* 추천도서 누르면 bookDetail 페이지로 이동 */
-      $(function() {
-         $('.card_image-holder').click(function() {
-            location.href = "http://localhost:8088/detailBook.do?b_no=1&query=" + $(this).find('#book-title').text();
-         })
-      });
-         
-   
-<!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-$(function(){
-  /*  $(".mypage").click(function(event){
-      if(${cust_no == null}){
-         event.preventDefault();
-         const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-         console.log(loginOk);
-         if(loginOk){
-            console.log("로그인하러갑니다.");
-            window.location.href = "LoginPage.do";
-         }
-      }else{
-         window.location.href="Home.do";
-      } */
-   });
-
- 
-</script>
-  
 </head>
 <body class="d-flex flex-column">
    <div id="page-content">
@@ -198,21 +159,15 @@ $(function(){
    </section>
    </div>
    
-   <!-- FOOTER -->
-  <footer id="main-footer" class="text-center p-4 noto-serif">
-    <div class="container">
-      <div class="row">
-         <div class="col-md-12 pb-2">
-            <!--  책 관련된 명언 랜덤으로 보여주기 -->
-            <p id="footer-display"></p>
-          </div>
-        <div class="col-md-12">
-          <p>Copyright &copy;
-            <span id="year"></span> Delibrary</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+   <!-- .footer-navigation -->
+	<!-- footer start-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
+
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

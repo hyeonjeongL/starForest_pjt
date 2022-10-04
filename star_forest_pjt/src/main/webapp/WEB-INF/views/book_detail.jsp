@@ -15,7 +15,7 @@
 <meta property="og:image"
 	content="https://library.korea.ac.kr/wp-content/uploads/2021/11/kulib_logo.png" />
 <link rel="profile" href="https://gmpg.org/xfn/11" />
-<title>도서관</title>
+<title>별숲도서관</title>
 <link rel="alternate" hreflang="ko"
 	href="https://library.korea.ac.kr/detail/" />
 <link rel="alternate" hreflang="en"
@@ -275,141 +275,10 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 	});
 </script>
 
-			<div class="site-branding">
-
-
-				<div class="site-brand-bar">
-					<div class="container">
-						<div class="row justify-content-between align-items-center">
-							<div class="col-2 col-lg-4 order-1">
-								<div class="site-logo">
-									<a href="https://library.korea.ac.kr" rel="home"> <img
-										src="https://library.korea.ac.kr/wp-content/themes/kulib/images/logo.png"
-										alt="고려대학교 도서관" />
-									</a>
-								</div>
-							</div>
-							<div class="col col-lg-4 order-last order-lg-2">
-								<div class="main-search">
-									<form action="/main-search-result/" method="get"
-										id="main-search-result">
-										<div class="input-group">
-											<label class="sr-only" for="total-search">통합검색</label> <input
-												type="text" name="q" id="total-search"
-												class="form-control input-tot-search-terms"
-												autocomplete="off" placeholder="통합검색"
-												onclick="javascript:n2ezast_init('libmain', 'main-search-result', 'total-search', 'n2autoterms', 350, 60, 0);" />
-											<div class="input-group-append">
-												<button type="submit"
-													class="btn btn-theme submit-tot-search-button">
-													<svg class="svg-icon" width="19" height="19"
-														aria-hidden="true" role="img" focusable="false"
-														xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-														<path d="M0 0h24v24H0z" fill="none"></path>
-														<path
-															d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg>
-												</button>
-											</div>
-										</div>
-									</form>
-									<div id="n2autoterms"
-										style="position: relative; left: 0px; top: 0px; z-index: 2000; padding-top: 0px;"></div>
-								</div>
-							</div>
-							<div
-								class="col-10 col-lg-4 order-3 d-flex justify-content-end align-items-center">
-
-								<div class="aside-menu-item user-menu-item">
-									<a role="button" class="user-menu-trigger"><svg
-											class="svg-icon" width="22" height="22" aria-hidden="true"
-											role="img" focusable="false"
-											xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-											<path d="M0 0h24v24H0z" fill="none"></path>
-											<path
-												d="M12,7.128c1.721,0,3.121,1.4,3.121,3.122c0,1.721-1.4,3.121-3.121,3.121s-3.121-1.4-3.121-3.121 C8.879,8.528,10.279,7.128,12,7.128 M12,0C5.373,0,0,5.373,0,12s5.373,12,12,12s12-5.373,12-12S18.627,0,12,0z M12,1.8 c5.624,0,10.2,4.576,10.2,10.2c0,2.075-0.626,4.005-1.695,5.617c-1.34-1.893-3.093-3.209-5.062-3.812 c0.91-0.894,1.478-2.134,1.478-3.507c0-2.714-2.207-4.922-4.921-4.922s-4.921,2.208-4.921,4.922c0,1.391,0.584,2.642,1.515,3.537 c-1.966,0.625-3.712,1.96-5.041,3.874C2.447,16.08,1.8,14.114,1.8,12C1.8,6.376,6.376,1.8,12,1.8z M12,22.2 c-2.84,0-5.41-1.169-7.261-3.049c1.604-2.573,4-3.932,6.447-3.932h1.75c2.422,0,4.79,1.334,6.395,3.855 C17.475,20.998,14.877,22.2,12,22.2z"></path></svg></a>
-									<div class="user-menu">
-										<div>
-											<a
-												href="/logout/?returl=%2Fdetail%2F%3Fcid%3DCAT000046124897%26ctype%3Dm">LOGOUT
-												(2020010688)</a>
-										</div>
-										<div>
-											<a class="d-flex justify-content-between align-items-center"
-												href="/my-library/private-notice/"> <span>신규 개인공지</span>
-												<span>3</span>
-											</a>
-										</div>
-										<div>
-											<a class="d-flex justify-content-between align-items-center"
-												href="/my-library/loan/loan-list/"> <span>자료대출 현황</span>
-												<span>0</span>
-											</a>
-										</div>
-										<div class="d-flex justify-content-between align-items-center">
-											<span>교외접속 권한</span> <span> 가능 </span>
-										</div>
-									</div>
-									<!-- .user-menu -->
-								</div>
-
-
-								<a href="/detail/?cid=CAT000046124897&ctype=m&lang=en"
-									class="aside-menu-item">ENG</a> <a
-									class="aside-menu-item site-search-trigger"><svg
-										class="svg-icon" width="22" height="22" aria-hidden="true"
-										role="img" focusable="false"
-										xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<path d="M0 0h24v24H0z" fill="none"></path>
-										<path
-											d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg></a>
-								<a class="aside-menu-item mobile-nav-trigger"> <span
-									class="menu-icon"> <span></span> <span></span> <span></span>
-								</span>
-								</a>
-
-							</div>
-							<!-- .col -->
-
-						</div>
-						<!-- .row -->
-					</div>
-					<!-- .container -->
-
-					<div class="site-search">
-						<div class="container">
-							<form class="site-search-form" action="/">
-								<label class="sr-only" for="refine-search">사이트내 검색</label> <input
-									type="search" name="s" id="refine-search"
-									class="site-search-field input-site-search-terms"
-									placeholder="사이트 내 검색" /> <a
-									class="site-search-closer btn-closer"><svg class="svg-icon"
-										width="12" height="12" aria-hidden="true" role="img"
-										focusable="false" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24">
-										<path d="M0 0h24v24H0z" fill="none"></path>
-										<path
-											d="M21.414,18.586c0.781,0.781,0.781,2.047,0,2.828C21.023,21.805,20.512,22,20,22s-1.023-0.195-1.414-0.586 L12,14.828l-6.586,6.586C5.024,21.805,4.512,22,4,22s-1.024-0.195-1.414-0.586c-0.781-0.781-0.781-2.047,0-2.828L9.172,12 L2.586,5.415c-0.781-0.781-0.781-2.047,0-2.828c0.78-0.781,2.047-0.781,2.828,0L12,9.172l6.586-6.586 c0.781-0.781,2.047-0.781,2.828,0c0.781,0.781,0.781,2.047,0,2.828L14.828,12L21.414,18.586z"></path></svg></a>
-								<button type="submit"
-									class="btn btn-theme-positive btn-no-effect border-0 rounded-0 submit-site-search-button">
-									<svg class="svg-icon" width="24" height="24" aria-hidden="true"
-										role="img" focusable="false"
-										xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-										<path d="M0 0h24v24H0z" fill="none"></path>
-										<path
-											d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg>
-								</button>
-								<!-- 2021.04.01 아래 2줄 추가 - 결과를 최신글 순으로 나오도록 처리 -->
-								<input type="hidden" name="orderby" value="ID"> <input
-									type="hidden" name="order" value="DESC">
-							</form>
-						</div>
-					</div>
-					<!-- .site-sesarch -->
-
 					<!-- navigation start-->
 					<div id="navigation">
 						<!-- include_common_left.jsp start-->
-						<jsp:include page="common/include_common_top_menu.jsp" />
+						<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
 						<!-- include_common_left.jsp end-->
 					</div>
 					<!-- navigation end-->
@@ -1849,79 +1718,14 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 		</div>
 		<!-- .container -->
 	</div>
-	<!-- .footer-dropdown-links -->
-
-	<div class="footer-info">
-
-		<div class="container">
-			<div class="row">
-				<div class="site-footer-logo col-xl-3 d-none d-xl-block">
-					<a class="site-name link-monotone"
-						href="https://library.korea.ac.kr/" rel="home" title="고려대학교 도서관">
-						<img
-						src="https://library.korea.ac.kr/wp-content/themes/kulib/images/logo-white.png"
-						alt="" />
-					</a>
-				</div>
-
-				<div class="site-footer-info col-xl-6 col-lg-8 order-2 order-lg-1">
-					<div class="site-footer-links clearfix">
-						<a href="https://library.korea.ac.kr/privacy-policy/">개인정보처리방침</a>
-						<a
-							href="http://www.korea.ac.kr/mbshome/mbs/university/subview.do?id=university_090400000000"
-							target="_blank" class="link-monotone">이메일주소무단수집거부</a>
-						<div class="clearfix d-md-none"></div>
-						<a href="/main-phone-number/" class="link-monotone">주요 전화번호</a> <a
-							href="/facilities/location/" class="link-monotone">찾아오는 길</a>
+	<!--  footer -->
+	<!-- footer start-->
+					<div id="navigation">
+						<!-- include_common_left.jsp start-->
+						<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+						<!-- include_common_left.jsp end-->
 					</div>
-					<div class="site-footer-text">(02841) 서울시 성북구 안암로 145 고려대학교
-						도서관 &copy; KOREA UNIVERSITY LIBRARY ALL RIGHTS RESERVED.</div>
-				</div>
-
-				<div
-					class="site-footer-sns col-xl-3 col-lg-4 order-1 order-lg-2 d-flex justify-content-lg-end">
-					<a href="https://www.facebook.com/kulib1905" class="link-monotone"
-						title="고려대학교 도서관 페이스북" target="_blank"><svg class="svg-icon"
-							width="36" height="36" aria-hidden="true" role="img"
-							focusable="false" viewBox="0 0 24 24" version="1.1"
-							xmlns="http://www.w3.org/2000/svg"
-							xmlns:xlink="http://www.w3.org/1999/xlink">
-							<path
-								d="M20.007,3H3.993C3.445,3,3,3.445,3,3.993v16.013C3,20.555,3.445,21,3.993,21h8.621v-6.971h-2.346v-2.717h2.346V9.31 c0-2.325,1.42-3.591,3.494-3.591c0.993,0,1.847,0.074,2.096,0.107v2.43l-1.438,0.001c-1.128,0-1.346,0.536-1.346,1.323v1.734h2.69 l-0.35,2.717h-2.34V21h4.587C20.555,21,21,20.555,21,20.007V3.993C21,3.445,20.555,3,20.007,3z"></path></svg></a>
-					<a href="https://www.instagram.com/kulib1905" class="link-monotone"
-						title="고려대학교 도서관 인스타그램" target="_blank"><svg class="svg-icon"
-							width="36" height="36" aria-hidden="true" role="img"
-							focusable="false" viewBox="0 0 24 24" version="1.1"
-							xmlns="http://www.w3.org/2000/svg"
-							xmlns:xlink="http://www.w3.org/1999/xlink">
-							<path
-								d="M12,4.622c2.403,0,2.688,0.009,3.637,0.052c0.877,0.04,1.354,0.187,1.671,0.31c0.42,0.163,0.72,0.358,1.035,0.673 c0.315,0.315,0.51,0.615,0.673,1.035c0.123,0.317,0.27,0.794,0.31,1.671c0.043,0.949,0.052,1.234,0.052,3.637 s-0.009,2.688-0.052,3.637c-0.04,0.877-0.187,1.354-0.31,1.671c-0.163,0.42-0.358,0.72-0.673,1.035 c-0.315,0.315-0.615,0.51-1.035,0.673c-0.317,0.123-0.794,0.27-1.671,0.31c-0.949,0.043-1.233,0.052-3.637,0.052 s-2.688-0.009-3.637-0.052c-0.877-0.04-1.354-0.187-1.671-0.31c-0.42-0.163-0.72-0.358-1.035-0.673 c-0.315-0.315-0.51-0.615-0.673-1.035c-0.123-0.317-0.27-0.794-0.31-1.671C4.631,14.688,4.622,14.403,4.622,12 s0.009-2.688,0.052-3.637c0.04-0.877,0.187-1.354,0.31-1.671c0.163-0.42,0.358-0.72,0.673-1.035 c0.315-0.315,0.615-0.51,1.035-0.673c0.317-0.123,0.794-0.27,1.671-0.31C9.312,4.631,9.597,4.622,12,4.622 M12,3 C9.556,3,9.249,3.01,8.289,3.054C7.331,3.098,6.677,3.25,6.105,3.472C5.513,3.702,5.011,4.01,4.511,4.511 c-0.5,0.5-0.808,1.002-1.038,1.594C3.25,6.677,3.098,7.331,3.054,8.289C3.01,9.249,3,9.556,3,12c0,2.444,0.01,2.751,0.054,3.711 c0.044,0.958,0.196,1.612,0.418,2.185c0.23,0.592,0.538,1.094,1.038,1.594c0.5,0.5,1.002,0.808,1.594,1.038 c0.572,0.222,1.227,0.375,2.185,0.418C9.249,20.99,9.556,21,12,21s2.751-0.01,3.711-0.054c0.958-0.044,1.612-0.196,2.185-0.418 c0.592-0.23,1.094-0.538,1.594-1.038c0.5-0.5,0.808-1.002,1.038-1.594c0.222-0.572,0.375-1.227,0.418-2.185 C20.99,14.751,21,14.444,21,12s-0.01-2.751-0.054-3.711c-0.044-0.958-0.196-1.612-0.418-2.185c-0.23-0.592-0.538-1.094-1.038-1.594 c-0.5-0.5-1.002-0.808-1.594-1.038c-0.572-0.222-1.227-0.375-2.185-0.418C14.751,3.01,14.444,3,12,3L12,3z M12,7.378 c-2.552,0-4.622,2.069-4.622,4.622S9.448,16.622,12,16.622s4.622-2.069,4.622-4.622S14.552,7.378,12,7.378z M12,15 c-1.657,0-3-1.343-3-3s1.343-3,3-3s3,1.343,3,3S13.657,15,12,15z M16.804,6.116c-0.596,0-1.08,0.484-1.08,1.08 s0.484,1.08,1.08,1.08c0.596,0,1.08-0.484,1.08-1.08S17.401,6.116,16.804,6.116z"></path></svg></a>
-					<a href="https://pf.kakao.com/_UeIxixl" class="link-monotone"
-						title="고려대학교 도서관 카카오톡 플러스 친구" target="_blank"><svg
-							class="svg-icon" width="36" height="36" aria-hidden="true"
-							role="img" focusable="false" viewBox="0 0 24 24" version="1.1"
-							xmlns="http://www.w3.org/2000/svg"
-							xmlns:xlink="http://www.w3.org/1999/xlink">
-							<path
-								d="M12,2.772c-5.522,0-10,3.53-10,7.884c0,2.816,1.872,5.285,4.688,6.68c-0.153,0.529-0.986,3.4-1.018,3.625 c0,0-0.02,0.171,0.09,0.234c0.109,0.064,0.238,0.015,0.238,0.015c0.315-0.044,3.649-2.387,4.227-2.794 C10.8,18.5,11.395,18.541,12,18.541c5.523,0,10-3.53,10-7.885C22,6.302,17.523,2.772,12,2.772L12,2.772z M6.472,13.409 c-0.317,0-0.578-0.247-0.578-0.55V9.431h-0.9c-0.311,0-0.566-0.253-0.566-0.565c0-0.312,0.255-0.564,0.566-0.564h2.955 c0.312,0,0.566,0.252,0.566,0.564c0,0.312-0.254,0.565-0.566,0.565h-0.9v3.428C7.048,13.162,6.789,13.409,6.472,13.409z  M11.531,13.402c-0.242,0-0.425-0.098-0.481-0.255l-0.285-0.749h-1.76l-0.286,0.749c-0.056,0.157-0.238,0.255-0.48,0.255 c-0.126,0-0.252-0.027-0.367-0.081c-0.159-0.073-0.312-0.273-0.136-0.819L9.115,8.87c0.098-0.275,0.393-0.561,0.77-0.568 c0.376,0.007,0.672,0.293,0.769,0.571l1.379,3.629c0.176,0.546,0.023,0.749-0.134,0.82C11.782,13.375,11.658,13.402,11.531,13.402 C11.529,13.402,11.531,13.402,11.531,13.402L11.531,13.402z M10.461,11.378L9.885,9.74l-0.577,1.638H10.461z M12.961,13.325 c-0.304,0-0.552-0.237-0.552-0.529V8.878c0-0.317,0.264-0.577,0.588-0.577c0.325,0,0.589,0.259,0.589,0.577v3.389h1.227 c0.305,0,0.553,0.237,0.553,0.529c0,0.292-0.248,0.529-0.553,0.529H12.961z M16.167,13.402c-0.317,0-0.577-0.26-0.577-0.578V8.878 c0-0.317,0.26-0.577,0.577-0.577c0.316,0,0.576,0.259,0.576,0.577v1.241l1.61-1.611c0.083-0.082,0.196-0.128,0.319-0.128 c0.145,0,0.289,0.062,0.398,0.172c0.1,0.098,0.159,0.229,0.169,0.365c0.008,0.134-0.037,0.26-0.128,0.35l-1.314,1.314l1.42,1.882 c0.094,0.122,0.133,0.275,0.11,0.428c-0.021,0.15-0.101,0.288-0.222,0.379c-0.102,0.075-0.224,0.117-0.348,0.117 c-0.181,0-0.354-0.085-0.462-0.229l-1.353-1.794l-0.201,0.2v1.259C16.743,13.143,16.485,13.4,16.167,13.402L16.167,13.402z"></path></svg></a>
-					<a href="https://www.youtube.com/channel/UCuobSBttPcyeOPer58HWwCA"
-						class="link-monotone" title="고려대학교 도서관 유튜브 채널" target="_blank"><svg
-							class="svg-icon" width="36" height="36" aria-hidden="true"
-							role="img" focusable="false" viewBox="0 0 24 24" version="1.1"
-							xmlns="http://www.w3.org/2000/svg"
-							xmlns:xlink="http://www.w3.org/1999/xlink">
-							<path
-								d="M21.8,8.001c0,0-0.195-1.378-0.795-1.985c-0.76-0.797-1.613-0.801-2.004-0.847c-2.799-0.202-6.997-0.202-6.997-0.202 h-0.009c0,0-4.198,0-6.997,0.202C4.608,5.216,3.756,5.22,2.995,6.016C2.395,6.623,2.2,8.001,2.2,8.001S2,9.62,2,11.238v1.517 c0,1.618,0.2,3.237,0.2,3.237s0.195,1.378,0.795,1.985c0.761,0.797,1.76,0.771,2.205,0.855c1.6,0.153,6.8,0.201,6.8,0.201 s4.203-0.006,7.001-0.209c0.391-0.047,1.243-0.051,2.004-0.847c0.6-0.607,0.795-1.985,0.795-1.985s0.2-1.618,0.2-3.237v-1.517 C22,9.62,21.8,8.001,21.8,8.001z M9.935,14.594l-0.001-5.62l5.404,2.82L9.935,14.594z"></path></svg></a>
-				</div>
-			</div>
-			<!-- .row -->
-		</div>
-		<!-- .container -->
-
-	</div>
-	<!-- .footer-info -->
-	</footer>
-	<!-- .site-info -->
+					<!-- footer end-->
 
 	</div>
 	<!-- #page -->

@@ -184,7 +184,7 @@ b{
   background: #333;
 }
 
-#main-footer {
+#main-footer p {
   background-color: #107637;
   color: #fff;
   flex-shrink: none;

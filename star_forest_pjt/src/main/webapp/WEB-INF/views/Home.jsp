@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>딜리브러리 - 메인페이지</title>
+<title>별숲도서관 - 메인페이지</title>
 
 <link rel="stylesheet"
    href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -82,7 +82,7 @@ $(function(){
    <nav
       class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
       <div class="container container-fluid">
-         <a href="Home.do" class="navbar-brand"><img alt="딜리브러리"
+         <a href="Home.do" class="navbar-brand"><img alt="별숲도서관"
             src="img/home/logo_home.png" height="30" class="pl-3 mb-1"></a>
          <button class="navbar-toggler" data-toggle="collapse"
             data-target="#navbarCollapse">

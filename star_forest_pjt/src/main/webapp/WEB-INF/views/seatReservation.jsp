@@ -43,69 +43,22 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"
-	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
-
 <script type="text/javascript">
 	$(function() {
-
-		$(document).ready(function() {
-			var zindex = 10;
-
-			$("div.card").click(function(e) {
-				e.preventDefault();
-
-				var isShowing = false;
-
-				if ($(this).hasClass("show")) {
-					isShowing = true
-				}
-
-				if ($("div.cards").hasClass("showing")) {
-					// a card is already in view
-					$("div.card.show").removeClass("show");
-
-					if (isShowing) {
-						// this card was showing - reset the grid
-						$("div.cards").removeClass("showing");
-					} else {
-						// this card isn't showing - get in with it
-						$(this).css({
-							zIndex : zindex
-						}).addClass("show");
-
-					}
-
-					zindex++;
-
-				} else {
-					// no cards in view
-					$("div.cards").addClass("showing");
-					$(this).css({
-						zIndex : zindex
-					}).addClass("show");
-
-					zindex++;
-				}
-
-			});
+		console.log('dsds');
+		$(document).on('click','#btn_seatReservation_menu',function(e){
+			console.log('야야야야ㅑ');
+			
+			e.preventDefault();
 		});
-		/* 추천도서 누르면 bookDetail 페이지로 이동 */
-		$(function() {
-			$('.card_image-holder')
-					.click(
-							function() {
-								location.href = "http://localhost:8088/detailBook.do?b_no=1&query="
-										+ $(this).find('#book-title').text();
-							})
-		});
-
+		console.log('dsds');
 	});
 </script>
 
 </head>
 <body class="d-flex flex-column">
 	<div id="page-content">
+
 			<!-- navigation start-->
 			<div id="navigation">
 				<!-- include_common_left.jsp start-->
@@ -128,39 +81,9 @@
 		</header>
 
 		<!-- MAIN SECTION -->
-		<div class="box">
-				<div class="box-header with-border">
-					<h3 class="box-title">좌석배정</h3>
-				</div>
-				<div class="box-body">
-
-					<table class="table table-bordered">
-						<tr>
-							<th style="width: 10px">번호</th>
-							<th>좌석</th>
-							<th>회원</th>
-							<th>좌석배정일</th>
-							<th>시작시간</th>
-							<th>종료시간</th>
-						</tr>
-
-						<c:forEach items="${list}" var="seatReservation">
-
-							<tr>
-
-								<td>${seatReservation.seat_no}</td>
-								<td>${seatVO.seat_nm}</td>
-								<td>${seatVO.mem_nm}</td>
-								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
-										value="${seatVO.seat_aloc_dd}" /></td>
-								<td><fmt:formatDate pattern="HH:mm"
-										value="${seatVO.seat_aloc_strt_tm}" /></td>
-								<td><fmt:formatDate pattern="HH:mm"
-										value="${seatVO.seat_aloc_end_tm}" /></td>
-
-							</tr>
-
-						</c:forEach>
-
-					</table>
+			<div class="seat_wrap" style="text-align:center;">
+			<div id="A_room">
+				
+		</div>
+		</div>
 </html>

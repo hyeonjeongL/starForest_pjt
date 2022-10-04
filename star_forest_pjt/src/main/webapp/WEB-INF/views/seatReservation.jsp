@@ -1,8 +1,9 @@
+<%@page import="com.itwill.domain.SeatReservation" %>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <!DOCTYPE html>
 <html>
 
@@ -47,11 +48,8 @@
 	$(function() {
 		console.log('dsds');
 		$(document).on('click','#btn_seatReservation_menu',function(e){
-			console.log('야야야야ㅑ');
 			
-			e.preventDefault();
 		});
-		console.log('dsds');
 	});
 </script>
 
@@ -82,44 +80,16 @@
 
 		<!-- MAIN SECTION -->
 			<div class="seat_wrap" style="text-align:center;">
-				<div id="A_room">
-					<div class="a-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-					<div class="a-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                  <div class="a-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="a-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="a-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="a-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	            </div>
+					<div id="A_room">
+						<div class="a-deck">
+						<c:forEach items="${seatList}" var="seat">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">$${seat.seat_status}</p>
+		                 </c:forEach>
+		                 </div>
+	            	</div>
             
             	<div id="B_room">
 					<div class="b-deck">
@@ -160,13 +130,85 @@
 	                 </div>
 	            </div>
             
-            
-            
-            
-            
-            </div>
-                            
+            <div id="C_room">
+					<div class="c-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+					<div class="c-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                  <div class="c-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                 <div class="c-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                 <div class="c-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                 <div class="c-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	            </div>
+             <div id="D_room">
+					<div class="d-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+					<div class="d-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                  <div class="d-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                 <div class="d-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                 <div class="d-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	                 <div class="d-deck">
+	          		 <p class="card-text">좌석</p>
+	                 <p class="card-text">시작시간</p>
+	                 <p class="card-text">종료시간</p>
+	                 <p class="card-text">이용중</p>
+	                 </div>
+	            </div>
+            	
 		</div>
+	</div><!-- pageContent끝 -->
 		<!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

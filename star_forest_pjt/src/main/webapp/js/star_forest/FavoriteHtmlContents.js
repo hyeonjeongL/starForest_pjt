@@ -1,5 +1,43 @@
 function FavoriteHtmlContents() {
 }
+FavoriteHtmlContents.favorite_left_menu_content=function(user){
+	return `<div class="col-md-3 noto-serif">
+					<div class="sidebar">
+						<div class="side-head">
+							<h4 class="text-light">나의도서</h4>
+						</div>
+						<ul class="list-group list-group-flush mb-5">
+							<li class="list-group-item">
+								<a href="#" id="user_rental_list">나의도서정보</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_rental_status">대출현황</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_res_status">예약현황</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_club_list">동아리신청내역</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_request_list">희망도서신청내역</a>
+							</li>
+							<li class="list-group-item active">
+								<a href="#" id="user_favorite">내서재</a>
+							</li>
+							<li class="list-group-item">
+								<a href=#" id="user_qr">나의QR</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="mypage">마이페이지</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+	`;
+}
+
 FavoriteHtmlContents.favorite_item_content = function(favorite) {
 	return `<div class="e-item d-md-flex align-items-center">
 					<div class="item-no">${favorite.favorite_no}</div>

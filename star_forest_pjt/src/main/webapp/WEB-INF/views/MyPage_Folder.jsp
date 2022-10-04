@@ -162,149 +162,136 @@ $(function(){
 			<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
 			<!-- include_common_left.jsp end-->
 		</div>
-		<!-- navigation end-->
-		<!-- PAGE HEADER -->
-		<header id="page-header" class="noto-serif">
-			<div class="page-header-overlay">
-				<div class="container pt-5">
-					<div class="row">
-						<div class="col-md-6 m-auto text-center">
-							<h2>내서재</h2>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-
-		<!-- MAIN SECTION -->
-		<section id="contact" class="py-3">
-			<div class="container">
-				<div class="row">
-					<!-- 사이드바 -->
-					<div class="col-md-3 noto-serif">
-						<div class="sidebar">
-							<div class="side-head">
-								<h4 class="text-light">나의도서</h4>
-							</div>
-							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item"><a
-									href="mypage_main.do?cust_no=${cust_no }">나의도서정보</a></li>
-								<li class="list-group-item"><a href="borrowList.do">대출현황</a></li>
-								<li class="list-group-item"><a href="return_borrowList.do">대출/반납이력</a></li>
-								<li class="list-group-item active"><a
-									href="MyPage_Folder.do?cust_no=${cust_no }&group=50">내서재</a></li>
-								<li class="list-group-item"><a
-									href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
-							</ul>
-
-						</div>
-					</div>
-
-					<!-- 메인내용 -->
-					<div class="col-md-9 fol_div">
-
-
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-sm-6" id="fol_list_title">
-									<form action="MyPage_Folder.do" method="post"></form>
-								</div>
-
-								<div class="col-sm-6">
-									<!-- Search -->
-									<form action="MyPage_Folder_search.do" method="post">
-										<div class="menu-search">
-
-											<div class="catalog-search">
-												<input type="hidden" value="${c.cust_no}" name="cust_no">
-												<input type="hidden" value=50 name="group"> <label
-													class="input_label" for="input-search"> <span
-													class="input_label-content"></span> <span
-													class="input_label-search"></span>
-												</label>
-											</div>
-										</div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<hr>
-
-
-						<!-- .items-header -->
-						<div class="listTable">
-							<table class="table">
-								<thead>
-									<tr>
-										<th scope="row">No.</th>
-										<th scope="row" data-class="expand">제목</th>
-										<th scope="row" data-hide="phone">저자</th>
-										<th scope="row" data-hide="phone">출판사</th>
-										<th scope="row" data-hide="phone">작업</th>
-									</tr>
-								</thead>
-								<tbody>
-
-									<tr>
-										<c:if test="${favoriteList.size() == 0}">
-											<td colspan="6">등록된 자료가 없습니다.</td>
-										</c:if>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-
-						<c:forEach var="favorite" items="${favoriteList}">
-							<div class="e-item d-md-flex align-items-center">
-								<div class="item-no">${favorite.favorite_no}</div>
-								<div class="item item-data d-flex">
-									<div class="item-cover">
-										<a href="/detail/?cid=CAT000000949038&ctype=m"></a>
-									</div>
-									<div class="item-meta">
-										<div class="item-title">
-											<h4>
-												<a href="/detail/?cid=CAT000000949038&ctype=m">${favorite.book.book_title}</a>
-											</h4>
-										</div>
-										<div class="item-author">${favorite.book.boo	k_author}</div>
-										<div class="item-pub">${favorite.book.book_publisher}</div>
-									</div>
-								</div>
-								<div class="item-functions">
-									<a role="button"
-										class="btn btn-sm btn-primary favorite_item-del-trigger"
-										item-val="234279">삭제</a>
-								</div>
-							</div>
-							<!-- item : 1 -->
-						</c:forEach>
-
-
-					</div>
-					<!-- .e-items.list -->
-					<div class="favorite_delete">
-						<div class="back-to-main">
-							<c:if test="${favoriteList.size()!=0}">
-								<a href="#" class="btn btn-primary favorite_item_del_btn">전체삭제</a>
-							</c:if>
-						</div>
-					</div>
-
-				</div>
-				<div class="btn">
-
-					<div class="btn-back">
-						<p>정말 삭제 하시겠습니까?</p>
-						<button class="yes">Yes</button>
-						<button class="no">No</button>
-					</div>
-					<div class="btn-front">삭제</div>
-				</div>
-
-			</div>
 	</div>
+	<!-- navigation end-->
+	<!-- PAGE HEADER -->
+	<header id="page-header" class="noto-serif">
+		<div class="page-header-overlay">
+			<div class="container pt-5">
+				<div class="row">
+					<div class="col-md-6 m-auto text-center">
+						<h2>내서재</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
+	<!-- MAIN SECTION -->
+	<section id="contact" class="py-3">
+		<div class="container">
+			<div class="row">
+				<!-- 사이드바 -->
+				<div class="col-md-3 noto-serif">
+					<div class="sidebar">
+						<div class="side-head">
+							<h4 class="text-light">나의도서</h4>
+						</div>
+						<ul class="list-group list-group-flush mb-5">
+							<li class="list-group-item">
+								<a href="#" id="user_rental_list">나의도서정보</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_rental_status">대출현황</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_res_status">예약현황</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_club_list">동아리신청내역</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="user_request_list">희망도서신청내역</a>
+							</li>
+							<li class="list-group-item active">
+								<a href="#" id="user_favorite">내서재</a>
+							</li>
+							<li class="list-group-item">
+								<a href=#" id="user_qr">나의QR</a>
+							</li>
+							<li class="list-group-item">
+								<a href="#" id="mypage">마이페이지</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 메인내용 -->
+				<div class="col-md-9 fol_div">
+
+
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6" id="fol_list_title">
+								<form action="MyPage_Folder.do" method="post"></form>
+							</div>
+
+							<div class="col-sm-6">
+								<!-- Search -->
+								<form action="MyPage_Folder_search.do" method="post">
+									<div class="menu-search">
+
+										<div class="catalog-search">
+											<input type="hidden" value="${c.cust_no}" name="cust_no">
+											<input type="hidden" value=50 name="group"> <label
+												class="input_label" for="input-search"> <span
+												class="input_label-content"></span> <span
+												class="input_label-search"></span>
+											</label>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+					<hr>
+
+
+					<!-- .items-header -->
+					<div class="listTable">
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="row">No.</th>
+									<th scope="row">제목</th>
+									<th scope="row">저자</th>
+									<th scope="row">출판사</th>
+									<th scope="row">작업</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:if test="${favoriteList.size() == 0}">
+									<tr>
+										<td colspan="6">등록된 내서재 목록이 없습니다.</td>
+									</tr>
+								</c:if>
+								<c:forEach var="favorite" items="${favoriteList}">
+									<tr id="favorite_item_${favorite.favorite_no}">
+										<td id="favoriteNo">1
+										<td class="bookTitle">자바</td>
+										<td class="bookAuthor">한예지</td>
+										<td class="bookPubl">아이티윌</td>
+										<td><a href="#"
+											class="btn btn-primary favorite_item_del_btn">삭제</a></td>
+									</tr>
+								</c:forEach>
+							</tbody>
+						</table>
+					</div>
+					<div class="favorite_delete">
+						<c:if test="${favoriteList.size() != 0}">
+							<a href="#" class="btn btn-primary favorite_item_allDel_btn">전체삭제</a>
+						</c:if>
+
+					</div>
+
+
+				</div>
+
+
+			</div>
+		</div>
+	</section>
 
 	<!-- .footer-navigation -->
 	<!-- footer start-->

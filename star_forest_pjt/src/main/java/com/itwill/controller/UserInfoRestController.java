@@ -101,11 +101,12 @@ public class UserInfoRestController {
 	@PostMapping("/user_session_check")
 	public Map user_session_check(HttpSession session) throws Exception {
 		Map resultMap = new HashMap();
-		int code = 2;
-		String url = "";
-		String msg = "";
+		int code = 1;
+		String url = "main";
+		String msg = "세션존재";
 		List<User> resultList = new ArrayList<User>();
-
+		
+		
 		String sUserId = (String) session.getAttribute("sUserId");
 		User sUser = userService.findUser(sUserId);
 		resultList.add(sUser);

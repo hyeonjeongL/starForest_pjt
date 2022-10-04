@@ -50,6 +50,15 @@ public class BookDaoImpl implements BookDao {
 	public List<Book> selectAll() throws Exception {
 		return bookMapper.selectAll();
 	}
+	@Override
+	public int updateRentalCnt(int book_no) throws Exception {
+		return bookMapper.updateRentalCnt(book_no);
+	}
+	
+	@Override
+	public int updateResCnt(int book_no) throws Exception {
+		return bookMapper.updateResCnt(book_no);
+	}
 
 	@Override
 	public List<Book> selectCategory(int category_no) throws Exception {
@@ -75,5 +84,6 @@ public class BookDaoImpl implements BookDao {
 	public List<Book> selectFavorite9() throws Exception {
 		return bookMapper.selectFavorite9();
 	}
+
 
 }

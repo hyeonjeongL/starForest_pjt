@@ -28,7 +28,7 @@ public class RentalServiceTestController {
 //		System.out.println(rentalService.selectByNo(2)); 
 //		System.out.println(rentalService.updateRentalStatus("yeji", 2));
 //		System.out.println(rentalService.updateRentalStatusOverdue(3));
-		
+		System.out.println(rentalService.selectMostReturn_duedate(2));		
 	}
 
 }

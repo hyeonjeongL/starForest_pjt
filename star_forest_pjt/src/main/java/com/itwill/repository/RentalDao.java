@@ -12,17 +12,19 @@ import com.itwill.domain.Rental;
 
 public interface RentalDao {
 	
-	int insertRental(Rental rental);
+	int insertRental(Rental rental) throws Exception;
 	
-	int updateDate(String user_id, int book_no);
+	int updateDate(String user_id, int book_no) throws Exception;
 	
-	List<Rental> selectById(String user_id);
+	List<Rental> selectById(String user_id) throws Exception;
 	
-	List<Map<String, Object>> selectByNo(int book_no);
+	List<Map<String, Object>> selectByNo(int book_no) throws Exception;
 	
-	int updateRentalStatus(String user_id, int book_no);
+	int updateRentalStatus(String user_id, int book_no) throws Exception;
 	
-	int updateRentalStatusOverdue(int rental_no);
+	int updateRentalStatusOverdue(int rental_no) throws Exception;
+	
+	String selectMostReturn_duedate(int book_no) throws Exception;
 	
 
 }

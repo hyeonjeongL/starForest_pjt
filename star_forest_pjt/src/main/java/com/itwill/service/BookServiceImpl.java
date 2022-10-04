@@ -16,79 +16,81 @@ import com.itwill.repository.BookDao;
 @Transactional
 public class BookServiceImpl implements BookService {
 	@Autowired(required=true) //해당 타입의 빈 객체가 존재하지 않는 경우 예외 처리
-	private BookMapper bookMapper;
+	private BookDao bookDao;
 	
 	public BookServiceImpl() {
 		
 	}
 
-	public BookMapper getBookMapper() {
-		return bookMapper;
-	}
-
-	public void setBookMapper(BookMapper bookMapper) {
-		this.bookMapper = bookMapper;
-	}
-	
 
 	@Override
 	public int insertBook(Book book) throws Exception {
-		return bookMapper.insertBook(book);
+		return bookDao.insertBook(book);
 	}
 
 	@Override
 	public Book selectBookDetail(int bookd_no) throws Exception {
-		return bookMapper.selectBookDetail(bookd_no);
+		return bookDao.selectBookDetail(bookd_no);
 	}
 
 	@Override
 	public int updateRentalBookQty(int book_no) throws Exception {
-		return bookMapper.updateRentalBookQty(book_no);
+		return bookDao.updateRentalBookQty(book_no);
 	}
 
 	@Override
 	public int updateReturnBookQty(int book_no) throws Exception {
-		return bookMapper.updateReturnBookQty(book_no);
+		return bookDao.updateReturnBookQty(book_no);
 	}
 
 	@Override
 	public int updateById(String user_id) throws Exception {
-		return bookMapper.updateById(user_id);
+		return bookDao.updateById(user_id);
 	}
 
 	@Override
-	public int updateByIdNo(String user_id, int book_no) {
-		return bookMapper.updateByIdNo(user_id, book_no);
+	public int updateByIdNo(String user_id, int book_no) throws Exception {
+		return bookDao.updateByIdNo(user_id, book_no);
 	}
 	
 	@Override
-	public List<Book> selectAll(){
-		return bookMapper.selectAll();
+	public List<Book> selectAll()throws Exception{
+		return bookDao.selectAll();
 	}
 
 	@Override
 	public List<Book> selectCategory(int category_no) throws Exception {
-		return bookMapper.selectCategory(category_no);
+		return bookDao.selectCategory(category_no);
 	}
 
 	@Override
 	public List<Book> selectFavorite() throws Exception {
-		return bookMapper.selectFavorite();
+		return bookDao.selectFavorite();
 	}
 
 	@Override
 	public List<Book> selectRelateion(int category_no) throws Exception {
-		return bookMapper.selectRelation();
+		return bookDao.selectRelateion(category_no);
 	}
 
 	@Override
 	public List<Book> selectNew(int category_no) throws Exception {
-		return bookMapper.selectNew(category_no);
+		return bookDao.selectNew(category_no);
 	}
 
 	@Override
 	public List<Book> selectFavorite9() throws Exception {
-		return bookMapper.selectFavorite9();
+		return bookDao.selectFavorite9();
+	}
+
+	@Override
+	public int updateRentalCnt(int book_no) throws Exception {
+		return bookDao.updateRentalCnt(book_no);
+	}
+
+	@Override
+	public int updateResCnt(int book_no) throws Exception {
+		return bookDao.updateResCnt(book_no);
 	}
 
 }

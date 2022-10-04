@@ -275,13 +275,13 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 	});
 </script>
 
-					<!-- navigation start-->
-					<div id="navigation">
-						<!-- include_common_left.jsp start-->
-						<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
-						<!-- include_common_left.jsp end-->
-					</div>
-					<!-- navigation end-->
+			<!-- navigation start-->
+			<div id="navigation">
+				<!-- include_common_left.jsp start-->
+				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+				<!-- include_common_left.jsp end-->
+			</div>
+			<!-- navigation end-->
 		</header>
 		<!-- #masthead -->
 
@@ -305,7 +305,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 										property="item" typeof="WebPage" title="Go to 고려대학교 도서관."
 										href="https://library.korea.ac.kr" class="home"><span
 											property="name">HOME</span></a>
-									<meta property="position" content="1"></span> &gt; <span
+										<meta property="position" content="1"></span> &gt; <span
 										class="post post-page current-item">상세정보</span>
 								</div>
 								<!-- .entry-nav -->
@@ -342,15 +342,6 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 														d="M15.357,4.288c-3.051-3.051-8.017-3.051-11.068,0c-3.052,3.052-3.052,8.016,0,11.069c2.716,2.716,6.949,3.008,9.997,0.885 c0.065,0.306,0.212,0.594,0.448,0.83l4.443,4.441c0.646,0.648,1.693,0.648,2.338,0c0.646-0.646,0.646-1.69,0-2.335l-4.444-4.445 c-0.235-0.234-0.523-0.382-0.826-0.446C18.367,11.237,18.074,7.006,15.357,4.288z M13.954,13.954c-2.279,2.277-5.986,2.277-8.263,0 c-2.276-2.278-2.276-5.984,0-8.263c2.276-2.277,5.984-2.277,8.263,0C16.231,7.97,16.231,11.676,13.954,13.954z"></path></svg>&nbsp;검색화면</a>
 										</div>
 
-										<div>
-											<a class="item-marc-trigger">MARC<svg class="svg-icon"
-													width="14" height="14" aria-hidden="true" role="img"
-													focusable="false" viewBox="0 0 24 24" version="1.1"
-													xmlns="http://www.w3.org/2000/svg"
-													xmlns:xlink="http://www.w3.org/1999/xlink">
-													<path d="M20,6l-8,12L4,6H20z"></path>
-													<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-										</div>
 									</div>
 
 								</div>
@@ -469,8 +460,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 											<div class="item-cover-slider">
 												<div>
 													<img class="multi-cover" style="display: none;"
-														src="${book.book_image_src }"
-														alt="하얼빈 : 김훈 장편소설" />
+														src="${book.book_image_src }" alt="하얼빈 : 김훈 장편소설" />
 												</div>
 											</div>
 											<script>									
@@ -511,7 +501,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 												<div class="item-title pr-lg-5 flex-grow-0">
 													<h2>${book.book_title }
 														<span class="item-meta-value"> (<span
-															class="number">13</span>회 대출)
+															class="number">${book.book_rental_cnt }</span>회 대출)
 														</span>
 													</h2>
 												</div>
@@ -573,20 +563,23 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 
 												<div class="d-lg-flex">
 													<div class="item-meta-key">서명 / 저자사항</div>
-													<div class="item-meta-value">${book.book_title} : ${book.book_author }</div>
+													<div class="item-meta-value">${book.book_title}:
+														${book.book_author }</div>
 												</div>
 
 
 
 												<div class="d-lg-flex">
 													<div class="item-meta-key">발행사항</div>
-													<div class="item-meta-value">파주 : &nbsp; ${book.book_publisher }, &nbsp;
-														${book.book_publish_date } &nbsp;</div>
+													<div class="item-meta-value">파주 : &nbsp;
+														${book.book_publisher }, &nbsp; ${book.book_publish_date }
+														&nbsp;</div>
 												</div>
 
 												<div class="d-lg-flex">
 													<div class="item-meta-key">형태사항</div>
-													<div class="item-meta-value"> ${book.book_page } p. : 삽화 ; 20 cm</div>
+													<div class="item-meta-value">${book.book_page } p. :
+														삽화 ; 20 cm</div>
 												</div>
 
 												<!-- Notes: 아래와 같이 2021.04.05 수정 당시 본 line으로 주석처리 상태이였음.
@@ -601,145 +594,6 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 
 
 											</div>
-											<!-- .item-meta -->
-
-											<div class="item-marc-detail">
-												<div class="table-responsive">
-													<table class="table table-sm table-sub table-hover">
-														<tbody>
-															<tr>
-																<td width="30">000</td>
-																<td width="25"></td>
-																<td>00000cam c2200205 c 4500</td>
-															</tr>
-															<tr>
-																<td>001</td>
-																<td></td>
-																<td>000046124897</td>
-															</tr>
-															<tr>
-																<td>005</td>
-																<td></td>
-																<td>20220906093931</td>
-															</tr>
-															<tr>
-																<td>007</td>
-																<td></td>
-																<td>ta</td>
-															</tr>
-															<tr>
-																<td>008</td>
-																<td></td>
-																<td>220812s2022 ggka 000cf kor</td>
-															</tr>
-															<tr>
-																<td>020</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	9788954699914 <span class="item-marc-label">&#9660;g</span>
-																	03810</td>
-															</tr>
-															<tr>
-																<td>035</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	(KERIS)BIB000016369578</td>
-															</tr>
-															<tr>
-																<td>040</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	244009 <span class="item-marc-label">&#9660;c</span>
-																	244009 <span class="item-marc-label">&#9660;d</span>
-																	211009 <span class="item-marc-label">&#9660;d</span>
-																	211092</td>
-															</tr>
-															<tr>
-																<td>082</td>
-																<td><span style="float: left;">0</span> <span
-																	style="float: right;">4</span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	895.734 <span class="item-marc-label">&#9660;2</span>
-																	23</td>
-															</tr>
-															<tr>
-																<td>085</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	897.36 <span class="item-marc-label">&#9660;2</span>
-																	DDCK</td>
-															</tr>
-															<tr>
-																<td>090</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	897.36 <span class="item-marc-label">&#9660;b</span> 김훈
-																	하</td>
-															</tr>
-															<tr>
-																<td>100</td>
-																<td><span style="float: left;">1</span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	김훈, <span class="item-marc-label">&#9660;g</span> 金薰, <span
-																	class="item-marc-label">&#9660;d</span> 1948- <span
-																	class="item-marc-label">&#9660;0</span>
-																	AUTH(211009)37844</td>
-															</tr>
-															<tr>
-																<td>245</td>
-																<td><span style="float: left;">1</span> <span
-																	style="float: right;">0</span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	하얼빈 : <span class="item-marc-label">&#9660;b</span> 김훈
-																	장편소설 / <span class="item-marc-label">&#9660;d</span> 김훈
-																</td>
-															</tr>
-															<tr>
-																<td>260</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	파주 : <span class="item-marc-label">&#9660;b</span>
-																	문학동네, <span class="item-marc-label">&#9660;c</span>
-																	2022</td>
-															</tr>
-															<tr>
-																<td>300</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	307 p. : <span class="item-marc-label">&#9660;b</span>
-																	삽화 ; <span class="item-marc-label">&#9660;c</span> 20
-																	cm</td>
-															</tr>
-															<tr>
-																<td>600</td>
-																<td><span style="float: left;">1</span> <span
-																	style="float: right;">4</span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	안중근, <span class="item-marc-label">&#9660;g</span> 安重根,
-																	<span class="item-marc-label">&#9660;d</span> 1879-1910
-																</td>
-															</tr>
-															<tr>
-																<td>945</td>
-																<td><span style="float: left;"> </span> <span
-																	style="float: right;"> </span></td>
-																<td><span class="item-marc-label">&#9660;a</span>
-																	ITMT</td>
-															</tr>
-														</tbody>
-													</table>
-												</div>
-
-											</div>
-											<!-- .item-marc-detail -->
 
 										</div>
 										<!-- .item-data -->
@@ -865,9 +719,7 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 											<h4>책소개</h4>
 											<div class="item-overview-info-block-body">
 												<div class="inner-area">
-													<p>
-														${book.book_summary }
-													</p>
+													<p>${book.book_summary }</p>
 													<br /> <span>정보제공 : <a
 														href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=298570092&partner=openAPI&start=api"
 														target="_blank"><img src="/n2app/images/aladin.png"
@@ -899,80 +751,68 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 										</div>
 
 
-									<!-- 청구기호 브라우징 출력 -->
-									<div class="item-related-books item-additional-info">
-										<h3 class="mb-3">청구기호 브라우징</h3>
-										<div class="item-related-books-content">
-											<div class="item-related-book-slider"
-												data-slick='{"slidesToScroll": 1}'>
-												<div class="item item-related-book">
-													<div class="item-cover">
-														<a href="/detail/?cid=CAT000000712681&ctype=m">
-															<div class="item-cover-image"
-																style="background-image: url(https://image.aladin.co.kr/product/27/73/cover/8984980358_1.gif)"></div>
-														</a>
-													</div>
-													<div class="item-meta">
-														<div class="item-marc">897.36 김훈 칼 2</div>
-														<div class="item-title">
-															<h4>
-																<a href="/detail/?cid=CAT000000712681&ctype=m">(小說
-																	이순신) 칼의 노래. 2</a>
-															</h4>
+										<!-- 청구기호 브라우징 출력 -->
+										<div class="item-related-books item-additional-info">
+											<h3 class="mb-3">청구기호 브라우징</h3>
+											<div class="item-related-books-content">
+												<div class="item-related-book-slider"
+													data-slick='{"slidesToScroll": 1}'>
+													<div class="item item-related-book">
+														<div class="item-cover">
+															<a href="/detail/?cid=CAT000000712681&ctype=m">
+																<div class="item-cover-image"
+																	style="background-image: url(https://image.aladin.co.kr/product/27/73/cover/8984980358_1.gif)"></div>
+															</a>
 														</div>
-														<div class="item-author">
-															김훈
-															<!-- #slide inx=0 / curindex=0 -->
-														</div>
-													</div>
-												</div>
-												<!-- .item -->
-												<div class="item item-related-book">
-													<div class="item-cover">
-														<a href="/detail/?cid=CAT000000832877&ctype=m">
-															<div class="item-cover-image"
-																style="background-image: url(https://image.aladin.co.kr/product/30/22/cover/8984980692_1.gif)"></div>
-														</a>
-													</div>
-													<div class="item-meta">
-														<div class="item-marc">897.36 김훈 칼a</div>
-														<div class="item-title">
-															<h4>
-																<a href="/detail/?cid=CAT000000832877&ctype=m">칼의 노래</a>
-															</h4>
-														</div>
-														<div class="item-author">
-															김훈
-															<!-- #slide inx=1 / curindex=0 -->
+														<div class="item-meta">
+															<div class="item-marc">897.36 김훈 칼 2</div>
+															<div class="item-title">
+																<h4>
+																	<a href="/detail/?cid=CAT000000712681&ctype=m">(小說
+																		이순신) 칼의 노래. 2</a>
+																</h4>
+															</div>
+															<div class="item-author">
+																김훈
+																<!-- #slide inx=0 / curindex=0 -->
+															</div>
 														</div>
 													</div>
-												</div>
-												<!-- .item -->
+													<!-- .item -->
+													<div class="item item-related-book">
+														<div class="item-cover">
+															<a href="/detail/?cid=CAT000000832877&ctype=m">
+																<div class="item-cover-image"
+																	style="background-image: url(https://image.aladin.co.kr/product/30/22/cover/8984980692_1.gif)"></div>
+															</a>
+														</div>
+														<div class="item-meta">
+															<div class="item-marc">897.36 김훈 칼a</div>
+															<div class="item-title">
+																<h4>
+																	<a href="/detail/?cid=CAT000000832877&ctype=m">칼의
+																		노래</a>
+																</h4>
+															</div>
+															<div class="item-author">
+																김훈
+																<!-- #slide inx=1 / curindex=0 -->
+															</div>
+														</div>
+													</div>
+													<!-- .item -->
 
-												김훈
-												<!-- #slide inx=11 / curindex=10 -->
+													김훈
+													<!-- #slide inx=11 / curindex=10 -->
+												</div>
 											</div>
 										</div>
+										<!-- .item -->
+
 									</div>
-									<!-- .item -->
+									<!-- .item-related-book-slider -->
 
-								</div>
-								<!-- .item-related-book-slider -->
-								<a class="item-related-books-prev"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" viewBox="0 0 24 24" version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
-										<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-										<path d="M0 0h24v24H0z" fill="none"></path></svg></a> <a
-									class="item-related-books-next"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24">
-										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-
-								<script>
+									<script>
 							var curindex = 10;
 							// 2019.10.15 현재 상세정보 도서로 청구기호 브라우징 슬라이드 위치 이동
 							
@@ -1016,75 +856,75 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 							
 						</script>
 
-							</div>
-							<!-- .item-related-books-content -->
-						</div>
-						<!-- .item-related-books.item-additional-info -->
-
-
-						<!-- 2020.02.29 추가 - 관련분야 인기자료 출력 -->
-						<div class="item-popular-books item-additional-info">
-							<h3 class="mb-3">관련분야 인기자료</h3>
-							<div class="item-popular-books-content">
-								<div class="item-popular-book-slider"
-									data-slick='{"slidesToScroll": 1}'>
-									<div class="item item-popular-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000045341864&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=9788973377947&amp;control_no=000045341864&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.36 조정래 태g</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000045341864&ctype=m">太白山脈 :
-														趙廷來 大河小說 / 제4판</a>
-												</h4>
-											</div>
-											<div class="item-author">조정래 (2007)</div>
-										</div>
-									</div>
-									<!-- .item -->
-									<div class="item item-popular-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000000691603&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=898447164X&amp;control_no=000000691603&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.36 하주완 검</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000000691603&ctype=m">검마전 .
-														1-8</a>
-												</h4>
-											</div>
-											<div class="item-author">하주완 (2000)</div>
-										</div>
-									</div>
-									<!-- .item -->
-
-
 								</div>
-								<!-- .item-popular-book-slider -->
-								<a class="item-popular-books-prev"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" viewBox="0 0 24 24" version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
+								<!-- .item-related-books-content -->
+							</div>
+							<!-- .item-related-books.item-additional-info -->
+
+
+							<!-- 2020.02.29 추가 - 관련분야 인기자료 출력 -->
+							<div class="item-popular-books item-additional-info">
+								<h3 class="mb-3">관련분야 인기자료</h3>
+								<div class="item-popular-books-content">
+									<div class="item-popular-book-slider"
+										data-slick='{"slidesToScroll": 1}'>
+										<div class="item item-popular-book">
+											<div class="item-cover">
+												<a href="/detail/?cid=CAT000045341864&ctype=m">
+													<div class="item-cover-image"
+														style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=9788973377947&amp;control_no=000045341864&amp;sysd=CAT)"></div>
+												</a>
+											</div>
+											<div class="item-meta">
+												<!-- <div class="item-marc">897.36 조정래 태g</div> -->
+												<div class="item-title">
+													<h4>
+														<a href="/detail/?cid=CAT000045341864&ctype=m">太白山脈 :
+															趙廷來 大河小說 / 제4판</a>
+													</h4>
+												</div>
+												<div class="item-author">조정래 (2007)</div>
+											</div>
+										</div>
+										<!-- .item -->
+										<div class="item item-popular-book">
+											<div class="item-cover">
+												<a href="/detail/?cid=CAT000000691603&ctype=m">
+													<div class="item-cover-image"
+														style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=898447164X&amp;control_no=000000691603&amp;sysd=CAT)"></div>
+												</a>
+											</div>
+											<div class="item-meta">
+												<!-- <div class="item-marc">897.36 하주완 검</div> -->
+												<div class="item-title">
+													<h4>
+														<a href="/detail/?cid=CAT000000691603&ctype=m">검마전 .
+															1-8</a>
+													</h4>
+												</div>
+												<div class="item-author">하주완 (2000)</div>
+											</div>
+										</div>
+										<!-- .item -->
+
+
+									</div>
+									<!-- .item-popular-book-slider -->
+									<a class="item-popular-books-prev"><svg class="svg-icon"
+											width="48" height="48" aria-hidden="true" role="img"
+											focusable="false" viewBox="0 0 24 24" version="1.1"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink">
 										<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a> <a
-									class="item-popular-books-next"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24">
+										class="item-popular-books-next"><svg class="svg-icon"
+											width="48" height="48" aria-hidden="true" role="img"
+											focusable="false" xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24">
 										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
 
-								<script>
+									<script>
 							
 							jQuery(function($) {
 
@@ -1104,76 +944,76 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 							
 						</script>
 
-							</div>
-							<!-- .item-popular-books-content -->
-						</div>
-						<!-- .item-popular-books.item-additional-info -->
-
-
-
-						<!-- 2020.03.06 추가 - 관련분야 신착자료 출력 -->
-						<div class="item-newarrival-books item-additional-info">
-							<h3 class="mb-3">관련분야 신착자료</h3>
-							<div class="item-newarrival-books-content">
-								<div class="item-newarrival-book-slider"
-									data-slick='{"slidesToScroll": 1}'>
-									<div class="item item-newarrival-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000046128977&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=9791196934217&amp;control_no=000046128977&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.1708 2020 2</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000046128977&ctype=m">은빛에 물든
-														포토시집 : 2021 부산문협 시분과 무크지</a>
-												</h4>
-											</div>
-											<div class="item-author">박혜숙 (2022)</div>
-										</div>
-									</div>
-									<!-- .item -->
-									<div class="item item-newarrival-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000046128962&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(https://image.aladin.co.kr/product/28409/75/cover/k832835010_1.jpg)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.17 한연순 분</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000046128962&ctype=m">분홍 눈사람 :
-														한연순 시집</a>
-												</h4>
-											</div>
-											<div class="item-author">한연순 (2021)</div>
-										</div>
-									</div>
-									<!-- .item -->
-
-
 								</div>
-								<!-- .item-newarrival-book-slider -->
-								<a class="item-newarrival-books-prev"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" viewBox="0 0 24 24" version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
+								<!-- .item-popular-books-content -->
+							</div>
+							<!-- .item-popular-books.item-additional-info -->
+
+
+
+							<!-- 2020.03.06 추가 - 관련분야 신착자료 출력 -->
+							<div class="item-newarrival-books item-additional-info">
+								<h3 class="mb-3">관련분야 신착자료</h3>
+								<div class="item-newarrival-books-content">
+									<div class="item-newarrival-book-slider"
+										data-slick='{"slidesToScroll": 1}'>
+										<div class="item item-newarrival-book">
+											<div class="item-cover">
+												<a href="/detail/?cid=CAT000046128977&ctype=m">
+													<div class="item-cover-image"
+														style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=9791196934217&amp;control_no=000046128977&amp;sysd=CAT)"></div>
+												</a>
+											</div>
+											<div class="item-meta">
+												<!-- <div class="item-marc">897.1708 2020 2</div> -->
+												<div class="item-title">
+													<h4>
+														<a href="/detail/?cid=CAT000046128977&ctype=m">은빛에 물든
+															포토시집 : 2021 부산문협 시분과 무크지</a>
+													</h4>
+												</div>
+												<div class="item-author">박혜숙 (2022)</div>
+											</div>
+										</div>
+										<!-- .item -->
+										<div class="item item-newarrival-book">
+											<div class="item-cover">
+												<a href="/detail/?cid=CAT000046128962&ctype=m">
+													<div class="item-cover-image"
+														style="background-image: url(https://image.aladin.co.kr/product/28409/75/cover/k832835010_1.jpg)"></div>
+												</a>
+											</div>
+											<div class="item-meta">
+												<!-- <div class="item-marc">897.17 한연순 분</div> -->
+												<div class="item-title">
+													<h4>
+														<a href="/detail/?cid=CAT000046128962&ctype=m">분홍 눈사람
+															: 한연순 시집</a>
+													</h4>
+												</div>
+												<div class="item-author">한연순 (2021)</div>
+											</div>
+										</div>
+										<!-- .item -->
+
+
+									</div>
+									<!-- .item-newarrival-book-slider -->
+									<a class="item-newarrival-books-prev"><svg class="svg-icon"
+											width="48" height="48" aria-hidden="true" role="img"
+											focusable="false" viewBox="0 0 24 24" version="1.1"
+											xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink">
 										<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a> <a
-									class="item-newarrival-books-next"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24">
+										class="item-newarrival-books-next"><svg class="svg-icon"
+											width="48" height="48" aria-hidden="true" role="img"
+											focusable="false" xmlns="http://www.w3.org/2000/svg"
+											viewBox="0 0 24 24">
 										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
 
-								<script>
+									<script>
 							
 							jQuery(function($) {
 
@@ -1193,97 +1033,100 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 							
 						</script>
 
+								</div>
+								<!-- .item-newarrival-books-content -->
 							</div>
-							<!-- .item-newarrival-books-content -->
+							<!-- .item-newarrival-books.item-additional-info -->
 						</div>
-						<!-- .item-newarrival-books.item-additional-info -->
-			</div>
-			<!-- .container -->
+						<!-- .container -->
 
 
-			<div class="modal fade" id="item-location-introduction" tabindex="-1"
-				role="dialog" aria-labelledby="item-location-introduction-title"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content" style="height: 660px;">
-						<div class="modal-header">
-							<h5 class="modal-title" id="item-location-introduction-title">소장위치
-								정보</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="닫기">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body" id="modal-body-location">
-							<!-- HTML Dynamic loading... -->
-							<iframe title="소장처 위치" src="/n2app/public/layer_blank.html"
-								width="100%" height="100%" name="modal_body_location_iframe"
-								frameborder="0"></iframe>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="modal fade" id="directory-select" tabindex="-1"
-				role="dialog" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title">저장할 폴더 선택</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="닫기">
-								<span aria-hidden="true">&times;</span>
-							</button>
-						</div>
-						<div class="modal-body">
-							<div class="directory-select">
-								<a role="button" class="btn btn-grey rounded-0 item-add-trigger"
-									sysd-val="CAT" ctrl-val="000046124897" folder-val="81013">
-									Default Folder (<span class="item-index">0</span>)
-								</a>
+						<div class="modal fade" id="item-location-introduction"
+							tabindex="-1" role="dialog"
+							aria-labelledby="item-location-introduction-title"
+							aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content" style="height: 660px;">
+									<div class="modal-header">
+										<h5 class="modal-title" id="item-location-introduction-title">소장위치
+											정보</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="닫기">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body" id="modal-body-location">
+										<!-- HTML Dynamic loading... -->
+										<iframe title="소장처 위치" src="/n2app/public/layer_blank.html"
+											width="100%" height="100%" name="modal_body_location_iframe"
+											frameborder="0"></iframe>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">닫기</button>
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="modal fade" id="item-user-request" tabindex="-1"
-				role="dialog" aria-labelledby="item-user-request-title"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="item-user-request-title">신청 제목</h5>
-							<button type="button" class="close reset-iframe-content"
-								data-dismiss="modal" aria-label="닫기">
-								<span aria-hidden="true">&times;</span>
-							</button>
+						<div class="modal fade" id="directory-select" tabindex="-1"
+							role="dialog" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title">저장할 폴더 선택</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="닫기">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										<div class="directory-select">
+											<a role="button"
+												class="btn btn-grey rounded-0 item-add-trigger"
+												sysd-val="CAT" ctrl-val="000046124897" folder-val="81013">
+												Default Folder (<span class="item-index">0</span>)
+											</a>
+										</div>
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="modal-body item-overview-info-block-body active"
-							id="modal-body-user-request">
-							<!-- HTML Dynamic loading... -->
-							<iframe title="신청기능" src="/n2app/public/layer_blank.html"
-								width="100%" height="100%" name="modal_user_request_iframe"
-								frameborder="0" id="iframe" onload="iframeLoaded()"></iframe>
-						</div>
-						<div class="modal-footer">
-							<button type="button"
-								class="btn btn-secondary reset-iframe-content"
-								data-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<script>
+						<div class="modal fade" id="item-user-request" tabindex="-1"
+							role="dialog" aria-labelledby="item-user-request-title"
+							aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="item-user-request-title">신청
+											제목</h5>
+										<button type="button" class="close reset-iframe-content"
+											data-dismiss="modal" aria-label="닫기">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body item-overview-info-block-body active"
+										id="modal-body-user-request">
+										<!-- HTML Dynamic loading... -->
+										<iframe title="신청기능" src="/n2app/public/layer_blank.html"
+											width="100%" height="100%" name="modal_user_request_iframe"
+											frameborder="0" id="iframe" onload="iframeLoaded()"></iframe>
+									</div>
+									<div class="modal-footer">
+										<button type="button"
+											class="btn btn-secondary reset-iframe-content"
+											data-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<script>
 	function iframeLoaded() {
 		var iFrame = document.getElementById('iframe');
 		if(iFrame) {
@@ -1292,65 +1135,64 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 	}
 </script>
 
-			<div class="modal fade" id="item-book-abstract" tabindex="-1"
-				role="dialog" aria-labelledby="item-book-abstract-title"
-				aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="item-book-abstract-title">초록</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="닫기">
-								<span aria-hidden="true">&times;</span>
-							</button>
+						<div class="modal fade" id="item-book-abstract" tabindex="-1"
+							role="dialog" aria-labelledby="item-book-abstract-title"
+							aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="item-book-abstract-title">초록</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="닫기">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body item-overview-info-block-body active"
+										id="modal-body-abstract">
+										<!-- HTML Dynamic loading... -->
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="modal-body item-overview-info-block-body active"
-							id="modal-body-abstract">
-							<!-- HTML Dynamic loading... -->
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<div class="modal fade" id="item-toc" tabindex="-1" role="dialog"
-				aria-labelledby="item-toc-title" aria-hidden="true">
-				<div class="modal-dialog" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-							<h5 class="modal-title" id="item-toc-title">목차</h5>
-							<button type="button" class="close" data-dismiss="modal"
-								aria-label="닫기">
-								<span aria-hidden="true">&times;</span>
-							</button>
+						<div class="modal fade" id="item-toc" tabindex="-1" role="dialog"
+							aria-labelledby="item-toc-title" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="item-toc-title">목차</h5>
+										<button type="button" class="close" data-dismiss="modal"
+											aria-label="닫기">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body item-overview-info-block-body active"
+										id="modal-body-toc">
+										<!-- HTML Dynamic loading... -->
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="modal-body item-overview-info-block-body active"
-							id="modal-body-toc">
-							<!-- HTML Dynamic loading... -->
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">닫기</button>
-						</div>
-					</div>
-				</div>
 			</div>
+			<!-- .item-detail-content -->
 
 		</div>
-		<!-- .item-detail-content -->
+		<!-- .entry-content -->
 
-	</div>
-	<!-- .entry-content -->
-
-	</article>
-	<!-- #post-2053 -->
+		</article>
+		<!-- #post-2053 -->
 
 
-	</main>
-	<!-- #main -->
+		</main>
+		<!-- #main -->
 	</div>
 	<!-- #primary -->
 
@@ -1358,374 +1200,15 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 	</div>
 	<!-- #content -->
 
-
-
-	<nav class="footer-navigation" aria-label="하단 메뉴" aria-hidden="true">
-		<div class="container">
-			<div class="menu-%ec%a0%84%ec%9a%a9-%ea%b3%b5%ea%b0%84-container">
-				<ul id="menu-%ec%a0%84%ec%9a%a9-%ea%b3%b5%ea%b0%84-2"
-					class="footer-menu d-flex justify-content-start">
-					<li
-						class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-20"><a>자료이용<small
-							class="menu-item-description">도서관 소장자료, 전자자료, 도서관 구축 원문
-								콘텐츠에 대한 검색과 미소장 자료 이용 방법을 제공합니다.</small></a>
-						<ul class="sub-menu">
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-40"><a>자료찾기</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-264"><a
-										href="https://library.korea.ac.kr/datause/advanced-search/">상세검색</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-11464"><a
-										href="https://library.korea.ac.kr/datause/lecture_class/">강의수업자료</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-265"><a
-										href="https://library.korea.ac.kr/datause/database/">데이터베이스</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-275"><a
-										href="https://library.korea.ac.kr/datause/ejournal/">전자저널</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-267"><a
-										href="https://library.korea.ac.kr/datause/ebook/">전자책·이러닝</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-269"><a
-										href="https://library.korea.ac.kr/datause/collection/">컬렉션</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-274"><a
-										href="https://library.korea.ac.kr/datause/archiving/">아카이빙</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13036"><a
-										href="https://library.korea.ac.kr/datause/campaign/">독서
-											캠페인</a></li>
-								</ul></li>
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-41"><a>자료이용안내</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-391"><a
-										href="https://library.korea.ac.kr/datause/search-loan-return/">검색·대출·반납</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-440"><a
-										href="https://library.korea.ac.kr/datause/proxy/">교외접속</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4067"><a
-										href="https://library.korea.ac.kr/datause/ill/">상호대차·신청</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4068"><a
-										href="https://library.korea.ac.kr/datause/dds/">원문복사·신청</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4071"><a
-										href="https://library.korea.ac.kr/datause/fric/">FRIC(외국학술지지원센터)</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4069"><a
-										href="https://library.korea.ac.kr/datause/nat-assem-library/">국중·국회
-											원문 이용</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4070"><a
-										href="https://library.korea.ac.kr/datause/other-library/">타도서관
-											이용</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-439"><a
-										href="https://library.korea.ac.kr/datause/old-books/">고서자료
-											이용</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-537"><a
-										href="https://library.korea.ac.kr/datause/makerspace/">멀티미디어
-											자료 제작 신청</a></li>
-								</ul></li>
-						</ul></li>
-					<li
-						class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36"><a>연구지원<small
-							class="menu-item-description">최신 학술연구정보를 주제별로 제공하는
-								학술정보큐레이션서비스(SICS)와 등재저널리스트, 서지관리도구 및 표절예방도구, 연구윤리, 정보이용교육 등
-								연구지원도구를 제공합니다.</small></a>
-						<ul class="sub-menu">
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-42"><a
-								target="_blank" rel="noopener noreferrer">학술정보큐레이션</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-62"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/econ">경제학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-63"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/edu">교육학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-9586"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/ru">노어노문학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-64"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/media">미디어학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-65"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/law">법학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-66"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/psy">심리학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-86"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/lingu">언어학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-87"><a
-										target="_blank" rel="noopener noreferrer"
-										href="http://sics.korea.ac.kr/politics">정치외교학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-88"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/cs">컴퓨터학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13505"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/kh">한국사학</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-89"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://sics.korea.ac.kr/pa">행정학</a></li>
-								</ul></li>
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-43"><a>연구지원도구</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-316"><a
-										href="https://library.korea.ac.kr/research/journal-list/">등재저널리스트</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-317"><a
-										href="https://library.korea.ac.kr/research/writing-guide/">서지관리도구</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-476"><a
-										href="https://library.korea.ac.kr/research/turnitin/">표절예방도구</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5033"><a
-										href="https://library.korea.ac.kr/research/research-ethics/">연구윤리</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14571"><a
-										href="https://library.korea.ac.kr/oa-publishing/">OA 논문
-											게재료 지원</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-477"><a
-										href="https://library.korea.ac.kr/research/education/">정보이용교육</a></li>
-								</ul></li>
-						</ul></li>
-					<li
-						class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-37"><a>시설이용<small
-							class="menu-item-description">도서관 분관과 시설에 대한 상세한 안내와
-								시설/좌석 예약/배정 메뉴를 이용할 수 있습니다.</small></a>
-						<ul class="sub-menu">
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-44"><a>시설찾기</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2772"><a
-										target="_blank" rel="noopener noreferrer"
-										href="/hodi_site_link">시설·좌석 예약·현황</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4331"><a
-										href="https://library.korea.ac.kr/facilities/main-library/">중앙도서관</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4332"><a
-										href="https://library.korea.ac.kr/facilities/old-library/">중앙도서관(대학원)</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4333"><a
-										href="https://library.korea.ac.kr/facilities/cdl/">학술정보관(CDL)</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4334"><a
-										href="https://library.korea.ac.kr/facilities/science-library/">과학도서관</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4335"><a
-										href="https://library.korea.ac.kr/facilities/law-library/">법학도서관</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4426"><a
-										href="https://library.korea.ac.kr/facilities/cclcj-creator-library/">중앙광장
-											CCL</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-535"><a
-										href="https://library.korea.ac.kr/facilities/libraries/">기타도서관</a></li>
-								</ul></li>
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-45"><a>시설이용안내</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6633"><a
-										href="https://library.korea.ac.kr/facilities/hodi-site-link1/">시설
-											유형별 소개</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5616"><a
-										href="https://library.korea.ac.kr/facilities/hodi_site_link2/">그룹스터디룸</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5617"><a
-										href="https://library.korea.ac.kr/facilities/hodi_site_link3/">집중학습공간</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5618"><a
-										href="https://library.korea.ac.kr/facilities/hodi_site_link4/">전용
-											공간</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4356"><a
-										href="https://library.korea.ac.kr/facilities/hodi_site_link7/">시설
-											이용방법</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-538"><a
-										href="https://library.korea.ac.kr/facilities/copy-service/">편의시설</a></li>
-								</ul></li>
-						</ul></li>
-					<li
-						class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-38"><a>커뮤니티<small
-							class="menu-item-description">도서관 공지사항 및 각종 통계, 도서관 조직과
-								규정, 개관시간 등을 안내합니다.</small></a>
-						<ul class="sub-menu">
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-46"><a>도서관
-									소식</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-612"><a
-										href="https://library.korea.ac.kr/about/notice/">공지사항</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-614"><a
-										href="https://library.korea.ac.kr/about/press-release/">보도자료</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3780"><a
-										href="https://library.korea.ac.kr/about/publication/">홍보자료</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-542"><a
-										href="https://library.korea.ac.kr/about/stats/">현황·통계</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-615"><a
-										href="https://library.korea.ac.kr/about/calendar/">도서관 일정</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-546"><a
-										href="https://library.korea.ac.kr/about/ask-us/">FAQ
-											&#038; QnA</a></li>
-								</ul></li>
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3764"><a>도서관
-									안내</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-539"><a
-										href="https://library.korea.ac.kr/about/overview/">소개</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-540"><a
-										href="https://library.korea.ac.kr/about/policy/">정책·규정</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-541"><a
-										href="https://library.korea.ac.kr/about/staff-directory/">조직·직원</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-543"><a
-										href="https://library.korea.ac.kr/about/hours/">개관시간</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-544"><a
-										href="https://library.korea.ac.kr/about/location/">찾아오는 길</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-545"><a
-										href="https://library.korea.ac.kr/about/by-user/">이용자별 안내</a></li>
-									<li
-										class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2052"><a
-										target="_blank" rel="noopener noreferrer"
-										href="https://library.korea.ac.kr/give/">기부·기증</a></li>
-								</ul></li>
-						</ul></li>
-					<li
-						class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-39"><a>나의공간<small
-							class="menu-item-description">개인화 서비스 메뉴로 로그인한 개인별 도서관 이용
-								현황을 통합해서 제공합니다.</small></a>
-						<ul class="sub-menu">
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-109"><a>내정보</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-651"><a
-										href="https://library.korea.ac.kr/my-library/private-library/">내서재</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-652"><a
-										href="https://library.korea.ac.kr/my-library/private-notice/">개인공지</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2336"><a
-										href="https://library.korea.ac.kr/my-library/my-info/">이용자정보
-											관리</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-392"><a
-										href="https://library.korea.ac.kr/my-library/membership/">연회비·이용증</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7948"><a
-										href="https://library.korea.ac.kr/my-library/dcollection/">학위논문제출(dCollection)</a></li>
-								</ul></li>
-							<li
-								class="blank-node menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-3763"><a>이용현황</a>
-								<ul class="sub-menu">
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-653"><a
-										href="https://library.korea.ac.kr/my-library/loan/">자료대출·예약
-											현황</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-654"><a
-										href="https://library.korea.ac.kr/my-library/purchase/">자료구입
-											신청·현황</a></li>
-									<li
-										class="menu-item menu-item-type-post_type menu-item-object-page menu-item-655"><a
-										href="https://library.korea.ac.kr/my-library/ill-dds/">상호대차·원문복사
-											신청현황</a></li>
-								</ul></li>
-						</ul></li>
-				</ul>
-			</div>
-		</div>
-		<!-- .container -->
-	</nav>
 	<!-- .footer-navigation -->
-
-	<div class="footer-links d-block d-xl-none">
-		<div class="container">
-			<div class="row">
-				<div class="dropup">
-					<a class="dropdown-toggle footer-dropdown-toggle link-monotone"
-						href="#" id="home-dropdown-links" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">관련사이트</a>
-					<div class="dropdown-menu" aria-labelledby="home-dropdown-links">
-						<a
-							href="https://oca.korea.ac.kr/link.n2s?url=https://www.riss.kr/OrganLogin.do"
-							target="_blank" class="dropdown-item link-monotone">RISS</a> <a
-							href="https://oca.korea.ac.kr/link.n2s?url=https://scienceon.kisti.re.kr/"
-							target="_blank" class="dropdown-item link-monotone">ScienceON</a>
-						<a href="https://dcollection.korea.ac.kr" target="_blank"
-							class="dropdown-item link-monotone">dCollection</a> <a
-							href="http://www.kocw.net" target="_blank"
-							class="dropdown-item link-monotone">KOCW</a> <a
-							href="http://www.fric.kr" target="_blank"
-							class="dropdown-item link-monotone">외국학술지원센터</a>
-						<div class="dropdown-divider"></div>
-						<a href="https://medlib.korea.ac.kr" target="_blank"
-							class="dropdown-item link-monotone">의학도서관</a> <a
-							href="https://libs.korea.ac.kr/" target="_blank"
-							class="dropdown-item link-monotone">세종학술정보원</a>
-						<div class="dropdown-divider"></div>
-						<a href="https://library.korea.ac.kr/give/" target="_blank"
-							class="dropdown-item link-monotone">도서관 기부기증</a>
-						<div class="dropdown-divider"></div>
-						<a href="https://www.korea.ac.kr/" target="_blank"
-							class="dropdown-item link-monotone">고려대학교</a>
-					</div>
-				</div>
-			</div>
-			<!-- .row -->
-		</div>
-		<!-- .container -->
-	</div>
 	<!--  footer -->
 	<!-- footer start-->
-					<div id="navigation">
-						<!-- include_common_left.jsp start-->
-						<jsp:include page="common/include_common_bottom_templateVer.jsp" />
-						<!-- include_common_left.jsp end-->
-					</div>
-					<!-- footer end-->
+	<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
+	<!-- footer end-->
 
 	</div>
 	<!-- #page -->

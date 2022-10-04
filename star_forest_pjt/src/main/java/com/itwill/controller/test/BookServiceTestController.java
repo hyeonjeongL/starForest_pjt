@@ -34,6 +34,8 @@ public class BookServiceTestController {
 //		System.out.println(bookService.updateById("hyeonjeong")); 
 //		System.out.println(bookService.updateByIdNo("yeji",2)); 
 //		System.out.println(bookService.selectAll());
+//		System.out.println(bookService.updateRentalCnt(1));
+//		System.out.println(bookService.updateResCnt(2));
 		//테스트 완료
 	}
 

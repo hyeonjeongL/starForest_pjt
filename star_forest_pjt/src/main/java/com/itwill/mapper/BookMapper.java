@@ -60,6 +60,15 @@ public interface BookMapper {
 			+ "from book order by book_no asc")
 	public List<Book> selectAll();
 	
+	//대여시 대여횟수 증가
+	@Update("update book set book_rental_cnt = book_rental_cnt+1 where book_no=#{book_no}")
+	public int updateRentalCnt (int book_no);
+	
+	//예약시 예약카운트 증가 최대 5명
+	@Update("update book set book_res_cnt = book_res_cnt+1 where book_no=#{book_no}")
+	public int updateResCnt (int book_no);
+	
+	//우혁
 	//카테고리별 출력
 	@Select("select * from book where category_no=#{category_no}")
 	public List<Book> selectCategory(int category_no);

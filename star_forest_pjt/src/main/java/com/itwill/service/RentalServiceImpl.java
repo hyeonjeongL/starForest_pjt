@@ -56,6 +56,11 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.selectMostReturn_duedate(book_no);
 	}
 
+	@Override
+	public List<Rental> selectByIdTotalList(String user_id) throws Exception {
+		return rentalDao.selectByIdTotalList(user_id);
+	}
+
 
 	
 }

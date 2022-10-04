@@ -37,7 +37,10 @@ public interface RentalMapper {
 //		  + "from rental r inner join book b on r.book_no = b.book_no "
 //		  + "where r.user_id = #{user_id}"
 //		  + "order by r.rental_date asc")
-	public List<Rental> selectById(String user_id); //이게 맞나? 
+	public List<Rental> selectById(String user_id);  
+	
+	/**user_id로 총 대출 리스트 뽑기*/
+	public List<Rental> selectByIdTotalList(String user_id);
 	
 	/** book_no로 대출유저 리스트*/
 	

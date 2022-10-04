@@ -35,7 +35,8 @@ public class RentalDaoTestController {
 //		System.out.println(rentalDao.selectByNo(2)); 
 //		System.out.println(rentalDao.updateRentalStatus("yeji", 2));
 //		System.out.println(rentalDao.updateRentalStatusOverdue(3));
-		System.out.println(rentalDao.selectMostReturn_duedate(3));
+//		System.out.println(rentalDao.selectMostReturn_duedate(3));
+		System.out.println(rentalDao.selectByIdTotalList("hyeonjeong"));
 		
 	}
 

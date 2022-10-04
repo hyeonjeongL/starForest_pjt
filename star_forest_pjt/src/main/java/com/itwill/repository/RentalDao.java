@@ -18,6 +18,8 @@ public interface RentalDao {
 	
 	List<Rental> selectById(String user_id) throws Exception;
 	
+	List<Rental> selectByIdTotalList(String user_id) throws Exception;
+	
 	List<Map<String, Object>> selectByNo(int book_no) throws Exception;
 	
 	int updateRentalStatus(String user_id, int book_no) throws Exception;

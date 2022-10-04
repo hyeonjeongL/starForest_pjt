@@ -15,8 +15,11 @@ public interface RentalService {
 	/** 대여 기간 연장 */
 	int updateDate(String user_id, int book_no) throws Exception;
 
-	/** user_id로 대출 리스트 뽑기 */
+	/** user_id로 대출중인 리스트 뽑기 */
 	List<Rental> selectById(String user_id) throws Exception;
+	
+	/**user_id로 총 대출 리스트 뽑기*/
+	List<Rental> selectByIdTotalList(String user_id) throws Exception;
 
 	/** book_no로 대출유저 리스트 */
 	List<Map<String, Object>> selectByNo(int book_no) throws Exception;

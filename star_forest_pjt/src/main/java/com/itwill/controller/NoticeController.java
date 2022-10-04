@@ -1,11 +1,16 @@
 package com.itwill.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.controller.interceptor.LoginCheck;
+import com.itwill.domain.Notice;
 import com.itwill.service.NoticeService;
 
 @Controller
@@ -15,7 +20,9 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@GetMapping("/notice_list")
-	public String notice_list() {
+	public String notice_list(HttpSession httpSession) throws Exception{
+		List<Notice> noticeList = noticeService.selectAll();
+		httpSession.setAttribute("noticeList", noticeList);
 		return "notice_list";
 	}
 	

@@ -81,14 +81,14 @@
 		<!-- MAIN SECTION -->
 			<div class="seat_wrap" style="text-align:center;">
 					<div id="A_room">
+						<c:forEach items="${seatList}" var="seat" begin="0" end="6">
 						<div class="a-deck">
-						<c:forEach items="${seatList}" var="seat">
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
 		                 <p class="card-text">$${seat.seat_status}</p>
-		                 </c:forEach>
 		                 </div>
+		                 </c:forEach>
 	            	</div>
             
             	<div id="B_room">

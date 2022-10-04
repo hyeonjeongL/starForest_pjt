@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itwill.controller.interceptor.LoginCheck;
+import com.itwill.domain.Book;
 import com.itwill.domain.Favorite;
 import com.itwill.service.FavoriteService;
 
@@ -38,7 +39,7 @@ public class FavoriteRestController {
 		}
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
-			int result = favoriteService.insert(new Favorite(0, sUserId, book_no));
+			int result = favoriteService.insert(new Favorite(0, sUserId, new Book(book_no, 0, null, null, null, null, null)));
 			if (result != 0) {
 				code = 1;
 				url = "favorite_list";

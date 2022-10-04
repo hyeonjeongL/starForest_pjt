@@ -4,17 +4,20 @@ public class Favorite {
 	
 	int favorite_no;
 	String user_id;
-	int book_no;
+	Book book;
 	
 	public Favorite() {
 	}
 
-	public Favorite(int favorite_no, String user_id, int book_no) {
+	
+	
+	public Favorite(int favorite_no, String user_id, Book book) {
 		super();
 		this.favorite_no = favorite_no;
 		this.user_id = user_id;
-		this.book_no = book_no;
+		this.book = book;
 	}
+
 
 	public int getFavorite_no() {
 		return favorite_no;
@@ -32,19 +35,28 @@ public class Favorite {
 		this.user_id = user_id;
 	}
 
-	public int getBook_no() {
-		return book_no;
+
+
+	public Book getBook() {
+		return book;
 	}
 
-	public void setBook_no(int book_no) {
-		this.book_no = book_no;
+
+
+	public void setBook(Book book) {
+		this.book = book;
 	}
+
+
 
 	@Override
 	public String toString() {
-		return "Favorite [favorite_no=" + favorite_no + ", user_id=" + user_id + ", book_no=" + book_no + "]";
+		return "Favorite [favorite_no=" + favorite_no + ", user_id=" + user_id + ", book=" + book + "]";
 	}
 
+	
+
+	
 	
 	
 

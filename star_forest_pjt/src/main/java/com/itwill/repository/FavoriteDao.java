@@ -1,6 +1,5 @@
 package com.itwill.repository;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.itwill.domain.Favorite;

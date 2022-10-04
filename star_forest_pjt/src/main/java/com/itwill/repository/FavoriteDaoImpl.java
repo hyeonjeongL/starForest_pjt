@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.itwill.domain.Book;
 import com.itwill.domain.Favorite;
 import com.itwill.mapper.FavoriteMapper;
 
@@ -17,14 +18,14 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	
 	@Override
 	public int insert(Favorite favorite) throws Exception {
-		return favoriteMapper.insert(favorite.getUser_id(),favorite.getBook_no());
+		return favoriteMapper.insert(favorite.getUser_id(),favorite.getBook().getBook_no());
 	}
 
 	@Override
 	public boolean isExisted(String user_id,int book_no) throws Exception {
-		Favorite favorite=new Favorite(0, user_id, book_no);
+		Favorite favorite=new Favorite(0, user_id, new Book(book_no, 0, null, null, null, null, null));
 		boolean isExisted=false;
-		int insertCount=favoriteMapper.insert(favorite.getUser_id(),favorite.getBook_no());
+		int insertCount=favoriteMapper.insert(favorite.getUser_id(),favorite.getBook().getBook_no());
 		if(insertCount==0) {
 			isExisted=false;
 		}else if(insertCount>0) {

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
+import com.itwill.domain.Book;
 import com.itwill.domain.Favorite;
 import com.itwill.repository.FavoriteDao;
 import com.itwill.service.FavoriteService;
@@ -27,7 +28,7 @@ public static void main(String[] args) throws Exception {
 	ConfigurableApplicationContext context=application.run(args);
 	FavoriteService favoriteService=(FavoriteService)context.getBean(FavoriteService.class);
 	System.out.println("favorite service test!!");
-	System.out.println(favoriteService.insert(new Favorite(0, "yeji", 7)));
+	System.out.println(favoriteService.insert(new Favorite(0, "yeji", new Book(7, 0, null, null, null, null, null))));
 	System.out.println(favoriteService.selectById("yeji"));
 	System.out.println(favoriteService.selectByNo(3));
 	System.out.println(favoriteService.deleteByNo(1));

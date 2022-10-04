@@ -18,7 +18,7 @@ public class FavoriteServiceImpl implements FavoriteService {
 	@Override
 	public int insert(Favorite favorite) throws Exception {
 		
-		if(favoriteDao.isExisted(favorite.getUser_id(), favorite.getBook_no())) {
+		if(favoriteDao.isExisted(favorite.getUser_id(), favorite.getBook().getBook_no())) {
 			System.out.println("이미 내 서재에 존재합니다.");
 			return 0;
 		}else {

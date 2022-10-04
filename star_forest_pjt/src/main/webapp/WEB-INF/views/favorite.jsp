@@ -581,8 +581,21 @@ var graphina_localize = {"ajaxurl":"https:\/\/library.korea.ac.kr\/wp-admin\/adm
 </header><!-- .entry-header -->
 
 	
-<script>
-
+<script type="text/javascript">
+$(function(){
+	/******************/	
+		
+	
+	
+	
+		
+		
+		
+		
+		
+		
+		
+});
 
 	
 

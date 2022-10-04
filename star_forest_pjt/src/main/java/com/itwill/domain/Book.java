@@ -28,7 +28,21 @@ public class Book {
 	public Book() {
 	}
 
-	
+	//favorite에서 사용
+	public Book(int book_no, int isbn, String book_title, String book_author, String book_publisher, String book_image,
+			String book_image_src) {
+		super();
+		this.book_no = book_no;
+		this.isbn = isbn;
+		this.book_title = book_title;
+		this.book_author = book_author;
+		this.book_publisher = book_publisher;
+		this.book_image = book_image;
+		this.book_image_src = book_image_src;
+	}
+
+
+
 	public Book(int book_no, int isbn, String book_title, String book_author, String book_publisher,
 			String book_summary, String book_publish_date, Date book_input_date, String book_image,
 			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no,

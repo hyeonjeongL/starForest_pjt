@@ -59,5 +59,20 @@ public interface BookMapper {
 			+ "book_qty,book_res_cnt,book_rental_cnt,category_no "
 			+ "from book order by book_no asc")
 	public List<Book> selectAll();
-
+	
+	//카테고리별 출력
+	@Select("select * from book where category_no=#{category_no}")
+	public List<Book> selectCategory(int category_no);
+	
+	//인기도서 출력
+	@Select("select * from (select * from book order by book_rental_cnt desc) where rownum<=9")
+	public List<Book> selectFavorite();
+	
+	//관련분야 인기도서 출력
+	@Select("select * from (select * from book order by book_rental_cnt desc) where category_no=#{category_no} and rownum<=9")
+	public List<Book> selectRelation();
+	
+	//관련분야 신간도서 출력
+	@Select("select * from (select * from book order by book_publish_date asc) where category_no=#{category_no} and rownum<=9")
+	public List<Book> selectNew(int category_no);
 }

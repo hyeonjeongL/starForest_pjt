@@ -30,4 +30,16 @@ public interface BookDao {
 	
 	// 도서 전체 출력
 	List<Book> selectAll() throws Exception;
+	
+	//카테고리별 출력
+	List<Book> selectCategory(int category_no) throws Exception;
+	
+	//인기도서 출력
+	List<Book> selectFavorite() throws Exception;
+	
+	//관련분야 인기도서 출력
+	List<Book> selectRelateion(int category_no) throws Exception;
+	
+	//관련분야 신간도서 출력
+	List<Book> selectNew(int category_no) throws Exception;
 }

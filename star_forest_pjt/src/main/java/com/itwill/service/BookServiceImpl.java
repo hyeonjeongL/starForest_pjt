@@ -66,4 +66,24 @@ public class BookServiceImpl implements BookService {
 		return bookMapper.selectAll();
 	}
 
+	@Override
+	public List<Book> selectCategory(int category_no) throws Exception {
+		return bookMapper.selectCategory(category_no);
+	}
+
+	@Override
+	public List<Book> selectFavorite() throws Exception {
+		return bookMapper.selectFavorite();
+	}
+
+	@Override
+	public List<Book> selectRelateion(int category_no) throws Exception {
+		return bookMapper.selectRelation();
+	}
+
+	@Override
+	public List<Book> selectNew(int category_no) throws Exception {
+		return bookMapper.selectNew(category_no);
+	}
+
 }

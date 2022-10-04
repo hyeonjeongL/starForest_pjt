@@ -1,5 +1,8 @@
 package com.itwill.controller.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -43,7 +46,8 @@ public class RequestBoardTestController {
 	    System.out.println(requestBoardDao.selectAll());  
 	    System.out.println(requestBoardDao.countAll());
 	    System.out.println(requestBoardDao.selectOne(8));
-	    System.out.println(requestBoardDao.list());
+	    //List<RequestBoard> itemList = new ArrayList();
+	    //System.out.println(requestBoardDao.list(itemList.get(3)));
 	    
 	    //일단 테스트 완료
 	    //테스트 다시 해봐야할 것 : 답글구현/페이지에 있는 게시물 시작번호,끝번호//답글존재여부 다시 확인

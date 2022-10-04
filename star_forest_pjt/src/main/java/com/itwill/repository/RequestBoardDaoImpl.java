@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.mapper.RequestBoardMapper;
+import com.itwill.util.PageMaker;
 
 @Repository
 public class RequestBoardDaoImpl implements RequestBoardDao{
@@ -80,8 +82,10 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public List<RequestBoard> list() throws Exception {
-		return requestBoardMapper.list();
+	public RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception {
+		page.setTotalList(requestBoardMapper.countAll());
+		page.setItemList(requestBoardMapper.list(page));
+		return page;
 	}
 
 }

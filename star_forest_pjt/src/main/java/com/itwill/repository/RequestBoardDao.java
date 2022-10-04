@@ -7,6 +7,8 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
+import com.itwill.util.PageMaker;
 
 public interface RequestBoardDao {
 	
@@ -44,6 +46,6 @@ public interface RequestBoardDao {
 		RequestBoard selectOne(int board_no) throws Exception;
 		
 		//페이지에 있는 게시물 시작번호 / 끝번호
-		List<RequestBoard> list() throws Exception;
+		public RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception;
 		
 }

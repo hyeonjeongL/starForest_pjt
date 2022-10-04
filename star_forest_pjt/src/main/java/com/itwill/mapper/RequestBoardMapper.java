@@ -12,6 +12,7 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 
 @Mapper
 public interface RequestBoardMapper {
@@ -96,5 +97,5 @@ public interface RequestBoardMapper {
 			+ "				) s\r\n"
 			+ "		 )\r\n"
 			+ "WHERE idx between #{pageBegin} and #{pageEnd}")
-	public List<RequestBoard> list();
+	public List<RequestBoard> list(RequestBoardListPageMaker page);
 }

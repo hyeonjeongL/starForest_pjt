@@ -4,6 +4,7 @@ import java.util.List;
 
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 public interface RequestBoardService {
 	//게시물생성
 			int create(RequestBoard requestBoard) throws Exception;
@@ -39,5 +40,5 @@ public interface RequestBoardService {
 			RequestBoard selectOne(int board_no) throws Exception;
 			
 			//페이지에 있는 게시물 시작번호 / 끝번호
-			List<RequestBoard> list() throws Exception;
+			RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception;
 }

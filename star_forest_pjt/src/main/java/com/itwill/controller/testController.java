@@ -177,6 +177,10 @@ public class testController {
 		System.out.println("test");
 		return "siteMap";
 	}
-
+	@RequestMapping("/seatReservation.do")
+	public String test37() {
+		System.out.println("test");
+		return "seatReservation";
+	}
 
 }

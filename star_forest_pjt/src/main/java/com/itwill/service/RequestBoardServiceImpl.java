@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.repository.RequestBoardDao;
 @Service
 public class RequestBoardServiceImpl implements RequestBoardService{
@@ -78,8 +79,8 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	}
 
 	@Override
-	public List<RequestBoard> list() throws Exception {
-		return requestBoardDao.list();
+	public RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception {
+		return requestBoardDao.list(page);
 	}
 
 }

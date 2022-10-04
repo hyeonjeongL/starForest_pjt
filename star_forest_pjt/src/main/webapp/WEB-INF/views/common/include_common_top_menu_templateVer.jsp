@@ -99,7 +99,7 @@
                         href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
                   </ul></li>
                  <li class="nav-item dropdown"><a
-                  href="seatReservation_list.do"
+                  href="seatReservation.do"
                   class="nav-link dropdown-toggle mypage" data-toggle="dropdown">열람실예약</a>
             </ul>
             <ul id="app" class="navbar-nav ml-auto">

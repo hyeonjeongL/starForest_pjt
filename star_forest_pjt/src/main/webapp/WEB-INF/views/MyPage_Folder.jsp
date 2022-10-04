@@ -156,13 +156,13 @@ $(function(){
 
 <body class="d-flex flex-column">
 	<div id="page-content">
-			<!-- navigation start-->
-			<div id="navigation">
-				<!-- include_common_left.jsp start-->
-				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
-				<!-- include_common_left.jsp end-->
-			</div>
-			<!-- navigation end-->
+		<!-- navigation start-->
+		<div id="navigation">
+			<!-- include_common_left.jsp start-->
+			<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+			<!-- include_common_left.jsp end-->
+		</div>
+		<!-- navigation end-->
 		<!-- PAGE HEADER -->
 		<header id="page-header" class="noto-serif">
 			<div class="page-header-overlay">
@@ -202,23 +202,12 @@ $(function(){
 
 					<!-- 메인내용 -->
 					<div class="col-md-9 fol_div">
-						<input type="hidden" name="cust_no" value="${c.cust_no }">
-						<div class="card noto-serif">
-							<div class="card-body" id="fol_card">
-								<p id="fol_card_name">${c.name }님의 서재</p>
-							</div>
-						</div>
+
 
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-sm-6" id="fol_list_title">
-									<form action="MyPage_Folder.do" method="post">
-										<font
-											style="font-size: x-large; font-weight: bold; font-family: 'Noto Serif KR', serif; padding:10px;">내서재</font>
-										<input type="hidden" value="${c.cust_no }" name="cust_no">
-										<input type="hidden" value=50 name="group">
-
-									</form>
+									<form action="MyPage_Folder.do" method="post"></form>
 								</div>
 
 								<div class="col-sm-6">
@@ -240,63 +229,82 @@ $(function(){
 							</div>
 						</div>
 						<hr>
-						<div style="text-align: left;">
-							<div class="col-lg-9">
-
-								<div
-									class="items-header directory-header d-flex justify-content-lg-between align-items-baseline">
-								
-								</div>
-								<!-- .items-header -->
-<div class="listTable">
-		<table class="mobileTable">
-			<caption>책꽂이 목록 - no, 서재명, 설명, 수록아이템수, 수정일</caption>
-			<thead>
-				<tr>
-					<th scope="row">No.</th>					
-					<th scope="row" data-class="expand">서재</th>
-					<th scope="row" data-hide="phone">설명</th>
-					<th scope="row" data-hide="phone">수록아이템수</th>
-					<th scope="row" data-hide="phone">수정일</th>
-			  	</tr>
-			</thead>
-			<tbody>
-				
-				<tr><td colspan="6">등록된 자료가 없습니다.</td></tr>
-			</tbody>
-		</table>
-	</div>
-								
 
 
-								</div>
-								<!-- .e-items.list -->
-								<div class="favorite_delete">
-									<div class="back-to-main">
-										<c:if test="${favoriteList.size()!=0}">
-											<a href="#" class="btn btn-primary favorite_item_del_btn">전체삭제</a>
+						<!-- .items-header -->
+						<div class="listTable">
+							<table class="table">
+								<thead>
+									<tr>
+										<th scope="row">No.</th>
+										<th scope="row" data-class="expand">제목</th>
+										<th scope="row" data-hide="phone">저자</th>
+										<th scope="row" data-hide="phone">출판사</th>
+										<th scope="row" data-hide="phone">작업</th>
+									</tr>
+								</thead>
+								<tbody>
+
+									<tr>
+										<c:if test="${favoriteList.size() == 0}">
+											<td colspan="6">등록된 자료가 없습니다.</td>
 										</c:if>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<c:forEach var="favorite" items="${favoriteList}">
+							<div class="e-item d-md-flex align-items-center">
+								<div class="item-no">${favorite.favorite_no}</div>
+								<div class="item item-data d-flex">
+									<div class="item-cover">
+										<a href="/detail/?cid=CAT000000949038&ctype=m"></a>
+									</div>
+									<div class="item-meta">
+										<div class="item-title">
+											<h4>
+												<a href="/detail/?cid=CAT000000949038&ctype=m">${favorite.book.book_title}</a>
+											</h4>
+										</div>
+										<div class="item-author">${favorite.book.boo	k_author}</div>
+										<div class="item-pub">${favorite.book.book_publisher}</div>
 									</div>
 								</div>
-
-							</div>
-							<button id="manage_btn">관리</button>
-							<div class="btn">
-
-								<div class="btn-back">
-									<p>정말 삭제 하시겠습니까?</p>
-									<button class="yes">Yes</button>
-									<button class="no">No</button>
+								<div class="item-functions">
+									<a role="button"
+										class="btn btn-sm btn-primary favorite_item-del-trigger"
+										item-val="234279">삭제</a>
 								</div>
-								<div class="btn-front">삭제</div>
 							</div>
+							<!-- item : 1 -->
+						</c:forEach>
 
+
+					</div>
+					<!-- .e-items.list -->
+					<div class="favorite_delete">
+						<div class="back-to-main">
+							<c:if test="${favoriteList.size()!=0}">
+								<a href="#" class="btn btn-primary favorite_item_del_btn">전체삭제</a>
+							</c:if>
 						</div>
 					</div>
+
 				</div>
+				<div class="btn">
+
+					<div class="btn-back">
+						<p>정말 삭제 하시겠습니까?</p>
+						<button class="yes">Yes</button>
+						<button class="no">No</button>
+					</div>
+					<div class="btn-front">삭제</div>
+				</div>
+
 			</div>
-		</section>
 	</div>
+
 
 	<!-- .footer-navigation -->
 	<!-- footer start-->

@@ -8,6 +8,7 @@ btn-secondary #6C757D
 스프링 연 #75BD43
 스프링 진 #107637
 */
+
 #phone_a{
 	cursor: pointer;
 }
@@ -56,16 +57,7 @@ img, .paging-num{
   }
 }
 
-body, .noto-sans {
-  overflow-x: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
-  font-weight: 300;
-}
 
-.noto-serif{
-	font-family: 'Noto Serif KR', serif;
-	font-weight: 300;
-}
 .dropdown-item{
 	font-weight: 300;
 }

@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String searchType = request.getParameter("searchType");
+String keyword = request.getParameter("keyword");
+if(searchType==null|| searchType.equals("")){
+	response.sendRedirect("SearchResult");
+	return;
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +29,7 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
-  <script type="text/javascript">
-	function keywordCheck() {
-		var str_keyword = window.searchform.keyword.value;
-		if (!str_keyword || str_keyword === "") {
-			window.alert("검색어를 입력하세요.");
-			window.searchform.keyword.focus();
-			return false;
-		}
-		window.searchform.submit();
-	}
-</script>
+ 
 <!-- kakao 검색 API -->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
@@ -191,36 +190,30 @@
 						</div>
 					</div>
 
+<!--  -->
 
-					<!-- 메인내용 -->
-			<div class="col-md-9">
-				<div class="input-group noto-serif">
-				<select data-trigger="" name="searchType">
-										<option value="all">통합</option>
-										<option value="title">제목</option>
-										<option value="category_name">분야</option>
-										<option value="author">저자</option>
-										<option value="publisher">출판사</option>
-							</select>
-					<input class="form-control searchbar" id="bookName" type="text"
-						placeholder="검색어를 입력하세요.">
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-					</div>
-				</div>
-				<br><br><br>
-				<!-- CARD COLUMNS -->
-				<div class="searchResult-body">
-					
-				</div>
-				<div class="paging">
-					
-				</div>
-			</div>
-		  </div>
-		</div>
-	</section>
-	</div>
+
+<!--  -->
+<!-- 페이징처리 -->
+                 <div class="container mt-5">
+              <ul class="pagination justify-content-center">
+              <c:if test="${startPage > 1}">
+                <li class="page-item"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
+              </c:if>
+              <c:if test="${startPage == 1}">
+                <li class="page-item disabled"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
+              </c:if>
+                    <c:forEach var="i" begin="${startPage }" end="${endPage }">
+                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${i }">${i }</a></li>
+                 </c:forEach>
+              <c:if test="${endPage < totalPage}">              
+                 <li class="page-item"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
+              </c:if>
+              <c:if test="${endPage == totalPage}">
+                  <li class="page-item disabled"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
+              </c:if>
+              </ul>
+            </div>
 	
 	<div style="clear: both"></div>
 

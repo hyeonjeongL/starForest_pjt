@@ -89,7 +89,7 @@
 							님</small></li>
 				</c:if>
 				<c:if test="${user_id == null}">
-					<li class="nav-item" v-bind:title="login"><a href="LoginPage"
+					<li class="nav-item" v-bind:title="login"><a href="user"
 						class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
 						<p class="sr-only">로그인</p></li>
 					<li class="nav-item" v-bind:title="signup"><a
@@ -102,25 +102,8 @@
 						class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
 						<p class="sr-only">로그아웃</p></li>
 				</c:if>
-				<li class="nav-item " v-bind:title="bookcart"><a
-					href="BookCart" class="nav-link mypage"><i class="fas fa-book"></i></a>
-					<p class="sr-only">북카트</p></li>
-				<li class="nav-item" v-bind:title="sitemap"><a href="siteMap"
-					class="nav-link"><i class="fas fa-map"></i></a>
-					<p class="sr-only">사이트맵</p></li>
-				<script>
-					var app = new Vue({
-						el : '#app',
-						data : {
-							login : '로그인',
-							signup : '회원가입',
-							bookcart : '북카트',
-							sitemap : '사이트맵',
-							logout : '로그아웃',
-							managerpage : '관리자페이지'
-						}
-					});
-				</script>
+				
+				
 			</ul>
 		</div>
 	</div>

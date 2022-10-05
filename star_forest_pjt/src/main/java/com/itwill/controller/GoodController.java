@@ -15,6 +15,7 @@ import com.itwill.service.GoodService;
 //맞춤 추천
 @Controller
 public class GoodController {
+	
 	@Autowired
 	private GoodService goodService;
 	public GoodController() {
@@ -25,12 +26,12 @@ public class GoodController {
 		return "forward:/WEB-INF/views/good.jsp";
 	}
 	
-	@RequestMapping(value = {"/good"})
+	@RequestMapping(value = {"/good_list"})
 	public String good_list(@RequestParam int category_no, Model model) throws Exception{
 		String forwardPath = "";
 		List<Good> goodlist=goodService.goodCategoryNo(category_no);
 		model.addAttribute("goodlist",goodlist);
-		forwardPath = "forward:/WEB-INF/views/good.jsp";
+		forwardPath = "forward:/WEB-INF/views/good_list.jsp";
 		return forwardPath;
 	}
 

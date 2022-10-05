@@ -15,7 +15,7 @@ public class SearchSQL {
 	="select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no where book_title like ? or book_author like ? or bc.category_name like ? or book_publisher like ?";
 	
 	public static final String BOOK_SELECT_ALL_LIST
-	="select * from (select rownum idx, s.* from (select * from book where b_name like ? or b_author like ? or b_class like ? or b_publisher like ? order by book_title) s) where idx >= ? and idx <= ?";
+	="select b.*,bc.category_name from (select rownum idx, s.* from (select * from book b left join  book_category bc on b.category_no=bc.category_no where book_title like ? or b_author like ? or category_name like ? or b_publisher like ? order by book_title) s) where idx >= ? and idx <= ?";
 	
 	
 	//저자 검색

@@ -65,8 +65,6 @@
                         href="MyPage_Info?cust_no=${cust_no }">개인정보수정</a></li>
                   </ul></li>
 
-                   <li class="nav-item dropdown"><a href="SearchResult"
-                  class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
                   <ul class="dropdown-menu dropdown-menu-left fade-down">
                      <li><a class="dropdown-item" href="seatReservation" id="menu_seatReservation">열람실예약</a></li>

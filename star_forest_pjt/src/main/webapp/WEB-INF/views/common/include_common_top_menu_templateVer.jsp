@@ -68,7 +68,7 @@
                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
                   <ul class="dropdown-menu dropdown-menu-left fade-down">
                      <li><a class="dropdown-item" href="seatReservation" id="menu_seatReservation">열람실예약</a></li>
-                     <li><a class="dropdown-item" href="seatReservation">예약확인</a></li>
+                     <li><a class="dropdown-item" href="seatReservation_my">예약확인</a></li>
             	  </ul>
             
             <ul id="app" class="navbar-nav ml-auto">

@@ -67,7 +67,7 @@
 						<h4 class="text-light">나의도서</h4>
 					</div>
 					<ul class="list-group list-group-flush mb-5">
-						<li class="list-group-item active"><a href="mypage_main.do?cust_no=${cust_no }">나의도서정보</a></li>
+						<li class="list-group-item active"><a href="mypage_main">나의도서정보</a></li>
 						<li class="list-group-item"><a href="borrowList.do">대출현황</a></li>
 						<li class="list-group-item"><a href="return_borrowList.do">대출/반납이력</a></li>
 						<li class="list-group-item"><a href="MyPage_Folder.do?cust_no=${cust_no }&group=50">내서재</a></li>

@@ -12,37 +12,37 @@ public class testController {
 	@Autowired
 	BookService BookService;
 	
-	@RequestMapping("/bookCart.do")
+	@RequestMapping("/bookCart")
 	public String test1() {
 		System.out.println("test");
 		return "bookCart";
 	}
-	@RequestMapping("/borrowList.do")
+	@RequestMapping("/borrowList")
 	public String test2() {
 		System.out.println("test");
 		return "borrowList";
 	}
-	@RequestMapping("/postDetail.do")
+	@RequestMapping("/postDetail")
 	public String test3() {
 		System.out.println("test");
 		return "postDetail";
 	}
-	@RequestMapping("/loginPage.do")
+	@RequestMapping("/loginPage")
 	public String test4() {
 		System.out.println("test");
 		return "loginPage.do";
 	}
-	@RequestMapping("/detailBook.do")
+	@RequestMapping("/detailBook")
 	public String test5() {
 		System.out.println("test");
 		return "detailBook";
 	}
-	@RequestMapping("/faqViewpage.do")
+	@RequestMapping("/faqViewpage")
 	public String test6() {
 		System.out.println("test");
 		return "faqViewpage";
 	}
-	@RequestMapping("/findEmail.do")
+	@RequestMapping("/findEmail")
 	public String test7() {
 		System.out.println("test");
 		return "findEmail";
@@ -52,22 +52,22 @@ public class testController {
 		System.out.println("test");
 		return "Home";
 	}
-	@RequestMapping("/MyLibrary.do")
+	@RequestMapping("/MyLibrary")
 	public String test9() {
 		System.out.println("test");
 		return "MyLibrary";
 	}
-	@RequestMapping("/howtoInfo.do")
+	@RequestMapping("/howtoInfo")
 	public String test10() {
 		System.out.println("test");
 		return "howtoInfo";
 	}
-	@RequestMapping("/insertCustomer.do")
+	@RequestMapping("/insertCustomer")
 	public String test11() {
 		System.out.println("test");
 		return "insertCustomer";
 	}
-	@RequestMapping("/insertCustomerSuccess.do")
+	@RequestMapping("/insertCustomerSuccess")
 	public String test12() {
 		System.out.println("test");
 		return "insertCustomerSuccess";
@@ -77,32 +77,32 @@ public class testController {
 		System.out.println("test");
 		return "login";
 	}
-	@RequestMapping("/ManagePage.do")
+	@RequestMapping("/ManagePage")
 	public String test15() {
 		System.out.println("test");
 		return "ManagePage";
 	}
-	@RequestMapping("/MyPage_DetailFile.do")
+	@RequestMapping("/MyPage_DetailFile")
 	public String test17() {
 		System.out.println("test");
 		return "MyPage_DetailFile";
 	}
-	@RequestMapping("/MyPage_File.do")
+	@RequestMapping("/MyPage_File")
 	public String test18() {
 		System.out.println("test");
 		return "MyPage_File";
 	}
-	@RequestMapping("/MyPage_Folder_search.do")
+	@RequestMapping("/MyPage_Folder_search")
 	public String test19() {
 		System.out.println("test");
 		return "MyPage_Folder_search";
 	}
-	@RequestMapping("/MyPage_Folder.do")
+	@RequestMapping("/MyPage_Folder")
 	public String test20() {
 		System.out.println("test");
 		return "MyPage_Folder";
 	}
-	@RequestMapping("/MyPage_Info.do")
+	@RequestMapping("/MyPage_Info")
 	public String test21() {
 		System.out.println("test");
 		return "MyPage_Info";
@@ -112,62 +112,62 @@ public class testController {
 		System.out.println("test");
 		return "mypage_main";
 	}
-	@RequestMapping("/Newbooks.do")
+	@RequestMapping("/Newbooks")
 	public String test23() {
 		System.out.println("test");
 		return "Newbooks";
 	}
-	@RequestMapping("/popularBook.do")
+	@RequestMapping("/popularBook")
 	public String test24() {
 		System.out.println("test");
 		return "popularBook";
 	}
-	@RequestMapping("/postInsert.do")
+	@RequestMapping("/postInsert")
 	public String test26() {
 		System.out.println("test");
 		return "postInsert";
 	}
-	@RequestMapping("/postList.do")
+	@RequestMapping("/postList")
 	public String test27() {
 		System.out.println("test");
 		return "postList";
 	}
-	@RequestMapping("/postUpdate.do")
+	@RequestMapping("/postUpdate")
 	public String test28() {
 		System.out.println("test");
 		return "postUpdate";
 	}
-	@RequestMapping("/QnaDetail.do")
+	@RequestMapping("/QnaDetail")
 	public String test29() {
 		System.out.println("test");
 		return "QnaDetail";
 	}
-	@RequestMapping("/QnaInsert.do")
+	@RequestMapping("/QnaInsert")
 	public String test30() {
 		System.out.println("test");
 		return "QnaInsert";
 	}
-	@RequestMapping("/QnaList.do")
+	@RequestMapping("/QnaList")
 	public String test31() {
 		System.out.println("test");
 		return "QnaList";
 	}
-	@RequestMapping("/QnaUpdate.do")
+	@RequestMapping("/QnaUpdate")
 	public String test32() {
 		System.out.println("test");
 		return "QnaUpdate";
 	}
-	@RequestMapping("/recommendedBooks.do")
+	@RequestMapping("/recommendedBooks")
 	public String test33() {
 		System.out.println("test");
 		return "recommendedBooks";
 	}
-	@RequestMapping("/return_borrowList.do")
+	@RequestMapping("/return_borrowList")
 	public String test34() {
 		System.out.println("test");
 		return "return_borrowList";
 	}
-	@RequestMapping("/SearchResult.do")
+	@RequestMapping("/SearchResult")
 	public String test35() {
 		System.out.println("test");
 		return "SearchResult";
@@ -177,12 +177,12 @@ public class testController {
 		System.out.println("test");
 		return "siteMap";
 	}
-	@RequestMapping("/seatReservation.do")
-	public String test37() {
-		System.out.println("test");
-		return "seatReservation";
-	}
-	@RequestMapping("/book_search_form.do")
+//	@RequestMapping("/seatReservation")
+//	public String test37() {
+//		System.out.println("test");
+//		return "seatReservation";
+//	}
+	@RequestMapping("/book_search_form")
 	public String test38() {
 		System.out.println("test");
 		return "book_search_form";

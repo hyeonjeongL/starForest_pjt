@@ -20,6 +20,9 @@ public interface SeatReservationDao {
 	 //시간 지나면 자동으로 반납
 	 int returnByAuto(SeatReservation seatReservation)throws Exception;
 	 
+	 //날짜 지나면 전체 자동으로 리셋
+	 public List<SeatReservation> resetAll()throws Exception;
+	 
 	 //자리 연장
 	 int continueSeat(SeatReservation seatReservation)throws Exception;
 	 

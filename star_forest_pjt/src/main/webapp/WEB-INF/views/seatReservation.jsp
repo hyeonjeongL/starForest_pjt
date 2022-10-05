@@ -46,8 +46,8 @@
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	$(function() {
-		console.log('dsds');
-		$(document).on('click','#btn_seatReservation_menu',function(e){
+		$(document).on('click','.btn_seat_reservation',function(e){
+			
 			
 		});
 	});
@@ -82,129 +82,97 @@
 			<div class="seat_wrap" style="text-align:center;">
 					<div id="A_room">
 						<c:forEach items="${seatList}" var="seat" begin="0" end="6">
+						 <c:if test="${seat.seat_status == 1}">
 						<div class="a-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <p class="card-text">$${seat.seat_status}</p>
+		                 <p class="card-text">이용중</p>
+		                 <button type="button" class="btn_seat_continue">연장</button>
 		                 </div>
+		                 </c:if>
+		                 </c:forEach>
+		                 <c:forEach items="${seatList}" var="seat" begin="0" end="6">
+						 <c:if test="${seat.seat_status == 0}">
+						<div class="a-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                 </div>
+		                 </c:if>
 		                 </c:forEach>
 	            	</div>
             
             	<div id="B_room">
-					<div class="b-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-					<div class="b-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                  <div class="b-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="b-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="b-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="b-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
+					<c:forEach items="${seatList}" var="seat" begin="7" end="13">
+						 <c:if test="${seat.seat_status == 1}">
+						<div class="b-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">이용중</p>
+		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 </div>
+		                 </c:if>
+		                 </c:forEach>
+		                 <c:forEach items="${seatList}" var="seat" begin="7" end="13">
+						 <c:if test="${seat.seat_status == 0}">
+						<div class="b-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                 </div>
+		                 </c:if>
+		                 </c:forEach>
 	            </div>
             
             <div id="C_room">
-					<div class="c-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-					<div class="c-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                  <div class="c-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="c-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="c-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="c-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
+					<c:forEach items="${seatList}" var="seat" begin="14" end="21">
+						 <c:if test="${seat.seat_status == 1}">
+						<div class="c-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">이용중</p>
+		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 </div>
+		                 </c:if>
+		                 </c:forEach>
+		                 <c:forEach items="${seatList}" var="seat" begin="14" end="21">
+						 <c:if test="${seat.seat_status == 0}">
+						<div class="c-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                 </div>
+		                 </c:if>
+		                 </c:forEach>
 	            </div>
              <div id="D_room">
-					<div class="d-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-					<div class="d-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                  <div class="d-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="d-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="d-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
-	                 <div class="d-deck">
-	          		 <p class="card-text">좌석</p>
-	                 <p class="card-text">시작시간</p>
-	                 <p class="card-text">종료시간</p>
-	                 <p class="card-text">이용중</p>
-	                 </div>
+					<c:forEach items="${seatList}" var="seat" begin="0" end="6">
+						 <c:if test="${seat.seat_status == 1}">
+						<div class="d-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">이용중</p>
+		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 </div>
+		                 </c:if>
+		                 </c:forEach>
+		                 <c:forEach items="${seatList}" var="seat" begin="0" end="6">
+						 <c:if test="${seat.seat_status == 0}">
+						<div class="d-deck">
+		          		 <p class="card-text">${seat.seat_no}</p>
+		                 <p class="card-text">${seat.seat_start_time}</p>
+		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                 </div>
+		                 </c:if>
+		                 </c:forEach>
 	            </div>
             	
 		</div>

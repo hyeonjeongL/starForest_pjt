@@ -34,6 +34,11 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	}
 
 	@Override
+	public List<SeatReservation> resetAll() throws Exception {
+		return seatReservationMapper.resetAll();
+	}
+	
+	@Override
 	public int continueSeat(SeatReservation seatReservation) throws Exception {
 		return seatReservationMapper.continueSeat(seatReservation);
 	}

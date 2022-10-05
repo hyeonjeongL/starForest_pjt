@@ -5,13 +5,19 @@ update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, '
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'hyeonjeong',seat_status=1 where seat_no='C01';
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time='15:20:01',user_id= 'jeonghyun',seat_status=1 where seat_no='B01';
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'jeonghyun',seat_status=1 where seat_no='B01';
+
+
+update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'soyoon',seat_status=1 where seat_no='A01';
+update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'woohyuk',seat_status=1 where seat_no='B01';
+update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'jeonghyun',seat_status=1 where seat_no='B02';
+
 --반납
 update seat_reservation set seat_date=null,seat_start_time=null,seat_end_time=null,user_id=null,seat_status=0 where seat_no='C01'and user_id='hyeonjeong';
 
 
 --시간 지나서 자동으로 반납
 update seat_reservation set seat_date=null,seat_start_time=null,seat_end_time=null,user_id=null,seat_status=0 where seat_no='B01' and seat_end_time<to_char(sysdate,'HH24:MI:SS');
-
+update seat_reservation set seat_date=null,seat_start_time=null,seat_end_time=null,user_id=null,seat_status=0 where seat_date<sysdate;
 
 update seat_reservation set seat_date=
                                             case when seat_end_time<to_char(sysdate,'HH24:MI:SS') then null else seat_date end,

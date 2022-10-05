@@ -39,7 +39,12 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	public int returnByAuto(SeatReservation seatReservation) throws Exception {
 		return seatReservationDao.returnByAuto(seatReservation);
 	}
-
+	
+	@Override
+	public List<SeatReservation> resetAll() throws Exception {
+		return seatReservationDao.resetAll();
+	}
+	
 	@Override
 	public int continueSeat(SeatReservation seatReservation) throws Exception {
 		return seatReservationDao.continueSeat(seatReservation);
@@ -64,6 +69,7 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	public SeatReservation selectTimeUsingSeat(String seat_no) throws Exception {
 		return seatReservationDao.selectTimeUsingSeat(seat_no);
 	}
+
 
 	
 	

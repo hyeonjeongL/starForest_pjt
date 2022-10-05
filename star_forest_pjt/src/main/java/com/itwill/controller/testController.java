@@ -27,10 +27,10 @@ public class testController {
 		System.out.println("test");
 		return "postDetail";
 	}
-	@RequestMapping("/loginPage")
+	@RequestMapping("/LoginPage")
 	public String test4() {
 		System.out.println("test");
-		return "loginPage.do";
+		return "LoginPage";
 	}
 	@RequestMapping("/detailBook")
 	public String test5() {

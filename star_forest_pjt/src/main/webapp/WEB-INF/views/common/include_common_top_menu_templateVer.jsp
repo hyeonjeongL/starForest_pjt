@@ -64,10 +64,9 @@
                      <li><a class="dropdown-item mypage"
                         href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
                   </ul></li>
-                   <li class="nav-item dropdown"><a href="SearchResult.do"
-                  class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
+                   <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
                   <ul class="dropdown-menu dropdown-menu-left fade-down">
-                     <li><a class="dropdown-item" href="seatReservation">열람실예약</a></li>
+                     <li><a class="dropdown-item" href="seatReservation" id="menu_seatReservation">열람실예약</a></li>
                      <li><a class="dropdown-item" href="seatReservation">예약확인</a></li>
             	  </ul>
             

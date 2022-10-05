@@ -395,10 +395,10 @@ seat_reservation css
 	width:100%;
 }
 #A_room {
-	width: 600px;
+	width: 800px;
 	margin-top: 100px;
 	margin-bottom:0;
-	margin-left:210px;
+	margin-left:50px;
 	text-align: center;
 	align-content: center;
 	float:left;
@@ -406,7 +406,7 @@ seat_reservation css
 .a-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:80px; 
+	width:120px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;
@@ -415,10 +415,10 @@ seat_reservation css
 	align-content: center;
 }
 #B_room {
-	width: 600px;
+	width: 800px;
 	margin-top: 100px;
 	margin-bottom:0;
-	margin-left:210px;
+	margin-left:50px;
 	text-align: center;
 	align-content: center;
 	float:left;
@@ -426,7 +426,7 @@ seat_reservation css
 .b-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:80px; 
+	width:120px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;
@@ -435,10 +435,10 @@ seat_reservation css
 	align-content: center;
 }
 #C_room {
-	width: 600px;
+	width: 800px;
 	margin-top: 100px;
 	margin-bottom:0;
-	margin-left:210px;
+	margin-left:50px;
 	text-align: center;
 	align-content: center;
 	float:left;
@@ -446,7 +446,7 @@ seat_reservation css
 .c-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:80px; 
+	width:120px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;
@@ -455,10 +455,10 @@ seat_reservation css
 	align-content: center;
 }
 #D_room {
-	width: 600px;
+	width: 800px;
 	margin-top: 100px;
 	margin-bottom:0;
-	margin-left:210px;
+	margin-left:50px;
 	text-align: center;
 	align-content: center;
 	float:left;
@@ -466,7 +466,7 @@ seat_reservation css
 .d-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:80px; 
+	width:120px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;

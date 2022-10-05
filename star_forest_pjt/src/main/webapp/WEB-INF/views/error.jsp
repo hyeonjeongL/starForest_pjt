@@ -55,19 +55,19 @@
 		        <div class="col">
 		          <h6>도서관소개</h6>
 		          <hr>
-		          <p><a href="howtoInfo.do">대출/반납/연장</a></p>
-		          <a href="postList.do?option=p_title&search=&group=10"><p>공지사항</p></a>
-		          <a href="faqViewpage.do"><p>자주묻는질문</p></a>
-		          <a href="QnaList.do"><p>묻고답하기</p></a>
-		          <a href="addrViewpageAPI.do"><p>오시는 길</p></a>
+		          <p><a href="howtoInfo">대출/반납/연장</a></p>
+		          <a href="postList?option=p_title&search=&group=10"><p>공지사항</p></a>
+		          <a href="faqViewpage"><p>자주묻는질문</p></a>
+		          <a href="QnaList"><p>묻고답하기</p></a>
+		          <a href="addrViewpageAPI"><p>오시는 길</p></a>
 		        </div>
 		        <div class="col">
 			        <h6>도서정보</h6>
 			        <hr>
-			        <a href="SearchResult.do"><p>도서검색</p></a>
-			        <a href="recommendedBooks.do"><p>사서추천도서</p></a>
-			        <a href="Newbooks.do"><p>신착도서</p></a>
-			        <a href="popularBook.do"><p>인기도서</p></a>
+			        <a href="SearchResult"><p>도서검색</p></a>
+			        <a href="recommendedBooks"><p>사서추천도서</p></a>
+			        <a href="Newbooks"><p>신착도서</p></a>
+			        <a href="popularBook"><p>인기도서</p></a>
 		        </div>
 	        </div>
         </div>
@@ -76,18 +76,18 @@
 		        <div class="col">
 	            <h6>커뮤니티</h6>
 	            <hr>
-	            <a href="postList.do?option=p_title&search=&group=20"><p>창작물게시판</p></a>
-	            <a href="postList.do?option=p_title&search=&group=30"><p>중고장터</p></a>
-	            <a href="postList.do?option=p_title&search=&group=60"><p>자유게시판</p></a>
+	            <a href="postList?option=p_title&search=&group=20"><p>창작물게시판</p></a>
+	            <a href="postList?option=p_title&search=&group=30"><p>중고장터</p></a>
+	            <a href="postList?option=p_title&search=&group=60"><p>자유게시판</p></a>
 		        </div>
 		        <div class="col">
 	            <h6>나의도서</h6>
 	            <hr>
-	            <a href="mypage_main.do?cust_no=${cust_no }"><p>나의도서정보</p></a>
-	            <a href="borrowList.do"><p>대출현황</p></a>
-				<a href="return_borrowList.do"><p>대출/반납이력</p></a>
-	            <a href="MyPage_Folder.do?cust_no=${cust_no }&group=50"><p>내서재</p></a>
-	            <a href="MyPage_Info.do?cust_no=${cust_no }"><p>개인정보수정</p></a>
+	            <a href="mypage_main?cust_no=${cust_no }"><p>나의도서정보</p></a>
+	            <a href="borrowList"><p>대출현황</p></a>
+				<a href="return_borrowList"><p>대출/반납이력</p></a>
+	            <a href="MyPage_Folder?cust_no=${cust_no }&group=50"><p>내서재</p></a>
+	            <a href="MyPage_Info?cust_no=${cust_no }"><p>개인정보수정</p></a>
 						</div>
 					</div>
 				</div>
@@ -102,16 +102,16 @@
     <div class="container">
       <div class="row">
       	<div class="col-md-3 mb-3">
-      		<p class="mb-1"><a href="howtoInfo.do">이용안내</a></p>
-      		<p class="mb-1"><a href="postList.do?option=p_title&search=&group=10">공지사항</a></p>
-      		<p class="mb-1"><a href="faqViewpage.do">자주묻는질문</a></p>
-      		<p class="mb-1"><a href="QnaList.do">묻고답하기</a></p>
+      		<p class="mb-1"><a href="howtoInfo">이용안내</a></p>
+      		<p class="mb-1"><a href="postList?option=p_title&search=&group=10">공지사항</a></p>
+      		<p class="mb-1"><a href="faqViewpage">자주묻는질문</a></p>
+      		<p class="mb-1"><a href="QnaList">묻고답하기</a></p>
       	</div>
       	<div class="col-md-3 mb-3">
-      		<p class="mb-1"><a href="postList.do?option=p_title&search=&group=20">창작물게시판</a></p>
-      		<p class="mb-1"><a href="postList.do?option=p_title&search=&group=30">중고장터</a></p>
-      		<p class="mb-1"><a href="postList.do?option=p_title&search=&group=60">자유게시판</a></p>
-      		<p class="mb-1"><a href="http://localhost:8088/MyPage_Folder.do?cust_no=${cust_no }&group=50">내서재</a></p>
+      		<p class="mb-1"><a href="postList?option=p_title&search=&group=20">창작물게시판</a></p>
+      		<p class="mb-1"><a href="postList?option=p_title&search=&group=30">중고장터</a></p>
+      		<p class="mb-1"><a href="postList?option=p_title&search=&group=60">자유게시판</a></p>
+      		<p class="mb-1"><a href="http://localhost:8088/MyPage_Folder?cust_no=${cust_no }&group=50">내서재</a></p>
       	</div>
         <div class="col-md-6">
         	<table class="footer-table">

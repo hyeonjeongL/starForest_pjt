@@ -29,6 +29,16 @@
 .img-fluid {
 	height: 250px;
 	width: 244px;
+
+}
+.table td{
+	border:1px solid ffffff;
+}
+.container table tr td {
+    text-align: left;
+    vertical-align: middle;
+    word-break: keep-all;
+    padding-right: 3em;
 }
 </style>
 
@@ -107,46 +117,67 @@
 
 				<!-- 메인내용 -->
 				<div class="col-md-9" id="content">
-					
+
+					<div class="col-6">
+					<div class="row"><br></div>
+						<div class="row">
+						<br> 
+						<select multiple="multiple" style="width: 170px;margin-bottom: 50px;border:2px solid #dee2e6">
+							<option value="s">ssssss
+							<option value="s">ssssss
+							<option value="s">ssssss
+							<option value="s">ssssss
+							<option value="s">ssssss
+							<option value="s">ssssss
+						</select>
+						
+						<!-- 나의도서정보(대여리스트) -->
+						
+
+							<div class="rentalTable">
+								<table class="table" style="width: 855px">
+									<thead style="border: 1px solid #dee2e6">
+										<tr>
+											<th colspan="1" align="right">책마중</th>
+											<th colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+											<th colspan="1">조회 89</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr id="rental_item_"
+											style="border: 1px solid #dee2e6; height: 250px;">
+
+											<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">자바dfd:fdfdfd:sadas<br>dsada<br>sdsadas
+											</td>
+											<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px">한예지 sda:<br>sdasdasd<br>as<br>da&nbp;
+											</td>
+											<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px"><button>자세히</button>
+												<br>
+											<button>자세히</button></td>
+
+
+										</tr>
+										<tr id="rental_item_"></tr>
+									</tbody>
+
+
+
+								</table>
+							</div>
+							<!---->
+						</div>
+
+					</div>
+
+
+
+
+
+
+
+
 				</div>
-				
-				
-				
-				
-				
-				
-				
-				<!-- 나의도서정보(대여리스트) 
-				<div class="rentalTable">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="row">No.</th>
-								<th scope="row">제목</th>
-								<th scope="row">저자</th>
-								<th scope="row">출판사</th>
-								<th scope="row">대여일</th>
-								<th scope="row">반납일</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<c:forEach var="rental" items="${rentalList}">
-								<tr id="rental_item_${rental.rental_no}">
-									<td id="bookNo">1
-									<td class="bookTitle">자바</td>
-									<td class="bookAuthor">한예지</td>
-									<td class="bookPubl">아이티윌</td>
-									<td class="bookRentalDate">2022-01-30</td>
-									<td class="bookReturnDate">2022-02-03</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>-->
-			</div>
 		</div>
-
 
 
 	</section>

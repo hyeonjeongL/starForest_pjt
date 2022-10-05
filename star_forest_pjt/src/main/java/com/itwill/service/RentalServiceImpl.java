@@ -28,12 +28,18 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.updateDate(user_id, book_no);
 	}
 
-	/** user_id로 대출 리스트 뽑기*/
+	/** user_id로 대출중인 리스트 뽑기*/
 	@Override
 	public List<Rental> selectById(String user_id)  throws Exception{
 		return rentalDao.selectById(user_id);
 	}
 
+	/**user_id로 총 대출 리스트 뽑기*/
+	@Override
+	public List<Rental> selectByIdTotalList(String user_id) throws Exception {
+		return rentalDao.selectByIdTotalList(user_id);
+	}
+	
 	/** book_no로 대출유저 리스트*/
 	@Override
 	public List<Map<String, Object>> selectByNo(int book_no) throws Exception {
@@ -56,10 +62,6 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.selectMostReturn_duedate(book_no);
 	}
 
-	@Override
-	public List<Rental> selectByIdTotalList(String user_id) throws Exception {
-		return rentalDao.selectByIdTotalList(user_id);
-	}
 
 
 	

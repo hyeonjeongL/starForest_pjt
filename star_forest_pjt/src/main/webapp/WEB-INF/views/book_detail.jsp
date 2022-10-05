@@ -1,5 +1,6 @@
 <%@page import="com.itwill.domain.Book"%>
 <%@page import="com.itwill.service.BookServiceImpl"%>
+<%@page import="com.itwill.domain.Rental"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -444,7 +445,7 @@
 													<td><span class="th-item">소장처</span> 별숲도서관</td>
 													<td><span class="th-item">ISBN</span> ${book.isbn }</td>
 													<td><span class="th-item">도서상태</span> 펑션넣어야하냐 if</td>
-													<td><span class="th-item">반납예정일</span> 2022-10-15</td>
+													<td><span class="th-item">반납예정일</span> ${rental.rental_duedate }</td>
 													<td><span class="th-item">예약</span> 예약한도초과</td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->

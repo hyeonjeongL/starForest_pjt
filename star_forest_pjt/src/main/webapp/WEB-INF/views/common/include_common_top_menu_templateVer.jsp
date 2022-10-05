@@ -4,6 +4,7 @@
 <%
 //String u_id = (String)session.getAttribute("sUserId");
 %>
+<link rel="stylesheet" href="css/style.css">
 <nav
 	class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
 	<div class="container container-fluid">

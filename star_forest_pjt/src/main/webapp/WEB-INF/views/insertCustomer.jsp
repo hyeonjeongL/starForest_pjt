@@ -43,7 +43,7 @@
 			  <div class="row">
 					<div class="col-md-6 m-auto text-center">
 					  <h2>회원가입</h2>
-					  <small style="color: Gainsboro;">딜리브러리의 도서를 온라인으로 대여하세요.</small>
+					  <small style="color: Gainsboro;">별숲도서관의 도서를 온라인으로 대여하세요.</small>
 					</div>
 			  </div>
 			</div>
@@ -56,17 +56,14 @@
 		<form action="insertCustomer.do" method="post" enctype="multipart/form-data">
 		
 		<!-- 이메일 INPUT START -->
-		<label class="mt-4" for="m_phone">이메일</label>
+		<label class="mt-4" for="m_phone">아이디</label>
 		<span class="signup_required">*</span>
 		<div class="input-group mb-3">
-			<input class="form-control" type="email" id="email" name="email" placeholder="예시)hello@delibrary.com" required>
+			<input class="form-control" type="id" id="id" name="id" placeholder="아이디 입력" required>
 			<div class="input-group-append">
-				<button class="btn btn-outline-success btn-Customer" id="btn_emailCheck" type="button">중복체크</button>
+				<button class="btn btn-outline-success btn-Customer" id="btn_idCheck" type="button">중복체크</button>
 			</div>
 		</div>
-		<small class="form-text email_message" id="email_ok" style="color: red;">이미 가입되어있는 이메일 입니다. 다른 이메일로 중복확인을 다시 해주세요.</small>
-        <small class="form-text email_message" id="email_ok_ok" style="color: green;">사용 가능한 이메일입니다. </small>
-		<small class="form-text text-muted email" id="email_msg"><span class="signup_required">실제 사용하시는 이메일을</span> 입력해주세요.</small>	
 		<!-- 이메일 INPUT END -->
 	
 		<!-- 비번 INPUT START -->
@@ -100,37 +97,44 @@
 			- 띄어쓰기, 특수 문자 사용 불가</small>
 		</div>
 		<!-- 이름 INPUT END -->
-
-		<!-- 닉네임 INPUT START -->
-		<div class="form-group my-4">
-			<label for="name">닉네임</label> <span class="signup_required">*</span>
-			<input class="form-control" type="text" id="nickname" name="nickname" placeholder="닉네임을 입력해주세요" required>
-			<small class="form-text text-muted">딜리브러리에서 커뮤니티 활동시 사용할 닉네임을 입력해주세요.<br>
-				<span class="signup_required">한글 6자 혹은 알파벳 12자 </span>이내로 기입해주세요.<br>
-				- 띄어쓰기, 특수 문자 사용 불가<br>
-				- 욕설, 비속어 사용시 이용이 제한될 수도 있습니다.</small>
-		</div>
-		<!-- 닉네임 INPUT END -->
-
-		<!-- 프사 INPUT START -->
-		<label for="file">프로필사진</label>
-		<div class="custom-file">
-			<input type="file" id="myfile" class="custom-file-input" name="uploadFile">
-			<label class="custom-file-label" for="myfile">파일찾기</label>
-			<small class="form-text text-muted">딜리브러리에서 커뮤니티 활동시 사용할 프로필사진을 업로드 해주세요.<br>
-				(업로드 가능 최대파일사이즈: 10MB)
-			</small>
-		</div>
-		<!-- 프사 INPUT END -->
-
-		<!-- 폰번호 INPUT START -->
-		<label class="mt-4" for="m_phone">휴대폰번호</label>
+		
+		<div class="form-group mt-2">
+		<label for="name">성별</label></div> 
+<div>
+    <div class="form-check">
+        <input type="checkbox" id="open" name="open" class="form-check-input"> 
+        <label for="open" class="form-check-label">남성 Male &nbsp;&nbsp;&nbsp;</label>
+        <input type="checkbox" id="open" name="open" class="form-check-input"> 
+        <label for="open" class="form-check-label">여성 Female</label>
+    </div>
+</div>
+				
+		<!-- 이메일 INPUT START -->
+		<label class="mt-4" for="m_phone">이메일</label>
 		<span class="signup_required">*</span>
-		<div class="form-group mb-3">
-			<input class="form-control" type="tel" id="m_phone" name="m_phone" placeholder="예시)010-1234-5678">
+		<div class="input-group mb-3">
+			<input class="form-control" type="email" id="email" name="email" placeholder="예시)hello@delibrary.com" required>
+			<div class="input-group-append">
+				<button class="btn btn-outline-success btn-Customer" id="btn_emailCheck" type="button">중복체크</button>
+			</div>
 		</div>
-		<!-- 폰번호 INPUT END -->
+		<small class="form-text email_message" id="email_ok" style="color: red;">이미 가입되어있는 이메일 입니다. 다른 이메일로 중복확인을 다시 해주세요.</small>
+        <small class="form-text email_message" id="email_ok_ok" style="color: green;">사용 가능한 이메일입니다. </small>
+		<small class="form-text text-muted email" id="email_msg"><span class="signup_required">실제 사용하시는 이메일을</span> 입력해주세요.</small>	
+		<!-- 이메일 INPUT END -->
+		
+		<!-- 이메일 INPUT START -->
+		<label class="mt-4" for="m_phone">전화번호</label>
+		<span class="signup_required">*</span>
+		<div class="input-group mb-3">
+			<input class="form-control" type="tel" id="m_phone" name="m_phone" placeholder="예시)010-1234-5678" required>
+			<div class="input-group-append">
+				<button class="btn btn-outline-success btn-Customer" id="btn_emailCheck" type="button">중복체크</button>
+			</div>
+		</div>
+		<!-- 이메일 INPUT END -->
 
+	
 		<!-- 주소 INPUT START -->
 		<label for="m_phone mt-4">주소</label>
 		<span class="signup_required">*</span>
@@ -153,46 +157,23 @@
 		
 			<div class="interest_check"><!-- 관심장르 CHECKBOX START -->
 			<div class="form-group mt-4">
-				<label class="mb-1">도서 관심장르를 모두 선택해주세요.</label> <br>
+				<label class="mb-1">도서 관심 분야를 선택해주세요.</label> <br>
 			
 				<div class="row">
 					<!-- 관심장르 CHECKBOX 1st ROW -->
 					<div class="d-inline-block w-50 p-1 form-check">
-						<input type="checkbox" value="1" class="d-none form-check-input" id="interest_check1" name="genre"/>
-						<div class="btn btn-light w-100 btn-Customer" id="interest1">인문</div>
-						</label>
-					</div>
-			
-					<div class="d-inline-block w-50 p-1 form-check"><input type="checkbox" value="2"
-							class="d-none form-check-input" id="interest_check2" name="genre"/>
-						<div class="btn btn-light w-100 btn-Customer" id="interest2">경영</div>
-						</label>
-					</div>
-				</div> <!-- 관심장르 CHECKBOX 1st ROW END -->
-			
-				<div class="row">
-					<!-- 관심장르 CHECKBOX 2nd ROW -->
-					<div class="d-inline-block w-50 p-1 form-check"><label class="w-100 form-check-label"><input type="checkbox"
-								value="3" class="d-none form-check-input" id="interest_check3" name="genre"/>
-							<div class="btn btn-light w-100 btn-Customer" id="interest3">소설</div>
-						</label></div>
-			
-					<div class="d-inline-block w-50 p-1 form-check"><label class="w-100 form-check-label"><input type="checkbox"
-								value="4" class="d-none form-check-input" id="interest_check4" name="genre"/>
-							<div class="btn btn-light w-100 btn-Customer" id="interest4">역사</div>
-						</label></div>
-				</div><!-- 관심장르 CHECKBOX 2nd ROW END -->
-			
-				<div class="row">
-					<!-- 관심장르 CHECKBOX 3rd ROW -->
-					<div class="d-inline-block w-50 p-1 form-check"><label class="w-100 form-check-label">
-							<input type="checkbox" value="5" class="d-none form-check-input" id="interest_check5" name="genre"/>
-							<div class="btn btn-light w-100 btn-Customer" id="interest5">순수과학</div>
-						</label></div>
-					<div class="d-inline-block w-50 p-1 form-check"><label class="w-100 form-check-label">
-							<input type="checkbox" value="6" class="d-none form-check-input" id="interest_check6" name="genre"/>
-							<div class="btn btn-light w-100 btn-Customer" id="interest6">응용과학</div>
-						</label></div>
+						<form>
+  <select name="language" >
+    <option value="none">=== 선택 ===</option>
+    <option value="100">100	건강/취미/레저</option>
+    <option value="200">200	경제경영</option>
+    <option value="300">300	고전</option>
+    <option value="400">400	과학</option>
+    <option value="500">500	만화</option>
+    <option value="600">600	사회과학</option>
+    <option value="700">700	소설/시/희곡</option>
+  </select>
+</form>
 				 </div><!-- 관심장르 CHECKBOX 3rd ROW END -->
 				</div><!-- 관심장르 CHECKBOX END -->
 	
@@ -235,6 +216,61 @@
 	  <script type="text/javascript"	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript"	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	
+	
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+//////////////////////////**우편번호**//////////////////////////////////
+window.onload=function(){
+	document.querySelector('#getPostcode').addEventListener('click',function (){
+		 new daum.Postcode({
+			oncomplete: function (data) {
+				// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+				// 각 주소의 노출 규칙에 따라 주소를 조합한다.
+				// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+				var addr = ''; // 주소 변수
+				var extraAddr = ''; // 참고항목 변수
+
+				//사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+				if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+					addr = data.roadAddress;
+				} else { // 사용자가 지번 주소를 선택했을 경우(J)
+					addr = data.jibunAddress;
+				}
+
+				// 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
+				if (data.userSelectedType === 'R') {
+					// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+					// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+					if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+						extraAddr += data.bname;
+					}
+					// 건물명이 있고, 공동주택일 경우 추가한다.
+					if (data.buildingName !== '' && data.apartment === 'Y') {
+						extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+					}
+					// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+					if (extraAddr !== '') {
+						extraAddr = ' (' + extraAddr + ')';
+					}
+					// 조합된 참고항목을 해당 필드에 넣는다.
+					document.getElementById("getDetail_addr").value = extraAddr;
+
+				} else {
+					document.getElementById("getAddr1").value = '';
+				}
+
+				// 우편번호와 주소 정보를 해당 필드에 넣는다.
+				document.getElementById('getPostcode_input').value = data.zonecode;
+				document.getElementById("getAddr1").value = addr;
+				// 커서를 상세주소 필드로 이동한다.
+				document.getElementById("getAddr2").focus();
+			}
+		}).open();
+
+	});
+</script>
   
   <script type="text/javascript">
 	  $(function(){

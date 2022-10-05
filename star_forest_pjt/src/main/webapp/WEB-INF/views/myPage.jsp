@@ -102,7 +102,9 @@
 						<div class="mypage">
 							<ul class="nav nav-tabs mypage-tabs">
 
-								<li class="nav-item"><a class="nav-link active" href="#">개인정보수정</a>
+								<li class="nav-item"><a class="nav-link active" href="#">내정보</a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="#">개인정보수정</a>
 								</li>
 								<li class="nav-item"><a class="nav-link" href="#">비밀번호변경</a>
 								</li>

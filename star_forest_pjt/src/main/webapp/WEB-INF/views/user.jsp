@@ -44,7 +44,7 @@
 		<div class="container">
 		  <div class="row">
 			<div class="col-md-6 m-auto text-center">
-			  <h1>로그인</h1>
+			  <h1></h1>
 			</div>
 		  </div>
 		</div>
@@ -54,14 +54,14 @@
 	
   <!-- MAIN SECTION -->
 	<section id="loginPage">
-		<!-- 타이틀: 딜리브러리 -->	
-		<h1 class="heroTitle">별숲<span class="heroTitle_dot"> : </span> <span class="heroTitle_kor">딜리브러리</span></h1>
+		<!-- 타이틀: 별숲 -->	
+		<h1 class="heroTitle">별숲<span class="heroTitle_dot"> : </span> <span class="heroTitle_kor">로그인</span></h1>
 		<hr class="heroLine">
 		
 		<!-- 로그인 폼 시작 -->	
 		<form action="Home.do" method="post">
 		<div class="form-group mt-4">
-			<input class="form-control form-control-lg loginForm" type="email" id="email" name="email" placeholder="이메일 주소">
+			<input class="form-control form-control-lg loginForm" type="id" id="id" name="id" placeholder="아이디">
 			<input class="form-control form-control-lg mt-2 loginForm" type="password" id="pw" name="pw" placeholder="비밀번호">
 			<input type="hidden" name="loginOk" value="ok">
 			<button class="btn btn-outline-success btn-lg btn-block mt-2 btn-Customer" type="submit">로그인</button>
@@ -70,11 +70,11 @@
 	
 	<!-- 회원가입 / 이메일찾기 / 비밀번호찾기 -->	
 	<div id="loginInfo">
-		<p class="text-right m-0 noto-serif">아직 딜리브러리 회원이 아니신가요?</p>
-		<p class="text-right m-0"><a href="insertCustomer.do">회원가입하기</a></p>
+		<p class="text-right m-0 noto-serif">아직 별숲 회원이 아니신가요?</p>
+		<p class="text-right m-0"><a href="insertCustomer.do">회원가입하기	</a></p>
 		<hr class="heroLineSecond">
 		<p class="text-muted text-center mb-5">
-			<a href="#" data-toggle="modal" data-target="#emailModal">이메일 찾기 </a>
+			<a href="#" data-toggle="modal" data-target="#emailModal">아이디 찾기 </a>
 			&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<a href="#" data-toggle="modal" data-target="#pwModal">비밀번호찾기</a> </p>
 		</form>
 	</div>
@@ -84,7 +84,7 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title">내 이메일 찾기</h5>
+					<h5 class="modal-title">내 아이디 찾기</h5>
 					<button class="close" data-dismiss="modal">&times;</button>
 				</div>
 				<div class="modal-body">
@@ -100,7 +100,7 @@
 						</div>
 				</div>
 				<div class="modal-footer">
-					<button class="btn btn-outline-info btn-Customer" id="findMyEmail" type="button">내 이메일 찾기</button>
+					<button class="btn btn-outline-info btn-Customer" id="findMyEmail" type="button">내 아이디 찾기</button>
 					<!-- </form> -->
 					<!--폼 종료 -->
 				</div>
@@ -118,7 +118,7 @@
 				</div>
 				<div class="modal-body">
 						<div class="form-group">
-							<label for="username">이름</label>
+							<label for="username">아이디	</label>
 							<input type="text" id="findPw_name" placeholder="이름을 입력하세요" class="form-control">
 						</div>
 						<div class="form-group">

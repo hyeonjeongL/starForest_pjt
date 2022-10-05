@@ -39,7 +39,7 @@
 			<!-- navigation end-->
   
 	<!-- PAGE HEADER -->
-	<!-- <header id="page-header">
+	<header id="page-header">
 	  <div class="darkOverlay">
 		<div class="container">
 		  <div class="row">
@@ -49,7 +49,7 @@
 		  </div>
 		</div>
 		</div>
-	</header> -->
+	</header> 
 		
 	
   <!-- MAIN SECTION -->

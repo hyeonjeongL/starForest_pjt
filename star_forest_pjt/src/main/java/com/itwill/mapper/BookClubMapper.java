@@ -27,7 +27,7 @@ public interface BookClubMapper {
 	@Select("select club_name,club_person,club_time,club_place,club_content from book_club where user_id=#{user_id}")
 	public List<BookClub> selectById(String user_id);
 	
-	@Select("select club_name,club_count,club_person,club_time,club_place,club_content from book_club"
+	@Select("select club_no,club_name,club_count,club_person,club_time,club_place,club_content from book_club"
 			+ "			where club_no=#{club_no}")
 	public BookClub selectByNo(int club_no);
 	

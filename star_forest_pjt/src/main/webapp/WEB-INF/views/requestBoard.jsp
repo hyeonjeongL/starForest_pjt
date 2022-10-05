@@ -31,15 +31,32 @@
 <link rel="stylesheet" href="css/ddoyoon.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
-<title>도서정보 - 딜리브러리</title>
+<title>도서정보 - 별숲</title>
 
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="js/star_forest/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
 		
+		
+		$(document).on('click','#menu_RequestBoard',function(e){
+			$.ajax({
+				url:'request_list_json',
+				method:'GET',
+				success:function(jsonResult){
+					var requestArray = jsonResult.data;
+					console.log(requestArray);
+					$('#requestBoard_wrap').html(request_list_content(requestArray));
+				}
+			});
+			e.preventDefault();
+		});
+		
+		
 	});
+</script>
 </script>
 
 </head>
@@ -69,29 +86,7 @@
 
 		<!-- MAIN SECTION -->
 		<div id="requestBoard_wrap">
-		<table>
-		<thead>
-		<tr id="table1">
-		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>제목</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>날짜</td>
-		</tr>
-		</thead>
-		<tbody>
-		<tr id="table2">
-		<td width=5% align=center class=t1><font size=2 color=#000000>1</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>title</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>writer</font></td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>date</font></td>
-		</tr>
-		</tbody>
-
 		
-		
-		
-		
-		</table>
 		
 		
 		</div>

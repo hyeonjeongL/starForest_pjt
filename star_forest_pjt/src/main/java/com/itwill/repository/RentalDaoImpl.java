@@ -56,8 +56,6 @@ public class RentalDaoImpl implements RentalDao{
 	public String selectMostReturn_duedate(int book_no) throws Exception {
 		return rentalMapper.selectMostReturn_duedate(book_no);
 	}
-
-
 	
 	
 

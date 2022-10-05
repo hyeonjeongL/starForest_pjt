@@ -1,3 +1,4 @@
+<%@page import="com.itwill.domain.Book"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -675,7 +676,7 @@ $(function(){
               <!-- CARD GROUPS -->
               <div class="card-group">
                 <div class="card" id="card-no-border">
-                  <img id="b_image" class="img" src="${b.b_image }" alt=""style="margin-left: auto; margin-right: auto; display: block; height:100%;"/>
+                  <img id="b_image" class="img" src="${book.book_image }" alt=""style="margin-left: auto; margin-right: auto; display: block; height:100%;"/>
                 </div>
                 <div class="card noto-serif">
                   <div class="card-body">

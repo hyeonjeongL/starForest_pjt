@@ -49,7 +49,7 @@
 				$('.col-md-3 noto-serif') //세션이 존재할경우 도서정보 메인화면 보여줌
 						.html(MyLibraryHtmlContents
 										.mylibrary_left_menu_content(jsonResult.data[0]));
-				$('.rentalTable').html(MyLibraryHtmlContents.mylibrary_main_content());
+				$('#content').html(MyLibraryHtmlContents.mylibrary_main_content());
 			}else{ //세션 존재하지 않을경우 메세지창보여줌
 				alert('로그인이 필요한 페이지입니다:)');
 			}
@@ -58,7 +58,30 @@
 
 	/*********************favorite(내서재)**********************/
 
-	/*-------내서재 등록-------*/
+	/*-------내서재 등록-------[bookDetail쪽으로 옮기기]*/
+	
+	
+	/*-------내서재목록---------*/
+	$(document).on('click','#user_favorite',function(e){
+		$.ajax({
+			url:'favorite_list',
+			method:'POST',
+			success:function(jsonResult){
+				var favoriteArray=jsonResult.data;
+				$('#content').html(favorite_list_content(favoriteArray));
+			}
+		});
+		e.preventDefault();
+	});
+	
+	/*-------내서재전체삭제---------*/
+	${document}.on('click','#btn_all_delete',function(e){
+		
+	});
+	
+	
+	/*-------내서재개별삭제---------*/
+	
 	
 	
 	
@@ -126,21 +149,9 @@
 					</div>
 				</div>
 
-				<!-- 메인내용(마이페이지-수정/탈퇴) -->
-				`<div class="col-md-9">
-					<div class="p-4">
-						<div class="mypage">
-							<ul class="nav nav-tabs mypage-tabs">
-
-								<li class="nav-item"><a class="nav-link active" href="#">개인정보수정</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#">비밀번호변경</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#">탈퇴</a></li>
-
-							</ul>
-						</div>
-					</div>
+				<!-- 메인내용 -->
+				<div class="col-md-9" id="content">
+					
 				</div>
 				
 				

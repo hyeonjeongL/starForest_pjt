@@ -35,6 +35,7 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
 
@@ -188,29 +189,21 @@ $(function(){
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item">
-								<a href="#" id="user_rental_list">나의도서정보</a>
+							<li class="list-group-item"><a href="#"
+								id="user_rental_list">나의도서정보</a></li>
+							<li class="list-group-item"><a href="#"
+								id="user_rental_status">대출현황</a></li>
+							<li class="list-group-item"><a href="#" id="user_res_status">예약현황</a>
 							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_rental_status">대출현황</a>
+							<li class="list-group-item"><a href="#" id="user_club_list">동아리신청내역</a>
 							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_res_status">예약현황</a>
+							<li class="list-group-item"><a href="#"
+								id="user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item active"><a href="#"
+								id="user_favorite">내서재</a></li>
+							<li class="list-group-item"><a href=# " id="user_qr">나의QR</a>
 							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_club_list">동아리신청내역</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_request_list">희망도서신청내역</a>
-							</li>
-							<li class="list-group-item active">
-								<a href="#" id="user_favorite">내서재</a>
-							</li>
-							<li class="list-group-item">
-								<a href=#" id="user_qr">나의QR</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="mypage">마이페이지</a>
+							<li class="list-group-item"><a href="#" id="mypage">마이페이지</a>
 							</li>
 						</ul>
 					</div>
@@ -246,48 +239,32 @@ $(function(){
 					</div>
 					<hr>
 
+					<div class="container">
+						<table id="favoriteList" class="table table-hover">
+							<tr>
+								<th scope="row">No.</th>
+								<th scope="row">제목</th>
+								<th scope="row">저자</th>
+								<th scope="row">출판사</th>
+								<th scope="row">작업</th>
+							</tr>
+							<tr id="favorite_item">
+								<td id="favoriteNo">1
+								<td class="bookTitle">자바</td>
+								<td class="bookAuthor">한예지</td>
+								<td class="bookPubl">아이티윌</td>
+								<td>
+									<button id="delete" class="w-btn w-btn-delete" type="button">삭제</button>
+								</td>
+							</tr>
 
-					<!-- .items-header -->
-					<div class="listTable">
-						<table class="table">
-							<thead>
-								<tr>
-									<th scope="row">No.</th>
-									<th scope="row">제목</th>
-									<th scope="row">저자</th>
-									<th scope="row">출판사</th>
-									<th scope="row">작업</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:if test="${favoriteList.size() == 0}">
-									<tr>
-										<td colspan="6">등록된 내서재 목록이 없습니다.</td>
-									</tr>
-								</c:if>
-								<c:forEach var="favorite" items="${favoriteList}">
-									<tr id="favorite_item_${favorite.favorite_no}">
-										<td id="favoriteNo">1
-										<td class="bookTitle">자바</td>
-										<td class="bookAuthor">한예지</td>
-										<td class="bookPubl">아이티윌</td>
-										<td><a href="#"
-											class="btn btn-primary favorite_item_del_btn">삭제</a></td>
-									</tr>
-								</c:forEach>
-							</tbody>
 						</table>
 					</div>
-					<div class="favorite_delete">
-						<c:if test="${favoriteList.size() != 0}">
-							<a href="#" class="btn btn-primary favorite_item_allDel_btn">전체삭제</a>
-						</c:if>
-
+					<div class="favorite_delete" style="float: right;">
+						<button id="Alldelete" class="w-btn w-btn-delete" type="button">전체삭제</button>
 					</div>
 
-
 				</div>
-
 
 			</div>
 		</div>

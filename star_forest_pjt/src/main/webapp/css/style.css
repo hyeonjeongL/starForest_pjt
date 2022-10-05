@@ -474,3 +474,69 @@ seat_reservation css
 	text-align: center;
 	align-content: center;
 }
+/****예지꺼 지우면 안되용******/
+.container table tr th {
+  text-align: center; 
+  vertical-align: middle; 
+  word-break: keep-all;
+  padding-right: 3em;
+}
+
+.container table tr td {
+  text-align: center; 
+  vertical-align: middle; 
+  word-break: keep-all;
+  padding-right: 3em;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button {
+    margin: 10px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: "paybooc-Light", sans-serif;
+    
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-outline {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 150x;
+    font-family: "paybooc-Light", sans-serif;
+   
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-delete {
+    background-color: #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-delete-outline {
+    border: 3px solid #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-delete-outline:hover {
+    color: #4c552a;
+    background: #eef2dd;
+}
+
+/****************************/

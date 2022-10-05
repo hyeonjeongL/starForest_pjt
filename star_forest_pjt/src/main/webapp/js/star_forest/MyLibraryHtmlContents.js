@@ -38,8 +38,7 @@ MyLibraryHtmlContents.mylibrary_left_menu_content = function() {
 	`;
 }
 MyLibraryHtmlContents.mylibrary_main_content = function() {
-	return `<div class="col-md-9">
-					<div class="p-4">
+	return `<div class="p-4">
 						<div class="mypage">
 							<ul class="nav nav-tabs mypage-tabs">
 
@@ -52,6 +51,65 @@ MyLibraryHtmlContents.mylibrary_main_content = function() {
 							</ul>
 						</div>
 					</div>
-				</div>
 	`;
+}
+MyLibraryHtmlContents.favorite_item_content=function(favorite){
+	return `<tr id="favorite_item">
+								<td id="favoriteNo">${favorite_no}
+								<td class="bookTitle">${favorite.book.book_title}</td>
+								<td class="bookAuthor">${favorite.book.book_author}</td>
+								<td class="bookPubl">${favorite.book.book_publisher}</td>
+								<td>
+									<button id="btn_delete" class="w-btn w-btn-delete" type="button">삭제</button>
+								</td>
+							</tr>`;
+}
+MyLibraryHtmlContents.favorite_list_content = function(favoriteArray) {
+	return `<div class="col-md-9 fol_div">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6" id="fol_list_title">
+								<form action="MyPage_Folder.do" method="post"></form>
+							</div>
+
+							<div class="col-sm-6">
+								
+							</div>
+						</div>
+					</div>
+					<hr>
+
+					<div class="container">
+						<table id="favoriteList" class="table table-hover">
+							<tr>
+								<th scope="row">No.</th>
+								<th scope="row">제목</th>
+								<th scope="row">저자</th>
+								<th scope="row">출판사</th>
+								<th scope="row">작업</th>
+							</tr>
+							<!--favorite start -->
+							 ${
+								favoriteArray.map(favorite_item_content).join('')
+								}
+							<!--favorite end -->
+
+						</table>
+					</div>
+					<div class="favorite_delete" style="float: right;">
+						<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>
+					</div>
+
+				</div>`;
+	
+}
+function getUserName() {
+    let userList = document.getElementById('userList');
+
+    for (let i = 1; i < userList.rows.length; i++) {
+       userList.rows[i].cells[2].onclick = function () {
+          let userName = userList.rows[i].cells[1].innerText;
+          alert(userName+"을 선택하셨습니다.");
+       }
+    }
 }

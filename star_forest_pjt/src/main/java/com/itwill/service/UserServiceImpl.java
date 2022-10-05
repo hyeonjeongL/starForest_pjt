@@ -42,22 +42,21 @@ public class UserServiceImpl implements UserService {
 		 * -1:패쓰워드 불일치 
 		 * 1:로그인성공
 		 */
-
-		if (userDao.existedUser(user_id)) {
-			// 아이디존재
-			User user = userDao.findUser(user_id);
-			if (user.getUser_password().equals(user_password)) {
-				// 패스워드일치
-				return 1;
+		int result=-1;
+		User user=userDao.findUser(user_id);
+		if(user==null) {
+			result=0; //아이디존재안함
+		}else {
+			if (user_password.equals(user.getUser_password())) {
+				// 패스워드일치(로그인성공)
+				return 2;
 			} else {
 				// 패스워드불일치
-				return -1;
+				return 1;
 			}
-		} else {
-			// 아이디존재안함
-			return 0;
 		}
-
+		return result;
+		
 	}
 
 	// 비밀번호변경

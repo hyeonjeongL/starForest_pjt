@@ -38,65 +38,7 @@ public class UserInfoRestController {
 	@Autowired
 	private UserService userService;
 
-	//로그인
-	@PostMapping("/user_login_action")
-	public Map user_login_action(@ModelAttribute User user, HttpServletRequest request) throws Exception {
-		Map resultMap = new HashMap();
-		int code = 2;
-		String url = "";
-		String msg = "";
-		List<User> resultList = new ArrayList<User>();
-
-		int result = userService.login(user.getUser_id(), user.getUser_password());
-		/*
-		 * 회원로그인
-		 * 
-		 * 0:아이디존재안함 
-		 * -1:패쓰워드 불일치 
-		 * 1:로그인성공
-		 */
-		switch (result) {
-		case 0:
-			code = 0;
-			url = "user_login_form";
-			msg = "아이디 존재안함";
-		case -1:
-			code = -1;
-			url = "user_login_form";
-			msg = "패스워드 불일치";
-		case 1:
-			code = 1;
-			url = "main";
-			msg = "로그인 성공";
-
-		}
-		resultMap.put("code", code);
-		resultMap.put("url", url);
-		resultMap.put("msg", msg);
-		resultMap.put("data", resultList);
-		return resultMap;
-	}
-
-	//로그아웃
-	@LoginCheck
-	@PostMapping("/user_logout_action")
-	public Map user_logout_action(HttpServletRequest request) {
-		Map resultMap = new HashMap();
-		int code = 2;
-		String url = "user_main";
-		String msg = "";
-		List<User> resultList = new ArrayList<User>();
-
-		request.getSession().invalidate();
-
-		resultMap.put("code", code);
-		resultMap.put("url", url);
-		resultMap.put("msg", msg);
-		resultMap.put("data", resultList);
-		return resultMap;
-	}
-
-	//세션체크
+	// 세션체크
 	@LoginCheck
 	@PostMapping("/user_session_check")
 	public Map user_session_check(HttpSession session) throws Exception {
@@ -105,8 +47,7 @@ public class UserInfoRestController {
 		String url = "main";
 		String msg = "세션존재";
 		List<User> resultList = new ArrayList<User>();
-		
-		
+
 		String sUserId = (String) session.getAttribute("sUserId");
 		User sUser = userService.findUser(sUserId);
 		resultList.add(sUser);
@@ -118,7 +59,7 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//아이디 중복체크
+	// 아이디 중복체크
 	@PostMapping("/user_id_check")
 	public boolean user_id_check(@RequestParam String user_id) throws Exception {
 		Map resultMap = new HashMap();
@@ -128,11 +69,11 @@ public class UserInfoRestController {
 		List<User> resultList = new ArrayList<User>();
 
 		boolean isDuplicate = userService.existedUser(user_id);
-		return !isDuplicate; //중복되지않으면 아이디사용가능
+		return !isDuplicate; // 중복되지않으면 아이디사용가능
 
 	}
 
-	//회원가입
+	// 회원가입
 	@PostMapping("/user_write_action")
 	public Map user_write_action(@ModelAttribute User user) {
 		Map resultMap = new HashMap();
@@ -144,8 +85,7 @@ public class UserInfoRestController {
 		/*
 		 * 회원가입
 		 * 
-		 * -1:아이디중복 
-		 * 1:회원가입성공
+		 * -1:아이디중복 1:회원가입성공
 		 */
 		try {
 			int result = userService.create(user);
@@ -173,7 +113,68 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//회원수정폼
+	// 로그인
+	@PostMapping("/user_login_action")
+	public Map user_login_action(@ModelAttribute(value = "fuser") User user, HttpServletRequest request)
+			throws Exception {
+		Map resultMap = new HashMap();
+		int code = 0;
+		String url = "";
+		String msg = "";
+		List<User> resultList = new ArrayList<User>();
+
+		int result = userService.login(user.getUser_id(), user.getUser_password());
+		/*
+		 * 회원로그인
+		 * 
+		 * 0:아이디존재안함 1:패쓰워드 불일치 2:로그인성공
+		 */
+		switch (result) {
+		case 0:
+			code = 0;
+			url = "user_login_form";
+			msg = "아이디 존재안함";
+		case 1:
+			code = 1;
+			url = "user_login_form";
+			msg = "패스워드 불일치";
+		case 2:
+			request.getSession().setAttribute("sUserId", user.getUser_id());
+			User sUser=userService.findUser(user.getUser_id());
+			code = 2;
+			url = "main";
+			msg = "로그인 성공";
+			resultList.add(sUser);
+			break;
+
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+
+	// 로그아웃
+	@LoginCheck
+	@PostMapping("/user_logout_action")
+	public Map user_logout_action(HttpServletRequest request) {
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "user_main";
+		String msg = "";
+		List<User> resultList = new ArrayList<User>();
+
+		request.getSession().invalidate();
+
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+
+	// 회원수정폼
 	@LoginCheck
 	@PostMapping("/user_modify_form")
 	public Map user_modify_form(HttpServletRequest request) throws Exception {
@@ -182,19 +183,19 @@ public class UserInfoRestController {
 		String url = "";
 		String msg = "";
 		List<User> resultList = new ArrayList<User>();
-		
+
 		String sUserId = (String) request.getSession().getAttribute("sUserId");
 		User user = userService.findUser(sUserId);
 		resultList.add(user);
-		
+
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	
-	//비밀번호변경폼
+
+	// 비밀번호변경폼
 	@LoginCheck
 	@PostMapping("/pw_modify_form")
 	public Map pw_modify_form(HttpServletRequest request) throws Exception {
@@ -215,7 +216,7 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//비밀번호변경
+	// 비밀번호변경
 	@LoginCheck
 	@PostMapping("/pw_modify_action")
 	public Map pw_modify_action(@ModelAttribute User user, HttpServletRequest request) {
@@ -252,7 +253,7 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//회원수정
+	// 회원수정
 	@LoginCheck
 	@PostMapping("/user_modify_action")
 	public Map user_modify_action(@ModelAttribute User user, HttpServletRequest request) {
@@ -289,7 +290,7 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//회원 탈퇴
+	// 회원 탈퇴
 	@LoginCheck
 	@PostMapping("/user_remove_action")
 	public Map user_remove_action(@ModelAttribute User user, HttpServletRequest request) {
@@ -325,7 +326,7 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//상세보기
+	// 상세보기
 	@LoginCheck
 	@PostMapping("/user_view")
 	public Map user_view(HttpServletRequest request) {
@@ -357,23 +358,23 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	//비밀번호체크(비밀번호변경,수정,탈퇴 전 체크)
+	// 비밀번호체크(비밀번호변경,수정,탈퇴 전 체크)
 	@LoginCheck
 	@PostMapping("/user_pw_check")
-	public Map user_pw_check(@RequestParam String user_password,HttpServletRequest request) throws Exception {
+	public Map user_pw_check(@RequestParam String user_password, HttpServletRequest request) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
 		String msg = "";
 		List<User> resultList = new ArrayList<User>();
-		
-		String sUserId=(String)request.getSession().getAttribute("sUserId");
-		int result=userService.PWcheck(sUserId, user_password);
-		if(result==1) {
+
+		String sUserId = (String) request.getSession().getAttribute("sUserId");
+		int result = userService.PWcheck(sUserId, user_password);
+		if (result == 1) {
 			code = 1;
 			url = "";
 			msg = "비밀번호체크성공";
-		}else {
+		} else {
 			code = -1;
 			url = "main";
 			msg = "비밀번호불일치";
@@ -384,8 +385,8 @@ public class UserInfoRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	
-	//인당 대출가능권수 한도 카운트
+
+	// 인당 대출가능권수 한도 카운트
 	@LoginCheck
 	@PostMapping("/user_rental_count")
 	public Map user_rental_count(HttpServletRequest request) throws Exception {
@@ -394,53 +395,52 @@ public class UserInfoRestController {
 		String url = "";
 		String msg = "";
 		List<User> resultList = new ArrayList<User>();
-		
-		String sUserId=(String)request.getSession().getAttribute("sUserId");
-		int rentalCount=userService.userRentalCount(sUserId);
-		if(rentalCount==1) {
+
+		String sUserId = (String) request.getSession().getAttribute("sUserId");
+		int rentalCount = userService.userRentalCount(sUserId);
+		if (rentalCount == 1) {
 			code = 1;
 			url = "";
-			msg = "대출가능"; //대출가능 권수가남아서 대출가능
-		}else {
+			msg = "대출가능"; // 대출가능 권수가남아서 대출가능
+		} else {
 			code = -1;
 			url = "main";
-			msg = "대출불가능"; 
+			msg = "대출불가능";
 		}
-		
+
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	
-	//연체로 인한 대출정지기간
-	
+
+	// 연체로 인한 대출정지기간
+
 	public Map user_rental_stop(HttpServletRequest request) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
 		String msg = "";
 		List<User> resultList = new ArrayList<User>();
-		
-		String sUserId=(String)request.getSession().getAttribute("sUserId");
-		int stopPeriod=userService.rentalStopPeriod(sUserId);
-		if(stopPeriod>0) {
+
+		String sUserId = (String) request.getSession().getAttribute("sUserId");
+		int stopPeriod = userService.rentalStopPeriod(sUserId);
+		if (stopPeriod > 0) {
 			code = -1;
 			url = "main";
-			msg = sUserId+" 님은 연체로 인해 "+stopPeriod+" 일 동안 대출정지입니다.";
-		}else {
+			msg = sUserId + " 님은 연체로 인해 " + stopPeriod + " 일 동안 대출정지입니다.";
+		} else {
 			code = 1;
 			url = "";
-			msg = "대출가능"; //연체된 기간이 없으므로 대출가능
+			msg = "대출가능"; // 연체된 기간이 없으므로 대출가능
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
 		return resultMap;
-		
+
 	}
-	
-	
+
 }

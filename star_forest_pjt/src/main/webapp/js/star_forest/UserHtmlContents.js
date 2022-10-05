@@ -28,7 +28,7 @@ UserHtmlContents.user_login_form_content = function() {
 			<hr class="heroLine">
 
 			<!-- 로그인 폼 시작 -->
-			<form id="user_login_form">
+			<form method="post" id="user_login_form">
 				<div class="form-group mt-4">
 					<input class="form-control form-control-lg loginForm" type="id" id="id" name="id" placeholder="아이디"> 
 					<input class="form-control form-control-lg mt-2 loginForm" type="password" id="pw" name="pw" placeholder="비밀번호"> 
@@ -38,7 +38,7 @@ UserHtmlContents.user_login_form_content = function() {
 				</div>
 			</form>
 
-			<!-- 회원가입 / 이메일찾기 / 비밀번호찾기 -->
+			<!-- 회원가입 / 아이디찾기 / 비밀번호찾기 -->
 			<div id="loginInfo">
 				<p class="text-right m-0 noto-serif">아직 별숲 회원이 아니신가요?</p>
 				<p class="text-right m-0">
@@ -53,7 +53,7 @@ UserHtmlContents.user_login_form_content = function() {
 				</form>
 			</div>
 
-			<!-- 이메일찾기 MODAL -->
+			<!-- 아이디찾기 MODAL -->
 			<div class="modal" id="emailModal">
 				<div class="modal-dialog">
 					<div class="modal-content">

@@ -34,8 +34,61 @@
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-<script type="text/javascript" src="js/UserHtmlContents.js"></script>
+<script type="text/javascript" src="js/star_forest/UserHtmlContents.js"></script>
 <script type="text/javascript">
+$(function() { //unload
+	/* validator객체변수선언 */
+	var validator = null;
+	/*validator객체 디폴트속성 설정*/
+	$.validator.setDefaults({
+	    rules : {
+			id : {
+			    required : true,
+			},
+			pw : {
+			    required : true
+			},
+			pw_check : {
+			    required : true,
+			    equalTo : "#password" //반드시 아이디(#)만 입력이 들어감
+			},
+			name : {
+			    required : true,
+			},
+			email : {
+			    required : true,
+			    email : true
+			},
+			m_phone: {
+			    required : true,
+			}
+	    },
+	    messages:{
+			id : {
+			    required: '아이디를 입력하세요'
+			},
+		  	pw : {
+		  	  	required: '패쓰워드를 입력하세요'
+			},
+			pw_check : {
+			    required : '패쓰워드확인을 입력하세요',
+			    equalTo:'패쓰워드와 패쓰워드확인은 일치하여야 합니다'
+			},
+			name : {
+			    required : '이름을 입력하세요'
+			},
+			email : {
+			    required : '이메일을 입력하세요',
+			    email : '이메일형식이 일치하지않습니다.'
+			},
+			m_phone: {
+			    required : '핸드폰번호를 입력하세요',
+			}
+		},
+		errorClass : 'error',
+	    validClass : 'valid'
+	});
+
 
 	/************user_login_form*************/
 	$(document).on('click','#a_user_login_form',function(e){
@@ -46,6 +99,10 @@
 	
 	/*********user_login_action***********/
 	$(document).on('click', '#btn_login_action', function(e) {
+		if(validator.form()){
+			var param=$('#user_login_form').serialize();
+			$('#msg1').html("");
+			$('#msg2').html("");
 			$.ajax({
 				url:'user_login_action',
 				method:'POST',
@@ -54,8 +111,10 @@
 				success:function(jsonResult){
 				    if (jsonResult.code == 0) {
 						console.log(jsonResult);
+						$('#msg1').html(jsonResult.msg);
 				    }else if (jsonResult.code == -1) {
 						console.log(jsonResult);
+						$('#msg2').html(jsonResult.msg);
 				    }else if (jsonResult.code == 1) {
 						$('#app').html(UserHtmlContents.user_login_content(jsonResult.data[0]));
 						$('#page-header').html(UserHtmlContents.user_main_content());
@@ -64,7 +123,7 @@
 				    }
 				}
 			});
-	    
+		}
 	    e.preventDefault();
 	});
 	
@@ -107,20 +166,20 @@
 			<hr class="heroLine">
 
 			<!-- 로그인 폼 시작 -->
-			<form id="user_login_form">
+			<form method="post" id="user_login_form">
 				<div class="form-group mt-4">
-					<input class="form-control form-control-lg loginForm" type="id"
-						id="id" name="id" placeholder="아이디"> <input
-						class="form-control form-control-lg mt-2 loginForm"
-						type="password" id="pw" name="pw" placeholder="비밀번호"> <input
-						type="hidden" name="loginOk" value="ok">
+					<input style="font-color:red; id:msg1" class="form-control form-control-lg loginForm" type="text"
+						id="user_id" name="user_id" placeholder="아이디"> 
+					<input style="font-color:red; id:msg2" class="form-control form-control-lg mt-2 loginForm"
+						type="password" id="user_password" name="user_password" placeholder="비밀번호"> 
+					<input type="hidden" name="loginOk" value="ok">
 					<button
 						class="btn btn-outline-success btn-lg btn-block mt-2 btn-Customer"
 						type="submit" id="btn_login_action">로그인</button>
 				</div>
 			</form>
 
-			<!-- 회원가입 / 이메일찾기 / 비밀번호찾기 -->
+			<!-- 회원가입 / 아이디찾기 / 비밀번호찾기 -->
 			<div id="loginInfo">
 				<p class="text-right m-0 noto-serif">아직 별숲 회원이 아니신가요?</p>
 				<p class="text-right m-0">
@@ -135,7 +194,7 @@
 				</form>
 			</div>
 
-			<!-- 이메일찾기 MODAL -->
+			<!-- 아이디찾기 MODAL -->
 			<div class="modal" id="emailModal">
 				<div class="modal-dialog">
 					<div class="modal-content">

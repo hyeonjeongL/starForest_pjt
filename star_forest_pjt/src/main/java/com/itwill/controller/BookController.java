@@ -34,7 +34,10 @@ public class BookController {
 		return forwardPath ;
 	}
 	
-
+	@RequestMapping("/selectAll")
+	public String recommendedBooks(@RequestParam(value = "book_no", required = false) String book_noSrt,Model model) {
+		return "forward:/WEB-INF/views/recommendedBooks";
+	}
 
 
 }

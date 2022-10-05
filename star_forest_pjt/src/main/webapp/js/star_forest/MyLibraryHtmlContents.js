@@ -42,11 +42,13 @@ MyLibraryHtmlContents.mylibrary_main_content = function() {
 						<div class="mypage">
 							<ul class="nav nav-tabs mypage-tabs">
 
-								<li class="nav-item"><a class="nav-link active" href="#">개인정보수정</a>
+								<li class="nav-item"><a class="nav-link active" href="#" id="user_view">내정보</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="#">비밀번호변경</a>
+								<li class="nav-item"><a class="nav-link active" href="#" id="user_update">개인정보수정</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="#">탈퇴</a></li>
+								<li class="nav-item"><a class="nav-link" href="#" id="user_updatePW">비밀번호변경</a>
+								</li>
+								<li class="nav-item"><a class="nav-link" href="#" id"user_remove">탈퇴</a></li>
 
 							</ul>
 						</div>

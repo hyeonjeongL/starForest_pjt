@@ -68,7 +68,7 @@
 			method:'POST',
 			success:function(jsonResult){
 				var favoriteArray=jsonResult.data;
-				$('#content').html(favorite_list_content(favoriteArray));
+				$('#content').html(MyLibraryHtmlContents.favorite_list_content(favoriteArray));
 			}
 		});
 		e.preventDefault();
@@ -76,12 +76,36 @@
 	
 	/*-------내서재전체삭제---------*/
 	${document}.on('click','#btn_all_delete',function(e){
-		
+		$.ajax({
+			url:'favorite_remove',
+			method:'POST',
+			success:function(jsonResult){
+				if(jsonResult.code==1){
+					$('#content').html(MyLibraryHtmlContents.favorite_list_content(favoriteArray));
+					alert(jsonResult.msg);
+				}else{
+					alert(jsonResult.msg);
+				}
+			}
+		});
 	});
 	
 	
 	/*-------내서재개별삭제---------*/
-	
+	${document}.on('click','#btn_delete',function(e){
+		$.ajax({
+			url:'favorite_delete_by_no',
+			method:'POST',
+			success:function(jsonResult){
+				if(jsonResult.code==1){
+					$('#content').html(MyLibraryHtmlContents.favorite_list_content(favoriteArray));
+					alert(jsonResult.msg);
+				}else if(jsonResult.code==2){
+					alert(jsonResult.msg);
+				}
+			}
+		});
+	});
 	
 	
 	

@@ -23,10 +23,10 @@
 	<script type="text/javascript">
 	$(function(){
 		$("#btn_b_N").click(function(){
-			window.location.href="borrowList.do";
+			window.location.href="borrowList";
 		});
 		$("#btn_b_ALL").click(function(){
-			window.location.href="return_borrowList.do";
+			window.location.href="return_borrowList";
 		});
 	});
 	</script>

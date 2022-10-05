@@ -55,7 +55,7 @@
                   class="nav-link dropdown-toggle mypage" data-toggle="dropdown">나의도서</a>
                   <ul class="dropdown-menu dropdown-menu-left fade-down">
                      <li><a class="dropdown-item mypage"
-                        href="mypage_main.do?cust_no=${cust_no }"> 나의도서정보</a></li>
+                        href="mypage_main"> 나의도서정보</a></li>
                      <li><a class="dropdown-item mypage" href="borrowList.do">대출현황</a></li>
                      <li><a class="dropdown-item mypage"
                         href="return_borrowList.do">대출/반납이력</a></li>

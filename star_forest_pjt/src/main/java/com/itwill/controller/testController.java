@@ -47,7 +47,7 @@ public class testController {
 		System.out.println("test");
 		return "findEmail";
 	}
-	@RequestMapping("/Home.do")
+	@RequestMapping("/Home")
 	public String test8() {
 		System.out.println("test");
 		return "Home";
@@ -107,10 +107,10 @@ public class testController {
 		System.out.println("test");
 		return "MyPage_Info";
 	}
-	@RequestMapping("/MyPage_main.do")
+	@RequestMapping("/MyPage_main")
 	public String test22() {
 		System.out.println("test");
-		return "MyPage_main";
+		return "mypage_main";
 	}
 	@RequestMapping("/Newbooks.do")
 	public String test23() {

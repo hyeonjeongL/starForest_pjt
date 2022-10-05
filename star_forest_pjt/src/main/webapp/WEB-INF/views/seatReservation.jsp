@@ -122,8 +122,8 @@
 						 <c:if test="${seat.seat_status == 1}">
 						<div class="a-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text">${seat.seat_start_time}</p>
-		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
+		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 		                 <p class="card-text">사용중</p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
 		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
@@ -134,8 +134,8 @@
 						 <c:if test="${seat.seat_status == 0}">
 						<div class="a-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text">${seat.seat_start_time}</p>
-		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text"> ${seat.seat_start_time}</p>
+		                 <p class="card-text"> ${seat.seat_end_time}</p>
 		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
@@ -147,8 +147,8 @@
 						 <c:if test="${seat.seat_status == 1}">
 						<div class="b-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text">${seat.seat_start_time}</p>
-		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
+		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 		                 <p class="card-text">사용중</p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
 		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
@@ -172,8 +172,8 @@
 						 <c:if test="${seat.seat_status == 1}">
 						<div class="c-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text">${seat.seat_start_time}</p>
-		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
+		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 		                 <p class="card-text">사용중</p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
 		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
@@ -196,8 +196,8 @@
 						 <c:if test="${seat.seat_status == 1}">
 						<div class="d-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text">${seat.seat_start_time}</p>
-		                 <p class="card-text">${seat.seat_end_time}</p>
+		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
+		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 		                 <p class="card-text"><b>사용중</b></p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
 		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">

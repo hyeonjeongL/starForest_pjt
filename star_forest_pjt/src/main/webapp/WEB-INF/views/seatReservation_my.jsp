@@ -108,7 +108,7 @@
 				<div class="container pt-5">
 					<div class="row">
 						<div class="col-md-6 m-auto text-center">
-							<h2>열람실예약</h2>
+							<h2>열람실예약확인</h2>
 						</div>
 					</div>
 				</div>

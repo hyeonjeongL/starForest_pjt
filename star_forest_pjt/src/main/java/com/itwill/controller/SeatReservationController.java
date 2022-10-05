@@ -29,4 +29,8 @@ public class SeatReservationController {
 		}
 		return forwardPath;
 	}
+	@RequestMapping("/seatReservation_my")
+	public String seatReservation_my_main() {
+		return "forward:/WEB-INF/views/seatReservation_my.jsp";
+	}
 }

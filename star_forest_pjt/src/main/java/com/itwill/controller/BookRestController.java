@@ -26,19 +26,8 @@ public class BookRestController {
 	@Autowired(required = true)
 	private BookService bookService;
 	
-//	@RequestMapping("/main")
-//	public Map test() {
-//		Map mm = new HashMap();
-//		mm.put("book_no", 1000);
-//		System.out.println("test");
-//		return mm;
-//	}
-//	
-//	@RequestMapping("test")
-//	public List<Book> selectAll() throws Exception{
-//		List<Book> bookList = bookService.selectAll();
-//		return bookList;
-//	}
+	
+	
 
 	
 	

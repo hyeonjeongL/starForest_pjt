@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.domain.Book;
 import com.itwill.service.BookService;
+import com.itwill.service.RentalService;
 
 
 @Controller
 public class BookController {
 	@Autowired
 	BookService bookService;
+	@Autowired
+	RentalService rentalService;
 	
 	
 	@RequestMapping("/book_detail")
@@ -22,6 +25,8 @@ public class BookController {
 		try {
 			Book book = bookService.selectBookDetail(Integer.parseInt(book_noStr));
 			model.addAttribute("book", book);
+			String rental_duedate = rentalService.selectMostReturn_duedate(book.getBook_no());
+			model.addAttribute("rental_duedate",rental_duedate);
 			forwardPath = "forward:/WEB-INF/views/book_detail.jsp";
 			
 		} catch (Exception e) {

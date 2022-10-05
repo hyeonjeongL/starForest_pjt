@@ -52,18 +52,18 @@ request.setCharacterEncoding("UTF-8");
 							</table>
 							</table>
 
-				<form action="book_search_result.jsp" method="get">
+				<form action="book_search_result" method="get">
 
 						<div class="row">
 							<select data-trigger="" name="searchType" style="width:60px;height:30px">
-										<option value="all">통합</option>
-										<option value="name">제목</option>
-										<option value="class">분야</option>
-										<option value="author">저자</option>
-										<option value="publisher">출판사</option>
+										<option value="all"<c:if test="${searchType eq 'all'}">selected</c:if>>통합</option>
+										<option value="title" <c:if test="${searchType eq 'title'}">selected</c:if>>제목</option>
+										<option value="category_name" <c:if test="${searchType eq 'category_name'}">selected</c:if>>분야</option>
+										<option value="author" <c:if test="${searchType eq 'author'}">selected</c:if>>저자</option>
+										<option value="publisher" <c:if test="${searchType eq 'publisher'}">selected</c:if>>출판사</option>
 							</select>
-			<input id="search" type="text" name="keyword" placeholder="검색어를 입력하세요" style="width:130px;height:25px"> 
-				<input type="submit" value="검색" action="book_search_result.jsp" style="width:40px;height:30px">
+			<input id="search" type="text" name="keyword" value="${page.keyword}" placeholder="검색어를 입력하세요" style="width:130px;height:25px"> 
+				<input type="submit" value="검색" action="book_search_result" style="width:40px;height:30px">
 			</div>
 		</form>
 	</div>

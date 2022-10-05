@@ -45,7 +45,7 @@ public class SearchSQL {
 	="select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no  where bc.category_name like ?";
 	
 	public static final String BOOK_SELECT_BY_CATEGORY_NAME_LIST
-	="select * from (select rownum idx, s.* from (select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no where bc.category_name like ? order by book_title) s) where idx >= ? and idx <= ?";
+	="select b.*,bc.category_name from (select rownum idx, s.* from (select b.*,bc.category_name from book b left join  book_category bc on b.category_no=bc.category_no where bc.category_name like ? order by book_title) s) where idx >= ? and idx <= ?";
 	
 	
 	//도서 리스트

@@ -44,6 +44,8 @@
 							href="postList?option=p_title&search=&group=30">중고장터</a></li>
 						<li><a class="dropdown-item"
 							href="postList?option=p_title&search=&group=60">자유게시판</a></li>
+							<li><a class="dropdown-item" href="requestBoard"
+							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
 				<li class="nav-item dropdown"><a href="mypage_main"
 					id="mylibrary" class="nav-link dropdown-toggle mypage"

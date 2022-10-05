@@ -47,8 +47,45 @@
 <script type="text/javascript">
 	$(function() {
 		$(document).on('click','.btn_seat_reservation',function(e){
-			
-			
+			var param = 'seat_no='+$(e.target).attr('seat_no');
+			console.log(param);
+			$.ajax({
+				url:'seat_reservation_action_json',
+				method:'POST',
+				data:param,
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#menu_seatReservation').trigger('click');
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+				
+			});
+		});
+		
+		$(document).on('click','.btn_seat_return',function(e){
+			var param = 'seat_no='+$(e.target).attr('seat_no');
+			console.log(param);
+			$.ajax({
+				url:'seat_return_action_json',
+				method:'POST',
+				data:param,
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						alert('반납이 완료됐습니다.')
+						/*
+						삭제 성공시 새로고침
+						*/
+						location.href='seatReservation';
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+				
+			});
 		});
 	});
 </script>
@@ -87,8 +124,9 @@
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <p class="card-text">이용중</p>
+		                 <p class="card-text">사용중</p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
@@ -98,7 +136,7 @@
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
@@ -111,8 +149,9 @@
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <p class="card-text">이용중</p>
+		                 <p class="card-text">사용중</p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
@@ -122,54 +161,56 @@
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                  <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
 	            </div>
             
             <div id="C_room">
-					<c:forEach items="${seatList}" var="seat" begin="14" end="21">
+					<c:forEach items="${seatList}" var="seat" begin="14" end="20">
 						 <c:if test="${seat.seat_status == 1}">
 						<div class="c-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <p class="card-text">이용중</p>
+		                 <p class="card-text">사용중</p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
-		                 <c:forEach items="${seatList}" var="seat" begin="14" end="21">
+		                 <c:forEach items="${seatList}" var="seat" begin="14" end="20">
 						 <c:if test="${seat.seat_status == 0}">
 						<div class="c-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
 	            </div>
              <div id="D_room">
-					<c:forEach items="${seatList}" var="seat" begin="0" end="6">
+					<c:forEach items="${seatList}" var="seat" begin="21" end="28">
 						 <c:if test="${seat.seat_status == 1}">
 						<div class="d-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <p class="card-text">이용중</p>
+		                 <p class="card-text"><b>사용중</b></p>
 		                 <button type="button" class="btn_seat_continue">연장</button>
+		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>
-		                 <c:forEach items="${seatList}" var="seat" begin="0" end="6">
+		                 <c:forEach items="${seatList}" var="seat" begin="21" end="28">
 						 <c:if test="${seat.seat_status == 0}">
 						<div class="d-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
 		                 <p class="card-text">${seat.seat_start_time}</p>
 		                 <p class="card-text">${seat.seat_end_time}</p>
-		                 <button type="button" class="btn_seat_reservation">예약</button>
+		                  <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
 		                 </div>
 		                 </c:if>
 		                 </c:forEach>

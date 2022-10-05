@@ -28,7 +28,7 @@
 <!-- 구글폰트 전체 기본적용 -->
 
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/ddoyoon.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
 <title>도서정보 - 딜리브러리</title>
@@ -68,10 +68,33 @@
 		</header>
 
 		<!-- MAIN SECTION -->
+		<div id="requestBoard_wrap">
+		<table>
+		<thead>
+		<tr id="table1">
+		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>제목</td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>날짜</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr id="table2">
+		<td width=5% align=center class=t1><font size=2 color=#000000>1</td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>title</td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>writer</font></td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>date</font></td>
+		</tr>
+		</tbody>
+
 		
 		
 		
 		
+		</table>
+		
+		
+		</div>
 		
 		
 		

@@ -129,8 +129,8 @@
 						<div class="carousel-item active">
 							<div class="row">
 								<div class="col-md-4">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5416922%3Ftimestamp%3D20201108134648">
+									<div class="card"><a href=book_detail?book_no=4>
+										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5416922%3Ftimestamp%3D20201108134648"></a>
 										<div class="card-body">
 											<div class="card-title">
 												<div class="book-title" id="book-title">달러구트 꿈 백화점</div>
@@ -151,8 +151,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F541125%3Ftimestamp%3D20201108132749">
+									<div class="card"><a href=book_detail?book_no=5>
+										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F541125%3Ftimestamp%3D20201108132749"></a>
 										<div class="card-body">
 											<div class="card-title">
 												<div class="book-title" id="book-title">보건교사 안은영(오늘의 젊은 작가 9)(양장본 HardCover)</div>

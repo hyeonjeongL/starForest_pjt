@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +55,7 @@ public class BookClubRestController {
 	}
 
 	// 카테고리별 동아리 조회
-	@RequestMapping("/club_select_by_category")
+	@GetMapping("/club_select_by_category")
 	public Map club_select_by_category(@RequestParam int category_no) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;

@@ -188,7 +188,7 @@ public class testController {
 		return "book_search_form";
 	}
 	@RequestMapping("/SearchList")
-	public String test39() {
+	public String test39() { 
 		System.out.println("test");
 		return "SearchList";
 	}

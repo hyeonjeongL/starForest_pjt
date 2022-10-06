@@ -31,7 +31,7 @@ public class SearchController {
 		String forwardPath = "";
 		List<Search> searchtitle=searchService.selectByTitle(book_title);
 		model.addAttribute("searchtitle",searchtitle);
-		forwardPath = "forward:/WEB-INF/views/book_search_form.jsp";
+		forwardPath = "forward:/WEB-INF/views/book_search_result.jsp";
 		return forwardPath;
 	}
 	//제목
@@ -50,7 +50,7 @@ public class SearchController {
 		String forwardPath = "";
 		List<Search> searchauthor=searchService.selectByAuthor(book_author);
 		model.addAttribute("searchauthor",searchauthor);
-		forwardPath = "forward:/WEB-INF/views/book_search_form.jsp";
+		forwardPath = "forward:/WEB-INF/views/book_search_result.jsp";
 		return forwardPath;
 	}
 	@RequestMapping(value = {"/search_author_list"})
@@ -68,7 +68,7 @@ public class SearchController {
 		String forwardPath = "";
 		List<Search> searchpublisher=searchService.selectByPublisher(book_publisher);
 		model.addAttribute("searchpublisher",searchpublisher);
-		forwardPath = "forward:/WEB-INF/views/book_search_form.jsp";
+		forwardPath = "forward:/WEB-INF/views/book_search_result.jsp";
 		return forwardPath;
 	}
 	
@@ -87,7 +87,7 @@ public class SearchController {
 		String forwardPath = "";
 		List<Search> searchcategoryname=searchService.selectByCategoryName(category_name);
 		model.addAttribute("searchcategoryname",searchcategoryname);
-		forwardPath = "forward:/WEB-INF/views/book_search_form.jsp";
+		forwardPath = "forward:/WEB-INF/views/book_search_result.jsp";
 		return forwardPath;
 	}
 	
@@ -106,7 +106,7 @@ public class SearchController {
 		String forwardPath = "";
 		List<Search> searchall=searchService.selectByAll(keyword);
 		model.addAttribute("searchall",searchall);
-		forwardPath = "forward:/WEB-INF/views/book_search_form.jsp";
+		forwardPath = "forward:/WEB-INF/views/book_search_result.jsp";
 		return forwardPath;
 	}
 	

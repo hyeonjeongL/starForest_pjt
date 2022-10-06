@@ -8,7 +8,8 @@ import com.itwill.util.PageMakerDto;
 //검색기능
 public interface SearchService {
 	
-	//public PageMakerDto<Search> getBookList(int currentPage) throws Exception;
+	//리스트
+	public PageMakerDto<Search> getBookList(int currentPage) throws Exception;
 	
 	//제목 검색
 	public List<Search> selectByTitle(String book_title) throws Exception;

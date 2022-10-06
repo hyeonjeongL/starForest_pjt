@@ -192,5 +192,12 @@ public class testController {
 		System.out.println("test");
 		return "SearchList";
 	}
+	@RequestMapping("/book_search_result")
+	public String test40() {
+		System.out.println("test");
+		return "book_search_result";
+	}
+	
+	
 
 }

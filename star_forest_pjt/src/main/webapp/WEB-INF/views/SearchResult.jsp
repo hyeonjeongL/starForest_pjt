@@ -202,7 +202,7 @@
 										<option value="author">저자</option>
 										<option value="publisher">출판사</option>
 							</select>
-					<input class="form-control searchbar" id="bookName" type="text"
+					<input class="form-control searchbar" id="keyword" type="text"
 						placeholder="검색어를 입력하세요.">
 					<div class="input-group-append">
 						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -223,7 +223,37 @@
 	</div>
 	
 	<div style="clear: both"></div>
+<div>
 
+	<c:if test="${page.prev}">
+		<span>[ <a href="/board/listPage?num=${page.startPageNum - 1}">이전</a> ]</span>
+	</c:if>
+	
+	<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
+		<span>
+		
+			<c:if test="${select != num}">
+				<a href="/board/listPage?num=${num}">${num}</a>
+			</c:if> 			
+			
+			<c:if test="${select == num}">
+				<b>${num}</b>
+			</c:if>
+	 			
+		</span>
+	</c:forEach>
+	
+	<c:if test="${page.next}">
+		<span>[ <a href="/board/listPage?num=${page.endPageNum + 1}">다음</a> ]</span>
+	</c:if>
+	
+	
+	<%-- <c:forEach begin="1" end="${pageNum}" var="num">
+  		<span>
+  			<a href="/board/listPage?num=${num}">${num}</a>
+		</span>
+	</c:forEach> --%>
+</div>
   <!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">
@@ -242,7 +272,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
       <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
-
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());

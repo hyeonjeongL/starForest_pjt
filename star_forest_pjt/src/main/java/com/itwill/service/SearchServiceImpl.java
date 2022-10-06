@@ -101,12 +101,29 @@ public class SearchServiceImpl implements SearchService{
 	public PageMakerDto<Search> selectByTitle(String keyword, int currentPage) throws Exception {
 		int totRecordCount = searchDao.selectByTitle(keyword).size();
 		PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 3, 5);
-		List<Search> bookList = searchDao.selectByTitle(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());
-		System.out.println(bookList);
-		PageMakerDto<Search> pageMakerBookList = new PageMakerDto<Search>(bookList, pageMaker2, totRecordCount);
-		System.out.println(pageMakerBookList.itemList);
-		return pageMakerBookList;
+		List<Search> searchList = searchDao.selectByTitle(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());
+		System.out.println(searchList);
+		PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(searchList, pageMaker2, totRecordCount);
+		System.out.println(pageMakerSearchList.itemList);
+		return pageMakerSearchList;
 	}
+
+	@Override
+	public PageMakerDto<Search> getBookList(int currentPage) throws Exception {
+		// 전체 글 개수
+				int totRecordCount = searchDao.getTotBookCount();
+				
+				// 페이지 계산
+				PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 8, 5);
+				
+				// 게시물 데이터 얻기
+				List<Search> bookList = searchDao.getList(pageMaker2.getPageBegin(), pageMaker2.getPageEnd());
+				
+				PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(bookList, pageMaker2, totRecordCount);
+				
+				return pageMakerSearchList;
+			}
+	
 
 	
 }

@@ -8,7 +8,16 @@ request.setCharacterEncoding("UTF-8");
 <head>
 <meta charset="UTF-8">
 <title>별숲도서관</title>
-<script type="text/javascript">
+ <script type="text/javascript">
+	function keywordCheck() {
+		var str_keyword = window.searchform.keyword.value;
+		if (!str_keyword || str_keyword === "") {
+			window.alert("검색어를 입력하세요.");
+			window.searchform.keyword.focus();
+			return false;
+		}
+		window.searchform.submit();
+	}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel=stylesheet href="css/styles.css" type="text/css">
@@ -56,13 +65,13 @@ request.setCharacterEncoding("UTF-8");
 
 						<div class="row">
 							<select data-trigger="" name="searchType" style="width:60px;height:30px">
-										<option value="all"<c:if test="${searchType eq 'all'}">selected</c:if>>통합</option>
-										<option value="title" <c:if test="${searchType eq 'title'}">selected</c:if>>제목</option>
-										<option value="category_name" <c:if test="${searchType eq 'category_name'}">selected</c:if>>분야</option>
-										<option value="author" <c:if test="${searchType eq 'author'}">selected</c:if>>저자</option>
-										<option value="publisher" <c:if test="${searchType eq 'publisher'}">selected</c:if>>출판사</option>
+										<option value="all">통합</option>
+										<option value="title" >제목</option>
+										<option value="category_name" >분야</option>
+										<option value="author" >저자</option>
+										<option value="publisher" >출판사</option>
 							</select>
-			<input id="search" type="text" name="keyword" value="${page.keyword}" placeholder="검색어를 입력하세요" style="width:130px;height:25px"> 
+			<input id="search" type="text" name="keyword" placeholder="검색어를 입력하세요" style="width:130px;height:25px"> 
 				<input type="submit" value="검색" action="book_search_result" style="width:40px;height:30px">
 			</div>
 		</form>

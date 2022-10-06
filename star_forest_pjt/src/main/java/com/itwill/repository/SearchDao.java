@@ -53,8 +53,8 @@ public interface SearchDao {
 	
 	
 	// 도서 수량 조회
-	//int getTotBookCount() throws Exception;
+	int getTotBookCount() throws Exception;
 
 	// 도서 수량 조회_페이지?
-	//int getTotBookCount(String keyword) throws Exception;
+	int getTotBookCount(String keyword) throws Exception;
 }

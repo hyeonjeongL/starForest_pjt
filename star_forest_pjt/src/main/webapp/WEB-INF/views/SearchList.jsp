@@ -191,7 +191,37 @@ if(searchType==null|| searchType.equals("")){
 					</div>
 
 <!--  -->
-
+<!-- 메인내용 -->
+			<div class="col-md-9">
+				<div class="input-group noto-serif">
+				<select data-trigger="" name="searchType">
+										<option value="all">통합</option>
+										<option value="title">제목</option>
+										<option value="category_name">분야</option>
+										<option value="author">저자</option>
+										<option value="publisher">출판사</option>
+							</select>
+					<input class="form-control searchbar" id="bookName" type="text"
+						placeholder="검색어를 입력하세요.">
+					<div class="input-group-append">
+						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+					</div>
+				</div>
+				<br><br><br>
+				<!-- CARD COLUMNS -->
+				<div class="searchResult-body">
+					
+				</div>
+				<div class="paging">
+					
+				</div>
+			</div>
+		  </div>
+		</div>
+	</section>
+	</div>
+	
+	<div style="clear: both"></div>
 
 <!--  -->
 <!-- 페이징처리 -->
@@ -236,6 +266,9 @@ if(searchType==null|| searchType.equals("")){
       <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
+ <script type="text/javascript">
+ <if test='searchType.equals("title")'>
+  </script>
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());

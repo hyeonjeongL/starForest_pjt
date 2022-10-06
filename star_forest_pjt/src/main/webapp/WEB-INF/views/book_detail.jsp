@@ -7,10 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8" />
+  <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:description" content="" />
+<link rel="stylesheet" href="css/style.css">
 <link rel="profile" href="https://gmpg.org/xfn/11" />
-<title>별숲도서관</title>
+<title>도서정보 - 별숲도서관</title>
 
 <!-- 구글폰트 전체 기본적용 -->
 <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,7 +23,15 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+
 	<!-- 템플릿 건들 X -->	
+	<link rel='stylesheet' id='kulib-bootstrap-select-css'  href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-select/css/bootstrap-select.min.css?ver=20190905' type='text/css' media='all' />
+<link rel='stylesheet' id='kulib-bootstrap-datetimepicker-css'  href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?ver=20190927' type='text/css' media='all' />
+	
 <link rel='stylesheet' id='kulib-bootstrap-css'
 	href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap/css/bootstrap.css?ver=20190905'
 	type='text/css' media='all' />
@@ -78,6 +88,20 @@
 		</div>
 		<!-- navigation end-->
 	</header>
+	
+	<!-- PAGE HEADER -->
+   <header id="page-header" class="noto-serif">
+      <div class="page-header-overlay">
+         <div class="container pt-5">
+           <div class="row">
+            <div class="col-md-6 m-auto text-center">
+              <h2>책 상세보기</h2>
+            </div>
+           </div>
+         </div>
+      </div>
+   </header>
+	
 	<!-- #masthead -->
 
 	<div id="content" class="site-content">
@@ -123,13 +147,7 @@
 								var title = "간편대출 신청";
 								document
 										.getElementById("item-user-request-title").innerHTML = title;
-							} else if (cmd == "branch") {
-								url = "/loan-request-branch/?accessno="
-										+ accessno + "&mainno=" + mainno;
-								var title = "분관대출 신청";
-								document
-										.getElementById("item-user-request-title").innerHTML = title;
-							} else if (cmd == "reserve") {
+							}  else if (cmd == "reserve") {
 								url = "/book-reserve/?accessno=" + accessno
 										+ "&mainno=" + mainno;
 								var title = "도서예약 신청";
@@ -156,31 +174,6 @@
 							modal_user_request_iframe.location.href = url; // layer로 출력
 						}
 
-						var oldbookRequest = function(accessno, callno, cid) { // 2020.03.07 추가 - 고서열람 신청 처리
-							var url = "/oldbook-request/?accessno=" + accessno
-									+ "&callno=" + encodeURIComponent(callno)
-									+ "&cid=" + cid;
-							var settings = 'toolbar=0,directories=0,status=no,menubar=0,scrollbars=yes,resizable=yes,height=940,width=1220,left=0,top=0', windowObj = window
-									.open(url, 'child', settings);
-							return;
-						}
-
-						var getDetailInfo = function(byid, fld, cid, item) { // 2021.05.03 기능추가 - 전자자료 섹션의 디콜렉션을 통해 학위논문, 고서, 귀중서 등의 원문 서비스 파일을 구축한 경우, PDF 원문정보 외에 초록/목차 정보가 있을때 PDF 아이콘 우측에 [초록], [목차] 아이콘을 추가로 표시
-							/* byid	; 변경할 HTML의 ID 태그 */
-							var url = "/n2app/las/get_bookdetail.php?df=fulltext&cid="
-									+ cid
-									+ "&item="
-									+ item
-									+ "&fld="
-									+ fld
-									+ "&type=html";
-							var getdata = getajax(url);
-							if (getdata['success']) {
-								document.getElementById(byid).innerHTML = getdata['html'];
-							} else {
-								return false;
-							}
-						}
 
 						jQuery(function($) {
 							$(".reset-iframe-content")
@@ -435,6 +428,7 @@
 													<th scope="col">No.</th>
 													<th scope="col">소장처</th>
 													<th scope="col">ISBN</th>
+													<th scope="col">대출가능권수</th>
 													<th scope="col">도서상태</th>
 													<th scope="col">반납예정일</th>
 													<th scope="col">예약</th>
@@ -447,9 +441,10 @@
 													<td><span class="th-item">No.</span> 1</td>
 													<td><span class="th-item">소장처</span> 별숲도서관</td>
 													<td><span class="th-item">ISBN</span> ${book.isbn }</td>
-													<td><span class="th-item">도서상태</span> 펑션넣어야하냐 if</td>
+													<td><span class="th-item">대출가능권수</span> ${book.book_qty}/3</td>
+													<td><span class="th-item">도서상태</span> ${rental_status}</td>
 													<td><span class="th-item">반납예정일</span> ${rental_duedate.substring(0,10)}</td>
-													<td><span class="th-item">예약</span> 예약한도초과</td>
+													<td><span class="th-item">예약</span> ${res_status}(${book.book_res_cnt}명 예약중)</td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->
 													<td><span class="th-item">서비스</span> <span
@@ -476,8 +471,6 @@
 								<div class="item-services text-right">
 									<span><span class="char-icon char-icon">R</span> 도서예약</span> <span><span
 										class="char-icon char-icon-magenta">B</span> 간편대출</span> <span><span
-										class="char-icon char-icon-green">C</span> 분관대출</span> <span><span
-										class="char-icon char-icon-orange">O</span> 고서열람</span> <span><span
 										class="char-icon char-icon-blue">M</span> 소장정보</span>
 								</div>
 							</div>
@@ -499,7 +492,7 @@
 										<p>${book.book_summary }</p>
 										<br /> <span>정보제공 : <a
 											href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=298570092&partner=openAPI&start=api"
-											target="_blank"><img src="/n2app/images/aladin.png"
+											target="_blank"><img src="img/aladin.png"
 												alt="Aladin"></a></span>
 									</div>
 									<!-- .inner-area -->

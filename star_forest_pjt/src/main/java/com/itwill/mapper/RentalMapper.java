@@ -52,8 +52,8 @@ public interface RentalMapper {
 	public List<Map<String, Object>> selectByNo(int book_no);
 	
 	
-	/** 반납했을 때 렌탈테이블 업데이트 (admin)*/
-	@Update("update rental set rental_status = 0, return_date=sysdate "
+	/** 반납했을 때 status 0으로 업데이트 (admin)*/
+	@Update("update rental set rental_status = 0 , return_date=sysdate "
 			+ "where user_id = #{user_id} and book_no = #{book_no}")
 	public int updateRentalStatus(String user_id, int book_no);
 	

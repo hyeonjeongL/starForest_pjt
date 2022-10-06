@@ -111,63 +111,6 @@
 
    </section>
 
-   <!-- PHOTO GALLERY -->
-   <div class="home-gray">
-      <section id="gallery" class="py-5">
-         <div class="container">
-            <hr>
-            <div class="hr-green">
-               <h4 class="text-center event-title pt-3 noto-serif">서울시 도서관 소식</h4>
-            </div>
-            <div class="row mb-4 pt-5">
-               <div class="col-md-6 text-center pb-3">
-                  <div class="row">
-                     <div class="col">
-                        <a href="https://www.nl.go.kr/"> <img width="100"
-                           alt="국립중앙도서관"
-                           src="../img/home/logo_national_library_of_korea.png"><br>
-                        </a>
-                     </div>
-                     <div class="col">
-                        <a href="https://lib.seoul.go.kr/"> <img width="100"
-                           alt="서울도서관"
-                           src="../img/home/logo_seoul_metropolitan_library.png"><br>
-                        </a>
-                     </div>
-                     <div class="col">
-                        <a href="https://www.nanet.go.kr/main.do"> <img width="100"
-                           alt="국회도서관"
-                           src="../img/home/logo_national_assembly_library.png">
-                        </a>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-6 text-center">
-                  <div class="row">
-                     <div class="col">
-                        <a href="https://jnlib.sen.go.kr/jnlib/index.do?getContextPath=">
-                           <img width="100" alt="종로도서관"
-                           src="../img/home/logo_jongno_city_library.png"><br>
-                        </a>
-                     </div>
-                     <div class="col">
-                        <a href="https://www.ydplib.or.kr/intro/index.do"> <img
-                           width="100" alt="영등포구립도서관"
-                           src="../img/home/logo_yeongdeungpo_library.png"><br>
-                        </a>
-                     </div>
-                     <div class="col">
-                        <a href="https://www.nowonlib.kr/"> <img width="100"
-                           alt="노원구 구립도서관" src="../img/home/logo_nowon_public_library.png"><br>
-                        </a>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-   </div>
-
    <!-- SHOWCASE SLIDER   -->
 	<div class="container pt-5">
 		<div class="row">
@@ -186,8 +129,8 @@
 						<div class="carousel-item active">
 							<div class="row">
 								<div class="col-md-4">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5416922%3Ftimestamp%3D20201108134648">
+									<div class="card"><a href=book_detail?book_no=4>
+										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5416922%3Ftimestamp%3D20201108134648"></a>
 										<div class="card-body">
 											<div class="card-title">
 												<div class="book-title" id="book-title">달러구트 꿈 백화점</div>
@@ -197,8 +140,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F532619%3Ftimestamp%3D20201108132924">
+									<div class="card"><a href=book_detail?book_no=3>
+										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F532619%3Ftimestamp%3D20201108132924"></a>
 										<div class="card-body">
 											<div class="card-title">
 												<div class="book-title" id="book-title">아몬드(양장본 HardCover)</div>
@@ -208,8 +151,8 @@
 									</div>
 								</div>
 								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F541125%3Ftimestamp%3D20201108132749">
+									<div class="card"><a href=book_detail?book_no=5>
+										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F541125%3Ftimestamp%3D20201108132749"></a>
 										<div class="card-body">
 											<div class="card-title">
 												<div class="book-title" id="book-title">보건교사 안은영(오늘의 젊은 작가 9)(양장본 HardCover)</div>

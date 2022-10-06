@@ -27,6 +27,28 @@ public class BookController {
 			model.addAttribute("book", book);
 			String rental_duedate = rentalService.selectMostReturn_duedate(book.getBook_no());
 			model.addAttribute("rental_duedate",rental_duedate);
+			
+			int book_qty = book.getBook_qty();
+			int book_res_cnt = book.getBook_res_cnt();
+			if(book_qty<=3 && book_qty>=1) {
+				model.addAttribute("rental_status", "대출가능");
+			}else if(book_qty==0 && book_res_cnt<=4 ) {
+				model.addAttribute("rental_status", "대출중");
+				model.addAttribute("res_status", "예약가능");
+			}else if(book_qty==0 && book_res_cnt==5) {
+				model.addAttribute("rental_status", "예약불가");
+				model.addAttribute("res_status", "예약한도초과");
+			}
+			
+			/**대여시 실행해야 할 쿼리
+			 * Book - updateRentalBookQty (재고감소)
+			 * Book - updateRentalCnt (대여횟수 증가)
+			 * Rental - insertRental(대여)
+			*/
+			
+			
+			
+			
 			forwardPath = "forward:/WEB-INF/views/book_detail.jsp";
 			
 		} catch (Exception e) {

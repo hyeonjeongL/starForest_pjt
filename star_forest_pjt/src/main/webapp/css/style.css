@@ -564,3 +564,10 @@ button {
 }
 
 /****************************/
+
+/**book_detail*/
+.table {
+    border-top: 2px solid #40a509;
+    font-size: .9rem;
+    font-weight: 400;
+}

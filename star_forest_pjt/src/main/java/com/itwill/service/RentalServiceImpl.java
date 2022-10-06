@@ -46,17 +46,17 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.selectByNo(book_no);
 	}
 
-	/** 반납했을 때 렌탈테이블 업데이트 (admin)*/
+	/** 반납했을 때 0으로 상태 업데이트 (admin)*/
 	@Override
 	public int updateRentalStatus(String user_id, int book_no)  throws Exception{
 		return rentalDao.updateRentalStatus(user_id, book_no);
 	}
-
+	/**연체시 2로 상태 변경*/
 	@Override
 	public int updateRentalStatusOverdue(int rental_no)  throws Exception{
 		return rentalDao.updateRentalStatusOverdue(rental_no);
 	}
-
+	/**대출 중인 책 제일 빠른 반납 일정 출력*/
 	@Override
 	public String selectMostReturn_duedate(int book_no) throws Exception {
 		return rentalDao.selectMostReturn_duedate(book_no);

@@ -89,17 +89,16 @@
 							님</small></li>
 				</c:if>
 				<c:if test="${user_id == null}">
-					<li class="nav-item" v-bind:title="login"><a href="user"
-						class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
+					<li class="nav-item" v-bind:title="login">
+					<a href="LoginPage" class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
 						<p class="sr-only">로그인</p></li>
-					<li class="nav-item" v-bind:title="signup"><a
-						href="insertCustomer" class="nav-link"><i
-							class="fas fa-user-plus"></i></a>
+					<li class="nav-item" v-bind:title="signup">
+					<a href="insertCustomer" class="nav-link"><i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
 				<c:if test="${user_id != null}">
-					<li class="nav-item" v-bind:title="logout"><a href="logout"
-						class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
+					<li class="nav-item" v-bind:title="logout">
+					<a href="logout" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
 						<p class="sr-only">로그아웃</p></li>
 				</c:if>
 				

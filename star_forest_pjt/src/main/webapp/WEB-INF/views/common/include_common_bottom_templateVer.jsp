@@ -35,5 +35,5 @@
 			'책은 한 권 한 권이 하나의 세계다. — W. 워즈워스',
 			'책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절' ];
 	const footer_getQuote = Math.floor(Math.random() * footer_quotes.length);
-	footer_display.textContent = footer_quotes[footer_getQuote];}
+	footer_display.textContent = footer_quotes[footer_getQuote];
 </script>

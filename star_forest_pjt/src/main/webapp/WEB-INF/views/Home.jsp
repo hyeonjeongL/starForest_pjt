@@ -109,6 +109,24 @@
 		<div class="row">
 			<div class="col-md-6">
 				<!--Carousel Wrapper-->
+				<!--<c:forEach items="${bookList}" var ="book">
+					<div class="book-no">
+						<div class="book-img">
+							<a href=""><img src="images/${book.book_category}/${book.book_title}_1.image" alt=""	width="285" height="437"></a>
+						</div>
+						<div class="title-in">
+							<div class="cate">
+								<span class="blue"><a href="#">${movie.category.cg_name}</a></span>
+							</div>
+							<h6>
+								<a href="moviesingle?m_no=${movie.m_no}">${movie.m_name}</a>
+							</h6>
+							<p>
+								<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
+							</p>
+						</div>
+					</div>
+				</c:forEach>-->
 				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 					<div class="hr-green mb-4">
 						<h3 class="d-inline-block mb-3 noto-serif">추천 도서</h3><!--Controls-->

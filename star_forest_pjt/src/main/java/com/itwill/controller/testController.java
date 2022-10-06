@@ -202,6 +202,11 @@ public class testController {
 		System.out.println("test");
 		return "SearchResult2";
 	}
+	@RequestMapping("/recommendedBooks2")
+	public String test42() {
+		System.out.println("test");
+		return "recommendedBooks2";
+	}
 	
 	
 

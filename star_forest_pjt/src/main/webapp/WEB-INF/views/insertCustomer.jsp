@@ -49,40 +49,51 @@
 		<!-- MAIN SECTION -->
 		<section id="insertCustomer">
 			<!-- 폼 시작 -->
-			<form action="insertCustomer.do" method="post" enctype="multipart/form-data">
+			<form action="insertCustomer" method="post" enctype="multipart/form-data">
 				<!-- 이메일 INPUT START -->
-				<label class="mt-4" for="m_phone">아이디</label> <span class="signup_required">*</span>
+				<label class="mt-4" for="m_phone">아이디</label> 
+				<span class="signup_required">*</span>
 				<div class="input-group mb-3">
-					<input class="form-control" type="id" id="id" name="id" placeholder="아이디 입력" required>
+					<input class="form-control" type="user_id" id="user_id" name="user_id" placeholder="아이디 입력" required>
 					<div class="input-group-append">
 						<button class="btn btn-outline-success btn-Customer" id="btn_idCheck" type="button">중복체크</button>
 					</div>
 				</div>
-				<small class="form-text email_message" id="email_ok" style="color: red;">이미 등록 되어있는 아이디 입니다.</small> 
-				<small class="form-text email_message" id="email_ok_ok" style="color: green;">사용 가능한 아이디 입니다. </small> 
+				<small class="form-text user_id_message" id="user_id_ok" style="color: red;">이미 등록 되어있는 아이디 입니다.</small> 
+				<small class="form-text user_id_message" id="user_id_ok_ok" style="color: green;">사용 가능한 아이디 입니다. </small> 
 				<!-- 이메일 INPUT END -->
 				<!-- 비번 INPUT START -->
 				<div class="form-group mt-2">
-					<label for="pw">비밀번호</label> <span class="signup_required">*</span>
-					<input class="form-control" type="password" id="pw" name="pw" placeholder="비밀번호를 입력해주세요" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+					<label for="pw">비밀번호</label> 
+					<span class="signup_required">*</span>
+					<input class="form-control" type="user_password" id="user_password" name="user_password" placeholder="비밀번호를 입력해주세요" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
 					<small class="form-text text-muted">비밀번호는 <span class="signup_required">8~16자, 영문 대문자, 소문자, 숫자 </span>를 포함해야 합니다.
 					</small>
 				</div>
 				<!-- 비번 INPUT END -->
 				<!-- 비번확인 INPUT START -->
 				<div class="form-group mt-3">
-					<label for="pw_check">비밀번호 확인</label> <span class="signup_required">*</span>
-					<input class="form-control" type="password" id="pw_check" name="pw_check" placeholder="비밀번호를 다시 입력해주세요" required>
+					<label for="pw_check">비밀번호 확인</label> 
+					<span class="signup_required">*</span>
+					<input class="form-control" type="user_password" id="user_password_check" name="user_password_check" placeholder="비밀번호를 다시 입력해주세요" required>
 					<span class="signup_required"> <small class="form-text pw_message" id="pw_match">비밀번호가 일치하지 않습니다.</small> <small class="form-text pw_message" id="pw_length">8~16자로 설정해주세요. </small> <small class="form-text pw_message" id="pw_ok">영문 대문자, 소문자, 숫자 조합으로 해주세요.</small>
 					</span>
 				</div>
 				<!-- 비번확인 INPUT END -->
 				<!-- 이름 INPUT START -->
 				<div class="form-group mt-2">
-					<label for="name">이름</label> <span class="signup_required">*</span>
-					<input class="form-control" type="text" id="name" name="name" placeholder="이름을 입력해주세요" required>
+					<label for="name">이름</label> 
+					<span class="signup_required">*</span>
+					<input class="form-control" type="text" id="user_name" name="user_name" placeholder="이름을 입력해주세요" required>
 					<small class="form-text text-muted">반드시 <span class="signup_required">한글 실명</span>으로 기입해주세요.<br> 실명이 아닐 경우, 서비스 이용에 제약이 생길 수 있습니다.<br> - 띄어쓰기, 특수 문자 사용 불가
 					</small>
+				</div>
+				<!-- 이름 INPUT END -->
+				<!-- 이름 INPUT START -->
+				<div class="form-group mt-2">
+					<label for="birth">생년월일</label> 
+					<span class="signup_required">*</span>
+					<input class="form-control" type="text" id="user_birth" name="user_birth" placeholder="ex)1999-01-01" required>
 				</div>
 				<!-- 이름 INPUT END -->
 				<div class="form-group mt-2">
@@ -99,7 +110,7 @@
 				<!-- 이메일 INPUT START -->
 				<label class="mt-4" for="m_phone">이메일</label> <span class="signup_required">*</span>
 				<div class="input-group mb-3">
-					<input class="form-control" type="email" id="email" name="email" placeholder="예시)hello@delibrary.com" required>
+					<input class="form-control" type="email" id="email" name="email" placeholder="ex)hello@delibrary.com" required>
 					<div class="input-group-append">
 						<button class="btn btn-outline-success btn-Customer" id="btn_emailCheck" type="button">중복체크</button>
 					</div>
@@ -109,18 +120,20 @@
 				<small class="form-text text-muted email" id="email_msg"><span class="signup_required">실제 사용하시는 이메일을</span> 입력해주세요.</small>
 				<!-- 이메일 INPUT END -->
 				<!-- 이메일 INPUT START -->
-				<label class="mt-4" for="m_phone">전화번호</label> <span class="signup_required">*</span>
+				<label class="mt-4" for="m_phone">전화번호</label> 
+				<span class="signup_required">*</span>
 				<div class="input-group mb-3">
-					<input class="form-control" type="tel" id="m_phone" name="m_phone" placeholder="예시)010-1234-5678" required>
+					<input class="form-control" type="tel" id="user_phone" name="user_phone" placeholder="ex)010-1234-5678" required>
 					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-Customer" id="btn_emailCheck" type="button">중복체크</button>
+						<button class="btn btn-outline-success btn-Customer" id="btn_phoneCheck" type="button">중복체크</button>
 					</div>
 				</div>
-				<small class="form-text email_message" id="email_ok" style="color: red;">이미 등록 되어있는 전화번호 입니다.</small> 
-				<small class="form-text email_message" id="email_ok_ok" style="color: green;">등록 가능한 전화번호 입니다. </small> 
+				<small class="form-text user_phone_message" id="user_phone_ok" style="color: red;">이미 등록 되어있는 전화번호 입니다.</small> 
+				<small class="form-text user_phone_message" id="user_phone_ok_ok" style="color: green;">등록 가능한 전화번호 입니다. </small> 
 				<!-- 이메일 INPUT END -->
 				<!-- 주소 INPUT START -->
-				<label for="m_phone mt-4">주소</label> <span class="signup_required">*</span>
+				<label for="m_phone mt-4">주소</label> 
+				<span class="signup_required">*</span>
 				<div id="address_postcode">
 					<div class="input-group">
 						<input class="form-control" type="text" name="addr2_a" id="getPostcode_input" required>
@@ -142,11 +155,6 @@
 						<label class="mb-1">도서 관심 분야를 선택해주세요.</label> <br>
 						<div class="row">
 							<!-- 관심장르 CHECKBOX 1st ROW -->
-							<div class="d-inline-block w-50 p-1 form-check"></div>
-						</div>
-					</div>
-				</div>
-			</form>
 			<select name="language">
 				<option value="none">=== 선택 ===</option>
 				<option value="100" id="100">100 건강/취미/레저</option>
@@ -157,24 +165,28 @@
 				<option value="600" id="600">600 사회과학</option>
 				<option value="700" id="700">700 소설/시/희곡</option>
 			</select>
+						</div>
+					</div>
+					</div>
 			</form>
-	</div>
+				</div>
 	<!-- 관심장르 CHECKBOX 3rd ROW END -->
-	</div>
+					</div>
 	<!-- 관심장르 CHECKBOX END -->
 	<!-- 마케팅 동의 -->
-	<div class="form-group form-check mt-4">
-		<input type="checkbox" class="form-check-input" id="agreement">
-		<label class="form-check-label" for="agreement">마케팅 정보 수신 동의(선택)</label> <small class="form-text text-muted mb-2">마케팅 정보 수신에 동의하시면 신간도서 소식을 빠르게 전해드립니다.</small>
-	</div>
+		<div class="form-group form-check mt-4">
+			<input type="checkbox" class="form-check-input" id="agreement">
+			<label class="form-check-label" for="agreement">마케팅 정보 수신 동의(선택)</label> 
+			<small class="form-text text-muted mb-2">마케팅 정보 수신에 동의하시면 신간도서 소식을 빠르게 전해드립니다.</small>
+		</div>
 	<!-- 가입버튼 -->
-	<div class="form-group mt-2">
-		<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit">가입하기</button>
-		<small class="form-text text-muted text-center mb-4">회원가입 진행 시 별숲도서관의 <span class="signup_required">개인정보처리방침</span>에 동의하신 것으로 간주됩니다.
-		</small>
-	</div>
-	</div>
-	</form>
+		<div class="form-group mt-2">
+			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit">가입하기</button>
+			<small class="form-text text-muted text-center mb-4">회원가입 진행 시 별숲도서관의 <span class="signup_required">개인정보처리방침</span>에 동의하신 것으로 간주됩니다.
+			</small>
+		</div>
+		</div>
+		</form>
 	</section>
 	</div>
 	<!-- .footer-navigation -->

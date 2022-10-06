@@ -200,7 +200,8 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 		                  <li><a href="/star_forest_pjt/SearchList/list?c=200&l=2">200 경제경영</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList/list?c=300&l=2">300 고전</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList/list?c=400&l=2">400 과학</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList/list?c=500&l=2">600 사회과학</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=500&l=2">500 만화</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=600&l=2">600 사회과학</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList/list?c=700&l=2">700 소설/시/희곡</a></li>
 	                  </ul>
                   </li>

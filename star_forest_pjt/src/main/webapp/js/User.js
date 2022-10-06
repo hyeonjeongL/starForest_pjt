@@ -79,7 +79,7 @@
 			$('#email_ok_ok').css('display','none'); */
 			
 			$.ajax({
-				url:'/emailCheck.do',
+				url:'/emailCheck',
 				type:'POST',
 				data:{
 					"email":email
@@ -106,6 +106,90 @@
 					alert("중복확인오류");
 					$('#email_ok_ok').css('display','none'); 
 					$('#email_ok').css('display','none');
+				}						
+			});
+			
+	});	
+	//////////////////////////**아이디 중복체크:제이쿼리**//////////////////////////////////
+	     
+		$('#btn_idCheck').click(function() {
+			console.log('pleaassssssss');
+			const email = $('#user_id').val();
+			/* $('#emailck').removeClass('is-valid');
+			$('#emailck').removeClass('is-invalid');
+			$('#email_ok').css('display','none');
+			$('#email_ok_ok').css('display','none'); */
+			
+			$.ajax({
+				url:'/user_idCheck',
+				type:'POST',
+				data:{
+					"user_id":user_id
+				},
+				success:function(re){
+					$('#user_id_msg').css('display','none');
+					if(re>0){
+						alert('이미 존재하는 아이디입니다.');
+						$('#user_id').removeClass('is-valid');
+						$('#user_id').addClass('is-invalid');
+						$('#user_id_ok_ok').css('display','none'); 
+						$('#user_id_ok').css('display','block');
+						
+					}else{
+						alert('사용 가능한 아이디입니다.')
+						$('#user_id').removeClass('is-invalid');
+						$('#user_id').addClass('is-valid');
+						$('#user_id_ok').css('display','none');
+						$('#user_id_ok_ok').css('display','block');
+						$('#user_id').val(user_id);
+					}				
+				},
+				error:function(){
+					alert("중복확인오류");
+					$('#user_id_ok_ok').css('display','none'); 
+					$('#user_id_ok').css('display','none');
+				}						
+			});
+			
+	});	
+	//////////////////////////**전화번호 중복체크:제이쿼리**//////////////////////////////////
+	     
+		$('#btn_phoneCheck').click(function() {
+			console.log('pleaassssssss');
+			const email = $('#user_id').val();
+			/* $('#emailck').removeClass('is-valid');
+			$('#emailck').removeClass('is-invalid');
+			$('#email_ok').css('display','none');
+			$('#email_ok_ok').css('display','none'); */
+			
+			$.ajax({
+				url:'/user_phoneCheck',
+				type:'POST',
+				data:{
+					"user_id":user_id
+				},
+				success:function(re){
+					$('#user_phone_message').css('display','none');
+					if(re>0){
+						alert('이미 존재하는 번호입니다.');
+						$('#user_phone').removeClass('is-valid');
+						$('#user_phone').addClass('is-invalid');
+						$('#user_phone_ok').css('display','none'); 
+						$('#user_phone_ok').css('display','block');
+						
+					}else{
+						alert('사용 가능한 번호입니다.')
+						$('#user_phone').removeClass('is-invalid');
+						$('#user_phone').addClass('is-valid');
+						$('#user_phone_ok').css('display','none');
+						$('#user_phone_ok_ok').css('display','block');
+						$('#user_phone').val(user_id);
+					}				
+				},
+				error:function(){
+					alert("중복확인오류");
+					$('#user_id_ok_ok').css('display','none'); 
+					$('#user_id_ok').css('display','none');
 				}						
 			});
 			

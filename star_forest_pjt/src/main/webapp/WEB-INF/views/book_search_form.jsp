@@ -76,7 +76,7 @@ Search search =new Search();
 										<option value="publisher" >출판사</option>
 							</select>
 			<input type="text" name="keyword" placeholder="검색어를 입력하세요" style="width:130px;height:25px" value=""></input> 
-				<input type="button" value="검색" onclick="getSearchList()" class="btn btn-outline-primary mr-2" style="width:40px;height:30px"></input>
+				<input type="button" value="검색" onclick="location.href='book_search_result'" class="btn btn-outline-primary mr-2" style="width:40px;height:30px"></input>
 		</form>
 			</div>
 	</div>

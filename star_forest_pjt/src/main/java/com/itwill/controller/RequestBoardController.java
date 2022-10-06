@@ -14,4 +14,9 @@ public class RequestBoardController {
 	public String requestBoard_main() {
 		return "forward:/WEB-INF/views/requestBoard.jsp";
 	}
+	
+	@RequestMapping("/requestBoard_write_form")
+	public String requestBoard_write_form() {
+		return "forward:/WEB-INF/views/requestBoard_write_form.jsp";
+	}
 }

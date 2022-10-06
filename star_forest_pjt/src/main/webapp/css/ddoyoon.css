@@ -19,7 +19,7 @@ request_board css
     padding: 10px;
   }
   
-  .btn_write{
+  #btn_write{
   	float: right;
   	margin-right: 250px;
   	margin-top: 20px;

@@ -39,36 +39,7 @@
 	<script type="text/javascript" src="js/star_forest/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.ajax({
-			url:'request_list_json',
-			method:'GET',
-			success:function(jsonResult){
-				var requestArray = jsonResult.data;
-				console.log(requestArray);
-				$('#requestBoard_wrap').html(request_list_content(requestArray));
-			}
-		});
-		
-		$(document).on('click','#menu_RequestBoard',function(e){
-			$.ajax({
-				url:'request_list_json',
-				method:'GET',
-				success:function(jsonResult){
-					var requestArray = jsonResult.data;
-					console.log(requestArray);
-					$('#requestBoard_wrap').html(request_list_content(requestArray));
-				}
-			});
-			e.preventDefault();
-		});
-		
-		
-		$(document).on('click','#btn_write',function(e){
-			console.log('야');
-			$('requestBoard_wrap').html(request_write_form_content());
-			e.preventDefault();
-			
-		});
+	
 		
 	});
 </script>
@@ -101,7 +72,7 @@
 
 		<!-- MAIN SECTION -->
 		&nbsp;&nbsp;&nbsp;
-		<div id="requestBoard_wrap">
+		<div id="requestBoard_write_wrap">
 		
 		
 		
@@ -109,7 +80,7 @@
 		
 		</div>
 		<div>
-		<input type="button" id="btn_write" value="희망도서 신청하기" onClick="location.href='requestBoard_write_form'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" id="btn_write_action" value="확인">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		
 		

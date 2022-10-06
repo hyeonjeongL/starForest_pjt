@@ -57,10 +57,9 @@
 				} else if (jsonResult.code == 1) {
 					console.log(jsonResult);
 				} else if (jsonResult.code == 2) {
-					$('#app')
-							.html(UserHtmlContents.user_login_content(jsonResult.data[0]));
-					$('#page-header')
-							.html(UserHtmlContents.user_main_content());
+					
+					location.href="Home";
+					
 					console.log("성공");
 				}
 			}
@@ -68,6 +67,20 @@
 
 		e.preventDefault();
 	});
+	
+	/***********user_logout_action************
+	$(document).on('click','#a_user_logout_action',function(e){
+		$.ajax({
+			url:'user_logout_action',
+			method:'POST',
+			dataType:'json',
+			success:function(jsonResult){
+				location.href='Home'; //특정 url넘겨서 화면전환하는 것/ reloading하는 것
+			}
+		});
+		e.preventDefault();
+	});*/
+	
 </script>
 
 <title>로그인 - 별숲도서관</title>

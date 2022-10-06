@@ -81,17 +81,17 @@
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${user_id == admin}">
+				<c:if test="${sUserId == admin}">
 					<li class="nav-item" v-bind:title="managerpage"><a
 						href="ManagerPage" class="nav-link"><i class="fas fa-crown"
 							style="color: #107637;"></i></a>
 						<p class="sr-only">관리자페이지</p></li>
 				</c:if>
-				<c:if test="${user_id != admin && user_id != null }">
-					<li class="nav-item p-1"><small class="text-dark">${user_id}
+				<c:if test="${sUserId != admin && sUserId != null }">
+					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 				</c:if>
-				<c:if test="${user_id == null}">
+				<c:if test="${sUserId == null}">
 					<li class="nav-item" v-bind:title="login">
 					<a href="user" class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
 						<p class="sr-only">로그인</p></li>
@@ -99,9 +99,9 @@
 					<a href="insertCustomer" class="nav-link"><i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
-				<c:if test="${user_id != null}">
+				<c:if test="${sUserId != null}">
 					<li class="nav-item" v-bind:title="logout">
-					<a href="Home" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
+					<a href="logout" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
 						<p class="sr-only">로그아웃</p></li>
 				</c:if>
 				

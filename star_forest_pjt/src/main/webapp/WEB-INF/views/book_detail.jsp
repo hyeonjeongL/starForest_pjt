@@ -85,7 +85,50 @@
 
 <body
 	class="page-template page-template-page-without-title page-template-page-without-title-php page page-id-2053 logged-in wp-custom-logo wp-embed-responsive has-fixed-top singular image-filters-enabled elementor-default elementor-kit-14083">
-
+<!-- Modal -->
+	<div class="modal fade" id="theModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"></div>
+				<div class="modal-body">... remote content from "data-remote"
+					loads here ...</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	$('#item-user-request').on('show.bs.modal', function (event) {
+		  var button = $(event.relatedTarget) // Button that triggered the modal
+		  var recipient = button.data('whatever') // Extract info from data-* attributes
+			int code = 1;
+			String url = "";
+			String msg = "";
+			StringBuffer jsonData = new StringBuffer();
+			
+			
+			String book_no = request.getParameter("book_no");
+			if (book_no == null || book_no.equals("")){
+				code = 2;
+				url = "";
+				msg = "잘못된요청방식입니다.";
+			}else{
+				BookServiceImpl bookService = new BookServiceImpl();
+				Book book = bookService.selectBookDetail(Integer.parseInt(book_no));
+				
+				code = 1;
+				url = "";
+				msg = "책정보";
+				jsonData.append("{");
+				jsonData.append("\"guest_no\":" + book.getBook_title() + ",");
+				jsonData.append("\"guest_name\":\"" + book.getBook_author() + "\",");
+				jsonData.append("}");
+			}
+		})
+	
+	</script>
 
 	<header id="masthead" class="site-header">
 
@@ -135,8 +178,8 @@
 							<div class="entry-nav">
 								<!-- Breadcrumb NavXT 6.5.0 -->
 								<span property="itemListElement" typeof="ListItem"><a
-									property="item" typeof="WebPage" title="Go to 고려대학교 도서관."
-									href="https://library.korea.ac.kr" class="home"><span
+									property="item" typeof="WebPage" title="Go to 별숲 도서관."
+									href="http://localhost/star_forest_pjt/Home" class="home"><span
 										property="name">HOME</span></a>
 									<meta property="position" content="1"></span> &gt; <span
 									class="post post-page current-item">상세정보</span>
@@ -211,22 +254,6 @@
 													alert(getdata['message']);
 												}
 											});
-
-							$(".get-book-abstract").click(
-									function(e) { // 2021.05.03 추가 - 전자정보 목록에서 '초록' 버튼 클릭 - getElementById 'modal-body-abstract' HTML 내용변경
-										var cid = "CAT000046124897";
-										var item = $(this).attr('data-item');
-										getDetailInfo('modal-body-abstract',
-												'abs', cid, item);
-									});
-							$(".get-book-toc").click(
-									function(e) { // 2021.05.03 추가 - 전자정보 목록에서 '목차' 버튼 클릭 - getElementById 'modal-body-toc' HTML 내용변경
-										var cid = "CAT000046124897";
-										var item = $(this).attr('data-item');
-										getDetailInfo('modal-body-toc', 'toc',
-												cid, item);
-									});
-
 						});
 					</script>
 
@@ -297,7 +324,7 @@
 													d="M21.354,17.021l-0.705-0.119c-0.073-0.236-0.168-0.467-0.283-0.686l0.416-0.58 c0.176-0.248,0.15-0.586-0.067-0.799l-0.625-0.627c-0.118-0.117-0.272-0.182-0.439-0.182c-0.13,0-0.255,0.04-0.359,0.115 l-0.582,0.415c-0.228-0.12-0.465-0.218-0.71-0.292l-0.119-0.697c-0.049-0.299-0.309-0.518-0.613-0.518h-0.883 c-0.305,0-0.561,0.219-0.611,0.518l-0.123,0.715c-0.235,0.072-0.463,0.17-0.683,0.287l-0.577-0.414 c-0.104-0.076-0.23-0.117-0.36-0.117c-0.166,0-0.322,0.064-0.438,0.183l-0.628,0.626c-0.212,0.214-0.243,0.551-0.067,0.801 l0.42,0.588c-0.115,0.221-0.209,0.449-0.279,0.688l-0.697,0.117c-0.3,0.051-0.518,0.309-0.518,0.613v0.883 c0,0.305,0.218,0.562,0.518,0.613l0.715,0.121c0.073,0.236,0.171,0.465,0.288,0.684l-0.414,0.574 c-0.176,0.248-0.15,0.586,0.066,0.801l0.626,0.625c0.118,0.117,0.273,0.182,0.439,0.182c0.129,0,0.253-0.039,0.357-0.115l0.591-0.42 c0.212,0.112,0.433,0.201,0.664,0.273l0.117,0.706c0.05,0.301,0.309,0.52,0.611,0.52h0.887c0.305,0,0.562-0.219,0.613-0.52 l0.119-0.706c0.237-0.072,0.468-0.168,0.685-0.283l0.582,0.415c0.104,0.076,0.229,0.116,0.359,0.116l0,0 c0.165,0,0.32-0.066,0.438-0.184l0.627-0.625c0.215-0.213,0.244-0.553,0.066-0.8l-0.415-0.585c0.114-0.219,0.212-0.448,0.285-0.683 l0.704-0.118c0.3-0.051,0.518-0.309,0.518-0.613v-0.883C21.872,17.33,21.653,17.072,21.354,17.021z M16.845,20.005 c-1.063,0-1.93-0.864-1.93-1.929c0-1.066,0.866-1.931,1.93-1.931c1.066,0,1.931,0.864,1.931,1.931 C18.775,19.141,17.911,20.005,16.845,20.005z M16.308,11.246H7.328c-0.481,0-0.872-0.391-0.872-0.872s0.391-0.871,0.872-0.871h8.979 c0.481,0,0.872,0.39,0.872,0.871S16.789,11.246,16.308,11.246z M10.582,12.989c0.482,0,0.872,0.391,0.872,0.872 s-0.39,0.871-0.872,0.871H7.328c-0.481,0-0.872-0.39-0.872-0.871s0.391-0.872,0.872-0.872H10.582z M10.95,22.23 c0,0.481-0.39,0.872-0.871,0.872H6.461c-1.922,0-3.487-1.565-3.487-3.488V4.272c0-1.922,1.565-3.486,3.487-3.486H17.18 c1.922,0,3.486,1.564,3.486,3.486v6.362c0,0.48-0.391,0.871-0.872,0.871s-0.871-0.391-0.871-0.871V4.272 c0-0.962-0.782-1.743-1.743-1.743H6.461c-0.961,0-1.743,0.781-1.743,1.743v15.342c0,0.961,0.782,1.743,1.743,1.743h3.618 C10.561,21.357,10.95,21.748,10.95,22.23z M17.18,6.888c0,0.48-0.391,0.871-0.872,0.871H7.328c-0.481,0-0.872-0.391-0.872-0.871 c0-0.482,0.391-0.873,0.872-0.873h8.979C16.789,6.015,17.18,6.406,17.18,6.888z"></path></svg></a>
 										<span class="item-modal" data-toggle="modal"
 											data-target="#item-user-request"> <a
-											href="javascript:userRequest('sns','CAT000046124897','m','');"
+											href="#theModal"
 											role="button" class="item-tooltip" data-toggle="tooltip"
 											data-placement="bottom" title="SNS 공유"><svg
 													class="svg-icon" width="24" height="24" aria-hidden="true"
@@ -484,20 +511,7 @@
 
 							</div>
 							<!-- .item-location-content -->
-<!-- Modal -->
-	<div class="modal fade" id="theModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header"></div>
-				<div class="modal-body">... remote content from "data-remote"
-					loads here ...</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div>
+
 							<!-- R=도서예약, B=간편대출, C=분관대출,  O=고서열람,  M=소장정보 -->
 							<div class="item-location-footer">
 								<div class="item-services text-right">

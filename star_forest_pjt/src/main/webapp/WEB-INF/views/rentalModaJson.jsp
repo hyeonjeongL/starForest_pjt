@@ -25,7 +25,7 @@
 		
 		code = 1;
 		url = "";
-		msg = "";
+		msg = "책정보";
 		jsonData.append("{");
 		jsonData.append("\"guest_no\":" + book.getBook_title() + ",");
 		jsonData.append("\"guest_name\":\"" + book.getBook_author() + "\",");

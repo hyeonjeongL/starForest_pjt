@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
+import com.itwill.domain.Rental;
 import com.itwill.mapper.RentalMapper;
 import com.itwill.service.RentalService;
 
@@ -23,13 +24,16 @@ public class RentalServiceTestController {
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context = application.run(args);
 		RentalService rentalService = (RentalService) context.getBean(RentalService.class);
+		Date date = new Date();
+		Rental newRental = new Rental(50, date, date, date, 1, 90, "hyeonjeong");
 //		System.out.println(rentalService.updateDate("hyeonjeong", 4));
-		System.out.println(rentalService.selectById("hyeonjeong")); //리스트 렌탈이라서 렌탈정보만 나옴 이게맞나 --> 렌탈테이블추가해서 모두 출력완료
+//		System.out.println(rentalService.selectById("hyeonjeong")); //리스트 렌탈이라서 렌탈정보만 나옴 이게맞나 --> 렌탈테이블추가해서 모두 출력완료
 //		System.out.println(rentalService.selectByNo(2)); 
 //		System.out.println(rentalService.updateRentalStatus("yeji", 2));
 //		System.out.println(rentalService.updateRentalStatusOverdue(3));
 //		System.out.println(rentalService.selectMostReturn_duedate(2));	
-		System.out.println(rentalService.selectByIdTotalList("hyeonjeong"));
+//		System.out.println(rentalService.selectByIdTotalList("hyeonjeong"));
+		System.out.println(rentalService.insertRental(newRental));
 		
 	}
 

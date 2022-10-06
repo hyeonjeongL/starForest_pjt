@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-  <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:description" content="" />
 <link rel="stylesheet" href="css/style.css">
@@ -23,19 +23,33 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
 
-	<!-- 템플릿 건들 X -->	
-	<link rel='stylesheet' id='kulib-bootstrap-select-css'  href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-select/css/bootstrap-select.min.css?ver=20190905' type='text/css' media='all' />
-<link rel='stylesheet' id='kulib-bootstrap-datetimepicker-css'  href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?ver=20190927' type='text/css' media='all' />
-	
+<!-- 템플릿 건들 X -->
+<link rel='stylesheet' id='kulib-bootstrap-select-css'
+	href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-select/css/bootstrap-select.min.css?ver=20190905'
+	type='text/css' media='all' />
+<link rel='stylesheet' id='kulib-bootstrap-datetimepicker-css'
+	href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css?ver=20190927'
+	type='text/css' media='all' />
+
 <link rel='stylesheet' id='kulib-bootstrap-css'
 	href='https://library.korea.ac.kr/wp-content/themes/kulib/plugins/bootstrap/css/bootstrap.css?ver=20190905'
 	type='text/css' media='all' />
-	<!-- 템플릿 건들 X -->
+<!-- 템플릿 건들 X -->
 <link rel='stylesheet' id='kulib-style-css'
 	href='https://library.korea.ac.kr/wp-content/themes/kulib/style.css?ver=20210913'
 	type='text/css' media='all' />
@@ -88,20 +102,20 @@
 		</div>
 		<!-- navigation end-->
 	</header>
-	
+
 	<!-- PAGE HEADER -->
-   <header id="page-header" class="noto-serif">
-      <div class="page-header-overlay">
-         <div class="container pt-5">
-           <div class="row">
-            <div class="col-md-6 m-auto text-center">
-              <h2>책 상세보기</h2>
-            </div>
-           </div>
-         </div>
-      </div>
-   </header>
-	
+	<header id="page-header" class="noto-serif">
+		<div class="page-header-overlay">
+			<div class="container pt-5">
+				<div class="row">
+					<div class="col-md-6 m-auto text-center">
+						<h2>책 상세보기</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
 	<!-- #masthead -->
 
 	<div id="content" class="site-content">
@@ -144,25 +158,19 @@
 								url = "/loan-request-brief/?accessno="
 										+ accessno + "&mainno=" + mainno
 										+ "&location=" + location; // 2020.05.29 요청시 분관코드(location) 파라미터 추가
-								var title = "간편대출 신청";
+								var title = "도서 대출 신청";
 								document
 										.getElementById("item-user-request-title").innerHTML = title;
-							}  else if (cmd == "reserve") {
+							} else if (cmd == "reserve") {
 								url = "/book-reserve/?accessno=" + accessno
 										+ "&mainno=" + mainno;
-								var title = "도서예약 신청";
+								var title = "도서 예약 신청";
 								document
 										.getElementById("item-user-request-title").innerHTML = title;
 							} else if (cmd == "sendsms") {
 								url = "/send-sms/?accessno=" + accessno
 										+ "&mainno=" + mainno;
-								var title = "소장정보 발송 서비스";
-								document
-										.getElementById("item-user-request-title").innerHTML = title;
-							} else if (cmd == "sns") { // 2020.04.06 추가 - SNS 공유처리 : accessno, mainno 값에 cid, ctype 값이 들어온다.
-								url = "/n2app/public/exportsns.php?cid="
-										+ accessno + "&ctype=" + mainno;
-								var title = "SNS 공유";
+								var title = "소장 정보 발송 서비스";
 								document
 										.getElementById("item-user-request-title").innerHTML = title;
 							} else {
@@ -173,7 +181,6 @@
 
 							modal_user_request_iframe.location.href = url; // layer로 출력
 						}
-
 
 						jQuery(function($) {
 							$(".reset-iframe-content")
@@ -414,8 +421,7 @@
 							</div>
 							<!-- .item-location-header -->
 							<script>
-							
-							
+								
 							</script>
 
 							<div class="item-location-content tab-content">
@@ -441,20 +447,33 @@
 													<td><span class="th-item">No.</span> 1</td>
 													<td><span class="th-item">소장처</span> 별숲도서관</td>
 													<td><span class="th-item">ISBN</span> ${book.isbn }</td>
-													<td><span class="th-item">대출가능권수</span> ${book.book_qty}/3</td>
+													<td><span class="th-item">대출가능권수</span>
+														${book.book_qty}/3</td>
 													<td><span class="th-item">도서상태</span> ${rental_status}</td>
-													<td><span class="th-item">반납예정일</span> ${rental_duedate.substring(0,10)}</td>
-													<td><span class="th-item">예약</span> ${res_status}(${book.book_res_cnt}명 예약중)</td>
+													<td><span class="th-item">반납예정일</span>
+														${rental_duedate.substring(0,10)}</td>
+													<td><span class="th-item">예약</span>
+														${res_status}
+														<span class="item-modal" data-toggle="modal" data-target="#item-user-request">
+													<a class="item-loc-service" title="도서예약신청" href="javascript:userRequest('reserve','000121257791','1016743106','000AC2SL');">
+													<span class="char-icon" data-remote="/WEB-INF/views/rentalModal.jsp">R</span></a>
+												</span>
+														</td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->
 													<td><span class="th-item">서비스</span> <span
 														class="item-modal" data-toggle="modal"
-														data-target="#item-user-request"> <a
+														data-target="#item-user-request" data-remote="/WEB-INF/views/rentalModal.jsp"
+														> <a
 															class="item-loc-service" title="소장정보발송"
 															href="javascript:userRequest('sendsms','000151361197','1018413246','000AC4JL');"><span
 																class="char-icon char-icon-blue">M</span></a>
 													</span></td>
-												</tr>
+													<td>
+													<a href="/WEB-INF/views/rentalModal.jsp" class="nav-link" 
+																data-toggle="modal" data-target="#theModal">Modal</a>
+													</td>
+												</tr> 
 											</tbody>
 										</table>
 									</div>
@@ -465,7 +484,20 @@
 
 							</div>
 							<!-- .item-location-content -->
-
+<!-- Modal -->
+	<div class="modal fade" id="theModal" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header"></div>
+				<div class="modal-body">... remote content from "data-remote"
+					loads here ...</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
 							<!-- R=도서예약, B=간편대출, C=분관대출,  O=고서열람,  M=소장정보 -->
 							<div class="item-location-footer">
 								<div class="item-services text-right">
@@ -492,8 +524,7 @@
 										<p>${book.book_summary }</p>
 										<br /> <span>정보제공 : <a
 											href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=298570092&partner=openAPI&start=api"
-											target="_blank"><img src="img/aladin.png"
-												alt="Aladin"></a></span>
+											target="_blank"><img src="img/aladin.png" alt="Aladin"></a></span>
 									</div>
 									<!-- .inner-area -->
 								</div>
@@ -720,6 +751,34 @@
 						<!-- .item-newarrival-books.item-additional-info -->
 					</div>
 					<!-- .container -->
+					<div class="modal fade" id="item-user-request" tabindex="-1"
+						role="dialog" aria-labelledby="item-user-request-title"
+						aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="item-user-request-title">신청 제목</h5>
+									<button type="button" class="close reset-iframe-content"
+										data-dismiss="modal" aria-label="닫기">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
+								<div class="modal-body item-overview-info-block-body active"
+									id="modal-body-user-request">
+									테스트중
+									<!-- HTML Dynamic loading... -->
+									<<!-- iframe title="신청기능" src="/WEB-INF/views/rentalModal.jsp"
+										width="100%" height="100%" name="modal_user_request_iframe"
+										frameborder="0" id="iframe" onload="iframeLoaded()"></iframe> -->
+								</div>
+								<div class="modal-footer">
+									<button type="button"
+										class="btn btn-secondary reset-iframe-content"
+										data-dismiss="modal">닫기</button>
+								</div>
+							</div>
+						</div>
+					</div>
 		</div>
 		<!-- .item-detail-content -->
 

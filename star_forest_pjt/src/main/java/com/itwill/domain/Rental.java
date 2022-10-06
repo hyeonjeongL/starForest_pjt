@@ -6,7 +6,7 @@ public class Rental {
 	
 	int rental_no;
 	Date rental_date;
-	Date rental_duedate;
+	Date return_duedate;
 	Date return_date;
 	int rental_status;
 	int book_no;
@@ -16,12 +16,12 @@ public class Rental {
 	}
 	
 	
-	public Rental(int rental_no, Date rental_date, Date rental_duedate, Date return_date, int rental_status,
+	public Rental(int rental_no, Date rental_date, Date return_duedate, Date return_date, int rental_status,
 			int book_no, String user_id) {
 		super();
 		this.rental_no = rental_no;
 		this.rental_date = rental_date;
-		this.rental_duedate = rental_duedate;
+		this.return_duedate = return_duedate;
 		this.return_date = return_date;
 		this.rental_status = rental_status;
 		this.book_no = book_no;
@@ -49,13 +49,13 @@ public class Rental {
 	}
 
 
-	public Date getRental_duedate() {
-		return rental_duedate;
+	public Date getReturn_duedate() {
+		return return_duedate;
 	}
 
 
-	public void setRental_duedate(Date rental_duedate) {
-		this.rental_duedate = rental_duedate;
+	public void setReturn_duedate(Date rental_duedate) {
+		this.return_duedate = rental_duedate;
 	}
 
 
@@ -101,7 +101,7 @@ public class Rental {
 
 	@Override
 	public String toString() {
-		return "Rental [rental_no=" + rental_no + ", rental_date=" + rental_date + ", rental_duedate=" + rental_duedate
+		return "Rental [rental_no=" + rental_no + ", rental_date=" + rental_date + ", rental_duedate=" + return_duedate
 				+ ", return_date=" + return_date + ", rental_status=" + rental_status + ", book_no=" + book_no
 				+ ", user_id=" + user_id + "]";
 	}

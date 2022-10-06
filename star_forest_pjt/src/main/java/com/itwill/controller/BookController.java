@@ -34,7 +34,7 @@ public class BookController {
 				model.addAttribute("rental_status", "대출가능");
 			}else if(book_qty==0 && book_res_cnt<=4 ) {
 				model.addAttribute("rental_status", "대출중");
-				model.addAttribute("res_status", "예약가능");
+				model.addAttribute("res_status", "예약가능 ("+book_res_cnt+"명 예약중)");
 			}else if(book_qty==0 && book_res_cnt==5) {
 				model.addAttribute("rental_status", "예약불가");
 				model.addAttribute("res_status", "예약한도초과");

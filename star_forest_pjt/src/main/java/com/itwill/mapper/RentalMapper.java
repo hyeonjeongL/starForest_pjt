@@ -19,9 +19,9 @@ public interface RentalMapper {
 	
 	/** 대여 시 insert*/
 	@Insert("insert into rental (rental_no,rental_date,return_duedate,"
-			+ "					 return_date,rental_status,book_no,user_id) "
+							  + "return_date,rental_status,book_no,user_id) "
 			+ "values(#{rental_no},#{rental_date},#{return_duedate},#{return_date},"
-			+ "		  #{rental_status},#{book_no},#{user_id})")
+			+ "#{rental_status},#{book_no},#{user_id})")
 	public int insertRental(Rental rental);
 	
 	/** 대여 기간 연장*/

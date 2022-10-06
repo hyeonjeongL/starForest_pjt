@@ -18,3 +18,9 @@ request_board css
     border-bottom: 1px solid #444444;
     padding: 10px;
   }
+  
+  .btn_write{
+  	float: right;
+  	margin-right: 250px;
+  	margin-top: 20px;
+  }

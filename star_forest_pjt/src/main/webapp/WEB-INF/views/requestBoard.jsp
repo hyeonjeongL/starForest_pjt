@@ -39,7 +39,15 @@
 	<script type="text/javascript" src="js/star_forest/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
-		
+		$.ajax({
+			url:'request_list_json',
+			method:'GET',
+			success:function(jsonResult){
+				var requestArray = jsonResult.data;
+				console.log(requestArray);
+				$('#requestBoard_wrap').html(request_list_content(requestArray));
+			}
+		});
 		
 		$(document).on('click','#menu_RequestBoard',function(e){
 			$.ajax({
@@ -85,17 +93,25 @@
 		</header>
 
 		<!-- MAIN SECTION -->
+		&nbsp;&nbsp;&nbsp;
 		<div id="requestBoard_wrap">
 		
 		
 		
-		</div>
 		
+		
+		</div>
+		<div>
+		<input type="button" class="btn_write" value="희망도서 신청하기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
 		
 		
 			<!-- pageContent끝 -->
 		<!-- .footer-navigation -->
 	<!-- footer start-->
+	&nbsp;
+	&nbsp;
+	&nbsp;
 	<div id="navigation">
 		<!-- include_common_left.jsp start-->
 		<jsp:include page="common/include_common_bottom_templateVer.jsp" />

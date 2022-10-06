@@ -199,12 +199,13 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
                   <li class="list-group-item active"><a href="SearchList">전체 도서</a>
 	                  <ul class="low">
-		                  <li><a href="SearchList?100">100 건강/취미/레저</a></li>
-		                  <li><a href="SearchList?200">200 경제경영</a></li>
-		                  <li><a href="SearchList?300">300 고전</a></li>
-		                  <li><a href="SearchList?400">400 과학</a></li>
-		                  <li><a href="SearchList?500">600 사회과학</a></li>
-		                  <li><a href="SearchList?700">700 소설/시/희곡</a></li>
+		                  <li><a href="/SearchList/list?c=100&l=2">100 건강/취미/레저</a></li>
+		                  <li><a href="/SearchList/list?c=200&l=2">200 경제경영</a></li>
+		                  <li><a href="/SearchList/list?c=300&l=2">300 고전</a></li>
+		                  <li><a href="/SearchList/list?c=400&l=2">400 과학</a></li>
+		                  <li><a href="/SearchList/list?c=500&l=2">500 만화</a></li>
+		                  <li><a href="/SearchList/list?c=600&l=2">600 사회과학</a></li>
+		                  <li><a href="/SearchList/list?c=700&l=2">700 소설/시/희곡</a></li>
 	                  </ul>
                   </li>
                   <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
@@ -218,7 +219,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 					<!-- 메인내용 -->
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
-				<select data-trigger="" name="searchType">
+				<select data-trigger="" name="search">
 										<option value="all">통합</option>
 										<option value="title">제목</option>
 										<option value="category_name">분야</option>

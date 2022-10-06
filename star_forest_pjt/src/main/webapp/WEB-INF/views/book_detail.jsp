@@ -80,12 +80,16 @@
 <script type='text/javascript'
 	src='https://library.korea.ac.kr/wp-includes/js/wp-embed.min.js?ver=5.5.10'
 	id='wp-embed-js'></script>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"
+	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 </head>
 
 
 <body
 	class="page-template page-template-page-without-title page-template-page-without-title-php page page-id-2053 logged-in wp-custom-logo wp-embed-responsive has-fixed-top singular image-filters-enabled elementor-default elementor-kit-14083">
-<!-- Modal -->
+	<!-- Modal -->
 	<div class="modal fade" id="theModal" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -166,10 +170,8 @@
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main">
 
-
 				<article id="post-2053"
 					class="post-2053 page type-page status-publish hentry entry">
-
 
 					<header class="entry-header">
 
@@ -189,18 +191,13 @@
 							<h1 class="entry-title">상세정보</h1>
 						</div>
 						<!-- .entry-header-bar -->
-
-
 					</header>
 
 					<script>
-						var userRequest = function(cmd, accessno, mainno,
-								location) { // 2020.03.04 추가 - 각종 이용자 신청 처리		// 2020.05.29 함수 수신부에 분관코드(location) 파라미터 추가
+						var userRequest = function(cmd) { // 2020.03.04 추가 - 각종 이용자 신청 처리
 							var url = '';
-							if (cmd == "brief") {
-								url = "/loan-request-brief/?accessno="
-										+ accessno + "&mainno=" + mainno
-										+ "&location=" + location; // 2020.05.29 요청시 분관코드(location) 파라미터 추가
+							if (cmd == "rental") {
+								url = "/WEB-INF/views/rentalModalJson.jsp"; 
 								var title = "도서 대출 신청";
 								document
 										.getElementById("item-user-request-title").innerHTML = title;
@@ -228,33 +225,11 @@
 						jQuery(function($) {
 							$(".reset-iframe-content")
 									.click(
-											function(e) { // 2020.03.09 추가 - 각종 서비스 신청 페이지 리셋
-												modal_user_request_iframe.location.href = "/n2app/public/layer_blank.html";
+											function(e) { // 각종 서비스 신청 페이지 리셋
+												modal_user_request_iframe.location.href = "/WEB-INF/views/rentalModal.jsp";
 											});
 
-							$(".item-add-trigger")
-									.click(
-											function(e) { // 2020.03.23 추가 - 내 서재에 아이템 추가 기능
-												var execUrl = "/apitools/?cmd=mylib&section=MYI&directive=II"
-														+ "&folder_id="
-														+ $(this).attr(
-																'folder-val')
-														+ "&sysd="
-														+ $(this).attr(
-																'sysd-val')
-														+ "&ctrl="
-														+ $(this).attr(
-																'ctrl-val')
-														+ "&accessKey=tD3BOn8l7Ao2IbLceYzu";
-												var getdata = getajax(execUrl);
-												if (getdata['success'] === true) {
-													alert(getdata['message']);
-													location.reload();
-												} else {
-													alert(getdata['message']);
-												}
-											});
-						});
+							
 					</script>
 
 					<div class="container">
@@ -312,19 +287,8 @@
 
 									<div
 										class="item-functions flex-shrink-0 d-flex justify-content-center justify-content-lg-end">
-										<a
-											href="/n2app/public/export.php?fmt=endnote&cid=CAT000046124897&ctype=m"
-											role="button" class="item-tooltip" data-toggle="tooltip"
-											data-placement="bottom" title="EndNote"><svg
-												class="svg-icon" width="24" height="24" aria-hidden="true"
-												role="img" focusable="false"
-												xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-															<path d="M0 0h24v24H0z" fill="none"></path>
-															<path
-													d="M21.354,17.021l-0.705-0.119c-0.073-0.236-0.168-0.467-0.283-0.686l0.416-0.58 c0.176-0.248,0.15-0.586-0.067-0.799l-0.625-0.627c-0.118-0.117-0.272-0.182-0.439-0.182c-0.13,0-0.255,0.04-0.359,0.115 l-0.582,0.415c-0.228-0.12-0.465-0.218-0.71-0.292l-0.119-0.697c-0.049-0.299-0.309-0.518-0.613-0.518h-0.883 c-0.305,0-0.561,0.219-0.611,0.518l-0.123,0.715c-0.235,0.072-0.463,0.17-0.683,0.287l-0.577-0.414 c-0.104-0.076-0.23-0.117-0.36-0.117c-0.166,0-0.322,0.064-0.438,0.183l-0.628,0.626c-0.212,0.214-0.243,0.551-0.067,0.801 l0.42,0.588c-0.115,0.221-0.209,0.449-0.279,0.688l-0.697,0.117c-0.3,0.051-0.518,0.309-0.518,0.613v0.883 c0,0.305,0.218,0.562,0.518,0.613l0.715,0.121c0.073,0.236,0.171,0.465,0.288,0.684l-0.414,0.574 c-0.176,0.248-0.15,0.586,0.066,0.801l0.626,0.625c0.118,0.117,0.273,0.182,0.439,0.182c0.129,0,0.253-0.039,0.357-0.115l0.591-0.42 c0.212,0.112,0.433,0.201,0.664,0.273l0.117,0.706c0.05,0.301,0.309,0.52,0.611,0.52h0.887c0.305,0,0.562-0.219,0.613-0.52 l0.119-0.706c0.237-0.072,0.468-0.168,0.685-0.283l0.582,0.415c0.104,0.076,0.229,0.116,0.359,0.116l0,0 c0.165,0,0.32-0.066,0.438-0.184l0.627-0.625c0.215-0.213,0.244-0.553,0.066-0.8l-0.415-0.585c0.114-0.219,0.212-0.448,0.285-0.683 l0.704-0.118c0.3-0.051,0.518-0.309,0.518-0.613v-0.883C21.872,17.33,21.653,17.072,21.354,17.021z M16.845,20.005 c-1.063,0-1.93-0.864-1.93-1.929c0-1.066,0.866-1.931,1.93-1.931c1.066,0,1.931,0.864,1.931,1.931 C18.775,19.141,17.911,20.005,16.845,20.005z M16.308,11.246H7.328c-0.481,0-0.872-0.391-0.872-0.872s0.391-0.871,0.872-0.871h8.979 c0.481,0,0.872,0.39,0.872,0.871S16.789,11.246,16.308,11.246z M10.582,12.989c0.482,0,0.872,0.391,0.872,0.872 s-0.39,0.871-0.872,0.871H7.328c-0.481,0-0.872-0.39-0.872-0.871s0.391-0.872,0.872-0.872H10.582z M10.95,22.23 c0,0.481-0.39,0.872-0.871,0.872H6.461c-1.922,0-3.487-1.565-3.487-3.488V4.272c0-1.922,1.565-3.486,3.487-3.486H17.18 c1.922,0,3.486,1.564,3.486,3.486v6.362c0,0.48-0.391,0.871-0.872,0.871s-0.871-0.391-0.871-0.871V4.272 c0-0.962-0.782-1.743-1.743-1.743H6.461c-0.961,0-1.743,0.781-1.743,1.743v15.342c0,0.961,0.782,1.743,1.743,1.743h3.618 C10.561,21.357,10.95,21.748,10.95,22.23z M17.18,6.888c0,0.48-0.391,0.871-0.872,0.871H7.328c-0.481,0-0.872-0.391-0.872-0.871 c0-0.482,0.391-0.873,0.872-0.873h8.979C16.789,6.015,17.18,6.406,17.18,6.888z"></path></svg></a>
 										<span class="item-modal" data-toggle="modal"
-											data-target="#item-user-request"> <a
-											href="#theModal"
+											data-target="#item-user-request"> <a href="#theModal"
 											role="button" class="item-tooltip" data-toggle="tooltip"
 											data-placement="bottom" title="SNS 공유"><svg
 													class="svg-icon" width="24" height="24" aria-hidden="true"
@@ -479,28 +443,36 @@
 													<td><span class="th-item">도서상태</span> ${rental_status}</td>
 													<td><span class="th-item">반납예정일</span>
 														${rental_duedate.substring(0,10)}</td>
-													<td><span class="th-item">예약</span>
-														${res_status}
-														<span class="item-modal" data-toggle="modal" data-target="#item-user-request">
-													<a class="item-loc-service" title="도서예약신청" href="javascript:userRequest('reserve','000121257791','1016743106','000AC2SL');">
-													<span class="char-icon" data-remote="/WEB-INF/views/rentalModal.jsp">R</span></a>
-												</span>
-														</td>
+													<td><span class="th-item">예약</span> ${res_status} <span
+														class="item-modal" data-toggle="modal"
+														data-target="#item-user-request"> <a
+															class="item-loc-service" title="도서예약신청"
+															href="javascript:userRequest('reserve','000121257791','1016743106','000AC2SL');">
+																<span class="char-icon"
+																data-remote="/WEB-INF/views/rentalModal.jsp">R</span>
+														</a>
+													</span></td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->
 													<td><span class="th-item">서비스</span> <span
 														class="item-modal" data-toggle="modal"
-														data-target="#item-user-request" data-remote="/WEB-INF/views/rentalModal.jsp"
-														> <a
+														data-target="#item-user-request"> <a
+															class="item-loc-service" title="간편대출신청"
+															href="javascript:userRequest('rental');"><span
+																class="char-icon char-icon-magenta">B</span></a>
+													</span> <span class="item-modal" data-toggle="modal"
+														data-target="#item-user-request"
+														data-remote="/WEB-INF/views/rentalModal.jsp"> <a
 															class="item-loc-service" title="소장정보발송"
 															href="javascript:userRequest('sendsms','000151361197','1018413246','000AC4JL');"><span
 																class="char-icon char-icon-blue">M</span></a>
 													</span></td>
-													<td>
+													<!-- 모달 테스트 -->
+													<!-- <td>
 													<a href="/WEB-INF/views/rentalModal.jsp" class="nav-link" 
 																data-toggle="modal" data-target="#theModal">Modal</a>
-													</td>
-												</tr> 
+													</td> -->
+												</tr>
 											</tbody>
 										</table>
 									</div>
@@ -515,9 +487,10 @@
 							<!-- R=도서예약, B=간편대출, C=분관대출,  O=고서열람,  M=소장정보 -->
 							<div class="item-location-footer">
 								<div class="item-services text-right">
-									<span><span class="char-icon char-icon">R</span> 도서예약</span> <span><span
-										class="char-icon char-icon-magenta">B</span> 간편대출</span> <span><span
-										class="char-icon char-icon-blue">M</span> 소장정보</span>
+									<span><span class="char-icon char-icon">R</span> 도서예약</span> 
+									<span><span class="char-icon char-icon-magenta">B</span> 간편대출</span> 
+									<span><span class="char-icon char-icon-blue">M</span> 소장정보</span>
+									<span><span class="char-icon char-icon-BLACK">D</span> 메롱</span>
 								</div>
 							</div>
 							<!-- .item-location-footer -->
@@ -781,7 +754,8 @@
 									id="modal-body-user-request">
 									테스트중
 									<!-- HTML Dynamic loading... -->
-									<<!-- iframe title="신청기능" src="/WEB-INF/views/rentalModal.jsp"
+									<
+									<!-- iframe title="신청기능" src="/WEB-INF/views/rentalModal.jsp"
 										width="100%" height="100%" name="modal_user_request_iframe"
 										frameborder="0" id="iframe" onload="iframeLoaded()"></iframe> -->
 								</div>

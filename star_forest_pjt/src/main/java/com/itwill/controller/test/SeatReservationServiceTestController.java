@@ -28,8 +28,11 @@ public class SeatReservationServiceTestController {
 	      ConfigurableApplicationContext context=application.run(args);
 	      SeatReservationService seatReservationService=(SeatReservationService)context.getBean(SeatReservationService.class);
 	      //System.out.println(seatReservationDao.reservation(new SeatReservation("C01", null, null, null, 0, "hyeonjeong")));
-	      int rowCount = seatReservationService.reservation(new SeatReservation("A01", null, null, null, 0, "soyoon"));
-	      System.out.println(rowCount);
+	      //int rowCount = seatReservationService.reservation(new SeatReservation("A01", null, null, null, 0, "soyoon"));
+	      //System.out.println(rowCount);
 	      //좌석 테스트 완료
+	      
+	      SeatReservation seat= seatReservationService.selectTimeUsingSeat("B01");
+	      System.out.println(seat.seat_date);
 	   }
 }

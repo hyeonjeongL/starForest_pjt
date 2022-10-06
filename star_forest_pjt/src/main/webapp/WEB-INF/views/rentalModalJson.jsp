@@ -97,4 +97,74 @@
 
 
 </body>
-</html> -->
+</html> 
+
+
+<html lang="ko-KR"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>소장정보 모바일(알림톡/SMS) 발송 신청</title>
+<script src="/wp-includes/js/jquery/jquery.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli%3A400%2C500%2C700%7CNoto+Sans+KR%3A400%2C500%2C700&amp;display=swap&amp;ver=5.3.2" type="text/css" media="all">
+<link rel="stylesheet" href="/wp-content/themes/kulib/plugins/bootstrap/css/bootstrap.css" type="text/css" media="all">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css?ver=5.9.0" type="text/css" media="all">
+<link rel="stylesheet" href="/wp-content/themes/kulib/style.css" type="text/css" media="all">
+<script>
+	var url = "/send-sms/?cmd=request&apikey=egY5cMuhlF8N3sTXD4Af&accessno=000131055284&mainno=1016448558";
+
+
+	jQuery(function($) {
+		$(".submit-request").click(function(e) {
+			window.location.replace(url);
+			return;
+		});
+
+	});
+
+
+</script></head>
+
+
+
+<body class="modal-page">
+	
+	<div class="container">
+
+		<div class="entry-content">
+
+			
+			<div class="content-d">
+				<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 소장정보 모바일(알림톡/SMS) 발송 서비스</h4>
+				<div class="content-l">
+					<h5>소장정보</h5>
+					<ul>
+						<li>도서정보: 소크라테스 익스프레스 : 철학이 우리 인생에 스며드는 순간 / Weiner, Eric</li>
+						<li>출판정보: 어크로스 (2021)</li>						
+						<li>청구기호: 102 2021z3</li>
+						<li>소장정보: 의학도서관/자료실(3층)/신착</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="content-d">
+				<div class="content-l">
+					<h5>수신번호 : 010-3329-****</h5>
+					<div class="content-desc">
+						※ 수신번호 변경 방법<br>-포털 아이디 이용자 : 학교 포털사이트(http://portal.korea.ac.kr/)에서 직접 변경 <br>- 도서관 아이디 이용자 : 도서관 홈페이지 로그인 후 [내 정보 변경] 페이지에서 직접 변경
+					</div>
+				</div>
+			</div>
+			
+			<div class="content-d d-flex justify-content-center">
+				<button type="button" class="btn btn-primary submit-request">신청</button>
+			</div>
+
+			
+		</div>
+
+	</div>
+
+
+
+</body></html>
+
+-->

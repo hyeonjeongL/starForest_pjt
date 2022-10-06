@@ -1,7 +1,10 @@
 package com.itwill.controller;
 
+import java.io.FileOutputStream;
+import java.sql.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +14,26 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.itwill.service.UserSha256;
 import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.User;
+import com.itwill.repository.UserDao;
 import com.itwill.service.UserService2;
 
 @Controller
 public class UserInfoController2 {
+	
+	@Autowired
+	private UserDao userDao;
+	
+	public void setUserDao(UserDao userDao) {
+		this.userDao= userDao;
+	}
+	
 @Autowired
 private UserService2 userService2;
 
@@ -76,6 +92,76 @@ public String user_view_myinfo(HttpSession session,Model model) throws Exception
 	*/
 	return "account-profile";
 }
+/*
+//회원가입FORM
+@RequestMapping(value="/insertCustomer", method=RequestMethod.GET)
+public void insertCustomer() {
+   
+}
 
+//회원가입 ok
+
+@RequestMapping(value="/insertCustomer.do", method=RequestMethod.POST)
+public ModelAndView insertCustomerOk(User u, HttpServletRequest request, MultipartFile uploadFile, HttpSession session) {
+   ModelAndView mav = new ModelAndView("redirect:/insertCustomerSuccess.do");
+   
+   // 파일 업로드
+   
+   //비밀번호 암호화:SHA-256
+   System.out.println("원래암호: " + u.getUser_password());
+   String encPW = UserSha256.encrypt(u.getUser_password());
+  u.setUser_password(encPW);
+   System.out.println("바뀐암호: " + u.getUser_password());
+   
+   //주소addr1
+  // String addr1 = request.getParameter("addr1_a") + "," + request.getParameter("addr1_b");
+  // u.setAddr(addr1);
+   
+   //주소addr2
+  // String addr2 = request.getParameter("addr2_a") + "," + request.getParameter("addr2_b");
+  // u.setAddr2(addr2);
+   
+   
+   //생일(있었는데요... 없었습니다)
+   u.setUser_birth(String.valueOf("2020-01-01"));
+   
+   //매니저
+ // u.setManager("N");
+   
+   //장르선택
+   String[] values = request.getParameterValues("category_no");
+ 		String category_no = "";
+ 	
+ 		for (int i = 0; i < values.length; i++) {
+ 			if (i == values.length-1) {
+ 				category_no += values[i];
+ 			} else {
+ 				category_no += (values[i] + ",");
+ 			}
+ 		}
+ 	 
+ 		//u.setCategory_no(category_no);
+   
+   //int re = userDao.create(u);
+   
+  // session.setAttribute("email", c.getEmail());
+   
+   
+   //마이라이브러리 생성 
+   My_libraryVO ml = new My_libraryVO();
+   ml.setMl_no(c.getCust_no());
+   ml.setCust_no(c.getCust_no());
+   dao.insertMy_Library(ml);
+
+ 		
+   if(re<0) {
+ 	 mav.addObject("msg", "회원가입이 정상적으로 처리되지 않았습니다.");
+      mav.setViewName("/error");
+   }
+   
+   return mav;
+ 		 
+}
+*/
 
 }

@@ -1,0 +1,572 @@
+/*
+bg-light #f8f9fa
+bg-dark #343a40
+
+btn-success #28A745
+btn-secondary #6C757D
+
+스프링 연 #75BD43
+스프링 진 #107637
+*/
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#phone_a{
+	cursor: pointer;
+}
+
+.page-link{
+   color: #343a40;
+}
+
+.page-link:hover{
+   color: #107637;
+}
+
+.page-item.active .page-link{
+   background-color: #75BD43;
+   border-color: #75BD43;
+}
+
+img, .paging-num{
+	cursor: pointer;
+}
+ .paging a.paging-num:hover{
+	text-decoration: underline;
+}
+@media all and (min-width: 992px) {
+  .navbar .nav-item .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    margin-top: 0;
+  }
+  .navbar .dropdown-menu.fade-down {
+    top: 80%;
+    transform: rotateX(-75deg);
+    transform-origin: 0% 0%;
+  }
+  .navbar .dropdown-menu.fade-up {
+    top: 180%;
+  }
+  .navbar .nav-item:hover .dropdown-menu {
+    transition: 0.3s;
+    opacity: 1;
+    visibility: visible;
+    top: 100%;
+    transform: rotateX(0deg);
+  }
+}
+
+
+.dropdown-item{
+	font-weight: 300;
+}
+
+b{
+	font-weight: 500;
+}
+
+.icons {
+  height: 15px;
+}
+
+#home-icons p {
+  font-size: 14px;
+}
+
+.navbar .nav-link {
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
+
+.carousel-item {
+  height: inherit;
+}
+
+.carousel-image-1 {
+  background: url('../img//home/ad1.png');
+  background-color: cadetblue;
+  background-size: cover;
+}
+
+.carousel-image-2 {
+  background: url('../img//home/ad2.png');
+  background-color: darkgoldenrod;
+  background-size: cover;
+}
+
+.carousel-image-3 {
+  background: url('../img/home/ad3.png');
+  background-color: darkseagreen;
+  background-size: cover;
+}
+
+#home-heading {
+  position: relative;
+  min-height: 600px;
+  background: url('../img/ex6.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  text-align: center;
+  color: #fff;
+  padding-top: 200px;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1C9249;
+}
+
+#video-play {
+  position: relative;
+  min-height: 200px;
+  background: url('../img/media.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: 0 -300px;
+  text-align: center;
+  color: #fff;
+}
+
+#video-play a {
+  color: #fff;
+}
+
+#page-header {
+  position: relative;
+  height: 180px;
+  background: url('../img/library3.png');
+  background-position: 0 -360px;
+  background-attachment: fixed;
+  color: #fff;
+  border-bottom: 1px #eee solid;
+  padding-top: 50px;
+}
+
+.page-header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.about-img {
+  margin-top: -50px;
+}
+
+#faq .card {
+  border: #444;
+}
+
+#faq a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#faq .card-body,
+#faq .card-header {
+  background: #333;
+}
+
+#main-footer p {
+  background-color: #107637;
+  color: #fff;
+  flex-shrink: none;
+  font-size: 14px;
+}
+
+/*  ------------------------------------------- */
+/*    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      */
+/*    !!!!!!!  공통부분 추가 css 입니다  !!!!!!!      */
+/*    !!!!!!!      지우지 마세요       !!!!!!!      */
+/*    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      */
+/*  ------------------------------------------- */
+
+html, body{
+	height: 100%;
+}
+
+#page-content{
+	flex: 1 0 auto;
+	text-align: center;
+	
+}
+
+.sidebar {
+  border: 1px solid gainsboro;
+}
+.side-head {
+  background: linear-gradient(to bottom right, #75BD43, #107637);
+  padding: 40px;
+}
+.sidebar a{
+	color: #343a40;
+}
+
+.searchbar {
+  border-radius: 90px;
+  background: white;
+}
+
+.active a{
+	color: #107637;
+	font-weight: 500;	
+}
+
+.list-group .active{
+	background-color: #f8f9fa;
+	color: #343a40;
+	border-color: #d8d8d8;
+} 
+
+.btn {
+  border-radius: 25px;
+}
+
+.book-title {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: large;
+	font-weight: bold;
+}
+
+
+.tbody a{
+	color: #343a40;
+}
+
+.book-title {
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   font-size: medium;
+   font-weight: bold;
+}
+.book-writer{
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   font-size: small;
+}
+
+.footer-table *{
+	font-weight: 200;
+}
+.footer-table th{
+	border-right: 1px solid white;
+	padding-right:15px; 
+}
+.footer-table td{
+	padding-left: 15px;
+}
+.footer-table a{
+	padding-bottom: 10px;
+}
+
+/* 유림 추가 홈헤딩 START */
+
+#heroDesc,
+#heroDescKor {
+	text-align: right;
+	font-size: 13px;
+	margin-right: 20px;
+}
+
+#heroDesc {
+	margin-top: 168px;
+}
+
+#heroDescKor {
+	margin-top: -53px;
+	color: #DCDCDC;
+}
+/* 유림 추가 홈헤딩 END*/
+
+/* 유림 추가 사이트맵 START */
+.siteMapTitle {
+	text-align: center;
+	color: #107637;
+	font-weight: 500;
+}
+
+.siteMapAnchor {
+	color: black;
+/* 	font-family: 'Noto Sans KR', sans-serif; */
+	font-weight: 300;
+	font-size: 17px;
+	text-align: center;
+}
+
+.siteMapAnchor:hover {
+	color:#75BD43;
+}
+/* 유림 추가 사이트맵 END */
+
+
+/* 유림 추가 대출반납연장 START */
+.howtoText {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+.mobileTable.breakpoint > tbody > tr > td.expand {
+	padding:14px 23px 14px 10px;
+	background:url(../../../../image/ko/solution/common/ico/tableOn.png) no-repeat 97% 50%
+}
+.mobileTable.breakpoint > tbody > tr.footable-detail-show > td.expand {
+	background:url(../../../../image/ko/solution/common/ico/tableOff.png) no-repeat 97% 50%;
+}
+
+
+.mobileTable.breakpoint > tbody > tr > td.tableTit.expand {
+	padding:14px 23px 14px 10px;
+	background:url(../../../../image/ko/solution/common/ico/tableOn.png) no-repeat 97% 50% #f3f3f3;
+}
+.mobileTable.breakpoint > tbody > tr.footable-detail-show > td.tableTit.expand {
+	background:url(../../../../image/ko/solution/common/ico/tableOff.png) no-repeat 97% 50% #f3f3f3;
+}
+
+
+#listTable .footable-last-column{
+	padding-right:30px
+}
+.mobileTable.breakpoint > tbody > tr:hover:not(.footable-row-detail) {
+	cursor: pointer;
+}
+.mobileTable > tbody > tr > td.footable-cell-detail{
+	border-top:none;
+	border-left: none;
+}
+.mobileTable > thead{
+	display:none
+}
+.mobileTable > thead > tr > th.footable-first-column, .footable > thead > tr > td.footable-first-column,
+.mobileTable > tbody > tr > td.footable-first-column {
+	border-left: none;
+}
+.mobileTable > tbody img {
+	vertical-align:middle;
+}
+.mobileTable > tbody img.star{
+	width:75px;
+	height:14px
+}
+.mobileTable > tbody img.cover{
+	width:70px;
+	height:97px
+}
+
+.footable-row-detail-inner > div {
+}
+.footable-row-detail-inner > div > strong{display:inline-block;margin-right:10px;}
+.footable-row-detail-inner > div:first-child {
+	margin-top:0;
+}
+.footable-row-detail-inner > div{border-bottom: 1px solid #e2e2e2;}
+	
+
+.item-functions{
+	display:table-cell;
+	height:150px;
+	width:20%;
+}
+.col-lg-9 {
+    -ms-flex: 0 0 75%;
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+/*
+seat_reservation css
+*/
+.seat_wrap {
+	margin:auto;
+	width:100%;
+}
+#A_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:0;
+	margin-left:50px;
+	text-align: center;
+	align-content: center;
+	float:left;
+}
+.a-deck{
+	border: 1px solid; 
+	background-color: #FFC0CB; 
+	width:120px; 
+	float: left; 
+	margin-left:50px; 
+	margin-right: 20px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+#B_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:0;
+	margin-left:50px;
+	text-align: center;
+	align-content: center;
+	float:left;
+}
+.b-deck{
+	border: 1px solid; 
+	background-color: #FFC0CB; 
+	width:120px; 
+	float: left; 
+	margin-left:50px; 
+	margin-right: 20px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+#C_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:0;
+	margin-left:50px;
+	text-align: center;
+	align-content: center;
+	float:left;
+}
+.c-deck{
+	border: 1px solid; 
+	background-color: #FFC0CB; 
+	width:120px; 
+	float: left; 
+	margin-left:50px; 
+	margin-right: 20px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+#D_room {
+	width: 800px;
+	margin-top: 100px;
+	margin-bottom:0;
+	margin-left:50px;
+	text-align: center;
+	align-content: center;
+	float:left;
+}
+.d-deck{
+	border: 1px solid; 
+	background-color: #FFC0CB; 
+	width:120px; 
+	float: left; 
+	margin-left:50px; 
+	margin-right: 20px;
+	margin-top: 20px;
+	text-align: center;
+	align-content: center;
+}
+
+/*
+request_board css
+*/
+/* .requestBoard_wrap{
+	margin:auto;
+	margin-left:50px; 
+	width:120px;
+	height:200px;
+	align:center;
+	background-color: black;
+	
+}
+
+
+#table2 {
+	border-bottom: 1px;
+	color: pink;
+} */
+
+
+/****예지꺼 지우면 안되용******/
+.container table tr th {
+  text-align: center; 
+  vertical-align: middle; 
+  word-break: keep-all;
+  padding-right: 3em;
+}
+
+.container table tr td {
+  text-align: center; 
+  vertical-align: middle; 
+  word-break: keep-all;
+  padding-right: 3em;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+button {
+    margin: 10px;
+}
+
+.w-btn {
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: "paybooc-Light", sans-serif;
+    
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-outline {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 150x;
+    font-family: "paybooc-Light", sans-serif;
+   
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.w-btn-delete {
+    background-color: #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-delete-outline {
+    border: 3px solid #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-delete-outline:hover {
+    color: #4c552a;
+    background: #eef2dd;
+}
+
+/****************************/
+
+/**book_detail*/
+.table {
+    border-top: 2px solid #40a509;
+    font-size: .9rem;
+    font-weight: 400;
+}

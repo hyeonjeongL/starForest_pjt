@@ -5,10 +5,7 @@
 request.setCharacterEncoding("UTF-8");
 String searchType = request.getParameter("searchType");
 String keyword = request.getParameter("keyword");
-if(searchType==null|| searchType.equals("")){
-	response.sendRedirect("SearchResult");
-	return;
-}
+
 %>
 <!DOCTYPE html>
 <html>
@@ -40,6 +37,19 @@ if(searchType==null|| searchType.equals("")){
 	$(function() {
 		
 	});
+	
+	search();
+
+	// footer
+	$('#year').text(new Date().getFullYear());
+	
+	$('#search').click(function() {
+		$("#query").val($("#bookName").val());
+		$('.searchResult-body').children().remove();
+		$('.paging').children().remove();
+		search();
+	})
+});
 </script>
 
 <style type="text/css">
@@ -182,10 +192,10 @@ if(searchType==null|| searchType.equals("")){
 								<h4 class="text-light">도서검색</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-                  <li class="list-group-item active"><a href="SearchResult.do">도서검색</a></li>
-                  <li class="list-group-item"><a href="recommendedBooks.do">사서추천도서</a></li>
-                  <li class="list-group-item"><a href="Newbooks.do">신착도서</a></li>                  
-                  <li class="list-group-item"><a href="popularBook.do">이달의 인기도서</a></li>
+                  <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
+                  <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
+                  <li class="list-group-item"><a href="Newbooks">신착도서</a></li>                  
+                  <li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>
                </ul>
 						</div>
 					</div>
@@ -194,7 +204,7 @@ if(searchType==null|| searchType.equals("")){
 <!-- 메인내용 -->
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
-				<select data-trigger="" name="searchType">
+				<select data-trigger="" name="search">
 										<option value="all">통합</option>
 										<option value="title">제목</option>
 										<option value="category_name">분야</option>
@@ -266,9 +276,6 @@ if(searchType==null|| searchType.equals("")){
       <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
- <script type="text/javascript">
- <if test='searchType.equals("title")'>
-  </script>
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());

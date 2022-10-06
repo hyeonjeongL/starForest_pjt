@@ -63,15 +63,7 @@
 		});
 		
 		
-		$(document).on('click','#btn_write',function(e){
-			console.log('야');
-			$('requestBoard_wrap').html(request_write_form_content());
-			e.preventDefault();
-			
-		});
-		
 	});
-</script>
 </script>
 
 </head>
@@ -114,6 +106,7 @@
 		
 		
 			<!-- pageContent끝 -->
+			</div>
 		<!-- .footer-navigation -->
 	<!-- footer start-->
 	&nbsp;

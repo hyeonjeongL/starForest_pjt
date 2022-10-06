@@ -68,18 +68,18 @@
 		e.preventDefault();
 	});
 	
-	/***********user_logout_action************
+	/***********user_logout_action************/
 	$(document).on('click','#a_user_logout_action',function(e){
 		$.ajax({
 			url:'user_logout_action',
 			method:'POST',
 			dataType:'json',
 			success:function(jsonResult){
-				location.href='Home'; //특정 url넘겨서 화면전환하는 것/ reloading하는 것
+				$('#app').html(UserHtmlContents.user_logout_content());
 			}
 		});
 		e.preventDefault();
-	});*/
+	});
 	
 </script>
 
@@ -121,9 +121,9 @@
 			<!-- 로그인 폼 시작 -->
 			<form id="user_login_form" >
 				<div class="form-group mt-4">
-					<input style="font-color:red; id:msg1" class="form-control form-control-lg loginForm" type="text"
+					<input class="form-control form-control-lg loginForm" type="text"
 						id="user_id" name="user_id" placeholder="아이디"> 
-					<input style="font-color:red; id:msg2" class="form-control form-control-lg mt-2 loginForm"
+					<input class="form-control form-control-lg mt-2 loginForm"
 						type="password" id="user_password" name="user_password" placeholder="비밀번호"> 
 					<input type="hidden" name="loginOk" value="ok">
 					<button

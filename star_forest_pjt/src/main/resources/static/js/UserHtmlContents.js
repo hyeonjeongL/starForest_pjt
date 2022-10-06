@@ -37,7 +37,6 @@ UserHtmlContents.user_login_form_content = function() {
 				<div class="form-group mt-4">
 					<input class="form-control form-control-lg loginForm" type="id" id="id" name="id" placeholder="아이디"> 
 					<input class="form-control form-control-lg mt-2 loginForm" type="password" id="pw" name="pw" placeholder="비밀번호"> 
-					<input type="hidden" name="loginOk" value="ok">
 					<button class="btn btn-outline-success btn-lg btn-block mt-2 btn-Customer"
 						type="submit" id="btn_login_action">로그인</button>
 				</div>

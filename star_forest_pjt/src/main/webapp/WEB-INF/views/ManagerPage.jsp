@@ -25,8 +25,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
 <!-- 외부 CSS, JS 파일 링크 -->
-<link rel="stylesheet" href="css/HomeCSS.css">
-<script type="text/javascript" src="/js/HomeJS.js"></script>
+<link rel="stylesheet" href="static/css/HomeCSS.css">
+<script type="text/javascript" src="static//js/HomeJS.js"></script>
 
 
 <style type="text/css">

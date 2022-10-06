@@ -1,11 +1,17 @@
 function UserHtmlContents() {
 }
-UserHtmlContents.user_login_content = function() {
-	return `<li class="nav-item" v-bind:title="logout">
+UserHtmlContents.user_login_content = function(user) {
+	return `
+			<li>
+				<a href=""></a>
+				<p class="user_name">${user.user_name}님</p>
+			</li>
+	<li class="nav-item" v-bind:title="logout">
 				<a href="logout" class="nav-link" id="a_user_logout_action">
 					<i class="fas fa-sign-out-alt"></i></a>
 					<p class="sr-only">로그아웃</p>
 			</li>
+			
 	`;
 }
 UserHtmlContents.user_logout_content = function() {
@@ -115,7 +121,8 @@ UserHtmlContents.user_write_form_content = function() {
 	`;
 }
 UserHtmlContents.user_main_content=function(){
-	return ` <section id="home-heading" class="p-4 noto-serif">
+	return `  
+	<section id="home-heading" class="p-4 noto-serif">
       <div class="dark-overlay">
          <div class="row">
             <div class="col">
@@ -141,6 +148,9 @@ UserHtmlContents.user_main_content=function(){
          <p id="heroDesc">Admont Abbey Library, Admont, Austria</p>
          <p id="heroDescKor">아드몬트 수도원 도서관, 아드몬트, 오스트리아</p>
       </div>
+
    </section>
+
+   
 	`;
 }

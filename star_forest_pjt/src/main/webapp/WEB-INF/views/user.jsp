@@ -44,40 +44,30 @@
 	});
 
 	/*********user_login_action***********/
-	$(document)
-			.on(
-					'click',
-					'#btn_login_action',
-					function(e) {
-						$
-								.ajax({
-									url : 'user_login_action',
-									method : 'POST',
-									dataType : 'json',
-									data : $("#user_login_form").serialize(),
-									dataType : "json",
-									success : function(jsonResult) {
-										if (jsonResult.code == 0) {
-											console.log(jsonResult);
-										} else if (jsonResult.code == 1) {
-											console.log(jsonResult);
-										} else if (jsonResult.code == 2) {
-											$('#navigation')
-													.html(
-															UserHtmlContents
-																	.user_login_content(jsonResult.data[0]));
-											$('#page-header')
-													.html(
-															UserHtmlContents
-																	.user_main_content());
+	$(document).on('click','#btn_login_action',function(e) {
+		$.ajax({
+			url : 'user_login_action',
+			method : 'POST',
+			dataType : 'json',
+			data : $("#user_login_form").serialize(),
+			dataType : "json",
+			success : function(jsonResult) {
+				if (jsonResult.code == 0) {
+					console.log(jsonResult);
+				} else if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				} else if (jsonResult.code == 2) {
+					$('#app')
+							.html(UserHtmlContents.user_login_content(jsonResult.data[0]));
+					$('#page-header')
+							.html(UserHtmlContents.user_main_content());
+					console.log("성공");
+				}
+			}
+		});
 
-											console.log("성공");
-										}
-									}
-								});
-
-						e.preventDefault();
-					});
+		e.preventDefault();
+	});
 </script>
 
 <title>로그인 - 별숲도서관</title>

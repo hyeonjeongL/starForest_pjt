@@ -17,7 +17,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="static/css/style.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script type="text/javascript"	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript">

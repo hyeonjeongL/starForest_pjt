@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
 import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.repository.RequestBoardDao;
@@ -66,6 +67,11 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	@Override
 	public List<RequestBoard> selectAll() throws Exception {
 		return requestBoardDao.selectAll();
+	}
+	
+	@Override
+	public List<BookCategory> selectCategoryAll() throws Exception {
+		return requestBoardDao.selectCategoryAll();
 	}
 
 	@Override

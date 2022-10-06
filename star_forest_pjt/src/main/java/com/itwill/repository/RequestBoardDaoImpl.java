@@ -10,6 +10,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
 import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.mapper.RequestBoardMapper;
@@ -69,6 +70,11 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	@Override
 	public List<RequestBoard> selectAll() throws Exception {
 		return requestBoardMapper.selectAll();
+	}
+	
+	@Override
+	public List<BookCategory> selectCategoryAll() throws Exception {
+		return requestBoardMapper.selectCategoryAll();
 	}
 
 	@Override

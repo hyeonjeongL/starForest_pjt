@@ -2,7 +2,7 @@ package com.itwill.service;
 
 import java.util.List;
 
-
+import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
 import com.itwill.domain.RequestBoardListPageMaker;
 public interface RequestBoardService {
@@ -32,6 +32,9 @@ public interface RequestBoardService {
 			
 			//게시물 전체 리스트
 			List<RequestBoard> selectAll() throws Exception;
+			
+			//카테고리 전체 리스트
+			List<BookCategory> selectCategoryAll() throws Exception;
 			
 			//게시물 총 갯수
 			int countAll() throws Exception;

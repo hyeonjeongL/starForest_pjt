@@ -1,4 +1,5 @@
 <%@page import="com.itwill.domain.RequestBoard" %>
+<%@page import="com.itwill.domain.BookCategory" %>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -43,7 +44,6 @@
 		
 	});
 </script>
-</script>
 
 </head>
 <body class="d-flex flex-column">
@@ -72,18 +72,85 @@
 
 		<!-- MAIN SECTION -->
 		&nbsp;&nbsp;&nbsp;
-		<div id="requestBoard_write_wrap">
-		
-		
-		
-		
+		<div id="requestBoard_write_wrap" style="width:800px;">
+			<table width="800">
+			<tbody>
+					<tr>
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
+											방명록 쓰기</b></td>
+				    </tr>
+			</tbody>
+			</table> 
+			<!-- request write Form  -->
+						<form id="request_write_form" name="f" method="post">
+							<table border="0" cellpadding="0" cellspacing="1" width="590"
+								bgcolor="BBBBBB">
+								<tbody>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px"><input type="text"
+											style="width: 150" name="guest_name"></td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">이메일</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px"><input type="text"
+											style="width: 150" name="guest_email"></td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px">
+											<select>
+												<option selected>신청접수</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px"><input type="text"
+											style="width: 240" name="guest_title"></td>
+									</tr>
+									
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">신청도서 카테고리</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px">
+											<select>
+											<c:forEach items="${categoryList}" var="category">
+												<option>${category.category_name}</option>	
+											</c:forEach>
+												<option>기타</option>	
+											</select>
+											</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px">
+				
+											<textarea wrap="soft"
+												style="width: 500px" rows="10" name="request_content">
+******************************				
+신청 양식
+******************************
+책 제목 :
+저자    :
+사유    :
+												</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form> <br>
+						<input type="button" value="확인" id="btn_guest_write_action"> &nbsp; 
+						<input type="button" id="btn_guest_list" value="목록">
+								
 		
 		</div>
-		<div>
-		<input type="button" id="btn_write_action" value="확인">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		</div>
-		
-		
+	</div>
 			<!-- pageContent끝 -->
 		<!-- .footer-navigation -->
 	<!-- footer start-->

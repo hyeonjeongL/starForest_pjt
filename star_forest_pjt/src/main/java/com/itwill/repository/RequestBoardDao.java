@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import org.springframework.stereotype.Repository;
 
+import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
 import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.util.PageMaker;
@@ -38,6 +39,9 @@ public interface RequestBoardDao {
 		
 		//게시물 전체 리스트
 		List<RequestBoard> selectAll() throws Exception;
+		
+		//카테고리 전체 리스트
+		List<BookCategory> selectCategoryAll() throws Exception;
 		
 		//게시물 총 갯수
 		int countAll() throws Exception;

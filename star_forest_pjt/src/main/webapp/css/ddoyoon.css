@@ -8,6 +8,13 @@ request_board css
 	
 }
 
+#requestBoard_write_wrap{
+	margin:auto;
+	text-align: center;
+	width:800px;
+	
+}
+
 
  table {
     width: 100%;
@@ -21,6 +28,6 @@ request_board css
   
   #btn_write{
   	float: right;
-  	margin-right: 250px;
+  	margin-right: 560px;
   	margin-top: 20px;
   }

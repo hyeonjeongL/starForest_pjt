@@ -4,6 +4,7 @@ import java.util.List;
 
 
 
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -12,6 +13,7 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoardListPageMaker;
 
 @Mapper
@@ -77,6 +79,10 @@ public interface RequestBoardMapper {
 			+ "	request_board\r\n"
 			+ "	order by groupno desc, board_step asc")
 	public List<RequestBoard> selectAll();
+	
+	//카테고리 리스트
+	@Select("select * from book_category")
+	public List<BookCategory> selectCategoryAll();
 	
 	//게시물 총 갯수
 	@Select("select count(*)\r\n"

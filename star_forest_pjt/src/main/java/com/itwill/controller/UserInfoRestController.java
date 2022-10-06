@@ -113,9 +113,9 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	// 로그인
+	// 로그인	
 	
-	@GetMapping("/user_login_action")
+	@PostMapping("/user_login_action")
 	public Map user_login_action(@ModelAttribute(value = "fuser") User user, HttpServletRequest request)
 			throws Exception {
 		Map resultMap = new HashMap();
@@ -130,25 +130,26 @@ public class UserInfoRestController {
 		 * 
 		 * 0:아이디존재안함 1:패쓰워드 불일치 2:로그인성공
 		 */
-		switch (result) {
-		case 0:
+		if(result==0) {
 			code = 0;
 			url = "user_login_form";
 			msg = "아이디 존재안함";
-		case 1:
+			System.out.println("아이디없음");
+		}else if(result==1) {
 			code = 1;
 			url = "user_login_form";
 			msg = "패스워드 불일치";
-		case 2:
+			System.out.println("패스워드불일치");
+		}else {
 			request.getSession().setAttribute("sUserId", user.getUser_id());
 			User sUser=userService.findUser(user.getUser_id());
 			code = 2;
 			url = "main";
 			msg = "로그인 성공";
+			System.out.println("성공");
 			resultList.add(sUser);
-			break;
-
 		}
+		
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);

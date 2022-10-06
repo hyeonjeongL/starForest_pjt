@@ -28,108 +28,58 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/yurim.css">
+<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/yurim.css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-<script type="text/javascript" src="js/star_forest/UserHtmlContents.js"></script>
+<script type="text/javascript" src="static/js/UserHtmlContents.js"></script>
 <script type="text/javascript">
-$(function() { //unload
-	/* validator객체변수선언 */
-	var validator = null;
-	/*validator객체 디폴트속성 설정*/
-	$.validator.setDefaults({
-	    rules : {
-			id : {
-			    required : true,
-			},
-			pw : {
-			    required : true
-			},
-			pw_check : {
-			    required : true,
-			    equalTo : "#password" //반드시 아이디(#)만 입력이 들어감
-			},
-			name : {
-			    required : true,
-			},
-			email : {
-			    required : true,
-			    email : true
-			},
-			m_phone: {
-			    required : true,
-			}
-	    },
-	    messages:{
-			id : {
-			    required: '아이디를 입력하세요'
-			},
-		  	pw : {
-		  	  	required: '패쓰워드를 입력하세요'
-			},
-			pw_check : {
-			    required : '패쓰워드확인을 입력하세요',
-			    equalTo:'패쓰워드와 패쓰워드확인은 일치하여야 합니다'
-			},
-			name : {
-			    required : '이름을 입력하세요'
-			},
-			email : {
-			    required : '이메일을 입력하세요',
-			    email : '이메일형식이 일치하지않습니다.'
-			},
-			m_phone: {
-			    required : '핸드폰번호를 입력하세요',
-			}
-		},
-		errorClass : 'error',
-	    validClass : 'valid'
-	});
-
-
 	/************user_login_form*************/
-	$(document).on('click','#a_user_login_form',function(e){
+	$(document).on('click', '#a_user_login_form', function(e) {
 		$('#loginPage').html(UserHtmlContents.user_login_form_content());
-		
-	    e.preventDefault();
-	});
-	
-	/*********user_login_action***********/
-	$(document).on('click', '#btn_login_action', function(e) {
-		if(validator.form()){
-			var param=$('#user_login_form').serialize();
-			$('#msg1').html("");
-			$('#msg2').html("");
-			$.ajax({
-				url:'user_login_action',
-				method:'GET',
-				dataType:'json',
-				data:$('#user_login_form').serialize(),
-				success:function(jsonResult){
-				    if (jsonResult.code == 0) {
-						console.log(jsonResult);
-						$('#msg1').html(jsonResult.msg);
-				    }else if (jsonResult.code == -1) {
-						console.log(jsonResult);
-						$('#msg2').html(jsonResult.msg);
-				    }else if (jsonResult.code == 1) {
-						$('#app').html(UserHtmlContents.user_login_content(jsonResult.data[0]));
-						$('#page-header').html(UserHtmlContents.user_main_content());
-						
-						console.log("성공");
-				    }
-				}
-			});
-		}
-	    e.preventDefault();
-	});
-	
 
+		e.preventDefault();
+	});
+
+	/*********user_login_action***********/
+	$(document)
+			.on(
+					'click',
+					'#btn_login_action',
+					function(e) {
+						$
+								.ajax({
+									url : 'user_login_action',
+									method : 'POST',
+									dataType : 'json',
+									data : $("#user_login_form").serialize(),
+									dataType : "json",
+									success : function(jsonResult) {
+										if (jsonResult.code == 0) {
+											console.log(jsonResult);
+										} else if (jsonResult.code == 1) {
+											console.log(jsonResult);
+										} else if (jsonResult.code == 2) {
+											$('#navigation')
+													.html(
+															UserHtmlContents
+																	.user_login_content(jsonResult.data[0]));
+											$('#page-header')
+													.html(
+															UserHtmlContents
+																	.user_main_content());
+
+											console.log("성공");
+										}
+									}
+								});
+
+						e.preventDefault();
+					});
 </script>
-	
+
 <title>로그인 - 별숲도서관</title>
 </head>
 
@@ -178,7 +128,6 @@ $(function() { //unload
 						type="submit" id="btn_login_action">로그인</button>
 				</div>
 			</form>
-
 			<!-- 회원가입 / 아이디찾기 / 비밀번호찾기 -->
 			<div id="loginInfo">
 				<p class="text-right m-0 noto-serif">아직 별숲 회원이 아니신가요?</p>

@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
 
 <link rel="stylesheet"
@@ -22,8 +23,9 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="static/js/BookClubHtmlContents.js"></script>
 <script type="text/javascript">
 
 
@@ -51,160 +53,13 @@
 <script type="text/javascript"
 	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
-<script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
-	var club_join_html=`<div class="col-6">
-							<div class="row"><br></div>
-							<div class="row">
-							<br> 
-							<select multiple="multiple" style="width: 170px;margin-bottom: 50px;border:2px solid #dee2e6">
-								<option value="s">ssssss
-								<option value="s">ssssss
-								<option value="s">ssssss
-								<option value="s">ssssss
-								<option value="s">ssssss
-								<option value="s">ssssss
-							</select>
-							
-							<!-- 나의도서정보(대여리스트) -->
-							
-					
-								<div class="rentalTable">
-									<table class="table" style="width: 855px">
-										<thead style="border: 1px solid #dee2e6">
-											<tr>
-												<th colspan="1" align="right">책마중</th>
-												<th colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-												<th colspan="1">조회 89</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr id="rental_item_"
-												style="border: 1px solid #dee2e6; height: 250px;">
-					
-												<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">자바dfd:fdfdfd:sadas<br>dsada<br>sdsadas
-												</td>
-												<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px">한예지 sda:<br>sdasdasd<br>as<br>da&nbp;
-												</td>
-												<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px"><button style="padding: 10px 30px 10px 30px;cursor: pointer;border-color:#dee2e6" id="club_join_detail_btn">자세히</button>
-													<br>
-												<button id='club_join_btn' style="padding: 10px 30px 10px 30px;cursor: pointer;border-color:#dee2e6">신&nbsp;&nbsp;&nbsp;청</button></td>
-					
-					
-											</tr>
-											<tr id="rental_item_"></tr>
-										</tbody>
-									</table>
-								</div>
-								<!---->
-							</div>
-						</div>`;
-
-		var club_join_detail_html=`<div class="col-6">
-										<div class="row"><br></div>
-										<div class="row">
-										<br> 
-										<br> 
-										<!-- 나의도서정보(대여리스트) -->
-											<div class="rentalTable">
-												<table class="table" style="width: 855px">
-													
-													<tbody>
-														<tr id="rental_item_"
-															style="border: 1px solid #dee2e6; height: 50px;">
-								
-															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7 ">
-															</td>
-															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">대상
-															</td>
-															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															소설에관심이 많은 성인분들
-															</td>
-															
-								
-								
-														</tr>
-														<tr id="rental_item_"
-															style="border: 1px solid #dee2e6; height: 50px;">
-								
-															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
-															</td>
-															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">대상
-															</td>
-															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															소설에관심이 많은 성인분들
-															</td>
-															
-								
-								
-														</tr>
-														<tr id="rental_item_"
-															style="border: 1px solid #dee2e6; height: 50px;">
-								
-															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
-															</td>
-															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">대상
-															</td>
-															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															소설에관심이 많은 성인분들
-															</td>
-															
-								
-								
-														</tr>
-														<tr id="rental_item_"
-															style="border: 1px solid #dee2e6; height: 50px;">
-								
-															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
-															</td>
-															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">대상
-															</td>
-															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															소설에관심이 많은 성인분들
-															</td>
-															
-								
-								
-														</tr>
-														<tr id="rental_item_"
-															style="border: 1px solid #dee2e6; height: 130px;">
-								
-															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
-															</td>
-															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">내용
-															</td>
-															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															소설에<br>관심이<br> 많은 성인분들
-															</td>
-															
-								
-								
-														</tr>
-														<tr 
-															style=" height: 130px;">
-								
-															<td colspan="5" >
-																<button id="club_join_btn" style="padding: 10px 30px 10px 30px;cursor: pointer;border-color:#dee2e6">신&nbsp;&nbsp;&nbsp;청</button>
-															</td>
-															
-															
-								
-								
-														</tr>
-														
-													</tbody>
-												</table>
-											</div>
-											<!---->
-										</div>
-								
-									</div>`;
-
+	
 	$(function(){
-		$('#content').html(club_join_html);
-		
+		$('#content').html(BookClubHtmlContents.club_join_html);
+		console.log("휴");
 		$(document).on('click','#club_join_detail_btn',function(e){
-			$('#content').html(club_join_detail_html);
+			$('#content').html(BookClubHtmlContents.club_detail_html);
 		});
 		$(document).on('click','#club_join_btn',function(e){
 			alert('동아리신청하기');
@@ -229,7 +84,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 m-auto text-center">
-					<h1>나의도서</h1>
+					<h1>도서동아리</h1>
 				</div>
 			</div>
 		</div>
@@ -242,37 +97,16 @@
 			<div class="row">
 				<div class="col-md-3 noto-serif">
 					<div class="sidebar">
-						<div class="side-head">
-							<h4 class="text-light">나의도서</h4>
-						</div>
-						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item">
-								<a href="#" id="mypage">마이페이지</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_rental_list">나의도서정보</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_rental_status">대출현황</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_res_status">예약현황</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_club_list">동아리신청내역</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_request_list">희망도서신청내역</a>
-							</li>
-							<li class="list-group-item active">
-								<a href="#" id="user_favorite">내서재</a>
-							</li>
-							<li class="list-group-item">
-								<a href=# " id="user_qr">나의QR</a>
-							</li>
-						</ul>
-
-					</div>
+                     <div class="side-head">
+                        <h4 class="text-light">커뮤니티</h4>
+                     </div>
+                     <ul class="list-group list-group-flush mb-5">
+                        <li id="post20" class="list-group-item"><a href="bookclub" class="returnAll">도서동아리</a></li>
+                        <li id="post20" class="list-group-item"><a href="postList.do?option=p_title&search=&group=20" class="returnAll">창작물게시판</a></li>
+                        <li id="post30" class="list-group-item"><a href="postList.do?option=p_title&search=&group=30" class="returnAll">중고장터</a></li>
+                        <li id="post60" class="list-group-item"><a href="postList.do?option=p_title&search=&group=60" class="returnAll">자유게시판</a></li>
+                     </ul>
+                 </div>
 				</div>
 
 				<!-- 메인내용 -->

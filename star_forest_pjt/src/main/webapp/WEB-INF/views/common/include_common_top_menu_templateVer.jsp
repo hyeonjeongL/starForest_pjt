@@ -4,12 +4,12 @@
 <%
 //String u_id = (String)session.getAttribute("sUserId");
 %>
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="static/css/style.css">
 <nav
 	class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
 	<div class="container container-fluid">
 		<a href="Home" class="navbar-brand"><img alt="별숲도서관"
-			src="img/starForestLogo.png" height="50" width="90" class="pl-3 mb-1"></a>
+			src="static/img/starForestLogo.png" height="50" width="90" class="pl-3 mb-1"></a>
 		<button class="navbar-toggler" data-toggle="collapse"
 			data-target="#navbarCollapse">
 			<span class="navbar-toggler-icon"></span>
@@ -39,6 +39,8 @@
 					class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item"
+							href="bookclub">도서동아리</a></li>
+						<li><a class="dropdown-item"
 							href="postList?option=p_title&search=&group=20">창작물게시판</a></li>
 						<li><a class="dropdown-item"
 							href="postList?option=p_title&search=&group=30">중고장터</a></li>
@@ -47,8 +49,8 @@
 							<li><a class="dropdown-item" href="requestBoard"
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
-				<li class="nav-item dropdown"><a href="mypage_main"
-					id="mylibrary" class="nav-link dropdown-toggle mypage"
+				<li class="nav-item dropdown"><a href="myLibrary"
+					class="nav-link dropdown-toggle mypage"
 					data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a id="mypage" class="dropdown-item mypage" href="#">
@@ -63,8 +65,8 @@
 							href="#">동아리신청내역</a></li>
 						<li><a id="user_request_list" class="dropdown-item mypage"
 							href="#">희망도서신청내역</a></li>
-						<li><a id="user_favorite" class="dropdown-item mypage"
-							href="#">내서재</a></li>
+						<li><a id="#" class="dropdown-item mypage"
+							href="myLibrary">내서재</a></li>
 					</ul></li>
 
 				<li class="nav-item dropdown"><a

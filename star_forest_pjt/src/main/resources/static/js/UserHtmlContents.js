@@ -26,7 +26,6 @@ UserHtmlContents.user_login_form_content = function() {
 				별숲<span class="heroTitle_dot"> : </span> <span class="heroTitle_kor">로그인</span>
 			</h1>
 			<hr class="heroLine">
-
 			<!-- 로그인 폼 시작 -->
 			<form method="post" id="user_login_form">
 				<div class="form-group mt-4">
@@ -37,7 +36,6 @@ UserHtmlContents.user_login_form_content = function() {
 						type="submit" id="btn_login_action">로그인</button>
 				</div>
 			</form>
-
 			<!-- 회원가입 / 아이디찾기 / 비밀번호찾기 -->
 			<div id="loginInfo">
 				<p class="text-right m-0 noto-serif">아직 별숲 회원이 아니신가요?</p>
@@ -52,7 +50,6 @@ UserHtmlContents.user_login_form_content = function() {
 				</p>
 				</form>
 			</div>
-
 			<!-- 아이디찾기 MODAL -->
 			<div class="modal" id="emailModal">
 				<div class="modal-dialog">
@@ -84,7 +81,6 @@ UserHtmlContents.user_login_form_content = function() {
 					</div>
 				</div>
 			</div>
-
 			<!-- 비밀번호 찾기 MODAL -->
 			<div class="modal" id="pwModal">
 				<div class="modal-dialog">
@@ -103,7 +99,6 @@ UserHtmlContents.user_login_form_content = function() {
 									<input type="email" id="findPw_email" placeholder="예시)hello@library.com"
 									class="form-control">
 							</div>
-
 						</div>
 						<div class="modal-footer">
 							<button type="submit" id="btn_findPassword"
@@ -146,8 +141,6 @@ UserHtmlContents.user_main_content=function(){
          <p id="heroDesc">Admont Abbey Library, Admont, Austria</p>
          <p id="heroDescKor">아드몬트 수도원 도서관, 아드몬트, 오스트리아</p>
       </div>
-
    </section>
 	`;
 }
-

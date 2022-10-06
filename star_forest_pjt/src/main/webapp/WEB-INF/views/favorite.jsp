@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="com.itwill.domain.Favorite" %>
-<%@page import="java.util.ArrayList"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -24,7 +22,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <title>나의도서 - 별숲도서관</title>
 <style>
@@ -39,7 +37,7 @@
 <script type="text/javascript"
 	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
-<script type="text/javascript" src="static/js/MyLibraryHtmlContents.js"></script>
+<script type="text/javascript" src="js/star_forest/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 	/************로딩시세션체크*********/
 	$.ajax({//도서정보 클릭 시 바로 세션확인
@@ -77,7 +75,7 @@
 	});
 	
 	/*-------내서재전체삭제---------*/
-	$(document).on('click','#btn_all_delete',function(e){
+	${document}.on('click','#btn_all_delete',function(e){
 		$.ajax({
 			url:'favorite_remove',
 			method:'POST',
@@ -94,7 +92,7 @@
 	
 	
 	/*-------내서재개별삭제---------*/
-	$(document).on('click','#btn_delete',function(e){
+	${document}.on('click','#btn_delete',function(e){
 		$.ajax({
 			url:'favorite_delete_by_no',
 			method:'POST',
@@ -165,10 +163,10 @@
 								<a href="#" id="user_request_list">희망도서신청내역</a>
 							</li>
 							<li class="list-group-item active">
-								<a href="myLibrary" id="user_favorite">내서재</a>
+								<a href="#" id="user_favorite">내서재</a>
 							</li>
 							<li class="list-group-item">
-								<a href="#"  id="user_qr">나의QR</a>
+								<a href=# " id="user_qr">나의QR</a>
 							</li>
 						</ul>
 
@@ -177,21 +175,40 @@
 
 				<!-- 메인내용 -->
 				<div class="col-md-9" id="content">
-					<div class="p-4">
-						<div class="mypage">
-							<ul class="nav nav-tabs mypage-tabs">
+					<div class="col-md-9 fol_div">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-sm-6" id="fol_list_title">
+								<form action="MyPage_Folder.do" method="post"></form>
+							</div>
 
-								<li class="nav-item"><a class="nav-link active" href="#" id="user_view">내정보</a>
-								</li>
-								<li class="nav-item"><a class="nav-link active" href="#" id="user_update">개인정보수정</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#" id="user_updatePW">비밀번호변경</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#" id="user_remove">탈퇴</a></li>
-
-							</ul>
+							<div class="col-sm-6">
+								
+							</div>
 						</div>
 					</div>
+					<hr>
+
+					<div class="container">
+						<table id="favoriteList" class="table table-hover">
+							<tr>
+								<th scope="row">No.</th>
+								<th scope="row">제목</th>
+								<th scope="row">저자</th>
+								<th scope="row">출판사</th>
+								<th scope="row">작업</th>
+							</tr>
+							<!--favorite start -->
+							
+							<!--favorite end -->
+
+						</table>
+					</div>
+					<div class="favorite_delete" style="float: right;">
+						<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>
+					</div>
+
+				</div>
 				</div>
 				
 				

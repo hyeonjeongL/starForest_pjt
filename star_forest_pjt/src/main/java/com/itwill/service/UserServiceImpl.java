@@ -43,13 +43,12 @@ public class UserServiceImpl implements UserService {
 		 * 회원로그인
 		 * 
 		 * 0:아이디존재안함 
-		 * -1:패쓰워드 불일치 
-		 * 1:로그인성공
+		 * 1:패쓰워드 불일치 
+		 * 2:로그인성공
 		 */
-		int result=-1;
 		User user=userDao.findUser(user_id);
 		if(user==null) {
-			result=0; //아이디존재안함
+			return 0; //아이디존재안함
 		}else {
 			if (user_password.equals(user.getUser_password())) {
 				// 패스워드일치(로그인성공)
@@ -59,7 +58,6 @@ public class UserServiceImpl implements UserService {
 				return 1;
 			}
 		}
-		return result;
 		
 	}
 

@@ -1,7 +1,11 @@
+<%@page import="com.itwill.service.SearchServiceImpl"%>
+<%@page import="com.itwill.domain.Search"%>
+<%@page import="com.itwill.util.PageMakerDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("UTF-8");
+Search search =new Search();
 %>
 <!DOCTYPE html>
 <html>
@@ -61,21 +65,63 @@ request.setCharacterEncoding("UTF-8");
 							</table>
 							</table>
 
-				<form action="book_search_result" method="get">
 
 						<div class="row">
-							<select data-trigger="" name="searchType" style="width:60px;height:30px">
+				<form name="search_form" autocomplete="off">
+							<select name="Type" style="width:60px;height:30px">
 										<option value="all">통합</option>
 										<option value="title" >제목</option>
 										<option value="category_name" >분야</option>
 										<option value="author" >저자</option>
 										<option value="publisher" >출판사</option>
 							</select>
-			<input id="search" type="text" name="keyword" placeholder="검색어를 입력하세요" style="width:130px;height:25px"> 
-				<input type="submit" value="검색" action="book_search_result" style="width:40px;height:30px">
-			</div>
+			<input type="text" name="keyword" placeholder="검색어를 입력하세요" style="width:130px;height:25px" value=""></input> 
+				<input type="button" value="검색" onclick="getSearchList()" class="btn btn-outline-primary mr-2" style="width:40px;height:30px"></input>
 		</form>
+			</div>
 	</div>
+	
+	<div style="margin: 10px;">
+				<table style="padding-left: 10px" border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp; <b>도서 목록</b>
+					</td>
+				</tr>
+				</table>
+			<br />
+			<!-- list  -->
+			<form name="f">
+			
+			<hr>
+				<table class='book-list'>
+					<!-- 책정보 시작 -->
+					
+					<tr>
+						<td class='book-list-img' rowspan="4"><a href='book_detail.jsp?bookNo=<%=search.getBook_no()%>'><img alt='bookcover' src='<%=search.getBook_image_src()%>' width="100px" height="140px"></a> <input type="hidden" name="bookNo" value="<%=search.getBook_no()%>"></td>
+						<td class='book-td'><span class='bookcategory'><%=search.getCategory_no()%></span>&nbsp;&nbsp;<a href='book_detail.jsp?bookNo=<%=search.getBook_no()%>'><strong><%=search.getBook_title()%></strong></a></td>
+					</tr>
+					<tr>
+						<td class='book-td'><strong>저자:</strong><%=search.getBook_author()%>&nbsp;&nbsp; <strong>출판사:</strong><%=search.getBook_publisher()%></td>
+					</tr>
+					<tr>
+					</tr>
+					<tr>
+			            <td class='book-td'>
+			            <%//if (book.getBookLoan() < book.getBookHoldings()) {%>
+			            <input class='btn-action' type="button" value="대출신청" onclick="location.href='loanAddAction.jsp?bookNo=<%=search.getBook_no()%>'">
+			            <%//} else { %> 
+			            <input class='btn-action' type="button" value="예약신청" onclick="location.href='reservationAddAction.jsp?bookNo=<%=search.getBook_no()%>'">
+			            <%//}%>
+			            <input class='favorite' type="button" value="관심도서 등록" onclick="location.href='favoriteAddAction.jsp?bookNo=<%=search.getBook_no()%>'">
+			            </td>
+					</tr>
+					<!-- 책정보 끝 -->
+				</table>
+					
+					<hr>
+			</form>
+		
+			</div>
 	<!-- include_content.jsp end-->
 	<!-- content end -->
 	</div>
@@ -88,6 +134,6 @@ request.setCharacterEncoding("UTF-8");
 	</div>
 	<!--container end-->
 
-
 </body>
 </html>
+

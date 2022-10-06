@@ -7,6 +7,8 @@ import com.itwill.util.PageMakerDto;
 
 //검색기능
 public interface SearchService {
+	//분야별 리스트
+	public List<Search> list(int category_no)throws Exception;
 	
 	//리스트
 	public PageMakerDto<Search> getBookList(int currentPage) throws Exception;
@@ -41,4 +43,10 @@ public interface SearchService {
 	public List<Search> selectByAll(String keyword) throws Exception;
 	//통합검색_페이지
 	public PageMakerDto<Search> selectByAll(String keyword, int currentPage) throws Exception;
+	
+	//검색
+	public List<Search> getSearchList(Search search)throws Exception;
+	
+	//전체 조회
+	public List<Search> getList() throws Exception;
 }

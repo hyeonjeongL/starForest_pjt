@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,17 +22,6 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
-  <script type="text/javascript">
-	function keywordCheck() {
-		var str_keyword = window.searchform.keyword.value;
-		if (!str_keyword || str_keyword === "") {
-			window.alert("검색어를 입력하세요.");
-			window.searchform.keyword.focus();
-			return false;
-		}
-		window.searchform.submit();
-	}
-</script>
 <!-- kakao 검색 API -->
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
@@ -160,6 +151,12 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
  li > ul.low li { width:180px; }
 </style>
 
+<style>
+   ul li { display:inline-block; margin:10px; }
+   section#content div.book_image_src img { width:200px; height:200px; }
+   section#content div.book_title { padding:10px 0; text-align:center; }
+   section#content div.book_title a { color:#000; }
+</style>
 
 </head>
 <body class="d-flex flex-column">
@@ -199,12 +196,12 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
                   <li class="list-group-item active"><a href="SearchList">전체 도서</a>
 	                  <ul class="low">
-		                  <li><a href="SearchList?100">100 건강/취미/레저</a></li>
-		                  <li><a href="SearchList?200">200 경제경영</a></li>
-		                  <li><a href="SearchList?300">300 고전</a></li>
-		                  <li><a href="SearchList?400">400 과학</a></li>
-		                  <li><a href="SearchList?500">600 사회과학</a></li>
-		                  <li><a href="SearchList?700">700 소설/시/희곡</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=100&l=2">100 건강/취미/레저</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=200&l=2">200 경제경영</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=300&l=2">300 고전</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=400&l=2">400 과학</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=500&l=2">600 사회과학</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList/list?c=700&l=2">700 소설/시/희곡</a></li>
 	                  </ul>
                   </li>
                   <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
@@ -218,18 +215,22 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 					<!-- 메인내용 -->
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
-				<select data-trigger="" name="searchType">
-										<option value="all">통합</option>
-										<option value="title">제목</option>
-										<option value="category_name">분야</option>
-										<option value="author">저자</option>
-										<option value="publisher">출판사</option>
-							</select>
-					<input class="form-control searchbar" id="keyword" type="text"
-						placeholder="검색어를 입력하세요.">
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-					</div>
+				
+				<section id="content">
+				<ul>
+				   <c:forEach items="${list}" var="list">
+				   <li>
+				    <div class="book_image_src">
+				     <img src="${list.book_image_src}">
+				    </div>   
+				    <div class="book_title">
+				     <a href="/SearchList/view?n=${list.book_no}">${list.book_title}</a>
+				    </div>
+				   </li>
+				   </c:forEach>
+				</ul>
+					</section>
+					
 				</div>
 				<br><br><br>
 				<!-- CARD COLUMNS -->
@@ -239,6 +240,9 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 				<div class="paging">
 					
 				</div>
+				
+				
+				
 			</div>
 		  </div>
 		</div>
@@ -316,21 +320,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
       }   
 
       <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-	    $(function(){
-	    	$(".mypage").click(function(event){
-	    		if(${cust_no == null}){
-	    			event.preventDefault();
-	    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-	    			console.log(loginOk);
-	    			if(loginOk){
-	    				console.log("로그인하러갑니다.");
-	    				window.location.href = "LoginPage.do";
-	    			}
-	    		}else{
-	    			window.location.href="Home.do";
-	    		}
-	    	});
-	    });
+	
    </script>
 </body>
 </html>

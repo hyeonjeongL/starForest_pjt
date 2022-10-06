@@ -1,12 +1,17 @@
 package com.itwill.controller;
 
 import java.util.List;
+import java.util.logging.Logger;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.itwill.domain.Search;
 import com.itwill.service.SearchService;
@@ -100,6 +105,7 @@ public class SearchController {
 		return forwardPath;
 	}
 	
+	
 	//통합
 	@RequestMapping(value = {"/search_all"})
 	public String search_all(@RequestParam String keyword,Model model)throws Exception{
@@ -119,4 +125,33 @@ public class SearchController {
 		return forwardPath;
 	}
 	
+	//검색
+	@GetMapping("/getSearchList")
+	@ResponseBody
+	private List<Search> getSearchList(@RequestParam("type") String type,
+			@RequestParam("keyword") String keyword,Model model)throws Exception{
+		Search search=new Search();
+		search.setType(type);
+		search.setKeyword(keyword);
+		return searchService.getSearchList(search);
+	}
+	
+	//분야별 리스트
+	private static final org.slf4j.Logger logger= LoggerFactory.getLogger(SearchController.class);
+
+	@RequestMapping(value="/list",method = RequestMethod.GET)
+	public void getList(@RequestParam("c") int category_no,
+			@RequestParam("l")int level, Model model)throws Exception{
+		logger.info("get llist");
+		
+		List<Search> list= null;
+		list= searchService.list(category_no);
+		
+		model.addAttribute("list", list);
+		
+	}
+
+
+
+
 }

@@ -124,6 +124,27 @@ public class SearchServiceImpl implements SearchService{
 				return pageMakerSearchList;
 			}
 	
+	
+
+	
+	//검색
+	@Override
+	public List<Search> getSearchList(Search search) throws Exception {
+		return searchDao.selectSearchList(search);
+	}
+
+	//전체 조회
+	@Override
+	public List<Search> getList() throws Exception {
+		return searchDao.getList();
+	}
+
+	//분야별 리스트
+	@Override
+	public List<Search> list(int category_no) throws Exception {
+		return searchDao.list(category_no);
+	}
+	
 
 	
 }

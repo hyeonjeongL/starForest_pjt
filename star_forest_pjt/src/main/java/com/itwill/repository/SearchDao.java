@@ -7,6 +7,9 @@ import com.itwill.domain.Search;
 
 //검색기능
 public interface SearchDao {
+	
+	//분야별 리스트
+	List<Search> list(int category_no)throws Exception;
 
 	// 제목 검색
 	List<Search> selectByTitle(String keyword) throws Exception;
@@ -57,4 +60,8 @@ public interface SearchDao {
 
 	// 도서 수량 조회_페이지?
 	int getTotBookCount(String keyword) throws Exception;
+	
+	//검색?
+	List<Search> selectSearchList(Search search)throws Exception;
+	
 }

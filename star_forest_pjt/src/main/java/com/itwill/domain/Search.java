@@ -21,6 +21,26 @@ public class Search {
 	private int category_no;
 	private String category_name;
 	
+	//검색 필터
+	private String type;//검색 타입
+	private String Keyword; //검색 내용
+	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getKeyword() {
+		return Keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		Keyword = keyword;
+	}
+
 	public Search() {
 		// TODO Auto-generated constructor stub
 	}

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itwill.mapper.SearchMapper">
+
+<!-- 분야별 리스트 -->
+<select id="list" resultType="com.itwill.domain.Search">
+
+select b.*,bc.category_name 
+from book b 
+left join  book_category bc on b.category_no=bc.category_no  
+where b.category_no =#{category_no}
+
+</select>
+</mapper>

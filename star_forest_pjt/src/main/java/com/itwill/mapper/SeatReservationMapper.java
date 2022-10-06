@@ -26,8 +26,8 @@ public interface SeatReservationMapper {
 	public int returnByAuto(SeatReservation seatReservation);
 	
 	@Update("update seat_reservation set seat_date=null,seat_start_time=null,seat_end_time=null,user_id=null,seat_status=0 \r\n"
-			+ "	where seat_date<sysdate")
-	public List<SeatReservation> resetAll();
+			+ "	where seat_date<to_char(sysdate,'YYYY/MM/DD')")
+	public int resetAll();
 	
 	@Update("update seat_reservation set seat_end_time=to_char(to_date(seat_end_time,'HH24:MI:SS')+2/24,'HH24:MI:SS') \r\n"
 			+ "where user_id=#{user_id} and to_char(sysdate,'HH24:MI:SS')>=to_char(to_date(seat_end_time,'HH24:MI:SS')-30/(24*60),'HH24:MI:SS')")

@@ -21,6 +21,7 @@ public class SeatReservationController {
 		String forwardPath="";
 		try {
 			List<SeatReservation> seatList = seatReservationService.selectAll();
+			int rowCount= seatReservationService.resetAll();
 			//seatReservationService.resetAll();
 			request.setAttribute("seatList", seatList);
 			forwardPath="forward:/WEB-INF/views/seatReservation.jsp";

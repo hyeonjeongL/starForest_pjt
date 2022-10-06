@@ -41,7 +41,7 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	}
 	
 	@Override
-	public List<SeatReservation> resetAll() throws Exception {
+	public int resetAll() throws Exception {
 		return seatReservationDao.resetAll();
 	}
 	

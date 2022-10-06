@@ -36,6 +36,6 @@ public interface UserDao {
 	// 대출정지기간
 	int rentalStopPeriod(String user_id) throws Exception;
 	
-	
+
 	
 }

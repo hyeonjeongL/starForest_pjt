@@ -105,7 +105,7 @@ $(function() { //unload
 			$('#msg2').html("");
 			$.ajax({
 				url:'user_login_action',
-				method:'POST',
+				method:'GET',
 				dataType:'json',
 				data:$('#user_login_form').serialize(),
 				success:function(jsonResult){
@@ -166,7 +166,7 @@ $(function() { //unload
 			<hr class="heroLine">
 
 			<!-- 로그인 폼 시작 -->
-			<form method="post" id="user_login_form">
+			<form id="user_login_form" >
 				<div class="form-group mt-4">
 					<input style="font-color:red; id:msg1" class="form-control form-control-lg loginForm" type="text"
 						id="user_id" name="user_id" placeholder="아이디"> 

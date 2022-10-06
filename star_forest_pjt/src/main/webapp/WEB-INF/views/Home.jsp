@@ -60,13 +60,6 @@
    });
    
    
-   $(function() {
-		console.log('dsds');
-		$(document).on('click','#btn_seatReservation_menu',function(e){
-			console.log('야야야야ㅑ');
-			
-		});
-	});
 });
 
 </script>

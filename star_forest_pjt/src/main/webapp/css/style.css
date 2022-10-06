@@ -217,9 +217,8 @@ html, body{
 }
 
 .searchbar {
-  border-radius: 25px;
-  padding: 10px 50px;
-  background: none;
+  border-radius: 90px;
+  background: white;
 }
 
 .active a{

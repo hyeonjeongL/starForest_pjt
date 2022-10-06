@@ -218,7 +218,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 					<!-- 메인내용 -->
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
-				<select data-trigger="" name="searchType">
+				<select data-trigger="" name="search">
 										<option value="all">통합</option>
 										<option value="title">제목</option>
 										<option value="category_name">분야</option>

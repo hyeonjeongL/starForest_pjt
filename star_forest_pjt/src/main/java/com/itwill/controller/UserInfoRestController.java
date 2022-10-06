@@ -114,7 +114,8 @@ public class UserInfoRestController {
 	}
 
 	// 로그인
-	@PostMapping("/user_login_action")
+	
+	@GetMapping("/user_login_action")
 	public Map user_login_action(@ModelAttribute(value = "fuser") User user, HttpServletRequest request)
 			throws Exception {
 		Map resultMap = new HashMap();

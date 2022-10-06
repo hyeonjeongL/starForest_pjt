@@ -2,6 +2,8 @@ package com.itwill.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import com.itwill.domain.User;
 
 
@@ -10,7 +12,7 @@ public interface UserService {
 	int create(User user) throws Exception;
 
 	// 회원로그인
-	int login(String user_id, String user_password) throws Exception;
+	int login(String user_id,String user_password) throws Exception;
 
 	// 회원비밀번호 변경
 	int updatePassword(User user) throws Exception;

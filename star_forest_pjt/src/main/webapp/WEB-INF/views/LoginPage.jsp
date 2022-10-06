@@ -59,7 +59,7 @@
 		<hr class="heroLine">
 		
 		<!-- 로그인 폼 시작 -->	
-		<form action="Home.do" method="post">
+		<form action="loginCheck" method="post">
 		<div class="form-group mt-4">
 			<input class="form-control form-control-lg loginForm" type="email" id="email" name="email" placeholder="이메일 주소">
 			<input class="form-control form-control-lg mt-2 loginForm" type="password" id="pw" name="pw" placeholder="비밀번호">

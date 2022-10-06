@@ -90,7 +90,7 @@
 				</c:if>
 				<c:if test="${user_id == null}">
 					<li class="nav-item" v-bind:title="login">
-					<a href="LoginPage" class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
+					<a href="user" class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
 						<p class="sr-only">로그인</p></li>
 					<li class="nav-item" v-bind:title="signup">
 					<a href="insertCustomer" class="nav-link"><i class="fas fa-user-plus"></i></a>
@@ -98,7 +98,7 @@
 				</c:if>
 				<c:if test="${user_id != null}">
 					<li class="nav-item" v-bind:title="logout">
-					<a href="logout" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
+					<a href="Home" class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
 						<p class="sr-only">로그아웃</p></li>
 				</c:if>
 				

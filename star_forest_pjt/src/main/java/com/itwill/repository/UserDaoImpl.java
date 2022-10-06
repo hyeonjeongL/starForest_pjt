@@ -74,4 +74,5 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.rentalStopPeriod(user_id);
 	}
 
+
 }

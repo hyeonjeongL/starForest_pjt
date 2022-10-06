@@ -2,6 +2,9 @@ package com.itwill.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.itwill.domain.User;
@@ -34,7 +37,8 @@ public class UserServiceImpl implements UserService {
 
 	// 로그인
 	@Override
-	public int login(String user_id, String user_password) throws Exception {
+	public int login(String user_id,String user_password) throws Exception {
+		
 		/*
 		 * 회원로그인
 		 * 

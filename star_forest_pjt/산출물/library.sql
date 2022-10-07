@@ -24,7 +24,7 @@ DROP SEQUENCE SEQ_Notice_notice_no;
 DROP SEQUENCE SEQ_Rental_rental_no;
 DROP SEQUENCE SEQ_Request_board_board_no;
 DROP SEQUENCE SEQ_Reservation_res_no;
-DROP SEQUENCE SEQ_Seat_seat_no;
+DROP SEQUENCE SEQ_Seat_seat_sno;
 
 
 

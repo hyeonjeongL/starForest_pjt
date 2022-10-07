@@ -47,11 +47,6 @@ public class testController {
 		System.out.println("test");
 		return "findEmail";
 	}
-	@RequestMapping("/Home")
-	public String test8() {
-		System.out.println("test");
-		return "Home";
-	}
 	@RequestMapping("/MyLibrary")
 	public String test9() {
 		System.out.println("test");

@@ -45,6 +45,7 @@
 
 	/*********user_login_action***********/
 	$(document).on('click','#btn_login_action',function(e) {
+	
 		$.ajax({
 			url : 'user_login_action',
 			method : 'POST',
@@ -53,9 +54,11 @@
 			dataType : "json",
 			success : function(jsonResult) {
 				if (jsonResult.code == 0) {
+					alert("아이디가 존재하지않습니다.");
 					console.log(jsonResult);
 				} else if (jsonResult.code == 1) {
 					console.log(jsonResult);
+					alert("비밀번호가 일치하지 않습니다.");
 				} else if (jsonResult.code == 2) {
 					
 					location.href="Home";
@@ -64,7 +67,7 @@
 				}
 			}
 		});
-
+		
 		e.preventDefault();
 	});
 	
@@ -83,7 +86,7 @@
 	});
 	
 	/*************user_write_form***************/
-	
+		
 	
 	
 </script>

@@ -5,6 +5,60 @@
 <%
 //String u_id = (String)session.getAttribute("sUserId");
 %>
+<script type="text/javascript">
+	/************user_login_form*************/
+	$(document).on('click', '#a_user_login_form', function(e) {
+		$('#loginPage').html(UserHtmlContents.user_login_form_content());
+
+		e.preventDefault();
+	});
+
+	/*********user_login_action***********/
+	$(document).on('click','#btn_login_action',function(e) {
+	
+		$.ajax({
+			url : 'user_login_action',
+			method : 'POST',
+			dataType : 'json',
+			data : $("#user_login_form").serialize(),
+			dataType : "json",
+			success : function(jsonResult) {
+				if (jsonResult.code == 0) {
+					console.log(jsonResult);
+				} else if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				} else if (jsonResult.code == 2) {
+					
+					location.href="Home";
+					
+					console.log("성공");
+				}
+			}
+		});
+		
+		e.preventDefault();
+	});
+	
+	/***********user_logout_action************/
+	$(document).on('click','#a_user_logout_action',function(e){
+		$.ajax({
+			url:'user_logout_action',
+			method:'POST',
+			dataType:'json',
+			success:function(jsonResult){
+				location.href="user";
+				console.log("로그아웃");
+			}
+		});
+		e.preventDefault();
+	});
+	
+	/*************user_write_form***************/
+		
+	
+	
+</script>
+
 <link rel="stylesheet" href="static/css/style.css">
 <nav
 	class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
@@ -99,8 +153,8 @@
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 					<li class="nav-item" v-bind:title="logout">
-					<a href="" class="nav-link" id="a_user_logout_action">
-					<i class="fas fa-sign-out-alt"></i></a>
+					<a href="user" class="nav-link" id="a_user_logout_action">
+					<i class="fas fa-sign-out-alt" id="a_user_logout_action"></i></a>
 						<p class="sr-only">로그아웃</p></li>
 				</c:if>
 

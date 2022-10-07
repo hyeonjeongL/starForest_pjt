@@ -1,10 +1,10 @@
 function UserHtmlContents() {
 }
-UserHtmlContents.user_login_content = function(user) {
+UserHtmlContents.user_login_content = function(sUser) {
 	return `
 			<li>
 				<a href=""></a>
-				<p class="user_name">${user.user_name}님</p>
+				<p class="user_name">${sUserId}님</p>
 			</li>
 	<li class="nav-item" v-bind:title="logout">
 				<a href="" class="nav-link" id="a_user_logout_action">

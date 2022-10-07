@@ -197,7 +197,6 @@ public class testController {
 		System.out.println("test");
 		return "recommendedBooks2";
 	}
-	
-	
+
 
 }

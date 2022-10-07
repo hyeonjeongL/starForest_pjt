@@ -19,7 +19,7 @@ public interface SeatReservationService {
 		 public int resetAll()throws Exception;
 		 
 		 //자리 연장
-		 int continueSeat(SeatReservation seatReservation)throws Exception;
+		 int continueSeat(String user_id)throws Exception;
 		 
 		 //좌석 전체 리스트
 		 List<SeatReservation> selectAll()throws Exception;

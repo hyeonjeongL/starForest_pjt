@@ -247,6 +247,19 @@
 	
 
 </script>
+<script type="text/javascript">
+${document}.on('click','#btn btn-primary submit-request', function(e){
+	$.ajax({
+		url:'rest_rental',
+		data:'book_no='+$(e.target).attr("book_no"),
+		method:'GET',
+		succss:function(jsonResult){
+			alert(jsonResult.msg);			
+		}
+	})
+})
+
+</script>
 
 </head>
 

@@ -107,6 +107,34 @@
 				
 			});
 		});
+		
+		$(document).on('click','.btn_seat_continue',function(e){
+			$.ajax({
+				url:'seat_continue_action_json',
+				method:'POST',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						alert(jsonResult.msg);
+						location.href='seatReservation_my';
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==0){
+						alert(jsonResult.msg);
+					}
+				}
+				
+				
+				
+			});
+			
+			
+			
+		});
+		
+		
+		
+		
+		
 	});
 </script>
 
@@ -136,11 +164,12 @@
 		</header>
 
 		<!-- MAIN SECTION -->
-			<div class="my_seat_wrap" style="text-align;">
+			<div class="my_seat_wrap" style="text-align:center;">
 					
-            	<img src="img/noSeat.png" width="350px">
-            	
+             	<img src="img/noSeat.png" width="350px" style="margin-top: 100px;">
+             	
 	        </div>
+	        
 		</div><!-- pageContent끝 -->
 		
 		

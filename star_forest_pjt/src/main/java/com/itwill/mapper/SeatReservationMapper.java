@@ -31,7 +31,7 @@ public interface SeatReservationMapper {
 	
 	@Update("update seat_reservation set seat_end_time=to_char(to_date(seat_end_time,'HH24:MI:SS')+2/24,'HH24:MI:SS') \r\n"
 			+ "where user_id=#{user_id} and to_char(sysdate,'HH24:MI:SS')>=to_char(to_date(seat_end_time,'HH24:MI:SS')-30/(24*60),'HH24:MI:SS')")
-	public int continueSeat(SeatReservation seatReservation);
+	public int continueSeat(String user_id);
 	
 	@Select("select * from seat_reservation order by seat_no asc")
 	public List<SeatReservation> selectAll();

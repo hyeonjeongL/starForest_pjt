@@ -34,9 +34,7 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="static/css/style.css">
-<link rel="stylesheet" href="static/css/ddoyoon.css">
-<link rel="stylesheet" href="static/css/BookCart.css">
+<link rel="stylesheet" href="css/ddoyoon.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
@@ -141,7 +139,7 @@
 			<div class="my_seat_wrap" style="text-align:center;">
 					
 	        <div class="no_seat">
-	         <img src="static/img/noSeat.png" width=300px>
+	         <img src="img/noSeat.png" width=300px>
 	        </div>
             
 	        </div>

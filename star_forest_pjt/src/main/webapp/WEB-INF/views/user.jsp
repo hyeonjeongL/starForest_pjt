@@ -75,11 +75,16 @@
 			method:'POST',
 			dataType:'json',
 			success:function(jsonResult){
-				$('#app').html(UserHtmlContents.user_logout_content());
+				location.href="user";
+				console.log("로그아웃");
 			}
 		});
 		e.preventDefault();
 	});
+	
+	/*************user_write_form***************/
+	
+	
 	
 </script>
 

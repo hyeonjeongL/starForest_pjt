@@ -7,7 +7,7 @@ UserHtmlContents.user_login_content = function(user) {
 				<p class="user_name">${user.user_name}님</p>
 			</li>
 	<li class="nav-item" v-bind:title="logout">
-				<a href="logout" class="nav-link" id="a_user_logout_action">
+				<a href="" class="nav-link" id="a_user_logout_action">
 					<i class="fas fa-sign-out-alt"></i></a>
 					<p class="sr-only">로그아웃</p>
 			</li>

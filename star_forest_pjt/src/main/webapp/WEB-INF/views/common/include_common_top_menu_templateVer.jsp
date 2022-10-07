@@ -73,32 +73,34 @@
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="seatReservation"
 							id="menu_seatReservation">열람실예약</a></li>
-						<li><a class="dropdown-item" href="seatReservation_my">예약확인</a></li>
+						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
 					</ul></li>
 			</ul>
 
 
 			<ul id="app" class="navbar-nav ml-auto">
 				<c:if test="${sUserId == admin}">
-					<li class="nav-item" v-bind:title="managerpage"><a
-						href="ManagerPage" class="nav-link"><i class="fas fa-crown"
-							style="color: #107637;"></i></a>
+					<li class="nav-item" v-bind:title="managerpage">
+					<a href="ManagerPage" class="nav-link">
+					<i class="fas fa-crown" style="color: #107637;"></i></a>
 						<p class="sr-only">관리자페이지</p></li>
 				</c:if>
 				<c:if test="${sUserId == null}">
-					<li class="nav-item" v-bind:title="login"><a href="user"
-						class="nav-link"><i class="fas fa-sign-in-alt"></i></a>
+					<li class="nav-item" v-bind:title="login">
+					<a href="user" class="nav-link" id="a_user_login_form">
+					<i class="fas fa-sign-in-alt"></i></a>
 						<p class="sr-only">로그인</p></li>
-					<li class="nav-item" v-bind:title="signup"><a
-						href="insertCustomer" class="nav-link"><i
-							class="fas fa-user-plus"></i></a>
+					<li class="nav-item" v-bind:title="signup">
+					<a href="insertCustomer" class="nav-link" id="a_user_write_form">
+					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
 				<c:if test="${sUserId != null}">
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
-					<li class="nav-item" v-bind:title="logout"><a href="logout"
-						class="nav-link"><i class="fas fa-sign-out-alt"></i></a>
+					<li class="nav-item" v-bind:title="logout">
+					<a href="" class="nav-link" id="a_user_logout_action">
+					<i class="fas fa-sign-out-alt"></i></a>
 						<p class="sr-only">로그아웃</p></li>
 				</c:if>
 

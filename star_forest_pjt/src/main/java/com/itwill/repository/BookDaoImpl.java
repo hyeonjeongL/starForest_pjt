@@ -76,11 +76,6 @@ public class BookDaoImpl implements BookDao {
 	}
 
 	@Override
-	public List<Book> selectNew(int category_no) throws Exception {
-		return bookMapper.selectNew(category_no);
-	}
-
-	@Override
 	public List<Book> selectFavorite9() throws Exception {
 		return bookMapper.selectFavorite9();
 	}
@@ -93,6 +88,16 @@ public class BookDaoImpl implements BookDao {
 	@Override
 	public int bookCategoryCount() throws Exception {
 		return bookMapper.bookCategoryCount();
+	}
+
+	@Override
+	public List<Book> selectCategoryNew(int category_no) throws Exception {
+		return bookMapper.selectCategoryNew(category_no);
+	}
+
+	@Override
+	public List<Book> selectNew() throws Exception {
+		return bookMapper.selectNew();
 	}
 
 

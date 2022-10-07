@@ -64,7 +64,7 @@
 	class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
 	<div class="container container-fluid">
 		<a href="Home" class="navbar-brand"><img alt="별숲도서관"
-			src="static/img/starForestLogo.png" height="50" width="90"
+			src="img/starForestLogo.png" height="50" width="90"
 			class="pl-3 mb-1"></a>
 		<button class="navbar-toggler" data-toggle="collapse"
 			data-target="#navbarCollapse">

@@ -5,7 +5,26 @@
 <%
 //String u_id = (String)session.getAttribute("sUserId");
 %>
+<script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
+	/************로딩시세션체크*********/
+	$(document).on('click','#myLibrary,#myMenu',function(e){
+		$.ajax({//나의도서 클릭 시 바로 세션확인
+			url : 'user_session_check',
+			method : 'POST',
+			dataType : 'json',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					location.href='mypage'; //세션존재할경우 마이페이지로 이동
+				}else{ //세션 존재하지 않을경우 메세지창보여줌
+					alert('로그인이 필요한 페이지입니다:)');
+				}
+			}
+		});
+		e.preventDefault();
+	});
+	
+	
 	/************user_login_form*************/
 	$(document).on('click', '#a_user_login_form', function(e) {
 		$('#loginPage').html(UserHtmlContents.user_login_form_content());
@@ -104,23 +123,25 @@
 						<li><a class="dropdown-item" href="requestBoard"
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
-				<li class="nav-item dropdown"><a href="myLibrary"
-					class="nav-link dropdown-toggle mypage" data-toggle="dropdown">나의도서</a>
-					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a id="mypage" class="dropdown-item mypage" href="#">
-								마이페이지</a></li>
-						<li><a id="user_rental_list" class="dropdown-item mypage"
-							href="#"> 나의도서정보</a></li>
-						<li><a id="user_rental_status" class="dropdown-item mypage"
-							href="#">대출현황</a></li>
-						<li><a id="user_res_status" class="dropdown-item mpage"
-							href="#">예약현황</a></li>
-						<li><a id="user_club_list" class="dropdown-item mpage"
-							href="#">동아리신청내역</a></li>
-						<li><a id="user_request_list" class="dropdown-item mypage"
-							href="#">희망도서신청내역</a></li>
-						<li><a id="#" class="dropdown-item mypage" href="myLibrary">내서재</a></li>
-					</ul></li>
+				<li class="nav-item dropdown">
+					<a id="myLibrary" href="mypage" class="nav-link dropdown-toggle mypage" data-toggle="dropdown">나의도서</a>
+					<ul id="myMenu" class="list-group list-group-flush mb-5">
+							<li class="list-group-item">
+								<a href="mypage" id="mypage">마이페이지</a>
+							</li>
+							<li class="list-group-item">
+								<a href="userbook_status" id="userbook_status">나의도서정보</a></li>
+							<li class="list-group-item">
+								<a href="user_club_list" id="user_club_list">동아리신청내역</a></li>
+							<li class="list-group-item">
+								<a href="user_request_list" id="user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item active">
+								<a href="favorite" id="favorite">내서재</a></li>
+							<li class="list-group-item">
+								<a href="user_qr" id="user_qr">나의QR</a></li>
+
+					</ul>
+				</li>
 
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>

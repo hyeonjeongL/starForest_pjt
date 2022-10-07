@@ -74,24 +74,21 @@
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item"><a href="#" id="mypage">마이페이지</a>
+							<li class="list-group-item">
+								<a href="mypage" id="mypage">마이페이지</a>
 							</li>
-							<li class="list-group-item"><a href="#"
-								id="user_rental_list">나의도서정보</a></li>
-							<li class="list-group-item"><a href="#"
-								id="user_rental_status">대출현황</a></li>
-							<li class="list-group-item"><a href="#" id="user_res_status">예약현황</a>
-							</li>
-							<li class="list-group-item"><a href="#" id="user_club_list">동아리신청내역</a>
-							</li>
-							<li class="list-group-item"><a href="#"
-								id="user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item active"><a href="#"
-								id="user_favorite">내서재</a></li>
-							<li class="list-group-item"><a href=# " id="user_qr">나의QR</a>
-							</li>
+							<li class="list-group-item">
+								<a href="userbook_status" id="userbook_status">나의도서정보</a></li>
+							<li class="list-group-item">
+								<a href="user_club_list" id="user_club_list">동아리신청내역</a></li>
+							<li class="list-group-item">
+								<a href="user_request_list" id="user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item active">
+								<a href="favorite" id="favorite">내서재</a></li>
+							<li class="list-group-item">
+								<a href="user_qr" id="user_qr">나의QR</a></li>
 
-						</ul>
+					</ul>
 
 					</div>
 				</div>
@@ -102,13 +99,10 @@
 						<div class="mypage">
 							<ul class="nav nav-tabs mypage-tabs">
 
-								<li class="nav-item"><a class="nav-link active" href="#">내정보</a>
+								<li class="nav-item"><a class="nav-link active" href="#">대출현황</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="#">개인정보수정</a>
+								<li class="nav-item"><a class="nav-link" href="#">예약현황</a>
 								</li>
-								<li class="nav-item"><a class="nav-link" href="#">비밀번호변경</a>
-								</li>
-								<li class="nav-item"><a class="nav-link" href="#">탈퇴</a></li>
 
 							</ul>
 						</div>
@@ -130,23 +124,6 @@
 
 
 
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
-		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-		crossorigin="anonymous"></script>
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-	<script type="text/javascript"
-		src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript"
-		src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
 </body>
 

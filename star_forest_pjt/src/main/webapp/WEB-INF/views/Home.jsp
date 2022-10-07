@@ -47,9 +47,9 @@
    crossorigin="anonymous"></script>
 
 <!-- 외부 CSS, JS 파일 링크 -->
-<link rel="stylesheet" href="static/css/HomeCSS.css">
-<script type="text/javascript" src="static/js/HomeJS.js"></script>
-<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="./css/HomeCSS.css">
+<script type="text/javascript" src="./js/HomeJS.js"></script>
+
 
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">
@@ -328,16 +328,16 @@
          </div>
          <div class="col-md-4 mb-3 noto-serif">
             <a href="addrViewpageAPI"><div class="home-tag mb-2">
-                  <img class="pr-4 m-0" alt="찾아오시는 길" src="../img/home/map.png"
+                  <img class="pr-4 m-0" alt="찾아오시는 길" src="./img/home/map.png"
                      height="30px">찾아오시는 길
                </div></a><div class="home-tag mb-2" id="phone_a" >
                   <img class="pr-4 m-0" alt="찾아오시는 길"
-                     src="../img/home/telephone.png" height="30px">전화번호
+                     src="./img/home/telephone.png" height="30px">전화번호
                </div> <a href="QnaList"><div class="home-tag mb-2">
-                  <img class="pr-4 m-0" alt="찾아오시는 길" src="../img/home/question.png"
+                  <img class="pr-4 m-0" alt="찾아오시는 길" src="./img/home/question.png"
                      height="30px">묻고답하기
                </div></a> <a href="faqViewpage"><div class="home-tag mb-0">
-                  <img class="pr-4 m-0" alt="찾아오시는 길" src="../img/home/faq.png"
+                  <img class="pr-4 m-0" alt="찾아오시는 길" src="./img/home/faq.png"
                      height="30px">자주묻는질문
                </div></a>
          </div>
@@ -502,7 +502,7 @@
          const images = ['library1.png','library2.png','library3.png','library4.png','library5.png','library6.png','library7.png','library8.jpg'];
          const getImage = Math.floor(Math.random() * images.length);
          
-         home_heading.style.background = "url('../img/" + images[getImage] + "')";
+         home_heading.style.background = "url('./img/" + images[getImage] + "')";
       
          //홈헤딩 명언
          const home_display = document.getElementById('home-display');

@@ -59,7 +59,7 @@
 	
 </script>
 
-<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 <nav
 	class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
 	<div class="container container-fluid">

@@ -32,7 +32,9 @@ public class BookController {
 			int book_res_cnt = book.getBook_res_cnt();
 			if(book_qty<=3 && book_qty>=1) {
 				model.addAttribute("rental_status", "대출가능");
-				model.addAttribute("ren", "대출가능");
+				model.addAttribute("res_status", "");
+				model.addAttribute("service", "b");
+				
 			}else if(book_qty==0 && book_res_cnt<=4 ) {
 				model.addAttribute("rental_status", "대출중");
 				model.addAttribute("res_status", "예약가능 ("+book_res_cnt+"명 예약중)");

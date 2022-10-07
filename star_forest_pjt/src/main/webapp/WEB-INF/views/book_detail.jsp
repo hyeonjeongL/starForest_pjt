@@ -77,20 +77,132 @@
 	href="https://library.korea.ac.kr/wp-content/uploads/2020/02/cropped-favicon-3-180x180.png" />
 <meta name="msapplication-TileImage"
 	content="https://library.korea.ac.kr/wp-content/uploads/2020/02/cropped-favicon-3-270x270.png" />
-<script type='text/javascript'
+<!-- <script type='text/javascript'
 	src='https://library.korea.ac.kr/wp-includes/js/wp-embed.min.js?ver=5.5.10'
-	id='wp-embed-js'></script>
+	id='wp-embed-js'></script> -->
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"
-	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+		console.log(1);
+		$(document).on('show.bs.modal','#item-user-request',function(e){
+			var menu=$(e.relatedTarget).attr('title');
+			console.log(menu);
+			if(menu=="소장정보발송"){
+				$.ajax({
+					url:'rest_book_detail',
+					data:'book_no='+$(e.target).attr("book_no"),
+					type:'GET',
+					success:function(book){
+						
+						
+						var html1=
+									`<body class="modal-page">
+									 <div class="container">
+										<div class="entry-content">
+											<div class="content-d">
+												<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 소장정보 모바일(알림톡/SMS) 발송 서비스</h4>
+												<div class="content-l">
+													<h5>소장정보</h5>
+													<ul>
+														<li>도서정보: ${book.book_title}</li>
+														<li>저자사항: ${book.book_author}</li>
+														<li>출판정보: ${book.book_publisher}</li>						
+														<li>I S B N : ${book.isbn}</li>
+														<li>소장정보: 별숲도서관</li>
+													</ul>
+												</div>
+											</div>
+											<div class="content-d">
+												<div class="content-l">
+													<h5>수신번호 : 010-3329-****</h5>
+													<div class="content-desc">
+														※ 수신번호 변경 방법<br>-포털 아이디 이용자 : 학교 포털사이트(http://portal.korea.ac.kr/)에서 직접 변경 <br>- 도서관 아이디 이용자 : 도서관 홈페이지 로그인 후 [내 정보 변경] 페이지에서 직접 변경
+													</div>
+												</div>
+											</div>
+											<div class="content-d d-flex justify-content-center">
+												<button type="button" class="btn btn-primary submit-request">신청</button>
+											</div>
+										</div><!-- .entry-content -->
+									</div><!-- .container -->
+								</body>`;
+						$(e.target).find('#modal-body-user-request').html(html1);
+						
+					}
+				});
+			}else if(menu=="간편대출신청"){
+				$(e.target).find('#modal-body-user-request').html("");
+				$.ajax({
+					url:'',
+					data:null,
+					type:'GET',
+					success:function(result){
+						console.log(result);
+						
+					}
+				});
+			}else if(menu=='도서예약신청'){
+				$(e.target).find('#modal-body-user-request').html("");
+				$.ajax({
+					url:'',
+					data:null,
+					type:'GET',
+					success:function(result){
+						console.log(result);
+						
+					}
+				});
+				
+			}
+		});
+		console.log(2);
+		
+		
+	});
+
+
+
+</script>	
+	
 </head>
 
 
 <body
 	class="page-template page-template-page-without-title page-template-page-without-title-php page page-id-2053 logged-in wp-custom-logo wp-embed-responsive has-fixed-top singular image-filters-enabled elementor-default elementor-kit-14083">
 	<!-- Modal -->
-	<div class="modal fade" id="theModal" role="dialog">
+
+	<div class="modal fade" id="item-user-request" tabindex="-1" book_no="${book.book_no}"
+		role="dialog" aria-labelledby="item-user-request-title"
+		aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="item-user-request-title">신청 제목</h5>
+					<button type="button" class="close reset-iframe-content"
+						data-dismiss="modal" aria-label="닫기">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body item-overview-info-block-body active"
+					id="modal-body-user-request">
+					테스트중
+					<!-- HTML Dynamic loading... -->
+					<
+					<!-- iframe title="신청기능" src="/WEB-INF/views/rentalModal.jsp"
+										width="100%" height="100%" name="modal_user_request_iframe"
+										frameborder="0" id="iframe" onload="iframeLoaded()"></iframe> -->
+				</div>
+				<div class="modal-footer">
+					<button type="button"
+						class="btn btn-secondary reset-iframe-content"
+						data-dismiss="modal">닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="modal fade" id="theModal" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header"></div>
@@ -102,37 +214,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	<script>
-	$('#item-user-request').on('show.bs.modal', function (event) {
-		  var button = $(event.relatedTarget) // Button that triggered the modal
-		  var recipient = button.data('whatever') // Extract info from data-* attributes
-			int code = 1;
-			String url = "";
-			String msg = "";
-			StringBuffer jsonData = new StringBuffer();
-			
-			
-			String book_no = request.getParameter("book_no");
-			if (book_no == null || book_no.equals("")){
-				code = 2;
-				url = "";
-				msg = "잘못된요청방식입니다.";
-			}else{
-				BookServiceImpl bookService = new BookServiceImpl();
-				Book book = bookService.selectBookDetail(Integer.parseInt(book_no));
-				
-				code = 1;
-				url = "";
-				msg = "책정보";
-				jsonData.append("{");
-				jsonData.append("\"guest_no\":" + book.getBook_title() + ",");
-				jsonData.append("\"guest_name\":\"" + book.getBook_author() + "\",");
-				jsonData.append("}");
-			}
-		})
-	
-	</script>
+	</div> -->
 
 	<header id="masthead" class="site-header">
 
@@ -194,40 +276,7 @@
 					</header>
 
 					<script>
-						var userRequest = function(cmd) { // 2020.03.04 추가 - 각종 이용자 신청 처리
-							var url = '';
-							if (cmd == "rental") {
-								url = "/WEB-INF/views/rentalModalJson.jsp"; 
-								var title = "도서 대출 신청";
-								document
-										.getElementById("item-user-request-title").innerHTML = title;
-							} else if (cmd == "reserve") {
-								url = "/book-reserve/?accessno=" + accessno
-										+ "&mainno=" + mainno;
-								var title = "도서 예약 신청";
-								document
-										.getElementById("item-user-request-title").innerHTML = title;
-							} else if (cmd == "sendsms") {
-								url = "/send-sms/?accessno=" + accessno
-										+ "&mainno=" + mainno;
-								var title = "소장 정보 발송 서비스";
-								document
-										.getElementById("item-user-request-title").innerHTML = title;
-							} else {
-								var message = "잘못된 요청입니다.";
-								alert(message);
-								return false;
-							}
-
-							modal_user_request_iframe.location.href = url; // layer로 출력
-						}
-
-						jQuery(function($) {
-							$(".reset-iframe-content")
-									.click(
-											function(e) { // 각종 서비스 신청 페이지 리셋
-												modal_user_request_iframe.location.href = "/WEB-INF/views/rentalModal.jsp";
-											});
+				
 
 							
 					</script>
@@ -241,15 +290,11 @@
 								<div class="item-cover-slider">
 									<div>
 										<img class="multi-cover" style="display: none;"
-											src="${book.book_image_src }" alt="${book.book_image }" />
+											src="${book.book_image_src}" alt="${book.book_image}" />
 									</div>
 								</div>
 								<script>
-									jQuery(function($) {
-										$(document).ready(function() {
-											$(".multi-cover").show();
-										});
-									});
+									
 									/*쓰고싶지만 못쓰겠구나 미리보기*/
 								</script>
 
@@ -378,25 +423,7 @@
 							<!-- e-Book Resources -->
 						</div>
 						<script>
-							var get_er_finder = function(byid) {
-								var ajaxurl = "/n2app/eds/er_finder.php?isbn=9788954699914";
-								jQuery(function($) {
-									$
-											.ajax({
-												cache : false,
-												async : true,
-												type : 'get',
-												dataType : 'jsonp',
-												url : ajaxurl,
-												success : function(data) {
-													document
-															.getElementById(byid).innerHTML = data['html'];
-												}
-											});
-								});
-							}
-
-							get_er_finder('er_finder-result');
+							
 						</script>
 
 
@@ -444,28 +471,28 @@
 													<td><span class="th-item">반납예정일</span>
 														${rental_duedate.substring(0,10)}</td>
 													<td><span class="th-item">예약</span> ${res_status} <span
-														class="item-modal" data-toggle="modal"
-														data-target="#item-user-request"> <a
+														class="item-modal" > <a data-toggle="modal"
+															data-target="#item-user-request"
 															class="item-loc-service" title="도서예약신청"
-															href="javascript:userRequest('reserve','000121257791','1016743106','000AC2SL');">
+															href="">
 																<span class="char-icon"
-																data-remote="/WEB-INF/views/rentalModal.jsp">R</span>
+																>R</span>
 														</a>
 													</span></td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->
 													<td><span class="th-item">서비스</span> <span
-														class="item-modal" data-toggle="modal"
-														data-target="#item-user-request"> <a
+														class="item-modal" >
+														 <a data-toggle="modal"
+																data-target="#item-user-request"
 															class="item-loc-service" title="간편대출신청"
-															href="javascript:userRequest('rental');"><span
+															href=""><span
 																class="char-icon char-icon-magenta">B</span></a>
-													</span> <span class="item-modal" data-toggle="modal"
-														data-target="#item-user-request"
-														data-remote="/WEB-INF/views/rentalModal.jsp"> <a
-															class="item-loc-service" title="소장정보발송"
-															href="javascript:userRequest('sendsms','000151361197','1018413246','000AC4JL');"><span
-																class="char-icon char-icon-blue">M</span></a>
+													</span>
+													 <span class="item-modal" > 
+													 	<a class="item-loc-service"  data-toggle="modal" data-target="#item-user-request"  title="소장정보발송" href="">
+													 		<span class="char-icon char-icon-blue">M</span>
+													 	</a>
 													</span></td>
 													<!-- 모달 테스트 -->
 													<!-- <td>
@@ -484,13 +511,12 @@
 							</div>
 							<!-- .item-location-content -->
 
-							<!-- R=도서예약, B=간편대출, C=분관대출,  O=고서열람,  M=소장정보 -->
+							<!-- R=도서예약, B=간편대출, M=소장정보 -->
 							<div class="item-location-footer">
 								<div class="item-services text-right">
-									<span><span class="char-icon char-icon">R</span> 도서예약</span> 
-									<span><span class="char-icon char-icon-magenta">B</span> 간편대출</span> 
-									<span><span class="char-icon char-icon-blue">M</span> 소장정보</span>
-									<span><span class="char-icon char-icon-BLACK">D</span> 메롱</span>
+									<span><span class="char-icon char-icon">R</span> 도서예약</span> <span><span
+										class="char-icon char-icon-magenta">B</span> 간편대출</span> <span><span
+										class="char-icon char-icon-blue">M</span> 소장정보</span>
 								</div>
 							</div>
 							<!-- .item-location-footer -->
@@ -511,21 +537,12 @@
 										<p>${book.book_summary }</p>
 										<br /> <span>정보제공 : <a
 											href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=298570092&partner=openAPI&start=api"
-											target="_blank"><img src="img/aladin.png" alt="Aladin"></a></span>
+											target="_blank"><img src="static/img/aladin.png"
+												alt="Aladin"></a></span>
 									</div>
 									<!-- .inner-area -->
 								</div>
 
-								<a
-									class="btn btn-primary btn-sm btn-sub btn-collapse d-none invisible">
-									접기<svg class="svg-icon" width="13" height="13"
-										aria-hidden="true" role="img" focusable="false"
-										viewBox="0 0 24 24" version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
-														<path d="M4,18l8-12l8,12H4z"></path>
-														<path d="M0 0h24v24H0z" fill="none"></path></svg>
-								</a>
 							</div>
 						</div>
 
@@ -594,41 +611,6 @@
 										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
 
-								<script>
-									jQuery(function($) {
-
-										$(document)
-												.ready(
-														function() {
-															var SlideDivWidth = $(
-																	'.item-popular-books')
-																	.width(); // 반응형 웹에 따른 width 값 구하기
-															if (SlideDivWidth <= 510) { // 510 이하이면 스마트폰(2개) 화면
-																$(
-																		'.item-popular-book-slider')
-																		.slick(
-																				'slickSetOption',
-																				'slidesToScroll',
-																				2);
-															} else if (SlideDivWidth <= 920) { // 920 이하이면 태블릿(3개) 화면
-																$(
-																		'.item-popular-book-slider')
-																		.slick(
-																				'slickSetOption',
-																				'slidesToScroll',
-																				3);
-															} else { // 920 보다크면... 즉, PC 화면일때 slidesToScroll 값을 5로 복원
-																$(
-																		'.item-popular-book-slider')
-																		.slick(
-																				'slickSetOption',
-																				'slidesToScroll',
-																				5);
-															}
-														});
-									});
-								</script>
-
 							</div>
 							<!-- .item-popular-books-content -->
 						</div>
@@ -667,120 +649,41 @@
 													style="background-image: url(https://image.aladin.co.kr/product/28409/75/cover/k832835010_1.jpg)"></div>
 											</a>
 										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.17 한연순 분</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000046128962&ctype=m">분홍 눈사람 :
-														한연순 시집</a>
-												</h4>
-											</div>
-											<div class="item-author">한연순 (2021)</div>
-										</div>
-									</div>
-									<!-- .item -->
-
-
-								</div>
-								<!-- .item-newarrival-book-slider -->
-								<a class="item-newarrival-books-prev"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" viewBox="0 0 24 24" version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
+										<div class="item-meta"></div>
+										<!-- .item-newarrival-book-slider -->
+										<a class="item-newarrival-books-prev"><svg
+												class="svg-icon" width="48" height="48" aria-hidden="true"
+												role="img" focusable="false" viewBox="0 0 24 24"
+												version="1.1" xmlns="http://www.w3.org/2000/svg"
+												xmlns:xlink="http://www.w3.org/1999/xlink">
 										<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a> <a
-									class="item-newarrival-books-next"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24">
+											class="item-newarrival-books-next"><svg class="svg-icon"
+												width="48" height="48" aria-hidden="true" role="img"
+												focusable="false" xmlns="http://www.w3.org/2000/svg"
+												viewBox="0 0 24 24">
 										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
 
-								<script>
-									jQuery(function($) {
-
-										$(document)
-												.ready(
-														function() {
-															var SlideDivWidth = $(
-																	'.item-newarrival-books')
-																	.width(); // 반응형 웹에 따른 width 값 구하기
-															if (SlideDivWidth <= 510) { // 510 이하이면 스마트폰(2개) 화면
-																$(
-																		'.item-newarrival-book-slider')
-																		.slick(
-																				'slickSetOption',
-																				'slidesToScroll',
-																				2);
-															} else if (SlideDivWidth <= 920) { // 920 이하이면 태블릿(3개) 화면
-																$(
-																		'.item-newarrival-book-slider')
-																		.slick(
-																				'slickSetOption',
-																				'slidesToScroll',
-																				3);
-															} else { // 920 보다크면... 즉, PC 화면일때 slidesToScroll 값을 5로 복원
-																$(
-																		'.item-newarrival-book-slider')
-																		.slick(
-																				'slickSetOption',
-																				'slidesToScroll',
-																				5);
-															}
-														});
-									});
-								</script>
-
+									</div>
+									<!-- .item-newarrival-books-content -->
+								</div>
+								<!-- .item-newarrival-books.item-additional-info -->
 							</div>
-							<!-- .item-newarrival-books-content -->
-						</div>
-						<!-- .item-newarrival-books.item-additional-info -->
+							<!-- .container -->
+						<!-- .item-detail-content -->
+
 					</div>
-					<!-- .container -->
-					<div class="modal fade" id="item-user-request" tabindex="-1"
-						role="dialog" aria-labelledby="item-user-request-title"
-						aria-hidden="true">
-						<div class="modal-dialog" role="document">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title" id="item-user-request-title">신청 제목</h5>
-									<button type="button" class="close reset-iframe-content"
-										data-dismiss="modal" aria-label="닫기">
-										<span aria-hidden="true">&times;</span>
-									</button>
-								</div>
-								<div class="modal-body item-overview-info-block-body active"
-									id="modal-body-user-request">
-									테스트중
-									<!-- HTML Dynamic loading... -->
-									<
-									<!-- iframe title="신청기능" src="/WEB-INF/views/rentalModal.jsp"
-										width="100%" height="100%" name="modal_user_request_iframe"
-										frameborder="0" id="iframe" onload="iframeLoaded()"></iframe> -->
-								</div>
-								<div class="modal-footer">
-									<button type="button"
-										class="btn btn-secondary reset-iframe-content"
-										data-dismiss="modal">닫기</button>
-								</div>
-							</div>
-						</div>
-					</div>
+					<!-- .entry-content -->
+
+				</article>
+				<!-- #post-2053 -->
+
+
+			</main>
+			<!-- #main -->
 		</div>
-		<!-- .item-detail-content -->
-
-	</div>
-	<!-- .entry-content -->
-
-	</article>
-	<!-- #post-2053 -->
-
-
-	</main>
-	<!-- #main -->
-	</div>
-	<!-- #primary -->
+		<!-- #primary -->
 
 
 	</div>

@@ -475,6 +475,34 @@ button {
     color: #4c552a;
     background: #eef2dd;
 }
+.w-btn-detail {
+    background-color: #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-detail-outline {
+    border: 3px solid #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-detail-outline:hover {
+    color: #4c552a;
+    background: #eef2dd;
+}
+.w-btn-join {
+    background-color: #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-join-outline {
+    border: 3px solid #eef2dd;
+    color: #4c552a;
+}
+
+.w-btn-join-outline:hover {
+    color: #4c552a;
+    background: #eef2dd;
+}
 
 /****************************/
 

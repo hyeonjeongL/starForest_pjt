@@ -24,7 +24,6 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="static/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <title>나의도서 - 별숲도서관</title>
 <style>
@@ -39,7 +38,7 @@
 <script type="text/javascript"
 	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
-<script type="text/javascript" src="static/js/MyLibraryHtmlContents.js"></script>
+<script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 	/************로딩시세션체크*********/
 	$.ajax({//도서정보 클릭 시 바로 세션확인

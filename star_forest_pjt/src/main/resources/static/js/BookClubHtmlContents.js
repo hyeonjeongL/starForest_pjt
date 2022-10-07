@@ -1,6 +1,6 @@
 function BookClubHtmlContents(){
 }
-BookClubHtmlContents.club_join_html=function(){
+BookClubHtmlContents.club_join_html=function(bookClub){
 	return `<div class="col-6">
 							<div class="row"><br></div>
 							<div class="row">
@@ -21,31 +21,40 @@ BookClubHtmlContents.club_join_html=function(){
 							
 					
 								<div class="rentalTable">
-									<table class="table" style="width: 855px">
+									<table class="table" style="width: 750px">
 										<thead style="border: 1px solid #dee2e6">
 											<tr>
-												<th colspan="1" align="right">책마중</th>
-												<th colspan="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-												<th colspan="1">조회 89</th>
+												<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;font-weight:bold"><font size="4">${bookClub.club_no}
+												</font></td>
+												<td colspan="1" style="padding:0px;text-align:left;padding-left: 30px;font-weight:bold"><font size="4">책마중
+												</td>
+												<td colspan="4" style="padding:10px;text-align:right;padding-right: 30px;font-weight:bold"><font size="4">조회 89
+												</td>
+												
+												
 											</tr>
 										</thead>
 										<tbody>
 											<tr id="rental_item_"
 												style="border: 1px solid #dee2e6; height: 250px;">
 					
-												<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">자바dfd:fdfdfd:sadas<br>dsada<br>sdsadas
+												<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px"><img src="./img/club.png" width=100 height=100>
 												</td>
-												<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px">한예지 sda:<br>sdasdasd<br>as<br>da&nbp;
+												<td colspan="2" style="padding:0px;text-align:left;padding-left: 30px">대상 : 성인분들 <br> 모집인원 : 8 <br> 시간 : 매주월요일 <br> 장소 : 도서관
 												</td>
-												<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px"><button style="padding: 10px 30px 10px 30px;cursor: pointer;border-color:#dee2e6" id="club_join_detail_btn">자세히</button>
-													<br>
-												<button id='club_join_btn' style="padding: 10px 30px 10px 30px;cursor: pointer;border-color:#dee2e6">신&nbsp;&nbsp;&nbsp;청</button></td>
+												<td colspan="2" style="padding:0px;text-align:center;padding-left: 0px">
+												
+												<button id="btn_detail" class="w-btn w-btn-detail" type="button">자세히</button><br>
+												<button id="btn_join" class="w-btn w-btn-join" type="button">신&nbsp;&nbsp;&nbsp;청</button>
+								
+													
 					
 					
 											</tr>
 											<tr id="rental_item_"></tr>
 										</tbody>
 									</table>
+									
 								</div>
 								<!---->
 							</div>

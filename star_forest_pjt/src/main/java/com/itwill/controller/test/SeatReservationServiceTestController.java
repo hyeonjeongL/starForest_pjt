@@ -32,7 +32,12 @@ public class SeatReservationServiceTestController {
 	      //System.out.println(rowCount);
 	      //좌석 테스트 완료
 	      
-	      SeatReservation seat= seatReservationService.selectTimeUsingSeat("B01");
-	      System.out.println(seat.seat_date);
+	      //SeatReservation seat= seatReservationService.selectTimeUsingSeat("B01");
+	      //System.out.println(seat.seat_date);
+	      //int rowCount = seatReservationService.findByUser("soyoon");
+	     // System.out.println(rowCount);
+	      //SeatReservation findSeat = seatReservationService.findSeat("soyoon");
+	      //System.out.println(findSeat);
+	      System.out.println(seatReservationService.selectAll());
 	   }
 }

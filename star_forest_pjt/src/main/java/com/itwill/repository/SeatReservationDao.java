@@ -32,6 +32,12 @@ public interface SeatReservationDao {
 	 //사용 가능한 좌석 리스트
 	 List<SeatReservation> selectAvailableSeat(int seat_status)throws Exception;
 	 
+	 //아이디로 사용하고 있는 좌석이 있는지 카운트
+	 int findByUser (String user_id) throws Exception;
+	 
+	 //아이디로 사용하고 있는 좌석 정보
+	 SeatReservation findSeat(String user_id)throws Exception;
+	 
 	 //사용 가능한 좌석 카운트
 	 int countAvailableSeat(int seat_status)throws Exception;
 	 

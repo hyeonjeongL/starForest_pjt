@@ -117,36 +117,13 @@
 
 		<!-- MAIN SECTION -->
 			<div class="seat_wrap" style="text-align:center;">
-					<div id="A_room">
-						<c:forEach items="${seatList}" var="seat" begin="0" end="6">
-						 <c:if test="${seat.seat_status == 1}">
-						<div class="a-deck">
-		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
-		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
-		                 <p class="card-text">사용중</p>
-		                 <button type="button" class="btn_seat_continue">연장</button>
-		                 <input type="button" class="btn_seat_return" value="반납" seat_no="${seat.seat_no }">
-		                 </div>
-		                 </c:if>
-		                 </c:forEach>
-		                 <c:forEach items="${seatList}" var="seat" begin="0" end="6">
-						 <c:if test="${seat.seat_status == 0}">
-						<div class="a-deck">
-		          		 <p class="card-text">${seat.seat_no}</p>
-		                 <p class="card-text"> ${seat.seat_start_time}</p>
-		                 <p class="card-text"> ${seat.seat_end_time}</p>
-		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
-		                 </div>
-		                 </c:if>
-		                 </c:forEach>
-	            	</div>
+					
             
-            
-	            </div>
-            	
-		</div>
-	</div><!-- pageContent끝 -->
+	        </div>
+	        
+		</div><!-- pageContent끝 -->
+		
+		
 		<!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

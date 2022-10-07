@@ -52,7 +52,9 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	public List<SeatReservation> selectAvailableSeat(int seat_status) throws Exception {
 		return seatReservationMapper.selectAvailableSeat(seat_status);
 	}
-
+	
+	
+	
 	@Override
 	public int countAvailableSeat(int seat_status) throws Exception {
 		return seatReservationMapper.countAvailableSeat(seat_status);
@@ -61,6 +63,16 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	@Override
 	public SeatReservation selectTimeUsingSeat(String seat_no) throws Exception {
 		return seatReservationMapper.selectTimeUsingSeat(seat_no);
+	}
+
+	@Override
+	public int findByUser(String user_id) throws Exception {
+		return seatReservationMapper.findByUser(user_id);
+	}
+
+	@Override
+	public SeatReservation findSeat(String user_id) throws Exception {
+		return seatReservationMapper.findSeat(user_id);
 	}
 
 	

@@ -39,7 +39,7 @@ CREATE SEQUENCE SEQ_Notice_notice_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Rental_rental_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Request_board_board_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_Reservation_res_no INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_Seat_seat_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_Seat_seat_sno INCREMENT BY 1 START WITH 1;
 
 
 
@@ -161,6 +161,7 @@ CREATE TABLE Seat_reservation
 	seat_end_time varchar2(50),
 	seat_status number DEFAULT 0,
 	user_id varchar2(100),
+    seat_sno number,
 	PRIMARY KEY (seat_no)
 );
 

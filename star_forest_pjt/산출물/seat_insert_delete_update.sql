@@ -37,7 +37,7 @@ select count(*) from seat_reservation where seat_status=0;
 
 
 --전체리스트 기록 뽑기
-select * from seat_reservation;
+select * from seat_reservation order by seat_no asc;
 
 select *
 from seat_reservation

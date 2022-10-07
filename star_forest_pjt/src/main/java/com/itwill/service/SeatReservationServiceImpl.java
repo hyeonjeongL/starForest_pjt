@@ -70,6 +70,18 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 		return seatReservationDao.selectTimeUsingSeat(seat_no);
 	}
 
+	@Override
+	public int findByUser(String user_id) throws Exception {
+		
+		return seatReservationDao.findByUser(user_id);
+	}
+
+	@Override
+	public SeatReservation findSeat(String user_id) throws Exception {
+		return seatReservationDao.findSeat(user_id);
+	}
+
+	
 
 	
 	

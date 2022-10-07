@@ -117,6 +117,98 @@ UserHtmlContents.user_login_form_content = function() {
 }
 UserHtmlContents.user_write_form_content = function() {
 	return `
+	<!-- MAIN SECTION -->
+		<section id="insertCustomer">
+			<!-- 폼 시작 -->
+			<form action="insertCustomer" method="post" enctype="multipart/form-data">
+				<!-- 이메일 INPUT START -->
+				<label class="mt-4" for="m_phone">아이디</label> 
+				<span class="signup_required">*</span>
+				<div class="input-group mb-3">
+					<input value="${}" class="form-control" type="text"  id="user_id" name="user_id" placeholder="아이디 입력" required>
+					&nbsp;&nbsp;<font color="red">${}</font>
+				</div>
+				<!-- 이메일 INPUT END -->
+				<!-- 비번 INPUT START -->
+				<div class="form-group mt-2">
+					<label for="pw">비밀번호</label> 
+					<span class="signup_required">*</span>
+					<input value="${}"  class="form-control" type="password"  id="user_password" name="user_password" placeholder="비밀번호 4자리 입력" >
+				</div>
+				<!-- 비번 INPUT END -->
+				<!-- 비번확인 INPUT START -->
+				<div class="form-group mt-3">
+					<label for="pw_check">비밀번호 확인</label> 
+					<span class="signup_required">*</span>
+					<input  value="${}" class="form-control" type="password"   id="user_password2" name="user_password2" placeholder="비밀번호 다시 입력" required>
+				</div>
+				<!-- 비번확인 INPUT END -->
+				<!-- 이름 INPUT START -->
+				<div class="form-group mt-2">
+					<label for="name">이름</label> 
+					<span class="signup_required">*</span>
+					<input  value="${}" class="form-control" type="text"  id="user_name" name="user_name" placeholder="이름 입력" required>
+					<small class="form-text text-muted">반드시 <span class="signup_required">한글 실명</span>으로 기입해주세요.<br> 실명이 아닐 경우, 서비스 이용에 제약이 생길 수 있습니다.<br> - 띄어쓰기, 특수 문자 사용 불가
+					</small>
+				</div>
+				<!-- 이름 INPUT END -->
+				<!-- 이름 INPUT START -->
+				<div class="form-group mt-2">
+					<label for="birth">생년월일</label> 
+					<span class="signup_required">*</span>
+					<input  value="${}" class="form-control" type="text"  id="user_birth" name="user_birth" placeholder="ex) 1999-01-01" required>
+				</div>
+				<!-- 이름 INPUT END -->
+				<div class="form-group mt-2">
+					<label for="gender">성별</label>
+					<span class="signup_required">*</span>
+					<input  value="${}" class="form-control" type="text"  id="user_gender" name="user_gender" placeholder="ex) M (남성) / F (여성)" required>
+				</div>
+				<!-- 이메일 INPUT START -->
+				<label class="mt-4" for="m_phone">이메일</label> 
+				<span class="signup_required">*</span>
+				<div class="input-group mb-3">
+					<input  value="${}" class="form-control" type="text"  id="user_email" name="user_email" placeholder="ex) hello@delibrary.com" required>
+				</div>
+				<!-- 이메일 INPUT END -->
+				<!-- 이메일 INPUT START -->
+				<label class="mt-4" for="m_phone">전화번호</label> 
+				<span class="signup_required">*</span>
+				<div class="input-group mb-3">
+					<input  value="${}" class="form-control" type="tel"  id="user_phone" name="user_phone" placeholder="ex) 010-1234-5678" required>
+				</div>
+				<!-- 이메일 INPUT END -->
+				<!-- 주소 INPUT START -->
+				<label for="m_phone mt-4">주소</label> 
+				<span class="signup_required">*</span>
+				<!-- 상세주소 INPUT START -->
+				<div class="form-group mt-1">
+					<input  value="${}" class="form-control"type="text"  id="user_address" name="user_address" placeholder="주소 입력 ex) 서울시 강남구 역삼동" required>
+				</div>
+				<!-- 주소 INPUT END -->
+					<!-- 관심장르 CHECKBOX START -->
+				<label for="m_phone mt-4">도서 관심 분야</label> 
+				<span class="signup_required">*</span>
+				<div class="form-group mt-1">
+				<small class="form-text text-muted mb-2">
+				<span class="signup_required">100</span><span> - 건강/취미/레저</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">200</span><span> - 경제경영</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">300</span><span> - 고전</span></small> 
+				<small class="form-text text-muted mb-2">
+				<span class="signup_required">400</span><span> - 과학</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">500</span> <span> - 만화</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;
+				<span class="signup_required">600</span><span> - 사회과학</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">700</span><span> - 소설/시/희곡</span></small> 
+					<input  value="${}" class="form-control"type="text"  id="category_no" name="category_no" placeholder="관심 분야 입력 ex) 100" required>
+							<!-- 관심장르 CHECKBOX 1st ROW -->
+					</div>
+	<!-- 관심장르 CHECKBOX 3rd ROW END -->
+	<!-- 관심장르 CHECKBOX END -->
+	<!-- 가입버튼 -->
+		<div class="form-group mt-2">
+			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="userCreate();" id="btn_user_write_action" name="btn_user_write_action">가입하기</button>
+			<small class="form-text text-muted text-center mb-4">회원가입 진행 시 별숲도서관의 <span class="signup_required">개인정보처리방침</span>에 동의하신 것으로 간주됩니다.
+			</small>
+		</div>
+		
+		</form>
+	</section>
 	`;
 }
 UserHtmlContents.user_main_content=function(){

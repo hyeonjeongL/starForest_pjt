@@ -25,7 +25,7 @@ public interface UserDao2 {
 	
 	
 	//아이디중복
-	boolean  existUserId(String user_Id)throws Exception;
+	boolean  existUserId(String user_id)throws Exception;
 	
 	//전화번호 중복
 	boolean  existUserPhone(String user_phone)throws Exception;
@@ -37,11 +37,13 @@ public interface UserDao2 {
 	 String findId(String user_name, String user_phone)throws Exception;
 	
 	//비밀번호 찾기
-	 String findPassword(String user_Id,String user_email)throws Exception;
+	 String findPassword(String user_id,String user_email)throws Exception;
 	
 	
-	
-	
+		/*
+		 * 사용자관리테이블에 새로운사용자생성
+		 */
+		int create(User user) throws Exception;
 	
 
 }

@@ -1,5 +1,7 @@
+<%@page import="com.itwill.domain.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<% User user=new User(); %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +19,8 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/yurim.css">
-<script type="text/javascript" src="/User.js"></script>
+<script type="text/javascript" src="static/js/User.js"></script>
+<script type="text/javascript" src="static/js/UserHtmlContents.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -35,6 +38,119 @@ $(function(){
 			window.location.href="Home";
 		}
 	});
+});
+
+function userCreate() {
+	if (document.f.user_id.value == "") {
+		alert("사용자 아이디를 입력하십시요.");
+		f.user_id.focus();
+		return false;
+	}
+	if (document.f.user_password.value == "") {
+		alert("비밀번호를 입력하십시요.");
+		f.user_password.focus();
+		return false;
+	}
+	if (document.f.user_password2.value == "") {
+		alert("비밀번호확인을 입력하십시요.");
+		f.user_password2.focus();
+		return false;
+	}
+	if (document.f.user_name.value == "") {
+		alert("이름을 입력하십시요.");
+		f.user_name.focus();
+		return false;
+	}
+	if (document.f.user_birth.value == "") {
+		alert("생년월일을 입력하십시요.");
+		f.user_birth.focus();
+		return false;
+	}
+	if (document.f.user_gender.value == "") {
+		alert("성별을 입력하십시요.");
+		f.user_gender.focus();
+		return false;
+	}
+	if (document.f.user_email.value == "") {
+		alert("이메일 주소를 입력하십시요.");
+		f.user_email.focus();
+		return false;
+	}
+	if (document.f.user_phone.value == "") {
+		alert("전화번호를 입력하십시요.");
+		f.user_phone.focus();
+		return false;
+	}
+	if (document.f.user_address.value == "") {
+		alert("주소를 입력하십시요.");
+		f.user_address.focus();
+		return false;
+	}
+	if (document.f.category_no.value == "") {
+		alert("관심 분야를 입력하십시요.");
+		f.category_no.focus();
+		return false;
+	}
+	if (document.f.user_password.value != document.f.user_password2.value) {
+		alert("비밀번호와 비밀번호확인은 일치하여야합니다.");
+		f.user_password.focus();
+		f.user_password.select();
+		return false;
+	}
+	document.f.action = "user_write_action";
+	document.f.method='POST';
+	document.f.submit();
+}
+
+/****************user_write_form******************/
+$(document).on('click', '#a_user_write_form,#btn_user_write_form', function(e) {
+    $('#content').html(UserHtmlContents.user_write_form_content());
+    validator=$('#user_write_form').validate({
+		rules:{
+		    user_id : {
+			    required : true,
+			    remote : {
+					url : "user_id_check_json",
+					dataType:'json',
+					method:'GET',
+					data : {user_id :function() {
+										return $("[name='user_id']").val();
+						    		}
+				}
+			  }
+			}
+		    
+		},
+		messages:{
+			user_id : {
+		    	remote: jQuery.validator.format("{0} 는 이미사용중인 아이디입니다.")
+		  	}
+		}
+		
+	
+    });
+    e.preventDefault();
+});
+/****************user_write_action******************/
+$(document).on('click',	'#btn_user_write_action',function(e) {
+    if(validator.form()){
+	    var param = $('#user_write_form').serialize();
+	    $.ajax({
+			url : 'user_write_action_json',
+			method : 'GET',
+			dataType : 'json',
+			data : param,
+			success : function(jsonResult) {
+			    if (jsonResult.code == 1) {
+					$('#content').html(UserHtmlContents.user_login_form_content());
+			    } else if (jsonResult.code == 2) {
+					$('#msg1').html(jsonResult.msg);
+			    }
+			    console.log(jsonResult);
+			}
+	    });
+    }    
+	e.preventDefault();
 });
 </script>
 <title>회원가입 - 별숲도서관</title>
@@ -69,37 +185,29 @@ $(function(){
 				<label class="mt-4" for="m_phone">아이디</label> 
 				<span class="signup_required">*</span>
 				<div class="input-group mb-3">
-					<input class="form-control" type="user_id" id="user_id" name="user_id" placeholder="아이디 입력" required>
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-Customer" id="btn_idCheck" type="button">중복체크</button>
-					</div>
+					<input value="${user_id}" class="form-control" type="text"  id="user_id" name="user_id" placeholder="아이디 입력" required>
+					&nbsp;&nbsp;<font color="red">${msg}</font>
 				</div>
-				<small class="form-text user_id_message" id="user_id_ok" style="color: red;">이미 등록 되어있는 아이디 입니다.</small> 
-				<small class="form-text user_id_message" id="user_id_ok_ok" style="color: green;">사용 가능한 아이디 입니다. </small> 
 				<!-- 이메일 INPUT END -->
 				<!-- 비번 INPUT START -->
 				<div class="form-group mt-2">
 					<label for="pw">비밀번호</label> 
 					<span class="signup_required">*</span>
-					<input class="form-control" type="user_password" id="user_password" name="user_password" placeholder="비밀번호를 입력해주세요" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-					<small class="form-text text-muted">비밀번호는 <span class="signup_required">8~16자, 영문 대문자, 소문자, 숫자 </span>를 포함해야 합니다.
-					</small>
+					<input value="${user_password}"  class="form-control" type="password"  id="user_password" name="user_password" placeholder="비밀번호 4자리 입력" >
 				</div>
 				<!-- 비번 INPUT END -->
 				<!-- 비번확인 INPUT START -->
 				<div class="form-group mt-3">
 					<label for="pw_check">비밀번호 확인</label> 
 					<span class="signup_required">*</span>
-					<input class="form-control" type="user_password" id="user_password_check" name="user_password_check" placeholder="비밀번호를 다시 입력해주세요" required>
-					<span class="signup_required"> <small class="form-text pw_message" id="pw_match">비밀번호가 일치하지 않습니다.</small> <small class="form-text pw_message" id="pw_length">8~16자로 설정해주세요. </small> <small class="form-text pw_message" id="pw_ok">영문 대문자, 소문자, 숫자 조합으로 해주세요.</small>
-					</span>
+					<input  value="${user_password}" class="form-control" type="password"   id="user_password2" name="user_password2" placeholder="비밀번호 다시 입력" required>
 				</div>
 				<!-- 비번확인 INPUT END -->
 				<!-- 이름 INPUT START -->
 				<div class="form-group mt-2">
 					<label for="name">이름</label> 
 					<span class="signup_required">*</span>
-					<input class="form-control" type="text" id="user_name" name="user_name" placeholder="이름을 입력해주세요" required>
+					<input  value="${user_name}" class="form-control" type="text"  id="user_name" name="user_name" placeholder="이름 입력" required>
 					<small class="form-text text-muted">반드시 <span class="signup_required">한글 실명</span>으로 기입해주세요.<br> 실명이 아닐 경우, 서비스 이용에 제약이 생길 수 있습니다.<br> - 띄어쓰기, 특수 문자 사용 불가
 					</small>
 				</div>
@@ -108,96 +216,57 @@ $(function(){
 				<div class="form-group mt-2">
 					<label for="birth">생년월일</label> 
 					<span class="signup_required">*</span>
-					<input class="form-control" type="text" id="user_birth" name="user_birth" placeholder="ex)1999-01-01" required>
+					<input  value="${user_birth}" class="form-control" type="text"  id="user_birth" name="user_birth" placeholder="ex) 1999-01-01" required>
 				</div>
 				<!-- 이름 INPUT END -->
 				<div class="form-group mt-2">
 					<label for="gender">성별</label>
-				</div>
-				<div>
-					<div class="form-check">
-						<input type="checkbox" id="open" name="male" class="form-check-input">
-						<label for="open" class="form-check-label">남성 Male &nbsp;&nbsp;&nbsp;</label>
-						<input type="checkbox" id="open" name="female" class="form-check-input">
-						<label for="open" class="form-check-label">여성 Female</label>
-					</div>
+					<span class="signup_required">*</span>
+					<input  value="${user_gender}" class="form-control" type="text"  id="user_gender" name="user_gender" placeholder="ex) M (남성) / F (여성)" required>
 				</div>
 				<!-- 이메일 INPUT START -->
-				<label class="mt-4" for="m_phone">이메일</label> <span class="signup_required">*</span>
+				<label class="mt-4" for="m_phone">이메일</label> 
+				<span class="signup_required">*</span>
 				<div class="input-group mb-3">
-					<input class="form-control" type="email" id="email" name="email" placeholder="ex)hello@delibrary.com" required>
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-Customer" id="btn_emailCheck" type="button">중복체크</button>
-					</div>
+					<input  value="${user_email}" class="form-control" type="text"  id="user_email" name="user_email" placeholder="ex) hello@delibrary.com" required>
 				</div>
-				<small class="form-text email_message" id="email_ok" style="color: red;">이미 등록 되어있는 이메일 입니다.</small> 
-				<small class="form-text email_message" id="email_ok_ok" style="color: green;">등록 가능한 이메일입니다. </small> 
-				<small class="form-text text-muted email" id="email_msg"><span class="signup_required">실제 사용하시는 이메일을</span> 입력해주세요.</small>
 				<!-- 이메일 INPUT END -->
 				<!-- 이메일 INPUT START -->
 				<label class="mt-4" for="m_phone">전화번호</label> 
 				<span class="signup_required">*</span>
 				<div class="input-group mb-3">
-					<input class="form-control" type="tel" id="user_phone" name="user_phone" placeholder="ex)010-1234-5678" required>
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-Customer" id="btn_phoneCheck" type="button">중복체크</button>
-					</div>
+					<input  value="${user_phone}" class="form-control" type="tel"  id="user_phone" name="user_phone" placeholder="ex) 010-1234-5678" required>
 				</div>
-				<small class="form-text user_phone_message" id="user_phone_ok" style="color: red;">이미 등록 되어있는 전화번호 입니다.</small> 
-				<small class="form-text user_phone_message" id="user_phone_ok_ok" style="color: green;">등록 가능한 전화번호 입니다. </small> 
 				<!-- 이메일 INPUT END -->
 				<!-- 주소 INPUT START -->
 				<label for="m_phone mt-4">주소</label> 
 				<span class="signup_required">*</span>
-				<div id="address_postcode">
-					<div class="input-group">
-						<input class="form-control" type="text" name="addr2_a" id="getPostcode_input" required>
-						<input class="form-control" type="text" name="addr2_b" id="getDetail_addr">
-						<div class="input-group-append">
-							<button class="btn btn-outline-success btn-Customer" type="button" id="getPostcode">우편번호찾기</button>
-						</div>
-					</div>
-				</div>
 				<!-- 상세주소 INPUT START -->
 				<div class="form-group mt-1">
-					<input class="form-control" type="text" id="getAddr1" name="addr1_a">
-					<input class="form-control mt-1" type="text" id="getAddr2" name="addr1_b" placeholder="상세주소를 입력해주세요." required>
+					<input  value="${user_address}" class="form-control"type="text"  id="user_address" name="user_address" placeholder="주소 입력 ex) 서울시 강남구 역삼동" required>
 				</div>
 				<!-- 주소 INPUT END -->
-				<div class="interest_check">
 					<!-- 관심장르 CHECKBOX START -->
-					<div class="form-group mt-4">
-						<label class="mb-1">도서 관심 분야를 선택해주세요.</label> <br>
-						<div class="row">
+				<label for="m_phone mt-4">도서 관심 분야</label> 
+				<span class="signup_required">*</span>
+				<div class="form-group mt-1">
+				<small class="form-text text-muted mb-2">
+				<span class="signup_required">100</span><span> - 건강/취미/레저</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">200</span><span> - 경제경영</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">300</span><span> - 고전</span></small> 
+				<small class="form-text text-muted mb-2">
+				<span class="signup_required">400</span><span> - 과학</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">500</span> <span> - 만화</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;
+				<span class="signup_required">600</span><span> - 사회과학</span>&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;<span class="signup_required">700</span><span> - 소설/시/희곡</span></small> 
+					<input  value="${user_address}" class="form-control"type="text"  id="category_no" name="category_no" placeholder="관심 분야 입력 ex) 100" required>
 							<!-- 관심장르 CHECKBOX 1st ROW -->
-			<select name="language">
-				<option value="none">=== 선택 ===</option>
-				<option value="100" id="100">100 건강/취미/레저</option>
-				<option value="200" id="200">200 경제경영</option>
-				<option value="300" id="300">300 고전</option>
-				<option value="400" id="400">400 과학</option>
-				<option value="500" id="500">500 만화</option>
-				<option value="600" id="600">600 사회과학</option>
-				<option value="700" id="700">700 소설/시/희곡</option>
-			</select>
-						</div>
 					</div>
 	<!-- 관심장르 CHECKBOX 3rd ROW END -->
 	<!-- 관심장르 CHECKBOX END -->
-	<!-- 마케팅 동의 -->
-		<div class="form-group form-check mt-4">
-			<input type="checkbox" class="form-check-input" id="agreement">
-			<label class="form-check-label" for="agreement">마케팅 정보 수신 동의(선택)</label> 
-			<small class="form-text text-muted mb-2">마케팅 정보 수신에 동의하시면 신간도서 소식을 빠르게 전해드립니다.</small>
-		</div>
 	<!-- 가입버튼 -->
 		<div class="form-group mt-2">
-			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" >가입하기</button>
+			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="userCreate();" id="btn_user_write_action" name="btn_user_write_action">가입하기</button>
 			<small class="form-text text-muted text-center mb-4">회원가입 진행 시 별숲도서관의 <span class="signup_required">개인정보처리방침</span>에 동의하신 것으로 간주됩니다.
 			</small>
 		</div>
 		
-		</div>
 		</form>
 	</section>
 	</div>

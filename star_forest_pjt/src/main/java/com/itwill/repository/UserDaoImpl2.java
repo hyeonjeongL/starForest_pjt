@@ -30,6 +30,43 @@ public class UserDaoImpl2 implements UserDao2{
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
+	/*
+	 * 사용자관리테이블에 새로운사용자생성
+	 */
+	@Override
+	public int create(User user) throws Exception {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int insertRowCount = 0;
+		try {
+			/*
+			 * 예외발생 예상코드
+			 */
+			con = dataSource.getConnection();
+			pstmt = con.prepareStatement(UserSQL2.USER_INSERT);
+			pstmt.setString(1,user.getUser_id());
+			pstmt.setString(2,user.getUser_name());
+			pstmt.setString(3,user.getUser_password());
+			pstmt.setString(4,user.getUser_email());
+			pstmt.setString(5,user.getUser_birth());
+			pstmt.setString(6,user.getUser_gender());
+			pstmt.setString(7,user.getUser_phone());
+			pstmt.setString(8,user.getUser_address());
+			pstmt.setInt(9,user.getCategory_no());
+			insertRowCount = pstmt.executeUpdate();
+		} finally {
+			/*
+			 * 예외발생과 관계없이 반듯시 실행되는 코드
+			 */
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			if (con != null) {
+				con.close();
+			}
+		}
+		return insertRowCount;
+	}
 	
 	//회원가입
 	@Override
@@ -149,10 +186,10 @@ public class UserDaoImpl2 implements UserDao2{
 	
 	//아이디중복
 	@Override
-	public boolean existUserId(String user_Id)throws Exception {
+	public boolean existUserId(String user_id)throws Exception {
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(UserSQL2.USER_COUNT_ID);
-		pstmt.setString(1, user_Id);
+		pstmt.setString(1, user_id);
 		ResultSet rs = pstmt.executeQuery();
 		boolean isExist = false;
 		rs.next();
@@ -225,12 +262,12 @@ public class UserDaoImpl2 implements UserDao2{
 	
 	//비밀번호찾기
 	@Override
-	public String findPassword(String user_Id, String user_email) throws Exception {
+	public String findPassword(String user_id, String user_email) throws Exception {
 		String mid = null;
 		Connection con = dataSource.getConnection();
 		PreparedStatement pstmt = con.prepareStatement(UserSQL2.FIND_PASSWORD);
 		User findId = null;
-		pstmt.setString(1, user_Id);
+		pstmt.setString(1, user_id);
 		pstmt.setString(2, user_email);
 		ResultSet rs = pstmt.executeQuery();
 		if(rs.next()) {

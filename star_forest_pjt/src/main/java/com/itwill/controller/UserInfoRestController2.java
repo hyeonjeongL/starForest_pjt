@@ -3,7 +3,9 @@ package com.itwill.controller;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -99,5 +102,36 @@ public class UserInfoRestController2 {
 			map.put("msg", user.getUser_id()+ "는 이미 존재하는 아이디입니다.");
 		}
 		return map;
+	}
+	
+	@GetMapping(value="/user_write_action_json")
+	public Map user_write_action_json(@ModelAttribute User user,Model model) 
+			throws Exception{
+		Map resultMap=new HashMap();
+		int code=1;
+		String url="user_main";
+		String msg="세션존재함";
+		List<User> resultList=new ArrayList<User>();
+		/*
+		 *  0:아이디중복
+		 *  1:회원가입성공
+		 */
+		int result=userService2.create(user);
+		if(result==-1) {
+			code=2;
+			url="user_write_form";
+			msg= user.getUser_id()+" 는 이미 존재하는 아이디 입니다.";
+			
+		}else if(result==1) {
+			code=1;
+			url="user_login_form";
+			msg= "회원가입성공";
+		}
+		
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data",resultList);
+		return resultMap;
 	}
 }

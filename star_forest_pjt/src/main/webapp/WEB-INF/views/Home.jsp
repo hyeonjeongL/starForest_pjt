@@ -108,25 +108,6 @@
 	<div class="container pt-5">
 		<div class="row">
 			<div class="col-md-6">
-				<!--Carousel Wrapper-->
-				<!--<c:forEach items="${bookList}" var ="book">
-					<div class="book-no">
-						<div class="book-img">
-							<a href=""><img src="images/${book.book_category}/${book.book_title}_1.image" alt=""	width="285" height="437"></a>
-						</div>
-						<div class="title-in">
-							<div class="cate">
-								<span class="blue"><a href="#">${movie.category.cg_name}</a></span>
-							</div>
-							<h6>
-								<a href="moviesingle?m_no=${movie.m_no}">${movie.m_name}</a>
-							</h6>
-							<p>
-								<i class="ion-android-star"></i><span>${movie.review.r_grade}</span>/100
-							</p>
-						</div>
-					</div>
-				</c:forEach>-->
 				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 					<div class="hr-green mb-4">
 						<h3 class="d-inline-block mb-3 noto-serif">추천 도서</h3><!--Controls-->
@@ -139,6 +120,30 @@
 						<!--First slide-->
 						<div class="carousel-item active">
 							<div class="row">
+								<c:forEach items="${favorite}" var="book" begin="0" end="2">
+									<div class="col-md-4 clearfix d-none d-md-block">
+										<div class="card"><a href="book_detail?book_no=${book.book_no}">
+											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6>${book.book_author}</h6>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+								<!-- <div class="col-md-4 clearfix d-none d-md-block">
+									<div class="card"><a href=book_detail?book_no=3>
+										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F532619%3Ftimestamp%3D20201108132924"></a>
+										<div class="card-body">
+											<div class="card-title">
+												<div class="book-title" id="book-title">아몬드(양장본 HardCover)</div>
+												<h6>손원평</h6>
+											</div>
+										</div>
+									</div>
+								</div>
 								<div class="col-md-4">
 									<div class="card"><a href=book_detail?book_no=4>
 										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5416922%3Ftimestamp%3D20201108134648"></a>
@@ -146,17 +151,6 @@
 											<div class="card-title">
 												<div class="book-title" id="book-title">달러구트 꿈 백화점</div>
 												<h6>이미예</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card"><a href=book_detail?book_no=3>
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F532619%3Ftimestamp%3D20201108132924"></a>
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">아몬드(양장본 HardCover)</div>
-												<h6>손원평</h6>
 											</div>
 										</div>
 									</div>
@@ -171,13 +165,26 @@
 											</div>
 										</div>
 									</div>
-								</div>
-							</div>
-						</div><!--/.First slide-->
+								</div> -->
+								
+						<!--/.First slide-->
 						<!--Second slide-->
 						<div class="carousel-item">
 							<div class="row">
-								<div class="col-md-4">
+								<c:forEach items="${favorite}" var="book" begin="3" end="5">
+									<div class="col-md-4 clearfix d-none d-md-block">
+										<div class="card"><a href="book_detail?book_no=${book.book_no}">
+											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6>${book.book_author}</h6>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+								
+								
+								<!-- <div class="col-md-4">
 									<div class="card">
 										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5439518%3Ftimestamp%3D20201108133930">
 										<div class="card-body">
@@ -209,7 +216,8 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
+								
 							</div>
 						</div><!--/.Second slide-->
 					</div><!--/.Slides-->
@@ -230,7 +238,11 @@
 						<!--First slide-->
 						<div class="carousel-item active">
 							<div class="row">
-								<div class="col-md-4">
+									
+								
+						<!--/.First slide-->
+						
+								<div class="col-md-4 ">
 									<div class="card">
 										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5495847%3Ftimestamp%3D20201106153628">
 										<div class="card-body">
@@ -264,7 +276,8 @@
 									</div>
 								</div>
 							</div>
-						</div><!--/.First slide-->
+						</div>	
+								
 						<!--Second slide-->
 						<div class="carousel-item">
 							<div class="row">

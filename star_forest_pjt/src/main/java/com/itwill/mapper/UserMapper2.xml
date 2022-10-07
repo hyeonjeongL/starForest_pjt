@@ -19,5 +19,30 @@ select * from user_info where user_id=#{user_id} and user_password=#{user_passwo
 <!-- 아이디 비번 찾기 -->
 
 
+<insert id="create" parameterType="com.itwill.domain.User"
+>
+			insert into user_info(user_id, user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,category_no) 
+			values(#{user_id},#{user_name},#{user_password},#{user_email},#{user_birth},#{user_gender},#{user_phone},#{user_address},#{category_no})
+	</insert>
+	
+	<select id="existedUser" 	parameterType="java.lang.String" 
+								resultType="int">
+		select count(*) cnt from user_info where user_id=#{user_id}
+	</select>
+
+<select id="signUp">
+<![CDATA[
+			insert into user_info(user_id, user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,category_no) 
+			values(#{userId},#{user_name},#{user_password},#{user_email},#{user_birth},#{user_gender},#{user_phone},#{user_address},#{category_no})
+	]]>
+	</select>
+	
+	<select id="idCheck" resultType="int">
+	<![CDATA[
+		select count(*) from user_info where user_id=#{userId}
+		]]>
+	</select>
+
+
 
 </mapper>

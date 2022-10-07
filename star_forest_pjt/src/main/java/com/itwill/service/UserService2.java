@@ -25,7 +25,7 @@ public interface UserService2 {
 	
 	
 	//아이디중복?
-	boolean existUserId(String user_Id)throws Exception;
+	boolean existUserId(String user_id)throws Exception;
 	
 	//전화번호 중복
 	boolean existUserPhone(String user_phone)throws Exception;
@@ -34,11 +34,26 @@ public interface UserService2 {
 	boolean existUserEmail(String user_email)throws Exception;
 	
 	//로그인체크
-	int login(String user_Id, String user_password)throws Exception;
+	int login(String user_id, String user_password)throws Exception;
 	
 	//아이디찾기
 	String findId(String user_name, String user_phone) throws Exception;
 	
 	//비밀번호찾기
-	String findPassword(String user_Id, String user_email) throws Exception;
+	String findPassword(String user_id, String user_email) throws Exception;
+	
+	/*
+	 * 회원가입
+	 */
+	/**************1.반환값사용***********************/
+	int create(User user) throws Exception;
+
+	/*********************************************/
+
+
+
+	/*
+	 * 아이디중복체크
+	 */
+	boolean isDuplicateId(String user_id) throws Exception;
 }

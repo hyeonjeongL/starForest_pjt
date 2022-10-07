@@ -58,4 +58,13 @@ public interface UserMapper2 {
 	@Select("select * from user_info where user_id=? and user_email=?")
 	public String findPassword(String user_Id, String user_email);
 	
+	public int create(User user);
+	
+	public int existedUser(String user_Id);
+	
+	public int idCheck(String userId);
+	
+	public void signUp(User user);
+	
+	
 }

@@ -65,7 +65,7 @@ public class BookClubRestController {
 
 		resultList = bookClubService.selectByCategory(category_no);
 		code = 1;
-		url = "club_list";
+		url = "";
 		msg = "조회성공";
 
 		resultMap.put("code", code);
@@ -293,6 +293,29 @@ public class BookClubRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
+	//동아리리스트
+	
+	@GetMapping("/club_list")
+	public Map club_list() throws Exception {
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<BookClub> resultList = new ArrayList<BookClub>();
+		
+		resultList =bookClubService.selectAll();
+		code = 1;
+		url = "";
+		msg = "조회성공";
+	
+		
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
 	
 	//내가 신청한 동아리내역(마이페이지)
 	@LoginCheck

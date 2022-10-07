@@ -1,4 +1,72 @@
 
+////////////////////////////////////////////////
+function() {
+	
+	/* validator객체변수선언 */
+	var validator = null;
+	/*validator객체 디폴트속성 설정*/
+	$.validator.setDefaults({
+	    rules : {
+			user_id : {
+			    required : true,
+			},
+			user_password : {
+			    required : true
+			},
+			user_password2 : {
+			    required : true,
+			    equalTo : "#password"
+			},
+			user_name : {
+			    required : true,
+			},
+			user_email : {
+			    required : true,
+			    user_email : true
+			}
+
+	    },
+	    messages:{
+			user_id : {
+			    required: '아이디를 입력하세요'
+			},
+		  	user_password : {
+		  	  	required: '비밀번호를 입력하세요'
+			},
+			user_password2 : {
+			    required : '비밀번호 확인을 입력하세요',
+			    equalTo:'비밀번호와 비밀번호 확인은 일치하여야 합니다'
+			},
+			user_name : {
+			    required : '이름을 입력하세요'
+			},
+			user_email : {
+			    required : '이메일을 입력하세요',
+			    user_email : '이메일형식이 일치하지않습니다.'
+			}
+		},
+		errorClass : 'error',
+	    validClass : 'valid'
+	};
+
+//////////////////////////////////////////////////////////////
+
+	
+	function(){
+	$(".mypage").click(function(event){
+		if(${cust_no == null}){
+			event.preventDefault();
+			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
+			console.log(loginOk);
+			if(loginOk){
+				console.log("로그인하러갑니다.");
+				window.location.href = "LoginPage";
+			}
+		}else{
+			window.location.href="Home";
+		}
+	});
+};
  // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());
 
@@ -70,14 +138,14 @@
 		})
 	}
 	//////////////////////////**이메일 중복체크:제이쿼리**//////////////////////////////////
-	     
+	     /*
 		$('#btn_emailCheck').click(function() {
 			console.log('pleaassssssss');
 			const email = $('#email').val();
-			/* $('#emailck').removeClass('is-valid');
+			* $('#emailck').removeClass('is-valid');
 			$('#emailck').removeClass('is-invalid');
 			$('#email_ok').css('display','none');
-			$('#email_ok_ok').css('display','none'); */
+			$('#email_ok_ok').css('display','none'); *
 			
 			$.ajax({
 				url:'/emailCheck',
@@ -110,16 +178,16 @@
 				}						
 			});
 			
-	});	
+	});	*/
 	//////////////////////////**아이디 중복체크:제이쿼리**//////////////////////////////////
-	     
+	   /*  
 		$('#btn_idCheck').click(function() {
 			console.log('pleaassssssss');
 			const email = $('#user_id').val();
 			/* $('#emailck').removeClass('is-valid');
 			$('#emailck').removeClass('is-invalid');
 			$('#email_ok').css('display','none');
-			$('#email_ok_ok').css('display','none'); */
+			$('#email_ok_ok').css('display','none'); *
 			
 			$.ajax({
 				url:'/user_idCheck',
@@ -152,16 +220,16 @@
 				}						
 			});
 			
-	});	
+	});	*/
 	//////////////////////////**전화번호 중복체크:제이쿼리**//////////////////////////////////
-	     
+	  /*   
 		$('#btn_phoneCheck').click(function() {
 			console.log('pleaassssssss');
 			const email = $('#user_id').val();
 			/* $('#emailck').removeClass('is-valid');
 			$('#emailck').removeClass('is-invalid');
 			$('#email_ok').css('display','none');
-			$('#email_ok_ok').css('display','none'); */
+			$('#email_ok_ok').css('display','none'); *
 			
 			$.ajax({
 				url:'/user_phoneCheck',
@@ -194,10 +262,10 @@
 				}						
 			});
 			
-	});	
+	});	*/
 
 	//////////////////////////**비밀번호 및 비밀번호 확인**//////////////////////////////////
-	
+	/*
 	let inputPw = document.getElementById('pw'); //패스워드 입력 
 	let inputPw_check = document.getElementById('pw_check'); //패스워드 체크 입력
 
@@ -264,4 +332,4 @@
 		}
 	}
 	
-}
+}*/

@@ -117,6 +117,7 @@ UserHtmlContents.user_login_form_content = function() {
 }
 UserHtmlContents.user_write_form_content = function() {
 	return `
+	
 	`;
 }
 UserHtmlContents.user_main_content=function(){

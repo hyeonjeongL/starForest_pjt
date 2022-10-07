@@ -1,5 +1,7 @@
 package com.itwill.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,11 +35,20 @@ public class BookController {
 			if(book_qty<=3 && book_qty>=1) {
 				model.addAttribute("rental_status", "대출가능");
 				model.addAttribute("res_status", "");
-				model.addAttribute("service", "b");
+				model.addAttribute("rentalPos", "<span\n"
+						+ "	class=\"item-modal\"> <a data-toggle=\"modal\"\n"
+						+ "	data-target=\"#item-user-request\" class=\"item-loc-service\"\n"
+						+ "	title=\"간편대출신청\" href=\"\"><span\n"
+						+ "	class=\"char-icon char-icon-magenta\">B</span></a>");
 				
 			}else if(book_qty==0 && book_res_cnt<=4 ) {
 				model.addAttribute("rental_status", "대출중");
 				model.addAttribute("res_status", "예약가능 ("+book_res_cnt+"명 예약중)");
+				model.addAttribute("reservation1", "<span\n"
+						+ "	class=\"item-modal\"> <a data-toggle=\"modal\"\n"
+						+ "	data-target=\"#item-user-request\" class=\"item-loc-service\"\n"
+						+ "	title=\"도서예약신청\" href=\"\"> <span class=\"char-icon\">R</span>\n"
+						+ "	</a>");
 			}else if(book_qty==0 && book_res_cnt==5) {
 				model.addAttribute("rental_status", "예약불가");
 				model.addAttribute("res_status", "예약한도초과");
@@ -49,9 +60,6 @@ public class BookController {
 			 * Rental - insertRental(대여)
 			*/
 			
-			
-			
-			
 			forwardPath = "forward:/WEB-INF/views/book_detail.jsp";
 			
 		} catch (Exception e) {
@@ -60,14 +68,56 @@ public class BookController {
 			
 		}
 		
-		
 		return forwardPath ;
 	}
 	
-	@RequestMapping("/selectAll")
-	public String recommendedBooks(@RequestParam(value = "book_no", required = false) String book_noSrt,Model model) {
-		return "forward:/WEB-INF/views/recommendedBooks";
+	@RequestMapping("/Home")
+	public String Home(Model model) {
+		try {
+			List<Book> favorite = bookService.selectFavorite();
+			List<Book> newBook = bookService.selectNew();
+			model.addAttribute("favorite",favorite);
+			model.addAttribute("newBook",newBook);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "Home";
 	}
-
+	
+	@RequestMapping("/recommendedBooks")
+	public String recommendedBooks(Model model) {
+		try {
+			List<Book> favorite = bookService.selectFavorite();
+			model.addAttribute("favorite",favorite);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "recommendedBooks";
+	}
+	
+	@RequestMapping("/book_categoryList")
+	public String BookCategoryList(@RequestParam(value = "category_no", required = false) Model model,String category_no) {
+		try {
+			int bookCategoryCount = bookService.bookCategoryCount();
+			List<Book> bookCategory = bookService.selectCategory(Integer.parseInt(category_no));
+			model.addAttribute("bookCategoryCount",bookCategoryCount);
+			model.addAttribute("bookCategory",bookCategory);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "book_categoryList";
+	}
+	
+	@RequestMapping("/book_newList")
+	public String book_newList(Model model) {
+		try {
+			List<Book> newBook = bookService.selectNew();
+			model.addAttribute(newBook);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "book_newList";
+	}
+	
 
 }

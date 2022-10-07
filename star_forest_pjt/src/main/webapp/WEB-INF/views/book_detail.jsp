@@ -9,7 +9,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:description" content="" />
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/book_detail.css">
 <link rel="profile" href="https://gmpg.org/xfn/11" />
 <title>도서정보 - 별숲도서관</title>
 
@@ -81,10 +81,11 @@
 	id='wp-embed-js'></script> -->
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
+	<!-- MODAL 필수 -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script type="text/javascript">
+<!-- MODALMODAL -->
 	$(function(){
-		console.log(1);
 		$(document).on('show.bs.modal','#item-user-request',function(e){
 			var menu=$(e.relatedTarget).attr('title');
 			if(menu=="소장정보발송"){
@@ -114,9 +115,9 @@
 											</div>
 											<div class="content-d">
 												<div class="content-l">
-													<h5>수신번호 : 010-3329-****</h5>
+													<h5>수신 이메일 : ${user.user_email}</h5>
 													<div class="content-desc">
-														※ 수신번호 변경 방법<br>-포털 아이디 이용자 : 학교 포털사이트(http://portal.korea.ac.kr/)에서 직접 변경 <br>- 도서관 아이디 이용자 : 도서관 홈페이지 로그인 후 [내 정보 변경] 페이지에서 직접 변경
+														※ 수신번호 변경 방법<br>- 도서관 아이디 이용자 : 도서관 홈페이지 로그인 후 [내 정보 변경] 페이지에서 직접 변경
 													</div>
 												</div>
 											</div>
@@ -139,6 +140,52 @@
 					success:function(result){
 						console.log(result);
 						
+						var html1 = `<body class="modal-page">
+							
+							<div class="container">
+								
+								<div class="entry-content">
+
+									
+									<div class="content-d">
+										<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 수령처</h4>
+										<div class="content-l">
+																
+																<div>
+												<label class="attr-value-label">
+													<input type="radio" name="receive_location_code" class="purchase-type" > 별빛도서관 1층 데스크
+												</label>
+											</div>
+															</div>
+									</div>
+									
+									<div class="content-d d-flex justify-content-center">
+										<button type="button" class="btn btn-primary submit-request">신청</button>
+									</div>
+									
+									<div class="content-d">
+										<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 간편대출 안내</h4>
+										<div class="content-l">
+											<ul>
+												<li>간편대출 최대 신청 회수 : 3회</li>
+												<li>신청된 간편대출 자료는 1일 2회(오전09:00, 오후2:00) 확인 후 통보하여 드립니다.</li>
+												<li>오후 2:00 이후 신청된 자료는 익일 오전에 확인하여 통보됩니다.</li>
+												<li>E-Mail 및 알림톡/SMS로 도착통보를 받은 후 수령할 수 있으며, 수령처는 자료의 크기, 상태 등에 따라 변경될 수 있습니다.</li>
+												<li>간편대출 서비스를 신청하였으나 대출이 불가한 자료의 경우는 별도로 안내해 드립니다.(*서가에 없거나 파손이 심한 경우 등)</li>
+												<li>도착 통보 후 3일 이내 반드시 자료를 수령하셔야 합니다. (자료 미수령시 1개월간 간편대출서비스 이용 불가)</li>
+											</ul>
+										</div>
+									</div>
+									
+								</div><!-- .entry-content -->
+								
+							</div><!-- .container -->
+
+
+
+						</body>`
+							$(e.target).find('#modal-body-user-request').html(html1);
+						
 					}
 				});
 			}else if(menu=='도서예약신청'){
@@ -150,20 +197,69 @@
 					success:function(result){
 						console.log(result);
 						
+						var html1 = 
+							`<body class="modal-page">
+								
+								<div class="container">
+
+									<div class="entry-content">
+
+										
+										<div class="content-d">
+											<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 도서예약 안내</h4>
+											<div class="content-l">
+												<ol>
+													<li>
+														<div>예약자료 도착 알림 : 개인공지 / E-mail / 카카오알림톡(또는 SMS)</div>
+														<div>&lt;도서관 홈페이지 - 나의공간 - 이용자정보관리&gt;에서 <font color="red">연락처를 확인</font>하여 주시기 바랍니다.</div>
+													</li><li>
+														<div>예약 정보 확인 및 취소 : &lt;나의공간 - 대출/예약 현황&gt; 메뉴</div>
+														<div>단, <font color="red">도착통보 후에는 직접 취소가 불가</font>하오니 1:1 문의 게시판 또는 전화로 취소 요청하시기 바랍니다.</div>
+													</li>
+												</ol>
+											</div>
+										</div>
+										<div class="content-d d-flex justify-content-center">
+											<button type="button" class="btn btn-primary submit-request">신청</button>
+										</div>
+
+										
+									</div><!-- .entry-content -->
+
+								</div><!-- .container -->
+
+
+
+							</body>`;
+						$(e.target).find('#modal-body-user-request').html(html1);
+							
+						
 					}
 				});
 				
 			}
 		});
-		console.log(2);
+		
 		
 		
 	});
 
-
-
-</script>	
 	
+
+</script>
+<script type="text/javascript">
+${document}.on('click','#btn btn-primary submit-request', function(e){
+	$.ajax({
+		url:'rest_rental',
+		method:'GET',
+		succss:function(jsonResult){
+			alert(jsonResult.msg);			
+		}
+	})
+})
+
+</script>
+
 </head>
 
 
@@ -171,9 +267,9 @@
 	class="page-template page-template-page-without-title page-template-page-without-title-php page page-id-2053 logged-in wp-custom-logo wp-embed-responsive has-fixed-top singular image-filters-enabled elementor-default elementor-kit-14083">
 	<!-- Modal -->
 
-	<div class="modal fade" id="item-user-request" tabindex="-1" book_no="${book.book_no}"
-		role="dialog" aria-labelledby="item-user-request-title"
-		aria-hidden="true">
+	<div class="modal fade" id="item-user-request" tabindex="-1"
+		book_no="${book.book_no}" role="dialog"
+		aria-labelledby="item-user-request-title" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -184,8 +280,7 @@
 					</button>
 				</div>
 				<div class="modal-body item-overview-info-block-body active"
-					id="modal-body-user-request">
-				</div>
+					id="modal-body-user-request"></div>
 				<div class="modal-footer">
 					<button type="button"
 						class="btn btn-secondary reset-iframe-content"
@@ -279,11 +374,9 @@
 
 							<div class="item-cover col-lg-2">
 
-								<div class="item-cover-slider">
-									<div>
-										<img class="multi-cover" style="display: none;"
-											src="${book.book_image_src }" alt="${book.book_image }" />
-									</div>
+								<div>
+									<img class="multi-cover" style="display: none;"
+										src="${book.book_image_src }" alt="${book.book_image }" />
 								</div>
 								<script>
 									
@@ -304,7 +397,7 @@
 								<script>
 									jQuery(function($) {
 										$(document).ready(function() {
-											$("#preview-link").show();
+											$(".multi-cover").show();
 										});
 									});
 								</script>
@@ -313,8 +406,8 @@
 
 							<div class="item-data col-lg-10">
 
-								<div class="item-row d-lg-flex justify-content-between mb-3">
-									<div class="item-title pr-lg-5 flex-grow-0">
+								<div class="item-row d-lg-flex justify-content-between mb-3" style= "height: 50px;">
+									<div class="item-title">
 										<h2>${book.book_title }
 											<span class="item-meta-value"> (<span class="number">${book.book_rental_cnt }</span>회
 												대출)
@@ -406,14 +499,7 @@
 
 						<hr class="d-none d-lg-block" />
 
-						<!-- <pre># DEBUG: ctype=m | ISBN_ALL=SimpleXMLElement Object
-(
-    [0] => 9788954699914  
-)
-1 | ISBN="9788954699914"</pre> -->
-						<div id="er_finder-result">
-							<!-- e-Book Resources -->
-						</div>
+						<div id="er_finder-result"></div>
 						<script>
 							
 						</script>
@@ -462,29 +548,24 @@
 													<td><span class="th-item">도서상태</span> ${rental_status}</td>
 													<td><span class="th-item">반납예정일</span>
 														${rental_duedate.substring(0,10)}</td>
-													<td><span class="th-item">예약</span> ${res_status} <span
-														class="item-modal" > <a data-toggle="modal"
-															data-target="#item-user-request"
-															class="item-loc-service" title="도서예약신청"
-															href="">
-																<span class="char-icon"
-																>R</span>
-														</a>
+													<td><span class="th-item">예약</span> ${res_status} ${reservation1}<!-- <span
+														class="item-modal"> <a data-toggle="modal"
+															data-target="#item-user-request" class="item-loc-service"
+															title="도서예약신청" href=""> <span class="char-icon">R</span>
+														</a> -->
 													</span></td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->
-													<td><span class="th-item">서비스</span> <span
-														class="item-modal" >
-														 <a data-toggle="modal"
-																data-target="#item-user-request"
-															class="item-loc-service" title="간편대출신청"
-															href=""><span
-																class="char-icon char-icon-magenta">B</span></a>
-													</span>
-													 <span class="item-modal" > 
-													 	<a class="item-loc-service"  data-toggle="modal" data-target="#item-user-request"  title="소장정보발송" href="">
-													 		<span class="char-icon char-icon-blue">M</span>
-													 	</a>
+													<td><span class="th-item">서비스</span>${rentalPos } <!-- <span
+														class="item-modal"> <a data-toggle="modal"
+															data-target="#item-user-request" class="item-loc-service"
+															title="간편대출신청" href=""><span
+																class="char-icon char-icon-magenta">B</span></a> -->
+													</span> <span class="item-modal"> <a
+															class="item-loc-service" data-toggle="modal"
+															data-target="#item-user-request" title="소장정보발송" href="">
+																<span class="char-icon char-icon-blue">M</span>
+														</a>
 													</span></td>
 													<!-- 모달 테스트 -->
 													<!-- <td>
@@ -529,8 +610,7 @@
 										<p>${book.book_summary }</p>
 										<br /> <span>정보제공 : <a
 											href="http://www.aladin.co.kr/shop/wproduct.aspx?ItemId=298570092&partner=openAPI&start=api"
-											target="_blank"><img src="static/img/aladin.png"
-												alt="Aladin"></a></span>
+											target="_blank"><img src="img/aladin.png" alt="Aladin"></a></span>
 									</div>
 									<!-- .inner-area -->
 								</div>
@@ -663,11 +743,10 @@
 								<!-- .item-newarrival-books.item-additional-info -->
 							</div>
 							<!-- .container -->
-						<!-- .item-detail-content -->
+							<!-- .item-detail-content -->
 
-					</div>
-					<!-- .entry-content -->
-
+						</div>
+						<!-- .entry-content -->
 				</article>
 				<!-- #post-2053 -->
 

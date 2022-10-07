@@ -3,6 +3,7 @@ package com.itwill.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.itwill.domain.User;
@@ -55,13 +56,13 @@ public class UserServiceImpl2 implements UserService2{
 	
 	//로그인체크
 	@Override
-	public int login(String user_Id, String user_password) throws Exception {
+	public int login(String user_id, String user_password) throws Exception {
 		/*
 		 * 0: 아이디 존재하지않음
 		 * 1: 로그인
 		 * 2: 패스워드 불일치
 		 */
-		User user=userDao2.selectByUserId(user_Id);
+		User user=userDao2.selectByUserId(user_id);
 		if(user==null) {
 			return 0;
 		}
@@ -74,8 +75,8 @@ public class UserServiceImpl2 implements UserService2{
 	
 	//아이디중복
 	@Override
-	public boolean existUserId(String user_Id) throws Exception {
-		boolean isExist = userDao2.existUserId(user_Id);
+	public boolean existUserId(String user_id) throws Exception {
+		boolean isExist = userDao2.existUserId(user_id);
 		if (isExist) {
 			return true;
 		} else {
@@ -113,10 +114,51 @@ public class UserServiceImpl2 implements UserService2{
 	
 	//비밀번호찾기
 	@Override
-	public String findPassword(String user_Id, String user_email) throws Exception {
-		return userDao2.findPassword(user_Id, user_email);
+	public String findPassword(String user_id, String user_email) throws Exception {
+		return userDao2.findPassword(user_id, user_email);
 	}
 	
+	/*
+	 * 회원가입
+	 */
+	/**************1.반환값사용***********************/
+	@Override
+	public int create(User user)throws Exception{
+		/*
+		 * -1:아이디중복
+		 *  1:회원가입성공
+		 */
+		
+		
+		//1.아이디중복체크
+		if(userDao2.existUserId(user.getUser_id())) {
+			//아이디중복
+			return -1;
+		}else {
+			//아이디안중복
+			//2.회원가입
+			//BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+			//String securePassword = encoder.encode(user.getUser_password());
+			//user.setUser_password(securePassword); //암호화
+			int insertRowCount=userDao2.create(user);
+			return insertRowCount;
+		}
+	}
+	/*********************************************/
+	
+	
+	/*
+	 * 아이디중복체크
+	 */
+	@Override
+	public boolean isDuplicateId(String user_id) throws Exception{
+		boolean isExist = userDao2.existUserId(user_id);
+		if(isExist) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 
 }

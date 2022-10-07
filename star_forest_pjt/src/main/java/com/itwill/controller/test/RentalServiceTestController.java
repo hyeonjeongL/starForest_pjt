@@ -25,7 +25,7 @@ public class RentalServiceTestController {
 		ConfigurableApplicationContext context = application.run(args);
 		RentalService rentalService = (RentalService) context.getBean(RentalService.class);
 		Date date = new Date();
-		Rental newRental = new Rental(50, date, date, date, 1, 90, "hyeonjeong");
+		Rental newRental = new Rental(66, date, date, date, 1, 90, "hyeonjeong");
 //		System.out.println(rentalService.updateDate("hyeonjeong", 4));
 //		System.out.println(rentalService.selectById("hyeonjeong")); //리스트 렌탈이라서 렌탈정보만 나옴 이게맞나 --> 렌탈테이블추가해서 모두 출력완료
 //		System.out.println(rentalService.selectByNo(2)); 

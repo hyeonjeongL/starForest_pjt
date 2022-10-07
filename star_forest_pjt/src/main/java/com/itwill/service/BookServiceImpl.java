@@ -74,11 +74,6 @@ public class BookServiceImpl implements BookService {
 	}
 
 	@Override
-	public List<Book> selectNew(int category_no) throws Exception {
-		return bookDao.selectNew(category_no);
-	}
-
-	@Override
 	public List<Book> selectFavorite9() throws Exception {
 		return bookDao.selectFavorite9();
 	}
@@ -91,6 +86,30 @@ public class BookServiceImpl implements BookService {
 	@Override
 	public int updateResCnt(int book_no) throws Exception {
 		return bookDao.updateResCnt(book_no);
+	}
+
+
+	@Override
+	public int bookCount() throws Exception {
+		return bookDao.bookCount();
+	}
+
+
+	@Override
+	public int bookCategoryCount() throws Exception {
+		return bookDao.bookCategoryCount();
+	}
+
+
+	@Override
+	public List<Book> selectCategoryNew(int category_no) throws Exception {
+		return bookDao.selectCategoryNew(category_no);
+	}
+
+
+	@Override
+	public List<Book> selectNew() throws Exception {
+		return bookDao.selectNew();
 	}
 
 }

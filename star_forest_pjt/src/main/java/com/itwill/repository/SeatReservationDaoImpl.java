@@ -39,8 +39,8 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	}
 	
 	@Override
-	public int continueSeat(SeatReservation seatReservation) throws Exception {
-		return seatReservationMapper.continueSeat(seatReservation);
+	public int continueSeat(String user_id) throws Exception {
+		return seatReservationMapper.continueSeat(user_id);
 	}
 
 	@Override

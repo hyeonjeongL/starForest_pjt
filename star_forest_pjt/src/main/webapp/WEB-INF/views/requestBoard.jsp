@@ -36,7 +36,7 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="static/js/request_html_content.js"></script>
+	<script type="text/javascript" src="js/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
 		$.ajax({
@@ -62,6 +62,27 @@
 			e.preventDefault();
 		});
 		
+		$(document).on('click','.request_item_a',function(e){
+			var board_no=$(e.target).attr('board_no');
+			var param='board_no='+board_no;
+			console.log(param);
+			$.ajax({
+				url:'request_view_json',
+				method:'GET',
+				data:param,
+				success:function(jsonResult){
+					var item = jsonResult.data[0];
+					$('#requestBoard_wrap').html(request_view(item));
+				}
+			});
+			
+			
+		});
+		
+		$(document).on('click','#btn_request_list',function(e){
+			location.href='requestBoard';
+			
+		});
 		
 	});
 </script>
@@ -99,9 +120,6 @@
 		
 		
 		
-		</div>
-		<div>
-		<input type="button" id="btn_write" value="희망도서 신청하기" onClick="location.href='requestBoard_write_form'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		
 		

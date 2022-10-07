@@ -40,7 +40,24 @@
 	<script type="text/javascript" src="js/star_forest/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
+		
+		$.ajax({//로그인 세션확인
+			url : 'user_session_check',
+			method : 'POST',
+			dataType : 'json',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				}else{ //세션 존재하지 않을경우 메세지창보여줌
+					alert('로그인이 필요한 페이지입니다:)');
+				}
+			}
+		});
 	
+		$(document).on('click','#btn_request_list',function(e){
+			location.href='requestBoard';
+			
+		});
 		
 	});
 </script>
@@ -89,15 +106,14 @@
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
 										<td width="490" align="left" bgcolor="ffffff"
-											style="padding-left: 10px"><input type="text"
-											style="width: 150" name="guest_name"></td>
+											style="padding-left: 10px">${sUserId}</td>
 									</tr>
-									<tr>
+									<!-- <tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">이메일</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 150" name="guest_email"></td>
-									</tr>
+									</tr> -->
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
 										<td width="490" align="left" bgcolor="ffffff"
@@ -111,7 +127,7 @@
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 240" name="guest_title"></td>
+											style="width: 350px" name="guest_title"></td>
 									</tr>
 									
 									<tr>

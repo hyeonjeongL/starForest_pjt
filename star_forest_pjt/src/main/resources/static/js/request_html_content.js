@@ -2,9 +2,14 @@
 function request_item_content(requestBoard){
 	return `<tr id="table2">
 		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_no}</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.board_title}</td>
+		<td width="300" bgcolor="ffffff" style="padding-left: 10">
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}">
+				${requestBoard.board_title}
+				</a>
 		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_status}</font></td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
+		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
 		</tr>`;
 }
 
@@ -14,9 +19,11 @@ function request_list_content(requestArray) {
 		<thead>
 		<tr id="table1" align=center style="background-color:pink;">
 		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>제목</td>
+		<td width=30% align=center class=t1><font size=2 color=#000000>제목</td>
 		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>날짜</td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>진행상태</td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>날짜</td>
+		<td width=5% align=center class=t1><font size=2 color=#000000>조회수</td>
 		</tr>
 		</thead>
 		
@@ -27,9 +34,12 @@ function request_list_content(requestArray) {
 				}
 			<!--requestBoard end-->
 		</tbody>
-
 		
-		</table>`;
+		</table>
+		<div>
+		<input type="button" id="btn_write" value="희망도서 신청하기" onClick="location.href='requestBoard_write_form'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+		`;
 }
 function request_write_form_content() {
 	return `<table width="0" border="0" cellpadding="0" cellspacing="0">
@@ -96,4 +106,54 @@ function request_write_form_content() {
 				</tr>
 			</tbody>
 		</table>`;
-}	
+}
+
+function request_view(requestBoard){
+	return `
+	<form name="f" method="post">
+								<input type="hidden" name="guest_no" value="3">
+								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
+									<tbody><tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">번호</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_no}</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.user_id}</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">날짜</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_date.substring(0,10)}</td>
+									</tr><tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">조회수</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.readcount}</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="110">제목</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_title}</td>
+									</tr>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="110">내용</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_content}</td>
+									</tr>
+								</tbody></table>
+							</form>
+							<div class="btn_mrl">
+										<input type="button" value="수정" id="btn_guest_modify_form" board_no="${requestBoard.board_no}"> &nbsp; 
+										<input type="button" value="삭제" id="btn_guest_remove_action" board_no="${requestBoard.guest_no}"> &nbsp; 
+										<input type="button" value="목록" id="btn_request_list">
+							</div>
+	
+	
+	
+	
+	
+	`
+	
+	
+	
+}

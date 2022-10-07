@@ -3,6 +3,7 @@ package com.itwill.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,9 +24,12 @@ public class RequestBoardController {
 	}
 
 	@RequestMapping("/requestBoard_write_form")
-	public String requestCategory_list(HttpServletRequest request) {
+	public String requestCategory_list(HttpServletRequest request,HttpSession session) {
 		String forwardPath="";
 		try {
+			String sUserId = (String)session.getAttribute("sUserId");
+			request.setAttribute("sUserId", sUserId);
+			
 			List<BookCategory> categoryList = requestBoardService.selectCategoryAll();
 			request.setAttribute("categoryList", categoryList);
 			forwardPath="forward:/WEB-INF/views/requestBoard_write_form.jsp";
@@ -34,4 +38,5 @@ public class RequestBoardController {
 		}
 		return forwardPath;
 	}
+
 }

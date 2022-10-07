@@ -46,8 +46,8 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 	}
 	
 	@Override
-	public int continueSeat(SeatReservation seatReservation) throws Exception {
-		return seatReservationDao.continueSeat(seatReservation);
+	public int continueSeat(String user_id) throws Exception {
+		return seatReservationDao.continueSeat(user_id);
 	}
 
 	@Override

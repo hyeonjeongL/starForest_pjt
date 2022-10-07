@@ -157,11 +157,6 @@ public class testController {
 		System.out.println("test");
 		return "QnaUpdate";
 	}
-	@RequestMapping("/recommendedBooks")
-	public String test33() {
-		System.out.println("test");
-		return "recommendedBooks";
-	}
 	@RequestMapping("/return_borrowList")
 	public String test34() {
 		System.out.println("test");

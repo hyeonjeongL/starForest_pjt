@@ -85,5 +85,15 @@ public class BookDaoImpl implements BookDao {
 		return bookMapper.selectFavorite9();
 	}
 
+	@Override
+	public int bookCount() throws Exception {
+		return bookMapper.bookCount();
+	}
+
+	@Override
+	public int bookCategoryCount() throws Exception {
+		return bookMapper.bookCategoryCount();
+	}
+
 
 }

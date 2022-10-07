@@ -53,4 +53,8 @@ public interface BookService {
 
 	/** 관련분야 신간도서 출력 */
 	List<Book> selectNew(int category_no) throws Exception;
+	
+	int bookCount() throws Exception;
+	
+	int bookCategoryCount() throws Exception;
 }

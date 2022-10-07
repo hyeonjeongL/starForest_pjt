@@ -93,4 +93,16 @@ public class BookServiceImpl implements BookService {
 		return bookDao.updateResCnt(book_no);
 	}
 
+
+	@Override
+	public int bookCount() throws Exception {
+		return bookDao.bookCount();
+	}
+
+
+	@Override
+	public int bookCategoryCount() throws Exception {
+		return bookDao.bookCategoryCount();
+	}
+
 }

@@ -1,6 +1,7 @@
 package com.itwill.controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,12 +41,12 @@ public class RentalRestController {
 		String url = "";
 		String msg = "";
 		List<Rental> resultList = new ArrayList<Rental>();
-		
+		Date date = new Date();
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
 			sUserId = "soyoon";
-//			bookService.updateRentalBookQty(Integer.parseInt(book_noStr));
-//			bookService.updateRentalCnt(Integer.parseInt(book_noStr));
+			bookService.updateRentalBookQty(book_no);
+			bookService.updateRentalCnt(book_no);
 			int rental = rentalService.insertRental(new Rental(0, null, null, null, 0, book_no, sUserId));
 //			resultList.add(new Rental(0, null, null, null, 0, Integer.parseInt(book_noStr), sUserId));
 			if(rental==1) {

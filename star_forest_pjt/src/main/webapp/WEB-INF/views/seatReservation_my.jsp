@@ -140,9 +140,11 @@
 		<!-- MAIN SECTION -->
 			<div class="my_seat_wrap" style="text-align:center;">
 					
-             사용하시는 좌석이 없습니다.
+	        <div class="no_seat">
+	         <img src="static/img/noSeat.png" width=300px>
 	        </div>
-	        
+            
+	        </div>
 		</div><!-- pageContent끝 -->
 		
 		

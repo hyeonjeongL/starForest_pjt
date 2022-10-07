@@ -8,9 +8,13 @@ seat_reservation css
 }
 
 .my_seat_wrap {
-	margin-left:800px;
+	margin:auto;
 	align-content: center;
 	width:100%;
+}
+.no_seat {
+	margin:auto;
+	width:250px;
 }
 #A_room {
 	width: 800px;

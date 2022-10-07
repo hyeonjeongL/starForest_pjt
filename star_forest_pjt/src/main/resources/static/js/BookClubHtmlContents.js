@@ -1,34 +1,16 @@
 function BookClubHtmlContents(){
 }
-BookClubHtmlContents.club_join_html=function(bookClub){
-	return `<div class="col-6">
-							<div class="row"><br></div>
-							<div class="row">
-							<br> 
-							<select style="width: 170px;margin-bottom: 50px;border:2px solid #dee2e6">
-								<option value="category">전체</option>
-								<option value="category">100 건강/취미/레저</option>
-								<option value="category">200 경제경영</option>
-								<option value="category">300 고전</option>
-								<option value="category">400 과학</option>
-								<option value="category">500 만화</option>
-								<option value="category">600 사회과학</option>
-								<option value="category">700 소설/시/희곡</option>
-							</select>
-								
-							
-							<!-- 나의도서정보(대여리스트) -->
-							
-					
-								<div class="rentalTable">
+BookClubHtmlContents.club_item_html=function(club){
+	return `
+							<div class="rentalTable">
 									<table class="table" style="width: 750px">
 										<thead style="border: 1px solid #dee2e6">
 											<tr>
-												<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;font-weight:bold"><font size="4">${bookClub.club_no}
+												<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;font-weight:bold"><font size="4">${club.club_no}
 												</font></td>
-												<td colspan="1" style="padding:0px;text-align:left;padding-left: 30px;font-weight:bold"><font size="4">책마중
+												<td colspan="1" style="padding:0px;text-align:left;padding-left: 30px;font-weight:bold"><font size="4">${club.club_name}
 												</td>
-												<td colspan="4" style="padding:10px;text-align:right;padding-right: 30px;font-weight:bold"><font size="4">조회 89
+												<td colspan="4" style="padding:10px;text-align:right;padding-right: 30px;font-weight:bold"><font size="4">조회 ${club.club_readcount}
 												</td>
 												
 												
@@ -40,7 +22,7 @@ BookClubHtmlContents.club_join_html=function(bookClub){
 					
 												<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px"><img src="./img/club.png" width=100 height=100>
 												</td>
-												<td colspan="2" style="padding:0px;text-align:left;padding-left: 30px">대상 : 성인분들 <br> 모집인원 : 8 <br> 시간 : 매주월요일 <br> 장소 : 도서관
+												<td colspan="2" style="padding:0px;text-align:left;padding-left: 30px">대상 : ${club.club_person} <br> 모집인원 : ${club.club_count} <br> 시간 : ${club.club_time} <br> 장소 : ${club.club_place}
 												</td>
 												<td colspan="2" style="padding:0px;text-align:center;padding-left: 0px">
 												
@@ -55,10 +37,28 @@ BookClubHtmlContents.club_join_html=function(bookClub){
 										</tbody>
 									</table>
 									
+								</div>`;
+}
+BookClubHtmlContents.club_join_html=function(bookClubArray){
+	return `
+							<select style="width: 170px;margin-bottom: 50px;border:2px solid #dee2e6">
+								<option value="category">전체</option>
+								<option value="category">100 건강/취미/레저</option>
+								<option value="category">200 경제경영</option>
+								<option value="category">300 고전</option>
+								<option value="category">400 과학</option>
+								<option value="category">500 만화</option>
+								<option value="category">600 사회과학</option>
+								<option value="category">700 소설/시/희곡</option>
+							</select>
+									
+								<div class="rentalTable">
+									${
+										bookClubArray.map(BookClubHtmlContents.club_item_html).join('')
+									  }
 								</div>
-								<!---->
-							</div>
-						</div>`;
+									
+							`;
 }
 BookClubHtmlContents.club_detail_html=function(){
 	return `<div class="col-6">

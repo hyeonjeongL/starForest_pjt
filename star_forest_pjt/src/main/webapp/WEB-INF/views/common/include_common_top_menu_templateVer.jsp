@@ -94,7 +94,7 @@
 				<li class="nav-item dropdown"><a href="postList?group=20"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a class="dropdown-item" href="bookclub">도서동아리</a></li>
+						<li><a class="dropdown-item" href="bookclub" id="menu_bookClub">도서동아리</a></li>
 						<li><a class="dropdown-item"
 							href="postList?option=p_title&search=&group=20">창작물게시판</a></li>
 						<li><a class="dropdown-item"

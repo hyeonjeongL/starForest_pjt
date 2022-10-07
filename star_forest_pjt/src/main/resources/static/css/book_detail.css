@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
+/* @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
 
@@ -30,9 +30,9 @@ textarea{
 	background-position: right center;
 	background-size: 100000%;
 }
-/*
+
  *  Button
-*/
+
 a.button {
   margin-bottom: 0;
   padding: 8px 14px;
@@ -46,9 +46,9 @@ a.button {
     background-color: white;
     color: #17A2B8; }
 
-/*
+
  *  Search Input
-*/
+
 .catalog-search {
   position: relative;
   margin: 0 20px;
@@ -73,7 +73,7 @@ a.button {
   background: none;
   box-shadow: none;
   -webkit-appearance: none;
-  /* for box shadows to show on iOS */ }
+  for box shadows to show on iOS }
   .input_field:focus {
     outline: none;
     border: none;
@@ -177,9 +177,9 @@ a.button {
     -webkit-transform: translate3d(0, -40%, 0);
     transform: translate3d(0, -40%, 0); } }
 
-/*
+
  *  book List
-*/
+
 
 #grid {
   margin-bottom: 15px; 
@@ -234,7 +234,7 @@ a.button {
     display: block;
     display: -webkit-box;
     height: 63px;
-    /* Fallback for non-webkit */
+    Fallback for non-webkit
     font-size: 15px;
     line-height: 1.4;
     -webkit-line-clamp: 3;
@@ -242,15 +242,15 @@ a.button {
     overflow: hidden;
     text-overflow: ellipsis; }
 
-/*
+
  *  Book Rotate
-*/
+
 .bk-img {
   display: inline-block;
   float: left;
   padding-right: 30px;
   list-style: none;
-  /* Individual style & artwork */ }
+  Individual style & artwork }
   .bk-img .bk-wrapper {
     position: relative;
     width: 150px;
@@ -337,7 +337,7 @@ a.button {
       -webkit-transform: rotate(90deg) translateY(-40px);
       transform: rotate(90deg) translateY(-40px); }
   .bk-img .bk-cover {
-    /*background-image: url(../images/1.png);*/
+    background-image: url(../images/1.png);
     background-repeat: no-repeat;
     background-position: 10px 40px; }
     .bk-img .bk-cover:after {
@@ -356,9 +356,9 @@ a.button {
   .bk-img .bk-left {
     background-color: yellow; }
 
-/*
+
  *  Lightbox
-*/
+
 .main-overlay {
   position: fixed;
   top: 0;
@@ -492,7 +492,7 @@ a.button {
     display: block;
     display: -webkit-box;
     height: 380px;
-    /* Fallback for non-webkit */
+    Fallback for non-webkit
     font-size: 15px;
     line-height: 1.5;
     -webkit-line-clamp: 16;
@@ -529,4 +529,9 @@ a.button {
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 30%, white 80%); }
 
 .overlay-details {
-  display: none; }
+  display: none; } */
+  
+  .item-row d-lg-flex justify-content-between mb-3 {
+  	padding: 60px;
+  	height: 50px;
+  	}

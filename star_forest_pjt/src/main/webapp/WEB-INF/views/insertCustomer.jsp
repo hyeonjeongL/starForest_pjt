@@ -17,10 +17,25 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="static/css/style.css">
 <link rel="stylesheet" href="static/css/yurim.css">
+<script type="text/javascript" src="/User.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
-	
+$(function(){
+	$(".mypage").click(function(event){
+		if(${cust_no == null}){
+			event.preventDefault();
+			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
+			console.log(loginOk);
+			if(loginOk){
+				console.log("로그인하러갑니다.");
+				window.location.href = "LoginPage";
+			}
+		}else{
+			window.location.href="Home";
+		}
+	});
+});
 </script>
 <title>회원가입 - 별숲도서관</title>
 </head>
@@ -167,11 +182,7 @@
 			</select>
 						</div>
 					</div>
-					</div>
-			</form>
-				</div>
 	<!-- 관심장르 CHECKBOX 3rd ROW END -->
-					</div>
 	<!-- 관심장르 CHECKBOX END -->
 	<!-- 마케팅 동의 -->
 		<div class="form-group form-check mt-4">
@@ -181,10 +192,11 @@
 		</div>
 	<!-- 가입버튼 -->
 		<div class="form-group mt-2">
-			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit">가입하기</button>
+			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" >가입하기</button>
 			<small class="form-text text-muted text-center mb-4">회원가입 진행 시 별숲도서관의 <span class="signup_required">개인정보처리방침</span>에 동의하신 것으로 간주됩니다.
 			</small>
 		</div>
+		
 		</div>
 		</form>
 	</section>
@@ -198,13 +210,15 @@
 	</div>
 	<!-- footer end-->
 	<!---------------------- 자바스크립트 섹션 ----------------------->
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+	crossorigin="anonymous"></script>
+	  <script type="text/javascript"	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript"	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			//푸터 명언

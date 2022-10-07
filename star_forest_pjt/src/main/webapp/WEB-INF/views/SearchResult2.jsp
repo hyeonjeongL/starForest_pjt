@@ -20,6 +20,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
   <link rel="stylesheet" href="static/css/style.css">
+  <script type="text/javascript" src="/Search.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
 <!-- kakao 검색 API -->
@@ -251,37 +252,29 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 	</div>
 	
 	<div style="clear: both"></div>
-<div>
+<!-- 페이징처리 -->
+                 <div class="container mt-5">
+              <ul class="pagination justify-content-center">
+              <c:if test="${startPage > 1}">
+                <li class="page-item"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
+              </c:if>
+              <c:if test="${startPage == 1}">
+                <li class="page-item disabled"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
+              </c:if>
+                    <c:forEach var="i" begin="${startPage }" end="${endPage }">
+                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${i }">${i }</a></li>
+                 </c:forEach>
+              <c:if test="${endPage < totalPage}">              
+                 <li class="page-item"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
+              </c:if>
+              <c:if test="${endPage == totalPage}">
+                  <li class="page-item disabled"><a class="page-link" id="page-link" href="QnaList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
+              </c:if>
+              </ul>
+            </div>
+	
+	<div style="clear: both"></div>
 
-	<c:if test="${page.prev}">
-		<span>[ <a href="/board/listPage?num=${page.startPageNum - 1}">이전</a> ]</span>
-	</c:if>
-	
-	<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
-		<span>
-		
-			<c:if test="${select != num}">
-				<a href="/board/listPage?num=${num}">${num}</a>
-			</c:if> 			
-			
-			<c:if test="${select == num}">
-				<b>${num}</b>
-			</c:if>
-	 			
-		</span>
-	</c:forEach>
-	
-	<c:if test="${page.next}">
-		<span>[ <a href="/board/listPage?num=${page.endPageNum + 1}">다음</a> ]</span>
-	</c:if>
-	
-	
-	<%-- <c:forEach begin="1" end="${pageNum}" var="num">
-  		<span>
-  			<a href="/board/listPage?num=${num}">${num}</a>
-		</span>
-	</c:forEach> --%>
-</div>
   <!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

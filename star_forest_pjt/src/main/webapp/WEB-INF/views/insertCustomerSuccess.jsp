@@ -42,7 +42,7 @@
           회원가입을 환영합니다.
         </h1>
         <p class="lead" style="font-family: 'Noto Sans KR' font-weight: 300">
-          ${id} 로 별숲도서관 서비스 이용이 가능합니다.
+          ${user_id} 로 별숲도서관 서비스 이용이 가능합니다.
         </p>
         <hr />
         <a class="btn btn-outline-success btn-lg" href="LoginPage.do" role="button">&nbsp;&nbsp;로그인&nbsp;&nbsp;</a>

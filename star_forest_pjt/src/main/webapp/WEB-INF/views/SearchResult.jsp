@@ -18,6 +18,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
   <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src="/Search.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
   <script type="text/javascript">
@@ -28,7 +29,7 @@
 			window.searchform.keyword.focus();
 			return false;
 		}
-		window.searchform.submit();
+		window.searchform.submit(); 
 	}
 </script>
 <!-- kakao 검색 API -->
@@ -160,6 +161,12 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
  li > ul.low li { width:180px; }
 </style>
 
+<style>
+   ul li {}
+   section#content div.book_image_src img { width:200px; height:200px; }
+   section#content div.book_title { padding:10px 0; text-align:center; }
+   section#content div.book_title a { color:#000; }
+</style>
 
 </head>
 <body class="d-flex flex-column">
@@ -247,37 +254,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 	</div>
 	
 	<div style="clear: both"></div>
-<div>
 
-	<c:if test="${page.prev}">
-		<span>[ <a href="/board/listPage?num=${page.startPageNum - 1}">이전</a> ]</span>
-	</c:if>
-	
-	<c:forEach begin="${page.startPageNum}" end="${page.endPageNum}" var="num">
-		<span>
-		
-			<c:if test="${select != num}">
-				<a href="/board/listPage?num=${num}">${num}</a>
-			</c:if> 			
-			
-			<c:if test="${select == num}">
-				<b>${num}</b>
-			</c:if>
-	 			
-		</span>
-	</c:forEach>
-	
-	<c:if test="${page.next}">
-		<span>[ <a href="/board/listPage?num=${page.endPageNum + 1}">다음</a> ]</span>
-	</c:if>
-	
-	
-	<%-- <c:forEach begin="1" end="${pageNum}" var="num">
-  		<span>
-  			<a href="/board/listPage?num=${num}">${num}</a>
-		</span>
-	</c:forEach> --%>
-</div>
   <!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

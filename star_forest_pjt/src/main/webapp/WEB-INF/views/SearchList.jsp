@@ -24,6 +24,7 @@ String keyword = request.getParameter("keyword");
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
   <link rel="stylesheet" href="static/css/style.css">
+    <script type="text/javascript" src="/Search.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
  
@@ -44,7 +45,7 @@ String keyword = request.getParameter("keyword");
 	$('#year').text(new Date().getFullYear());
 	
 	$('#search').click(function() {
-		$("#query").val($("#bookName").val());
+		$("#query").val($("#book_title").val());
 		$('.searchResult-body').children().remove();
 		$('.paging').children().remove();
 		search();
@@ -157,6 +158,22 @@ String keyword = request.getParameter("keyword");
 		float: left;
 	}
 </style>
+<style>
+ li { position:relative; }
+li:hover { background:#eee; }     
+li > ul.low { display:none; position:absolute; top:0; left:180px;  }
+ li:hover > ul.low { display:block; }
+li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
+ li:hover > ul.low li a:hover { background:#fff;}
+ li > ul.low li { width:180px; }
+</style>
+
+<style>
+   ul li {}
+   section#content div.book_image_src img { width:200px; height:200px; }
+   section#content div.book_title { padding:10px 0; text-align:center; }
+   section#content div.book_title a { color:#000; }
+</style>
 </head>
 <body class="d-flex flex-column">
 	<input type="hidden" value="${query}" id="query">
@@ -193,6 +210,17 @@ String keyword = request.getParameter("keyword");
 							</div>
 							<ul class="list-group list-group-flush mb-5">
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
+                  <li class="list-group-item active"><a href="SearchList">전체 도서</a>
+	                  <ul class="low">
+		                  <li><a href="/SearchList/list?c=100&l=2">100 건강/취미/레저</a></li>
+		                  <li><a href="/SearchList/list?c=200&l=2">200 경제경영</a></li>
+		                  <li><a href="/SearchList/list?c=300&l=2">300 고전</a></li>
+		                  <li><a href="/SearchList/list?c=400&l=2">400 과학</a></li>
+		                  <li><a href="/SearchList/list?c=500&l=2">500 만화</a></li>
+		                  <li><a href="/SearchList/list?c=600&l=2">600 사회과학</a></li>
+		                  <li><a href="/SearchList/list?c=700&l=2">700 소설/시/희곡</a></li>
+	                  </ul>
+                  </li>
                   <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
                   <li class="list-group-item"><a href="Newbooks">신착도서</a></li>                  
                   <li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>
@@ -211,7 +239,7 @@ String keyword = request.getParameter("keyword");
 										<option value="author">저자</option>
 										<option value="publisher">출판사</option>
 							</select>
-					<input class="form-control searchbar" id="bookName" type="text"
+					<input class="form-control searchbar" id="book_title" type="text"
 						placeholder="검색어를 입력하세요.">
 					<div class="input-group-append">
 						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -234,6 +262,8 @@ String keyword = request.getParameter("keyword");
 	<div style="clear: both"></div>
 
 <!--  -->
+<!-- 페이징처리 -->
+	<div style="clear: both"></div>
 <!-- 페이징처리 -->
                  <div class="container mt-5">
               <ul class="pagination justify-content-center">

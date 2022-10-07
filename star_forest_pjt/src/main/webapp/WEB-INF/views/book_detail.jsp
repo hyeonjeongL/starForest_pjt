@@ -7,7 +7,6 @@
 <html>
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:description" content="" />
 <link rel="stylesheet" href="css/style.css">
@@ -54,9 +53,9 @@
 	href='https://library.korea.ac.kr/wp-content/themes/kulib/style.css?ver=20210913'
 	type='text/css' media='all' />
 
-<script type='text/javascript'
+<!-- <script type='text/javascript'
 	src='https://library.korea.ac.kr/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'
-	id='jquery-core-js'></script>
+	id='jquery-core-js'></script> -->
 <script type='text/javascript'
 	id='graphina-charts-for-elementor-public-js-extra'>
 	
@@ -88,7 +87,6 @@
 		console.log(1);
 		$(document).on('show.bs.modal','#item-user-request',function(e){
 			var menu=$(e.relatedTarget).attr('title');
-			console.log(menu);
 			if(menu=="소장정보발송"){
 				$.ajax({
 					url:'rest_book_detail',
@@ -107,7 +105,7 @@
 													<h5>소장정보</h5>
 													<ul>
 														<li>도서정보: ${book.book_title}</li>
-														<li>저자사항: ${book.book_author}</li>
+														<li>저자사항: ${book.book_author}}</li>
 														<li>출판정보: ${book.book_publisher}</li>						
 														<li>I S B N : ${book.isbn}</li>
 														<li>소장정보: 별숲도서관</li>
@@ -187,12 +185,6 @@
 				</div>
 				<div class="modal-body item-overview-info-block-body active"
 					id="modal-body-user-request">
-					테스트중
-					<!-- HTML Dynamic loading... -->
-					<
-					<!-- iframe title="신청기능" src="/WEB-INF/views/rentalModal.jsp"
-										width="100%" height="100%" name="modal_user_request_iframe"
-										frameborder="0" id="iframe" onload="iframeLoaded()"></iframe> -->
 				</div>
 				<div class="modal-footer">
 					<button type="button"
@@ -290,7 +282,7 @@
 								<div class="item-cover-slider">
 									<div>
 										<img class="multi-cover" style="display: none;"
-											src="${book.book_image_src}" alt="${book.book_image}" />
+											src="${book.book_image_src }" alt="${book.book_image }" />
 									</div>
 								</div>
 								<script>

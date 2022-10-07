@@ -138,7 +138,8 @@
 		<!-- MAIN SECTION -->
 			<div class="my_seat_wrap" style="text-align;">
 					
-            
+            	<img src="img/noSeat.png" width="350px">
+            	
 	        </div>
 		</div><!-- pageContent끝 -->
 		

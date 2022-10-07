@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,9 +89,11 @@ public class SeatReservationRestController {
 			resultMap.put("data", resultList);
 			return resultMap;
 		}
-		
-		@RequestMapping(value="/my_seat_json",produces="application/json;charset=UTF-8")
-		public Map my_seat_json(@ModelAttribute SeatReservation seatReservation,HttpSession session) {
+		/*
+		 * 내좌석정보
+		 */
+		@GetMapping(value="/my_seat_json",produces="application/json;charset=UTF-8")
+		public Map my_seat_json(HttpSession session) {
 			Map resultMap = new HashMap();
 			int code=1;
 			String msg="";
@@ -99,15 +102,19 @@ public class SeatReservationRestController {
 			
 			try {
 				String sUserId = (String)session.getAttribute("sUserId");
-				seatReservation = seatReservationService.findSeat(sUserId);
+				SeatReservation seatReservation = seatReservationService.findSeat(sUserId);
 				resultList.add(seatReservation);
 				code=1;
 				msg="";
 			}catch (Exception e) {
+				code=2;
 				e.printStackTrace();
 				msg="나의 좌석 정보 불러오기 에러";
 			}
-			
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("msg", msg);
+			resultMap.put("data", resultList);
 			return resultMap;
 		}
 }

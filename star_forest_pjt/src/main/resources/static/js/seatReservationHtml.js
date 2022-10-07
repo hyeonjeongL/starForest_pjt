@@ -11,5 +11,6 @@ function my_seat(seat) {
 		                 </div>
 		                 
 	</div>
+	
 		`;
 }

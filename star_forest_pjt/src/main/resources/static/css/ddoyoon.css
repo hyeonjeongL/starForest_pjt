@@ -3,6 +3,13 @@ seat_reservation css
 */
 .seat_wrap {
 	margin:auto;
+	align-content: center;
+	width:100%;
+}
+
+.my_seat_wrap {
+	margin-left:800px;
+	align-content: center;
 	width:100%;
 }
 #A_room {
@@ -17,7 +24,7 @@ seat_reservation css
 .a-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:120px; 
+	width:150px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;
@@ -37,7 +44,7 @@ seat_reservation css
 .b-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:120px; 
+	width:150px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;
@@ -57,7 +64,7 @@ seat_reservation css
 .c-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:120px; 
+	width:150px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;
@@ -77,7 +84,7 @@ seat_reservation css
 .d-deck{
 	border: 1px solid; 
 	background-color: #FFC0CB; 
-	width:120px; 
+	width:150px; 
 	float: left; 
 	margin-left:50px; 
 	margin-right: 20px;

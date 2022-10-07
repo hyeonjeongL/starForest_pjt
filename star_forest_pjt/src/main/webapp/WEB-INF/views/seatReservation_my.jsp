@@ -35,6 +35,7 @@
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="static/css/ddoyoon.css">
 <link rel="stylesheet" href="static/css/BookCart.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <link rel="icon" type="image/png" sizes="16x16"
@@ -44,25 +45,46 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="static/js/seatReservationHtml.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$(document).on('click','.btn_seat_reservation',function(e){
-			var param = 'seat_no='+$(e.target).attr('seat_no');
-			console.log(param);
-			$.ajax({
-				url:'seat_reservation_action_json',
-				method:'POST',
-				data:param,
-				dataType:'json',
-				success:function(jsonResult){
-					if(jsonResult.code==1){
-						$('#menu_seatReservation').trigger('click');
-					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-					}
+		
+		$.ajax({//로그인 세션확인
+			url : 'user_session_check',
+			method : 'POST',
+			dataType : 'json',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				}else{ //세션 존재하지 않을경우 메세지창보여줌
+					alert('로그인이 필요한 페이지입니다:)');
 				}
-				
+			}
+		});
+		
+		$.ajax({
+			url:'my_seat_json',
+			method:'GET',
+			success:function(jsonResult){
+				var seat = jsonResult.data[0];
+				console.log(seat);
+				$('.my_seat_wrap').html(my_seat(seat));
+			}
+		});
+		
+		
+		$(document).on('click','#menu_my_seat',function(e){
+			$.ajax({
+				url:'my_seat_json',
+				method:'GET',
+				success:function(jsonResult){
+					var seat = jsonResult.data[0];
+					console.log(seat);
+					//console.log($('.seat_wrap'));
+					$('.my_seat_wrap').html(my_seat(seat));
+				}
 			});
+			e.preventDefault();
 		});
 		
 		$(document).on('click','.btn_seat_return',function(e){
@@ -116,9 +138,9 @@
 		</header>
 
 		<!-- MAIN SECTION -->
-			<div class="seat_wrap" style="text-align:center;">
+			<div class="my_seat_wrap" style="text-align:center;">
 					
-            
+             사용하시는 좌석이 없습니다.
 	        </div>
 	        
 		</div><!-- pageContent끝 -->

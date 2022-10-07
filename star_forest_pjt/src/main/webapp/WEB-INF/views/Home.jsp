@@ -327,16 +327,16 @@
             </div>
          </div>
          <div class="col-md-4 mb-3 noto-serif">
-            <a href="addrViewpageAPI.do"><div class="home-tag mb-2">
+            <a href="addrViewpageAPI"><div class="home-tag mb-2">
                   <img class="pr-4 m-0" alt="찾아오시는 길" src="../img/home/map.png"
                      height="30px">찾아오시는 길
                </div></a><div class="home-tag mb-2" id="phone_a" >
                   <img class="pr-4 m-0" alt="찾아오시는 길"
                      src="../img/home/telephone.png" height="30px">전화번호
-               </div> <a href="QnaList.do"><div class="home-tag mb-2">
+               </div> <a href="QnaList"><div class="home-tag mb-2">
                   <img class="pr-4 m-0" alt="찾아오시는 길" src="../img/home/question.png"
                      height="30px">묻고답하기
-               </div></a> <a href="faqViewpage.do"><div class="home-tag mb-0">
+               </div></a> <a href="faqViewpage"><div class="home-tag mb-0">
                   <img class="pr-4 m-0" alt="찾아오시는 길" src="../img/home/faq.png"
                      height="30px">자주묻는질문
                </div></a>
@@ -400,7 +400,7 @@
                               <h4>공지사항</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList.do?option=p_title&search=&group=10"><small
+                              <a href="postList?option=p_title&search=&group=10"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>
@@ -411,7 +411,7 @@
                               step="1">
                               <tr>
                                  <td class="home_post_title ellipsis"><a
-                                    href="postDetail.do?p_id=${notice.p_id}&&group=10">${notice.p_title }</a></td>
+                                    href="postDetail?p_id=${notice.p_id}&&group=10">${notice.p_title }</a></td>
                                  <td class="home_post_date"><fmt:formatDate
                                        value="${notice.p_regdate }" pattern="YYYY-MM-dd" /></td>
                               </tr>
@@ -429,7 +429,7 @@
                               <h4>창작물게시판</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList.do?option=p_title&search=&group=20"><small
+                              <a href="postList?option=p_title&search=&group=20"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>
@@ -440,7 +440,7 @@
                               end="4" step="1">
                               <tr>
                                  <td class="home_post_title ellipsis"><a
-                                    href="postDetail.do?p_id=${making.p_id}&&group=20">${making.p_title }</a></td>
+                                    href="postDetail?p_id=${making.p_id}&&group=20">${making.p_title }</a></td>
                                  <td class="home_post_date"><fmt:formatDate
                                        value="${making.p_regdate }" pattern="YYYY-MM-dd" /></td>
                               </tr>
@@ -458,7 +458,7 @@
                               <h4>중고장터</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList.do?option=p_title&search=&group=30"><small
+                              <a href="postList?option=p_title&search=&group=30"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>
@@ -469,7 +469,7 @@
                               end="4" step="1">
                               <tr>
                                  <td class="home_post_title ellipsis"><a
-                                    href="postDetail.do?p_id=${market.p_id}&&group=30">${market.p_title }</a></td>
+                                    href="postDetail?p_id=${market.p_id}&&group=30">${market.p_title }</a></td>
                                  <td class="home_post_date"><fmt:formatDate
                                        value="${market.p_regdate }" pattern="YYYY-MM-dd" /></td>
                               </tr>

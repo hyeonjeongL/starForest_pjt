@@ -34,7 +34,7 @@
    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
    rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="static/css/style.css">
+
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script src="http://code.jquery.com/jquery-3.3.1.min.js"
    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -49,6 +49,7 @@
 <!-- 외부 CSS, JS 파일 링크 -->
 <link rel="stylesheet" href="static/css/HomeCSS.css">
 <script type="text/javascript" src="static/js/HomeJS.js"></script>
+<link rel="stylesheet" href="static/css/style.css">
 
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">

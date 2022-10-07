@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.itwill.domain.User;
@@ -138,9 +137,9 @@ public class UserServiceImpl2 implements UserService2{
 		}else {
 			//아이디안중복
 			//2.회원가입
-			BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
-			String securePassword = encoder.encode(user.getUser_password());
-			user.setUser_password(securePassword); //암호화
+			//BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+			//String securePassword = encoder.encode(user.getUser_password());
+			//user.setUser_password(securePassword); //암호화
 			int insertRowCount=userDao2.create(user);
 			return insertRowCount;
 		}

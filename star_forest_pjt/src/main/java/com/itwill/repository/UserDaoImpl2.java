@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +20,9 @@ import com.itwill.domain.UserSQL2;
 public class UserDaoImpl2 implements UserDao2{
 	@Autowired
 	private DataSource dataSource;
+	
+	@Autowired
+	SqlSession sqlSession;
 	
 	public UserDaoImpl2(){
 		
@@ -278,6 +282,8 @@ public class UserDaoImpl2 implements UserDao2{
 		rs.close();
 		return mid;
 	}
+	
+	
 	
 	
 	

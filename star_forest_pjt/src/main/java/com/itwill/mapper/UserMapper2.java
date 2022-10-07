@@ -62,4 +62,9 @@ public interface UserMapper2 {
 	
 	public int existedUser(String user_Id);
 	
+	public int idCheck(String userId);
+	
+	public void signUp(User user);
+	
+	
 }

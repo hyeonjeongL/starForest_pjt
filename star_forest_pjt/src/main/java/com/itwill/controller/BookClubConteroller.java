@@ -6,25 +6,24 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.domain.BookClub;
 import com.itwill.service.BookClubService;
 
 @Controller
-public class BookClubController {
+public class BookClubConteroller {
 	@Autowired
 	private BookClubService bookClubService;
 	
-	//동아리 리스트(메인화면)
-	@RequestMapping("/club_list")
-	public String club_list(Model model) throws Exception {
-		List<BookClub> clubList=bookClubService.selectAll();
-		model.addAttribute("clubList",clubList);
+	@RequestMapping("/club_category_list")
+	public String category_list(int category_no,HttpServletRequest request) throws Exception {
+		String forwardPath="";
 		
-		return "clubList";
+		List<BookClub> categoryList = bookClubService.selectByCategory(category_no);
+		request.setAttribute("categoryList", categoryList);
+		
+		
+		return "bookclub";
 	}
-	
-	
 }

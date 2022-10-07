@@ -75,8 +75,7 @@
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
 					console.log(bookClubArray);
-					alert('북클럽');
-					$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
+						$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
 				}
 			});
 		$(document).on('click','#side_bookClub,#menu_bookClub',function(e){
@@ -86,12 +85,13 @@
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
 					console.log(bookClubArray);
-					alert('북클럽');
 					$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
 				}
 			});
 			e.preventDefault();
 		});
+		
+		/********club_category_list********/
 		
 		
 		
@@ -153,7 +153,8 @@
 							<br>
 						</div>
 						<div class="row" id="item">
-							<br>
+						<br>
+							
 							<!-- 동아리신청,상세 -->
 							<div class="rentalTable" id="content">
 							

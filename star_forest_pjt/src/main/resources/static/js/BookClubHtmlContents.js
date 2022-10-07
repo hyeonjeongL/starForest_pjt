@@ -1,5 +1,6 @@
 function BookClubHtmlContents(){
 }
+
 BookClubHtmlContents.club_item_html=function(club){
 	return `
 							<div class="rentalTable">
@@ -20,11 +21,11 @@ BookClubHtmlContents.club_item_html=function(club){
 											<tr id="rental_item_"
 												style="border: 1px solid #dee2e6; height: 250px;">
 					
-												<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px"><img src="./img/club.png" width=100 height=100>
+												<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed; padding:0px;text-align:middle;padding-left: 20px"><img src="./img/club.png" width=100 height=100>
 												</td>
-												<td colspan="2" style="padding:0px;text-align:left;padding-left: 30px">대상 : ${club.club_person} <br> 모집인원 : ${club.club_count} <br> 시간 : ${club.club_time} <br> 장소 : ${club.club_place}
+												<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed; padding:0px;text-align:left;padding-left: 30px">대상 : ${club.club_person} <br> 모집인원 : ${club.club_count} <br> 시간 : ${club.club_time} <br> 장소 : ${club.club_place}
 												</td>
-												<td colspan="2" style="padding:0px;text-align:center;padding-left: 0px">
+												<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed;padding:0px;text-align:center;padding-left: 0px">
 												
 												<button id="btn_detail" class="w-btn w-btn-detail" type="button">자세히</button><br>
 												<button id="btn_join" class="w-btn w-btn-join" type="button">신&nbsp;&nbsp;&nbsp;청</button>
@@ -41,16 +42,21 @@ BookClubHtmlContents.club_item_html=function(club){
 }
 BookClubHtmlContents.club_join_html=function(bookClubArray){
 	return `
-							<select style="width: 170px;margin-bottom: 50px;border:2px solid #dee2e6">
-								<option value="category">전체</option>
-								<option value="category">100 건강/취미/레저</option>
-								<option value="category">200 경제경영</option>
-								<option value="category">300 고전</option>
-								<option value="category">400 과학</option>
-								<option value="category">500 만화</option>
-								<option value="category">600 사회과학</option>
-								<option value="category">700 소설/시/희곡</option>
-							</select>
+	
+	
+	<div class="category">
+            <div class="form-inline" >
+                <input type="button" id="button" name="button" value="100 건강/취미/레저" class="btn btn btn-primary btn-bg"></input>
+                <input type="button" id="button" name="button" value="200 경제경영" class="btn btn btn-primary btn-bg"/>
+                <input type="button" id="button" name="button" value="300 고전" class="btn btn btn-primary btn-bg"/>
+                <input type="button" id="button" name="button" value="400 과학" class="btn btn btn-primary btn-bg"/>
+                <input type="button" id="button" name="button" value="500 만화" class="btn btn btn-primary btn-bg"/>
+                <br> <br> <br>
+                <input type="button" id="button" name="button" value="600 사회과학" class="btn btn btn-primary btn-bg"/>
+                <input type="button" id="button" name="button" value="700 소설/시/희곡" class="btn btn btn-primary btn-bg"/>
+            </div><br><br>
+        </div>
+							
 									
 								<div class="rentalTable">
 									${

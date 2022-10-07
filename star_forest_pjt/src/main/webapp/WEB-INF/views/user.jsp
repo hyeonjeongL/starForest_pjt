@@ -28,13 +28,13 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="static/css/style.css">
-<link rel="stylesheet" href="static/css/yurim.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/yurim.css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
-<script type="text/javascript" src="static/js/UserHtmlContents.js"></script>
+<script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript">
 	/************user_login_form*************/
 	$(document).on('click', '#a_user_login_form', function(e) {

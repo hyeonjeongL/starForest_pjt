@@ -29,7 +29,7 @@
 <!-- 구글폰트 전체 기본적용 -->
 
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="static/css/ddoyoon.css">
+<link rel="stylesheet" href="css/ddoyoon.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
 <title>도서정보 - 별숲</title>

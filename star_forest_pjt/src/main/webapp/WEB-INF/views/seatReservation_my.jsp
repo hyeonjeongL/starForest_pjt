@@ -43,7 +43,7 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="static/js/seatReservationHtml.js"></script>
+<script type="text/javascript" src="js/seatReservationHtml.js"></script>
 <script type="text/javascript">
 	$(function() {
 		
@@ -136,11 +136,8 @@
 		</header>
 
 		<!-- MAIN SECTION -->
-			<div class="my_seat_wrap" style="text-align:center;">
+			<div class="my_seat_wrap" style="text-align;">
 					
-	        <div class="no_seat">
-	         <img src="img/noSeat.png" width=300px>
-	        </div>
             
 	        </div>
 		</div><!-- pageContent끝 -->

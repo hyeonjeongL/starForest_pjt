@@ -55,7 +55,8 @@ public class BookClubRestController {
 	}
 
 	// 카테고리별 동아리 조회
-	@GetMapping("/club_select_by_category")
+	@LoginCheck
+	@PostMapping("/club_select_by_category")
 	public Map club_select_by_category(@RequestParam int category_no) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;
@@ -294,8 +295,8 @@ public class BookClubRestController {
 		return resultMap;
 	}
 	//동아리리스트
-	
-	@GetMapping("/club_list")
+	@LoginCheck
+	@PostMapping("/club_list")
 	public Map club_list() throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;

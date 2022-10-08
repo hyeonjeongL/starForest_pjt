@@ -7,7 +7,7 @@
 %>
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
-	/************로딩시세션체크*********/
+	/************로딩시세션체크*********	
 	$(document).on('click','#myMenu',function(e){
 		$.ajax({//나의도서 클릭 시 바로 세션확인
 			url : 'user_session_check',
@@ -22,7 +22,7 @@
 			}
 		});
 		e.preventDefault();
-	});
+	});*/
 	
 	
 	/************user_login_form*************/
@@ -124,8 +124,8 @@
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
-					<ul id="myMenu" class="dropdown-menu dropdown-menu-left fade-down">
+					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
 								<a class="dropdown-item" href="mypage" id="mypage">마이페이지</a>
 							</li>

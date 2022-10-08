@@ -1,4 +1,4 @@
-
+<%@page import="com.itwill.domain.BookCategory" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,7 +12,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -24,17 +23,15 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+<link rel="stylesheet" href="./css/style.css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"
-	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>	
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script type="text/javascript" src="js/BookClubHtmlContents.js"></script>
-<script type="text/javascript">
-	
-</script>
+<script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
+
 <title>나의도서 - 별숲도서관</title>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 .img-fluid {
 	height: 250px;
 	width: 244px;
@@ -49,6 +46,10 @@
 	vertical-align: middle;
 	word-break: keep-all;
 	padding-right: 3em;
+}
+
+#btn_category,.rentalTable{
+	font-family: 'Gowun Dodum', sans-serif;
 }
 </style>
 
@@ -71,17 +72,34 @@
 		/********club_list***********/
 		$.ajax({
 				url:'club_list',
-				method:'GET',
+				method:'POST',
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
-					console.log(bookClubArray);
 						$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
 				}
 			});
-		$(document).on('click','#side_bookClub,#menu_bookClub',function(e){
+		$(document).on('click','#side_bookClub,#menu_bookClub,#btn_all,#btn_list',function(e){
 			$.ajax({
 				url:'club_list',
-				method:'GET',
+				method:'POST',
+				success:function(jsonResult){
+					var bookClubArray=jsonResult.data;
+					$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
+				}
+			});
+			e.preventDefault();
+		});
+		
+		/********club_category_list********
+		$(document).on('click','#btn_category',function(e){
+			var category_no=$("#btn1").val();
+			var param='category_no='+category_no;
+			
+			$.ajax({
+				url:'club_select_by_category',
+				method:'POST',
+				dataType:'json',
+				data:param,
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
 					console.log(bookClubArray);
@@ -89,11 +107,55 @@
 				}
 			});
 			e.preventDefault();
+		});*/
+		
+		/***********club_detail*************/
+		$(document).on('click','.club_item,#btn_detail',function(e){
+			var club_no=$(e.target).attr('club_no');
+			var param='club_no='+club_no;
+			console.log(param);
+			$.ajax({
+				url:'club_detail',
+				method:'POST',
+				dataType:'json',
+				data:param,
+				success:function(jsonResult){
+					var club=jsonResult.data[0];
+					$('#content').html(BookClubHtmlContents.club_detail_html(club));
+					console.log(club);
+				}
+				
+			});
+		e.preventDefault();
 		});
-		
-		/********club_category_list********/
-		
-		
+		/**********club_join(인원수카운트)********/
+		$(document).on('click','#btn_join,#btn_club_join',function(e){
+			var club_no=$(e.target).attr('club_no');
+			var param='club_no='+club_no;
+			console.log(param);
+			$.ajax({
+				url:'club_join',
+				method:'POST',
+				dataType:'json',
+				data:param,
+				success:function(jsonResult){
+					if(jsonResult.code==-2){
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==1){
+						alert("신청되었습니다 :)");
+						location.reload(); //인원수 카운트 후 새로고침
+					}
+				}
+				
+			});
+		e.preventDefault();	
+			
+		});
+	
+	
+	
 		
 	});
 </script>
@@ -154,14 +216,16 @@
 						</div>
 						<div class="row" id="item">
 						<br>
-							
+						
+						
 							<!-- 동아리신청,상세 -->
 							<div class="rentalTable" id="content">
-							
+								
 									<!-- 동아리신청,상세 -->
 
 							</div>
 						</div>
+					</div>
 					</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@ public interface ReservationMapper {
 	
 	//책 수량이 0일 때 예약 리스트 추가하기
 	@Insert("insert into reservation "
-		  + "values (seq_reservation_res_no.nextval,#{res_date}, #{res_status}, #{book_no}, #{user_id})")
+		  + "values (seq_reservation_res_no.nextval,sysdate, #{res_status}, #{book_no}, #{user_id})")
 	public int insertReservation(Reservation reservation);
 	
 	

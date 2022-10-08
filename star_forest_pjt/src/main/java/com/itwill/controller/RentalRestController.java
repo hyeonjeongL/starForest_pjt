@@ -41,14 +41,12 @@ public class RentalRestController {
 		String url = "";
 		String msg = "";
 		List<Rental> resultList = new ArrayList<Rental>();
-		Date date = new Date();
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
 			sUserId = "soyoon";
 			bookService.updateRentalBookQty(book_no);
 			bookService.updateRentalCnt(book_no);
-			int rental = rentalService.insertRental(new Rental(0, null, null, null, 0, book_no, sUserId));
-//			resultList.add(new Rental(0, null, null, null, 0, Integer.parseInt(book_noStr), sUserId));
+			int rental = rentalService.insertRental(new Rental(0, null, null, null, 1, book_no, sUserId));
 			if(rental==1) {
 				code=1;
 				url="";
@@ -69,16 +67,39 @@ public class RentalRestController {
 		return resultMap;
 	}
 	
-	/*
-	 * @RequestMapping(value = "rest_rental") public String
-	 * rental_tot(@RequestParam(value = "book_no") String book_noStr, Model model)
-	 * throws Exception{
-	 * bookService.updateRentalBookQty(Integer.parseInt(book_noStr));
-	 * bookService.updateRentalCnt(Integer.parseInt(book_noStr));
-	 * rentalService.insertRental(new Rental(0, null, null, null, 0,
-	 * Integer.parseInt(book_noStr), null));
-	 * 
-	 * return "야호"; }
-	 */
+	@RequestMapping("/rest_return")
+	public Map one_return(int book_no, HttpSession session) throws Exception{
+		Map resultMap = new HashMap();
+		
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<Rental> resultList = new ArrayList<Rental>();
+		try {
+			String sUserId= (String)session.getAttribute("sUserId");
+			sUserId = "hyeonjeong";
+			bookService.updateReturnBookQty(book_no);
+			bookService.updateByIdNo(sUserId,book_no);
+			int rental = rentalService.updateRentalStatus(sUserId, book_no);
+			if(rental==1) {
+				code=1;
+				url="";
+				msg="반납완료";
+			}
+		} catch (Exception e) {
+			code=2;
+			url="";
+			msg="오류";
+			e.printStackTrace();
+		}
+		
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		
+		return resultMap;
+	}
+	
 
 }

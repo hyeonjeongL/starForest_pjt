@@ -185,6 +185,17 @@
 
 						</body>`
 							$(e.target).find('#modal-body-user-request').html(html1);
+						$(document).on('click','#btn btn-primary submit-request', function(e){
+							var param=$('#guest_modify_form').serialize();
+						$.ajax({
+							url:'rest_rental',
+							data:'book_no='+$(e.target).attr("book_no"),
+							method:'POST',
+							succss:function(jsonResult){
+								alert(jsonResult.msg);			
+							}
+						})
+					});
 						
 					}
 				});
@@ -232,6 +243,7 @@
 
 							</body>`;
 						$(e.target).find('#modal-body-user-request').html(html1);
+					
 							
 						
 					}
@@ -245,19 +257,6 @@
 	});
 
 	
-
-</script>
-<script type="text/javascript">
-${document}.on('click','#btn btn-primary submit-request', function(e){
-	$.ajax({
-		url:'rest_rental',
-		data:'book_no='+$(e.target).attr("book_no"),
-		method:'GET',
-		succss:function(jsonResult){
-			alert(jsonResult.msg);			
-		}
-	})
-})
 
 </script>
 

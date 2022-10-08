@@ -124,21 +124,26 @@
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
 				<li class="nav-item dropdown">
-					<a id="myLibrary" href="mypage" class="nav-link dropdown-toggle mypage" data-toggle="dropdown">나의도서</a>
-					<ul id="myMenu" class="list-group list-group-flush mb-5">
-							<li class="list-group-item">
-								<a href="mypage" id="mypage">마이페이지</a>
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
+							<li>
+								<a class="dropdown-item" href="mypage" id="mypage">마이페이지</a>
 							</li>
-							<li class="list-group-item">
-								<a href="userbook_status" id="userbook_status">나의도서정보</a></li>
-							<li class="list-group-item">
-								<a href="user_club_list" id="user_club_list">동아리신청내역</a></li>
-							<li class="list-group-item">
-								<a href="user_request_list" id="user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item active">
-								<a href="favorite" id="favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="user_qr" id="user_qr">나의QR</a></li>
+							<li>
+								<a class="dropdown-item" href="userbook_status" id="userbook_status">
+									나의도서정보</a></li>
+							<li>
+								<a class="dropdown-item" href="user_club_list" id="user_club_list">
+									동아리신청내역</a></li>
+							<li>
+								<a class="dropdown-item" href="user_request_list" id="user_request_list">
+									희망도서신청내역</a></li>
+							<li>
+								<a class="dropdown-item" href="favorite" id="favorite">
+									내서재</a></li>
+							<li>
+								<a class="dropdown-item" href="user_qr" id="user_qr">
+									나의QR</a></li>
 
 					</ul>
 				</li>

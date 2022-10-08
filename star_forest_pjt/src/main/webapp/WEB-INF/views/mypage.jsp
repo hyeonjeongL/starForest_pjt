@@ -22,7 +22,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="//css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <title>나의도서 - 별숲도서관</title>
 <style>
@@ -39,7 +39,16 @@
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 	/******user_detail*********/
-	
+	$(document).('click','#myInfo',function(e){
+		$.ajax({
+			url:'user_view',
+			method:'POST',
+			dataType:'json',
+			success:function(jsonResult){
+				
+			}
+		});
+	});
 	
 	
 	

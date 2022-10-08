@@ -52,7 +52,7 @@ CREATE TABLE Book
 	book_title varchar2(500 char) NOT NULL,
 	book_author varchar2(500 char),
 	book_publisher varchar2(500),
-	book_summary varchar2(600),
+	book_summary varchar2(800),
 	book_publish_date varchar2(200 char),
 	book_input_date date,
 	book_image varchar2(500),

@@ -9,7 +9,7 @@ update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, '
 
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'soyoon',seat_status=1 where seat_no='A01';
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'woohyuk',seat_status=1 where seat_no='B01';
-update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'jeonghyun',seat_status=1 where seat_no='B02';
+update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'junghyun',seat_status=1 where seat_no='B02';
 update seat_reservation set seat_date=sysdate,seat_start_time=to_char(sysdate, 'HH24:MI:SS'),seat_end_time=to_char(sysdate+5/24, 'HH24:MI:SS'),user_id= 'yeji',seat_status=1 where seat_no='D02';
 commit;
 --반납

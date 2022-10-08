@@ -53,11 +53,13 @@
 	<!-- navigation end-->
 
 	<!-- PAGE HEADER -->
-	<header id="page-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 m-auto text-center">
-					<h1>나의도서</h1>
+	<header id="page-header" class="noto-serif">
+		<div class="page-header-overlay">
+			<div class="container pt-5">
+				<div class="row">
+					<div class="col-md-6 m-auto text-center">
+						<h2>나의도서정보</h2>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -74,21 +76,19 @@
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item">
-								<a href="mypage" id="mypage">마이페이지</a>
+							<li class="list-group-item"><a href="mypage" id="mypage">마이페이지</a>
 							</li>
-							<li class="list-group-item">
-								<a href="userbook_status" id="userbook_status">나의도서정보</a></li>
-							<li class="list-group-item">
-								<a href="user_club_list" id="user_club_list">동아리신청내역</a></li>
-							<li class="list-group-item">
-								<a href="user_request_list" id="user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item active">
-								<a href="favorite" id="favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="user_qr" id="user_qr">나의QR</a></li>
+							<li class="list-group-item"><a href="userbook_status"
+								id="userbook_status">나의도서정보</a></li>
+							<li class="list-group-item"><a href="user_club_list"
+								id="user_club_list">동아리신청내역</a></li>
+							<li class="list-group-item"><a href="user_request_list"
+								id="user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item active"><a href="favorite"
+								id="favorite">내서재</a></li>
+							<li class="list-group-item"><a href="user_qr" id="user_qr">나의QR</a></li>
 
-					</ul>
+						</ul>
 
 					</div>
 				</div>
@@ -105,6 +105,10 @@
 								</li>
 
 							</ul>
+
+						</div>
+						<div class="rentalTable">
+						<!-- 대여리스트 -->
 						</div>
 					</div>
 				</div>

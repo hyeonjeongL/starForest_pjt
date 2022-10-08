@@ -36,6 +36,7 @@
 <script type="text/javascript"
 	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
+<script type="text/javascript" src="./js/FavoriteHtmlContents.js"></script>
 <script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 	/************로딩시세션체크*********/
@@ -67,7 +68,7 @@
 			method:'POST',
 			success:function(jsonResult){
 				var favoriteArray=jsonResult.data;
-				$('#content').html(MyLibraryHtmlContents.favorite_list_content(favoriteArray));
+				$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 			}
 		});
 		e.preventDefault();
@@ -80,7 +81,7 @@
 			method:'POST',
 			success:function(jsonResult){
 				if(jsonResult.code==1){
-					$('#content').html(MyLibraryHtmlContents.favorite_list_content(favoriteArray));
+					$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 					alert(jsonResult.msg);
 				}else{
 					alert(jsonResult.msg);
@@ -97,7 +98,7 @@
 			method:'POST',
 			success:function(jsonResult){
 				if(jsonResult.code==1){
-					$('#content').html(MyLibraryHtmlContents.favorite_list_content(favoriteArray));
+					$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 					alert(jsonResult.msg);
 				}else if(jsonResult.code==2){
 					alert(jsonResult.msg);
@@ -206,34 +207,7 @@
 				
 				
 				
-				<!-- 나의도서정보(대여리스트) 
-				<div class="rentalTable">
-					<table class="table">
-						<thead>
-							<tr>
-								<th scope="row">No.</th>
-								<th scope="row">제목</th>
-								<th scope="row">저자</th>
-								<th scope="row">출판사</th>
-								<th scope="row">대여일</th>
-								<th scope="row">반납일</th>
-							</tr>
-						</thead>
-						<tbody>
-
-							<c:forEach var="rental" items="${rentalList}">
-								<tr id="rental_item_${rental.rental_no}">
-									<td id="bookNo">1
-									<td class="bookTitle">자바</td>
-									<td class="bookAuthor">한예지</td>
-									<td class="bookPubl">아이티윌</td>
-									<td class="bookRentalDate">2022-01-30</td>
-									<td class="bookReturnDate">2022-02-03</td>
-								</tr>
-							</c:forEach>
-						</tbody>
-					</table>
-				</div>-->
+				
 			</div>
 		</div>
 

@@ -7,30 +7,18 @@ MyLibraryHtmlContents.mylibrary_left_menu_content = function() {
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item">
-								<a href="#" id="mypage">마이페이지</a>
+							<li class="list-group-item"><a href="mypage" id="mypage">마이페이지</a>
 							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_rental_list">나의도서정보</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_rental_status">대출현황</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_res_status">예약현황</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_club_list">동아리신청내역</a>
-							</li>
-							<li class="list-group-item">
-								<a href="#" id="user_request_list">희망도서신청내역</a>
-							</li>
-							<li class="list-group-item active">
-								<a href="#" id="user_favorite">내서재</a>
-							</li>
-							<li class="list-group-item">
-								<a href=#" id="user_qr">나의QR</a>
-							</li>
+							<li class="list-group-item"><a href="userbook_status"
+								id="userbook_status">나의도서정보</a></li>
+							<li class="list-group-item"><a href="user_club_list"
+								id="user_club_list">동아리신청내역</a></li>
+							<li class="list-group-item"><a href="user_request_list"
+								id="user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item active"><a href="favorite"
+								id="favorite">내서재</a></li>
+							<li class="list-group-item"><a href="user_qr" id="user_qr">나의QR</a></li>
+
 						</ul>
 
 					</div>
@@ -55,63 +43,38 @@ MyLibraryHtmlContents.mylibrary_main_content = function() {
 					</div>
 	`;
 }
-MyLibraryHtmlContents.favorite_item_content=function(favorite){
-	return `<tr id="favorite_item">
-								<td id="favoriteNo">${favorite_no}
-								<td class="bookTitle">${favorite.book.book_title}</td>
-								<td class="bookAuthor">${favorite.book.book_author}</td>
-								<td class="bookPubl">${favorite.book.book_publisher}</td>
-								<td>
-									<button id="btn_delete" class="w-btn w-btn-delete" type="button">삭제</button>
-								</td>
-							</tr>`;
-}
-MyLibraryHtmlContents.favorite_list_content = function(favoriteArray) {
-	return `<div class="col-md-9 fol_div">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-6" id="fol_list_title">
-								<form action="MyPage_Folder.do" method="post"></form>
-							</div>
 
-							<div class="col-sm-6">
-								
-							</div>
+MyLibraryHtmlContents.use_rental_status_content = function(book){
+	return `<div class="col-md-9">
+						<div class="p-4">
+							<!-- CARD WITH NAV -->
+							<section id="contact" class="py-3">
+								<div class="cards">
+									<c:if test="">
+						<h2> 대여목록이 없습니다.</h2><br>
+						<h4><a href="popularBook.do"> 인기도서 페이지 목록으로 이동</a></h4><br>
+					</c:if>
+					<c:if test="$}">
+					<c:forEach var="b" items=""> 
+				  	<div class="card">
+					    <div class="card_image-holder">
+					      <img class="card_image" src="${b.b_image }" alt="wave" />
+				      	<div class="card-text "id="book-title">${b.b_title }</div>
+					    </div>
+					    <div>
+				      	<div class="card-text">${b.b_writer }
+					      <p class="m-0">대여일 : ${b.bor_date }</p>
+						  <p>반납일 : ${b.return_date }</p>
+					    </div>
+					    </div>
+					    
+					  </div>
+					</c:forEach>
+					</c:if>
+									
+									
+								</div>
+							</section>
 						</div>
-					</div>
-					<hr>
-
-					<div class="container">
-						<table id="favoriteList" class="table table-hover">
-							<tr>
-								<th scope="row">No.</th>
-								<th scope="row">제목</th>
-								<th scope="row">저자</th>
-								<th scope="row">출판사</th>
-								<th scope="row">작업</th>
-							</tr>
-							<!--favorite start -->
-							 ${
-								favoriteArray.map(favorite_item_content).join('')
-								}
-							<!--favorite end -->
-
-						</table>
-					</div>
-					<div class="favorite_delete" style="float: right;">
-						<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>
-					</div>
-
-				</div>`;
-	
-}
-function getUserName() {
-    let userList = document.getElementById('userList');
-
-    for (let i = 1; i < userList.rows.length; i++) {
-       userList.rows[i].cells[2].onclick = function () {
-          let userName = userList.rows[i].cells[1].innerText;
-          alert(userName+"을 선택하셨습니다.");
-       }
-    }
+					</div>`;
 }

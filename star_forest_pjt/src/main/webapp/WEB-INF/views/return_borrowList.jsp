@@ -106,12 +106,12 @@
 <body class="d-flex flex-column">
 	<div id="page-content">
 		<!-- navigation start-->
-			<div id="navigation">
-				<!-- include_common_left.jsp start-->
-				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
-				<!-- include_common_left.jsp end-->
-			</div>
-			<!-- navigation end-->
+		<div id="navigation">
+			<!-- include_common_left.jsp start-->
+			<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+			<!-- include_common_left.jsp end-->
+		</div>
+		<!-- navigation end-->
 
 		<!-- PAGE HEADER -->
 		<header id="page-header" class="noto-serif">
@@ -156,56 +156,24 @@
 							<!-- CARD WITH NAV -->
 							<section id="contact" class="py-3">
 								<div class="cards">
-									<c:if test="${empty b }">
-						<h2> 대여목록이 없습니다.</h2><br>
-						<h4><a href="popularBook.do"> 인기도서 페이지 목록으로 이동</a></h4><br>
-					</c:if>
-					<c:if test="${not empty b }">
-					<c:forEach var="b" items="${b }"> 
-				  	<div class="card">
-					    <div class="card_image-holder">
-					      <img class="card_image" src="${b.b_image }" alt="wave" />
-				      	<div class="card-text "id="book-title">${b.b_title }</div>
-					    </div>
-					    <div>
-				      	<div class="card-text">${b.b_writer }
-					      <p class="m-0">대여일 : ${b.bor_date }</p>
-						  <p>반납일 : ${b.return_date }</p>
-					    </div>
-					    </div>
-					    
-					  </div>
-					</c:forEach>
-					</c:if>
 									
-									<div class="container mt-5">
-										<ul class="pagination justify-content-center">
-											<c:if test="${startPage > 1}">
-												<li class="page-item"><a class="page-link"
-													id="page-link"
-													href="return_borrowList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
-											</c:if>
-											<c:if test="${startPage == 1}">
-												<li class="page-item disabled"><a class="page-link"
-													id="page-link"
-													href="return_borrowList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
-											</c:if>
-											<c:forEach var="i" begin="${startPage }" end="${endPage }">
-												<li class="page-item "><a class="page-link"
-													id="page-link" href="return_borrowList.do?pageNUM=${i }">${i }</a></li>
-											</c:forEach>
-											<c:if test="${endPage < totalPage}">
-												<li class="page-item"><a class="page-link"
-													id="page-link"
-													href="return_borrowList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
-											</c:if>
-											<c:if test="${endPage == totalPage}">
-												<li class="page-item disabled"><a class="page-link"
-													id="page-link"
-													href="return_borrowList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
-											</c:if>
-										</ul>
-									</div>
+									
+											<div class="card">
+												<div class="card_image-holder">
+													<img class="card_image" src="" alt="wave" />
+													<div class="card-text " id="book-title">제목</div>
+												</div>
+												<div>
+													<div class="card-text">저자
+														<p class="m-0">대여일 :22.10.03</p>
+														<p>반납일 :22.10.10</p>
+													</div>
+												</div>
+
+											</div>
+										
+
+
 								</div>
 							</section>
 						</div>

@@ -8,7 +8,7 @@
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 	/************로딩시세션체크*********/
-	$(document).on('click','#myLibrary,#myMenu',function(e){
+	$(document).on('click','#myMenu',function(e){
 		$.ajax({//나의도서 클릭 시 바로 세션확인
 			url : 'user_session_check',
 			method : 'POST',
@@ -125,7 +125,7 @@
 					</ul></li>
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
-					<ul class="dropdown-menu dropdown-menu-left fade-down">
+					<ul id="myMenu" class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
 								<a class="dropdown-item" href="mypage" id="mypage">마이페이지</a>
 							</li>

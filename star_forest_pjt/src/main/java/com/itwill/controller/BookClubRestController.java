@@ -88,12 +88,18 @@ public class BookClubRestController {
 		List<BookClub> resultList = new ArrayList<BookClub>();
 
 		try {
-			BookClub bookClub = bookClubService.selectByNo(club_no);
-			code = 1;
-			url = "";
-			msg = "성공";
-			resultList.add(bookClub);
-
+			int updateCount = bookClubService.addReadCount(club_no);
+			if (updateCount == 1) {
+				BookClub bookClub = bookClubService.selectByNo(club_no);
+				code = 1;
+				url = "";
+				msg = "성공";
+				resultList.add(bookClub);
+			} else {
+				code = 2;
+				url = "club_list";
+				msg = "잘못된 접근입니다.";
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			code = 2;
@@ -286,7 +292,7 @@ public class BookClubRestController {
 			e.printStackTrace();
 			code = 2;
 			url = "main";
-			msg = "잘못된 접근입니다.";
+			msg = "로그인 후 이용해주세요.";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);
@@ -294,7 +300,8 @@ public class BookClubRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	//동아리리스트
+
+	// 동아리리스트
 	@LoginCheck
 	@PostMapping("/club_list")
 	public Map club_list() throws Exception {
@@ -303,22 +310,20 @@ public class BookClubRestController {
 		String url = "";
 		String msg = "";
 		List<BookClub> resultList = new ArrayList<BookClub>();
-		
-		resultList =bookClubService.selectAll();
+
+		resultList = bookClubService.selectAll();
 		code = 1;
 		url = "";
 		msg = "조회성공";
-	
-		
+
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	
-	
-	//내가 신청한 동아리내역(마이페이지)
+
+	// 내가 신청한 동아리내역(마이페이지)
 	@LoginCheck
 	@PostMapping("/club_user_list")
 	public Map club_user_list(HttpServletRequest request) {
@@ -327,15 +332,15 @@ public class BookClubRestController {
 		String url = "";
 		String msg = "";
 		List<BookClub> resultList = new ArrayList<BookClub>();
-		
+
 		try {
-			String sUserId=(String)request.getSession().getAttribute("sUserId");
-			resultList=bookClubService.selectById(sUserId);
-			code=1;
-			url="";
-			msg="성공";
-			
-		}catch (Exception e) {
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
+			resultList = bookClubService.selectById(sUserId);
+			code = 1;
+			url = "";
+			msg = "성공";
+
+		} catch (Exception e) {
 			e.printStackTrace();
 			code = 2;
 			url = "main";
@@ -346,9 +351,7 @@ public class BookClubRestController {
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
 		return resultMap;
-		
+
 	}
-	
-	
 
 }

@@ -155,10 +155,9 @@
 			
 		});
 		
-		/************club_write_form**********/
+		/************club_write**********/
 		$(document).on('click','#btn_write_form',function(e){
-			$('#content').html(BookClubHtmlContents.club_write_form_html());
-			e.preventDefault();	
+			$('#content').html
 		});
 	
 		
@@ -225,8 +224,8 @@
 						
 							<!-- 동아리신청,상세 -->
 							<div class="rentalTable" id="content">
-						
-								<!-- 동아리신청,상세 -->
+								
+									<!-- 동아리신청,상세 -->
 
 							</div>
 						</div>

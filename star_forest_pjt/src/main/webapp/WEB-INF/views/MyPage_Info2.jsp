@@ -18,8 +18,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" type="text/css" href="./css/style.css">
-<link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/wang_hw.css">
 <link rel="icon" type="image/png" sizes="16x16"	href="favicon/favicon-16x16.png">
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -27,7 +27,7 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript">
-</script>
+
 </head>
 
 <body class="d-flex flex-column">
@@ -64,21 +64,12 @@
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5">
-						<li class="list-group-item">
-							<a href="MyPage_Folder" id="side_mypage">마이페이지</a>
-						</li>
-						<li class="list-group-item">
-							<a href="MyPage_Folder" id="side_userbook_status">나의도서정보</a></li>
-						<li class="list-group-item">
-							<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
-						<li class="list-group-item">
-							<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
-						<li class="list-group-item">
-							<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
-						<li class="list-group-item">
-							<a href="qrcode" id="side_user_qr">나의QR</a></li>
-
-				</ul>
+							<li class="list-group-item"><a href="mypage_main.do?cust_no=${cust_no }">나의도서정보</a></li>
+							<li class="list-group-item"><a href="borrowList.do">대출현황</a></li>
+							<li class="list-group-item"><a href="return_borrowList.do">대출/반납이력</a></li>
+							<li class="list-group-item"><a href="MyPage_Folder.do?cust_no=${cust_no }&group=50">내서재</a></li>
+							<li class="list-group-item active"><a href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
+						</ul>
 					</div>
 				</div>
 
@@ -97,7 +88,16 @@
 <!-- ============================= 현왕 고객 이름 종료 ========================================================================== -->
 							<hr>								
 <!-- ============================= 현왕 파일 찾기 아이콘으로 변경해서 찾을수있도록 설정 ========================================================================== -->
-							
+							<!-- 회원 사진 & 파일 찾기 -->
+							<div class="form-group mt-4"  style="text-align: center;">
+								<div>
+								<input type="file" name="uploadFile" style="display: none;" id="upload_find">
+								<input type="hidden" name="fname" value="${c.fname}">
+								<img src="img/${c.fname}" width="180" height="200" id="upload_file">
+								</div>
+								<small class="form-text text-muted"><span class="signup_required">*</span>  사진을 클릭하면 변경이 가능합니다.</small> 
+								<small class="form-text text-muted">딜리브러리에서 커뮤니티 활동시 사용할 프로필사진을 업로드 해주세요.<br> (업로드 가능 최대파일사이즈: 10MB) </small>
+							</div>
 <!-- ============================= 현왕 파일 찾기 아이콘으로 변경해서 찾을수있도록 설정 종료 ========================================================================== -->
 							<hr>
 <%-- =======================================  현왕 email select로 option 클릭시 자동 써지기 추가  ================================================= --%>

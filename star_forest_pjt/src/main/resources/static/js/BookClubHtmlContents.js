@@ -178,7 +178,7 @@ BookClubHtmlContents.club_user_item_html=function(club){
 }
 BookClubHtmlContents.club_user_list_html=function(bookClubArray){
 	return `  
-	
+	<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp 동아리신청내역 <br><br> 
 	<table width="100%" class="table01">
 		<tr>
 			

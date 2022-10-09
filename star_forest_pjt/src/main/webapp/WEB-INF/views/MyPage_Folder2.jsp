@@ -30,12 +30,12 @@
 <link rel="stylesheet" type="text/css" href="static/css/style.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
-<link rel="stylesheet" type="text/css" href="static/css/wang_hw.css">
-<link rel="stylesheet" type="text/css" href="static/css/delete_btn_hw.css">
+<link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
+<link rel="stylesheet" type="text/css" href="./css/delete_btn_hw.css">
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript" src="static/js/MyLibraryHtmlContents.js"></script>
+<script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript">
 

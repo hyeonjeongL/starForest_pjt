@@ -121,12 +121,16 @@ UserHtmlContents.user_write_form_content = function() {
 	`;
 }
 UserHtmlContents.user_mypage_item_content = function(){
-	return `<div class="mypage">
+	return ``;
+}
+UserHtmlContents.user_view_content=function(loginUser){
+	return `
+	<div class="mypage">
 				<ul class="nav nav-tabs mypage-tabs">
 
 					<li class="nav-item"><a class="nav-link active" href="#"
 						id="myInfo">내정보</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"
+					<li class="nav-item"><a class="nav-link" href="MyPage_Info"
 						id="updateUser">개인정보수정</a></li>
 					<li class="nav-item"><a class="nav-link" href="#"
 						id="updatePW">비밀번호변경</a></li>
@@ -134,7 +138,62 @@ UserHtmlContents.user_mypage_item_content = function(){
 						id="Remove">탈퇴</a></li>
 
 				</ul>
-			</div>`;
+			</div>
+	<table border=0 cellpadding=0 cellspacing=0>
+				<tr>
+					<td>
+						<!--contents--> <br />
+						<table style="padding-left: 10px" border=0 cellpadding=0
+							cellspacing=0>
+						</table> <!-- view Form  -->
+						<form name="f" method="post">
+							<input type="hidden" name="userId" value="${loginUser.user_id}" />
+							<table border="0" cellpadding="0" cellspacing="1" width="590"
+								bgcolor="BBBBBB">
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">
+										아이디</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_id}</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_name}</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
+										주소</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_email}</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">생일</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_birth}</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">성별</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_gender}</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">휴대폰번호</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_phone}</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">주소</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_address}</td>
+								</tr>
+								
+							</table>
+						</form> <br />
+						
+					</td>
+				</tr>
+			</table>
+	`;
 }
-
 

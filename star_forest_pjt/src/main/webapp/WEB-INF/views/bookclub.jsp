@@ -29,7 +29,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 
-<title>나의도서 - 별숲도서관</title>
+<title>도서동아리 - 별숲도서관</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 .img-fluid {
@@ -229,15 +229,9 @@
 						<ul class="list-group list-group-flush mb-5">
 							<li id="side_bookClub" class="list-group-item"><a href="bookclub"
 								class="returnAll">도서동아리</a></li>
-							<li id="post20" class="list-group-item"><a
-								href="postList.do?option=p_title&search=&group=20"
-								class="returnAll">창작물게시판</a></li>
-							<li id="post30" class="list-group-item"><a
-								href="postList.do?option=p_title&search=&group=30"
-								class="returnAll">중고장터</a></li>
-							<li id="post60" class="list-group-item"><a
-								href="postList.do?option=p_title&search=&group=60"
-								class="returnAll">자유게시판</a></li>
+							<li id="side_bookClub" class="list-group-item"><a href="requestBoard"
+							class="returnAll">도서신청게시판</a></li>
+							
 						</ul>
 					</div>
 				</div>

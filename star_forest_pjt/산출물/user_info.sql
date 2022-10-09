@@ -33,7 +33,7 @@ insert into user_info values('soyoon','장소윤','2222','soyun@naver.com','1994
 insert into user_info values('hyeonjeong','임현정','3333','hyeonjeong@naver.com','1994-06-12','F','01012345678','경기도 김포시',null,'대출가능',3,56,300);
 insert into user_info values('junghyun','이정현','4444','jeonghyun@naver.com','1996-08-09','F','01012345678','경기도 김포시',null,'대출가능',3,45,400);
 insert into user_info values('woohyuk','이우혁','5555','woohyuk@naver.com','1997-03-23','F','01012345678','경기도 김포시',null,'대출가능',3,88,600);
-insert into user_info values('admin','관리자','0000','admin@naver.com','1980-03-23','M','01012345678','경기도 김포시',null,null,0,0,0);
+insert into user_info values('admin','관리자','0000','admin@naver.com','1980-03-23','M','01012345678','경기도 김포시',null,null,0,0,100);
 
 --select--
 /*모든 회원의 정보 출력*/

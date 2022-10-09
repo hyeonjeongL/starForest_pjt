@@ -30,15 +30,8 @@ BookClubHtmlContents.club_item_html = function(club) {
 								
 								
 								
-									<c:if test="${club.user_id == 'admin'}">
-									<button id="btn_update" class="w-btn w-btn-detail" club_no="${club.club_no}" type="button">수&nbsp;&nbsp;&nbsp;정</button><br>
-									<button id="btn_remove" class="w-btn w-btn-join" club_no="${club.club_no}" type="button">삭&nbsp;&nbsp;&nbsp;제</button>
-									
-									</c:if>
-									<c:otherwise>
 									<button id="btn_detail" class="w-btn w-btn-detail" club_no="${club.club_no}" type="button">자세히</button><br>
 									<button id="btn_join" class="w-btn w-btn-join" club_no="${club.club_no}" type="button">신&nbsp;&nbsp;&nbsp;청</button>
-									</c:otherwise>
 							
 	
 	
@@ -238,8 +231,8 @@ BookClubHtmlContents.club_detail_html = function(club) {
 }
 
 BookClubHtmlContents.club_write_form_html = function() {
-	return `<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp도서동아리 > 자세히 
-											<div class="rentalTable">
+	return `<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp도서동아리 > 작성 
+											<form id="club_write_form" name="f" method="post">
 												<table class="table" style="width: 855px">
 													<br>
 													<tbody>
@@ -263,7 +256,7 @@ BookClubHtmlContents.club_write_form_html = function() {
 															<td colspan="1" style="padding:0px;text-align:center;padding-left: 20px;background-color: #eff3f7;font-weight: bold">모집인원
 															</td>
 															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															<input type="text" name="club_count"> 명
+															<input type="text" name="club_count">
 															</td>
 															
 								
@@ -302,17 +295,29 @@ BookClubHtmlContents.club_write_form_html = function() {
 															<td colspan="1" style="padding:0px;text-align:center;padding-left: 20px;background-color: #eff3f7;font-weight: bold">내용
 															</td>
 															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
-															<input type="text" name="club_content">
+															<textarea wrap="soft" style="width: 500px" rows="10" name="club_content">
+															
+															</textarea>
+															</td>
+														</tr>
+														<tr 
+															style=" height: 130px; ">
+								
+															<td colspan="5" >
+															<button id="btn_write_action" class="w-btn w-btn-detail" type="button">작성</button>
+															
+															
+															<button id="btn_list" class="w-btn w-btn-detail" type="button">목록</button><br>
 															</td>
 															
+															
+								
+								
 														</tr>
-														<tr>
-															<td align="center"><input type="button" value="작성" id="btn_club_write_action"> &nbsp; 
-															<input type="button" id="btn_list" value="목록"></td>
-														</tr>
+														
 													</tbody>
 												</table>
-											</div>
+											</form>
 	
 	
 	

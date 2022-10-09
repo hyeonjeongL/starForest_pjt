@@ -114,12 +114,6 @@
 					class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="bookclub" id="menu_bookClub">도서동아리</a></li>
-						<li><a class="dropdown-item"
-							href="postList?option=p_title&search=&group=20">창작물게시판</a></li>
-						<li><a class="dropdown-item"
-							href="postList?option=p_title&search=&group=30">중고장터</a></li>
-						<li><a class="dropdown-item"
-							href="postList?option=p_title&search=&group=60">자유게시판</a></li>
 						<li><a class="dropdown-item" href="requestBoard"
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
@@ -156,21 +150,12 @@
 						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
 					</ul>
 				</li>
-				<c:if test="${user_id == admin}">
-					<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자전용</a>
-					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a class="dropdown-item" href="admin"
-							id="menu_admin_club">도서동아리 관리</a></li>
-					</ul>
-				</li>
-				</c:if>
 				
 			</ul>
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${user_id == admin}">
+				<c:if test="${sUserId == admin}">
 					<li class="nav-item" v-bind:title="managerpage">
 					<a href="admin" class="nav-link">
 					<i class="fas fa-crown" style="color: #107637;"></i></a>

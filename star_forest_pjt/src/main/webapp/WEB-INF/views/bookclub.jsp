@@ -161,6 +161,26 @@
 			e.preventDefault();	
 		});
 	
+		/************club_write_action**************/
+		$(document).on('click','#btn_write_action',function(e){
+			var param=$('#club_write_form').serialize();
+			console.log(param);
+			$.ajax({
+				url:'club_create',
+				method:'POST',
+				dataType:'json',
+				data:param,
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$("#btn_list").trigger('click');
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+				
+			});
+		e.preventDefault();
+		});
 		
 	});
 </script>
@@ -257,8 +277,6 @@
 		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
 		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 		crossorigin="anonymous"></script> -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
 	<!-- <script type="text/javascript"
 		src="https://code.jquery.com/jquery-3.5.1.min.js"></script> -->
 <!-- 	<script type="text/javascript"

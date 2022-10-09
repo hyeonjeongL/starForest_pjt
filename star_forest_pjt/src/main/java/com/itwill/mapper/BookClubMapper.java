@@ -17,6 +17,8 @@ public interface BookClubMapper {
 			+ "							 #{club_readcount},#{category_no},#{user_id})")
 	public int create(BookClub bookClub);
 	
+	
+	
 	@Select("select * from book_club")
 	public List<BookClub> selectAll();
 	

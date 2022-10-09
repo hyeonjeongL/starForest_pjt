@@ -60,3 +60,6 @@ update user_info set user_book_cnt_limit=user_book_cnt_limit-1 where user_book_c
 --delete--
 /*회원탈퇴*/
 delete from user_info where user_id='yeji';
+
+
+commit;

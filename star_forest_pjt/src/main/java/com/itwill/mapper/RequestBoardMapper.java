@@ -35,13 +35,13 @@ public interface RequestBoardMapper {
 	
 	@Insert("insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval ,#{board_title},sysdate,\r\n"
 			+ "									 #{board_content},0,#{board_status},2,#{board_depth}+1,#{board_step}+1,\r\n"
-			+ "									 #{groupno},#{category_no},#{user_id})\r\n")
+			+ "									 #{board_groupno},#{category_no},#{user_id})\r\n")
 	public int createReply(RequestBoard requestBoard);
 	/*
 	@Update("update request_board set board_step = board_step+1 where board_step>#{board_step} and groupno=#{groupno}")
 	public int addStep(RequestBoard requestBoard);
 	*/
-	@Update("update request_board set board_step=board_step+1 where groupno=#{groupno}")
+	@Update("update request_board set board_step=board_step+1 where board_groupno=#{board_groupno}")
 	public int addStep(RequestBoard requestBoard);
 	
 	//내가 쓴 게시물들 확인
@@ -51,7 +51,7 @@ public interface RequestBoardMapper {
 	public List<RequestBoard> findUserBoard(String user_id);
 	
 	//게시물 존재 여부  ..?
-	@Select("SELECT count(*) FROM request_board WHERE groupno = #{groupno} AND board_depth > 0 AND board_step > 1 ORDER BY board_step,board_depth ASC")
+	@Select("SELECT count(*) FROM request_board WHERE board_groupno = #{board_groupno} AND board_depth > 0 AND board_step > 1 ORDER BY board_step,board_depth ASC")
 	public boolean isExisted(int groupno);
 	
 	
@@ -60,7 +60,7 @@ public interface RequestBoardMapper {
 	public int delete(int board_no);
 	
 	//게시물 삭제(게시판 그룹번호)
-	@Delete("delete from request_board where groupno=#{groupno}")
+	@Delete("delete from request_board where board_groupno=#{board_groupno}")
 	public int deleteByGroupno(int groupno);
 	
 	//게시물 수정
@@ -77,7 +77,7 @@ public interface RequestBoardMapper {
 	//게시물 전체 리스트
 	@Select("select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_no,user_id from\r\n"
 			+ "	request_board\r\n"
-			+ "	order by groupno desc, board_step asc")
+			+ "	order by board_groupno desc, board_step asc")
 	public List<RequestBoard> selectAll();
 	
 	//카테고리 리스트
@@ -98,8 +98,8 @@ public interface RequestBoardMapper {
 	//페이지에 있는 게시물 시작번호 / 끝번호
 	@Select("SELECT * FROM\r\n"
 			+ "		( SELECT rownum idx, s.*  FROM\r\n"
-			+ "				( SELECT board_no, board_title, user_id,board_date,board_readcount,groupno,board_step, board_depth FROM request_board\r\n"
-			+ "					ORDER BY groupno DESC,board_step ASC\r\n"
+			+ "				( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_depth FROM request_board\r\n"
+			+ "					ORDER BY board_groupno DESC,board_step ASC\r\n"
 			+ "				) s\r\n"
 			+ "		 )\r\n"
 			+ "WHERE idx between #{pageBegin} and #{pageEnd}")

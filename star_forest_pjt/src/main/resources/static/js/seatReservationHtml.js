@@ -26,3 +26,6 @@ function my_seat(seat) {
 	</table>
 		`;
 }
+
+
+}

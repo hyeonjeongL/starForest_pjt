@@ -28,8 +28,8 @@ public class RequestBoardServiceTestController {
 		      RequestBoardService requestBoardService=(RequestBoardService)context.getBean(RequestBoardService.class);
 		      System.out.println(requestBoardService.selectAll());
 		      //int rowCount = requestBoardService.createReply(new RequestBoard(0, "[re]피프티피플 신청합니다", null, "신청완료됐습니다", 0, "신청접수완료", 0, 0, 0, 21, 700, "manager"));
-		      System.out.println(requestBoardService.deleteByGroupno(21));
-		      System.out.println(requestBoardService.deleteByGroupno(8));
+		      //System.out.println(requestBoardService.deleteByGroupno(21));
+		      //System.out.println(requestBoardService.deleteByGroupno(8));
 		      
 		      //서비스 테스트 완료
 	}

@@ -33,7 +33,7 @@ public interface SeatReservationMapper {
 			+ "where user_id=#{user_id} and to_char(sysdate,'HH24:MI:SS')>=to_char(to_date(seat_end_time,'HH24:MI:SS')-30/(24*60),'HH24:MI:SS')")
 	public int continueSeat(String user_id);
 	
-	@Select("select * from seat_reservation order by seat_no asc")
+	@Select("select * from seat_reservation order by seat_sno asc")
 	public List<SeatReservation> selectAll();
 	
 	@Select("select seat_no from seat_reservation where seat_status=0")

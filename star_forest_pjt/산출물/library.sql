@@ -127,9 +127,9 @@ CREATE TABLE Rental
 CREATE TABLE Request_board
 (
 	board_no number NOT NULL,
-	board_title varchar2(50),
+	board_title varchar2(100),
 	board_date date,
-	board_content varchar2(50),
+	board_content varchar2(100),
 	board_readcount number DEFAULT 0,
 	board_status varchar2(100) DEFAULT '0',
 	board_type_no number,
@@ -137,7 +137,7 @@ CREATE TABLE Request_board
 	board_step number,
 	board_groupno number,
 	category_no number NOT NULL,
-	user_id varchar2(100) NOT NULL UNIQUE,
+	user_id varchar2(100) NOT NULL,
 	PRIMARY KEY (board_no)
 );
 

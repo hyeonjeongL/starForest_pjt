@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.Reservation;
 import com.itwill.service.BookService;
 import com.itwill.service.ReservationService;
@@ -56,4 +58,35 @@ public class ReservationRestController {
 	
 		return resultMap;
 	}
+	
+	//회원이 예약한 예약 리스트 뽑기
+		@LoginCheck
+		@RequestMapping("/reservation_list")
+		public Map reservation_list(@ModelAttribute Map<String, Object>Reservation, String user_id, HttpSession sesstion, HttpServletRequest request) {
+			Map resultMap = new HashMap();
+			int code = 2;
+			String url = "";
+			String msg = "";
+			List<Map<String, Object>> reservationList = reservationService.selectReservationListByID(user_id);
+			try {
+				user_id = (String) request.getSession().getAttribute("sUserId");
+				List<Map<String, Object>> resList = reservationService.selectReservationListByID(user_id);
+//				System.out.println(reservationList);
+//				request.setAttribute("resList", reservationList);
+				code=1;
+				url="";
+				msg="예약리스트";
+			} catch (Exception e) {
+				e.printStackTrace();
+				code=2;
+				url="";
+				msg="왕에러";
+			}
+			
+			resultMap.put("msg", msg);
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("data", reservationList);
+			return resultMap;
+		}
 }

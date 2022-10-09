@@ -1,3 +1,8 @@
+<%@page import="com.itwill.domain.Reservation"%>
+<%@page import="com.itwill.domain.Book"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -10,7 +15,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+<!--  <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">-->
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -22,7 +27,6 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="static/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <title>나의도서 - 별숲도서관</title>
 <style>
@@ -34,8 +38,8 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"
-	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<!-- <script type="text/javascript"
+	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script> -->
 
 <script type="text/javascript">
 	
@@ -109,6 +113,33 @@
 						</div>
 						<div class="rentalTable">
 						<!-- 대여리스트 -->
+						<form name="f" method="post">
+
+									<table border="0" cellpadding="0" cellspacing="1" width="590"
+										bgcolor="BBBBBB">
+										<tr>
+											<td width=50 align=center bgcolor="E6ECDE" height="22">번호</td>
+											<td width=300 align=center bgcolor="E6ECDE">책제목</td>
+											<td width=120 align=center bgcolor="E6ECDE">저자</td>
+											<td width=120 align=center bgcolor="E6ECDE">ISBN</td>
+											<td width=120 align=center bgcolor="E6ECDE">예약일시</td>
+										</tr>
+										<c:forEach items="${resList}" var="res">
+										<c:forEach items="${res}" var="r">
+											<tr>
+												<!--  <td width=50 align=center bgcolor="ffffff" height="20">${resList}</td> -->
+												<td width=50 align=center bgcolor="ffffff" height="20">${map.value}</td>
+												<!--  <td width=50 align=center bgcolor="ffffff" height="20">${res}</td>-->
+												<td width=50 align=center bgcolor="ffffff" height="20">${map.value[book_title]}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${r}${map[book_title]}</td>
+											</tr>
+										</c:forEach>
+										</c:forEach>
+
+
+
+									</table>
+								</form>
 						</div>
 					</div>
 				</div>

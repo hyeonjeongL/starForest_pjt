@@ -36,7 +36,8 @@ public class ReservationServiceTest {
 		Reservation newRes = new Reservation(100, date, 1, 100, "woohyuk");
 //		System.out.println(reservationService.insertReservation(newRes));
 //		System.out.println(reservationService.deleteReservation("woohyuk", 100));
-		System.out.println(reservationService.selectReservationList(3));
+//		System.out.println(reservationService.selectReservationList(3));
+		System.out.println(reservationService.selectReservationListByID("hyeonjeong"));
 	
 	}
 }

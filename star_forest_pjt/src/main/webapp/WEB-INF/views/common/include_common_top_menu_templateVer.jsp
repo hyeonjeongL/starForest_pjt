@@ -7,7 +7,7 @@
 %>
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
-	/************로딩시세션체크*********/
+	/************로딩시세션체크*********	
 	$(document).on('click','#myMenu',function(e){
 		$.ajax({//나의도서 클릭 시 바로 세션확인
 			url : 'user_session_check',
@@ -22,7 +22,7 @@
 			}
 		});
 		e.preventDefault();
-	});
+	});*/
 	
 	
 	/************user_login_form*************/
@@ -124,8 +124,8 @@
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
-					<ul id="myMenu" class="dropdown-menu dropdown-menu-left fade-down">
+					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
 								<a class="dropdown-item" href="mypage" id="mypage">마이페이지</a>
 							</li>
@@ -154,14 +154,25 @@
 						<li><a class="dropdown-item" href="seatReservation"
 							id="menu_seatReservation">열람실예약</a></li>
 						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
-					</ul></li>
+					</ul>
+				</li>
+				<c:if test="${user_id == admin}">
+					<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자전용</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
+						<li><a class="dropdown-item" href="admin"
+							id="menu_admin_club">도서동아리 관리</a></li>
+					</ul>
+				</li>
+				</c:if>
+				
 			</ul>
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${sUserId == admin}">
+				<c:if test="${user_id == admin}">
 					<li class="nav-item" v-bind:title="managerpage">
-					<a href="ManagerPage" class="nav-link">
+					<a href="admin" class="nav-link">
 					<i class="fas fa-crown" style="color: #107637;"></i></a>
 						<p class="sr-only">관리자페이지</p></li>
 				</c:if>
@@ -175,7 +186,7 @@
 					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
-				<c:if test="${sUserId != null}">
+				<c:if test="${sUserId != null&&sUserId!=admin}">
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 					<li class="nav-item" v-bind:title="logout">

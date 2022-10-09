@@ -17,7 +17,7 @@ select * from book_category;
 
 --insert--
 insert into book_club values(SEQ_book_club_club_no.nextval,'백세인생',8,'건강에 관심있는 성인분들','매주 일요일 오전 10시','국립도서관 광장 앞','건강에 관련된 지식쌓으며 백세인생 준비해요~',2,100,'yeji');
-insert into book_club values(SEQ_book_club_club_no.nextval,'다양한 레저를 좋아하는 모임',8,'레저활동에 관심있는 성인분들','매주 일요일 오전 10시','국립도서관 광장 앞','몸으로 즐기는 레저도 좋지만 지식도 쌓아보아요!',2,100,'soyoon');
+insert into book_club values(SEQ_book_club_club_no.nextval,'여러레저좋아하는 모임',8,'레저활동에 관심있는 성인분들','매주 일요일 오전 10시','국립도서관 광장 앞','몸으로 즐기는 레저도 좋지만 지식도 쌓아보아요!',2,100,'soyoon');
 insert into book_club values(SEQ_book_club_club_no.nextval,'취미부자들의 부자인생',8,'다양한 분야에 관심있는 성인분들','매주 일요일 오전 10시','국립도서관 광장 앞','세상에 있는 모든 취미를 깊이있게 공부해보아요:)',2,100,'junghyun');
 insert into book_club values(SEQ_book_club_club_no.nextval,'내 건강은 내가 챙기자',8,'병원생활이 지겨우신 성인분들','매주 일요일 오전 10시','강남세브란스병원 공원','서로의 아픔을 공유하며 멋진 앞날을 위해 같이 지식을 쌓으며 공부합시다!',2,100,'hyeonjeong');
 

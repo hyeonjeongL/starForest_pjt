@@ -504,6 +504,39 @@ button {
     background: #eef2dd;
 }
 
+/*********동아리버튼************/
+#btn1{
+	float:left;
+	height:30px;
+	background-color:#efebcc;
+	border:1px;
+	border-radius:10px;
+	box-shadow: 3px 3px 3px #d8d7ce;
+	transition-duration:0.3s;
+	margin-right:-4px;
+}
+#btn1:active{
+	margin-left:5px;
+	margin-top:5px;
+	box-shadow:none;
+	border:1px solid #efebcc;
+}
+#btn_all{
+	float:left;
+	height:30px;
+	background-color:#efebcc;
+	border:1px;
+	border-radius:10px;
+	box-shadow: 3px 3px 3px #d8d7ce;
+	transition-duration:0.3s;
+	margin-right:-4px;
+}
+#btn_all:active{
+	margin-left:5px;
+	margin-top:5px;
+	box-shadow:none;
+	border:1px solid #efebcc;
+}
 /****************************/
 
 /**book_detail*/

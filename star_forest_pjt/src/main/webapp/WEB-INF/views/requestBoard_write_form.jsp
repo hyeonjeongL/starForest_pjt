@@ -54,6 +54,34 @@
 			}
 		});
 	
+		/*
+		게시물 생성
+		*/
+	
+		$(document).on('click','#btn_request_write_action',function(e){
+			$.ajax({
+				url:'request_write_action_json',
+				method: 'POST',
+				data:$('#request_write_form').serialize(),
+				success:function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+					    
+					    //쓰기성공시 guest list보여주기
+					    // - #menu_guest_list anchor의 click event trigger[발생]
+						
+						$('#btn_request_list').trigger('click'); 
+				}
+				}
+				
+			});
+			
+		});
+	
+	
+	
+	
+	
 		$(document).on('click','#btn_request_list',function(e){
 			location.href='requestBoard';
 			
@@ -119,7 +147,7 @@
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select>
-												<option selected>신청접수</option>
+												<option selected value="신청접수">신청접수</option>
 											</select>
 										</td>
 									</tr>
@@ -127,7 +155,7 @@
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="guest_title"></td>
+											style="width: 350px" name="board_title"></td>
 									</tr>
 									
 									<tr>
@@ -136,7 +164,7 @@
 											style="padding-left: 10px">
 											<select>
 											<c:forEach items="${categoryList}" var="category">
-												<option>${category.category_name}</option>	
+												<option value="category_name">${category.category_name}</option>	
 											</c:forEach>
 												<option>기타</option>	
 											</select>
@@ -148,7 +176,7 @@
 											style="padding-left: 10px">
 				
 											<textarea wrap="soft"
-												style="width: 500px" rows="10" name="request_content">
+												style="width: 500px" rows="10" name="board_content">
 ******************************				
 신청 양식
 ******************************
@@ -161,8 +189,8 @@
 								</tbody>
 							</table>
 						</form> <br>
-						<input type="button" value="확인" id="btn_guest_write_action"> &nbsp; 
-						<input type="button" id="btn_guest_list" value="목록">
+						<input type="button" value="확인" id="btn_request_write_action"> &nbsp; 
+						<input type="button" id="btn_request_list" value="목록">
 								
 		
 		</div>

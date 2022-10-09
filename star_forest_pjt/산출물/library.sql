@@ -136,7 +136,7 @@ CREATE TABLE Request_board
 	board_depth number,
 	board_step number,
 	board_groupno number,
-	category_no number NOT NULL,
+	category_name varchar2(100) NOT NULL,
 	user_id varchar2(100) NOT NULL,
 	PRIMARY KEY (board_no)
 );

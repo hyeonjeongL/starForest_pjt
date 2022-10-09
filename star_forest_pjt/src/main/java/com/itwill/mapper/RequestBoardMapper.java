@@ -22,20 +22,20 @@ public interface RequestBoardMapper {
 	//게시물생성
 	@Insert("insert into request_board values(#{board_no},#{board_title},\r\n"
 			+ "									 sysdate,#{board_content},0,'신청대기',#{board_type_no},0,1,\r\n"
-			+ "									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_no},#{user_id})")
+			+ "									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_name},#{user_id})")
 	@SelectKey(statement = "select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual",
-			   keyColumn = "board_no",
-			   keyProperty = "board_no",
-			   before = true,
-			   resultType = Integer.class
-				)
+	   keyColumn = "board_no",
+	   keyProperty = "board_no",
+	   before = true,
+	   resultType = Integer.class
+		)
 	public int create(RequestBoard requestBoard);
 	
 	//답글생성
 	
 	@Insert("insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval ,#{board_title},sysdate,\r\n"
 			+ "									 #{board_content},0,#{board_status},2,#{board_depth}+1,#{board_step}+1,\r\n"
-			+ "									 #{board_groupno},#{category_no},#{user_id})\r\n")
+			+ "									 #{board_groupno},#{category_name},#{user_id})\r\n")
 	public int createReply(RequestBoard requestBoard);
 	/*
 	@Update("update request_board set board_step = board_step+1 where board_step>#{board_step} and groupno=#{groupno}")
@@ -65,7 +65,7 @@ public interface RequestBoardMapper {
 	
 	//게시물 수정
 	@Update("update request_board set board_title=#{board_title}, board_content=#{board_content},\r\n"
-			+ "							 category_no=#{category_no}\r\n"
+			+ "							 category_name=#{category_name}\r\n"
 			+ "							 where board_no=#{board_no}")
 	public int update(RequestBoard requestBoard);
 	
@@ -75,7 +75,7 @@ public interface RequestBoardMapper {
 	public int addReadCount(int board_no);
 	
 	//게시물 전체 리스트
-	@Select("select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_no,user_id from\r\n"
+	@Select("select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_name,user_id from\r\n"
 			+ "	request_board\r\n"
 			+ "	order by board_groupno desc, board_step asc")
 	public List<RequestBoard> selectAll();

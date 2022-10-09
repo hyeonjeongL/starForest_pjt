@@ -21,6 +21,7 @@ public class GoodController {
 	public GoodController() {
 		
 	}
+	/*
 	@RequestMapping(value = {"/good","*.do"})
 	public String main() {
 		return "forward:/WEB-INF/views/good.jsp";
@@ -34,5 +35,5 @@ public class GoodController {
 		forwardPath = "forward:/WEB-INF/views/good_list.jsp";
 		return forwardPath;
 	}
-
+*/
 }

@@ -28,35 +28,21 @@ public class SearchDaoTest {
 		ConfigurableApplicationContext context=application.run(args);
 		SearchDao searchDao=(SearchDao)context.getBean(SearchDao.class);
 		SearchService searchService=(SearchService)context.getBean(SearchService.class);
-		/*
-		//제목 검색_성공
-		System.out.println(searchDao.selectByTitle("2023년"));
-		System.out.println(searchService.selectByTitle("2022"));
 		
-		//번호검색_성공
-		System.out.println(searchDao.selectByNo(50));
-		System.out.println(searchService.selectByNo(60));
+		//제목 검색
 		
-		//저자검색_성공
-		System.out.println(searchDao.selectByAuthor("박영광"));
-		System.out.println(searchService.selectByAuthor("장중덕"));
+		//번호 검색
 		
-		//출판사검색_성공
-		System.out.println(searchDao.selectByPublisher("보누스"));
-		System.out.println(searchService.selectByPublisher("소우주"));
+		//분야명 검색
+		//분야번호 검색
 		
-		//분야검색_성공
-		System.out.println(searchDao.selectByCategoryName("만화"));
-		System.out.println(searchService.selectByCategoryName("건강"));
-		*/
+		//출판사 검섹
 		
-		//통합검색_성공
-		System.out.println(searchDao.selectByAll("축구"));
-		System.out.println(searchDao.selectByAll("미르북"));
-		System.out.println(searchService.selectByAll("부크크"));
-		System.out.println(searchService.selectByAll("소설"));
-		System.out.println(searchService.selectByAll("명화"));
+		//저자 검색
 		
+		//통합 검색
+		
+		//도서 전체 리스트
 		
 	}
 }

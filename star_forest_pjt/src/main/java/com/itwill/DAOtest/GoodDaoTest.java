@@ -12,7 +12,6 @@ import com.itwill.mapper.GoodMapper;
 import com.itwill.repository.GoodDao;
 import com.itwill.service.GoodService;
 
-//분야 번호 추천_성공_근데 이거 맞나?
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itwill"},
@@ -29,9 +28,6 @@ public class GoodDaoTest {
 		GoodDao goodDao=(GoodDao)context.getBean(GoodDao.class);
 		GoodService goodService=(GoodService)context.getBean(GoodService.class);
 
-		
-		
-		System.out.println(goodDao.goodCategoryNo(100)); //분야 번호 추천
-		System.out.println(goodService.goodCategoryNo(400)); //분야 번호 추천
+		//분야 추천
 	}
 }

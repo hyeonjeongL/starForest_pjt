@@ -21,7 +21,7 @@ public interface UserDao2 {
 	int updateUser(User user) throws Exception;
 	
 	//회원탈퇴
-	int deleteUser(String user_id) throws Exception;
+	int deleteUser(String user_id,String user_password) throws Exception;
 	
 	
 	//아이디중복
@@ -39,11 +39,9 @@ public interface UserDao2 {
 	//비밀번호 찾기
 	 String findPassword(String user_id,String user_email)throws Exception;
 	
-	
-		/*
-		 * 사용자관리테이블에 새로운사용자생성
-		 */
-		int create(User user) throws Exception;
+	//비밀번호 확인
+	 boolean passwordCK(String user_id,String user_password) throws Exception;
+		
 	
 
 }

@@ -7,46 +7,49 @@ import com.itwill.util.PageMakerDto;
 
 //검색기능
 public interface SearchService {
-	//분야별 리스트
-	public List<Search> list(int category_no)throws Exception;
-	
-	//리스트
-	public PageMakerDto<Search> getBookList(int currentPage) throws Exception;
-	
-	//제목 검색
-	public List<Search> selectByTitle(String book_title) throws Exception;
-	
-	//제목 검색_페이지
-	public PageMakerDto<Search> selectByTitle(String keyword, int currentPage) throws Exception;
-
-	//번호검색
-	public Search selectByNo(int book_no) throws Exception;
-	
-	//저자검색
-	public List<Search> selectByAuthor(String book_author) throws Exception;
-	
-	//저자검색_페이지
-	public PageMakerDto<Search> selectByAuthor(String keyword, int currentPage) throws Exception;
-	
-	
-	//출판사검색
-	public List<Search> selectByPublisher(String book_publisher) throws Exception;
-	//출판사검색_페이지
-	public PageMakerDto<Search> selectByPublisher(String keyword, int currentPage) throws Exception;
-	
-	//분야검색_페이지
-	public PageMakerDto<Search> selectByCategoryName(String keyword, int currentPage) throws Exception;
-	//분야검색
-	public List<Search> selectByCategoryName(String category_name) throws Exception;
-	
-	//통합검색
-	public List<Search> selectByAll(String keyword) throws Exception;
-	//통합검색_페이지
-	public PageMakerDto<Search> selectByAll(String keyword, int currentPage) throws Exception;
-	
-	//검색
-	public List<Search> getSearchList(Search search)throws Exception;
-	
-	//전체 조회
-	public List<Search> getList() throws Exception;
+	// 제목 검색
+		List<Search> titleList(String keyword) throws Exception;
+		
+		//제목 검색 페이지
+		//List<Search> selectByTitle(String keyword, int start, int last) throws Exception;
+		
+		//번호 검색
+		Search selectByNo(int book_no) throws Exception;
+		
+		//저자 검색
+		List<Search> authorList(String keyword) throws Exception;
+		
+		//저자 검색 페이지
+		//List<Search> selectByAuthor(String keyword, int start, int last) throws Exception;
+		
+		//분야명 검색
+		List<Search> cateNameList(String keyword) throws Exception;
+		
+		//분야 번호 검색
+		List<Search> cateNoList(int category_no) throws Exception;
+		
+		//분야 검색 페이지
+		//List<Search> selectByCategoryName(String keyword, int start, int last) throws Exception;
+		
+		
+		//출판사 검색
+		List<Search> publisherList(String keyword) throws Exception;
+		
+		//출판사 검색 페이지
+		//List<Search> selectByPublisher(String keyword, int start, int last) throws Exception;
+		
+		
+		
+		//도서 전체 조회 
+		List<Search> allList()throws Exception;
+		
+		//도서 전체 조회_페이지
+		//List<Search> getList(int start, int last)throws Exception;
+		
+		
+		//통합 검색(제목, 저자, 분야, 출판사)
+		List<Search> searchList(String keyword) throws Exception;
+		
+		//통합 검색(제목, 저자, 분야, 출판사) 페이지
+		//List<Search> selectByAll(String keyword, int start, int last) throws Exception;
 }

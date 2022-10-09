@@ -16,134 +16,55 @@ public class SearchServiceImpl implements SearchService{
 	
 	public SearchServiceImpl() {
 	}
-	
-	public SearchServiceImpl(SearchDao searchDao) {
-		this.searchDao=searchDao;
-	}
-	public void setSearchDao(SearchDao searchDao) {
-		this.searchDao=searchDao;
-	}
 
 	//제목 검색
 	@Override
-	public List<Search> selectByTitle(String book_title) throws Exception {
-		return searchDao.selectByTitle(book_title);
+	public List<Search> titleList(String keyword) throws Exception {
+		return searchDao.titleList(keyword);
 	}
-		
-	//번호 검색
+
+	//번호검색
 	@Override
 	public Search selectByNo(int book_no) throws Exception {
 		return searchDao.selectByNo(book_no);
 	}
-	
-	//저자 검색
+
+	//저자검색
 	@Override
-	public List<Search> selectByAuthor(String book_author) throws Exception {
-		return searchDao.selectByAuthor(book_author);
+	public List<Search> authorList(String keyword) throws Exception {
+		return searchDao.authorList(keyword);
 	}
-	
+
+	//분야명 검색
+	@Override
+	public List<Search> cateNameList(String keyword) throws Exception {
+		return searchDao.cateNameList(keyword);
+	}
+
+	//분야 번호 검색
+	@Override
+	public List<Search> cateNoList(int category_no) throws Exception {
+		return searchDao.cateNoList(category_no);
+	}
+
 	//출판사검색
 	@Override
-	public List<Search> selectByPublisher(String book_publisher) throws Exception {
-		return searchDao.selectByPublisher(book_publisher);
+	public List<Search> publisherList(String keyword) throws Exception {
+		return searchDao.publisherList(keyword);
 	}
-	
-	//분야검색
+
+	//도서 리스트
 	@Override
-	public List<Search> selectByCategoryName(String category_name) throws Exception {
-		return searchDao.selectByCategoryName(category_name);
+	public List<Search> allList() throws Exception {
+		return searchDao.allList();
 	}
 
 	//통합검색
 	@Override
-	public List<Search> selectByAll(String keyword) throws Exception {
-		return searchDao.selectByAll(keyword);
+	public List<Search> searchList(String keyword) throws Exception {
+		return searchDao.searchList(keyword);
 	}
-
-	@Override
-	public PageMakerDto<Search> selectByAuthor(String keyword, int currentPage) throws Exception {
-		int totRecordCount = searchDao.selectByAuthor(keyword).size();
-		PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 3, 5);
-		List<Search> searchList = searchDao.selectByAuthor(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());		
-		PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(searchList, pageMaker2, totRecordCount);
-		
-		return pageMakerSearchList;
-	}
-	@Override
-	public PageMakerDto<Search> selectByPublisher(String keyword, int currentPage) throws Exception {
-		int totRecordCount = searchDao.selectByPublisher(keyword).size();
-		PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 3, 5);
-		List<Search> searchList = searchDao.selectByPublisher(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());		
-		PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(searchList, pageMaker2, totRecordCount);
-		
-		return pageMakerSearchList;
-	}
-	@Override
-	public PageMakerDto<Search> selectByCategoryName(String keyword, int currentPage) throws Exception {
-		int totRecordCount = searchDao.selectByCategoryName(keyword).size();
-		PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 3, 5);
-		List<Search> searchList = searchDao.selectByCategoryName(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());		
-		PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(searchList, pageMaker2, totRecordCount);
-		
-		return pageMakerSearchList;
-	}
-	@Override
-	public PageMakerDto<Search> selectByAll(String keyword, int currentPage) throws Exception {
-		int totRecordCount = searchDao.selectByAll(keyword).size();
-		PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 3, 5);
-		List<Search> searchList = searchDao.selectByAll(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());		
-		PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(searchList, pageMaker2, totRecordCount);
-		
-		return pageMakerSearchList;
-	}
-
-	@Override
-	public PageMakerDto<Search> selectByTitle(String keyword, int currentPage) throws Exception {
-		int totRecordCount = searchDao.selectByTitle(keyword).size();
-		PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 3, 5);
-		List<Search> searchList = searchDao.selectByTitle(keyword, pageMaker2.getPageBegin(), pageMaker2.getPageEnd());
-		System.out.println(searchList);
-		PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(searchList, pageMaker2, totRecordCount);
-		System.out.println(pageMakerSearchList.itemList);
-		return pageMakerSearchList;
-	}
-
-	@Override
-	public PageMakerDto<Search> getBookList(int currentPage) throws Exception {
-		// 전체 글 개수
-				int totRecordCount = searchDao.getTotBookCount();
-				
-				// 페이지 계산
-				PageMaker2 pageMaker2 = new PageMaker2(totRecordCount, currentPage, 8, 5);
-				
-				// 게시물 데이터 얻기
-				List<Search> bookList = searchDao.getList(pageMaker2.getPageBegin(), pageMaker2.getPageEnd());
-				
-				PageMakerDto<Search> pageMakerSearchList = new PageMakerDto<Search>(bookList, pageMaker2, totRecordCount);
-				
-				return pageMakerSearchList;
-			}
 	
-	
-
-	
-	//검색
-	@Override
-	public List<Search> getSearchList(Search search) throws Exception {
-		return searchDao.selectSearchList(search);
-	}
-
-	//전체 조회
-	@Override
-	public List<Search> getList() throws Exception {
-		return searchDao.getList();
-	}
-
-	//분야별 리스트
-	@Override
-	public List<Search> list(int category_no) throws Exception {
-		return searchDao.list(category_no);
-	}
 	
 
 	

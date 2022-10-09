@@ -1,42 +1,35 @@
 package com.itwill.controller;
 
-import java.io.FileOutputStream;
-import java.sql.Date;
-import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.itwill.service.UserSha256;
-import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.User;
-import com.itwill.repository.UserDao;
 import com.itwill.service.UserService2;
 
 @Controller
 public class UserInfoController2 {
 	
-	@Autowired
-	private UserDao userDao;
-	
-	public void setUserDao(UserDao userDao) {
-		this.userDao= userDao;
-	}
 	
 @Autowired
 private UserService2 userService2;
 
+@RequestMapping("/user2")
+public String user() {
+	return "user";
+}
+
+/*
+@Autowired
+private UserDao userDao;
+
+public void setUserDao(UserDao userDao) {
+	this.userDao= userDao;
+}
 @GetMapping(value ="/account-login")
 public String user_login_form() {
 	return "account-login";
@@ -89,10 +82,10 @@ public String user_view_myinfo(HttpSession session,Model model) throws Exception
 	model.addAttribute("cartTotPrice", cartTotPrice);
 	model.addAttribute("productList", productList);
 	model.addAttribute("orderList", orderList);
-	*/
+	*
 	return "account-profile";
 }
-/*
+*
 //회원가입FORM
 @RequestMapping(value="/insertCustomer", method=RequestMethod.GET)
 public void insertCustomer() {

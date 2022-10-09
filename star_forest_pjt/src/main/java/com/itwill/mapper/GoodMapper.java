@@ -15,7 +15,7 @@ import com.itwill.domain.Good;
 public interface GoodMapper {
 
 
-	@Select("select * from (select b.book_no, b.isbn, b.book_title,b.book_author,b.book_publisher,b.book_image, bc.category_no,bc.category_name from book b join book_category bc on b.category_no =bc.category_no where bc.category_no=? order by dbms_random.value) where rownum < 11")
-	public List<Good> GoodList();
+	@Select("select * from (select b.book_no, b.isbn, b.book_title,b.book_author,b.book_publisher,b.book_image, bc.category_no,bc.category_name from book b join book_category bc on b.category_no =bc.category_no where bc.category_no=#{category_no} order by dbms_random.value) where rownum < 11")
+	public List<Good> GoodList(int category_no);
 
 }

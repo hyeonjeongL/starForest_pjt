@@ -20,7 +20,7 @@ public interface UserService2 {
 	int updateUser(User user) throws Exception;
 	
 	//회원탈퇴
-	int deleteUser(String user_id) throws Exception;
+	int deleteUser(String user_id,String user_password) throws Exception;
 	
 	
 	
@@ -33,8 +33,6 @@ public interface UserService2 {
 	//이메일 중복
 	boolean existUserEmail(String user_email)throws Exception;
 	
-	//로그인체크
-	int login(String user_id, String user_password)throws Exception;
 	
 	//아이디찾기
 	String findId(String user_name, String user_phone) throws Exception;
@@ -42,18 +40,13 @@ public interface UserService2 {
 	//비밀번호찾기
 	String findPassword(String user_id, String user_email) throws Exception;
 	
-	/*
-	 * 회원가입
-	 */
-	/**************1.반환값사용***********************/
-	int create(User user) throws Exception;
 
-	/*********************************************/
+	//비밀번호 확인
+	int passwordCK(String user_id,String user_password) throws Exception;
 
 
 
 	/*
 	 * 아이디중복체크
 	 */
-	boolean isDuplicateId(String user_id) throws Exception;
 }

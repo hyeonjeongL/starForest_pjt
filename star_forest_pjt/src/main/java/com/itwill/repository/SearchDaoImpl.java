@@ -1,649 +1,70 @@
 package com.itwill.repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.sql.DataSource;
 
-import org.apache.ibatis.jdbc.SQL;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.Search;
 import com.itwill.domain.SearchSQL;
+import com.itwill.mapper.SearchMapper;
 
 @Repository
 public class SearchDaoImpl implements SearchDao{
+
 	@Autowired
-	private DataSource dataSource;
-	
-	@Autowired
-	private SqlSession sqlSession;
-	
-	private SQL sql;
-	
-	
-	public SearchDaoImpl() {
-	}
-	
-	public SearchDaoImpl(DataSource dataSource) {
-		this.dataSource=dataSource;
-	}
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource=dataSource;
-	}
-	
-//제목 검색
+	private SearchMapper searchMapper;
+
+	//제목 검색
 	@Override
-	public List<Search> selectByTitle(String keyword) throws Exception {
-		ArrayList<Search> searchList = new ArrayList<Search>();
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try {
-			conn = dataSource.getConnection();
-			pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_TITLE);
-			pstmt.setString(1, "%" + keyword + "%");
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				Search search = new Search(
-						rs.getInt("book_no"), 
-						rs.getInt("isbn"), 
-						rs.getString("book_title"), 
-						rs.getString("book_author"), 
-						rs.getString("book_publisher"),
-						rs.getString("book_summary"), 
-						rs.getString("book_publish_date"), 
-						rs.getString("book_image"),
-						rs.getDate("book_input_date"),
-						rs.getString("book_image_src"),
-						rs.getInt("book_page"),
-						rs.getInt("book_qty"),
-						rs.getInt("book_res_cnt"),
-						rs.getInt("book_rental_cnt"),
-						rs.getInt("category_no")
-						);
-				searchList.add(search);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (rs != null) rs.close();
-			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();
-		}
-		
-		return searchList;
+	public List<Search> titleList(String keyword) throws Exception {
+		return searchMapper.titleList(keyword);
 	}
+
 	//번호 검색
+	@Override
 	public Search selectByNo(int book_no) throws Exception {
-		Search search = null;
-		Connection con = dataSource.getConnection();
-		PreparedStatement pstmt = con.prepareStatement(SearchSQL.BOOK_SELECT_BY_NO);
-		pstmt.setInt(1, book_no);
-		ResultSet rs = pstmt.executeQuery();
-		if (rs.next()) {
-			search = new Search(
-					rs.getInt("book_no"), 
-					rs.getInt("isbn"), 
-					rs.getString("book_title"), 
-					rs.getString("book_author"), 
-					rs.getString("book_publisher"),
-					rs.getString("book_summary"), 
-					rs.getString("book_publish_date"), 
-					rs.getString("book_image"),
-					rs.getDate("book_input_date"),
-					rs.getString("book_image_src"),
-					rs.getInt("book_page"),
-					rs.getInt("book_qty"),
-					rs.getInt("book_res_cnt"),
-					rs.getInt("book_rental_cnt"),
-					rs.getInt("category_no")
-					
-					);
-		}
-		con.close();
-		return search;
+		return searchMapper.selectByNo(book_no);
+	}
+
+	//저자 검색
+	@Override
+	public List<Search> authorList(String keyword) throws Exception {
+		return searchMapper.authorList(keyword);
+	}
+
+	//분야명 검색
+	@Override
+	public List<Search> cateNameList(String keyword) throws Exception {
+		return searchMapper.cateNameList(keyword);
+	}
+
+	//분야 번호 검색
+	@Override
+	public List<Search> cateNoList(int category_no) throws Exception {
+		return searchMapper.cateNoList(category_no);
+	}
+
+	//출판사 검색
+	@Override
+	public List<Search> publisherList(String keyword) throws Exception {
+		return searchMapper.publisherList(keyword);
+	}
+
+	//도서 전체 조회 
+	@Override
+	public List<Search> allList() throws Exception {
+		return searchMapper.allList();
+	}
+
+	//통합 검색(제목, 저자, 분야, 출판사)
+	@Override
+	public List<Search> searchList(String keyword) throws Exception {
+		return searchMapper.searchList(keyword);
 	}
 	
-	//저자 검색
-		public List<Search> selectByAuthor(String keyword) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_AUTHOR);
-				pstmt.setString(1, "%" + keyword + "%");
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(
-							rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-		
-		//출판사검색
-		public List<Search> selectByPublisher(String keyword) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_PUBLISHER);
-				pstmt.setString(1, "%" + keyword + "%");
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(
-							rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-		
-		//분야 검색
-		public List<Search> selectByCategoryName(String keyword) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_CATEGORY_NAME);
-				pstmt.setString(1, "%" + keyword + "%");
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(
-							rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-		//통합 검색(제목, 저자, 분야, 출판사)
-		public List<Search> selectByAll(String keyword) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_ALL);
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setString(2, "%" + keyword + "%");
-				pstmt.setString(3, "%" + keyword + "%");
-				pstmt.setString(4, "%" + keyword + "%");
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(
-							rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-
-		//제목검색 페이지
-		@Override
-		public List<Search> selectByTitle(String keyword, int start, int last) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_TITLE_LIST);
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, last);
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(
-							rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no")
-							);
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			return searchList;
-		}
-
-		//저자 검색 페이지
-		@Override
-		public List<Search> selectByAuthor(String keyword, int start, int last) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_AUTHOR_LIST);
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, last);
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-
-		//분야검색 페이지
-		@Override
-		public List<Search> selectByCategoryName(String keyword, int start, int last) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_CATEGORY_NAME_LIST);
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, last);
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-
-		//출판사검색 페이지
-		@Override
-		public List<Search> selectByPublisher(String keyword, int start, int last) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_BY_PUBLISHER_LIST);
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setInt(2, start);
-				pstmt.setInt(3, last);
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-		
-		//통합 검색 페이지
-		@Override
-		public List<Search> selectByAll(String keyword, int start, int last) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_SELECT_ALL_LIST);
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setString(2, "%" + keyword + "%");
-				pstmt.setString(3, "%" + keyword + "%");
-				pstmt.setString(4, "%" + keyword + "%");
-				pstmt.setInt(5, start);
-				pstmt.setInt(6, last);
-				rs = pstmt.executeQuery();
-				while (rs.next()) {
-					Search search = new Search(rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-
-		//전체조회
-		@Override
-		public List<Search> getList() throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_LIST);
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					Search search = new Search(rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-
-		//전체조회_페이지
-		@Override
-		public List<Search> getList(int start, int last) throws Exception {
-			ArrayList<Search> searchList = new ArrayList<Search>();
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement(SearchSQL.BOOK_LIST_PAGE);
-				pstmt.setInt(1, start);
-				pstmt.setInt(2, last);
-				rs = pstmt.executeQuery();
-				while(rs.next()) {
-					Search search = new Search(rs.getInt("book_no"), 
-							rs.getInt("isbn"), 
-							rs.getString("book_title"), 
-							rs.getString("book_author"), 
-							rs.getString("book_publisher"),
-							rs.getString("book_summary"), 
-							rs.getString("book_publish_date"), 
-							rs.getString("book_image"),
-							rs.getDate("book_input_date"),
-							rs.getString("book_image_src"),
-							rs.getInt("book_page"),
-							rs.getInt("book_qty"),
-							rs.getInt("book_res_cnt"),
-							rs.getInt("book_rental_cnt"),
-							rs.getInt("category_no"));
-					searchList.add(search);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return searchList;
-		}
-
-		@Override
-		public int getTotBookCount() throws Exception {
-			int totBookCount = 0;
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement("select count(*) from book");
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					totBookCount = rs.getInt(1);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return totBookCount;
-		}
-
-		@Override
-		public int getTotBookCount(String keyword) throws Exception {
-			int totBookCount = 0;
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			try {
-				conn = dataSource.getConnection();
-				pstmt = conn.prepareStatement("select count(*) from book where book_title like ? or book_author like ? or book_publisher like ?");
-				pstmt.setString(1, "%" + keyword + "%");
-				pstmt.setString(2, "%" + keyword + "%");
-				pstmt.setString(3, "%" + keyword + "%");
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					totBookCount = rs.getInt(1);
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				if (rs != null) rs.close();
-				if (pstmt != null) pstmt.close();
-				if (conn != null) conn.close();
-			}
-			
-			return totBookCount;
-		}
-
-		@Override
-		public List<Search> selectSearchList(Search search) throws Exception {
-			return sqlSession.selectList("Search.selectSearchList",search);
-		}
-
-		
-		//매퍼
-		private static String namespace="com.itwill.mapper.SearchMapper";
-		
-		//분야별 리스트
-		@Override
-		public List<Search> list(int category_no) throws Exception {
-			return ((SqlSession) sql).selectList(namespace+".list",category_no);
-		}
-
-		
-
+	
 		
 }

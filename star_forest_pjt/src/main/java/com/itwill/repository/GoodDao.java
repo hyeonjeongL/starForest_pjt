@@ -8,7 +8,7 @@ import com.itwill.domain.Good;
 public interface GoodDao {
 
 	//분야 추천
-	List<Good> goodCategoryNo(int category_no) throws Exception;
+	List<Good> goodList(int category_no) throws Exception;
 	
 	//ArrayList<Good> goodCategoryNo (String keyword) throws Exception;
 }

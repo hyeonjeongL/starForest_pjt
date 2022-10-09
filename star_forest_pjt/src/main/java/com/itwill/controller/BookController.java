@@ -2,12 +2,15 @@ package com.itwill.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.Book;
 import com.itwill.service.BookService;
 import com.itwill.service.RentalService;
@@ -20,17 +23,22 @@ public class BookController {
 	@Autowired
 	RentalService rentalService;
 	
-	
+	//소장정보구현
+	@LoginCheck
 	@RequestMapping("/book_detail")
-	public String book_detail(@RequestParam(value = "book_no", required = false) String book_noStr,Model model ) {
+	public String book_detail(int book_no, HttpSession session,Model model ) {
 		String forwardPath = "";
 		try {
-			Book book = bookService.selectBookDetail(Integer.parseInt(book_noStr));
+			Book book = bookService.selectBookDetail(book_no);
 			model.addAttribute("book", book);
 			String rental_duedate = rentalService.selectMostReturn_duedate(book.getBook_no());
 			model.addAttribute("rental_duedate",rental_duedate);
 			
 			int book_qty = book.getBook_qty();
+//			book_qty  = book_qty < 0 ?  book_qty = 0 : book_qty;
+			if(book_qty<0) {
+				book.setBook_qty(0);
+			}
 			int book_res_cnt = book.getBook_res_cnt();
 			if(book_qty<=3 && book_qty>=1) {
 				model.addAttribute("rental_status", "대출가능");

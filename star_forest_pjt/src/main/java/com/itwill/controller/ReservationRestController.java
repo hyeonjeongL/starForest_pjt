@@ -21,6 +21,7 @@ public class ReservationRestController {
 	@Autowired
 	private ReservationService reservationService;
 	
+	//예약신청
 	@RequestMapping("/reservation")
 	public Map reservation(int book_no, HttpSession session) throws Exception{
 		Map resultMap = new HashMap();
@@ -31,7 +32,6 @@ public class ReservationRestController {
 		List<Reservation> resultList = new ArrayList<Reservation>();
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
-			sUserId = "hyeonjeong";
 			int res = reservationService.insertReservation(new Reservation(0, null, 1, book_no, sUserId));
 			if(res==1) {
 				code=1;

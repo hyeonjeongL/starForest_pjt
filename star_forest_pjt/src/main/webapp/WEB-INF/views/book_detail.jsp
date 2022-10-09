@@ -13,15 +13,6 @@
 <link rel="profile" href="https://gmpg.org/xfn/11" />
 <title>도서정보 - 별숲도서관</title>
 
-<!-- 구글폰트 전체 기본적용 -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap"
-	rel="stylesheet">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
-	rel="stylesheet">
-<!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
 	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -81,13 +72,18 @@
 	id='wp-embed-js'></script> -->
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<!-- MODAL 필수 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+<!-- MODAL 필수 -->
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+	integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+	crossorigin="anonymous"></script>
 <script type="text/javascript">
 <!-- MODALMODAL -->
 	$(function(){
 		$(document).on('show.bs.modal','#item-user-request',function(e){
+			
 			var menu=$(e.relatedTarget).attr('title');
+			
 			if(menu=="소장정보발송"){
 				$.ajax({
 					url:'rest_book_detail',
@@ -122,7 +118,7 @@
 												</div>
 											</div>
 											<div class="content-d d-flex justify-content-center">
-												<button type="button" class="btn btn-primary submit-request">신청</button>
+												<button type="button" class="btn btn-primary submit-request" >신청</button>
 											</div>
 										</div><!-- .entry-content -->
 									</div><!-- .container -->
@@ -133,6 +129,7 @@
 				});
 			}else if(menu=="간편대출신청"){
 				$(e.target).find('#modal-body-user-request').html("");
+				console.log($(e.target).attr('book_no'));
 				$.ajax({
 					url:'',
 					data:null,
@@ -160,7 +157,7 @@
 									</div>
 									
 									<div class="content-d d-flex justify-content-center">
-										<button type="button" class="btn btn-primary submit-request">신청</button>
+										<button type="button" class="btn btn-primary submit-request" book_no="${book.book_no}">신청</button>
 									</div>
 									
 									<div class="content-d">
@@ -184,19 +181,18 @@
 
 
 						</body>`
-							$(e.target).find('#modal-body-user-request').html(html1);
-						$(document).on('click','#btn btn-primary submit-request', function(e){
-							var param=$('#guest_modify_form').serialize();
-						$.ajax({
+						$(e.target).find('#modal-body-user-request').html(html1);
+						$(document).on('click','.btn.btn-primary.submit-request', function(e){
+							$.ajax({
 							url:'rest_rental',
 							data:'book_no='+$(e.target).attr("book_no"),
 							method:'POST',
 							succss:function(jsonResult){
 								alert(jsonResult.msg);			
-							}
-						})
-					});
-						
+							} 
+						}) 
+						});
+							
 					}
 				});
 			}else if(menu=='도서예약신청'){
@@ -231,7 +227,7 @@
 											</div>
 										</div>
 										<div class="content-d d-flex justify-content-center">
-											<button type="button" class="btn btn-primary submit-request">신청</button>
+											<button type="button" class="btn btn-primary submit-request" book_no="${book.book_no}">신청</button>
 										</div>
 
 										
@@ -243,7 +239,18 @@
 
 							</body>`;
 						$(e.target).find('#modal-body-user-request').html(html1);
-					
+							console.log($(e.target).attr('book_no'));
+						$(document).on('click','.btn.btn-primary.submit-request', function(event){
+							console.log($(event.target).attr('book_no'));
+							$.ajax({
+							url:'reservation',
+							data:'book_no='+$(e.target).attr("book_no"),
+							method:'POST',
+							succss:function(jsonResult){
+								alert(jsonResult.msg);			
+							} 
+						}) 
+						});
 							
 						
 					}
@@ -257,6 +264,16 @@
 	});
 
 	
+
+</script>
+<script type="text/javascript">
+$(function(){ 
+
+
+
+
+})
+
 
 </script>
 
@@ -406,7 +423,8 @@
 
 							<div class="item-data col-lg-10">
 
-								<div class="item-row d-lg-flex justify-content-between mb-3" style= "height: 50px;">
+								<div class="item-row d-lg-flex justify-content-between mb-3"
+									style="height: 50px;">
 									<div class="item-title">
 										<h2>${book.book_title }
 											<span class="item-meta-value"> (<span class="number">${book.book_rental_cnt }</span>회
@@ -548,23 +566,23 @@
 													<td><span class="th-item">도서상태</span> ${rental_status}</td>
 													<td><span class="th-item">반납예정일</span>
 														${rental_duedate.substring(0,10)}</td>
-													<td><span class="th-item">예약</span> ${res_status} ${reservation1}<!-- <span
+													<td><span class="th-item">예약</span> ${res_status}
+														${reservation1}<!-- <span
 														class="item-modal"> <a data-toggle="modal"
 															data-target="#item-user-request" class="item-loc-service"
 															title="도서예약신청" href=""> <span class="char-icon">R</span>
-														</a> -->
-													</span></td>
+														</a> --> </span></td>
 													</td>
 													<!-- 2020.03.08 서비스 아이콘 셀 왼쪽 정렬 -->
 													<td><span class="th-item">서비스</span>${rentalPos } <!-- <span
 														class="item-modal"> <a data-toggle="modal"
 															data-target="#item-user-request" class="item-loc-service"
 															title="간편대출신청" href=""><span
-																class="char-icon char-icon-magenta">B</span></a> -->
-													</span> <span class="item-modal"> <a
-															class="item-loc-service" data-toggle="modal"
-															data-target="#item-user-request" title="소장정보발송" href="">
-																<span class="char-icon char-icon-blue">M</span>
+																class="char-icon char-icon-magenta">B</span></a> --> </span> <span
+														class="item-modal"> <a class="item-loc-service"
+															data-toggle="modal" data-target="#item-user-request"
+															title="소장정보발송" href=""> <span
+																class="char-icon char-icon-blue">M</span>
 														</a>
 													</span></td>
 													<!-- 모달 테스트 -->

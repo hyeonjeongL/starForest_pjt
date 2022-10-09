@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itwill.domain.Reservation;
+import com.itwill.service.BookService;
 import com.itwill.service.ReservationService;
 
 @RestController
@@ -20,6 +21,9 @@ public class ReservationRestController {
 
 	@Autowired
 	private ReservationService reservationService;
+	
+	@Autowired
+	private BookService bookService;
 	
 	//예약신청
 	@RequestMapping("/reservation")
@@ -33,6 +37,7 @@ public class ReservationRestController {
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
 			int res = reservationService.insertReservation(new Reservation(0, null, 1, book_no, sUserId));
+			bookService.updateResCnt(book_no);
 			if(res==1) {
 				code=1;
 				url="";

@@ -150,7 +150,7 @@
 																
 																<div>
 												<label class="attr-value-label">
-													<input type="radio" name="receive_location_code" class="purchase-type" > 별빛도서관 1층 데스크
+													<input type="radio" checked="checked" name="receive_location_code" class="purchase-type" > 별빛도서관 1층 데스크
 												</label>
 											</div>
 															</div>
@@ -187,9 +187,10 @@
 							url:'rest_rental',
 							data:'book_no='+$(e.target).attr("book_no"),
 							method:'POST',
-							succss:function(jsonResult){
-								alert(jsonResult.msg);			
-							} 
+							complete: function () {
+					            alert("대여신청이 완료되었습니다.");
+					            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+					        } 
 						}) 
 						});
 							
@@ -239,16 +240,37 @@
 
 							</body>`;
 						$(e.target).find('#modal-body-user-request').html(html1);
-							console.log($(e.target).attr('book_no'));
 						$(document).on('click','.btn.btn-primary.submit-request', function(event){
 							console.log($(event.target).attr('book_no'));
 							$.ajax({
 							url:'reservation',
+							dataType :'text',
 							data:'book_no='+$(e.target).attr("book_no"),
 							method:'POST',
-							succss:function(jsonResult){
-								alert(jsonResult.msg);			
-							} 
+							succss:function(res){
+								console.log("test");
+							/* 	alert("예약이 완료되었습니다.");		 */	
+							} ,
+							error:function(jqXHR, textStatus, errorThrown ) {
+								
+
+								alert( jqXHR.status );
+
+								alert( jqXHR.statusText );
+
+								alert( jqXHR.responseText );
+
+								alert( jqXHR.readyState );
+
+								},
+							fail : function() {
+					            alert("인터넷 연결 상태를 확인해주세요.");
+					            $('.wrap-loading').addClass('display-none');
+					        },
+					        complete: function () {
+					            alert("예약이 완료되었습니다.");
+					            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+					        }
 						}) 
 						});
 							

@@ -302,6 +302,7 @@ public class BookClubRestController {
 	}
 
 	// 동아리리스트
+	@LoginCheck
 	@PostMapping("/club_list")
 	public Map club_list() throws Exception {
 		Map resultMap = new HashMap();

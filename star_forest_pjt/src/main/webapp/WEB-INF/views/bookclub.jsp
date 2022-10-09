@@ -57,7 +57,19 @@
 
 <script type="text/javascript">
 	$(function() {
-		
+		/***********로그인 세션확인**************/
+		$.ajax({
+			url : 'user_session_check',
+			method : 'POST',
+			dataType : 'json',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				}else{ //세션 존재하지 않을경우 메세지창보여줌
+					alert('로그인이 필요한 페이지입니다:)');
+				}
+			}
+		});
 		
 		/*
 		$('#item').html(BookClubHtmlContents.club_item_html);
@@ -69,10 +81,11 @@
 			alert('동아리신청하기');
 		});
 		*/
+		
 		/********club_list***********/
 		$.ajax({
 				url:'club_list',
-				method:'POST',
+				method:'GET',
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
 						$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
@@ -81,7 +94,7 @@
 		$(document).on('click','#side_bookClub,#menu_bookClub,#btn_all,#btn_list',function(e){
 			$.ajax({
 				url:'club_list',
-				method:'POST',
+				method:'GET',
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
 					$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
@@ -155,11 +168,7 @@
 			
 		});
 		
-		/************club_write_form**********/
-		$(document).on('click','#btn_write_form',function(e){
-			$('#content').html(BookClubHtmlContents.club_write_form_html());
-			e.preventDefault();	
-		});
+		
 	
 		/************club_write_action**************/
 		$(document).on('click','#btn_write_action',function(e){

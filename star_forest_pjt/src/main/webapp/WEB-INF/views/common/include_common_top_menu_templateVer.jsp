@@ -7,24 +7,9 @@
 %>
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
-	/************로딩시세션체크*********	
-	$(document).on('click','#myMenu',function(e){
-		$.ajax({//나의도서 클릭 시 바로 세션확인
-			url : 'user_session_check',
-			method : 'POST',
-			dataType : 'json',
-			success : function(jsonResult) {
-				if (jsonResult.code == 1) {
-					location.href='mypage'; //세션존재할경우 마이페이지로 이동
-				}else{ //세션 존재하지 않을경우 메세지창보여줌
-					alert('로그인이 필요한 페이지입니다:)');
-				}
-			}
-		});
-		e.preventDefault();
-	});*/
+$(function(){
 	
-	
+
 	/************user_login_form*************/
 	$(document).on('click', '#a_user_login_form', function(e) {
 		$('#loginPage').html(UserHtmlContents.user_login_form_content());
@@ -75,7 +60,7 @@
 	/*************user_write_form***************/
 		
 	
-	
+});	
 </script>
 
 <link rel="stylesheet" href="./css/style.css">
@@ -127,7 +112,7 @@
 								<a class="dropdown-item" href="userbook_status" id="userbook_status">
 									나의도서정보</a></li>
 							<li>
-								<a class="dropdown-item" href="user_club_list" id="user_club_list">
+								<a class="dropdown-item" href="MyPage_Folder" id="user_club_list">
 									동아리신청내역</a></li>
 							<li>
 								<a class="dropdown-item" href="user_request_list" id="user_request_list">

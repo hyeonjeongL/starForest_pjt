@@ -9,7 +9,7 @@ public class BookClub {
 	private String club_place;
 	private String club_content;
 	private int club_readcount;
-	private int category_no;
+	private BookCategory category;
 	private String user_id;
 	
 	
@@ -18,8 +18,11 @@ public class BookClub {
 	}
 
 
+	
+
+
 	public BookClub(int club_no, String club_name, int club_count, String club_person, String club_time,
-			String club_place, String club_content, int club_readcount, int category_no, String user_id) {
+			String club_place, String club_content, int club_readcount, BookCategory category, String user_id) {
 		super();
 		this.club_no = club_no;
 		this.club_name = club_name;
@@ -29,9 +32,12 @@ public class BookClub {
 		this.club_place = club_place;
 		this.club_content = club_content;
 		this.club_readcount = club_readcount;
-		this.category_no = category_no;
+		this.category = category;
 		this.user_id = user_id;
 	}
+
+
+
 
 
 	public int getClub_no() {
@@ -114,14 +120,23 @@ public class BookClub {
 	}
 
 
-	public int getCategory_no() {
-		return category_no;
+	
+
+
+	public BookCategory getCategory() {
+		return category;
 	}
 
 
-	public void setCategory_no(int category_no) {
-		this.category_no = category_no;
+
+
+
+	public void setCategory(BookCategory category) {
+		this.category = category;
 	}
+
+
+
 
 
 	public String getUser_id() {
@@ -134,14 +149,18 @@ public class BookClub {
 	}
 
 
+
+
+
 	@Override
 	public String toString() {
 		return "BookClub [club_no=" + club_no + ", club_name=" + club_name + ", club_count=" + club_count
 				+ ", club_person=" + club_person + ", club_time=" + club_time + ", club_place=" + club_place
-				+ ", club_content=" + club_content + ", club_readcount=" + club_readcount + ", category_no="
-				+ category_no + ", user_id=" + user_id + "]";
+				+ ", club_content=" + club_content + ", club_readcount=" + club_readcount + ", category=" + category
+				+ ", user_id=" + user_id + "]";
 	}
-	
+
+
 
 	
 	

@@ -27,54 +27,128 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="static/css/style.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
-<link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
-<link rel="stylesheet" type="text/css" href="./css/delete_btn_hw.css">
+<link rel="stylesheet" type="text/css" href="static/css/wang_hw.css">
+<link rel="stylesheet" type="text/css" href="static/css/delete_btn_hw.css">
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript" src="static/js/MyLibraryHtmlContents.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
-<script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript">
 
+/*************************************************************************
+ * 창 새로 고침 할때 폴더가 계속 생성되는것을 막기 위한, 새로고침 할때 폼태그 양식 재제출 방지 코드 *
+ *************************************************************************/
+if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, "MyPage_Folder.do?user_id="+${user_id});
+}
 
 $(function(){
+	/*************************************************************************
+	 * 관리 버튼 눌렀을때 체크박스 띄우면서 삭제할 부분 띄우기 *
+	 *************************************************************************/
+	$("#manage_btn").click(function(){
+		$("div.btn-front").toggle('fast');
+		$("input.delete_check").toggle('fast');
+		
+		$(".delete_check").css('display','inline-block');
+		$(".btn").css('display','inline-block');
+		$(".btn").css('margin-top','-17px');
+		$(".btn").css('margin-left','-10px');
+		$(".btn-front").css('display','block');
+		var btn = document.querySelector( '.btn' );
 	
-		/***********로그인 세션확인**************/
-		$.ajax({
-			url : 'user_session_check',
-			method : 'POST',
-			dataType : 'json',
-			success : function(jsonResult) {
-				if (jsonResult.code == 1) {
-					console.log(jsonResult);
-				}else{ //세션 존재하지 않을경우 메세지창보여줌
-					alert('로그인이 필요한 페이지입니다:)');
-				}
-			}
-		});
-		/************club_list************/
+		var btnFront = btn.querySelector( '.btn-front' ),
+		    btnYes = btn.querySelector( '.btn-back .yes' ),
+		    btnNo = btn.querySelector( '.btn-back .no' );
+	
+		btnFront.addEventListener( 'click', function( event ) {
+		  var mx = event.clientX - btn.offsetLeft,
+		      my = event.clientY - btn.offsetTop;
+	
+		  var w = btn.offsetWidth,
+		      h = btn.offsetHeight;
+			
+		  var directions = [
+		    { id: 'top', x: w/2, y: 0 },
+		    { id: 'right', x: w, y: h/2 },
+		    { id: 'bottom', x: w/2, y: h },
+		    { id: 'left', x: 0, y: h/2 }
+		  ];
+		  
+		  directions.sort( function( a, b ) {
+		    return distance( mx, my, a.x, a.y ) - distance( mx, my, b.x, b.y );
+		  } );
+		  
+		  btn.setAttribute( 'data-direction', directions.shift().id );
+		  btn.classList.add( 'is-open' );
+	
+		} );
+	
+		btnYes.addEventListener( 'click', function( event ) {	
+		  btn.classList.remove( 'is-open' );
+		} );
+	
+		btnNo.addEventListener( 'click', function( event ) {
+		  btn.classList.remove( 'is-open' );
+		} );
+	
+		function distance( x1, y1, x2, y2 ) {
+		  var dx = x1-x2;
+		  var dy = y1-y2;
+		  return Math.sqrt( dx*dx + dy*dy );
+		}
+	});	
+	
+	$(".yes").click(function(){
+		var check_val_arr = [];
 		
-		$(document).on('click','#side_user_club,#user_club_list',function(e){
-			$.ajax({
-				url:'club_user_list',
-				method:'GET',
-				success:function(jsonResult){
-					var bookClubArray=jsonResult.data;
-					$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
-				}
-			});
-			e.preventDefault();
-		});
+		$('input:checked').each(function(i){
+			check_val_arr.push($(this).val());
+		})
 		
-		/***********user_view**********/
-		$(document).on('click','#mypage,')
-		
-		
-		
+		var data = {"fol_no_arr" : check_val_arr};
+	
+	    $.ajax({
+	         url:"/deleteMyPage_folder",
+	         data:data, type:"POST",
+	         success:function(res){
+	        if(res == 1) {
+	           alert('삭제가 완료 되었습니다.');
+		       location.href = "http://localhost:8088/MyPage_Folder.do?group=50&cust_no="+${cust_no};
+	        }
+	        else if(res == -1){
+	           alert('삭제에 실패하였습니다.');
+	        }
+	        else if(res == -2){
+				alert('삭제가 완벽히 완료되지않았습니다. 폴더를 확인해주세요.');
+		        location.href = "http://localhost:8088/MyPage_Folder.do?group=50&cust_no="+${cust_no};
+	        }
+			console.log(check_val_arr);
+	   }}); 
+	});
+
+	window.onload = function() {
+	    function onClick() {
+	        document.querySelector('.modal_wrap_fol').style.display ='block';
+	        document.querySelector('.black_bg_fol').style.display ='block';
+	    }   
+	    function offClick() {
+	        document.querySelector('.modal_wrap_fol').style.display ='none';
+	        document.querySelector('.black_bg_fol').style.display ='none';
+	    }
+	 
+	    document.getElementById('modal_btn_fol').addEventListener('click', onClick);
+	    document.querySelector('.modal_close').addEventListener('click', offClick);
+	};	
+
+	$("#btn_fol_add").click(function(){
+		var fol_title = $("#fol_title_text").val();
+		console.log(fol_title);
+	});
 });
 </script>
 <title>나의서재 - 딜리브러리</title>
@@ -116,18 +190,18 @@ $(function(){
 						</div>
 						<ul class="list-group list-group-flush mb-5">
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="mypage">마이페이지</a>
+								<a href="mypage" id="mypage">마이페이지</a>
 							</li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="userbook_status">나의도서정보</a></li>
+								<a href="userbook_status" id="userbook_status">나의도서정보</a></li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
+								<a href="user_club_list" id="user_club_list">동아리신청내역</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="user_request_list">희망도서신청내역</a></li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="favorite">내서재</a></li>
+								<a href="favorite" id="favorite">내서재</a></li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="user_qr">나의QR</a></li>
+								<a href="user_qr" id="user_qr">나의QR</a></li>
 
 					</ul>
 					</div>
@@ -147,9 +221,14 @@ $(function(){
 								<!-- Search -->
 								<form action="MyPage_Folder_search.do" method="post">
 									<div class="menu-search">
-	
+
 										<div class="catalog-search">
-											
+											<input type="hidden" value="${c.cust_no}" name="cust_no">
+											<input type="hidden" value=50 name="group"> <label
+												class="input_label" for="input-search"> <span
+												class="input_label-content"></span> <span
+												class="input_label-search"></span>
+											</label>
 										</div>
 									</div>
 								</form>
@@ -159,12 +238,30 @@ $(function(){
 					<hr>
 
 					<div class="container">
-						<table id="clubUserList" class="table table-hover">
-							
+						<table id="favoriteList" class="table table-hover">
+							<tr>
+								<th scope="row">이름</th>
+								<th scope="row">대상</th>
+								<th scope="row">시간</th>
+								<th scope="row">장소</th>
+								<th scope="row">내용</th>
+							</tr>
+							<tr id="favorite_item">
+								<td id="favoriteNo">1
+								<td class="bookTitle">자바</td>
+								<td class="bookAuthor">한예지</td>
+								<td class="bookPubl">아이티윌</td>
+								<td>
+									<button id="delete" class="w-btn w-btn-delete" type="button">삭제</button>
+								</td>
+							</tr>
 
 						</table>
 					</div>
-					
+					<div class="favorite_delete" style="float: right;">
+						<button id="Alldelete" class="w-btn w-btn-delete" type="button">전체삭제</button>
+					</div>
+
 				</div>
 
 			</div>

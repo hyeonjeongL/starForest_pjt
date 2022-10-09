@@ -36,10 +36,22 @@ public class BookClubRestController {
 
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
-			int result = bookClubService.create(bookClub);
-			code = 1;
-			url = "club_list";
-			msg = "동아리가 개설되었습니다.";
+			if (sUserId == "admin") {
+				int result = bookClubService.create(bookClub);
+				if (result == 1) {
+					code = 1;
+					url = "club_list";
+					msg = "동아리가 개설되었습니다.";
+				} else {
+					code = 2;
+					url = "main";
+					msg = "잘못된 접근입니다.";
+				}
+			} else {
+				code = -1;
+				url = "main";
+				msg = "관리자권한입니다.";
+			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -302,8 +314,8 @@ public class BookClubRestController {
 	}
 
 	// 동아리리스트
-	@LoginCheck
-	@PostMapping("/club_list")
+	
+	@GetMapping("/club_list")
 	public Map club_list() throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;
@@ -324,8 +336,8 @@ public class BookClubRestController {
 	}
 
 	// 내가 신청한 동아리내역(마이페이지)
-	@LoginCheck
-	@PostMapping("/club_user_list")
+	
+	@GetMapping("/club_user_list")
 	public Map club_user_list(HttpServletRequest request) {
 		Map resultMap = new HashMap();
 		int code = 2;

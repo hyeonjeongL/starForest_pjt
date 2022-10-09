@@ -120,37 +120,21 @@ UserHtmlContents.user_write_form_content = function() {
 	
 	`;
 }
-UserHtmlContents.user_main_content=function(){
-	return `  
-	<section id="home-heading" class="p-4 noto-serif">
-      <div class="dark-overlay">
-         <div class="row">
-            <div class="col">
-               <div class="container">
-                  <div>
-                     <h1 id="home-display"></h1>
-                  </div>
-               </div>
-               <div class="container">
-                  <div class="input-group mb-3" id="home-searchbar">
-                     <input class="form-control searchbar" id="bookName" type="text"
-                        placeholder="검색어를 입력하세요.">
-                     <div class="input-group-append">
-                        <button class="btn btn-outline-light btn-lg px-5" type="button"
-                           id="search">
-                           &nbsp;&nbsp;&nbsp;<b>도서검색</b> &nbsp;&nbsp;&nbsp;
-                        </button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-         <p id="heroDesc">Admont Abbey Library, Admont, Austria</p>
-         <p id="heroDescKor">아드몬트 수도원 도서관, 아드몬트, 오스트리아</p>
-      </div>
+UserHtmlContents.user_mypage_item_content = function(){
+	return `<div class="mypage">
+				<ul class="nav nav-tabs mypage-tabs">
 
-   </section>
+					<li class="nav-item"><a class="nav-link active" href="#"
+						id="myInfo">내정보</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						id="updateUser">개인정보수정</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						id="updatePW">비밀번호변경</a></li>
+					<li class="nav-item"><a class="nav-link" href="#"
+						id="Remove">탈퇴</a></li>
 
-   
-	`;
+				</ul>
+			</div>`;
 }
+
+

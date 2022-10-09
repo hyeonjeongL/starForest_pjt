@@ -39,17 +39,17 @@
 <script type="text/javascript" src="./js/FavoriteHtmlContents.js"></script>
 <script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
+$(function(){
+	
+
 	/************로딩시세션체크*********/
-	$.ajax({//도서정보 클릭 시 바로 세션확인
+	$.ajax({
 		url : 'user_session_check',
 		method : 'POST',
 		dataType : 'json',
 		success : function(jsonResult) {
 			if (jsonResult.code == 1) {
-				$('.col-md-3 noto-serif') //세션이 존재할경우 도서정보 메인화면 보여줌
-						.html(MyLibraryHtmlContents
-										.mylibrary_left_menu_content(jsonResult.data[0]));
-				$('#content').html(MyLibraryHtmlContents.mylibrary_main_content());
+				console.log(jsonResult);
 			}else{ //세션 존재하지 않을경우 메세지창보여줌
 				alert('로그인이 필요한 페이지입니다:)');
 			}
@@ -62,6 +62,14 @@
 	
 	
 	/*-------내서재목록---------*/
+	$.ajax({
+			url:'favorite_list',
+			method:'POST',
+			success:function(jsonResult){
+				var favoriteArray=jsonResult.data;
+				$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
+			}
+		});
 	$(document).on('click','#user_favorite',function(e){
 		$.ajax({
 			url:'favorite_list',
@@ -88,6 +96,7 @@
 				}
 			}
 		});
+		e.preventDefault();
 	});
 	
 	
@@ -105,9 +114,10 @@
 				}
 			}
 		});
+		e.preventDefault();
 	});
 	
-	
+});	
 	
 </script>
 
@@ -164,41 +174,24 @@
 				</div>
 
 				<!-- 메인내용 -->
-				<div class="col-md-9" id="content">
-					<div class="col-md-9 fol_div">
-					<div class="container-fluid">
+				<div class="col-md-9">
+					<div class="col-6">
 						<div class="row">
-							<div class="col-sm-6" id="fol_list_title">
-								<form action="MyPage_Folder.do" method="post"></form>
-							</div>
-
-							<div class="col-sm-6">
+							<br>
+						</div>
+						<div class="row" id="item">
+						<br>
+						
+						
+							<!-- 내서재 목록 -->
+							<div class="rentalTable" id="content">
+						
 								
+
 							</div>
 						</div>
 					</div>
-					<hr>
-
-					<div class="container">
-						<table id="favoriteList" class="table table-hover">
-							<tr>
-								<th scope="row">No.</th>
-								<th scope="row">제목</th>
-								<th scope="row">저자</th>
-								<th scope="row">출판사</th>
-								<th scope="row">작업</th>
-							</tr>
-							<!--favorite start -->
-							
-							<!--favorite end -->
-
-						</table>
 					</div>
-					<div class="favorite_delete" style="float: right;">
-						<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>
-					</div>
-
-				</div>
 				</div>
 				
 				

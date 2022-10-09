@@ -24,6 +24,24 @@ public class BookClubConteroller {
 		request.setAttribute("categoryList", categoryList);
 		
 		
-		return "bookclub";
+		return "categoryList";
 	}
+	
+//	@RequestMapping("/club_user_list")
+//	public String club_user_list(HttpServletRequest request) {
+//		String forwardPath="";
+//		try {
+//			String sUserId=(String)request.getSession().getAttribute("sUserId");
+//			request.setAttribute("sUserId", sUserId);
+//			List<BookClub> clubUserList=bookClubService.selectById(sUserId);
+//			request.setAttribute("clubUserList", clubUserList);
+//			forwardPath="forward:/WEB-INF/views/MyPage_Folder.jsp";
+//			
+//		}catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		return forwardPath;
+//	}
 }

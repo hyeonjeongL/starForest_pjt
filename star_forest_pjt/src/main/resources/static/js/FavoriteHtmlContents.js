@@ -27,7 +27,9 @@ FavoriteHtmlContents.favorite_left_menu_content=function(user){
 }
 
 FavoriteHtmlContents.favorite_item_content = function(favorite) {
-	return `<tr id="favorite_item">
+	return `
+					<div class="rentalTable">
+						<tr id="favorite_item">
 								<td id="favoriteNo">${favorite_no}
 								<td class="bookTitle">${favorite.book.book_title}</td>
 								<td class="bookAuthor">${favorite.book.book_author}</td>
@@ -36,24 +38,13 @@ FavoriteHtmlContents.favorite_item_content = function(favorite) {
 									<button id="btn_delete" class="w-btn w-btn-delete" type="button">삭제</button>
 								</td>
 							</tr>
+					 </div>					
 `;
 }
 
 FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 	return `
-<div class="col-md-9 fol_div">
-					<div class="container-fluid">
-						<div class="row">
-							<div class="col-sm-6" id="fol_list_title">
-								<form action="MyPage_Folder.do" method="post"></form>
-							</div>
 
-							<div class="col-sm-6">
-								
-							</div>
-						</div>
-					</div>
-					<hr>
 
 					<div class="container">
 						<table id="favoriteList" class="table table-hover">
@@ -76,7 +67,7 @@ FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 						<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>
 					</div>
 
-				</div>
+			
 `;
 
 }

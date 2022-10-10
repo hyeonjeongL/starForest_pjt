@@ -67,6 +67,8 @@ public class BookController {
 			 * Book - updateRentalCnt (대여횟수 증가)
 			 * Rental - insertRental(대여)
 			*/
+			List<Book> newBook = bookService.selectNew();
+			model.addAttribute("newBook",newBook);
 			
 			forwardPath = "forward:/WEB-INF/views/book_detail.jsp";
 			

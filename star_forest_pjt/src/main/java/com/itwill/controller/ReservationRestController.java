@@ -59,7 +59,7 @@ public class ReservationRestController {
 		return resultMap;
 	}
 	
-	//회원이 예약한 예약 리스트 뽑기
+	//회원이 예약한 예약 리스트 뽑기 아 좀 생각좀 해봐야겠음
 		@LoginCheck
 		@RequestMapping("/reservation_list")
 		public Map reservation_list(@ModelAttribute Map<String, Object>Reservation, String user_id, HttpSession sesstion, HttpServletRequest request) {

@@ -658,10 +658,45 @@ $(function(){
 						</div>
 
 
+<!-- SHOWCASE SLIDER  리스트 뽑기 해야함  -->
+	<%-- <div class="container pt-5">
+	
+		<div class="row"></div>
+			<div class="col-md-6">
+				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
+					<div class="hr-green mb-4">
+						<h3 class="d-inline-block mb-3 noto-serif">추천 도서</h3><!--Controls-->
+						<div class="controls-bottom pull-right">
+							
+						</div><!--/.Controls-->
+					</div>
+					<!--Slides-->
+					<div class="carousel-inner" role="listbox">
+						<!--First slide-->
+						<table class = category_list_table>
+						
+								<c:forEach items="${newBook}" var="newB" begin="0" end="5">
+									<div class="col-md-4 clearfix d-none d-md-block" style="width: 500px;">
+										<div class="list"><a href="book_detail?book_no=${newB.book_no}">
+											<img src="${newB.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${newB.book_title}</div>
+												<h6>${newB.book_author}</h6>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</div>
+						</div>
+								</table>
+								
+						<!--/.First slide-->
+					</div><!--/.Slides-->
+				</div><!--/.Carousel Wrapper-->
+			</div>
 
-
-						<!-- 2020.02.29 추가 - 관련분야 인기자료 출력 -->
-						<div class="item-popular-books item-additional-info">
+		 --%>				<!-- 2020.02.29 추가 - 관련분야 인기자료 출력 -->
+					<!-- 	<div class="item-popular-books item-additional-info">
 							<h3 class="mb-3">관련분야 인기자료</h3>
 							<div class="item-popular-books-content">
 								<div class="item-popular-book-slider"
@@ -674,26 +709,7 @@ $(function(){
 											</a>
 										</div>
 										<div class="item-meta">
-											<!-- <div class="item-marc">897.36 조정래 태g</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000045341864&ctype=m">太白山脈 :
-														趙廷來 大河小說 / 제4판</a>
-												</h4>
-											</div>
-											<div class="item-author">조정래 (2007)</div>
-										</div>
-									</div>
-									<!-- .item -->
-									<div class="item item-popular-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000000691603&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=898447164X&amp;control_no=000000691603&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.36 하주완 검</div> -->
+											<div class="item-marc">897.36 하주완 검</div>
 											<div class="item-title">
 												<h4>
 													<a href="/detail/?cid=CAT000000691603&ctype=m">검마전 .
@@ -703,11 +719,11 @@ $(function(){
 											<div class="item-author">하주완 (2000)</div>
 										</div>
 									</div>
-									<!-- .item -->
+									.item
 
 
 								</div>
-								<!-- .item-popular-book-slider -->
+								.item-popular-book-slider
 								<a class="item-popular-books-prev"><svg class="svg-icon"
 										width="48" height="48" aria-hidden="true" role="img"
 										focusable="false" viewBox="0 0 24 24" version="1.1"
@@ -723,12 +739,12 @@ $(function(){
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
 
 							</div>
-							<!-- .item-popular-books-content -->
+							.item-popular-books-content
 						</div>
-						<!-- .item-popular-books.item-additional-info -->
+						.item-popular-books.item-additional-info
 
 
-						<!-- 2020.03.06 추가 - 관련분야 신착자료 출력 -->
+						2020.03.06 추가 - 관련분야 신착자료 출력
 						<div class="item-newarrival-books item-additional-info">
 							<h3 class="mb-3">관련분야 신착자료</h3>
 							<div class="item-newarrival-books-content">
@@ -742,7 +758,7 @@ $(function(){
 											</a>
 										</div>
 										<div class="item-meta">
-											<!-- <div class="item-marc">897.1708 2020 2</div> -->
+											<div class="item-marc">897.1708 2020 2</div>
 											<div class="item-title">
 												<h4>
 													<a href="/detail/?cid=CAT000046128977&ctype=m">은빛에 물든
@@ -752,7 +768,7 @@ $(function(){
 											<div class="item-author">박혜숙 (2022)</div>
 										</div>
 									</div>
-									<!-- .item -->
+									.item
 									<div class="item item-newarrival-book">
 										<div class="item-cover">
 											<a href="/detail/?cid=CAT000046128962&ctype=m">
@@ -761,7 +777,7 @@ $(function(){
 											</a>
 										</div>
 										<div class="item-meta"></div>
-										<!-- .item-newarrival-book-slider -->
+										.item-newarrival-book-slider
 										<a class="item-newarrival-books-prev"><svg
 												class="svg-icon" width="48" height="48" aria-hidden="true"
 												role="img" focusable="false" viewBox="0 0 24 24"
@@ -777,15 +793,15 @@ $(function(){
 										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
 
 									</div>
-									<!-- .item-newarrival-books-content -->
+									.item-newarrival-books-content
 								</div>
-								<!-- .item-newarrival-books.item-additional-info -->
+								.item-newarrival-books.item-additional-info
 							</div>
-							<!-- .container -->
-							<!-- .item-detail-content -->
+							.container
+							.item-detail-content
 
 						</div>
-						<!-- .entry-content -->
+						.entry-content -->
 				</article>
 				<!-- #post-2053 -->
 

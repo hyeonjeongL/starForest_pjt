@@ -28,12 +28,5 @@ public class BookRestController {
 	@Autowired(required = true)
 	private BookService bookService;
 
-	@RequestMapping("/rest_book_detail")
-	public Book book_detail(@RequestParam(value = "book_no", required = false) String book_noStr, Model model) throws Exception {
-
-		Book book = bookService.selectBookDetail(Integer.parseInt(book_noStr));
-
-		return book;
-	}
 
 }

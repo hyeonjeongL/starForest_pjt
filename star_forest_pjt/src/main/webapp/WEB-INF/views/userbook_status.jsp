@@ -125,15 +125,13 @@
 											<td width=120 align=center bgcolor="E6ECDE">예약일시</td>
 										</tr>
 										<c:forEach items="${resList}" var="res">
-										<c:forEach items="${res}" var="r">
 											<tr>
-												<!--  <td width=50 align=center bgcolor="ffffff" height="20">${resList}</td> -->
+												<td width=50 align=center bgcolor="ffffff" height="20">${resList}</td>
 												<td width=50 align=center bgcolor="ffffff" height="20">${map.value}</td>
 												<!--  <td width=50 align=center bgcolor="ffffff" height="20">${res}</td>-->
 												<td width=50 align=center bgcolor="ffffff" height="20">${map.value[book_title]}</td>
 												<td width=50 align=center bgcolor="ffffff" height="20">${r}${map[book_title]}</td>
 											</tr>
-										</c:forEach>
 										</c:forEach>
 
 

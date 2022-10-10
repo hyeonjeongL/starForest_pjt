@@ -23,13 +23,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.itwill.domain.User;
 import com.itwill.service.UserService2;
 
+@RequestMapping(value = "/star_forest_pjt/*")
 @RestController
 public class UserInfoRestController2 {
 	@Autowired
 	private UserService2 userService2;
 
 	//아이디 중복체크
-	@PostMapping(value = "/user_id_check_rest",produces = "text/plain;charset=UTF-8")
+	@PostMapping(value = "/user_id_check_post",produces = "text/plain;charset=UTF-8")
 	public boolean user_id_check(@RequestParam String user_id) throws Exception{
 		Map resultMap = new HashMap();
 		int code = 2;
@@ -66,8 +67,8 @@ public class UserInfoRestController2 {
 	}
 	
 	//회원가입
-	@PostMapping(value ="/user_write_action_post" ,produces = "application/json;charset=UTF-8")
-	public Map user_write_action_post(@ModelAttribute User user,Model model,HttpServletRequest request) throws Exception{
+	@PostMapping(value ="/user_write_action_post")
+	public Map user_write_action_post(@ModelAttribute User user){
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
@@ -83,18 +84,18 @@ public class UserInfoRestController2 {
 			int result = userService2.insertUser(user);
 			if (result == -1) {
 				code = -1;
-				url = "user_write_form";
+				url = "insertCustomer2";
 				msg = user.getUser_id() + " 는 이미 존재하는 아이디입니다.";
 			} else if (result == 1) {
 				code = 1;
-				url = "user_login_form";
+				url = "user";
 				msg = "회원가입 성공";
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			code = 2;
-			url = "main";
+			url = "Home";
 			msg = "잘못된 접근입니다.";
 		}
 

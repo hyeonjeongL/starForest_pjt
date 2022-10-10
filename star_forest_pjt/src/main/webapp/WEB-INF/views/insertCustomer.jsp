@@ -17,7 +17,7 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/yurim.css">
-<script type="text/javascript" src="/User.js"></script>
+<script type="text/javascript" src="/js/User.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
@@ -81,8 +81,7 @@ $(function(){
 				<div class="form-group mt-2">
 					<label for="pw">비밀번호</label> 
 					<span class="signup_required">*</span>
-					<input class="form-control" type="user_password" id="user_password" name="user_password" placeholder="비밀번호를 입력해주세요" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-					<small class="form-text text-muted">비밀번호는 <span class="signup_required">8~16자, 영문 대문자, 소문자, 숫자 </span>를 포함해야 합니다.
+					<input class="form-control" type="user_password" id="user_password" name="user_password" placeholder="비밀번호를 입력해주세요" required>
 					</small>
 				</div>
 				<!-- 비번 INPUT END -->

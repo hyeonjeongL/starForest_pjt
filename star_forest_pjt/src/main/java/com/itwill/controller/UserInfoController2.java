@@ -1,37 +1,33 @@
 package com.itwill.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.itwill.domain.User;
-import com.itwill.service.UserService2;
-
+import com.itwill.service.UserService3;
 
 @Controller
 public class UserInfoController2 {
 	
 	
+	@Autowired
+	private UserService3 userService3;
+
+/*
 @Autowired
-private UserService2 userService2;
+private PasswordEncoder passwdEncoder;
+ */
 
 @RequestMapping(value="/insertCustomer2",method=RequestMethod.GET)
 public String user_insertCustomer() {
 	return "insertCustomer2";
 }
+
+
+
+
+
 /*
 //회원가입
 	@PostMapping(value ="/user_write_action_post" ,produces = "application/json;charset=UTF-8")

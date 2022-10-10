@@ -24,14 +24,13 @@ public class UserService3 {
 		}
 		
 		// 아이디 중복 검사
-		public String checkID(String user_id, String type) { 
-			if(type.equals("user")) {
-				return dao3.checkIdUser(user_id);
-			}else if(type.equals("com")) {
-				//return dao3.checkIdCom(mid);
+		public boolean checkID(String user_id) { 
+			boolean isExist = dao3.checkIdUser(user_id);
+			if (isExist) {
+				return true;
+			} else {
+				return false;
 			}
-			
-			return null;
 		}
 		
 		// 일반 유저 추가
@@ -55,8 +54,8 @@ public class UserService3 {
 			return dao3.findUId(user_name, user_phone);
 		}
 		
-		// 일반 회원 패스워드 찾기 -> 계정정보 가져오기
-		public User findUPwd(String user_id, String user_email) {
+		// 일반 회원 패스워드 찾기 
+		public String findUPwd(String user_id, String user_email) {
 			return dao3.findUPwd(user_id, user_email);
 		}
 		

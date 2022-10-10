@@ -37,7 +37,7 @@ public interface UserDao3 {
 		
 		// 일반 유저 아이디 중복 검사
 		@Select("select user_id from user_info where user_id=#{user_id}")
-		String checkIdUser(@Param("user_id")String user_id);
+		boolean checkIdUser(@Param("user_id")String user_id);
 		
 		@Select("select user_email from user_info where user_email=#{user_email}")
 		String checkIdCom(@Param("user_email")String user_email);
@@ -48,10 +48,10 @@ public interface UserDao3 {
 		@Select("select user_id from user_info where user_name=#{user_name} and user_phone=#{user_phone}")
 		String findUId(@Param("user_name")String user_name, @Param("user_phone")String user_phone);
 
-		// 일반 회원 패스워드 찾기 시 계정 정보 확인
+		// 일반 회원 패스워드 찾기
 		//@Select("SELECT * FROM member WHERE MID=#{mid} and MNAME=#{mname} and MPHONE=#{mphone}")
-		@Select("select * from user_info where user_id=#{user_id} and user_email=#{user_email}")
-		User findUPwd(@Param("user_id")String user_id, @Param("user_email")String user_email);
+		@Select("select user_password from user_info where user_id=#{user_id} and user_email=#{user_email}")
+		String findUPwd(@Param("user_id")String user_id, @Param("user_email")String user_email);
 		
 		
 		// 일반 회원 패스워드 계정정보 확인 후 임시 패스워드로 변경

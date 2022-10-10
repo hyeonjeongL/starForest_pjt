@@ -18,16 +18,88 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itwill.domain.User;
 import com.itwill.service.UserService2;
+import com.itwill.service.UserService3;
 
-@RequestMapping(value = "/star_forest_pjt/*")
 @RestController
 public class UserInfoRestController2 {
 	@Autowired
+	private UserService3 userService3;
 	private UserService2 userService2;
+	
+	//일반회원 회원가입 완료
+	
+			@PostMapping(value ="/registerOkUser")
+		public String  registerOkUser(@ModelAttribute("user") User user,@RequestParam(value="addr2", required=false)String addr2) throws Exception{
+
+				System.out.println("user : " + user);
+				
+				// 추가 주소가 있다면 주소 세팅
+				if(addr2 != null) {
+					user.setUser_address(user.getUser_address()+" "+addr2);
+				}
+
+				// dto 에서 패스워드 가져와서 다시 인코딩에서 set
+				//user.setUser_password(passwdEncoder.encode(user.getUser_password()));
+
+				int result = userService3.addUser(user);
+
+//					System.out.println("result : " + result);
+
+				return "redirect:/user";
+		}
+		
+
+		// 아이디 중복 검사
+		@PostMapping(value ="/checkid")
+		@ResponseBody
+		public int checkid(@RequestParam("user_id") String user_id) {
+
+//			System.out.println("ajax 완료 : "+id);
+//			String check = service.checkID(id);
+//			System.out.println("중복검사 : "+a);
+
+			if (user_id.equals(userService3.checkID(user_id))) {
+				return 1;
+			}
+			return 0;
+		}
+
+		// 일반회원 계정 찾기 페이지 이동
+		@GetMapping(value ="/findAcntU")
+		String findAcntU() {
+			return "insertCustomer2/findAcntU";
+		}
+
+		// 일반 회원 아이디 찾기
+		@PostMapping(value ="/findUId")
+		@ResponseBody
+		String findUId(@RequestParam("user_name") String user_name, @RequestParam("user_phone") String user_phone) {
+			// System.out.println(mname+ " : "+mphone);
+
+			return userService3.findUId(user_name, user_phone);
+		}
+		
+		//비밀번호찾기
+		@PostMapping(value ="/findUPwd")
+		@ResponseBody
+		String findUPwd(@RequestParam("user_id") String user_id, @RequestParam("user_email") String user_email) {
+			// System.out.println(mname+ " : "+mphone);
+			
+			return userService3.findUPwd(user_id, user_email);
+		}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	//아이디 중복체크
 	@PostMapping(value = "/user_id_check_post",produces = "text/plain;charset=UTF-8")

@@ -18,7 +18,6 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/yurim.css">
-<script type="text/javascript" src="js/User.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 
@@ -63,7 +62,7 @@
 		
 		// 아이디 정규식
 		$mid.on("keyup", function() { // 키보드 눌렀을 때 실행
-			var regExp = /^[a-z]+[a-z0-9]{5,15}$/g;
+			var regExp = /^[a-z]/g;
 			if (!regExp.test($mid.val())) { // id 가 공백인 경우 체크
 				idchk = false;
 				$id.html("<span id='check'>사용할 수 없는 아이디입니다.</span>");
@@ -75,7 +74,7 @@
 			} else { // 공백아니면 중복체크
 				$.ajax({
 					type : "POST",
-					url : "/goodjob/login/checkid",
+					url : "checkid",
 					data : {
 						"type" : "user",
 						"id" : $mid.val()
@@ -106,7 +105,7 @@
 		});
 		// 비밀번호 정규식
 		$mpwd.on("keyup", function() {
-			var regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+			var regExp =  /[0-9]/;
 			//console.log("email : "+$memail.val());
 			if (!regExp.test($mpwd.val())) {
 				//console.log("형식 미확인");
@@ -228,21 +227,7 @@
 							}
 						})
 						
-		// 이메일 인증번호
-		$checkEmail.click(function() {
-			$.ajax({
-				type : "POST",
-				url : "/goodjob/login/mailConfirm",
-				data : {
-					"email" : $memail.val()
-				},
-				success : function(data){
-					alert("해당 이메일로 인증번호 발송이 완료되었습니다. \n 확인부탁드립니다.")
-					console.log("data : "+data);
-					chkEmailConfirm(data, $memailconfirm, $memailconfirmTxt);
-				}
-			})
-		})
+		
 		// 핸드폰 번호
 		$mphone.on("keyup", function() {
 			var regExp = /^\d{3}\d{4}\d{4}$/;
@@ -291,29 +276,7 @@
 		});
 	});
 	
-	// 이메일 인증번호 체크 함수
-	function chkEmailConfirm(data, $memailconfirm, $memailconfirmTxt){
-		$memailconfirm.on("keyup", function(){
-			if (data != $memailconfirm.val()) { //
-				emconfirmchk = false;
-				$memailconfirmTxt.html("<span id='emconfirmchk'>인증번호가 잘못되었습니다</span>")
-				$("#emconfirmchk").css({
-					"color" : "#FA3E3E",
-					"font-weight" : "bold",
-					"font-size" : "10px"
-				})
-				//console.log("중복아이디");
-			} else { // 아니면 중복아님
-				emconfirmchk = true;
-				$memailconfirmTxt.html("<span id='emconfirmchk'>인증번호 확인 완료</span>")
-				$("#emconfirmchk").css({
-					"color" : "#0D6EFD",
-					"font-weight" : "bold",
-					"font-size" : "10px"
-				})
-			}
-		})
-	}
+	
 	
 	
 	// 주소 찾기 script
@@ -427,6 +390,8 @@
 			return true;
 		}
 		
+		frm.action= "/user";
+		frm.submit;
 	}
 </script>
 <style>
@@ -550,23 +515,23 @@ span {
 		<!-- MAIN SECTION -->
 		<section id="insertCustomer">
 			<!-- 폼 시작 -->
-			<form action='<c:url value='/registerOkUser'/>' method="post" onsubmit="return formSubmit()">
+			<form action='<c:url value='/registerOkUser'/>' method="post"  name="frm" >
 							<!-- <span>아이디</span> -->
 							<div class="form-group first">
 								<label for="mid" id="id"></label> 
-								<input type="text" class="form-control" name="mid" id="mid" placeholder="아이디 입력" required>
+								<input type="text" class="form-control" name="mid" id="mid" placeholder="아이디 입력 (영어 소문자)" required>
 							</div>
 
 							<!-- <span>비밀번호</span> -->
 							<div class="form-group last mb-4">
 								<label for="mpwd" id="pwdnew"></label> 
-								<input type="password" class="form-control" name="mpwd" id="mpwd" placeholder="비밀번호 입력" required>
+								<input type="password" class="form-control" name="mpwd" id="mpwd" placeholder="비밀번호 입력 (숫자 4자리)" required>
 							</div>
 
 							<!-- <span>비밀번호 확인</span> -->
 							<div class="form-group last mb-4">
-								<label for="pwdconfrim" id="pwdText"></label> <input
-									type="password" class="form-control" id="pwdconfrim" placeholder="비밀번호 확인" required>
+								<label for="pwdconfrim" id="pwdText"></label> 
+								<input type="password" class="form-control" id="pwdconfrim" placeholder="비밀번호 확인" required>
 							</div>
 
 							<!-- <span>이름</span> -->
@@ -592,10 +557,10 @@ span {
 							<span>성별</span>
 							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
 							  <input type="radio" class="btn-check" name="mgender" id="male" autocomplete="off" value="남성">
-							  <label class="btn btn-outline-primary check" for="male">남성</label>
+							  <label class="btn btn-outline-primary check" for="male">남성 M</label>
 							
 							  <input type="radio" class="btn-check" name="mgender" id="female" autocomplete="off" value="여성">
-							  <label class="btn btn-outline-primary check" for="female">여성</label>
+							  <label class="btn btn-outline-primary check" for="female">여성 F</label>
 						  	</div>
 						  	
 						  	<br />
@@ -643,7 +608,7 @@ span {
           					
           					</div>
           					<hr class="divider">
-							<br /> <button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="formSubmit()">가입하기</button>
+							<br /> <button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="formSubmit();">가입하기</button>
 		
 		</form>
 	</section>
@@ -664,7 +629,6 @@ span {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
 	crossorigin="anonymous"></script>
 	  <script type="text/javascript"	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript"	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script type="text/javascript">
 		$(function() {

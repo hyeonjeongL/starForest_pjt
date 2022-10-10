@@ -2,6 +2,8 @@ package com.itwill.service;
 
 import java.security.MessageDigest;
 
+
+
 public class UserSha256 {
 	public static String encrypt(String planText) {
 		String encPW = "";

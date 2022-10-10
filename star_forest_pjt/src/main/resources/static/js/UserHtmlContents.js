@@ -120,9 +120,7 @@ UserHtmlContents.user_write_form_content = function() {
 	
 	`;
 }
-UserHtmlContents.user_mypage_item_content = function(){
-	return ``;
-}
+
 UserHtmlContents.user_view_content=function(loginUser){
 	return `
 	<div class="mypage">
@@ -130,13 +128,9 @@ UserHtmlContents.user_view_content=function(loginUser){
 
 					<li class="nav-item"><a class="nav-link active" href="#"
 						id="myInfo">내정보</a></li>
-					<li class="nav-item"><a class="nav-link" href="MyPage_Info"
-						id="updateUser">개인정보수정</a></li>
 					<li class="nav-item"><a class="nav-link" href="#"
 						id="updatePW">비밀번호변경</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"
-						id="Remove">탈퇴</a></li>
-
+					
 				</ul>
 			</div>
 	<table border=0 cellpadding=0 cellspacing=0>
@@ -196,4 +190,34 @@ UserHtmlContents.user_view_content=function(loginUser){
 			</table>
 	`;
 }
+UserHtmlContents.user_remove_content=function(){
+	return `<div class="modal" id="outModal">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">회원탈퇴</h5>
+					<button class="close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="username">회원탈퇴를 위해 비밀번호를 입력해주세요.</label> <input
+								type="password" placeholder="비밀번호를 입력해주세요." class="form-control"
+								id="pwInput">
+						</div>
+						<div class="form-group">
+							<label for="password">비밀번호를 한번 더 입력해주세요</label> <input
+								type="password" placeholder="비밀번호를 한번 더 입력해주세요."
+								class="form-control" id="pwInputCheck">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-danger" data-dismiss="modal"
+						id="outCustomer">회원탈퇴</button>
+				</div>
+			</div>
+		</div>
+	</div>`;	
 
+}

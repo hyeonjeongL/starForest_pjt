@@ -9,7 +9,6 @@
 <script type="text/javascript">
 $(function(){
 	
-
 	/************user_login_form*************/
 	$(document).on('click', '#a_user_login_form', function(e) {
 		$('#loginPage').html(UserHtmlContents.user_login_form_content());
@@ -140,12 +139,6 @@ $(function(){
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${sUserId == admin}">
-					<li class="nav-item" v-bind:title="managerpage">
-					<a href="admin" class="nav-link">
-					<i class="fas fa-crown" style="color: #107637;"></i></a>
-						<p class="sr-only">관리자페이지</p></li>
-				</c:if>
 				<c:if test="${sUserId == null}">
 					<li class="nav-item" v-bind:title="login">
 					<a href="user" class="nav-link" id="a_user_login_form">
@@ -156,7 +149,7 @@ $(function(){
 					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
-				<c:if test="${sUserId != null&&sUserId!=admin}">
+				<c:if test="${sUserId != null}">
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 					<li class="nav-item" v-bind:title="logout">

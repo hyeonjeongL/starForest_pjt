@@ -58,12 +58,12 @@ BookClubHtmlContents.club_join_html = function(bookClubArray) {
 				        </div>
 							<br><br>
 	
-							<button id="btn_write_form" class="w-btn w-btn-detail" type="button" onclick="location.href='bookclub_write_form'">작&nbsp;&nbsp;&nbsp;성</button><br>
-									
 								<div class="rentalTable">
 									${bookClubArray.map(BookClubHtmlContents.club_item_html).join('')
 		}
 								</div>
+							<button id="btn_write_form" class="w-btn w-btn-detail" type="button" onclick="location.href='bookclub_write_form'">작&nbsp;&nbsp;&nbsp;성</button><br>
+									
 									
 							`;
 }
@@ -178,7 +178,6 @@ BookClubHtmlContents.club_user_item_html=function(club){
 }
 BookClubHtmlContents.club_user_list_html=function(bookClubArray){
 	return `  
-	<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp 동아리신청내역 <br><br> 
 	<table width="100%" class="table01">
 		<tr>
 			

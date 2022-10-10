@@ -64,7 +64,7 @@ $(function(){
 		<!-- MAIN SECTION -->
 		<section id="insertCustomer">
 			<!-- 폼 시작 -->
-			<form action="insertCustomer" method="post" enctype="multipart/form-data">
+			<form action="user_write_action_post" method="post" enctype="multipart/form-data">
 				<!-- 이메일 INPUT START -->
 				<label class="mt-4" for="m_phone">아이디</label> 
 				<span class="signup_required">*</span>

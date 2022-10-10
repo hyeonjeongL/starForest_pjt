@@ -45,7 +45,6 @@
 	var birchk = false; // 생일
 	var phchk = false; // 핸드폰
 	
-
 	$(function() {
 		var $mid = $("#mid");
 		var $id = $("#id");
@@ -65,7 +64,6 @@
 		// 아이디 정규식
 		$mid.on("keyup", function() { // 키보드 눌렀을 때 실행
 			var regExp = /^[a-z]+[a-z0-9]{5,15}$/g;
-
 			if (!regExp.test($mid.val())) { // id 가 공백인 경우 체크
 				idchk = false;
 				$id.html("<span id='check'>사용할 수 없는 아이디입니다.</span>");
@@ -90,18 +88,15 @@
 								"color" : "#FA3E3E",
 								"font-weight" : "bold",
 								"font-size" : "10px"
-
 							})
 							//console.log("중복아이디");
 						} else { // 아니면 중복아님
 							idchk = true;
 							$id.html("<span id='check'>사용가능한 아이디입니다</span>")
-
 							$("#check").css({
 								"color" : "#0D6EFD",
 								"font-weight" : "bold",
 								"font-size" : "10px"
-
 							})
 							//console.log("중복아닌 아이디");
 						}
@@ -109,14 +104,12 @@
 				})
 			}
 		});
-
 		// 비밀번호 정규식
 		$mpwd.on("keyup", function() {
 			var regExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
 			//console.log("email : "+$memail.val());
 			if (!regExp.test($mpwd.val())) {
 				//console.log("형식 미확인");
-
 				$("#cpwdnew").html("<span id='chkpwd'>패스워드 형식이 맞지 않습니다</span>")
 				$("#chkpwd").css({
 					"color" : "#FA3E3E",
@@ -136,10 +129,8 @@
 				//console.log("idchk : "+idchk);
 				//console.log("pwdconfrimchk : "+pwdconfrimchk);
 				//console.log("emlchkchk : "+emlchkchk);
-
 			}
 		})
-
 		// 패스워드 2중 검사
 		$pwdconfrim.on("keyup", function() {
 			if ($pwdconfrim.val() != $mpwd.val()) {
@@ -159,11 +150,9 @@
 					"color" : "#0D6EFD",
 					"font-weight" : "bold",
 					"font-size" : "10px"
-
 				})
 			}
 		})
-
 		// 이름 확인
 		$mname.on("keyup", function() {
 			if ($mname.val() == "") { // id 가 공백인 경우 체크
@@ -179,7 +168,6 @@
 				$("#nmchk").hide();
 			}
 		})
-
 		// 생년월일 정규식 검사
 		$mbrith.on("keyup",function() {
 							var regExp = /([0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))$/;
@@ -187,7 +175,6 @@
 							if (!regExp.test($mbrith.val())) {
 								//console.log("형식 미확인");
 								birchk = false;
-
 								$("#briTxt")
 										.html(
 												"<span id='chkbir'>생년월일 형식이 맞지않습니다</span>")
@@ -198,7 +185,6 @@
 								})
 							} else {
 								birchk = true;
-
 								//console.log("형식 확인");
 								$("#briTxt")
 										.html(
@@ -211,10 +197,8 @@
 								//console.log("idchk : "+idchk);
 								//console.log("pwdconfrimchk : "+pwdconfrimchk);
 								//console.log("emlchkchk : "+emlchkchk);
-
 							}
 						})
-
 		// 이메일 정규식 검사
 		$memail.on("keyup",function() {
 							var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -222,7 +206,6 @@
 							if (!regExp.test($memail.val())) {
 								//console.log("형식 미확인");
 								emchk  = false;
-
 								$("#mailTxt")
 										.html(
 												"<span id='chkmail'>이메일 형식이 맞지 않습니다</span>")
@@ -233,7 +216,6 @@
 								})
 							} else {
 								emchk  = true;
-
 								//console.log("형식 확인");
 								$("#mailTxt")
 										.html(
@@ -261,14 +243,12 @@
 				}
 			})
 		})
-
 		// 핸드폰 번호
 		$mphone.on("keyup", function() {
 			var regExp = /^\d{3}\d{4}\d{4}$/;
 			//console.log("email : "+$memail.val());
 			if (!regExp.test($mphone.val())) {
 				//console.log("형식 미확인");
-
 				$("#phoneTxt").html(
 						"<span id='chkphone'>핸드폰 번호 형식이 맞지 않습니다</span>")
 				$("#chkphone").css({
@@ -291,13 +271,10 @@
 				//console.log("idchk : "+idchk);
 				//console.log("pwdconfrimchk : "+pwdconfrimchk);
 				//console.log("emlchkchk : "+emlchkchk);
-
 			}
 		})
-
 		// selectBox 관련 JS
 		var selectTarget = $('.selectbox select');
-
 		// focus 가 되었을 때와 focus 를 잃었을 때
 		selectTarget.on({
 			'focus' : function() {
@@ -307,13 +284,11 @@
 				$(this).parent().removeClass('focus');
 			}
 		});
-
 		selectTarget.change(function() {
 			var select_name = $(this).children('option:selected').text();
 			$(this).siblings('label').text(select_name);
 			$(this).parent().removeClass('focus');
 		});
-
 	});
 	
 	// 이메일 인증번호 체크 함수
@@ -326,18 +301,15 @@
 					"color" : "#FA3E3E",
 					"font-weight" : "bold",
 					"font-size" : "10px"
-
 				})
 				//console.log("중복아이디");
 			} else { // 아니면 중복아님
 				emconfirmchk = true;
 				$memailconfirmTxt.html("<span id='emconfirmchk'>인증번호 확인 완료</span>")
-
 				$("#emconfirmchk").css({
 					"color" : "#0D6EFD",
 					"font-weight" : "bold",
 					"font-size" : "10px"
-
 				})
 			}
 		})
@@ -351,19 +323,16 @@
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-
                 // 각 주소의 노출 규칙에 따라 주소를 조합한다.
                 // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
                 var addr = ''; // 주소 변수
                 var extraAddr = ''; // 참고항목 변수
-
                 //사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
                 if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
                     addr = data.roadAddress;
                 } else { // 사용자가 지번 주소를 선택했을 경우(J)
                     addr = data.jibunAddress;
                 }
-
                 // 사용자가 선택한 주소가 도로명 타입일때 참고항목을 조합한다.
                 if(data.userSelectedType === 'R'){
                     // 법정동명이 있을 경우 추가한다. (법정리는 제외)
@@ -385,7 +354,6 @@
                 } else {
                     document.getElementById("maddr2").value = '';
                 }
-
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
                 $("#maddr").val(addr);
                 $("#maddr2").val(extraAddr)
@@ -478,7 +446,6 @@
 	outline: none;
 	border-radius: 5px;
 } */
-
 /* .btn-2 {
 	background: rgb(96, 9, 240);
 	background: linear-gradient(0deg, rgba(96, 9, 240, 1) 0%,
@@ -487,26 +454,21 @@
 	margin-left: 15px;
     margin-bottom: 10px;
 } */
-
 .btn-2:before {
 	height: 0%;
 	width: 2px;
 }
-
 .btn-2:hover {
 	box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, .5), -4px -4px 6px 0
 		rgba(116, 125, 136, .5), inset -4px -4px 6px 0 rgba(255, 255, 255, .2),
 		inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
 }
-
 span {
 	/* font-size: 20px; */
 }
-
 .container{
 	max-width: 910px;
 }
-
 .col-md-8-custom {
     /* -webkit-box-flex: 0;
     -ms-flex: 0 0 66.66667%;
@@ -514,12 +476,10 @@ span {
     max-width: 80%; 
     padding: 30px 0 30px 145px;
 }
-
 #findAddr, #checkEmail{
 	/* margin-left : 115px; */
 	float: left;
 }
-
 .check{
   		/* height: 50px; */
     	line-height: 35px;
@@ -561,13 +521,8 @@ span {
   	.bg-white {
   		padding-bottom: 30px;
   	}
-
 </style>
-<title>회원가입</title>
-</head>
-<body>
 	<!-- header -->
-	</script>
 <title>회원가입 - 별숲도서관</title>
 </head>
 <body class="d-flex flex-column">
@@ -595,7 +550,7 @@ span {
 		<!-- MAIN SECTION -->
 		<section id="insertCustomer">
 			<!-- 폼 시작 -->
-			<form action="insertCustomer" method="post" enctype="multipart/form-data">
+			<form action='<c:url value='/registerOkUser'/>' method="post" onsubmit="return formSubmit()">
 							<!-- <span>아이디</span> -->
 							<div class="form-group first">
 								<label for="mid" id="id"></label> 
@@ -626,7 +581,7 @@ span {
 								<label for="maddr" id="mmaddr"></label>
 								<input type="text" class="form-control" name="maddr" id="maddr" placeholder="주소 입력" required>
 							</div>
-							<input type="button" class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기"><br>
+							<input type="button" class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기" required><br>
 							
 							<!-- <span>상세 주소</span> -->
 							<div class="form-group last mb-4 addr_detail">
@@ -648,7 +603,7 @@ span {
 							<!-- <span>생년월일</span> -->
 							<div class="form-group last mb-4">
 								<label for="mbrith" id="briTxt" ></label> <input
-									type="text" class="form-control" name="mbrith" id="mbrith" placeholder="생년월일 입력" required>
+									type="text" class="form-control" name="mbrith" id="mbrith" placeholder="생년월일 입력 (숫자만)" required>
 							</div>
 
 							<!-- <span>이메일 </span> -->
@@ -662,7 +617,7 @@ span {
 							<div class="form-group last mb-4">
 								<label for="mphone" id="phoneTxt"></label>
 								<input type="text" class="form-control" name="mphone"
-									id="mphone" placeholder="전화번호 입력 (번호만)" required >
+									id="mphone" placeholder="전화번호 입력 (숫자만)" required >
 							</div>
 
 							<!-- <span>관심 분야</span> -->
@@ -680,21 +635,19 @@ span {
 								</select>
 							</div>
 <!-- 마케팅 동의 -->
-		<div class="form-group form-check mt-4">
-			<input type="checkbox" class="form-check-input" id="agreement">
-			<label class="form-check-label" for="agreement">마케팅 정보 수신 동의(선택)</label> 
-			<small class="form-text text-muted mb-2">마케팅 정보 수신에 동의하시면 신간도서 소식을 빠르게 전해드립니다.</small>
-		</div>
-	<!-- 가입버튼 -->
-		<div class="form-group mt-2">
-			<button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" >가입하기</button>
-			<small class="form-text text-muted text-center mb-4">회원가입 진행 시 별숲도서관의 <span class="signup_required">개인정보처리방침</span>에 동의하신 것으로 간주됩니다.
-			</small>
-		</div>
+		<br>
+							<hr class="divider">
+							<div>
+          						<p> 별숲도서관 약관 동의(필수)  <input type="checkbox" class="checkbox" name="chek" id="chek" /></p>
+          					    <p> 마케팅 정보 수신 동의(선택)  <input type="checkbox" class="checkbox" name="chek" id="chek" /></p>
+          					
+          					</div>
+          					<hr class="divider">
+							<br /> <button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="formSubmit()">가입하기</button>
 		
 		</form>
 	</section>
-		</div>
+          					</div>
 	<!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

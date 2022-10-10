@@ -15,11 +15,21 @@ import com.itwill.domain.User;
 @Mapper
 public interface UserDao3 {
 	
-	
+	/*
+	 * 아이디
+비밀번호
+이름
+주소
+성별
+생일
+이메일
+전화번호
+분야
+	 */
 		
 		// 일반 member 추가
-	@Insert("insert into user_info(user_id, user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,category_no)"
-			+ "			values(#{user_id},#{user_name},#{user_password},#{user_email},#{user_birth},#{user_gender},#{user_phone},#{user_address},#{category_no})")
+	@Insert("insert into user_info(user_id, user_password, user_name, user_address, user_gender, user_birth, user_email, user_phone, category_no)"
+			+ "			values(#{user_id},#{user_password},#{user_name},#{user_address},#{user_gender},#{user_birth},#{user_email},#{user_phone},#{category_no})")
 	int insertU(User user);
 		
 		

@@ -45,25 +45,22 @@
 	var phchk = false; // 핸드폰
 	
 	$(function() {
-		var $mid = $("#mid");
+		var $user_id = $("#user_id");
 		var $id = $("#id");
-		var $mpwd = $("#mpwd");
-		var $mname = $("#mname");
+		var $user_password = $("#user_password");
+		var $user_name = $("#user_name");
 		var $pwdconfrim = $("#pwdconfrim");
 		var $memail = $("#memail");
-		var $mbrith = $("#mbrith");
-		var $mphone = $("#mphone");
+		var $user_birth = $("#user_birth");
+		var $user_phone = $("#user_phone");
 		
-		var $checkEmail = $("#checkEmail"); // 인증번호 발송 버튼
-		var $memailconfirm = $("#memailconfirm"); // 인증번호 확인input
-		var $memailconfirmTxt = $("#memailconfirmTxt"); // 인증번호 확인 txt
 		
 		//console.dir("mid : "+$mid);
 		
 		// 아이디 정규식
-		$mid.on("keyup", function() { // 키보드 눌렀을 때 실행
+		$user_id.on("keyup", function() { // 키보드 눌렀을 때 실행
 			var regExp = /^[a-z]/g;
-			if (!regExp.test($mid.val())) { // id 가 공백인 경우 체크
+			if (!regExp.test($user_id.val())) { // id 가 공백인 경우 체크
 				idchk = false;
 				$id.html("<span id='check'>사용할 수 없는 아이디입니다.</span>");
 				$("#check").css({
@@ -77,7 +74,7 @@
 					url : "checkid",
 					data : {
 						"type" : "user",
-						"id" : $mid.val()
+						"id" : $user_id.val()
 					},
 					success : function(data) {
 						if (data == 1) { // 1이면 중복
@@ -104,10 +101,10 @@
 			}
 		});
 		// 비밀번호 정규식
-		$mpwd.on("keyup", function() {
+		$user_password.on("keyup", function() {
 			var regExp =  /[0-9]/;
 			//console.log("email : "+$memail.val());
-			if (!regExp.test($mpwd.val())) {
+			if (!regExp.test($user_password.val())) {
 				//console.log("형식 미확인");
 				$("#cpwdnew").html("<span id='chkpwd'>패스워드 형식이 맞지 않습니다</span>")
 				$("#chkpwd").css({
@@ -132,7 +129,7 @@
 		})
 		// 패스워드 2중 검사
 		$pwdconfrim.on("keyup", function() {
-			if ($pwdconfrim.val() != $mpwd.val()) {
+			if ($pwdconfrim.val() != $user_password.val()) {
 				pwdconfrimchk = false;
 				//console.log("불일치");
 				$("#pwdText").html("<span id='checkpwd'>비밀번호가 일치하지 않습니다</span>")
@@ -153,8 +150,8 @@
 			}
 		})
 		// 이름 확인
-		$mname.on("keyup", function() {
-			if ($mname.val() == "") { // id 가 공백인 경우 체크
+		$user_name.on("keyup", function() {
+			if ($user_name.val() == "") { // id 가 공백인 경우 체크
 				namechk = false;
 				$("#nameTxt").html("<span id='nmchk'>이름은 필수입니다</span>");
 				$("#nmchk").css({
@@ -168,10 +165,10 @@
 			}
 		})
 		// 생년월일 정규식 검사
-		$mbrith.on("keyup",function() {
+		$user_birth.on("keyup",function() {
 							var regExp = /([0-9]{4}(0[1-9]|1[0-2])(0[1-9]|[1,2][0-9]|3[0,1]))$/;
 							//console.log("email : "+$memail.val());
-							if (!regExp.test($mbrith.val())) {
+							if (!regExp.test($user_birth.val())) {
 								//console.log("형식 미확인");
 								birchk = false;
 								$("#briTxt")
@@ -199,10 +196,10 @@
 							}
 						})
 		// 이메일 정규식 검사
-		$memail.on("keyup",function() {
+		$user_email.on("keyup",function() {
 							var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 							//console.log("email : "+$memail.val());
-							if (!regExp.test($memail.val())) {
+							if (!regExp.test($user_email.val())) {
 								//console.log("형식 미확인");
 								emchk  = false;
 								$("#mailTxt")
@@ -229,10 +226,10 @@
 						
 		
 		// 핸드폰 번호
-		$mphone.on("keyup", function() {
+		$user_phone.on("keyup", function() {
 			var regExp = /^\d{3}\d{4}\d{4}$/;
 			//console.log("email : "+$memail.val());
-			if (!regExp.test($mphone.val())) {
+			if (!regExp.test($user_phone.val())) {
 				//console.log("형식 미확인");
 				$("#phoneTxt").html(
 						"<span id='chkphone'>핸드폰 번호 형식이 맞지 않습니다</span>")
@@ -281,8 +278,8 @@
 	
 	// 주소 찾기 script
     function daumPostcode() {
-		$("#maddr").val("");
-		$("#maddr2").val("");
+		$("#user_address").val("");
+		$("#user_address2").val("");
         new daum.Postcode({
             oncomplete: function(data) {
                 // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -312,23 +309,23 @@
                         extraAddr = extraAddr;
                     }
                     // 조합된 참고항목을 해당 필드에 넣는다.
-                    document.getElementById("maddr2").value = extraAddr;
+                    document.getElementById("user_address2").value = extraAddr;
                 
                 } else {
-                    document.getElementById("maddr2").value = '';
+                    document.getElementById("user_address2").value = '';
                 }
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                $("#maddr").val(addr);
-                $("#maddr2").val(extraAddr)
+                $("#user_address").val(addr);
+                $("#user_address2").val(extraAddr)
                 
-                $("#mmaddr").remove();
-                $("#mmaddr2").remove();
+                $("#muser_address").remove();
+                $("#muser_address2").remove();
                 
                 
                 //$("#caddr").val(addr);
                 //document.getElementById("caddr").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("maddr2").focus();
+                document.getElementById("user_address2").focus();
             }
         }).open();
     }
@@ -351,40 +348,37 @@
 		//console.log("select : "+$("#select").val())
 		
 		if(!idchk){
-			frm.mid.focus();
+			frm.user_id.focus();
 			return false;
 		}else if(!pwdchk){
-			frm.mpwd.focus();
+			frm.user_password.focus();
 			return false;
 		}else if(!pwdconfrimchk){
 			frm.pwdconfrim.focus();
 			return false;
 		}else if(!namechk){
-			frm.mname.focus();
+			frm.user_name.focus();
 			return false;
 		}else if(!birchk){
-			frm.mbrith.focus();
+			frm.user_birth.focus();
 			return false;
 		}else if(!emchk){
-			frm.memail.focus();
-			return false;
-		}else if(!emconfirmchk){
-			frm.memailconfirm.focus();
+			frm.user_email.focus();
 			return false;
 		}else if(!phchk){
-			frm.mphone.focus();
+			frm.user_phone.focus();
 			return false;
 		}else if(!$("#chek").is(":checked")){
 			frm.chek.focus();
 			return false;
 		}else if($("#select").val() == "none"){
-			frm.tno.focus();
+			frm.category_no.focus();
 			return false;
-		}else if($("#maddr").val()==""){
-			frm.maddr.focus();
+		}else if($("#user_address").val()==""){
+			frm.user_address.focus();
 			return false;
 		}else if(maleCheck == false && femaleCheck == false){
-			frm.mgender.focus();
+			frm.user_gender.focus();
 			return false;
 		}else{
 			return true;
@@ -518,14 +512,14 @@ span {
 			<form action='<c:url value='/registerOkUser'/>' method="post"  name="frm" >
 							<!-- <span>아이디</span> -->
 							<div class="form-group first">
-								<label for="mid" id="id"></label> 
-								<input type="text" class="form-control" name="mid" id="mid" placeholder="아이디 입력 (영어 소문자)" required>
+								<label for="user_id" id="id"></label> 
+								<input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디 입력 (영어 소문자)" required>
 							</div>
 
 							<!-- <span>비밀번호</span> -->
 							<div class="form-group last mb-4">
-								<label for="mpwd" id="pwdnew"></label> 
-								<input type="password" class="form-control" name="mpwd" id="mpwd" placeholder="비밀번호 입력 (숫자 4자리)" required>
+								<label for="user_password" id="pwdnew"></label> 
+								<input type="password" class="form-control" name="user_password" id="user_password" placeholder="비밀번호 입력 (숫자 4자리)" required>
 							</div>
 
 							<!-- <span>비밀번호 확인</span> -->
@@ -536,30 +530,30 @@ span {
 
 							<!-- <span>이름</span> -->
 							<div class="form-group last mb-4">
-								<label for="mname" id="nameTxt"></label> <input
-									type="text" class="form-control" name="mname" id="mname" placeholder="이름 입력" required>
+								<label for="user_name" id="nameTxt"></label> <input
+									type="text" class="form-control" name="user_name" id="user_name" placeholder="이름 입력" required>
 							</div>
 							
 							<!-- <span>주소</span> -->
 							
 							<div class="form-group last mb-4 addr_input">
-								<label for="maddr" id="mmaddr"></label>
-								<input type="text" class="form-control" name="maddr" id="maddr" placeholder="주소 입력" required>
+								<label for="user_address" id="muser_address"></label>
+								<input type="text" class="form-control" name="user_address" id="user_address" placeholder="주소 입력" required>
 							</div>
 							<input type="button" class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기" required><br>
 							
 							<!-- <span>상세 주소</span> -->
 							<div class="form-group last mb-4 addr_detail">
-								<label for="maddr2" id="mmaddr2"></label>
-								<input type="text" class="form-control" name="maddr2" id="maddr2" placeholder="상세 주소 입력" required>
+								<label for="user_address2" id="muser_address2"></label>
+								<input type="text" class="form-control" name="user_address2" id="user_address2" placeholder="상세 주소 입력" required>
 							</div>
 
 							<span>성별</span>
 							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-							  <input type="radio" class="btn-check" name="mgender" id="male" autocomplete="off" value="남성">
+							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="남성">
 							  <label class="btn btn-outline-primary check" for="male">남성 M</label>
 							
-							  <input type="radio" class="btn-check" name="mgender" id="female" autocomplete="off" value="여성">
+							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="여성">
 							  <label class="btn btn-outline-primary check" for="female">여성 F</label>
 						  	</div>
 						  	
@@ -567,28 +561,28 @@ span {
 							<br />
 							<!-- <span>생년월일</span> -->
 							<div class="form-group last mb-4">
-								<label for="mbrith" id="briTxt" ></label> <input
-									type="text" class="form-control" name="mbrith" id="mbrith" placeholder="생년월일 입력 (숫자만)" required>
+								<label for="user_birth" id="briTxt" ></label> <input
+									type="text" class="form-control" name="user_birth" id="user_birth" placeholder="생년월일 입력 (숫자만)" required>
 							</div>
 
 							<!-- <span>이메일 </span> -->
 							<div class="form-group last mb-4 email_input">
-								<label for="memail" id="mailTxt"></label> 
-								<input type="text" class="form-control" name="memail" id="memail" placeholder="이메일 입력" required>
+								<label for="user_email" id="mailTxt"></label> 
+								<input type="text" class="form-control" name="user_email" id="user_email" placeholder="이메일 입력" required>
 							</div>
 							
 
 							<!-- <span>핸드폰 번호</span> -->
 							<div class="form-group last mb-4">
-								<label for="mphone" id="phoneTxt"></label>
-								<input type="text" class="form-control" name="mphone"
-									id="mphone" placeholder="전화번호 입력 (숫자만)" required >
+								<label for="user_phone" id="phoneTxt"></label>
+								<input type="text" class="form-control" name="user_phone"
+									id="user_phone" placeholder="전화번호 입력 (숫자만)" required >
 							</div>
 
 							<!-- <span>관심 분야</span> -->
 							<div class="selectbox">
 								<!-- <span for="select">관심분야 선택</span> --> 
-								<select id="form-select" name="tno" style="width:355px; height: 50px;">
+								<select id="form-select" name="category_no" style="width:355px; height: 50px;">
 									<option selected value="none">관심분야를 선택해주세요</option>
 									<option class="dropdown-item" value=1>100 건강/취미/레저</option>
 									<option class="dropdown-item" value=2>200 경제경영</option>

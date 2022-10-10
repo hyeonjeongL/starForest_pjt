@@ -21,7 +21,7 @@ public interface RequestBoardMapper {
 	
 	//게시물생성
 	@Insert("insert into request_board values(#{board_no},#{board_title},\r\n"
-			+ "									 sysdate,#{board_content},0,'신청대기',#{board_type_no},0,1,\r\n"
+			+ "									 sysdate,#{board_content},0,'신청접수',#{board_type_no},0,1,\r\n"
 			+ "									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_name},#{user_id})")
 	@SelectKey(statement = "select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual",
 	   keyColumn = "board_no",

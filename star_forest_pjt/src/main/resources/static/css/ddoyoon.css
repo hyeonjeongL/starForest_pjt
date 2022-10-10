@@ -278,6 +278,10 @@ request_board css
     padding: 10px;
   }
   
+  #td_content {
+  	font-size: 10pt;
+  }
+  
   #btn_write{
   	margin-left: 850px;
   	margin-top: 20px;

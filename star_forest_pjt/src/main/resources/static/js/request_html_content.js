@@ -41,6 +41,7 @@ function request_list_content(requestArray) {
 		</div>
 		`;
 }
+/*
 function request_write_form_content() {
 	return `<table width="0" border="0" cellpadding="0" cellspacing="0">
 			<tbody>
@@ -107,29 +108,29 @@ function request_write_form_content() {
 			</tbody>
 		</table>`;
 }
-
+*/
 function request_view(requestBoard){
 	return `
 	<form name="f" method="post">
-								<input type="hidden" name="guest_no" value="3">
+								<input type="hidden" name="board_no" value="3">
 								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
 									<tbody><tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">번호</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_no}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="200" align="center" bgcolor="E6ECDE" height="22">작성자</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.user_id}</td>
 									</tr>
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">날짜</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_date.substring(0,10)}</td>
 									</tr><tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">조회수</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.readcount}</td>
+										<td width="150" align="center" bgcolor="E6ECDE" height="22">조회수</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_readcount}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="150" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
 									</tr>
 									<tr>
@@ -138,7 +139,7 @@ function request_view(requestBoard){
 									</tr>
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="110">내용</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_content}</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px" id="td_content"><pre style="font-size:12pt;">${requestBoard.board_content}</pre></td>
 									</tr>
 								</tbody></table>
 							</form>

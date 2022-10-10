@@ -79,19 +79,21 @@ public class RequestBoardRestController {
 		String url="";
 		String msg="";
 		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
-		
+		int rowCount=-999;
 		try {
 			String sUserId = (String)session.getAttribute("sUserId");
+			requestBoard.setUser_id(sUserId);
 			/*
-			 * String board_status, int board_type_no, int board_depth, int board_step, int groupno, int category_no, String user_id
+			 * String board_status, int board_type_no, int board_depth, int board_step, int groupno, String category_name, String user_id
 			 */
 			if(sUserId=="admin") {
-			int rowCount = requestBoardService.create(new RequestBoard(0, "", null, "", 0, null, 0, 0, 0, 0, "소설", sUserId));
+			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, "신청접수", 2, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
 			}else {
-			int rowCount = requestBoardService.create(new RequestBoard(0, "", null, "", 0, null, 1, 0, 0, 0, "소설", sUserId));
-			}
-			resultList.add(requestBoard);
+			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, null, 0, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
 			code=1;
+			msg="글쓰기가 작성됨";
+			resultList.add(requestBoard);
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 			msg="글쓰기에서 뭔가가 잘못됨";

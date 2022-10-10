@@ -65,13 +65,18 @@
 				data:$('#request_write_form').serialize(),
 				success:function(jsonResult){
 					console.log(jsonResult);
+					e.preventDefault();
+					
 					if(jsonResult.code==1){
 					    
 					    //쓰기성공시 guest list보여주기
 					    // - #menu_guest_list anchor의 click event trigger[발생]
 						
 						$('#btn_request_list').trigger('click'); 
+					   	alert(jsonResult.msg);
 				}
+				
+					
 				}
 				
 			});
@@ -146,8 +151,8 @@
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
-											<select>
-												<option selected value="신청접수">신청접수</option>
+											<select name="board_status">
+												<option value="신청접수" selected>신청접수</option>
 											</select>
 										</td>
 									</tr>
@@ -162,11 +167,15 @@
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">신청도서 카테고리</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
-											<select>
-											<c:forEach items="${categoryList}" var="category">
-												<option value="category_name">${category.category_name}</option>	
-											</c:forEach>
-												<option>기타</option>	
+											<select name="category_name">
+											<option value="건강/취미/레저">건강/취미/레저</option>
+											<option value="경제경영">경제경영</option>
+											<option value="고전">고전</option>
+											<option value="과학">과학</option>
+											<option value="만화">만화</option>
+											<option value="사회과학">사회과학</option>
+											<option value="소설/시/희곡">소설/시/희곡</option>
+											<option value="기타">기타</option>	
 											</select>
 											</td>
 									</tr>
@@ -180,9 +189,13 @@
 ******************************				
 신청 양식
 ******************************
+&nbsp;
 책 제목 :
+&nbsp;
 저자    :
+&nbsp;
 사유    :
+&nbsp;
 												</textarea>
 										</td>
 									</tr>

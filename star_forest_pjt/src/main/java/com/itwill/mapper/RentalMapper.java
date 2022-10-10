@@ -40,6 +40,21 @@ public interface RentalMapper {
 	public List<Rental> selectById(String user_id);  
 	
 	/**user_id로 총 대출 리스트 뽑기*/
+	@Select("SELECT\r\n"
+			+ "		b.book_no,\r\n"
+			+ "		b.book_title,\r\n"
+			+ "		b.book_author,\r\n"
+			+ "		b.book_publisher,\r\n"
+			+ "		b.book_page,\r\n"
+			+ "		b.category_no,\r\n"
+			+ "		r.rental_date,\r\n"
+			+ "		r.return_date\r\n"
+			+ "		FROM\r\n"
+			+ "		RENTAL r\r\n"
+			+ "		INNER JOIN BOOK\r\n"
+			+ "		b\r\n"
+			+ "		on r.BOOK_NO = b.BOOK_NO\r\n"
+			+ "		WHERE r.USER_ID = #{user_id}")
 	public List<Rental> selectByIdTotalList(String user_id);
 	
 	/** book_no로 대출유저 리스트*/

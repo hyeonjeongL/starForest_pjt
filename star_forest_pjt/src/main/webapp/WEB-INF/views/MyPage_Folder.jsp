@@ -27,11 +27,12 @@
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap"
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
 <link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
 <link rel="stylesheet" type="text/css" href="./css/delete_btn_hw.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/yeji.css">
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -41,33 +42,34 @@
 <script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
+<script type="text/javascript" src="./js/UserBookHtmlContents.js"></script>
 <script type="text/javascript">
-
-
 $(function(){
-	
-		/***********로그인 세션확인**************/
-		$.ajax({
-			url : 'user_session_check',
-			method : 'POST',
-			dataType : 'json',
-			success : function(jsonResult) {
-				if (jsonResult.code == 1) {
-					console.log(jsonResult);
-				}else{ //세션 존재하지 않을경우 메세지창보여줌
-					alert('로그인이 필요한 페이지입니다:)');
-				}
+	/***********로그인 세션확인**************/
+	$.ajax({
+		url : 'user_session_check',
+		method : 'POST',
+		dataType : 'json',
+		success : function(jsonResult) {
+			if (jsonResult.code == 1) {
+				console.log(jsonResult);
+			}else{ //세션 존재하지 않을경우 메세지창보여줌
+				alert('로그인이 필요한 페이지입니다:)');
 			}
-		});
+		}
+	});
 		/************club_list************/
-		
 		$(document).on('click','#side_user_club,#user_club_list',function(e){
 			$.ajax({
 				url:'club_user_list',
-				method:'GET',
+				method:'POST',
 				success:function(jsonResult){
-					var bookClubArray=jsonResult.data;
-					$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
+					if(jsonResult.code==1){
+						var bookClubArray=jsonResult.data;
+						$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
 				}
 			});
 			e.preventDefault();
@@ -81,13 +83,36 @@ $(function(){
 				method:'POST',
 				dataType:'json',
 				success:function(jsonResult){
-					$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
+		/*********user_rental_list***********/
+		$(document).on('click','#side_userbook_status,#userbook_status',function(e){
+			$.ajax({
+				url:'user_rental_list',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						var rentalArray=jsonResult.data;
+						$('#clubUserList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
 				}
 			});
 			e.preventDefault();
 		});
 		
 		
+	
 		
 });
 </script>
@@ -126,12 +151,22 @@ $(function(){
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
-						<ul class="list-group list-group-flush mb-5">
+						<ul class="list-group list-group-flush mb-5"  id="menu">
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_mypage">마이페이지</a>
+								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
+								<ul class='submenu'>
+									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
+									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
+								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_userbook_status">나의도서정보</a></li>
+								<a href="MyPage_Folder"  id="side_userbook_status">나의도서정보</a>
+								<ul class='submenu'>
+									<li><a href="#" id="side_userbook_status">대출현황</a></li>
+									<li><a href="#" id="side_reservation">예약현황</a></li>
+								</ul>
+							</li>
+								
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
 							<li class="list-group-item">
@@ -171,6 +206,12 @@ $(function(){
 
 					<div class="container">
 						<table id="clubUserList" class="table table-hover">
+							
+
+						</table>
+					</div>
+					<div class="status">
+						<table id="userBookStatus" class="table table-hover">
 							
 
 						</table>

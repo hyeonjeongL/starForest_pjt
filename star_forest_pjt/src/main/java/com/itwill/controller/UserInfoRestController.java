@@ -350,7 +350,7 @@ public class UserInfoRestController {
 			e.printStackTrace();
 			code = 2;
 			url = "main";
-			msg = "잘못된 접근입니다.";
+			msg = "로그인 후 이용해주세요.";
 		}
 
 		resultMap.put("code", code);
@@ -379,7 +379,7 @@ public class UserInfoRestController {
 		} else {
 			code = -1;
 			url = "main";
-			msg = "비밀번호불일치";
+			msg = "비밀번호를 다시 입력해주세요.";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);
@@ -418,7 +418,8 @@ public class UserInfoRestController {
 	}
 
 	// 연체로 인한 대출정지기간
-
+	@LoginCheck
+	@PostMapping("/user_rental_stop")
 	public Map user_rental_stop(HttpServletRequest request) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;

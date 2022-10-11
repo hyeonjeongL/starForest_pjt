@@ -74,16 +74,6 @@
 			}
 		});
 		
-		/*
-		$('#item').html(BookClubHtmlContents.club_item_html);
-		$('#content').html(BookClubHtmlContents.club_join_ml);
-		$(document).on('click', '#club_join_detail_btn', function(e) {
-			$('#content').html(BookClubHtmlContents.club_detail_html);
-		});
-		$(document).on('click', '#club_join_btn', function(e) {
-			alert('동아리신청하기');
-		});
-		*/
 		
 		/********club_list***********/
 		$.ajax({
@@ -173,8 +163,8 @@
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$("#btn_list").trigger('click');
 						alert(jsonResult.msg);
+						$("#btn_list").trigger('click');
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 					}
@@ -205,19 +195,51 @@
 		/************club_modify_action**************/
 		$(document).on('click','#btn_modify_action',function(e){
 			var param=$('#club_modify_form').serialize();
+			console.log(param);
 			$.ajax({
 				url:'club_update',
 				method:'POST',
 				data:param,
 				success:function(jsonResult){
-					var data = jsonResult;
-					console.log(data);
+					if(jsonResult.code==1){
+						var club_no=$("#club_modify_form input[name='club_no']").val();
+						var param='club_no='+club_no;
+						console.log(param);
+						$.ajax({
+							url:'club_detail',
+							method:'POST',
+							dataType:'json',
+							data:param,
+							success:function(jsonResult){
+								var club=jsonResult.data[0];
+								$('#content').html(BookClubHtmlContents.admin_club_detail_html(club));
+							}
+						});
+					} else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}
 				}
 				
 			});
 			e.preventDefault();
 		});
-		
+		/**************remove**************/
+		$(document).on('click','#btn_remove',function(e){
+			var param='club_no='+$(e.target).attr('club_no');
+			$.ajax({
+				url:'club_remove',
+				method:'POST',
+				data:param,
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						alert(jsonResult.msg);
+						location.reload();
+					}else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+		});
 		
 	});
 </script>

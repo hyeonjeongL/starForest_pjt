@@ -248,6 +248,115 @@ BookClubHtmlContents.club_detail_html = function(club) {
 											</div>
 									`;
 }
+BookClubHtmlContents.admin_club_detail_html = function(club) {
+	return ` <img src="./img/detail.png" width=25 height=25>&nbsp&nbsp도서동아리 > 자세히 
+											<div class="rentalTable">
+												<table class="table" style="width: 855px">
+													<br>
+													<tbody>
+														<tr id="rental_item_"
+															style="border: 1px solid #dee2e6; height: 50px;">
+								
+															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7 ">
+															</td>
+															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">이름
+															</td>
+															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
+															${club.club_name}
+															</td>
+															
+								
+								
+														</tr>
+														<tr id="rental_item_"
+															style="border: 1px solid #dee2e6; height: 50px;">
+								
+															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7 ">
+															</td>
+															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">대상
+															</td>
+															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
+															${club.club_person}
+															</td>
+															
+								
+								
+														</tr>
+														<tr id="rental_item_"
+															style="border: 1px solid #dee2e6; height: 50px;">
+								
+															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
+															</td>
+															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">모집인원
+															</td>
+															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
+															${club.club_count}&nbsp 명
+															</td>
+															
+								
+								
+														</tr>
+														<tr id="rental_item_"
+															style="border: 1px solid #dee2e6; height: 50px;">
+								
+															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
+															</td>
+															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">장소
+															</td>
+															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
+															${club.club_place}
+															</td>
+															
+								
+								
+														</tr>
+														<tr id="rental_item_"
+															style="border: 1px solid #dee2e6; height: 50px;">
+								
+															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
+															</td>
+															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">시간
+															</td>
+															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
+															${club.club_time}
+															</td>
+															
+								
+								
+														</tr>
+														<tr id="rental_item_"
+															style="border: 1px solid #dee2e6; height: 130px;">
+								
+															<td colspan="1" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7">
+															</td>
+															<td colspan="2" style="padding:0px;text-align:left;padding-left: 20px;background-color: #eff3f7;font-weight: bold">내용
+															</td>
+															<td colspan="2" style="padding:0px;text-align:middle;padding-left: 20px">
+															${club.club_content}
+															</td>
+															
+								
+								
+														</tr>
+														<tr 
+															style=" height: 130px; ">
+								
+															<td colspan="5" >
+															
+															
+															<button id="btn_list" class="w-btn w-btn-detail" type="button">목록</button><br>
+															</td>
+															
+															
+								
+								
+														</tr>
+														
+													</tbody>
+												</table>
+											</div>
+									`;
+}
 BookClubHtmlContents.club_user_item_html=function(club){
 	return `  	
 				
@@ -306,6 +415,27 @@ BookClubHtmlContents.club_write_form_html=function(){
 
 
 											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 130px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">카테고리
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<select name="category_no" id="category">
+															<option value="100">건강/취미/레저</option>
+															<option value="200">경제경영</option>
+															<option value="300">고전</option>
+															<option value="400">과학</option>
+															<option value="500">만화</option>
+															<option value="600">사회과학</option>
+															<option value="700">소설/시/희곡</option>
+													</select>
+												</td>
+											</tr>
+
 											<tr id="rental_item_"
 												style="border: 1px solid #dee2e6; height: 50px;">
 
@@ -381,27 +511,7 @@ BookClubHtmlContents.club_write_form_html=function(){
 															</textarea>
 												</td>
 											</tr>
-											<tr id="rental_item_"
-												style="border: 1px solid #dee2e6; height: 130px;">
-
-
-												<td colspan="1"
-													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">카테고리
-												</td>
-												<td colspan="2"
-													style="padding: 0px; text-align: middle; padding-left: 20px">
-													<select name="category_no" id="category">
-															<option value="100">건강/취미/레저</option>
-															<option value="200">경제경영</option>
-															<option value="300">고전</option>
-															<option value="400">과학</option>
-															<option value="500">만화</option>
-															<option value="600">사회과학</option>
-															<option value="700">소설/시/희곡</option>
-													</select>
-												</td>
-											</tr>
-
+											
 											<tr style="height: 130px;">
 
 												<td colspan="5">
@@ -428,7 +538,7 @@ BookClubHtmlContents.club_modify_form_html=function(club){
 	return `<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp도서동아리
 								> 수정
 								<form id="club_modify_form" name="f" method="post">
-								<input type="hidden" club_no="${club.club_no}">
+									<input type="hidden" name="club_no" value="${club.club_no}">
 									<table class="table" style="width: 855px">
 										<br>
 										<tbody>

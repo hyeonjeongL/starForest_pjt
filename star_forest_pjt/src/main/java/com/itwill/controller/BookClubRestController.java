@@ -162,12 +162,12 @@ public class BookClubRestController {
 		List<BookClub> resultList = new ArrayList<BookClub>();
 
 		try {
-			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			int result = bookClubService.update(bookClub);
 			if (result == 1) {
 				code = 1;
 				url = "";
 				msg = "동아리 내용을 수정하였습니다.";
+				resultList.add(bookClub);
 			} else {
 				code = -1;
 				url = "club_list";

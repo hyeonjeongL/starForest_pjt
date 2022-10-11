@@ -197,4 +197,3 @@ BookClubHtmlContents.club_user_list_html=function(bookClubArray){
                 </table>
 	`;
 }
-

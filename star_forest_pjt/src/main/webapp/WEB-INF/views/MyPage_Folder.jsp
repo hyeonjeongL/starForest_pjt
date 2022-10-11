@@ -28,6 +28,7 @@
 	rel="stylesheet">
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/yeji.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/favicon-16x16.png">
 <link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
@@ -38,6 +39,7 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
+<script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript">
 
 
@@ -70,14 +72,47 @@ $(function(){
 			e.preventDefault();
 		});
 		
-		/***********user_view**********/
-		$(document).on('click','#mypage,')
+/***********user_view**********/
+		
+		$(document).on('click','#mypage,#side_mypage',function(e){
+			$.ajax({
+				url:'user_view',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
+		/*********user_rental_list***********/
+		$(document).on('click','#side_userbook_status,#userbook_status',function(e){
+			$.ajax({
+				url:'user_rental_list',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						var rentalArray=jsonResult.data;
+						$('#clubUserList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
 		
 		
 		
 });
 </script>
-<title>나의서재 - 딜리브러리</title>
+<title>나의도서 - 별숲도서관</title>
 
 </head>
 
@@ -114,20 +149,30 @@ $(function(){
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
-						<ul class="list-group list-group-flush mb-5">
+						<ul class="list-group list-group-flush mb-5"  id="menu">
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="mypage">마이페이지</a>
+								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
+								<ul class='submenu'>
+									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
+									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
+								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="userbook_status">나의도서정보</a></li>
+								<a href="MyPage_Folder"  id="side_userbook_status">나의도서정보</a>
+								<ul class='submenu'>
+									<li><a href="#" id="side_userbook_status">대출현황</a></li>
+									<li><a href="#" id="side_reservation">예약현황</a></li>
+								</ul>
+							</li>
+								
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="user_request_list">희망도서신청내역</a></li>
+								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="favorite">내서재</a></li>
+								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="user_qr">나의QR</a></li>
+								<a href="MyPage_Folder" id="side_user_qr">나의QR</a></li>
 
 					</ul>
 					</div>

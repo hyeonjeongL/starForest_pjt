@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.Book;
 import com.itwill.domain.Rental;
 import com.itwill.service.BookService;
@@ -102,5 +103,33 @@ public class RentalRestController {
 		return resultMap;
 	}
 	
+	//user 총 대출목록
+	@LoginCheck
+	@PostMapping("/user_rental_list")
+	public Map user_rental_list(HttpServletRequest request) {
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<Rental> resultList = new ArrayList<Rental>();
+		
+		try {
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
+			resultList=rentalService.selectByIdTotalList(sUserId);
+			code = 1;
+			url = "";
+			msg = "성공";
+		}catch (Exception e) {
+			e.printStackTrace();
+			code = 2;
+			url = "main";
+			msg = "로그인 후 이용해주세요.";
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
 
 }

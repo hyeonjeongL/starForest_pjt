@@ -336,8 +336,8 @@ public class BookClubRestController {
 	}
 
 	// 내가 신청한 동아리내역(마이페이지)
-	
-	@GetMapping("/club_user_list")
+	@LoginCheck
+	@PostMapping("/club_user_list")
 	public Map club_user_list(HttpServletRequest request) {
 		Map resultMap = new HashMap();
 		int code = 2;
@@ -356,7 +356,7 @@ public class BookClubRestController {
 			e.printStackTrace();
 			code = 2;
 			url = "main";
-			msg = "잘못된 접근입니다.";
+			msg = "로그인 후 이용해주세요.";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);

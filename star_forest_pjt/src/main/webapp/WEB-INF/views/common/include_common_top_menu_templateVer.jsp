@@ -106,22 +106,22 @@ $(function(){
 					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
-								<a class="dropdown-item" href="mypage" id="mypage">마이페이지</a>
+								<a class="dropdown-item" href="MyPage_Folder" id="mypage">마이페이지</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="userbook_status" id="userbook_status">
+								<a class="dropdown-item" href="MyPage_Folder" id="userbook_status">
 									나의도서정보</a></li>
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_club_list">
 									동아리신청내역</a></li>
 							<li>
-								<a class="dropdown-item" href="user_request_list" id="user_request_list">
+								<a class="dropdown-item" href="MyPage_Folder" id="user_request_list">
 									희망도서신청내역</a></li>
 							<li>
-								<a class="dropdown-item" href="favorite" id="favorite">
+								<a class="dropdown-item" href="MyPage_Folder" id="favorite">
 									내서재</a></li>
 							<li>
-								<a class="dropdown-item" href="user_qr" id="user_qr">
+								<a class="dropdown-item" href="MyPage_Folder" id="user_qr">
 									나의QR</a></li>
 
 					</ul>

@@ -125,7 +125,6 @@ UserHtmlContents.user_view_content=function(loginUser){
 	return `
 	<div class="mypage">
 				<ul class="nav nav-tabs mypage-tabs">
-
 					<li class="nav-item"><a class="nav-link active" href="#"
 						id="myInfo">내정보</a></li>
 					<li class="nav-item"><a class="nav-link" href="#"

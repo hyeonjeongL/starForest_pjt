@@ -1,0 +1,27 @@
+/***나의도서side bar****/
+li{
+	list-style:none;
+}
+a{
+	text-decoration:none;
+}
+#menu{
+	overflow:hidden;
+}
+#menu > li {
+	float:left;
+	text-align:center;
+}
+
+.submenu{
+	height:0;
+	overflow:hidden;
+}
+.submenu > li:hover{
+	background-color:#efefeb;
+	transition-duration:0.5s;
+}
+#menu > li:hover .submenu{
+	height:50px;
+	transition-duration:1s;
+}

@@ -127,7 +127,7 @@ UserHtmlContents.user_view_content=function(loginUser){
 				<ul class="nav nav-tabs mypage-tabs">
 					<li class="nav-item"><a class="nav-link active" href="#"
 						id="myInfo">내정보</a></li>
-					<li class="nav-item"><a class="nav-link" href="#"
+					<li class="nav-item"><a class="nav-link" href="updatePW"
 						id="updatePW">비밀번호변경</a></li>
 					
 				</ul>
@@ -163,7 +163,7 @@ UserHtmlContents.user_view_content=function(loginUser){
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">생일</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
-										${loginUser.user_birth}</td>
+										${loginUser.user_birth.substring(0,10)}</td>
 								</tr>
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">성별</td>
@@ -219,4 +219,15 @@ UserHtmlContents.user_remove_content=function(){
 		</div>
 	</div>`;	
 
+}
+
+UserHtmlContents.user_pwcheck_item=function(){
+	return `<form method="post" id="user_pwCheck">
+				<div class="form-group mt-4">
+					<input class="form-control form-control-lg mt-2 loginForm" type="password" id="pw" name="pw" placeholder="비밀번호"> 
+					<button class="btn btn-outline-success btn-lg btn-block mt-2 btn-Customer"
+						type="submit" id="btn_update_action">확인</button>
+				</div>
+			</form>
+			`;
 }

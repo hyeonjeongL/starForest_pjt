@@ -1,5 +1,6 @@
 package com.itwill.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,17 @@ public class UserInfoController {
 		return "user";
 	}
 	
+	public String user_update(HttpServletRequest request,String user_password) {
+		String forwardPath="";
+		try {
+			String sUserId=(String)request.getSession().getAttribute("sUserId");
+			int count=userService.PWcheck(sUserId, user_password);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return forwardPath;
+	}
 
 	
 }

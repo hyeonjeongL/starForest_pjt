@@ -72,8 +72,20 @@ $(function(){
 			e.preventDefault();
 		});
 		
-/***********user_view**********/
+		/***********user_view**********/
 		
+			$.ajax({
+				url:'user_view',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+			});
 		$(document).on('click','#mypage,#side_mypage',function(e){
 			$.ajax({
 				url:'user_view',
@@ -107,6 +119,24 @@ $(function(){
 			});
 			e.preventDefault();
 		});
+		
+		/**********패스워드체크*************/
+		$(document).on('click','#updatePW',function(e){
+			$.ajax({
+				url:'user_pw_check',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_pwcheck_item());
+					}else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+		});
+		
+		/*************비밀번호변경***************/
 		
 		
 		

@@ -30,6 +30,7 @@
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
+<script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 
 <title>나의도서 - 별숲도서관</title>
 <style>
@@ -155,6 +156,7 @@
 				success:function(jsonResult){
 					if(jsonResult.code==-2){
 						alert(jsonResult.msg);
+						location.href="user";
 					}else if(jsonResult.code==-1){
 						alert(jsonResult.msg);
 					}else if(jsonResult.code==1){

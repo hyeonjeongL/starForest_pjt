@@ -18,4 +18,7 @@ public interface ReservationService {
 
 	//회원에 대한 예약 리스트 출력
 	List<Map<String, Object>> selectReservationListById(String user_id);
+	
+	//회원이 책 예약 중복 확인
+	int resCheckDupli(String user_id, int book_no);
 }

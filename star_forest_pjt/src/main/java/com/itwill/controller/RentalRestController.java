@@ -37,7 +37,7 @@ public class RentalRestController {
 	// 모달안에 대여 신청 (버튼)
 	@RequestMapping("/rest_rental")
 	@ResponseBody
-	public Map rental_tot(int book_no, HttpSession session) throws Exception{
+	public Map rental_tot(@RequestParam int book_no, HttpSession session) throws Exception{
 		Map resultMap = new HashMap();
 		
 		int code = 2;
@@ -46,18 +46,26 @@ public class RentalRestController {
 		List<Rental> resultList = new ArrayList<Rental>();
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
-			bookService.updateRentalBookQty(book_no);
-			bookService.updateRentalCnt(book_no);
-			int rental = rentalService.insertRental(new Rental(0, null, null, null, 1, book_no, sUserId));
-			if(rental==1) {
+			int duplication = rentalService.bookCheckDupli(sUserId, book_no);
+			if(duplication ==0) {
+				Date date = new Date();
+				int rental = rentalService.insertRental(new Rental(0, null, null, date, 1, book_no, sUserId));
+				bookService.updateRentalBookQty(book_no);
+				bookService.updateRentalCnt(book_no);
+				if(rental == 1) {
 				code=1;
 				url="";
 				msg="신청완료";
+				}
+			} else if (duplication !=0) {
+				code=0;
+				url="";
+				msg="이미 대여한 도서입니다.";
 			}
 		} catch (Exception e) {
 			code=2;
 			url="";
-			msg="오류";
+			msg="오류제기럴";
 			e.printStackTrace();
 		}
 		
@@ -116,6 +124,35 @@ public class RentalRestController {
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			resultList=rentalService.selectByIdTotalList(sUserId);
+			code = 1;
+			url = "";
+			msg = "성공";
+		}catch (Exception e) {
+			e.printStackTrace();
+			code = 2;
+			url = "main";
+			msg = "로그인 후 이용해주세요.";
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
+	//user 현재 대출중인 도서 리스트
+	@LoginCheck
+	@PostMapping("/user_now_rental_list")
+	public Map user_now_rental_list(HttpServletRequest request) {
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<Rental> resultList = new ArrayList<Rental>();
+		
+		try {
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
+			resultList=rentalService.selectById(sUserId);
 			code = 1;
 			url = "";
 			msg = "성공";

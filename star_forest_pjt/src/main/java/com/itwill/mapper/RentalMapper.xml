@@ -12,6 +12,7 @@
 		b.book_page,
 		b.category_no,
 		r.rental_date,
+		r.return_duedate,
 		r.rental_status
 		FROM
 		RENTAL r
@@ -35,6 +36,7 @@
 	</resultMap>
 	<resultMap type="rental" id="rentalMap">
 		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
 		<result column="rental_status" property="rental_status" />
 	</resultMap>
 
@@ -48,6 +50,7 @@
 		b.category_no,
 		r.rental_date,
 		r.return_duedate,
+		r.return_date,
 		r.rental_status
 		FROM
 		RENTAL r
@@ -71,6 +74,7 @@
 	<resultMap type="rental" id="rentalTotalMap">
 		<result column="rental_date" property="rental_date" />
 		<result column="return_duedate" property="return_duedate" />
+		<result column="return_date" property="return_date" />
 		<result column="rental_status" property="rental_status" />
 	</resultMap>
 

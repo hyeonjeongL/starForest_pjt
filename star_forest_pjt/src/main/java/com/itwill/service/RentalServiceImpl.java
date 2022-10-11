@@ -62,6 +62,11 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.selectMostReturn_duedate(book_no);
 	}
 
+	@Override
+	public int bookCheckDupli(String user_id, int book_no) throws Exception {
+		return rentalDao.bookCheckDupli(user_id, book_no);
+	}
+
 
 
 	

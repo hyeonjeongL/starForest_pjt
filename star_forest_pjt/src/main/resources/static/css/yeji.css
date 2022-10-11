@@ -25,3 +25,8 @@ a{
 	height:50px;
 	transition-duration:1s;
 }
+
+#side_userbook_status > li:hover .submenu{
+	height:75px;
+	transition-duration:1s;
+}

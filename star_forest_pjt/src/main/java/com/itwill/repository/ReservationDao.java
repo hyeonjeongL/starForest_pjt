@@ -18,5 +18,7 @@ public interface ReservationDao {
 	List<Reservation> selectReservationList(int book_no); 
 
 	List<Map<String, Object>> selectReservationListById(String user_id); 
+	
+	int resCheckDupli(String user_id, int book_no);
 
 }

@@ -104,7 +104,7 @@ $(function(){
 		});
 		
 		/*********user_rental_list***********/
-		$(document).on('click','#side_userbook_status,#userbook_status',function(e){
+		$(document).on('click','#side_userbook_status',function(e){
 			$.ajax({
 				url:'user_rental_list',
 				method:'POST',
@@ -121,7 +121,25 @@ $(function(){
 			e.preventDefault();
 		});
 		
-		/*********user_reservation_list***********/
+		/*********회원이 현재 대출중인 도서 리스트***********/
+		$(document).on('click','#side_now_userbook_status',function(e){
+			$.ajax({
+				url:'user_now_rental_list',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						var rentalArray=jsonResult.data;
+						$('#clubUserList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
+		/*********회원의 총 대출 리스트***********/
 		$(document).on('click','#side_reservation',function(e){
 			$.ajax({
 				url:'reservation_list',
@@ -212,6 +230,7 @@ $(function(){
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>
+									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
 								</ul>
 							</li>
 								

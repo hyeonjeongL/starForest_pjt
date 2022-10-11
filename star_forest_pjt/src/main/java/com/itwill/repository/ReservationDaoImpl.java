@@ -36,4 +36,9 @@ public class ReservationDaoImpl implements ReservationDao {
 		return reservationMapper.selectReservationListById(user_id);
 	}
 
+	@Override
+	public int resCheckDupli(String user_id, int book_no) {
+		return reservationMapper.resCheckDupli(user_id, book_no);
+	}
+
 }

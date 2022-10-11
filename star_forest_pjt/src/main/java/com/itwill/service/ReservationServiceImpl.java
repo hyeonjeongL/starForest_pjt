@@ -37,6 +37,11 @@ public class ReservationServiceImpl implements ReservationService {
 		return reservationDao.selectReservationListById(user_id);
 	}
 
+	@Override
+	public int resCheckDupli(String user_id, int book_no) {
+		return reservationDao.resCheckDupli(user_id, book_no);
+	}
+
 	
 	
 	

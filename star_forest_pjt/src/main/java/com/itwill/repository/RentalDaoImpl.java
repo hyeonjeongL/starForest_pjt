@@ -38,6 +38,12 @@ public class RentalDaoImpl implements RentalDao{
 	}
 	
 	@Override
+	public int bookCheckDupli(String user_id, int book_no) throws Exception {
+		return rentalMapper.bookCheckDupli(user_id, book_no);
+	}
+	
+	
+	@Override
 	public List<Map<String, Object>> selectByNo(int book_no) {
 		return rentalMapper.selectByNo(book_no);
 	}
@@ -56,7 +62,8 @@ public class RentalDaoImpl implements RentalDao{
 	public String selectMostReturn_duedate(int book_no) throws Exception {
 		return rentalMapper.selectMostReturn_duedate(book_no);
 	}
-	
+
+
 	
 
 }

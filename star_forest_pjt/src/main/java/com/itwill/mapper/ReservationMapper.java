@@ -33,5 +33,11 @@ public interface ReservationMapper {
 				+ "inner join book b on r.book_no=b.book_no where r.user_id=#{user_id}"
 				+ "order by r.res_date asc")
 		public List<Map<String, Object>> selectReservationListById(String user_id);
+		
+	//예약 중복 방지
+		@Select("select count(r.book_no) from reservation r inner join book b on r.book_no=b.book_no "
+			  + "where r.user_id=#{user_id} and r.book_no=#{book_no} "
+			  + "order by r.res_date asc")
+		public int resCheckDupli(String user_id, int book_no);
 
 }

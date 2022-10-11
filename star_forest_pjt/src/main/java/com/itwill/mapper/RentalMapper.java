@@ -42,8 +42,12 @@ public interface RentalMapper {
 	/**user_id로 총 대출 리스트 뽑기*/
 	public List<Rental> selectByIdTotalList(String user_id);
 	
-	/** book_no로 대출유저 리스트*/
+	@Select("select count(r.book_no) from rental r inner join book b on r.book_no = b.book_no "
+		  + "where r.user_id = #{user_id} and r.book_no=#{book_no} and r.rental_status!=0 "
+		  + "order by r.rental_date asc")
+	public int bookCheckDupli(String user_id, int book_no);
 	
+	/** book_no로 대출유저 리스트*/
 	@Select("select u.user_id, u.user_name, u.user_rental_status, "
 				 + "u.user_book_cnt_limit, r.rental_date "
 			+ "from rental r left join user_info u on r.user_id = u.user_id "

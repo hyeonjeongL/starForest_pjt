@@ -41,12 +41,19 @@ public class ReservationRestController {
 		List<Reservation> resultList = new ArrayList<Reservation>();
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
-			int res = reservationService.insertReservation(new Reservation(0, null, 1, book_no, sUserId));
-			bookService.updateResCnt(book_no);
-			if(res==1) {
-				code=1;
+			int duplicationRes = reservationService.resCheckDupli(sUserId, book_no);
+			if(duplicationRes == 0) {
+				int res = reservationService.insertReservation(new Reservation(0, null, 1, book_no, sUserId));
+				bookService.updateResCnt(book_no);
+				if(res==1) {
+					code=1;
+					url="";
+					msg="신청완료";
+				}
+			}else if (duplicationRes !=0){
+				code=0;
 				url="";
-				msg="신청완료";
+				msg="이미 예약한 도서입니다.";
 			}
 		} catch (Exception e) {
 			code=2;

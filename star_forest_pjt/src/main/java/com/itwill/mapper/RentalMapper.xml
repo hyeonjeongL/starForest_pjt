@@ -20,6 +20,7 @@
 		= b.BOOK_NO
 		WHERE r.USER_ID = #{user_id}
 		and r.rental_status!=0
+		order by r.rental_date asc
 	</select>
 	<resultMap type="book" id="BookResultMap">
 		<!-- <id column="user_id" property="user_id"/> -->
@@ -46,6 +47,7 @@
 		b.book_page,
 		b.category_no,
 		r.rental_date,
+		r.return_duedate,
 		r.rental_status
 		FROM
 		RENTAL r
@@ -53,6 +55,7 @@
 		b
 		on r.BOOK_NO = b.BOOK_NO
 		WHERE r.USER_ID = #{user_id}
+		order by r.rental_date asc
 	</select>
 	<resultMap type="book" id="BookTotalResultMap">
 		<!-- <id column="user_id" property="user_id"/> -->
@@ -67,6 +70,7 @@
 	</resultMap>
 	<resultMap type="rental" id="rentalTotalMap">
 		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
 		<result column="rental_status" property="rental_status" />
 	</resultMap>
 

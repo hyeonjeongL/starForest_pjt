@@ -70,7 +70,7 @@ public class RentalRestController {
 	}
 	
 	//admin 반납 버튼
-	@RequestMapping("/rest_return")
+	@PostMapping("/rest_return")
 	public Map one_return(int book_no, HttpSession session) throws Exception{
 		Map resultMap = new HashMap();
 		
@@ -131,5 +131,6 @@ public class RentalRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
+	
 
 }

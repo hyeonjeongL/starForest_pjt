@@ -48,7 +48,8 @@ public interface RentalMapper {
 				 + "u.user_book_cnt_limit, r.rental_date "
 			+ "from rental r left join user_info u on r.user_id = u.user_id "
 			+ "inner join book b on r.book_no = b.book_no "
-			+ "where b.book_no = #{book_no} and r.rental_status!=0 and u.user_id is not null")
+			+ "where b.book_no = #{book_no} and r.rental_status!=0 and u.user_id is not null "
+			+ "order by r.rental_date asc")
 	public List<Map<String, Object>> selectByNo(int book_no);
 	
 	

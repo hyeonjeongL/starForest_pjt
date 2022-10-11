@@ -187,6 +187,7 @@
 		/************club_modify_form**************/
 		$(document).on('click','#btn_update',function(e){
 			var club_no=$(e.target).attr('club_no');
+			var param='club_no='+club_no;
 			$.ajax({
 				url:'club_update_form',
 				method:'POST',
@@ -203,12 +204,18 @@
 		
 		/************club_modify_action**************/
 		$(document).on('click','#btn_modify_action',function(e){
+			var param=$('#club_modify_form').serialize();
 			$.ajax({
 				url:'club_update',
 				method:'POST',
-				data:$('#club_modify_form').serialize(),
+				data:param,
+				success:function(jsonResult){
+					var data = jsonResult;
+					console.log(data);
+				}
 				
 			});
+			e.preventDefault();
 		});
 		
 		

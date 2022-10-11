@@ -37,7 +37,7 @@ public class BookClubRestController {
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			
-				int result = bookClubService.create(new BookClub(bookClub.getClub_no(),bookClub.getClub_name(), 0, bookClub.getClub_person(), bookClub.getClub_time(), bookClub.getClub_place(), bookClub.getClub_content(), 0, bookClub.getCategory_no(), sUserId));
+				int result = bookClubService.create(new BookClub(bookClub.getClub_no(),bookClub.getClub_name(), bookClub.getClub_count(), bookClub.getClub_person(), bookClub.getClub_time(), bookClub.getClub_place(), bookClub.getClub_content(), 0, bookClub.getCategory_no(), sUserId));
 				if (result == 1) {
 					code = 1;
 					url = "club_list";
@@ -154,7 +154,7 @@ public class BookClubRestController {
 	// 동아리 수정
 	@LoginCheck
 	@PostMapping("/club_update")
-	public Map club_update(@ModelAttribute BookClub bookClub) {
+	public Map club_update(@ModelAttribute BookClub bookClub,HttpServletRequest request) {
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
@@ -162,12 +162,12 @@ public class BookClubRestController {
 		List<BookClub> resultList = new ArrayList<BookClub>();
 
 		try {
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			int result = bookClubService.update(bookClub);
 			if (result == 1) {
 				code = 1;
 				url = "";
 				msg = "동아리 내용을 수정하였습니다.";
-				resultList.add(bookClubService.selectByNo(bookClub.getClub_no()));
 			} else {
 				code = -1;
 				url = "club_list";

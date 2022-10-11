@@ -428,6 +428,7 @@ BookClubHtmlContents.club_modify_form_html=function(club){
 	return `<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp도서동아리
 								> 수정
 								<form id="club_modify_form" name="f" method="post">
+								<input type="hidden" club_no="${club.club_no}">
 									<table class="table" style="width: 855px">
 										<br>
 										<tbody>
@@ -528,7 +529,7 @@ BookClubHtmlContents.club_modify_form_html=function(club){
 
 												<td colspan="5">
 													<button id="btn_modify_action" class="w-btn w-btn-detail"
-														type="button"  club_no="${club.club_no}" >수정</button>
+														type="button" >수정</button>
 
 
 													<button id="btn_list" class="w-btn w-btn-detail"

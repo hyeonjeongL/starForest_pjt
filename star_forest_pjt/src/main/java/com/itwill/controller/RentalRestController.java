@@ -131,5 +131,6 @@ public class RentalRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
+	
 
 }

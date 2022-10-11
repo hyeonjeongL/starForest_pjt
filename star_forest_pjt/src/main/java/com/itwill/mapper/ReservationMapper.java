@@ -25,7 +25,7 @@ public interface ReservationMapper {
 	public int deleteReservation(String user_id, int book_no);
 	
 	//책에 대한 예약 리스트 출력
-	@Select("select * from reservation where book_no=#{book_no}")
+	@Select("select * from reservation where book_no=#{book_no} order by res_date asc")
 	public List<Reservation> selectReservationList(int book_no);
 
 	//회원에 대한 예약 리스트 출력

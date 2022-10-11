@@ -40,6 +40,7 @@
 <script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
+<script type="text/javascript" src="./js/UserBookHtmlContents.js"></script>
 <script type="text/javascript">
 
 
@@ -120,6 +121,25 @@ $(function(){
 			e.preventDefault();
 		});
 		
+		/*********user_reservation_list***********/
+		$(document).on('click','#side_reservation',function(e){
+			$.ajax({
+				url:'reservation_list',
+				method:'GET',
+				//data:'user_id='+$(e.target).attr("user_id"),
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						var reservationArray=jsonResult.data;
+						$('#clubUserList').html(UserBookHtmlContents.user_reservation_list_html(reservationArray));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
 		/**********패스워드체크*************/
 		$(document).on('click','#updatePW',function(e){
 			$.ajax({
@@ -188,7 +208,7 @@ $(function(){
 								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="userbook_status"  id="side_userbook_status">나의도서정보</a>
+								<a href="/userbook_status"  id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>

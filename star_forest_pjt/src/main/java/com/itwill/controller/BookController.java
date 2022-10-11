@@ -111,7 +111,7 @@ public class BookController {
 		return "recommendedBooks";
 	}
 	
-	@RequestMapping("/book_categoryList")
+	@RequestMapping("/SearchList1")
 	public String BookCategoryList(@RequestParam(value = "category_no", required = false) Model model,String category_no) {
 		try {
 			int bookCategoryCount = bookService.bookCategoryCount();
@@ -121,18 +121,18 @@ public class BookController {
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "book_categoryList";
+		return "SearchList";
 	}
 	
-	@RequestMapping("/book_newList")
-	public String book_newList(Model model) {
+	@RequestMapping("/Newbooks")
+	public String Newbooks(Model model) {
 		try {
 			List<Book> newBook = bookService.selectNew();
 			model.addAttribute(newBook);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		return "book_newList";
+		return "Newbooks";
 	}
 	
 

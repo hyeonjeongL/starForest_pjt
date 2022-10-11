@@ -80,15 +80,15 @@
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<div class="row">
-							<c:forEach var="b" items="${list }">
+							<c:forEach items="${favorite}" var="book" begin="0" end="15">
 								<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
-											<a href="book_detail.?book_no=1&query=${b.book_title }"><img class="card-image-top img-fluid" width="100%" alt="${b.book_image }" src="${b.book_image }"></a>
+											<a href="book_detail?book_no=${book.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}"></a>
 											<div class="card-body">
 												<div class="card-title">
-													<div class="book-title" id="book-title">${b.book_title }</div>
-													<h6 class="book_author">${b.book_author }</h6>
+													<div class="book-title" id="book-title">${book.book_title}</div>
+													<h6 class="book_author">${book.book_author}</h6>
 												</div>
 											</div>
 										</div>
@@ -96,6 +96,36 @@
 								</div>
 							</c:forEach>
 						</div>
+						<nav>
+            <ul class="pagination justify-content-center">
+              <c:if test="${startPage > 1}">
+                <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
+                     <span>&laquo;</span>
+              <span class="sr-only">이전 페이지</span>
+                  </a></li>
+              </c:if>
+              <c:if test="${startPage == 1}">
+                <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
+                     <span>&laquo;</span>
+                <span class="sr-only">이전 페이지</span>
+                  </a></li>
+              </c:if>
+                    <c:forEach var="i" begin="${startPage }" end="${endPage }">
+                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="postList.do?pageNUM=${i }&group=${group}">${i }</a></li>
+                 </c:forEach>
+              <c:if test="${endPage < totalPage}">              
+                 <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
+                     <span>&raquo;</span>
+              <span class="sr-only">다음 페이지</span>
+                  </a></li>
+              </c:if>
+              <c:if test="${endPage == totalPage}">
+                  <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
+                        <span>&raquo;</span>
+                <span class="sr-only">다음 페이지</span>
+                     </a></li>
+              </c:if>
+        </nav>
 					</div>
 				</div>
 			</div>

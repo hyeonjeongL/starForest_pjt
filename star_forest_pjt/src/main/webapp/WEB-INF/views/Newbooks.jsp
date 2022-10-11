@@ -62,10 +62,10 @@
                   <h4 class="text-light">신착도서</h4>
                </div>
                <ul class="list-group list-group-flush mb-5">
-                  <li class="list-group-item"><a href="SearchResult.do">도서검색</a></li>
-                  <li class="list-group-item"><a href="recommendedBooks.do">사서추천도서</a></li>
-                  <li class="list-group-item active"><a href="Newbooks.do">신착도서</a></li>                  
-                  <li class="list-group-item"><a href="popularBook.do">이달의 인기도서</a></li>
+                  <li class="list-group-item"><a href="SearchResult">도서검색</a></li>
+                  <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
+                  <li class="list-group-item active"><a href="Newbooks">신착도서</a></li>                  
+                  <li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>
                </ul>
            </div>
          </div>
@@ -74,21 +74,21 @@
          <!-- 메인내용 -->
          <div class="col-md-9">
             <div class="row">
-            <c:forEach var="nb" items="${newbooklist }"> 
-               <div class="col-md-3">
-                  <div class="card mb-3">
-                     <div class="card-body p-0">
-                        <a href="detailBook.do?b_no=1&query=${nb.b_title }"><img class="card-image-top img-fluid" width="100%" alt="${nb.b_image }" src="${nb.b_image }"></a>
-                        <div class="card-body">
-                           <div class="card-title">
-                              <div class="book-title" id="book-title">${nb.b_title }</div>
-                              <h6 class="book-writer">${nb.b_writer }</h6>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               </c:forEach>
+            	<c:forEach items="${newBook}" var="book" begin="0" end="15">
+					<div class="col-md-3">
+						<div class="card mb-3">
+							<div class="card-body p-0">
+								<a href="book_detail?book_no=${book.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}"></a>
+								<div class="card-body">
+									<div class="card-title">
+										<div class="book-title" id="book-title">${book.book_title}</div>
+										<h6 class="book_author">${book.book_author}</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
                </div>
             </div>
          </div>

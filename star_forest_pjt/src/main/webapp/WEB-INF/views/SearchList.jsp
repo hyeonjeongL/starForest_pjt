@@ -248,7 +248,19 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 				<br><br><br>
 				<!-- CARD COLUMNS -->
 				<div class="searchResult-body">
-					
+							<div class="row">
+								<c:forEach items="${bookCategory}" var="book" begin="0" end="2">
+									<div class="col-md-4 clearfix d-none d-md-block">
+										<div class="card"><a href="book_detail?book_no=${book.book_no}">
+											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6>${book.book_author}</h6>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+							</div>
 				</div>
 				<div class="paging">
 					

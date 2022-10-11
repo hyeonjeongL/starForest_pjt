@@ -74,6 +74,22 @@ $(function(){
 	});
 	});
 	
+	
+	$(document).on('click','#seatReservation_my',function(e){
+		$.ajax({
+		url:'login_check',
+		method:'GET',
+		success:function(jsonResult){
+			if(jsonResult.code==2){
+			alert(jsonResult.msg);
+			location.href='user';
+			}else if(jsonResult.code==1){
+			location.href='seatReservation_my';
+	}
+		}
+	});
+	});
+	
 });	
 </script>
 

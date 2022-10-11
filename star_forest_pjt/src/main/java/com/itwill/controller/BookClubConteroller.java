@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.domain.BookClub;
@@ -44,4 +45,23 @@ public class BookClubConteroller {
 //		
 //		return forwardPath;
 //	}
+	@RequestMapping("/club_write_form")
+	public String club_write_form(@ModelAttribute BookClub bookClub,HttpServletRequest request) {
+		String forwardPath="";
+		try {
+			String sUserId=(String)request.getSession().getAttribute("sUserId");
+			request.setAttribute("sUserId", sUserId);
+			forwardPath="bookclub_write_form";
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return forwardPath;
+	}
+	
+	
+	
+	
+	
+	
 }

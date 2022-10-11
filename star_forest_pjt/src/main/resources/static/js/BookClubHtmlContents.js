@@ -29,10 +29,12 @@ BookClubHtmlContents.club_item_html = function(club) {
 								<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed;padding:0px;text-align:center;padding-left: 0px">
 								
 								
-								
+
+									
 									<button id="btn_detail" class="w-btn w-btn-detail" club_no="${club.club_no}" type="button">자세히</button><br>
 									<button id="btn_join" class="w-btn w-btn-join" club_no="${club.club_no}" type="button">신&nbsp;&nbsp;&nbsp;청</button>
 							
+						
 	
 	
 							</tr>
@@ -62,7 +64,7 @@ BookClubHtmlContents.club_join_html = function(bookClubArray) {
 									${bookClubArray.map(BookClubHtmlContents.club_item_html).join('')
 		}
 								</div>
-							<button id="btn_write_form" class="w-btn w-btn-detail" type="button" onclick="location.href='bookclub_write_form'">작&nbsp;&nbsp;&nbsp;성</button><br>
+							
 									
 									
 							`;
@@ -195,5 +197,147 @@ BookClubHtmlContents.club_user_list_html=function(bookClubArray){
                     ${bookClubArray.map(BookClubHtmlContents.club_user_item_html).join('')}
                     </tbody>    
                 </table>
+	`;
+}
+
+BookClubHtmlContents.club_write_form_html=function(){
+	return `<img src="./img/detail.png" width=25 height=25>&nbsp&nbsp도서동아리
+								> 작성
+								<form id="club_write_form" name="f" method="post">
+									<table class="table" style="width: 855px">
+										<br>
+										<tbody>
+											
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 50px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">이름
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<input type="text" name="club_name">
+												</td>
+
+
+
+											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 50px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">대상
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<input type="text" name="club_person">
+												</td>
+
+
+
+											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 50px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">모집인원
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<input type="text" name="club_count">
+												</td>
+
+
+
+											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 50px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">장소
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<input type="text" name="club_place">
+												</td>
+
+
+
+											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 50px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">시간
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<input type="text" name="club_time">
+												</td>
+
+
+
+											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 130px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">내용
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<textarea wrap="soft" style="width: 500px" rows="10"
+														name="club_content">
+															
+															</textarea>
+												</td>
+											</tr>
+											<tr id="rental_item_"
+												style="border: 1px solid #dee2e6; height: 130px;">
+
+
+												<td colspan="1"
+													style="padding: 0px; text-align: center; padding-left: 20px; background-color: #eff3f7; font-weight: bold">카테고리
+												</td>
+												<td colspan="2"
+													style="padding: 0px; text-align: middle; padding-left: 20px">
+													<select name="category_no" id="category">
+															<option value="100">건강/취미/레저</option>
+															<option value="200">경제경영</option>
+															<option value="300">고전</option>
+															<option value="400">과학</option>
+															<option value="500">만화</option>
+															<option value="600">사회과학</option>
+															<option value="700">소설/시/희곡</option>
+													</select>
+												</td>
+											</tr>
+
+											<tr style="height: 130px;">
+
+												<td colspan="5">
+													<button id="btn_write_action" class="w-btn w-btn-detail"
+														type="button">작성</button>
+
+
+													<button id="btn_list" class="w-btn w-btn-detail"
+														type="button">목록</button>
+													<br>
+												</td>
+
+
+
+
+											</tr>
+
+										</tbody>
+									</table>
+								</form>
 	`;
 }

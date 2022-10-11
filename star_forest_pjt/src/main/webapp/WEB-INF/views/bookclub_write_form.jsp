@@ -283,12 +283,16 @@
 												</td>
 												<td colspan="2"
 													style="padding: 0px; text-align: middle; padding-left: 20px">
-													<select>
-														<c:forEach items="${categoryList}" var="category">
-															<option value="category_name">${category.category_name}</option>
-														</c:forEach>
-														<option>기타</option>
-												</select>
+													<select name="category_name">
+															<option value="건강/취미/레저">건강/취미/레저</option>
+															<option value="경제경영">경제경영</option>
+															<option value="고전">고전</option>
+															<option value="과학">과학</option>
+															<option value="만화">만화</option>
+															<option value="사회과학">사회과학</option>
+															<option value="소설/시/희곡">소설/시/희곡</option>
+															<option value="기타">기타</option>	
+													</select>
 												</td>
 											</tr>
 

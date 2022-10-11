@@ -5,8 +5,10 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.itwill.domain.User;
@@ -22,11 +24,18 @@ public class UserInfoController {
 		return "user";
 	}
 	
-	public String user_update(HttpServletRequest request,String user_password) {
+	@RequestMapping("/user_modify")
+	public String user_modify(@ModelAttribute User user,HttpServletRequest request,String user_password,Model model) {
 		String forwardPath="";
 		try {
 			String sUserId=(String)request.getSession().getAttribute("sUserId");
-			int count=userService.PWcheck(sUserId, user_password);
+			int result=userService.PWcheck(sUserId, user_password);
+			if(result==1) {
+				userService.update(user);
+				forwardPath= "MyPage_Info";
+			}else {
+				model.addAttribute("msg","비밀번호가 틀렸습니다.");
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

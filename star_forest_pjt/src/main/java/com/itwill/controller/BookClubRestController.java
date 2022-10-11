@@ -25,8 +25,8 @@ public class BookClubRestController {
 	private BookClubService bookClubService;
 
 	// 동아리 생성
-	@LoginCheck
-	@PostMapping("/club_create")
+	//@LoginCheck
+	@GetMapping("/club_create")
 	public Map club_create(@ModelAttribute BookClub bookClub, HttpServletRequest request) {
 		Map resultMap = new HashMap();
 		int code = 2;
@@ -42,6 +42,7 @@ public class BookClubRestController {
 					code = 1;
 					url = "club_list";
 					msg = "동아리가 개설되었습니다.";
+					resultList.add(bookClub);
 				} else {
 					code = 2;
 					url = "main";

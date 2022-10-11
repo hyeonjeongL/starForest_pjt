@@ -156,7 +156,6 @@
 				success:function(jsonResult){
 					if(jsonResult.code==-2){
 						alert(jsonResult.msg);
-						location.href="user";
 					}else if(jsonResult.code==-1){
 						alert(jsonResult.msg);
 					}else if(jsonResult.code==1){
@@ -164,6 +163,7 @@
 						location.reload(); //인원수 카운트 후 새로고침
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href="user";
 					}
 				}
 			});
@@ -171,7 +171,11 @@
 			
 		});
 		
-		
+		/***********club_write_form***********/
+	    $(document).on('click','#btn_write_form',function(e){
+			$('#content').html(BookClubHtmlContents.club_write_form_html());
+			e.preventDefault();
+	 	});
 	
 		/************club_write_action**************/
 		$(document).on('click','#btn_write_action',function(e){
@@ -185,6 +189,7 @@
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						$("#btn_list").trigger('click');
+						alert(jsonResult.msg);
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 					}
@@ -247,11 +252,13 @@
 						</div>
 						<div class="row" id="item">
 						<br>
-						
+						<c:if test="${sUserId eq 'admin'}">
+							<button id="btn_write_form" class="w-btn w-btn-detail">작&nbsp;&nbsp;&nbsp;성</button><br>
+						</c:if>
 						
 							<!-- 동아리신청,상세 -->
 							<div class="rentalTable" id="content">
-						
+							
 								<!-- 동아리신청,상세 -->
 
 							</div>

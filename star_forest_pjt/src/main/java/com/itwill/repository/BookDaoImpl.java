@@ -100,5 +100,11 @@ public class BookDaoImpl implements BookDao {
 		return bookMapper.selectNew();
 	}
 
+	@Override
+	public List<Book> userBook(String usre_id) throws Exception {
+		return bookMapper.userBook(usre_id);
+	}
+
+
 
 }

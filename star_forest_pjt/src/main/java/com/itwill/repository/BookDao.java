@@ -58,4 +58,6 @@ public interface BookDao {
 	int bookCount() throws Exception;
 	
 	int bookCategoryCount() throws Exception;
+	
+	List<Book> userBook(String usre_id) throws Exception;
 }

@@ -98,4 +98,7 @@ public interface BookMapper {
 	@Select("select count(*) from book where category_no=#{category_no}")
 	public int bookCategoryCount();
 	
+	@Select("select * from book b left join book_category c on c.category_no=b.category_no "
+			+ "left join user_info u on u.category_no=b.category_no where user_id=#{user_id}")
+	public List<Book> userBook(String user_id);
 }

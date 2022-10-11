@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.Book;
+import com.itwill.domain.Notice;
 import com.itwill.service.BookService;
+import com.itwill.service.NoticeService;
 import com.itwill.service.RentalService;
 
 
@@ -22,6 +24,8 @@ public class BookController {
 	BookService bookService;
 	@Autowired
 	RentalService rentalService;
+	@Autowired
+	NoticeService noticeService;
 	
 	//소장정보구현
 	@LoginCheck
@@ -80,12 +84,16 @@ public class BookController {
 	}
 	
 	@RequestMapping("/Home")
-	public String Home(Model model) {
+	public String Home(Model model,String user_id) throws Exception{
 		try {
 			List<Book> favorite = bookService.selectFavorite();
 			List<Book> newBook = bookService.selectNew();
+			//List<Book> userBook = bookService.userBook(user_id);
+			List<Notice> notice = noticeService.selectAll();
 			model.addAttribute("favorite",favorite);
 			model.addAttribute("newBook",newBook);
+			//model.addAttribute("userBook",userBook);
+			model.addAttribute("notice",notice);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

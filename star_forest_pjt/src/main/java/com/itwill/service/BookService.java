@@ -59,4 +59,6 @@ public interface BookService {
 	int bookCount() throws Exception;
 	
 	int bookCategoryCount() throws Exception;
+	
+	List<Book> userBook(String user_id) throws Exception;
 }

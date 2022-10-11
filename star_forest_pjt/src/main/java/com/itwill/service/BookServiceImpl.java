@@ -112,4 +112,10 @@ public class BookServiceImpl implements BookService {
 		return bookDao.selectNew();
 	}
 
+
+	@Override
+	public List<Book> userBook(String user_id) throws Exception {
+		return bookDao.userBook(user_id);
+	}
+
 }

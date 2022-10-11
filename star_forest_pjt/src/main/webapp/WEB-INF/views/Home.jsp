@@ -107,6 +107,7 @@
    <!-- SHOWCASE SLIDER   -->
 	<div class="container pt-5">
 		<div class="row">
+			<c:if test="${empty user_info.user_id}">
 			<div class="col-md-6">
 				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 					<div class="hr-green mb-4">
@@ -152,7 +153,7 @@
 					</div><!--/.Slides-->
 				</div><!--/.Carousel Wrapper-->
 			</div>
-
+		</c:if>
 			<div class="col-md-6">
 				<!--Carousel Wrapper-->
 				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example2">

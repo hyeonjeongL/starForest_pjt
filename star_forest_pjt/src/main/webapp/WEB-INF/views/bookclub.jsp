@@ -21,6 +21,8 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
 	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
 	crossorigin="anonymous">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/favicon-16x16.png">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
 <link rel="stylesheet" href="./css/style.css">
@@ -103,10 +105,9 @@
 			e.preventDefault();
 		});
 		
-		/********club_category_list********
-		$(document).on('click','#btn_category',function(e){
-			var category_no=$("#btn1").val();
-			var param='category_no='+category_no;
+		/********club_category_list********/
+		$(document).on('click','#btn1',function(e){
+			var param='category_no='+$(e.target).attr('value');
 			
 			$.ajax({
 				url:'club_select_by_category',
@@ -120,7 +121,7 @@
 				}
 			});
 			e.preventDefault();
-		});*/
+		});
 		
 		/***********club_detail(+조회수증가)*************/
 		$(document).on('click','.club_item,#btn_detail',function(e){

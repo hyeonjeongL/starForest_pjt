@@ -80,6 +80,20 @@
 <script type="text/javascript">
 <!-- MODALMODAL -->
 	$(function(){
+		/***********로그인 세션확인**************/
+		$.ajax({
+			url : 'user_session_check',
+			method : 'POST',
+			dataType : 'json',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				}else{ //세션 존재하지 않을경우 메세지창보여줌
+					alert('로그인이 필요한 페이지입니다:)');
+				}
+			}
+		});
+	
 		$(document).on('show.bs.modal','#item-user-request',function(e){
 			
 			var menu=$(e.relatedTarget).attr('title');
@@ -183,18 +197,32 @@
 						$(e.target).find('#modal-body-user-request').html(html1);
 						$(document).on('click','.btn.btn-primary.submit-request', function(e){
 							$.ajax({
-							url:'rest_rental',
-							data:'book_no='+$(e.target).attr("book_no"),
-							method:'POST',
-							success: function (jsonResult) {
-								if(jsonResult.code==1){
-					            alert("대여신청이 완료되었습니다.");
-					            location.href='book_detail?book_no='+$(e.target).attr("book_no");
-								} else if(jsonResult.code==0){
-					        	alert("이미 대여한 도서입니다.");
+								url:'user_rental_count',
+								method:'POST',
+								success:function(jsonResult){
+									if(jsonResult.code==1){
+										$.ajax({
+											url:'rest_rental',
+											data:'book_no='+$(e.target).attr("book_no"),
+											method:'POST',
+											success: function (jsonResult) {
+												if(jsonResult.code==1){
+									            alert("대여신청이 완료되었습니다.");
+									            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+												} else if(jsonResult.code==0){
+									        	alert("이미 대여한 도서입니다.");
+									        	location.reload();
+												}
+									        }
+										}); 
+									}else if(jsonResult.code==-1){
+										alert("대출가능권수가 초과되었습니다.");
+										location.reload();	
+									}
 								}
-					        }
-						}) 
+							});
+							e.preventDefault();
+							
 						});
 							
 					}
@@ -287,6 +315,7 @@
 				
 			}
 		});
+		
 		
 		
 		
@@ -635,7 +664,7 @@ $(function(){
 							<div class="item-location-footer">
 								<div class="item-services text-right">
 									<span><span class="char-icon char-icon">R</span> 도서예약</span> <span><span
-										class="char-icon char-icon-magenta">B</span> 간편대출</span> <span><span
+										class="char-icon char-icon-magenta" id="user_rental_btn">B</span> 간편대출</span> <span><span
 										class="char-icon char-icon-blue">M</span> 소장정보</span>
 								</div>
 							</div>

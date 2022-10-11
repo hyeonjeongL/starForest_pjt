@@ -235,3 +235,43 @@ ${requestBoard.board_content}
 	
 	`
 }
+
+/***************user_request_list******************/
+function user_request_item_content(requestBoard) {
+	return `
+	
+	<tr>
+				<th scope="row">${requestBoard.board_title}</th>
+				<th scope="row">${requestBoard.board_date.substring(0,10)}</th>
+				<th scope="row">${requestBoard.board_content}</th>
+				<th scope="row">${requestBoard.board_status}</th>
+				<th scope="row">${requestBoard.category_name}</th>
+				
+			</tr>`;
+}
+function user_request_list_content(requestArray) {
+	return `
+			
+	<div class="mybook">
+			
+			</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="row">제목</th>
+								<th scope="row">신청날짜</th>
+								<th scope="row">내용</th>
+								<th scope="row">신청상태</th>
+								<th scope="row">카테고리</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- rentalList start -->
+								${requestArray.map(user_request_item_content).join('')
+		}
+							
+							<!-- rentalList end -->
+						</tbody>
+					</table>
+				`;
+}

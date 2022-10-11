@@ -45,7 +45,7 @@ public interface RequestBoardMapper {
 	public int addStep(RequestBoard requestBoard);
 	
 	//내가 쓴 게시물들 확인
-	@Select("select * \r\n"
+	@Select("select board_title,board_date,board_content,board_status,category_name \r\n"
 			+ "	from request_board\r\n"
 			+ "	where user_id = #{user_id}")
 	public List<RequestBoard> findUserBoard(String user_id);

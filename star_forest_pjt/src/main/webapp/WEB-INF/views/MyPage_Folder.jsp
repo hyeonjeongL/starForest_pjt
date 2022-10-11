@@ -41,6 +41,7 @@
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserBookHtmlContents.js"></script>
+<script type="text/javascript" src="./js/request_html_content.js"></script>
 <script type="text/javascript">
 
 
@@ -157,6 +158,24 @@ $(function(){
 			});
 			e.preventDefault();
 		});
+		
+		/***********user_request_list***********/
+		$(document).on('click','#side_user_request_list',function(e){
+			$.ajax({
+				url:'user_request_list',
+				method:'POST',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						var requestArray=jsonResult.data;
+						$('#clubUserList').html(user_request_list_content(requestArray));
+					}else if(jsonResult.code==0){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
 		
 		/**********패스워드체크*************/
 		$(document).on('click','#updatePW',function(e){

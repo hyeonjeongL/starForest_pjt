@@ -180,6 +180,11 @@ UserHtmlContents.user_view_content=function(loginUser){
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_address}</td>
 								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능권수</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_book_cnt_limit}</td>
+								</tr>
 								
 							</table>
 						</form> <br />

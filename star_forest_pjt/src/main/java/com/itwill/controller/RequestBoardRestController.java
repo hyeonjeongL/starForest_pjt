@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -241,6 +242,31 @@ public class RequestBoardRestController {
 			code=0;
 			msg="삭제에서 뭔가가 잘못됨";
 		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
+	@PostMapping("/user_request_list")
+	public Map user_request_list(HttpServletRequest request) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		
+		try {
+			String sUserId=(String)request.getSession().getAttribute("sUserId");
+			List<RequestBoard> userList= requestBoardService.findUserBoard(sUserId);
+			code=1;
+			msg="성공";
+			resultList.addAll(userList);
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="실패";
+		}
+		
 		resultMap.put("msg", msg);
 		resultMap.put("code", code);
 		resultMap.put("data", resultList);

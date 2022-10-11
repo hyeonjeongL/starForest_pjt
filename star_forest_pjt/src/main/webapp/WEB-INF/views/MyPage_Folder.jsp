@@ -125,7 +125,7 @@ $(function(){
 		$(document).on('click','#side_reservation',function(e){
 			$.ajax({
 				url:'reservation_list',
-				method:'GET',
+				method:'POST',
 				//data:'user_id='+$(e.target).attr("user_id"),
 				dataType:'json',
 				success:function(jsonResult){
@@ -208,7 +208,7 @@ $(function(){
 								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="/userbook_status"  id="side_userbook_status">나의도서정보</a>
+								<a href="#"  id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>

@@ -11,7 +11,7 @@ UserBookHtmlContents.user_rental_item_content = function(book) {
 				<th scope="row">${book.book_page}</th>
 				<th scope="row">${book.category_no}</th>
 				<th scope="row">${book.rental.rental_date.substring(0, 10)}</th>
-				<th scope="row">${book.rental.return_date.substring(0, 10)}</th>
+				<th scope="row">${book.rental.return_duedate.substring(0, 10)}</th>
 			</tr>`;
 }
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
@@ -56,7 +56,7 @@ function user_list_item_content(resList){
 }
 
 UserBookHtmlContents.user_reservation_list_html=function(resList){
-	return `<form name="f" method="GET">
+	return `<form name="f" method="POST">
 
 									<table border="0" cellpadding="0" cellspacing="1" width="590"
 										bgcolor="BBBBBB">

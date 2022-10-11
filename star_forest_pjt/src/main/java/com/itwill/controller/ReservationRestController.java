@@ -63,15 +63,16 @@ public class ReservationRestController {
 	}
 	
 	//회원이 예약한 예약 리스트 뽑기
-			@GetMapping("/reservation_list")
-			public Map reservation_list(String user_id, HttpSession sesstion, HttpServletRequest request) {
+			@LoginCheck
+			@PostMapping("/reservation_list")
+			public Map reservation_list(HttpServletRequest request) {
 				Map resultMap = new HashMap();
 				int code = 2;
 				String url = "";
 				String msg = "";
 				List<Map<String, Object>> reservationList = new ArrayList<Map<String,Object>>();
 				try {
-					user_id = (String) request.getSession().getAttribute("sUserId");
+					String user_id = (String) request.getSession().getAttribute("sUserId");
 					List<Map<String, Object>> resList = reservationService.selectReservationListById(user_id);
 					code=1;
 					url="";

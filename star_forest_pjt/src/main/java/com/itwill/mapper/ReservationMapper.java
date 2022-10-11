@@ -1,6 +1,7 @@
 package com.itwill.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -26,6 +27,11 @@ public interface ReservationMapper {
 	//책에 대한 예약 리스트 출력
 	@Select("select * from reservation where book_no=#{book_no}")
 	public List<Reservation> selectReservationList(int book_no);
-	
+
+	//회원에 대한 예약 리스트 출력
+		@Select("select r.*, b.book_title, b.book_author, b.isbn from reservation r "
+				+ "inner join book b on r.book_no=b.book_no where r.user_id=#{user_id}"
+				+ "order by r.res_date asc")
+		public List<Map<String, Object>> selectReservationListById(String user_id);
 
 }

@@ -50,7 +50,7 @@
 		var $user_password = $("#user_password");
 		var $user_name = $("#user_name");
 		var $pwdconfrim = $("#pwdconfrim");
-		var $memail = $("#memail");
+		var $user_email = $("#user_email");
 		var $user_birth = $("#user_birth");
 		var $user_phone = $("#user_phone");
 		
@@ -71,7 +71,7 @@
 			} else { // 공백아니면 중복체크
 				$.ajax({
 					type : "POST",
-					url : "checkid",
+					url : "/star_forest_pjt/checkid",
 					data : {
 						"type" : "user",
 						"id" : $user_id.val()
@@ -550,10 +550,10 @@ span {
 
 							<span>성별</span>
 							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="남성">
+							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="M">
 							  <label class="btn btn-outline-primary check" for="male">남성 M</label>
 							
-							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="여성">
+							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="F">
 							  <label class="btn btn-outline-primary check" for="female">여성 F</label>
 						  	</div>
 						  	
@@ -584,13 +584,13 @@ span {
 								<!-- <span for="select">관심분야 선택</span> --> 
 								<select id="form-select" name="category_no" style="width:355px; height: 50px;">
 									<option selected value="none">관심분야를 선택해주세요</option>
-									<option class="dropdown-item" value=1>100 건강/취미/레저</option>
-									<option class="dropdown-item" value=2>200 경제경영</option>
-									<option class="dropdown-item" value=3>300 고전</option>
-									<option class="dropdown-item" value=4>400 과학</option>
-									<option class="dropdown-item" value=5>500 만화</option>
-									<option class="dropdown-item" value=6>600 사회과학</option>
-									<option class="dropdown-item" value=7>700 소설/시/희곡</option>
+									<option class="dropdown-item" value=100>100 건강/취미/레저</option>
+									<option class="dropdown-item" value=200>200 경제경영</option>
+									<option class="dropdown-item" value=300>300 고전</option>
+									<option class="dropdown-item" value=400>400 과학</option>
+									<option class="dropdown-item" value=500>500 만화</option>
+									<option class="dropdown-item" value=600>600 사회과학</option>
+									<option class="dropdown-item" value=700>700 소설/시/희곡</option>
 								</select>
 							</div>
 <!-- 마케팅 동의 -->

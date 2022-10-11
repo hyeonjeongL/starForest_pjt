@@ -133,41 +133,6 @@
 								</c:forEach>
 							</div>
 						</div>
-								<!-- <div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card"><a href=book_detail?book_no=3>
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F532619%3Ftimestamp%3D20201108132924"></a>
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">아몬드(양장본 HardCover)</div>
-												<h6>손원평</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="card"><a href=book_detail?book_no=4>
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5416922%3Ftimestamp%3D20201108134648"></a>
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">달러구트 꿈 백화점</div>
-												<h6>이미예</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card"><a href=book_detail?book_no=5>
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F541125%3Ftimestamp%3D20201108132749"></a>
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">보건교사 안은영(오늘의 젊은 작가 9)(양장본 HardCover)</div>
-												<h6>정세랑</h6>
-											</div>
-										</div>
-									</div>
-								</div> -->
-								
-						<!--/.First slide-->
 						<!--Second slide-->
 						<div class="carousel-item">
 							<div class="row">
@@ -182,42 +147,6 @@
 										</div>
 									</div>
 								</c:forEach>
-								
-								
-								<!-- <div class="col-md-4">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5439518%3Ftimestamp%3D20201108133930">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">그 환자</div>
-												<h6>재스퍼 드윗</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5487218%3Ftimestamp%3D20201108133757">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">나의 하루는 4시 30분에 시작된다</div>
-												<h6>김유진</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5450043%3Ftimestamp%3D20201108133956">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">철학의 숲</div>
-												<h6>브렌던 오도너 휴</h6>
-											</div>
-										</div>
-									</div>
-								</div> -->
-								
 							</div>
 						</div><!--/.Second slide-->
 					</div><!--/.Slides-->
@@ -238,13 +167,7 @@
 						<!--First slide-->
 						<div class="carousel-item active">
 							<div class="row">
-									
-								
-						<!--/.First slide-->
-						
-						<div class="carousel-item">
-							<div class="row">
-								<c:forEach items="${newBook}" var="book" begin="0" end="2">
+								<c:forEach items="${newBook}" var="book" begin="6" end="8">
 									<div class="col-md-4 clearfix d-none d-md-block">
 										<div class="card"><a href="book_detail?book_no=${book.book_no}">
 											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
@@ -255,82 +178,27 @@
 										</div>
 									</div>
 								</c:forEach>
-						
-								<!-- <div class="col-md-4 ">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5495847%3Ftimestamp%3D20201106153628">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">얼마나 닮았는가</div>
-												<h6>김보영</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5508720%3Ftimestamp%3D20201106153718">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">먹을수록 강해지는 폭식투수. 5</div>
-												<h6>키르슈</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5508612%3Ftimestamp%3D20201103160903">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">하늘과 땅의 수호자. 2(수호자 시리즈 9)</div>
-												<p class="">우에하시 나호코</p>
-											</div>
-										</div>
-									</div>
-								</div> -->
 							</div>
-						</div>	
-								
+						</div>
 						<!--Second slide-->
 						<div class="carousel-item">
 							<div class="row">
-								<div class="col-md-4">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5508519%3Ftimestamp%3D20201106141009">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">그대의 강</div>
-												<h6>전진우</h6>
+								<c:forEach items="${newBook}" var="book" begin="9" end="11">
+									<div class="col-md-4 clearfix d-none d-md-block">
+										<div class="card"><a href="book_detail?book_no=${book.book_no}">
+											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6>${book.book_author}</h6>
 											</div>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5507591%3Ftimestamp%3D20201103160737">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">하조대 해수욕장에서 생긴 일</div>
-												<h6>꿀데이</h6>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4 clearfix d-none d-md-block">
-									<div class="card">
-										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5507544%3Ftimestamp%3D20201103160931">
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">정조의 비밀사관, 은서</div>
-												<h6>베이다</h6>
-											</div>
-										</div>
-									</div>
-								</div>
+								</c:forEach>
 							</div>
-						</div><!--/.Second slide-->
-					</div><!--/.Slides-->
+						</div>
+						<!--/.Second slide-->
+					</div>
+					<!--/.Slides-->
 				</div><!--/.Carousel Wrapper-->
 			</div>
 		</div>

@@ -22,7 +22,8 @@
 	crossorigin="anonymous">
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="static/css/style.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/yeji.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <title>나의도서 - 별숲도서관</title>
 <style>
@@ -75,21 +76,32 @@
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
-						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item"><a href="mypage" id="mypage">마이페이지</a>
+						<ul class="list-group list-group-flush mb-5"  id="menu">
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
+								<ul class='submenu'>
+									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
+									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
+								</ul>
 							</li>
-							<li class="list-group-item"><a href="userbook_status"
-								id="userbook_status">나의도서정보</a></li>
-							<li class="list-group-item"><a href="user_club_list"
-								id="user_club_list">동아리신청내역</a></li>
-							<li class="list-group-item"><a href="user_request_list"
-								id="user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item active"><a href="favorite"
-								id="favorite">내서재</a></li>
-							<li class="list-group-item"><a href="user_qr" id="user_qr">나의QR</a></li>
+							<li class="list-group-item">
+								<a href="MyPage_Folder"  id="side_userbook_status">나의도서정보</a>
+								<ul class='submenu'>
+									<li><a href="#" id="side_userbook_status">대출현황</a></li>
+									<li><a href="#" id="side_reservation">예약현황</a></li>
+								</ul>
+							</li>
+								
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_user_qr">나의QR</a></li>
 
-						</ul>
-
+					</ul>
 					</div>
 				</div>
 
@@ -109,6 +121,31 @@
 						</div>
 						<div class="rentalTable">
 						<!-- 대여리스트 -->
+						<form name="f" method="post">
+
+									<table border="0" cellpadding="0" cellspacing="1" width="590"
+										bgcolor="BBBBBB">
+										<tr>
+											<td width=50 align=center bgcolor="E6ECDE" height="22">번호</td>
+											<td width=300 align=center bgcolor="E6ECDE">책제목</td>
+											<td width=120 align=center bgcolor="E6ECDE">저자</td>
+											<td width=120 align=center bgcolor="E6ECDE">ISBN</td>
+											<td width=120 align=center bgcolor="E6ECDE">예약일시</td>
+										</tr>
+										<c:forEach items="${resList}" var="res" varStatus="status">
+											<tr>
+												<td width=50 align=center bgcolor="ffffff" height="20">${status.count}</td>
+												<td width=300 align=center bgcolor="ffffff" height="20">${res.BOOK_TITLE}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.BOOK_AUTHOR}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.ISBN}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.RES_DATE}</td>
+											</tr>
+										</c:forEach>
+
+
+
+									</table>
+								</form>
 						</div>
 					</div>
 				</div>

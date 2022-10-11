@@ -57,24 +57,24 @@ public class UserInfoRestController2 {
 		// 아이디 중복 검사
 		@PostMapping(value ="/checkid")
 		@ResponseBody
-		public int checkid(@RequestParam("user_id") String user_id) {
+		public int checkid(@RequestParam("user_id") String user_id,@RequestParam("type")String type) {
 
 //			System.out.println("ajax 완료 : "+id);
 //			String check = service.checkID(id);
 //			System.out.println("중복검사 : "+a);
 
-			if (user_id.equals(userService3.checkID(user_id))) {
+			if (user_id.equals(userService3.checkID(user_id,type))) {
 				return 1;
 			}
 			return 0;
 		}
-
+/*
 		// 일반회원 계정 찾기 페이지 이동
 		@GetMapping(value ="/findAcntU")
 		String findAcntU() {
 			return "insertCustomer2/findAcntU";
 		}
-
+*/
 		// 일반 회원 아이디 찾기
 		@PostMapping(value ="/findUId")
 		@ResponseBody
@@ -99,7 +99,7 @@ public class UserInfoRestController2 {
 	
 	
 	
-	
+	/*
 
 	//아이디 중복체크
 	@PostMapping(value = "/user_id_check_post",produces = "text/plain;charset=UTF-8")
@@ -147,11 +147,11 @@ public class UserInfoRestController2 {
 		String msg = "";
 		List<User> resultList = new ArrayList<User>();
 
-		/*
+		*
 		 * 회원가입
 		 * 
 		 * -1:아이디중복 1:회원가입성공
-		 */
+		 *
 		try {
 			int result = userService2.insertUser(user);
 			if (result == -1) {
@@ -178,5 +178,5 @@ public class UserInfoRestController2 {
 		return resultMap;
 	}
 	
-
+*/
 }

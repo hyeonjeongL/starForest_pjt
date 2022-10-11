@@ -22,7 +22,7 @@ public interface BookClubMapper {
 	@Select("select * from book_club")
 	public List<BookClub> selectAll();
 	
-	@Select("select club_no,club_name,club_count,club_person,club_time,club_place,club_content from book_club"
+	@Select("select club_no,club_name,club_count,club_person,club_time,club_place,club_content,category_no from book_club"
 			+ "			where category_no=#{category_no}")
 	public List<BookClub> selectBycategory(int category_no);
 	

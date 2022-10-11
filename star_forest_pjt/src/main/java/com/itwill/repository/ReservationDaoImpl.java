@@ -1,6 +1,7 @@
 package com.itwill.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ public class ReservationDaoImpl implements ReservationDao {
 	@Override
 	public List<Reservation> selectReservationList(int book_no) {
 		return reservationMapper.selectReservationList(book_no);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectReservationListById(String user_id) {
+		return reservationMapper.selectReservationListById(user_id);
 	}
 
 }

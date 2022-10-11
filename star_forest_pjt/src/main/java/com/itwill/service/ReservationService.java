@@ -1,6 +1,7 @@
 package com.itwill.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.itwill.domain.Reservation;
 
@@ -15,4 +16,6 @@ public interface ReservationService {
 	//책에 대한 예약 리스트 출력
 	List<Reservation> selectReservationList(int book_no); 
 
+	//회원에 대한 예약 리스트 출력
+	List<Map<String, Object>> selectReservationListById(String user_id);
 }

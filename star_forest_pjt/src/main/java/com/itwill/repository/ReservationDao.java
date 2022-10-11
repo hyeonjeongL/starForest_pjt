@@ -1,6 +1,7 @@
 package com.itwill.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -15,5 +16,7 @@ public interface ReservationDao {
 	int deleteReservation(String user_id, int book_no);
 	
 	List<Reservation> selectReservationList(int book_no); 
+
+	List<Map<String, Object>> selectReservationListById(String user_id); 
 
 }

@@ -19,8 +19,15 @@ public class RequestBoardController {
 	@Autowired
 	private RequestBoardService requestBoardService;
 	@RequestMapping("/requestBoard")
-	public String requestBoard_main() {
-		return "forward:/WEB-INF/views/requestBoard.jsp";
+	public String requestBoard_main(HttpSession session) {
+			String sUserId =(String)session.getAttribute("sUserId");
+			String admin="admin";
+		if(sUserId.equals(admin)) {
+			return "forward:/WEB-INF/views/requestBoard_admin.jsp";
+		}else {
+			return "forward:/WEB-INF/views/requestBoard.jsp";
+		}
+		
 	}
 
 	@RequestMapping("/requestBoard_write_form")

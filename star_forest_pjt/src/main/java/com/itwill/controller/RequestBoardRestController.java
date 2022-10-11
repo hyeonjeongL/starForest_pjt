@@ -137,6 +137,60 @@ public class RequestBoardRestController {
 		return resultMap;
 	}
 	
+	/*
+	 * admin계정 답글쓰기
+	 */
+	@PostMapping(value="/request_reply_form",produces = "application/json;charset=UTF-8")
+	public Map request_reply_form(@RequestParam int board_no,HttpSession session) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		
+		try {
+			String sUserId = (String)session.getAttribute("sUserId");
+			RequestBoard requestBoard = requestBoardService.selectOne(board_no);
+			resultList.add(requestBoard);
+		}catch (Exception e) {
+			e.printStackTrace();
+			msg="답글쓰기수정폼에러";
+		}
+		
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
+		
+		return resultMap;
+	}
+	
+	@PostMapping(value="/request_reply_action", produces = "application/json;charset=UTF-8")
+	public Map request_reply_action(@ModelAttribute RequestBoard requestBoard) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		
+		try {
+			int rowCount = requestBoardService.createReply(requestBoard);
+			if(rowCount==1) {
+				code=1;
+				msg="답글이 완료되었습니다.";
+			}else {
+				code=2;
+				msg="답글에서 에러남";
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="답글에서 뭔가가 잘못됨";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
 	@PostMapping(value="/request_modify_action", produces = "application/json;charset=UTF-8")
 	public Map request_modify_action(@ModelAttribute RequestBoard requestBoard) {
 		Map resultMap = new HashMap();

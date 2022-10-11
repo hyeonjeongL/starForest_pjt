@@ -27,6 +27,8 @@ public interface RequestBoardService {
 			//게시물 수정
 			int update(RequestBoard requestBoard) throws Exception;
 			
+			int addStep(RequestBoard requestBoard) throws Exception;
+			
 			//조회수 증가
 			int addReadCount(int board_no) throws Exception;
 			

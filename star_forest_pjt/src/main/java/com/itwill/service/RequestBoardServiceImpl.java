@@ -58,7 +58,10 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	public int update(RequestBoard requestBoard) throws Exception {
 		return requestBoardDao.update(requestBoard);
 	}
-
+	
+	public int addStep(RequestBoard requestBoard) throws Exception{
+		return requestBoardDao.addStep(requestBoard);
+	}
 	@Override
 	public int addReadCount(int board_no) throws Exception {
 		return requestBoardDao.addReadCount(board_no);

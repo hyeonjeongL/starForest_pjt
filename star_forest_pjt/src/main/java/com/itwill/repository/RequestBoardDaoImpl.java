@@ -28,7 +28,8 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 
 	@Override
 	public int createReply(RequestBoard requestBoard) throws Exception {
-		return requestBoardMapper.createReply(requestBoard);
+		RequestBoard temp = requestBoardMapper.selectOne(requestBoard.getBoard_no());
+		return requestBoardMapper.createReply(temp);
 	}
 
 	@Override
@@ -61,12 +62,16 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	public int update(RequestBoard requestBoard) throws Exception {
 		return requestBoardMapper.update(requestBoard);
 	}
-
+	
+	@Override
+	public int addStep(RequestBoard requestBoard) throws Exception{
+		return requestBoardMapper.update(requestBoard);
+	}
 	@Override
 	public int addReadCount(int board_no) throws Exception {
 		return requestBoardMapper.addReadCount(board_no);
 	}
-
+	
 	@Override
 	public List<RequestBoard> selectAll() throws Exception {
 		return requestBoardMapper.selectAll();

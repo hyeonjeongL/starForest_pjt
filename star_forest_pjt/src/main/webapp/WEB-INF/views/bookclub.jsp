@@ -179,6 +179,37 @@
 	
 		/************club_write_action**************/
 		$(document).on('click','#btn_write_action',function(e){
+		if (document.f.club_name.value == "") {
+				alert("이름을 입력하십시요.");
+			    $("club_name").focus();
+				return false;
+			}
+			if (document.f.club_person.value == "") {
+				alert("모집대상을 입력하십시요.");
+			    $("club_person").focus();
+				return false;
+			}
+			if (document.f.club_count.value == "") {
+				alert("모집인원을 입력하십시요.");
+			    $("club_count").focus();
+				return false;
+			}
+
+			if (document.f.club_place.value == "") {
+				alert("장소를 입력하십시요.");
+			    $("club_place").focus();
+				return false;
+			}
+			if (document.f.club_time.value == "") {
+				alert("시간을 입력하십시요.");
+			    $("club_time").focus();
+				return false;
+			}
+			if (document.f.club_content.value == "") {
+				alert("내용을 입력하십시요.");
+			    $("club_content").focus();
+				return false;
+			}
 			var param=$('#club_write_form').serialize();
 			console.log(param);
 			$.ajax({
@@ -196,7 +227,6 @@
 				}
 				
 			});
-		e.preventDefault();
 		});
 		
 	});
@@ -252,10 +282,6 @@
 						</div>
 						<div class="row" id="item">
 						<br>
-						<c:if test="${sUserId eq 'admin'}">
-							<button id="btn_write_form" class="w-btn w-btn-detail">작&nbsp;&nbsp;&nbsp;성</button><br>
-						</c:if>
-						
 							<!-- 동아리신청,상세 -->
 							<div class="rentalTable" id="content">
 							

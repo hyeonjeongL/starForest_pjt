@@ -14,7 +14,7 @@ public interface BookClubMapper {
   
 	@Insert("insert into book_club values(SEQ_book_club_club_no.nextval,#{club_name},#{club_count},"
 			+ "							 #{club_person},#{club_time},#{club_place},#{club_content},"
-			+ "							 0,#{category.category_name},#{user_id})")
+			+ "							 0,#{category_no},#{user_id})")
 	public int create(BookClub bookClub);
 	
 	

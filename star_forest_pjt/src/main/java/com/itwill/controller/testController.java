@@ -167,11 +167,11 @@ public class testController {
 		System.out.println("test");
 		return "siteMap";
 	}
-	@RequestMapping("/bookclub")
-	public String test37() {
-		System.out.println("test");
-		return "bookclub";
-	}
+//	@RequestMapping("/bookclub")
+//	public String test37() {
+//		System.out.println("test");
+//		return "bookclub";
+//	}
 	@RequestMapping("/book_search_form")
 	public String test38() {
 		System.out.println("test");

@@ -64,7 +64,7 @@ $(function(){
 		$(document).on('click','#side_user_club,#user_club_list',function(e){
 			$.ajax({
 				url:'club_user_list',
-				method:'GET',
+				method:'POST',
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
 					$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));

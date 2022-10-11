@@ -50,7 +50,7 @@
 		var $user_password = $("#user_password");
 		var $user_name = $("#user_name");
 		var $pwdconfrim = $("#pwdconfrim");
-		var $memail = $("#memail");
+		var $user_email = $("#user_email");
 		var $user_birth = $("#user_birth");
 		var $user_phone = $("#user_phone");
 		
@@ -71,7 +71,7 @@
 			} else { // 공백아니면 중복체크
 				$.ajax({
 					type : "POST",
-					url : "checkid",
+					url : "/star_forest_pjt/checkid",
 					data : {
 						"type" : "user",
 						"id" : $user_id.val()

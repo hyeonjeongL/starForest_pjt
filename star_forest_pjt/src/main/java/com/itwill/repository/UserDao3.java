@@ -47,11 +47,12 @@ public interface UserDao3 {
 		
 		// 일반 유저 아이디 중복 검사
 		@Select("select user_id from user_info where user_id=#{user_id}")
-		boolean checkIdUser(@Param("user_id")String user_id);
+		String checkIdUser(@Param("user_id")String user_id);
 		
+		/*
 		@Select("select user_email from user_info where user_email=#{user_email}")
 		String checkIdCom(@Param("user_email")String user_email);
-		
+		*/
 		
 		
 		// 일반 회원 아이디 찾기

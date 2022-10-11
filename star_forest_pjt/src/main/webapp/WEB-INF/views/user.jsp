@@ -87,6 +87,75 @@
 	
 	/*************user_write_form***************/
 		
+	/*************아이디 비번찾기***************/
+	$(function(){
+		var $UnameID = $("#UnameID");
+		var $UphoneID = $("#UphoneID");
+		var $idText = $("#idText");
+		
+		var $UidPwd = $("#UidPwd");
+		var $UemailPwd = $("#UemailPwd");
+		
+		// JS 모달
+		var $findOk = new bootstrap.Modal(document.getElementById('findOk'));
+		var $findNone = new bootstrap.Modal(document.getElementById('findNone'));
+		
+		
+		
+		$("#findId").click(function(){
+			
+			$.ajax({
+				type : "POST",
+				url : "/star_forest_pjt/findUId",
+				data : {
+					"user_name" : $UnameID.val(),
+					"user_phone" : $UphoneID.val()
+				},
+				success : function(data){
+					if(data == ""){
+						//console.log("없음!")
+						$findNone.show();
+					}else{
+						//console.log("data :"+data)
+						$idText.text("회원님의 아이디 : "+data)
+						$idText.css({
+							"color" : "#0D6EFD",
+							"font-weight" : "bold",
+							"font-size" : "10px"
+						})
+						$findOk.show();	
+					}
+				}
+			})
+		})
+		
+		$("#findPwd").click(function(){
+			
+			$.ajax({
+				type : "POST",
+				url : "/star_forest_pjt/findUPwd",
+				data : {
+					"user_id" : $UidPwd.val(),
+					"user_email" : $UemailPwd.val(),
+				},
+				success : function(data){
+					if(data == ""){
+						//console.log("없음!")
+						$findNone.show();
+					}else{
+						//console.log("data :"+data)
+						$idText.text("회원님의 아이디 : "+data)
+						$idText.css({
+							"color" : "#0D6EFD",
+							"font-weight" : "bold",
+							"font-size" : "10px"
+						})
+						$findOk.show();	
+					}
+				}
+			})
+		})
+	})
 	
 	
 </script>
@@ -166,19 +235,16 @@
 							<!-- 폼시작 -->
 							<!-- <form action="findEmail.do" method="post"> -->
 							<div class="form-group">
-								<label for="username">이름</label> <input type="text"
-									id="findEmail_name" name="name" placeholder="이름을 입력하세요"
-									class="form-control" required>
+								<label for="UnameID">이름</label> 
+								<input type="text"	id="UnameID" name="UnameID" placeholder="이름 입력" class="form-control" required>
 							</div>
 							<div class="form-group">
-								<label for="password">가입 휴대전화번호</label> <input type="tel"
-									id="findEmail_cell" name="m_phone"
-									placeholder="예시) 010-1234-5678" class="form-control" required>
+								<label for="UphoneID">전화번호</label> 
+								<input type="tel" id="UphoneID" name="UphoneID" placeholder="예시) 01012345678" class="form-control" required>
 							</div>
 						</div>
 						<div class="modal-footer">
-							<button class="btn btn-outline-info btn-Customer"
-								id="findMyEmail" type="button">내 아이디 찾기</button>
+							<button class="btn btn-outline-info btn-Customer" id="findId" type="button">내 아이디 찾기</button>
 							<!-- </form> -->
 							<!--폼 종료 -->
 						</div>
@@ -196,24 +262,79 @@
 						</div>
 						<div class="modal-body">
 							<div class="form-group">
-								<label for="username">아이디 </label> <input type="text"
-									id="findPw_name" placeholder="이름을 입력하세요" class="form-control">
+								<label for="UidPwd">아이디 </label> 
+								<input type="text" name="UidPwd" id="UidPwd" placeholder="아이디 입력" class="form-control">
 							</div>
 							<div class="form-group">
-								<label for="password">가입 이메일</label> <input type="email"
-									id="findPw_email" placeholder="예시)hello@delibrary.com"
+								<label for="UemailPwd">이메일</label> 
+								<input type="email" name="UemailPwd" id="UemailPwd" placeholder="예시)hello@delibrary.com"
 									class="form-control">
 							</div>
 
 						</div>
 						<div class="modal-footer">
-							<button type="submit" id="findPw_btn"
+							<button type="submit" id="findPwd"
 								class="btn btn-outline-info btn-Customer" data-dismiss="modal">비밀번호
 								찾기</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			
+			<div class="modal fade" id="findOk" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">계정 정보 확인</h4>
+      
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+		  <div class="container-fluid">
+		    <div class="row">
+		      <div class="col-sm-9">
+		        <div class="row">
+		          <p id="idText"></p>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+      <div class="modal-footer">
+        <a href="/star_forest_pjt/user"><button type="button" class="btn btn-default">로그인 화면으로 돌아가기</button></a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="findNone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+              <h4 class="modal-title" id="myModalLabel">계정 정보 확인</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+		  <div class="container-fluid">
+		    <div class="row">
+		      <div class="col-sm-9">
+		        <div class="row">
+		          <p id="idText">계정 정보를 확인 할 수 없습니다</p>
+		          <p id="idText">정확한 정보를 확인 후 다시 입력해주세요</p>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+      <div class="modal-footer">
+        <a href="/star_forest_pjt/user"><button type="button" class="btn btn-default">로그인 화면으로 돌아가기</button></a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+			
 		</section>
 	</div>
 

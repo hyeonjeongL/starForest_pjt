@@ -24,13 +24,13 @@ public class UserService3 {
 		}
 		
 		// 아이디 중복 검사
-		public boolean checkID(String user_id) { 
-			boolean isExist = dao3.checkIdUser(user_id);
-			if (isExist) {
-				return true;
-			} else {
-				return false;
-			}
+		public String checkID(String user_id,String type) { 
+				   if(type.equals("user")) {
+				      return dao3.checkIdUser(user_id);
+				   }
+				   
+				   return null;
+				
 		}
 		
 		// 일반 유저 추가

@@ -18,12 +18,13 @@ import com.itwill.service.SearchService;
 //검색기능
 @Controller
 public class SearchController {
-	@Autowired
-	private SearchService searchService;
 	
-	public SearchController(){
-		
+	@RequestMapping(value="/SearchList",method=RequestMethod.GET)
+	public String SearchList() {
+		return "SearchList";
 	}
+	
+
 	/*
 //	@RequestMapping(value = {"/book_search_form"})
 //	public String main() {

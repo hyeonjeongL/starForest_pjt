@@ -1,6 +1,5 @@
 <%@page import="com.itwill.service.SearchServiceImpl"%>
 <%@page import="com.itwill.domain.Search"%>
-<%@page import="com.itwill.util.PageMakerDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%

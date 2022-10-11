@@ -218,39 +218,51 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
 				
-				<section id="content">
-				<ul>
-				   <c:forEach items="${list}" var="list">
-				   <li>
-				    <div class="book_image_src">
-				     <img src="${list.book_image_src}">
-				    </div>   
-				    <div class="book_title">
-				     <a href="/SearchList/view?n=${list.book_no}">${list.book_title}</a>
-				    </div>
-				   </li>
-				   </c:forEach>
-				</ul>
-					</section>
+    <table border="1">
+        <tr>
+            <th>도서 번호</th>
+            <th>도서 이미지</th>
+            <th>도서명</th>
+            <th>저자</th>
+        </tr>
+        <c:forEach var="row" items="">
+        <tr>
+            <td>
+                ${row.book_no}
+            </td>
+            <td>
+                <a href="${path}/star_forest_pjt/SearchResult2/detail/${row.book_no}">
+                    <img class="multi-cover" style="display: none;"
+										src="${row.book_image_src }" alt="${row.book_image }" />
+                </a>
+            </td>
+            <td>
+                <a href="${path}/star_forest_pjt/SearchResult2/detail/${row.book_no}">${row.book_title}</a>
+            </td>
+            <td>
+                <a>${row.book_author}</a>
+            </td>
+        </tr>
+        </c:forEach>
+    </table>
 					
 				</div>
 				<br><br><br>
 				<!-- CARD COLUMNS -->
-				<div class="searchResult-body">
+				
+			<div class="searchResult-body">
 					
 				</div>
 				<div class="paging">
 					
 				</div>
-				
-				
-				
 			</div>
 		  </div>
 		</div>
 	</section>
 	</div>
 	
+	<div style="clear: both"></div>
 	<div style="clear: both"></div>
 <!-- 페이징처리 -->
                  <div class="container mt-5">
@@ -305,13 +317,13 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
   </script>
   
   <script type="text/javascript">
-      window.onload = function() {
-         //푸터 명언
-         const footer_display = document.getElementById('footer-display');
-         const quotes = ['좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴', '내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스', '목적이 없는 독서는 산보일 뿐이다. — B. 리튼', '사람은 책을 만들고, 책은 사람을 만든다. — 신용호','기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨','책은 한 권 한 권이 하나의 세계다. — W. 워즈워스', '책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절'];
-         const getQuote = Math.floor(Math.random() * quotes.length);
-         footer_display.textContent = quotes[getQuote];
-      }   
+  window.onload = function() {
+      //푸터 명언
+      const footer_display = document.getElementById('footer-display');
+      const quotes = ['좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴', '내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스', '목적이 없는 독서는 산보일 뿐이다. — B. 리튼', '사람은 책을 만들고, 책은 사람을 만든다. — 신용호','기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨','책은 한 권 한 권이 하나의 세계다. — W. 워즈워스', '책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절'];
+      const getQuote = Math.floor(Math.random() * quotes.length);
+      footer_display.textContent = quotes[getQuote];
+   }   
 
       <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
 	

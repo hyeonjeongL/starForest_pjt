@@ -3,20 +3,24 @@ package com.itwill.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.itwill.domain.Search;
 import com.itwill.repository.SearchDao;
-import com.itwill.util.PageMaker2;
-import com.itwill.util.PageMakerDto;
 
 //검색기능
-public class SearchServiceImpl implements SearchService{
+@Service
+public class SearchServiceImpl  implements SearchService{
 	@Autowired
 	private SearchDao searchDao;
 	
 	public SearchServiceImpl() {
 	}
-
+	@Override
+	public List<Search> listBook() {
+		return searchDao.listBook();
+	}
+/*
 	//제목 검색
 	@Override
 	public List<Search> titleList(String keyword) throws Exception {
@@ -65,7 +69,8 @@ public class SearchServiceImpl implements SearchService{
 		return searchDao.searchList(keyword);
 	}
 	
-	
+	*/
+
 
 	
 }

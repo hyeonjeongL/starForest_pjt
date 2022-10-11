@@ -1,12 +1,22 @@
 package com.itwill.service;
 
 import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.itwill.domain.Search;
-import com.itwill.util.PageMakerDto;
+import com.itwill.repository.SearchDao;
+import com.itwill.util.PageUtil;
 
 //검색기능
 public interface SearchService {
+	
+	// 01. 상품목록
+		public List<Search> listBook();
+	
+	/*
 	// 제목 검색
 		List<Search> titleList(String keyword) throws Exception;
 		
@@ -52,4 +62,6 @@ public interface SearchService {
 		
 		//통합 검색(제목, 저자, 분야, 출판사) 페이지
 		//List<Search> selectByAll(String keyword, int start, int last) throws Exception;
+		 *
+		 */
 }

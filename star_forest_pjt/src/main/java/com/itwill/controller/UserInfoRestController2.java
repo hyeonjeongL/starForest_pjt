@@ -3,9 +3,12 @@ package com.itwill.controller;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +35,8 @@ public class UserInfoRestController2 {
 	private UserService3 userService3;
 	private UserService2 userService2;
 	
+	
+		
 	//일반회원 회원가입 완료
 	
 			@PostMapping(value ="/registerOkUser")
@@ -50,7 +56,7 @@ public class UserInfoRestController2 {
 
 //					System.out.println("result : " + result);
 
-				return "redirect:/user";
+				return "Home";
 		}
 		
 

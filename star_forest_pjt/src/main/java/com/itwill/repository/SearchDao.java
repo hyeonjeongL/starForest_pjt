@@ -2,13 +2,19 @@ package com.itwill.repository;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
 import com.itwill.domain.Search;
+import com.itwill.util.PageUtil;
 
 
 //검색기능
 public interface SearchDao {
 	
-
+	// 01. 상품목록
+		public List<Search> listBook();
+/*
 	// 제목 검색
 	List<Search> titleList(String keyword) throws Exception;
 	
@@ -39,7 +45,7 @@ public interface SearchDao {
 	
 	//출판사 검색 페이지
 	//List<Search> selectByPublisher(String keyword, int start, int last) throws Exception;
-	
+	*
 	
 	
 	//도서 전체 조회 
@@ -55,7 +61,8 @@ public interface SearchDao {
 	//통합 검색(제목, 저자, 분야, 출판사) 페이지
 	//List<Search> selectByAll(String keyword, int start, int last) throws Exception;
 	
-	/*
+	
+	*
 	// 도서 수량 조회
 	int getTotBookCount() throws Exception;
 

@@ -89,6 +89,7 @@
 		
 	/*************아이디 비번찾기***************/
 	$(function(){
+		
 		var $UnameID = $("#UnameID");
 		var $UphoneID = $("#UphoneID");
 		var $idText = $("#idText");
@@ -144,7 +145,7 @@
 						$findNone.show();
 					}else{
 						//console.log("data :"+data)
-						$idText.text("회원님의 아이디 : "+data)
+						$idText.text("회원님의 비밀번호 : "+data)
 						$idText.css({
 							"color" : "#0D6EFD",
 							"font-weight" : "bold",
@@ -156,7 +157,6 @@
 			})
 		})
 	})
-	
 	
 </script>
 

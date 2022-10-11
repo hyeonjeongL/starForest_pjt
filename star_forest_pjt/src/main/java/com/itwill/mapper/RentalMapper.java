@@ -42,6 +42,7 @@ public interface RentalMapper {
 	/**user_id로 총 대출 리스트 뽑기*/
 	public List<Rental> selectByIdTotalList(String user_id);
 	
+	//중복대출 불가 아 여기 rental_status 추가해야함,,,
 	@Select("select count(r.book_no) from rental r inner join book b on r.book_no = b.book_no "
 		  + "where r.user_id = #{user_id} and r.book_no=#{book_no} and r.rental_status!=0 "
 		  + "order by r.rental_date asc")
@@ -73,6 +74,13 @@ public interface RentalMapper {
 			+ "(select * from rental order by return_duedate asc)"
 			+ "where book_no=#{book_no} and ROWNUM= 1")
 	public String selectMostReturn_duedate(int book_no);
+
+	//1인당 5권이상 대여x
+	@Select("select count(r.book_no) from rental r "
+			+ "inner join book b on r.book_no=b.book_no "
+			+ "where r.user_id=#{user_id} "
+			+ "and r.rental_status=1")
+	public int rentalFiveLimit(String user_id);
 	
 
 }

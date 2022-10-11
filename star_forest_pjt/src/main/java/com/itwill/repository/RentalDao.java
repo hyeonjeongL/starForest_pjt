@@ -30,6 +30,7 @@ public interface RentalDao {
 	
 	String selectMostReturn_duedate(int book_no) throws Exception;
 	
-	
+	int rentalFiveLimit(String user_id) throws Exception;
+
 
 }

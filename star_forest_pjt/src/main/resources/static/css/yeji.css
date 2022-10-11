@@ -21,12 +21,8 @@ a{
 	background-color:#efefeb;
 	transition-duration:0.5s;
 }
-#menu > li:hover .submenu{
-	height:50px;
-	transition-duration:1s;
-}
 
-#side_userbook_status > li:hover .submenu{
-	height:75px;
+#menu > li:hover .submenu{
+	height:70px;
 	transition-duration:1s;
 }

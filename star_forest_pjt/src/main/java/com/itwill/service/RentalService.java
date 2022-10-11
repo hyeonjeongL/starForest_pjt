@@ -36,5 +36,7 @@ public interface RentalService {
 	/** 3권 모두 대여중일 시 가장 빠른 반납예정일 출력*/
 	String selectMostReturn_duedate(int book_no)throws Exception;
 
+	int rentalFiveLimit(String user_id)throws Exception;
 
+	
 }

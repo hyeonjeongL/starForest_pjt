@@ -67,6 +67,11 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.bookCheckDupli(user_id, book_no);
 	}
 
+	@Override
+	public int rentalFiveLimit(String user_id) throws Exception {
+		return rentalDao.rentalFiveLimit(user_id);
+	}
+
 
 
 	

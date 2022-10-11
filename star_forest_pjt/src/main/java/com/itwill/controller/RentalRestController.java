@@ -46,21 +46,29 @@ public class RentalRestController {
 		List<Rental> resultList = new ArrayList<Rental>();
 		try {
 			String sUserId= (String)session.getAttribute("sUserId");
-			int duplication = rentalService.bookCheckDupli(sUserId, book_no);
-			if(duplication ==0) {
-				Date date = new Date();
-				int rental = rentalService.insertRental(new Rental(0, null, null, date, 1, book_no, sUserId));
-				bookService.updateRentalBookQty(book_no);
-				bookService.updateRentalCnt(book_no);
-				if(rental == 1) {
-				code=1;
-				url="";
-				msg="신청완료";
-				}
-			} else if (duplication !=0) {
+			int fiveLimit = rentalService.rentalFiveLimit(sUserId);
+			if(fiveLimit<=5) {
+				
+				int duplication = rentalService.bookCheckDupli(sUserId, book_no);
+				if(duplication ==0) {
+					Date date = new Date();
+					int rental = rentalService.insertRental(new Rental(0, null, null, date, 1, book_no, sUserId));
+					bookService.updateRentalBookQty(book_no);
+					bookService.updateRentalCnt(book_no);
+						if(rental == 1) {
+							code = 1;
+							url = "";
+							msg = "신청완료";
+						}
+				} else if (duplication !=0) {
 				code=0;
 				url="";
 				msg="이미 대여한 도서입니다.";
+			}else if(fiveLimit >5) {
+				code=-1;
+				url="";
+				msg="최대 대여 가능 권수 5권을 대여하였습니다.";
+			}
 			}
 		} catch (Exception e) {
 			code=2;

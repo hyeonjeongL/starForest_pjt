@@ -63,6 +63,11 @@ public class RentalDaoImpl implements RentalDao{
 		return rentalMapper.selectMostReturn_duedate(book_no);
 	}
 
+	@Override
+	public int rentalFiveLimit(String user_id) throws Exception {
+		return rentalMapper.rentalFiveLimit(user_id);
+	}
+
 
 	
 

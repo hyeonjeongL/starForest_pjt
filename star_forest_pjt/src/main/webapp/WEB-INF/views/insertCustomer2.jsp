@@ -584,13 +584,13 @@ span {
 								<!-- <span for="select">관심분야 선택</span> --> 
 								<select id="form-select" name="category_no" style="width:355px; height: 50px;">
 									<option selected value="none">관심분야를 선택해주세요</option>
-									<option class="dropdown-item" value=1>100 건강/취미/레저</option>
-									<option class="dropdown-item" value=2>200 경제경영</option>
-									<option class="dropdown-item" value=3>300 고전</option>
-									<option class="dropdown-item" value=4>400 과학</option>
-									<option class="dropdown-item" value=5>500 만화</option>
-									<option class="dropdown-item" value=6>600 사회과학</option>
-									<option class="dropdown-item" value=7>700 소설/시/희곡</option>
+									<option class="dropdown-item" value=100>100 건강/취미/레저</option>
+									<option class="dropdown-item" value=200>200 경제경영</option>
+									<option class="dropdown-item" value=300>300 고전</option>
+									<option class="dropdown-item" value=400>400 과학</option>
+									<option class="dropdown-item" value=500>500 만화</option>
+									<option class="dropdown-item" value=600>600 사회과학</option>
+									<option class="dropdown-item" value=700>700 소설/시/희곡</option>
 								</select>
 							</div>
 <!-- 마케팅 동의 -->

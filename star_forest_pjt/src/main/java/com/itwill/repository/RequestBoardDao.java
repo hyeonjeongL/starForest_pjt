@@ -23,13 +23,13 @@ public interface RequestBoardDao {
 		List<RequestBoard> findUserBoard(String user_id) throws Exception;
 		
 		//게시물 존재 여부
-		boolean isExisted(int groupno) throws Exception;
+		boolean isExisted(int board_groupno) throws Exception;
 		
 		//게시물 삭제(게시판번호)
 		int delete(int board_no) throws Exception;
 		
 		//게시물 삭제(게시판 그룹번호)
-		int deleteByGroupno(int groupno) throws Exception;
+		int deleteByGroupno(int board_groupno) throws Exception;
 		
 		//게시물 수정
 		int update(RequestBoard requestBoard) throws Exception;

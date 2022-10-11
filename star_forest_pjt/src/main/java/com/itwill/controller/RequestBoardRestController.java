@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.RequestBoard;
 import com.itwill.service.RequestBoardService;
 
@@ -71,7 +72,7 @@ public class RequestBoardRestController {
 		resultMap.put("data",resultList);
 		return resultMap;
 	}
-	
+	@LoginCheck
 	@PostMapping(value="/request_write_action_json",produces = "application/json;charset=UTF-8")
 	public Map request_write_action_json(@ModelAttribute RequestBoard requestBoard,HttpSession session) {
 		Map resultMap = new HashMap();
@@ -96,11 +97,98 @@ public class RequestBoardRestController {
 			}
 		}catch (Exception e) {
 			e.printStackTrace();
-			msg="글쓰기에서 뭔가가 잘못됨";
+			msg="로그인 후 이용해주세요";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
+	@PostMapping(value="/request_modify_form",produces = "application/json;charset=UTF-8")
+	public Map request_modify_form(@RequestParam int board_no,HttpSession session) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		
+		try {
+			String sUserId = (String)session.getAttribute("sUserId");
+			RequestBoard requestBoard = requestBoardService.selectOne(board_no);
+			if(requestBoard.getUser_id().equals(sUserId)) {
+				requestBoard.setUser_id(sUserId);
+				code = 1;
+				resultList.add(requestBoard);
+				
+			}else {
+				code=2;
+				msg="글 쓴 본인만 수정할 수 있습니다";
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+			msg="글쓰기수정폼에러";
+		}
+		
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
+		
+		return resultMap;
+	}
+	
+	@PostMapping(value="/request_modify_action", produces = "application/json;charset=UTF-8")
+	public Map request_modify_action(@ModelAttribute RequestBoard requestBoard) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		
+		try {
+			int rowCount = requestBoardService.update(requestBoard);
+			if(rowCount==1) {
+				code=1;
+				msg="수정이 완료되었습니다.";
+			}else {
+				code=2;
+				msg="수정에서 에러남";
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="수정에서 뭔가가 잘못됨";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
+	@PostMapping(value="/request_remove_action", produces = "application/json;charset=UTF-8")
+	public Map request_remove_action(@RequestParam int board_groupno) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		
+		try {
+			int rowCount = requestBoardService.deleteByGroupno(board_groupno);
+			if(rowCount==1) {
+				code=1;
+				msg="삭제가 완료되었습니다.";
+			}else if(rowCount==0){
+				code=2;
+				msg="답글이 달려있는 글은 삭제가 불가능합니다.";
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="삭제에서 뭔가가 잘못됨";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
 		resultMap.put("data", resultList);
 		return resultMap;
 	}

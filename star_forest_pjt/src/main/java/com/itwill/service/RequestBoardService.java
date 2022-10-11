@@ -22,7 +22,7 @@ public interface RequestBoardService {
 			int delete(int board_no) throws Exception;
 			
 			//게시물 삭제(게시판 그룹번호)
-			int deleteByGroupno(int groupno) throws Exception;
+			int deleteByGroupno(int board_groupno) throws Exception;
 			
 			//게시물 수정
 			int update(RequestBoard requestBoard) throws Exception;

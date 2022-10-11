@@ -37,7 +37,7 @@ function request_list_content(requestArray) {
 		
 		</table>
 		<div>
-		<input type="button" id="btn_write" value="희망도서 신청하기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" id="btn_write" value="희망도서 신청하기" onClick="location.href='requestBoard_write_form'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		`;
 }
@@ -112,8 +112,7 @@ function request_write_form_content() {
 function request_view(requestBoard){
 	return `
 	<form name="f" method="post">
-								<input type="hidden" name="board_no" value="${requestBoard.board_no}">
-								<input type="hidden" name="board_groupno" value="${requestBoard.groupno}">
+								<input type="hidden" name="board_no" value="3">
 								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
 									<tbody><tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">번호</td>
@@ -135,10 +134,6 @@ function request_view(requestBoard){
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
 									</tr>
 									<tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">카테고리</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.category_name}</td>
-									</tr>
-									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="110">제목</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_title}</td>
 									</tr>
@@ -149,30 +144,26 @@ function request_view(requestBoard){
 								</tbody></table>
 							</form>
 							<div class="btn_mrl">
-							
-										<input type="button" value="수정" id="btn_request_modify_form" board_no="${requestBoard.board_no}"> &nbsp; 
-										<input type="button" value="삭제" id="btn_request_remove_action" board_groupno="${requestBoard.board_groupno}"> &nbsp; 
+										<input type="button" value="${(requestBoard.user_id=='admin'?'답글쓰기':'수정')}" id="btn_request_modify_form" board_no="${requestBoard.board_no}"> &nbsp; 
+										<input type="button" value="삭제" id="btn_request_remove_action" board_no="${requestBoard.guest_no}"> &nbsp; 
 										<input type="button" value="목록" id="btn_request_list">
 							</div>
 	
 	`
 }
-/*
-										<input type="button" value="${(requestBoard.user_id=='soyoon')?'답글쓰기':'수정'}" id="btn_request_modify_form" board_no="${requestBoard.board_no}"> &nbsp; 
-*/
+
 function request_modify_form(requestBoard){
 	return `
 	<table width="800">
 			<tbody>
 					<tr>
 					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
-											방명록 수정</b></td>
+											방명록 쓰기</b></td>
 				    </tr>
 			</tbody>
 			</table> 
-			<!-- request modify Form  -->
-						<form id="request_modify_form" name="f" method="post">
-							<input type="hidden" name="board_no" value="${requestBoard.board_no}">
+			<!-- request write Form  -->
+						<form id="request_write_form" name="f" method="post">
 							<table border="0" cellpadding="0" cellspacing="1" width="590"
 								bgcolor="BBBBBB">
 								<tbody>
@@ -228,7 +219,7 @@ ${requestBoard.board_content}
 								</tbody>
 							</table>
 						</form> <br>
-						<input type="button" value="확인" id="btn_request_modify_action"> &nbsp; 
+						<input type="button" value="확인" id="btn_request_write_action"> &nbsp; 
 						<input type="button" id="btn_request_list" value="목록">
 	
 	`

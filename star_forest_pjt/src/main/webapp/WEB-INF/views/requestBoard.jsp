@@ -49,6 +49,22 @@
 			}
 		});
 		
+		
+		$(document).on('click','#btn_write',function(e){
+			$.ajax({
+			url:'login_check',
+			method:'GET',
+			success:function(jsonResult){
+				if(jsonResult.code==2){
+				alert(jsonResult.msg);
+				location.href='user';
+				}else if(jsonResult.code==1){
+				location.href='requestBoard_write_form';
+		}
+			}
+		});
+		});
+		
 		$(document).on('click','#menu_RequestBoard',function(e){
 			$.ajax({
 				url:'request_list_json',
@@ -61,7 +77,9 @@
 			});
 			e.preventDefault();
 		});
-		
+		/*
+		requestBoard 게시물 상세보기
+		*/
 		$(document).on('click','.request_item_a',function(e){
 			var board_no=$(e.target).attr('board_no');
 			var param='board_no='+board_no;
@@ -78,6 +96,88 @@
 			
 			
 		});
+		
+		
+		/*
+		게시물 수정
+		*/
+		
+		$(document).on('click','#btn_request_modify_form',function(e){
+			
+			var board_no = $(e.target).attr('board_no');
+			var param = 'board_no='+board_no;
+			$.ajax({
+				
+				url:'request_modify_form',
+				method:'POST',
+				data: param,
+				success:function(jsonResult){
+					var item = jsonResult.data[0];
+					$('#requestBoard_wrap').html(request_modify_form(item));
+					
+				}
+			});
+			
+			
+		});
+		
+		
+		$(document).on('click','#btn_request_modify_action',function(e){
+			var param=$('#request_modify_form').serialize();
+			console.log(param);
+			$.ajax({
+				url:'request_modify_action',
+				method:'POST',
+				data:param,
+				success: function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+						var param ='board_no='+$("#request_modify_form input[name='board_no']").val();
+						$.ajax({
+						    url:'request_view_json',
+						    method:'GET',
+						    dataType:'json',
+						   	data:param,
+						    success:function(jsonResult){
+						    	$('#requestBoard_wrap').html(request_view(jsonResult.data[0]));
+						    }
+						});
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==0){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			
+			
+		});
+		
+		$(document).on('click','#btn_request_remove_action',function(e){
+			var param = 'board_groupno='+$(e.target).attr('board_groupno');
+			console.log(param);
+			$.ajax({
+				
+				url:'request_remove_action',
+				method:'POST',
+				data: param,
+				success:function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+						$('#btn_request_list').trigger('click');
+						
+					}else if(code==2){
+						alert(jsonResult.msg);
+					}else if(code==0){
+						alert(jsonResult.msg);
+					}
+				}
+				
+			});
+		});
+		
+		
 		
 		$(document).on('click','#btn_request_list',function(e){
 			location.href='requestBoard';
@@ -138,10 +238,7 @@
 	<!-- footer end-->
 
 
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+  
 
    <script>
       // Get the current year for the copyright

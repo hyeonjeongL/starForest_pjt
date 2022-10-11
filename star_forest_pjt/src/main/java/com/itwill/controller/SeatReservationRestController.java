@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.SeatReservation;
 import com.itwill.service.SeatReservationService;
 
@@ -23,10 +24,31 @@ public class SeatReservationRestController {
 		@Autowired
 		private SeatReservationService seatReservationService;
 		
+		/*
+		 * 로그인체크
+		 */
+		@LoginCheck
+		@GetMapping(value="/login_check",produces = "application/json;charset=UTF-8")
+		public Map login_check(HttpSession session) {
+			Map resultMap = new HashMap();
+			String msg="";
+			int code=-999;
+			if(session.getAttribute("sUserId")==null) {
+				msg="로그인 후 이용해주세요";
+				code=2;
+			}else {
+				code=1;
+			}
+			resultMap.put("msg", msg);
+			resultMap.put("code", code);
+			return resultMap;
+			
+		}
 		
 		/*
 		 * 좌석 예약
 		 */
+		@LoginCheck
 		@PostMapping(value="/seat_reservation_action_json", produces = "application/json;charset=UTF-8")
 		public Map seat_reservation_action_json(@ModelAttribute SeatReservation seatReservation,HttpSession session) {
 			Map resultMap = new HashMap();
@@ -51,7 +73,7 @@ public class SeatReservationRestController {
 			}
 				}catch (Exception e) {
 				code = 2;
-				msg="예약에러";
+				msg="로그인 후 사용해주세요";
 				e.printStackTrace();
 			}
 			resultMap.put("code", code);

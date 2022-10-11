@@ -52,7 +52,7 @@ public interface RequestBoardMapper {
 	
 	//게시물 존재 여부  ..?
 	@Select("SELECT count(*) FROM request_board WHERE board_groupno = #{board_groupno} AND board_depth > 0 AND board_step > 1 ORDER BY board_step,board_depth ASC")
-	public boolean isExisted(int groupno);
+	public boolean isExisted(int board_groupno);
 	
 	
 	//게시물 삭제(게시판번호)
@@ -61,7 +61,7 @@ public interface RequestBoardMapper {
 	
 	//게시물 삭제(게시판 그룹번호)
 	@Delete("delete from request_board where board_groupno=#{board_groupno}")
-	public int deleteByGroupno(int groupno);
+	public int deleteByGroupno(int board_groupno);
 	
 	//게시물 수정
 	@Update("update request_board set board_title=#{board_title}, board_content=#{board_content},\r\n"

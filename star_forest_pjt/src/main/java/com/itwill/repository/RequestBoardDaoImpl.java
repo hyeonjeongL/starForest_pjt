@@ -37,9 +37,9 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public boolean isExisted(int groupno) throws Exception {
+	public boolean isExisted(int board_groupno) throws Exception {
 		boolean isExisted=false;
-		if(requestBoardMapper.isExisted(groupno)==true) {
+		if(requestBoardMapper.isExisted(board_groupno)==true) {
 			isExisted=true;
 		}else {
 			isExisted=false;
@@ -53,8 +53,8 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public int deleteByGroupno(int groupno) throws Exception {
-		return requestBoardMapper.deleteByGroupno(groupno);
+	public int deleteByGroupno(int board_groupno) throws Exception {
+		return requestBoardMapper.deleteByGroupno(board_groupno);
 	}
 
 	@Override

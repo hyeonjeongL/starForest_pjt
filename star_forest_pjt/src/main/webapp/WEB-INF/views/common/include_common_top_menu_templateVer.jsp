@@ -58,7 +58,21 @@ $(function(){
 	});
 	
 	/*************user_write_form***************/
-		
+	
+	$(document).on('click','#menu_my_seat',function(e){
+		$.ajax({
+		url:'login_check',
+		method:'GET',
+		success:function(jsonResult){
+			if(jsonResult.code==2){
+			alert(jsonResult.msg);
+			location.href='user';
+			}else if(jsonResult.code==1){
+			location.href='seatReservation_my';
+	}
+		}
+	});
+	});
 	
 });	
 </script>

@@ -30,8 +30,8 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	}
 
 	@Override
-	public boolean isExisted(int groupno) throws Exception {
-		return requestBoardDao.isExisted(groupno);
+	public boolean isExisted(int board_groupno) throws Exception {
+		return requestBoardDao.isExisted(board_groupno);
 	}
 
 	@Override
@@ -40,16 +40,16 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	}
 
 	@Override
-	public int deleteByGroupno(int groupno) throws Exception {
+	public int deleteByGroupno(int board_groupno) throws Exception {
 		/*
 		 * 답글이 있으면 삭제 불가능:0
 		 * 답글 없으면 삭제 가능:1
 		 */
 		int rowCount = -999;
-		if(requestBoardDao.isExisted(groupno)==true) {
+		if(requestBoardDao.isExisted(board_groupno)==true) {
 			rowCount = 0;
-		}else if(requestBoardDao.isExisted(groupno)==false) {
-			rowCount =requestBoardDao.deleteByGroupno(groupno);
+		}else if(requestBoardDao.isExisted(board_groupno)==false) {
+			rowCount =requestBoardDao.deleteByGroupno(board_groupno);
 		}
 		return rowCount;
 	}

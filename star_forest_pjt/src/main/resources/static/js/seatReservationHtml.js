@@ -28,4 +28,3 @@ function my_seat(seat) {
 }
 
 
-}

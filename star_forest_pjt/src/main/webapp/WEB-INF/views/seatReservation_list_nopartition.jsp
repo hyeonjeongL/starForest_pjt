@@ -62,6 +62,7 @@
 						location.href='seatReservation';
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href='user';
 					}else if(jsonResult.code==0){
 						alert(jsonResult.msg);
 					}

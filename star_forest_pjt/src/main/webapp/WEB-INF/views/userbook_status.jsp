@@ -109,6 +109,31 @@
 						</div>
 						<div class="rentalTable">
 						<!-- 대여리스트 -->
+						<form name="f" method="post">
+
+									<table border="0" cellpadding="0" cellspacing="1" width="590"
+										bgcolor="BBBBBB">
+										<tr>
+											<td width=50 align=center bgcolor="E6ECDE" height="22">번호</td>
+											<td width=300 align=center bgcolor="E6ECDE">책제목</td>
+											<td width=120 align=center bgcolor="E6ECDE">저자</td>
+											<td width=120 align=center bgcolor="E6ECDE">ISBN</td>
+											<td width=120 align=center bgcolor="E6ECDE">예약일시</td>
+										</tr>
+										<c:forEach items="${resList}" var="res">
+											<tr>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.RES_NO}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.BOOK_TITLE}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.BOOK_AUTHOR}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.ISBN}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${res.RES_DATE}</td>
+											</tr>
+										</c:forEach>
+
+
+
+									</table>
+								</form>
 						</div>
 					</div>
 				</div>

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.controller.interceptor.LoginCheck;
+import com.itwill.domain.Reservation;
 import com.itwill.service.ReservationService;
 
 @Controller
@@ -27,7 +28,7 @@ public class ReservationController {
 			try {
 				user_id = (String) request.getSession().getAttribute("sUserId");
 				System.out.println(user_id);
-				List<Map<String, Object>> resList = reservationService.selectReservationListByID(user_id);
+				List<Map<String, Object>> resList = reservationService.selectReservationListById(user_id);
 				request.setAttribute("resList", resList);
 				forwardPath="forward:/WEB-INF/views/userbook_status.jsp";
 			} catch (Exception e) {

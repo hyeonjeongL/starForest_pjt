@@ -242,7 +242,21 @@
 								
 						<!--/.First slide-->
 						
-								<div class="col-md-4 ">
+						<div class="carousel-item">
+							<div class="row">
+								<c:forEach items="${newBook}" var="book" begin="0" end="2">
+									<div class="col-md-4 clearfix d-none d-md-block">
+										<div class="card"><a href="book_detail?book_no=${book.book_no}">
+											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6>${book.book_author}</h6>
+											</div>
+										</div>
+									</div>
+								</c:forEach>
+						
+								<!-- <div class="col-md-4 ">
 									<div class="card">
 										<img alt="Card image cap" class="img-fluid" src="https://search1.kakaocdn.net/thumb/R120x174.q85/?fname=http%3A%2F%2Ft1.daumcdn.net%2Flbook%2Fimage%2F5495847%3Ftimestamp%3D20201106153628">
 										<div class="card-body">
@@ -274,7 +288,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>	
 								

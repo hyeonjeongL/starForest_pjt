@@ -120,10 +120,10 @@
 											<td width=120 align=center bgcolor="E6ECDE">ISBN</td>
 											<td width=120 align=center bgcolor="E6ECDE">예약일시</td>
 										</tr>
-										<c:forEach items="${resList}" var="res">
+										<c:forEach items="${resList}" var="res" varStatus="status">
 											<tr>
-												<td width=50 align=center bgcolor="ffffff" height="20">${res.RES_NO}</td>
-												<td width=50 align=center bgcolor="ffffff" height="20">${res.BOOK_TITLE}</td>
+												<td width=50 align=center bgcolor="ffffff" height="20">${status.count}</td>
+												<td width=300 align=center bgcolor="ffffff" height="20">${res.BOOK_TITLE}</td>
 												<td width=50 align=center bgcolor="ffffff" height="20">${res.BOOK_AUTHOR}</td>
 												<td width=50 align=center bgcolor="ffffff" height="20">${res.ISBN}</td>
 												<td width=50 align=center bgcolor="ffffff" height="20">${res.RES_DATE}</td>

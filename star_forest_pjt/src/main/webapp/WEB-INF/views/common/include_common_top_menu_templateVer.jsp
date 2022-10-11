@@ -152,7 +152,7 @@ $(function(){
 					<i class="fas fa-sign-in-alt"></i></a>
 						<p class="sr-only">로그인</p></li>
 					<li class="nav-item" v-bind:title="signup">
-					<a href="insertCustomer" class="nav-link" id="a_user_write_form">
+					<a href="insertCustomer2" class="nav-link" id="a_user_write_form">
 					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>

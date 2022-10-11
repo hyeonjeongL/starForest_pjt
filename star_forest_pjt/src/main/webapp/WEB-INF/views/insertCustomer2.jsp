@@ -550,10 +550,10 @@ span {
 
 							<span>성별</span>
 							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="남성">
+							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="M">
 							  <label class="btn btn-outline-primary check" for="male">남성 M</label>
 							
-							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="여성">
+							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="F">
 							  <label class="btn btn-outline-primary check" for="female">여성 F</label>
 						  	</div>
 						  	

@@ -16,10 +16,25 @@ public class SearchServiceImpl  implements SearchService{
 	
 	public SearchServiceImpl() {
 	}
-	@Override
-	public List<Search> listBook() {
-		return searchDao.listBook();
+	
+	public List<Search> list (int category_no,int level) throws Exception{
+		
+		int cateno=0;
+		
+		if(level == 1) {  // lavel 1 = 1차 분류.
+			  
+			cateno = category_no;
+			  return searchDao.list(category_no, cateno);
+			  // 두가지 모두 cateCode로 해도 무관
+			  
+			 } else {  // lavel 2 = 2차 분류
+			  
+			  return searchDao.list(category_no);
+			  
+			 }
+		
 	}
+	
 /*
 	//제목 검색
 	@Override
@@ -70,7 +85,6 @@ public class SearchServiceImpl  implements SearchService{
 	}
 	
 	*/
-
-
+	
 	
 }

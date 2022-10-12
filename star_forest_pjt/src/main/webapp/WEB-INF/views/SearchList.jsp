@@ -211,6 +211,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 
 <!--  -->
 <!-- 메인내용 -->
+<<<<<<< HEAD
 <div class="col-md-9">
             <div class="row">
             	<c:forEach items="${list}" var="book" begin="0" end="15">
@@ -222,6 +223,36 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 									<div class="card-title">
 										<div class="book-title" id="book-title">${book.book_title}</div>
 										<h6 class="book_author">${book.book_author}</h6>
+=======
+			<div class="col-md-9">
+				<div class="input-group noto-serif">
+				<select data-trigger="" name="search">
+										<option value="all">통합</option>
+										<option value="title">제목</option>
+										<option value="category_name">분야</option>
+										<option value="author">저자</option>
+										<option value="publisher">출판사</option>
+							</select>
+					<input class="form-control searchbar" id="book_title" type="text"
+						placeholder="검색어를 입력하세요.">
+					<div class="input-group-append">
+						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+					</div>
+				</div>
+				<br><br><br>
+				<!-- CARD COLUMNS -->
+				<div class="searchResult-body">
+							<div class="row">
+								<c:forEach items="${selectAll}" var="book" begin="6" end="8">
+									<div class="col-md-4 clearfix d-none d-md-block">
+										<div class="card"><a href="book_detail?book_no=${book.book_no}">
+											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+												<div class="card-body" class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6>${book.book_author}</h6>
+											</div>
+										</div>
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-starForest_library.git
 									</div>
 								</div>
 							</div>

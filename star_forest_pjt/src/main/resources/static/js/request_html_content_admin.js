@@ -6,10 +6,10 @@ function request_item_content(requestBoard){
 				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}">
 				${requestBoard.board_title}
 				</a>
-		<td width=15% align=center class=t1><font size=2>${requestBoard.user_id}</font></td>
-		<td width=10% align=center class=t1><font size=2>${requestBoard.board_status}</font></td>
-		<td width=10% align=center class=t1><font size=2>${requestBoard.board_date.substring(0,10)}</font></td>
-		<td width=5% align=center class=t1><font size=2>${requestBoard.board_readcount}</font></td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_status}</font></td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
+		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
 		</tr>`;
 }
 

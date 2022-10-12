@@ -78,7 +78,6 @@ $(document).on('click','#btn_admin_return',function(e){
 		data:'book_no='+$(e.target).attr("book_no"),
 		success:function(jsonResult){
 			if(jsonResult.code==1){
-				var rentalTArray=jsonResult.data;
 				console.log(user_id, book_no);
 				alert("반납처리 되었습니다.");
 			}else if(jsonResult.code==2){

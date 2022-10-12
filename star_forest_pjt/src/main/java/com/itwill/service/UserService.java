@@ -40,4 +40,7 @@ public interface UserService {
 	
 	//연체에 따른 대출정지기간
 	int rentalStopPeriod(String user_id) throws Exception;
+	
+	//반납시 카운트
+		int userReturnCount(String user_id) throws Exception;
 }

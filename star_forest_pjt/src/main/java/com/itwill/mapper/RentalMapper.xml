@@ -42,6 +42,7 @@
 	
 	<select id="selectNowLental" resultMap="RentalResultMap">
 		SELECT
+		b.book_no,
 		b.book_title,
 		b.book_author,
 		b.book_publisher,
@@ -60,6 +61,7 @@
 	</select>
 	<resultMap type="book" id="RentalResultMap">
 		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_no" property="book_no" />
 		<result column="book_title" property="book_title" />
 		<result column="book_author" property="book_author" />
 		<result column="book_publisher" property="book_publisher" />

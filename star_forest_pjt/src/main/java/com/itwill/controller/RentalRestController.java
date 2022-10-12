@@ -91,21 +91,22 @@ public class RentalRestController {
 	
 	//admin 반납 버튼
 	@PostMapping("/rest_return")
-	public Map one_return(int book_no, String user_id, HttpSession session) throws Exception {
+	public Map one_return(@RequestParam(value="book_no", required=false) int book_no, @RequestParam(value="user_id", required=false) String user_id) throws Exception {
 		Map resultMap = new HashMap();
 		
 		int code = 2;
 		String url = "";
 		String msg = "";
 		List<Rental> resultList = new ArrayList<Rental>();
+		System.out.println(user_id);
+		System.out.println(book_no);
 		try {
-			String sUserId = (String) session.getAttribute("sUserId");
-			sUserId="admin";
-			bookService.updateReturnBookQty(book_no);
-			bookService.updateByIdNo(sUserId,book_no);
 			int rental = rentalService.updateRentalStatus(user_id, book_no);
-//			userService.
 			if (rental == 1) {
+				bookService.updateReturnBookQty(book_no);
+				bookService.updateByIdNo(user_id,book_no);
+				userService.userReturnCount(user_id);
+				
 				code = 1;
 				url = "";
 				msg = "반납완료";	

@@ -77,17 +77,18 @@
 						</div>
 						<ul class="list-group list-group-flush mb-5"  id="menu">
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
+								<a href="" id="btn_mypage" >어드민</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
 								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder"  id="side_userbook_status">나의도서정보</a>
+								<a href="#"  id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>
+									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
 								</ul>
 							</li>
 								

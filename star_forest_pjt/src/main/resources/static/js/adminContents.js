@@ -12,7 +12,7 @@ adminContents.admin_total_rental_list_item_content = function(book,i) {
 				<th scope="row">${book.rental.rental_date.substring(0, 10)}</th>
 				<th scope="row">${book.rental.return_duedate.substring(0, 10)}</th>
 				<th scope="row">${book.rental.user_id}</th>
-				<th scope="row"><button  id="btn_admin_return" class="w-btn w-btn-detail" book_no="${book.book_no}" user_id="${book.rental.user_id}">반납</button></th>
+				<th scope="row"><button  id="btn_admin_return" class="w-btn w-btn-detail" user_id="${book.rental.user_id}">반납</button></th>
 			</tr>`
 				;
 }

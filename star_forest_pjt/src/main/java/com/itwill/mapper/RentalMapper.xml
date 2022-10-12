@@ -39,6 +39,39 @@
 		<result column="return_duedate" property="return_duedate" />
 		<result column="rental_status" property="rental_status" />
 	</resultMap>
+	
+	<select id="selectNowLental" resultMap="RentalResultMap">
+		SELECT
+		b.book_title,
+		b.book_author,
+		b.book_publisher,
+		b.category_no,
+		r.rental_date,
+		r.return_duedate,
+		r.user_id
+		FROM
+		RENTAL r
+		INNER JOIN BOOK b
+		on r.BOOK_NO
+		= b.BOOK_NO
+		WHERE 
+		r.rental_status!=0
+		order by r.rental_date asc
+	</select>
+	<resultMap type="book" id="RentalResultMap">
+		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_title" property="book_title" />
+		<result column="book_author" property="book_author" />
+		<result column="book_publisher" property="book_publisher" />
+		<result column="category_no" property="category_no" />
+		<collection property="rental" resultMap="rentalTMap">
+		</collection>
+	</resultMap>
+	<resultMap type="rental" id="rentalTMap">
+		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
+		<result column="user_id" property="user_id" />
+	</resultMap>
 
 	<select id="selectByIdTotalList" resultMap="BookTotalResultMap">
 		SELECT

@@ -127,7 +127,7 @@ CREATE TABLE Rental
 CREATE TABLE Request_board
 (
 	board_no number NOT NULL,
-	board_title varchar2(100),
+	board_title varchar2(500),
 	board_date date,
 	board_content varchar2(500),
 	board_readcount number DEFAULT 0,
@@ -136,7 +136,7 @@ CREATE TABLE Request_board
 	board_depth number,
 	board_step number,
 	board_groupno number,
-	category_name varchar2(100) NOT NULL,
+	category_name varchar2(100),
 	user_id varchar2(100) NOT NULL,
 	PRIMARY KEY (board_no)
 );
@@ -184,7 +184,14 @@ CREATE TABLE User_info
 	PRIMARY KEY (user_id)
 );
 
-
+CREATE TABLE Image
+(
+	image_no number NOT NULL,
+	original_name varchar2(500) NOT NULL,
+    temp_name varchar2(500) NOT NULL,
+    image_path varchar2(1000) NOT NULL,
+	PRIMARY KEY (image_no)
+);
 
 /* Create Foreign Keys */
 

@@ -48,5 +48,8 @@ public interface UserMapper {
 			+ "		where user_book_cnt_limit>0 and user_id=#{user_id}")
 	public int userRentalCount(String user_id);
 
+	@Update("update user_info set user_book_cnt_limit=user_book_cnt_limit+1"
+			+ "		where user_book_cnt_limit<4 and user_id=#{user_id}")
+	public int userReturnCount(String user_id);
 
 }

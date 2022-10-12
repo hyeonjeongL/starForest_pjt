@@ -68,6 +68,11 @@ public class RentalDaoImpl implements RentalDao{
 		return rentalMapper.rentalFiveLimit(user_id);
 	}
 
+	@Override
+	public List<Rental> selectNowLental() throws Exception {
+		return rentalMapper.selectNowLental();
+	}
+
 
 	
 

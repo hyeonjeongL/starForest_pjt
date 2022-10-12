@@ -32,5 +32,6 @@ public interface RentalDao {
 	
 	int rentalFiveLimit(String user_id) throws Exception;
 
+	List<Rental> selectNowLental() throws Exception;
 
 }

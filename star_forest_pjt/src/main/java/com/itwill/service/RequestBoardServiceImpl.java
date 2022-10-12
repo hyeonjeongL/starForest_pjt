@@ -18,9 +18,17 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	public int create(RequestBoard requestBoard) throws Exception {
 		return requestBoardDao.create(requestBoard);
 	}
-
+	
+	@Override
+	public int create_notice(RequestBoard requestBoard) throws Exception {
+		return requestBoardDao.create_notice(requestBoard);
+	}
+	/*
+	 * 답글생성
+	 */
 	@Override
 	public int createReply(RequestBoard requestBoard) throws Exception {
+				requestBoardDao.addStep(requestBoard);
 		return requestBoardDao.createReply(requestBoard);
 	}
 

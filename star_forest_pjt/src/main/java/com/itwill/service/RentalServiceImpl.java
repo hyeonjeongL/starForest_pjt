@@ -72,6 +72,11 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.rentalFiveLimit(user_id);
 	}
 
+	@Override
+	public List<Rental> selectNowLental() throws Exception {
+		return rentalDao.selectNowLental();
+	}
+
 
 
 	

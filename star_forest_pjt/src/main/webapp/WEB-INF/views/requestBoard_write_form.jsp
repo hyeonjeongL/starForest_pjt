@@ -186,6 +186,7 @@
 				
 											<textarea wrap="soft"
 												style="width: 500px" rows="10" name="board_content">
+
 ******************************				
 신청 양식
 ******************************
@@ -195,8 +196,7 @@
 저자    :
 &nbsp;
 사유    :
-&nbsp;
-												</textarea>
+</textarea>
 										</td>
 									</tr>
 								</tbody>

@@ -19,10 +19,11 @@ import com.itwill.service.SearchService;
 @Controller
 public class SearchController {
 	
+	/*
 	@RequestMapping(value="/SearchList",method=RequestMethod.GET)
 	public String SearchList() {
 		return "SearchList";
-	}
+	}*/
 	
 
 	/*

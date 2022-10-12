@@ -37,6 +37,7 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserBookHtmlContents.js"></script>
@@ -80,6 +81,19 @@ $(function(){
 		
 		/***********user_view**********/
 		
+			$.ajax({
+				url:'user_view',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						location.href='user';
+					}
+				}
+			});
 		$(document).on('click','#mypage,#side_mypage',function(e){
 			$.ajax({
 				url:'user_view',
@@ -174,15 +188,7 @@ $(function(){
 		});
 		
 		/************favorite_list*************/
-		$.ajax({
-			url:'favorite_list',
-			method:'POST',
-			success:function(jsonResult){
-				var favoriteArray=jsonResult.data;
-				console.log(favoriteArray);
-				$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
-			}
-		});
+		
 		$.ajax({
 			url:'favorite_list',
 			method:'POST',
@@ -254,9 +260,11 @@ $(function(){
 			e.preventDefault();
 		});*/
 		
-		/**********패스워드체크************
+		/**********패스워드체크************/
 		$(document).on('click','#btn_PW_action',function(e){
 			
+		/**********패스워드체크*************/
+		$(document).on('click','#updatePW',function(e){
 			$.ajax({
 				url:'user_pw_check',
 				method:'POST',
@@ -268,7 +276,7 @@ $(function(){
 					}
 				}
 			});
-		});*/
+		});
 		
 		
 		
@@ -313,14 +321,11 @@ $(function(){
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5"  id="menu">
-						<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
-									<li><a href=MyPage_Info id="side_user_qr">나의QR</a></li>
 								</ul>
 							</li>
 							<li class="list-group-item">
@@ -336,6 +341,10 @@ $(function(){
 								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
+							<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_user_qr">나의QR</a></li>
 
 					</ul>
 					</div>
@@ -389,6 +398,19 @@ $(function(){
 	<!-- footer end-->
 
 
+	<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
 
 	<script type="text/javascript">
 		// Get the current year for the copyright

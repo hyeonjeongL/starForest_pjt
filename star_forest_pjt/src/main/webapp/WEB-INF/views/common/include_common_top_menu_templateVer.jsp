@@ -90,8 +90,6 @@ $(function(){
 	});
 	});
 	
-	
-	
 });	
 </script>
 
@@ -138,9 +136,6 @@ $(function(){
 					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
-								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
-									내서재</a></li>
-							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="mypage">마이페이지</a>
 							</li>
 							<li>
@@ -152,7 +147,9 @@ $(function(){
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_request_list">
 									희망도서신청내역</a></li>
-							
+							<li>
+								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
+									내서재</a></li>
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_qr">
 									나의QR</a></li>
@@ -166,6 +163,14 @@ $(function(){
 						<li><a class="dropdown-item" href="seatReservation"
 							id="menu_seatReservation">열람실예약</a></li>
 						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown">어드민</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
+						<li><a class="dropdown-item" href="admin"
+							id="menu_adminReturn">도서 반납</a></li>
+						<li><a id="menu_my_seat" class="dropdown-item" href="#">다른 어드민</a></li>
 					</ul>
 				</li>
 				

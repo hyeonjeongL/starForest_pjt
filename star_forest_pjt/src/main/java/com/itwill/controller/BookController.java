@@ -86,16 +86,17 @@ public class BookController {
 	@RequestMapping("/Home")
 	public String Home(Model model,HttpSession session) throws Exception{
 		try {
-			
 			String sUserId= (String)session.getAttribute("sUserId");
-			System.out.println(sUserId);
-			List<Book> favorite = bookService.selectFavorite();
+			if(sUserId==null) {
+				List<Book> favorite = bookService.selectFavorite();
+				model.addAttribute("favorite",favorite);
+			}else {
+				List<Book> userBook = bookService.userBook(sUserId);
+				model.addAttribute("userBook",userBook);
+			}
 			List<Book> newBook = bookService.selectNew();
-			List<Book> userBook = bookService.userBook(sUserId);
 			List<Notice> notice = noticeService.selectAll();
-			model.addAttribute("favorite",favorite);
 			model.addAttribute("newBook",newBook);
-			model.addAttribute("userBook",userBook);
 			model.addAttribute("notice",notice);
 		}catch (Exception e) {
 			e.printStackTrace();

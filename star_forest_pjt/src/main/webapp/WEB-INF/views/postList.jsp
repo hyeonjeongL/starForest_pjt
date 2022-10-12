@@ -77,10 +77,10 @@
                      </div>
                      <ul class="list-group list-group-flush mb-5">
                         <li class="list-group-item"><a href="howtoInfo.do">대출/반납/연장</a></li>
-                        <li id="post10" class="list-group-item"><a href="postList.do?option=p_title&search=&group=10">공지사항</a></li>
-                        <li class="list-group-item"><a href="faqViewpage.do">자주묻는질문</a></li>
-                        <li class="list-group-item"><a href="QnaList.do?option=p_title&search=">묻고답하기</a></li>
-                        <li class="list-group-item"><a href="addrViewpageAPI.do">오시는길</a></li>
+                        <li id="post10" class="list-group-item"><a href="postList?option=p_title&search=&group=10">공지사항</a></li>
+                        <li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>
+                        <li class="list-group-item"><a href="QnaList?option=p_title&search=">묻고답하기</a></li>
+                        <li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
                      </ul>
                  </div>      
                </c:when>
@@ -90,9 +90,9 @@
                         <h4 class="text-light">커뮤니티</h4>
                      </div>
                      <ul class="list-group list-group-flush mb-5">
-                        <li id="post20" class="list-group-item"><a href="postList.do?option=p_title&search=&group=20" class="returnAll">창작물게시판</a></li>
-                        <li id="post30" class="list-group-item"><a href="postList.do?option=p_title&search=&group=30" class="returnAll">중고장터</a></li>
-                        <li id="post60" class="list-group-item"><a href="postList.do?option=p_title&search=&group=60" class="returnAll">자유게시판</a></li>
+                        <li id="post20" class="list-group-item"><a href="postList?option=p_title&search=&group=20" class="returnAll">창작물게시판</a></li>
+                        <li id="post30" class="list-group-item"><a href="postList?option=p_title&search=&group=30" class="returnAll">중고장터</a></li>
+                        <li id="post60" class="list-group-item"><a href="postList?option=p_title&search=&group=60" class="returnAll">자유게시판</a></li>
                      </ul>
                  </div>
                </c:otherwise>
@@ -112,7 +112,7 @@
                  <button class="btn btn-outline-success" onclick="postInsert()">글쓰기</button>
                  </c:if>                     
               <!-- 비로그인시 cust_no를 0으로 설정 -->
-              <c:if test="${empty cust_no }">
+              <c:if test="${empty sUserId}">
                  <c:set var="cust_no" value="0"></c:set>
               </c:if>
                </div>
@@ -173,28 +173,28 @@
             <nav>
             <ul class="pagination justify-content-center">
               <c:if test="${startPage > 1}">
-                <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
+                <li class="page-item"><a class="page-link" id="page-link" href="postList?pageNUM=${startPage-1 }&group=${group}">
                      <span>&laquo;</span>
               <span class="sr-only">이전 페이지</span>
                   </a></li>
               </c:if>
               <c:if test="${startPage == 1}">
-                <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
+                <li class="page-item disabled"><a class="page-link" id="page-link" href="postList?pageNUM=${startPage-1 }&group=${group}">
                      <span>&laquo;</span>
                 <span class="sr-only">이전 페이지</span>
                   </a></li>
               </c:if>
                     <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="postList.do?pageNUM=${i }&group=${group}">${i }</a></li>
+                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="postList?pageNUM=${i }&group=${group}">${i }</a></li>
                  </c:forEach>
               <c:if test="${endPage < totalPage}">              
-                 <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
+                 <li class="page-item"><a class="page-link" id="page-link" href="postList?pageNUM=${endPage+1 }&group=${group}">
                      <span>&raquo;</span>
               <span class="sr-only">다음 페이지</span>
                   </a></li>
               </c:if>
               <c:if test="${endPage == totalPage}">
-                  <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
+                  <li class="page-item disabled"><a class="page-link" id="page-link" href="postList?pageNUM=${endPage+1 }&group=${group}">
                         <span>&raquo;</span>
                 <span class="sr-only">다음 페이지</span>
                      </a></li>

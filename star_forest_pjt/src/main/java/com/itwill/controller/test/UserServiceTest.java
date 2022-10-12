@@ -36,7 +36,7 @@ public class UserServiceTest {
 		System.out.println("비밀번호변경:"+userService.updatePassword(new User("soyoon", "4567")));
 		
 		User updateUser=new User("yeji2", "예찌", "1234", "han@naver.com", 
-									"1997-03-03", null, "01023456789", "서울", 600);
+									"1997-03-03", null, "01023456789", "서울", 0);
 		System.out.println("수정:"+userService.update(updateUser));
 		System.out.println("삭제:"+userService.remove("yeji3"));
 		System.out.println("회원목록"+userService.userList());

@@ -231,16 +231,13 @@ public class UserInfoRestController {
 		try {
 			int result = userService.updatePassword(user);
 			if (result == 1) {
-				String sUserId = (String) request.getSession().getAttribute("sUserId");
-				User loginUser = userService.findUser(sUserId);
-				resultList.add(loginUser);
 				code = 1;
 				url = "";
 				msg = "비밀번호가 수정되었습니다.";
 			} else {
 				code = -1;
 				url = "modify_form";
-				msg = "수정실패";
+				msg = "비밀번호 변경에 실패하였습니다.";
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -268,9 +265,6 @@ public class UserInfoRestController {
 		try {
 			int result = userService.update(user);
 			if (result == 1) {
-				String sUserId = (String) request.getSession().getAttribute("sUserId");
-				User loginUser = userService.findUser(sUserId);
-				resultList.add(loginUser);
 				code = 1;
 				url = "main";
 				msg = "수정성공";
@@ -380,7 +374,7 @@ public class UserInfoRestController {
 		} else {
 			code = -1;
 			url = "main";
-			msg = "비밀번호를 다시 입력해주세요.";
+			msg = "비밀번호가 틀렸습니다. 다시 입력해주세요.";
 		}
 		resultMap.put("code", code);
 		resultMap.put("url", url);

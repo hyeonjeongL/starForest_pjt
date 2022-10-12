@@ -38,7 +38,7 @@ public class UserDaoTest {
 															null, 0, 0, 500)));
 		
 		System.out.println(userDao.update(new User("soyoon", "소윤", "3333", "so@naver.com", 
-													"1991-03-03", null, "01023456789", "분당",600)));
+													"1991-03-03", null, "01023456789", "분당",0)));
 		System.out.println("삭제:"+userDao.remove("yeji3"));
 		System.out.println(userDao.userList());
 		System.out.println(userDao.findUser("yeji"));

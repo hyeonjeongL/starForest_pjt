@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나의도서 - 별빛도서관</title>
+<title>나의도서 - 별숲도서관</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
@@ -44,38 +44,37 @@
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript">
 $(function(){
-	/***********로그인 세션확인**************/
-	$.ajax({
-		url : 'user_session_check',
-		method : 'POST',
-		dataType : 'json',
-		success : function(jsonResult) {
-			if (jsonResult.code == 1) {
-				console.log(jsonResult);
-			}else{ //세션 존재하지 않을경우 메세지창보여줌
-				alert('로그인이 필요한 페이지입니다:)');
-			}
-		}
-	});
-	
-	
-	/**********user_modify_form**********/
-	$(document).on('click','#side_update',function(e){
+	/*************비밀번호체크 후 폼이동***************/
+	$(document).on('click', '#btn_PW_check', function(e) {
+		var param = $('#user_pwCheck_form').serialize();
+		console.log(param);
 		$.ajax({
-			url:'user_modify_form',
-			method:'POST',
-			dataType:'json',
-			success:function(jsonResult){
-				$('#updateCustomer').html(UserHtmlContents.user_modify_form(jsonResult.data[0]));
-				
+			url : 'user_pw_check',
+			data : param,
+			method : 'POST',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					$.ajax({
+						url:'user_modify_form',
+						method:'POST',
+						success:function(jsonResult){
+						$('#updateCustomer').html(UserHtmlContents.user_modify_form(jsonResult.data[0]));
+						}
+					});
+					
+				}else{
+					alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
+				}
 			}
 		});
 		e.preventDefault();
 	});
 	
+	
 	/**********user_modify_action**********/
 	$(document).on('click','#modify_btn',function(e){
 		var param=$('#user_modify_form').serialize();
+		console.log(param);
 		$.ajax({
 			url:'user_modify_action',
 			method:'POST',
@@ -83,7 +82,7 @@ $(function(){
 			data:param,
 			success:function(jsonResult){
 				if(jsonResult.code==1){
-					$('#updateCustomer').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					location.href='MyPage_Folder';
 				}else if(jsonResult.code==-1){
 					alert(jsonResult.msg);
 				}
@@ -131,42 +130,52 @@ $(function(){
 					<!-- 사이드바 -->
 					<div class="col-md-3 noto-serif">
 						<div class="sidebar">
-						<div class="side-head">
-							<h4 class="text-light">나의도서</h4>
-						</div>
-						<ul class="list-group list-group-flush mb-5"  id="menu">
-						<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
-								<ul class='submenu'>
-									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
-									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
-									<li><a href=MyPage_Info id="side_user_qr">나의QR</a></li>
-								</ul>
-							</li>
-							<li class="list-group-item">
-								<a href="#"  id="side_userbook_status">나의도서정보</a>
-								<ul class='submenu'>
-									<li><a href="#" id="side_userbook_status">대출현황</a></li>
-									<li><a href="#" id="side_reservation">예약현황</a></li>
-									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
-								</ul>
-							</li>
-								
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
+							<div class="side-head">
+								<h4 class="text-light">나의도서</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5" id="menu">
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="side_favorite">내서재</a></li>
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="btn_mypage">마이페이지</a>
+									<ul class='submenu'>
+										<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
+										<li><a href="MyPage_Info" id="side_update">개인정보변경</a></li>
+										<li><a href="MyPage_Info" id="side_user_qr">나의QR</a></li>
+									</ul></li>
+								<li class="list-group-item"><a href="#"
+									id="side_userbook_status">나의도서정보</a>
+									<ul class='submenu'>
+										<li><a href="#" id="side_userbook_status">대출현황</a></li>
+										<li><a href="#" id="side_reservation">예약현황</a></li>
+										<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
+									</ul></li>
 
-					</ul>
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="side_user_club">동아리신청내역</a></li>
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="side_user_request_list">희망도서신청내역</a></li>
+
+							</ul>
+						</div>
 					</div>
-					</div>
-				
+
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<section id="updateCustomer">
-							
+							<form method="post" id="user_pwCheck_form">
+								<div class="form-group mt-4">
+									<font size=4><img src="./img/detail.png" width=25
+										height=25>&nbsp&nbsp비밀번호 체크</font><br> <br> <input
+										type="password" id="pw" name="user_password"
+										placeholder="비밀번호">
+
+									<button style="float: center;" id="btn_PW_check"
+										class="w-btn w-btn-detail" type="button">확인</button>
+									<br>
+
+								</div>
+							</form>
 						</section>
 					</div>
 				</div>
@@ -185,14 +194,15 @@ $(function(){
 				<div class="modal-body">
 					<form>
 						<div class="form-group">
-							<label for="username">회원탈퇴를 위해 비밀번호를 입력해주세요.</label> <input
+							<label for="password">회원탈퇴를 위해 비밀번호를 입력해주세요.</label> <input
 								type="password" placeholder="비밀번호를 입력해주세요." class="form-control"
-								id="pwInput">
+								id="pwInput" value="${loginUser.user_password }">
 						</div>
 						<div class="form-group">
 							<label for="password">비밀번호를 한번 더 입력해주세요</label> <input
 								type="password" placeholder="비밀번호를 한번 더 입력해주세요."
-								class="form-control" id="pwInputCheck">
+								class="form-control" id="pwInputCheck"
+								value="${loginUser.user_password }">
 						</div>
 					</form>
 				</div>
@@ -205,36 +215,30 @@ $(function(){
 	</div>
 	</div>
 	<script type="text/javascript">
-		const pwInput = $('#pwInput').val();
-		const pwInputCheck = $('#pwInputCheck').val();
-		const email = $('#id').val() + '@' + $('#email').val();
+	$(function(){
+		
+		var pwInput = $('#pwInput').val();
+		var pwInputCheck = $('#pwInputCheck').val();
 		if (pwInput != pwInputCheck) {
-			pwInput.addClass('is-invalid');
+			alert("비밀번호를 다시 확인해주세요.");
 		}
-		$('#outCustomer').click(function() {
+		$(document).on('click','#outCustomer',function(e){
 			$.ajax({
-				url : '/optOutCustomer.do',
-				type : 'POST',
-				data : {
-					'email' : email,
-					'pw' : pwInput
-				},
-				success : function(result) {
-					console.log(result);
-					if (result > 0) {
+				url : 'user_remove_action,
+				method : 'POST',
+				success : function(jsonResult) {
+					if (jsonResult.code==1) {
 						alert('탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사드립니다.');
-						window.location = "/Home.do";
+						location.href = "Home";
 					} else {
-						alert('탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사드립니다.');
-						window.location = "/Home.do";
+						alert('오류');
 					}
-				},
-				error : function() {
-					alert('탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사드립니다.');
-					window.location = "/Home.do";
 				}
 			});
 		});
+		
+		
+	});
 	</script>
 
 	<!-- .footer-navigation -->

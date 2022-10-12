@@ -66,7 +66,19 @@ $(function(){
 		});
 		
 		/***********user_view**********/
-		
+		$.ajax({
+				url:'user_view',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						location.href='user';
+					}
+				}
+			});
 		$(document).on('click','#mypage,#side_mypage',function(e){
 			$.ajax({
 				url:'user_view',
@@ -161,16 +173,7 @@ $(function(){
 		});
 		
 		/************favorite_list*************/
-		$.ajax({
-			url:'favorite_list',
-			method:'POST',
-			success:function(jsonResult){
-				var favoriteArray=jsonResult.data;
-				$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
-				console.log(favoriteArray);
-				$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
-			}
-		});
+		
 		$(document).on('click','#side_favorite,#user_favorite',function(e){
 			$.ajax({
 				url:'favorite_list',
@@ -272,8 +275,8 @@ $(function(){
 								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
-									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
-									<li><a href=MyPage_Info id="side_user_qr">나의QR</a></li>
+									<li><a href="MyPage_Info" id="side_update">개인정보변경</a></li>
+									<li><a href="MyPage_Info" id="side_user_qr">나의QR</a></li>
 								</ul>
 							</li>
 							<li class="list-group-item">

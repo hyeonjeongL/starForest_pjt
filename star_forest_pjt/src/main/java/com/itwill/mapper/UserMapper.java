@@ -23,7 +23,7 @@ public interface UserMapper {
 	public int updatePassword(User user);
 
 	@Update("update user_info set user_password=#{user_password},user_email=#{user_email},user_birth=#{user_birth},"
-			+ "		user_phone=#{user_phone},category_no=#{category_no} where user_id=#{user_id}")
+			+ "		user_phone=#{user_phone} where user_id=#{user_id}")
 	public int update(User user);
 
 	@Delete("delete from user_info where user_id=#{user_id}")

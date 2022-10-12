@@ -43,30 +43,57 @@
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript">
-$(function(){
-	$(document).on('click','#btn_PW_action',function(e){
-		var param = $('#user_pwCheck_form').serialize();
-		$.ajax({
-			
-			url:'user_pw_check',
-		    data: param,
-		    method:'POST',
-		    success:function(jsonResult){
-		    	if(jsonResult.code==1){
-		    		alert(jsonResult.msg);
-		    	}
-		    }
-			
-			
+$(function() {
+		
+		/*************비밀번호체크 후 폼이동***************/
+		$(document).on('click', '#btn_PW_check', function(e) {
+			var param = $('#user_pwCheck_form').serialize();
+			$.ajax({
+				url : 'user_pw_check',
+				data : param,
+				method : 'POST',
+				success : function(jsonResult) {
+					if (jsonResult.code == 1) {
+						$.ajax({
+							url:'pw_modify_form',
+							method:'POST',
+							success:function(jsonResult){
+							$('#content').html(UserHtmlContents.user_pwcheck_item(jsonResult.data[0]));
+								
+							}
+						});
+						
+					}else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
+		
+		/**********비밀번호변경***********/
+		$(document).on('click','#btn_PW_action',function(e){
+			var param=$('#user_pwCheck').serialize();
+			console.log(param);
+			$.ajax({
+				url:'pw_modify_action',
+				method:'POST',
+				data:param,
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						alert(jsonResult.msg);
+						location.href='MyPage_Folder';
+					}else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}
+				}
+			});
 		});
 		
 		
 		
-	});
 });
-
-	
-	
 </script>
 </head>
 
@@ -100,54 +127,58 @@ $(function(){
 					<!-- 사이드바 -->
 					<div class="col-md-3 noto-serif">
 						<div class="sidebar">
-						<div class="side-head">
-							<h4 class="text-light">나의도서</h4>
-						</div>
-						<ul class="list-group list-group-flush mb-5"  id="menu">
-						<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
-								<ul class='submenu'>
-									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
-									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
-									<li><a href=MyPage_Info id="side_user_qr">나의QR</a></li>
-								</ul>
-							</li>
-							<li class="list-group-item">
-								<a href="#"  id="side_userbook_status">나의도서정보</a>
-								<ul class='submenu'>
-									<li><a href="#" id="side_userbook_status">대출현황</a></li>
-									<li><a href="#" id="side_reservation">예약현황</a></li>
-									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
-								</ul>
-							</li>
-								
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
+							<div class="side-head">
+								<h4 class="text-light">나의도서</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5" id="menu">
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="side_favorite">내서재</a></li>
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="btn_mypage">마이페이지</a>
+									<ul class='submenu'>
+										<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
+										<li><a href="MyPage_Info" id="side_update">개인정보변경</a></li>
+										<li><a href="MyPage_Info" id="side_user_qr">나의QR</a></li>
+									</ul></li>
+								<li class="list-group-item"><a href="#"
+									id="side_userbook_status">나의도서정보</a>
+									<ul class='submenu'>
+										<li><a href="#" id="side_userbook_status">대출현황</a></li>
+										<li><a href="#" id="side_reservation">예약현황</a></li>
+										<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
+									</ul></li>
 
-					</ul>
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="side_user_club">동아리신청내역</a></li>
+								<li class="list-group-item"><a href="MyPage_Folder"
+									id="side_user_request_list">희망도서신청내역</a></li>
+
+							</ul>
+						</div>
 					</div>
-					</div>
-				
+
 					<!-- 메인내용 -->
 					<div class="col-md-9">
-						<div id ="passwordCheck_form_wrap">
-						
-					 <form method="post" id="user_pwCheck_form">
-						<div class="form-group mt-4">
-						
-							<input type="password" id="pw" name="user_password" placeholder="비밀번호"> 
+						<div id="content">
+
+							<form method="post" id="user_pwCheck_form">
+								<div class="form-group mt-4">
+									<font size=4><img src="./img/detail.png" width=25 height=25>&nbsp&nbsp비밀번호 체크</font><br>
+									<br> 
+									<input type="password" id="pw" name="user_password" placeholder="비밀번호">
+
+									<button style="float: center;" id="btn_PW_check"
+										class="w-btn w-btn-detail" type="button">확인</button>
+									<br>
+
+								</div>
+							</form>
+
+
 							
-							<button style="float:center;" id="btn_PW_action" type="button">확인</button><br>
-						
-						</div>
-					</form>
-						
-						
-						
+
+
+
 						</div>
 					</div>
 				</div>

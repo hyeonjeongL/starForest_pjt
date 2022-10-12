@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.mapper.FavoriteMapper">
+	
+	<select id="selectById"  resultMap="favoriteResultMap">
+		select f.favorite_no,b.book_title,b.book_author,b.book_publisher 
+		from favorite f 
+		join book b on f.book_no=b.book_no 
+		where user_id=#{user_id}
+	</select>
+
+	<resultMap type="favorite" id="favoriteResultMap">
+		<result column="favorite_no" property="favorite_no"/>
+		<collection property="book" resultMap="bookMap"></collection>
+	</resultMap>
+	<resultMap type="book" id="bookMap">
+		<result column="book_title" property="book_title"/>
+		<result column="book_author" property="book_author"/>
+		<result column="book_publisher" property="book_publisher"/>
+	</resultMap>
+
+	
+	
 	<!--  
 	<insert id="insert" parameterType="com.itwill.domain.Favorite">
 		insert into favorite values(SEQ_favorite_favorite_no.nextval,#{book_no},#{user_id})

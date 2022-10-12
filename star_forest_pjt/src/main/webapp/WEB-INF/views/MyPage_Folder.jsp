@@ -45,22 +45,8 @@
 <script type="text/javascript" src="./js/request_html_content.js"></script>
 <script type="text/javascript">
 
-
 $(function(){
 	
-		/***********로그인 세션확인**************/
-		$.ajax({
-			url : 'user_session_check',
-			method : 'POST',
-			dataType : 'json',
-			success : function(jsonResult) {
-				if (jsonResult.code == 1) {
-					console.log(jsonResult);
-				}else{ //세션 존재하지 않을경우 메세지창보여줌
-					alert('로그인이 필요한 페이지입니다:)');
-				}
-			}
-		});
 		/************club_list************/
 		$(document).on('click','#side_user_club,#user_club_list',function(e){
 			$.ajax({
@@ -81,19 +67,6 @@ $(function(){
 		
 		/***********user_view**********/
 		
-			$.ajax({
-				url:'user_view',
-				method:'POST',
-				dataType:'json',
-				success:function(jsonResult){
-					if(jsonResult.code==1){
-						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-						location.href='user';
-					}
-				}
-			});
 		$(document).on('click','#mypage,#side_mypage',function(e){
 			$.ajax({
 				url:'user_view',
@@ -188,12 +161,12 @@ $(function(){
 		});
 		
 		/************favorite_list*************/
-		
 		$.ajax({
 			url:'favorite_list',
 			method:'POST',
 			success:function(jsonResult){
 				var favoriteArray=jsonResult.data;
+				$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 				console.log(favoriteArray);
 				$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 			}
@@ -214,6 +187,7 @@ $(function(){
 		/**********favorite_delete************/
 		$(document).on('click','#btn_delete',function(e){
 			var param='favorite_no='+$(e.target).attr('favorite_no');
+			console.log(param);
 			$.ajax({
 				url:'favorite_delete_by_no',
 				method:'POST',
@@ -251,37 +225,8 @@ $(function(){
 		e.preventDefault();
 	});
 		
-		/*****패스워드체크폼*****/
-		$(document).on('click','#updatePW,#side_update',function(e){
-			var user_password=$(e.target).attr('user_password');
-			var param='user_password='+user_password;
-			console.log(param);
-			$('#clubUserList').html(UserHtmlContents.user_pwcheck_form());
-			e.preventDefault();
-		});
-		
-	
-		/**********패스워드체크*************/
-		$(document).on('click','#btn_PW_action',function(e){
-			var param = 'user_password='+$(e.target).attr('user_password');
-			console.log(param);	
-			/* $.ajax({
-				url:'user_pw_check',
-				method:'POST',
-				success:function(jsonResult){
-					if(jsonResult.code==1){
-						alert(jsonResult.msg);
-					}else{
-						alert(jsonResult.msg);
-					}
-				}
-			}); */
-		});
-		
-		
-		
-		
-});
+});		
+
 </script>
 <title>나의도서 - 별숲도서관</title>
 
@@ -321,11 +266,14 @@ $(function(){
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5"  id="menu">
+						<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
+									<li><a href=MyPage_Info id="side_user_qr">나의QR</a></li>
 								</ul>
 							</li>
 							<li class="list-group-item">
@@ -341,10 +289,6 @@ $(function(){
 								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_qr">나의QR</a></li>
 
 					</ul>
 					</div>

@@ -1,30 +1,5 @@
 function FavoriteHtmlContents() {
 }
-FavoriteHtmlContents.favorite_left_menu_content=function(user){
-	return `<div class="col-md-3 noto-serif">
-					<div class="sidebar">
-						<div class="side-head">
-							<h4 class="text-light">나의도서</h4>
-						</div>
-						<ul class="list-group list-group-flush mb-5">
-							<li class="list-group-item"><a href="mypage" id="mypage">마이페이지</a>
-							</li>
-							<li class="list-group-item"><a href="userbook_status"
-								id="userbook_status">나의도서정보</a></li>
-							<li class="list-group-item"><a href="user_club_list"
-								id="user_club_list">동아리신청내역</a></li>
-							<li class="list-group-item"><a href="user_request_list"
-								id="user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item active"><a href="favorite"
-								id="favorite">내서재</a></li>
-							<li class="list-group-item"><a href="user_qr" id="user_qr">나의QR</a></li>
-
-						</ul>
-
-					</div>
-				</div>
-	`;
-}
 
 FavoriteHtmlContents.favorite_item_content = function(favorite) {
 	return `
@@ -35,7 +10,7 @@ FavoriteHtmlContents.favorite_item_content = function(favorite) {
 								<td class="bookAuthor">${favorite.book.book_author}</td>
 								<td class="bookPubl">${favorite.book.book_publisher}</td>
 								<td>
-									<button id="btn_delete" class="w-btn w-btn-delete" type="button">삭제</button>
+									<button id="btn_delete" class="w-btn w-btn-delete" type="button" favorite_no="${favorite.favorite_no}">삭제</button>
 								</td>
 							</tr>
 					 </div>					

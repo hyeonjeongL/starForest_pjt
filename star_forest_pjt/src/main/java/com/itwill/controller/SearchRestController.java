@@ -8,10 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-starForest_library.git
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;

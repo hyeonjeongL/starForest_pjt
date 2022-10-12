@@ -45,7 +45,7 @@ public interface BookMapper {
 		 + "on r.user_id = u.user_id where u.user_id = #{user_id})")
 	public int updateById(String user_id);
 	
-	//각각 반납시 수량변경 (admin)
+	//각각 반납시 책 수량변경 (admin)
 	@Update("update book set book_qty = book_qty +1 "
 			+ "where booK_no in "
 			+ "(select r.book_no from rental r inner join user_info u "

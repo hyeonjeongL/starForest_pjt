@@ -91,7 +91,7 @@ public class RentalRestController {
 
 	// admin 반납 버튼
 	@PostMapping("/rest_return")
-	public Map one_return(int book_no, HttpSession session) throws Exception {
+	public Map one_return(int book_no, String user_id, HttpSession session) throws Exception {
 		Map resultMap = new HashMap();
 
 		int code = 2;
@@ -100,10 +100,11 @@ public class RentalRestController {
 		List<Rental> resultList = new ArrayList<Rental>();
 		try {
 			String sUserId = (String) session.getAttribute("sUserId");
+			sUserId="admin";
 			bookService.updateReturnBookQty(book_no);
 			bookService.updateByIdNo(sUserId, book_no);
 			int rental = rentalService.updateRentalStatus(sUserId, book_no);
-			userService.userReturnCount(sUserId);
+			userService.userReturnCount(user_id);
 			if (rental == 1) {
 				code = 1;
 				url = "";

@@ -27,7 +27,7 @@ public interface BookService {
 	/** 회원이 대여한 도서 전체 반납시 수량변경 (admin) */
 	int updateById(String user_id) throws Exception;
 
-	/** 각각 반납시 수량변경 (admin) */
+	/** 각각 반납시 책 수량변경 (admin) */
 	int updateByIdNo(String user_id, int book_no)throws Exception;
 
 	/** 도서 전체 출력 */

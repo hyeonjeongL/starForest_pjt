@@ -40,6 +40,20 @@
 <script type="text/javascript" src="./js/adminContents.js"></script>
 <script type="text/javascript">
 /*********도서관 총 대출 리스트***********/
+$(function(){
+	$.ajax({
+		url:'total_rental_list',
+		method:'POST',
+		dataType:'json',
+		success:function(jsonResult){
+			if(jsonResult.code==1){
+				var rentalTArray=jsonResult.data;
+				$('.listTable').html(adminContents.admin_total_rental_list_content(rentalTArray));
+			}else if(jsonResult.code==2){
+				alert(jsonResult.msg);
+			}
+		}
+	});
 $(document).on('click','#admin_return',function(e){
 	$.ajax({
 		url:'total_rental_list',
@@ -57,6 +71,25 @@ $(document).on('click','#admin_return',function(e){
 	e.preventDefault();
 });
 
+$(document).on('click','#btn_admin_return',function(e){
+	$.ajax({
+		url:'rest_return',
+		method:'POST',
+		dataType:'json',
+		data:'book_no='+$(e.target).attr("book_no"),
+		success:function(jsonResult){
+			if(jsonResult.code==1){
+				var rentalTArray=jsonResult.data;
+				console.log(user_id, book_no);
+				alert("반납처리 되었습니다.");
+			}else if(jsonResult.code==2){
+				alert(jsonResult.msg);
+			}
+		}
+	});
+	e.preventDefault();
+});
+})
 </script>
 
 </head>
@@ -115,12 +148,12 @@ $(document).on('click','#admin_return',function(e){
 						</div>
 						<div class="row" id="item">
 						<br>
-							<button  id="btn_write_form" class="w-btn w-btn-detail">게시글 작성</button><br>
+							<button  id="btn_write_form" class="w-btn w-btn-detail" >게시글 작성</button><br>
 						
-							<!-- 동아리신청,상세 -->
-							<div class="listTable" id="content">
+							<!-- 도서관 대여 리스트 -->
+							<div class="listTable" id="content" >
 							
-								<!-- 동아리신청,상세 -->
+							<!-- 도서관 대여 리스트 -->
 						</div>
 					</div>
 				</div>

@@ -3,6 +3,23 @@
 }
 
 .listTable{
-	padding-left: 700px;
+	padding-left: 300px;
 	text-align:center;
+}
+
+.admintable{
+	width:1500px;
+	hight:20px;
+	border-top: 2px solid #40a509;
+    font-size: .9rem;
+    font-weight: 400;
+    
+}
+#btn_write_form{
+	float: right;
+}
+
+#tablehead{
+	font-weight: bold;
+	font-size: 18px;
 }

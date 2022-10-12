@@ -28,10 +28,10 @@ public static void main(String[] args) throws Exception {
 	ConfigurableApplicationContext context=application.run(args);
 	FavoriteService favoriteService=(FavoriteService)context.getBean(FavoriteService.class);
 	System.out.println("favorite service test!!");
-	System.out.println(favoriteService.insert(new Favorite(0, "yeji", new Book(7, 0, null, null, null, null, null))));
+//	System.out.println(favoriteService.insert(new Favorite(0, "yeji", new Book(7, 0, null, null, null, null, null))));
 	System.out.println(favoriteService.selectById("yeji"));
-	System.out.println(favoriteService.selectByNo(3));
-	System.out.println(favoriteService.deleteByNo(1));
-	System.out.println(favoriteService.remove("soyoon"));
+//	System.out.println(favoriteService.selectByNo(3));
+//	System.out.println(favoriteService.deleteByNo(1));
+//	System.out.println(favoriteService.remove("soyoon"));
 }
 }

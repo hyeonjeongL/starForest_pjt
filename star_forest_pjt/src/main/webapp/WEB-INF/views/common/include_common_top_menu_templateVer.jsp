@@ -90,6 +90,8 @@ $(function(){
 	});
 	});
 	
+	
+	
 });	
 </script>
 
@@ -136,6 +138,9 @@ $(function(){
 					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
+								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
+									내서재</a></li>
+							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="mypage">마이페이지</a>
 							</li>
 							<li>
@@ -147,9 +152,7 @@ $(function(){
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_request_list">
 									희망도서신청내역</a></li>
-							<li>
-								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
-									내서재</a></li>
+							
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_qr">
 									나의QR</a></li>

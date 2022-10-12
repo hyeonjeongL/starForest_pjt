@@ -83,7 +83,7 @@ $(function(){
 	});
 	
 	/*-------내서재전체삭제---------*/
-	${document}.on('click','#btn_all_delete',function(e){
+	$(document).on('click','#btn_all_delete',function(e){
 		$.ajax({
 			url:'favorite_remove',
 			method:'POST',
@@ -101,7 +101,7 @@ $(function(){
 	
 	
 	/*-------내서재개별삭제---------*/
-	${document}.on('click','#btn_delete',function(e){
+	$(document).on('click','#btn_delete',function(e){
 		$.ajax({
 			url:'favorite_delete_by_no',
 			method:'POST',

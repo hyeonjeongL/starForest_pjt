@@ -30,12 +30,12 @@ public class BookClubServiceTest {
 //		System.out.println(bookClubService.create(insert));
 //		System.out.println(bookClubService.selectAll());
 //		System.out.println(bookClubService.selectByCategory(200));
-//		System.out.println(bookClubService.selectById("yeji"));
+		System.out.println(bookClubService.selectById("yeji"));
 //		System.out.println(bookClubService.selectByNo(6));
 //		System.out.println(bookClubService.isDuplicate("yeji", 5));
-		BookClub update = new BookClub(1, "제목수정", 9, "누구든환영", "시간수정", 
-										"장소수정", "내용수정", 2, 100, "yeji");
-		System.out.println(bookClubService.update(update));
+//		BookClub update = new BookClub(1, "제목수정", 9, "누구든환영", "시간수정", 
+//										"장소수정", "내용수정", 2, 100, "yeji");
+//		System.out.println(bookClubService.update(update));
 //		System.out.println(bookClubService.clubJoin("yeji",4));
 //		System.out.println(bookClubService.addReadCount(8));
 //		System.out.println(bookClubService.remove(28));

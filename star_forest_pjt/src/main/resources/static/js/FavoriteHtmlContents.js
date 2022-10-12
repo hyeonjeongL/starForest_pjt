@@ -35,7 +35,7 @@ FavoriteHtmlContents.favorite_item_content = function(favorite) {
 								<td class="bookAuthor">${favorite.book.book_author}</td>
 								<td class="bookPubl">${favorite.book.book_publisher}</td>
 								<td>
-									<button id="btn_delete" class="w-btn w-btn-delete" type="button">삭제</button>
+									<button id="btn_delete" class="w-btn w-btn-delete" favorite_no="${favorite.favorite_no}" type="button">삭제</button>
 								</td>
 							</tr>
 					 </div>					
@@ -47,7 +47,7 @@ FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 
 
 					<div class="container">
-						<table id="favoriteList" class="table table-hover">
+						<table id="favoriteList" class="table">
 							<tr>
 								<th scope="row">No.</th>
 								<th scope="row">제목</th>

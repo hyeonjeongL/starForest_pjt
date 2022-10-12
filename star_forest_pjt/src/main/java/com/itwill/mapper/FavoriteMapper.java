@@ -19,7 +19,7 @@ public interface FavoriteMapper {
 	@Select("select count(*) from favorite where user_id=#{user_id} and book_no=#{book_no}")
 	public int isExisted(String user_id, int book_no);
 	
-	@Select("select f.favorite_no,b.isbn,b.book_title,b.book_author,b.book_publisher from favorite f"
+	@Select("select f.favorite_no,b.book_title,b.book_author,b.book_publisher from favorite f"
 			+ "			join book b on f.book_no=b.book_no where user_id=#{user_id}")
 	public List<Favorite> selectById(String user_id);
 	

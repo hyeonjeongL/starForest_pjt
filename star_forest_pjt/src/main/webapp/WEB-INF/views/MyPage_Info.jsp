@@ -73,6 +73,25 @@ $(function(){
 		e.preventDefault();
 	});
 	
+	/**********user_modify_action**********/
+	$(document).on('click','#modify_btn',function(e){
+		var param=$('#user_modify_form').serialize();
+		$.ajax({
+			url:'user_modify_action',
+			method:'POST',
+			dataType:'json',
+			data:param,
+			success:function(jsonResult){
+				if(jsonResult.code==1){
+					$('#updateCustomer').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+				}else if(jsonResult.code==-1){
+					alert(jsonResult.msg);
+				}
+			}
+		});
+		e.preventDefault();
+	});
+	
 	
 	
 });

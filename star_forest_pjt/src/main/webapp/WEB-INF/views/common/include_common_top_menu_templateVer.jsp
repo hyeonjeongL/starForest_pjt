@@ -8,7 +8,19 @@
 <script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 $(function(){
-	
+	/***********로그인 세션확인**************/
+	$.ajax({
+		url : 'user_session_check',
+		method : 'POST',
+		dataType : 'json',
+		success : function(jsonResult) {
+			if (jsonResult.code == 1) {
+				console.log(jsonResult);
+			}else{ //세션 존재하지 않을경우 메세지창보여줌
+				alert('로그인이 필요한 페이지입니다:)');
+			}
+		}
+	});
 
 	/************user_login_form*************/
 	$(document).on('click', '#a_user_login_form', function(e) {
@@ -136,6 +148,9 @@ $(function(){
 					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 							<li>
+								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
+									내서재</a></li>
+							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="mypage">마이페이지</a>
 							</li>
 							<li>
@@ -147,12 +162,6 @@ $(function(){
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_request_list">
 									희망도서신청내역</a></li>
-							<li>
-								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
-									내서재</a></li>
-							<li>
-								<a class="dropdown-item" href="MyPage_Folder" id="user_qr">
-									나의QR</a></li>
 
 					</ul>
 				</li>

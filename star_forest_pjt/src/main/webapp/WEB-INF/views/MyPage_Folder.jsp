@@ -251,21 +251,21 @@ $(function(){
 		e.preventDefault();
 	});
 		
-		/*****패스워드체크폼*****
+		/*****패스워드체크폼*****/
 		$(document).on('click','#updatePW,#side_update',function(e){
 			var user_password=$(e.target).attr('user_password');
 			var param='user_password='+user_password;
 			console.log(param);
 			$('#clubUserList').html(UserHtmlContents.user_pwcheck_form());
 			e.preventDefault();
-		});*/
+		});
 		
-		/**********패스워드체크************/
-		$(document).on('click','#btn_PW_action',function(e){
-			
+	
 		/**********패스워드체크*************/
-		$(document).on('click','#updatePW',function(e){
-			$.ajax({
+		$(document).on('click','#btn_PW_action',function(e){
+			var param = 'user_password='+$(e.target).attr('user_password');
+			console.log(param);	
+			/* $.ajax({
 				url:'user_pw_check',
 				method:'POST',
 				success:function(jsonResult){
@@ -275,7 +275,7 @@ $(function(){
 						alert(jsonResult.msg);
 					}
 				}
-			});
+			}); */
 		});
 		
 		

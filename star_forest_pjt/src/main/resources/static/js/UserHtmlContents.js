@@ -127,7 +127,7 @@ UserHtmlContents.user_view_content=function(loginUser){
 				<ul class="nav nav-tabs mypage-tabs">
 					<li class="nav-item"><a class="nav-link active" href="#"
 						id="myInfo">내정보</a></li>
-					<li class="nav-item" ><a class="nav-link" href="#"
+					<li class="nav-item" ><a class="nav-link" href="passwordCheck"
 						id="updatePW"  user_password="${loginUser.user_password}" >비밀번호변경</a></li>
 					
 				</ul>
@@ -226,12 +226,12 @@ UserHtmlContents.user_remove_content=function(){
 
 }
 
-UserHtmlContents.user_pwcheck_form=function(){
+UserHtmlContents.user_pwcheck_form=function(loginUser){
 	return `<form method="post" id="user_pwCheck_form">
 				<div class="form-group mt-4"><font size=4><img src="./img/detail.png" width=25 height=25>&nbsp&nbsp비밀번호 체크</font><br><br>
 					<input class="form-control form-control-lg mt-2 loginForm" type="password" id="pw" name="user_password" placeholder="비밀번호"> 
 					
-					<button style="float:center;" id="btn_PW_action" class="w-btn w-btn-detail" type="button">확인</button><br>
+					<button style="float:center;" id="btn_PW_action" class="w-btn w-btn-detail" type="button" user_password="${loginUser.user_password}">확인</button><br>
 				
 				</div>
 			</form>
@@ -253,7 +253,7 @@ UserHtmlContents.user_pwcheck_item=function(){
 			`;
 }
 UserHtmlContents.user_modify_form=function(loginUser){
-	return `<form action="UpdateCustomer.do" method="post"
+	return `<form id="user_modify_form" method="post"
 								enctype="multipart/form-data">
 								<input type="hidden" name="user_id" value="${loginUser.user_id}">
 								<div class="form-group mt-2">
@@ -279,46 +279,14 @@ UserHtmlContents.user_modify_form=function(loginUser){
 									</div>
 								</div>
 								<hr>
-								<div class="form-group mt-2">
-									<label for="pw">비밀번호</label> <span class="signup_required">*</span>
+								<div class="form-group mt-4">
+									<label for="email">비밀번호</label> <span class="signup_required">*</span>
 									<div>
-										<input type="hidden" name="pw" value="${loginUser.user_password }" id="pw"
-											readonly="readonly">
-										<button type='button' id="modal_btn">암호변경</button>
-									</div>
-									<div class="black_bg"></div>
-									<div class="modal_wrap">
-										<div class="title">비밀번호 변경하기</div>
-										<br>
-										<br>
-										<br>
-										<div class="content_title">비밀번호</div>
-										<div class="content_content">
-											<input type="password" id="password_1" class="pw"
-												placeholder="비밀번호">
-										</div>
-										<small class="form-text text-muted">비밀번호는 <span
-											class="signup_required">8~16자, 영문, 숫자, 특수문자</span>를 포함해야 합니다.
-										</small> <br>
-										<br>
-										<div class="content_title">비밀번호 확인</div>
-										<div class="content_content">
-											<input type="password" id="password_2" class="pw"
-												placeholder="비밀번호 확인"> <br> <span
-												id="alert-success" style="display: none;">비밀번호가
-												일치합니다.</span> <span id="alert-danger"
-												style="display: none; color: #d92742; font-weight: bold;">비밀번호가
-												일치하지 않습니다.</span> <span id="alert-danger2"
-												style="display: none; color: #d92742; font-weight: bold;">비밀번호가
-												너무 깁니다. 8~16글자 이내로 등록해주세요.</span>
-										</div>
-										<div id="div_result"></div>
-										<br>
-										<button id="btn_pw_ok" type="button">암호 확인</button>
-										<button type="button" class="modal_close">창 닫기</button>
+										<input type="text" id="password"
+											value="${loginUser.user_password}" name="birth" placeholder="비밀번호를 입력해주세요.">
 									</div>
 								</div>
-								<hr>
+								
 								<hr>
 								<div class="form-group my-4">
 									<label for="m_phone">휴대폰번호</label> <span
@@ -352,7 +320,7 @@ UserHtmlContents.user_modify_form=function(loginUser){
 										</div>
 									</div>
 								</div>
-								<button type="submit"
+								<button type="submit" id="modify_btn"
 									class="btn btn-dark btn-block mb-1 btn-Customer">수정하기</button>
 								<button type="button"
 									class="btn btn-outline-danger btn-block mb-1 btn-Customer"

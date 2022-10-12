@@ -10,6 +10,9 @@ public interface FavoriteService {
 		//즐겨찾기 추가
 		int insert(Favorite favorite) throws Exception;
 		
+		//즐겨찾기 중복체크
+		int isExisted(String user_id,int book_no) throws Exception;
+		
 		//회원의 즐겨찾기 목록
 		List<Favorite> selectById(String user_id) throws Exception;
 		

@@ -148,7 +148,7 @@ $(function(){
 								<a class="dropdown-item" href="MyPage_Folder" id="user_request_list">
 									희망도서신청내역</a></li>
 							<li>
-								<a class="dropdown-item" href="MyPage_Folder" id="favorite">
+								<a class="dropdown-item" href="MyPage_Folder" id="user_favorite">
 									내서재</a></li>
 							<li>
 								<a class="dropdown-item" href="MyPage_Folder" id="user_qr">

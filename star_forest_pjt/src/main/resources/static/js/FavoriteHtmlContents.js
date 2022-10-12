@@ -30,7 +30,7 @@ FavoriteHtmlContents.favorite_item_content = function(favorite) {
 	return `
 					<div class="rentalTable">
 						<tr id="favorite_item">
-								<td id="favoriteNo">${favorite_no}
+								<td id="favoriteNo">${favorite.favorite_no}
 								<td class="bookTitle">${favorite.book.book_title}</td>
 								<td class="bookAuthor">${favorite.book.book_author}</td>
 								<td class="bookPubl">${favorite.book.book_publisher}</td>

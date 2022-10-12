@@ -168,7 +168,7 @@
 						<!--First slide-->
 						<div class="carousel-item active">
 							<div class="row">
-								<c:forEach items="${favorite}" var="book" begin="0" end="2">
+								<c:forEach items="${userBook}" var="book" begin="0" end="2">
 									<div class="col-md-4 clearfix d-none d-md-block">
 										<div class="card"><a href="book_detail?book_no=${book.book_no}">
 											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
@@ -184,7 +184,7 @@
 						<!--Second slide-->
 						<div class="carousel-item">
 							<div class="row">
-								<c:forEach items="${newBook}" var="book" begin="3" end="5">
+								<c:forEach items="${userBook}" var="book" begin="3" end="5">
 									<div class="col-md-4 clearfix d-none d-md-block">
 										<div class="card"><a href="book_detail?book_no=${book.book_no}">
 											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>

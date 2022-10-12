@@ -124,6 +124,11 @@ public class UserServiceImpl implements UserService {
 	public int rentalStopPeriod(String user_id) throws Exception {
 		return userDao.rentalStopPeriod(user_id);
 	}
+
+	@Override
+	public int userReturnCount(String user_id) throws Exception {
+		return userDao.userReturnCount(user_id);
+	}
 	
 
 }

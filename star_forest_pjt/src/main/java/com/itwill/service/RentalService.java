@@ -21,6 +21,9 @@ public interface RentalService {
 	/**user_id로 총 대출 리스트 뽑기*/
 	List<Rental> selectByIdTotalList(String user_id) throws Exception;
 	
+	//도서관 총 대출 리스트 뽑기*/
+	List<Rental> selectNowLental(String user_id) throws Exception;
+	
 	/**책대여는 아이디당 1개만 대여 가능 중복체크*/
 	int bookCheckDupli(String user_id, int book_no) throws Exception;
 

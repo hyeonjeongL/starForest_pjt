@@ -19,6 +19,8 @@ public interface RentalDao {
 	List<Rental> selectById(String user_id) throws Exception;
 	
 	List<Rental> selectByIdTotalList(String user_id) throws Exception;
+
+	List<Rental> selectNowLental(String user_id) throws Exception;
 	
 	int bookCheckDupli(String user_id, int book_no) throws Exception;
 	

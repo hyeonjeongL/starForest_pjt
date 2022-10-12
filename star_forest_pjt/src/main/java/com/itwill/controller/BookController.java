@@ -111,13 +111,26 @@ public class BookController {
 		return "recommendedBooks";
 	}
 	
+	@RequestMapping("/popularBook")
+	public String popularBook(Model model) {
+		try {
+			List<Book> favorite = bookService.selectFavorite();
+			model.addAttribute("favorite",favorite);
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "popularBook";
+	}
+	
 	@RequestMapping("/SearchList1")
 	public String BookCategoryList(@RequestParam(value = "category_no", required = false) Model model,String category_no) {
 		try {
 			int bookCategoryCount = bookService.bookCategoryCount();
 			List<Book> bookCategory = bookService.selectCategory(Integer.parseInt(category_no));
+			List<Book> selectAll = bookService.selectAll();
 			model.addAttribute("bookCategoryCount",bookCategoryCount);
 			model.addAttribute("bookCategory",bookCategory);
+			model.addAttribute("selectAll",selectAll);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -128,7 +141,7 @@ public class BookController {
 	public String Newbooks(Model model) {
 		try {
 			List<Book> newBook = bookService.selectNew();
-			model.addAttribute(newBook);
+			model.addAttribute("newBook",newBook);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

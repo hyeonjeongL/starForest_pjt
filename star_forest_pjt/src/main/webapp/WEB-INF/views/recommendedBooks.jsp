@@ -44,7 +44,8 @@
 				<!-- include_common_left.jsp end-->
 			</div>
 			<!-- navigation end-->
-
+			
+		<!-- PAGE HEADER -->
 		<header id="page-header" class="noto-serif">
 			<div class="page-header-overlay">
 				<div class="container pt-5">
@@ -80,7 +81,7 @@
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<div class="row">
-							<c:forEach items="${favorite}" var="book" begin="0" end="15">
+							<c:forEach items="${favorite}" var="book" begin="0" end="30" step="2">
 								<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
@@ -96,7 +97,13 @@
 								</div>
 							</c:forEach>
 						</div>
-						<nav>
+					</div>
+				</div>
+			</div>
+		</section>
+		</div>
+
+		<nav>
             <ul class="pagination justify-content-center">
               <c:if test="${startPage > 1}">
                 <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
@@ -126,12 +133,6 @@
                      </a></li>
               </c:if>
         </nav>
-					</div>
-				</div>
-			</div>
-		</section>
-		</div>
-
 <!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

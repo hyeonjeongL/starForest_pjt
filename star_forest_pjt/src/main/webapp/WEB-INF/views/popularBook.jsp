@@ -76,15 +76,15 @@
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<div class="row">
-							<c:forEach var="b" items="${list }">
+							<c:forEach items="${favorite}" var="book" begin="0" end="11">
 								<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
-											<a href="detailBook.do?b_no=1&query=${b.b_title }"><img class="card-image-top img-fluid" width="100%" alt="${b.b_image }" src="${b.b_image }"></a>
+											<a href="book_detail?book_no=${book.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}"></a>
 											<div class="card-body">
 												<div class="card-title">
-													<div class="book-title" id="book-title">${b.b_title }</div>
-													<h6 class="book-writer">${b.b_writer }</h6>
+													<div class="book-title" id="book-title">${book.book_title}</div>
+													<h6 class="book_author">${book.book_author}</h6>
 												</div>
 											</div>
 										</div>

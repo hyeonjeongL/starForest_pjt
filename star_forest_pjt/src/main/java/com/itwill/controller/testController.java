@@ -107,11 +107,6 @@ public class testController {
 		System.out.println("test");
 		return "mypage_main";
 	}
-	@RequestMapping("/popularBook")
-	public String test24() {
-		System.out.println("test");
-		return "popularBook";
-	}
 	@RequestMapping("/postInsert")
 	public String test26() {
 		System.out.println("test");

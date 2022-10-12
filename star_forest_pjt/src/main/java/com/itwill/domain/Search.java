@@ -19,7 +19,17 @@ public class Search {
 	private int book_res_cnt;
 	private int book_rental_cnt;
 	private int category_no;
+	private int cateno;//참조 번호
 	private String category_name;
+	
+	public int getCateno() {
+		return cateno;
+	}
+
+	public void setCateno(int cateno) {
+		this.cateno = cateno;
+	}
+
 	
 	//검색 필터
 	private String type;//검색 타입

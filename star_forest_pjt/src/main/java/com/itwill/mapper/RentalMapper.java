@@ -17,7 +17,7 @@ import com.itwill.domain.Rental;
 @Mapper
 public interface RentalMapper {
 	
-	//대여 시 insert
+	/** 대여 시 insert*/
 	@Insert("insert into rental (rental_no,rental_date,return_duedate,"
 							  + "return_date,rental_status,book_no,user_id) "
 			+ "values(seq_rental_rental_no.nextval,sysdate,sysdate+7,null,"
@@ -30,20 +30,33 @@ public interface RentalMapper {
 	public int updateDate(String user_id, int book_no );
 	
 	
-	//user_id로 대출 리스트 뽑기
+	
+	/** user_id로 대출 리스트 뽑기*/
+//	@Select("select b.book_no, b.book_title, b.book_author, "
+//				 + "b.book_publisher, b.book_input_date, b.category_no, r.rental_date "
+//		  + "from rental r inner join book b on r.book_no = b.book_no "
+//		  + "where r.user_id = #{user_id}"
+//		  + "order by r.rental_date asc")
 	public List<Rental> selectById(String user_id);  
 	
-	//user_id로 총 대출 리스트 뽑기
+	/**user_id로 총 대출 리스트 뽑기*/
 	public List<Rental> selectByIdTotalList(String user_id);
 	
-	//현재 도서관 총 렌탈 리스트
-	public List<Rental> selectNowLental(String user_id);
-	
-	//중복대출 불가
+	//중복대출 불가 아 여기 rental_status 추가해야함,,,
 	@Select("select count(r.book_no) from rental r inner join book b on r.book_no = b.book_no "
 		  + "where r.user_id = #{user_id} and r.book_no=#{book_no} and r.rental_status!=0 "
 		  + "order by r.rental_date asc")
-	public int bookCheckDupli(String user_id, int book_no);	
+	public int bookCheckDupli(String user_id, int book_no);
+	
+	/** book_no로 대출유저 리스트*/
+	@Select("select u.user_id, u.user_name, u.user_rental_status, "
+				 + "u.user_book_cnt_limit, r.rental_date "
+			+ "from rental r left join user_info u on r.user_id = u.user_id "
+			+ "inner join book b on r.book_no = b.book_no "
+			+ "where b.book_no = #{book_no} and r.rental_status!=0 and u.user_id is not null "
+			+ "order by r.rental_date asc")
+	public List<Map<String, Object>> selectByNo(int book_no);
+	
 	
 	/** 반납했을 때 status 0으로 업데이트 (admin)*/
 	@Update("update rental set rental_status = 0 , return_date=sysdate "
@@ -56,7 +69,7 @@ public interface RentalMapper {
 			+ "where rental_no=#{rental_no}")
 	public int updateRentalStatusOverdue(int rental_no);
 
-	//제일 빠른 반납예정일
+	/** 제일 빠른 반납예정일*/
 	@Select("select return_duedate from "
 			+ "(select * from rental order by return_duedate asc)"
 			+ "where book_no=#{book_no} and ROWNUM= 1")
@@ -68,19 +81,6 @@ public interface RentalMapper {
 			+ "where r.user_id=#{user_id} "
 			+ "and r.rental_status=1")
 	public int rentalFiveLimit(String user_id);
-	
-	/** book_no로 대출유저 리스트*/
-	@Select("select u.user_id, u.user_name, u.user_rental_status, "
-				 + "u.user_book_cnt_limit, r.rental_date "
-			+ "from rental r left join user_info u on r.user_id = u.user_id "
-			+ "inner join book b on r.book_no = b.book_no "
-			+ "where b.book_no = #{book_no} and r.rental_status!=0 and u.user_id is not null "
-			+ "order by r.rental_date asc")
-	public List<Map<String, Object>> selectByNo(int book_no);
-	
-	/**전체 대출중이 도서 리스트 뽑기*/
-	
-	/**id 조회 시 대출리스트 뽑기*/
 	
 
 }

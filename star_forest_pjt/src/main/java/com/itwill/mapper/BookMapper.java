@@ -82,11 +82,11 @@ public interface BookMapper {
 	public List<Book> selectFavorite9();
 	
 	//관련분야 인기도서 출력
-	@Select("select * from (select * from book order by book_rental_cnt desc) where category_no=#{category_no} and rownum<=9")
+	@Select("select * from (select * from book order by book_rental_cnt desc) where category_no=#{category_no=NUMERIC} and rownum<=9")
 	public List<Book> selectRelation();
 	
 	//관련분야 신간도서 출력
-	@Select("select * from (select * from book order by book_publish_date asc) where category_no=#{category_no} and rownum<=9")
+	@Select("select * from (select * from book order by book_publish_date asc) where category_no=#{category_no=NUMERIC} and rownum<=9")
 	public List<Book> selectCategoryNew(int category_no);
 	
 	@Select("select * from book order by book_publish_date asc")
@@ -95,11 +95,11 @@ public interface BookMapper {
 	@Select("select count(*) from book")
 	public int bookCount();
 	
-	@Select("select count(*) from book where category_no=#{category_no}")
+	@Select("select count(*) from book where category_no=#{category_no=NUMERIC}")
 	public int bookCategoryCount();
 	
 	@Select("select book_no,isbn,book_title,book_author,book_publisher,book_summary,book_publish_date,book_input_date,book_image,"
 			+ "book_image_src,book_page,book_qty,book_res_cnt,book_rental_cnt,b.category_no from (book b left join book_category c "
-			+ "on c.category_no=b.category_no left join user_info u on u.category_no=b.category_no) where user_id=#{user_id}")
+			+ "on c.category_no=b.category_no left join user_info u on u.category_no=b.category_no) where user_id=#{user_id=VARCHAR}")
 	public List<Book> userBook(String user_id);
 }

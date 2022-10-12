@@ -74,10 +74,5 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.rentalStopPeriod(user_id);
 	}
 
-	@Override
-	public int userReturnCount(String user_id) throws Exception {
-		return userMapper.userReturnCount(user_id);
-	}
-
 
 }

@@ -13,8 +13,8 @@ import com.itwill.util.PageUtil;
 //검색기능
 public interface SearchService {
 	
-	// 01. 상품목록
-		public List<Search> listBook();
+	//분야별 리스트
+	public List<Search> list (int category_no, int level) throws Exception;
 	
 	/*
 	// 제목 검색

@@ -40,12 +40,6 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.selectByIdTotalList(user_id);
 	}
 	
-	//도서관 총 대출 리스트 뽑기*/
-	@Override
-	public List<Rental> selectNowLental(String user_id) throws Exception {
-		return rentalDao.selectNowLental(user_id);
-	}
-	
 	/** book_no로 대출유저 리스트*/
 	@Override
 	public List<Map<String, Object>> selectByNo(int book_no) throws Exception {

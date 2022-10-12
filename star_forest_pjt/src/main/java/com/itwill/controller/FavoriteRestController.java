@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -117,7 +116,7 @@ public class FavoriteRestController {
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			int result = favoriteService.deleteByNo(favorite_no);
-			if (result ==1) {
+			if (result != 0) {
 				code = 1;
 				url = "favorite_list";
 				msg = "내 서재 목록에서 삭제되었습니다.";
@@ -132,10 +131,6 @@ public class FavoriteRestController {
 			url = "main";
 			msg = "관리자에게 문의하세요.";
 		}
-		resultMap.put("code", code);
-		resultMap.put("url", url);
-		resultMap.put("msg", msg);
-		resultMap.put("data", resultList);
 		return resultMap;
 	}
 
@@ -150,10 +145,11 @@ public class FavoriteRestController {
 
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
-			resultList = favoriteService.selectById(sUserId);
+			List<Favorite> favoriteList = favoriteService.selectById(sUserId);
 			code = 1;
 			url = "";
 			msg = "조회성공";
+			resultList.addAll(favoriteList);
 
 		} catch (Exception e) {
 			e.printStackTrace();

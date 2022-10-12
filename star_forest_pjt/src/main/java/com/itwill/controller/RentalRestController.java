@@ -195,7 +195,9 @@ public class RentalRestController {
 
 			try {
 				String sUserId = (String) request.getSession().getAttribute("sUserId");
+				sUserId="admin";
 				resultList = rentalService.selectNowLental();
+				System.out.println(resultList);
 				code = 1;
 				url = "";
 				msg = "성공";

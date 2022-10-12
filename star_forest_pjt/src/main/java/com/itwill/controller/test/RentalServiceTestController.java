@@ -35,7 +35,8 @@ public class RentalServiceTestController {
 //		System.out.println(rentalService.selectByIdTotalList("hyeonjeong"));
 //		System.out.println(rentalService.insertRental(newRental));
 //		System.out.println(rentalService.bookCheckDupli("yeji", 700));
-		System.out.println(rentalService.rentalFiveLimit("hyeonjeong"));
+//		System.out.println(rentalService.rentalFiveLimit("hyeonjeong"));
+		System.out.println(rentalService.selectNowLental());
 		
 	}
 

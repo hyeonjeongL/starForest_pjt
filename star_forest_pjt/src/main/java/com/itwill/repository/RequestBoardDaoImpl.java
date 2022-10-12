@@ -25,11 +25,16 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	public int create(RequestBoard requestBoard) throws Exception {
 		return requestBoardMapper.create(requestBoard);
 	}
+	
+	@Override
+	public int create_notice(RequestBoard requestBoard) throws Exception {
+		return requestBoardMapper.create_notice(requestBoard);
+	}
 
 	@Override
 	public int createReply(RequestBoard requestBoard) throws Exception {
-		RequestBoard temp = requestBoardMapper.selectOne(requestBoard.getBoard_no());
-		return requestBoardMapper.createReply(temp);
+		//RequestBoard temp = requestBoardMapper.selectOne(requestBoard.getBoard_no());
+		return requestBoardMapper.createReply(requestBoard);
 	}
 
 	@Override
@@ -65,7 +70,7 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	
 	@Override
 	public int addStep(RequestBoard requestBoard) throws Exception{
-		return requestBoardMapper.update(requestBoard);
+		return requestBoardMapper.addStep(requestBoard);
 	}
 	@Override
 	public int addReadCount(int board_no) throws Exception {

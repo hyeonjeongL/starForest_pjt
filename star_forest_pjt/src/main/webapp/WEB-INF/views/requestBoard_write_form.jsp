@@ -196,8 +196,7 @@
 저자    :
 &nbsp;
 사유    :
-&nbsp;
-												</textarea>
+</textarea>
 										</td>
 									</tr>
 								</tbody>

@@ -107,6 +107,37 @@ public class RequestBoardRestController {
 		return resultMap;
 	}
 	
+	@LoginCheck
+	@PostMapping(value="/request_write_notice_action",produces = "application/json;charset=UTF-8")
+	public Map request_write_notice_action(@ModelAttribute RequestBoard requestBoard,HttpSession session) {
+		Map resultMap = new HashMap();
+		int code=1;
+		String url="";
+		String msg="";
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		int rowCount=-999;
+		try {
+			String sUserId = (String)session.getAttribute("sUserId");
+			requestBoard.setUser_id(sUserId);
+			/*
+			 * String board_status, int board_type_no, int board_depth, int board_step, int groupno, String category_name, String user_id
+			 */
+			rowCount = requestBoardService.create_notice(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, "공지사항", 0, 0, 0, 0, null, sUserId));
+			msg="글쓰기가 작성됨";
+			resultList.add(requestBoard);
+			code=1;
+		}catch (Exception e) {
+			e.printStackTrace();
+			msg="로그인 후 이용해주세요";
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	}
+	
+	
 	@PostMapping(value="/request_modify_form",produces = "application/json;charset=UTF-8")
 	public Map request_modify_form(@RequestParam int board_no,HttpSession session) {
 		Map resultMap = new HashMap();
@@ -116,12 +147,12 @@ public class RequestBoardRestController {
 		
 		try {
 			String sUserId = (String)session.getAttribute("sUserId");
+			String admin = "admin";
 			RequestBoard requestBoard = requestBoardService.selectOne(board_no);
-			if(requestBoard.getUser_id().equals(sUserId)) {
-				requestBoard.setUser_id(sUserId);
+			if(requestBoard.getUser_id().equals(sUserId)||sUserId.equals(admin)) {
+				//requestBoard.setUser_id(sUserId);
 				code = 1;
 				resultList.add(requestBoard);
-				
 			}else {
 				code=2;
 				msg="글 쓴 본인만 수정할 수 있습니다";
@@ -165,7 +196,8 @@ public class RequestBoardRestController {
 	}
 	
 	@PostMapping(value="/request_reply_action", produces = "application/json;charset=UTF-8")
-	public Map request_reply_action(@ModelAttribute RequestBoard requestBoard) {
+	public Map request_reply_action(@ModelAttribute RequestBoard requestBoard,HttpSession session) {
+		System.out.println(requestBoard);
 		Map resultMap = new HashMap();
 		int code = 1;
 		String msg="";
@@ -176,6 +208,9 @@ public class RequestBoardRestController {
 			requestBoard.setBoard_step(originalrequestBoard.getBoard_step());
 			requestBoard.setBoardGroupno(originalrequestBoard.getBoard_Groupno());
 			requestBoard.setBoard_depth(originalrequestBoard.getBoard_depth());
+			requestBoard.setUser_id((String)session.getAttribute("sUserId"));
+			
+			
 			int rowCount = requestBoardService.createReply(requestBoard);
 			
 			if(rowCount==1) {
@@ -252,6 +287,30 @@ public class RequestBoardRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
+	/*
+	 * admin 삭제
+	 */
+	@PostMapping(value="/request_remove_admin_action", produces = "application/json;charset=UTF-8")
+	public Map request_remove_admin_action(@RequestParam int board_no) {
+		Map resultMap = new HashMap();
+		String msg="";
+		int code=-999;
+		
+		try {
+			int rowCount = requestBoardService.delete(board_no);
+			msg="삭제가 완료되었습니다";
+			code=1;
+		} catch (Exception e) {
+			code=2;
+			msg="삭제에서 에러났네";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		return resultMap;
+	}
+	
+	
+	
 	
 	@PostMapping("/user_request_list")
 	public Map user_request_list(HttpServletRequest request) {

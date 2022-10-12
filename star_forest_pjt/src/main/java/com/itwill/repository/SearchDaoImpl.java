@@ -1,5 +1,6 @@
 package com.itwill.repository;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -17,11 +18,26 @@ import com.itwill.util.PageUtil;
 public class SearchDaoImpl implements SearchDao {
 	
 	@Autowired
-    SqlSession sqlSession;
+    private SqlSession sqlSession;
 
+	//매퍼
+	private static String namespace="com.itwill.mapper.SearchMapper";
+
+	//분야별 리스트:2차 분류
 	@Override
-	public List<Search> listBook() {
-		return sqlSession.selectList("search.listbook");
+	public List<Search> list(int category_no) throws Exception {
+		return sqlSession.selectList(namespace+".list_2",category_no);
+	}
+
+	//분야별 리스트:1차 분류
+	@Override
+	public List<Search> list(int category_no, int cateno) throws Exception {
+		HashMap<String, Object> map=new HashMap<String, Object>();
+		
+		map.put("category_no",category_no);
+		map.put("cateno",cateno);
+		
+		return sqlSession.selectList(namespace+".list_1",map);
 	}
 
 /*

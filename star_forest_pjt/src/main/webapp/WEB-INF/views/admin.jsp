@@ -36,9 +36,67 @@
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
 	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+<<<<<<< HEAD
+<script type="text/javascript" src="./js/adminContents.js"></script>
+<script type="text/javascript">
+/*********도서관 총 대출 리스트***********/
+$(function(){
+	$.ajax({
+		url:'total_rental_list',
+		method:'POST',
+		dataType:'json',
+		success:function(jsonResult){
+			if(jsonResult.code==1){
+				var rentalTArray=jsonResult.data;
+				$('.listTable').html(adminContents.admin_total_rental_list_content(rentalTArray));
+			}else if(jsonResult.code==2){
+				alert(jsonResult.msg);
+			}
+		}
+	});
+$(document).on('click','#admin_return',function(e){
+	$.ajax({
+		url:'total_rental_list',
+		method:'POST',
+		dataType:'json',
+		success:function(jsonResult){
+			if(jsonResult.code==1){
+				var rentalTArray=jsonResult.data;
+				$('.listTable').html(adminContents.admin_total_rental_list_content(rentalTArray));
+			}else if(jsonResult.code==2){
+				alert(jsonResult.msg);
+			}
+		}
+	});
+	e.preventDefault();
+});
+=======
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-xxx.git
 
+<<<<<<< HEAD
+$(document).on('click','#btn_admin_return',function(e){
+	$.ajax({
+		url:'rest_return',
+		method:'POST',
+		dataType:'json',
+		data:'book_no='+$(e.target).attr("book_no"),
+		success:function(jsonResult){
+			if(jsonResult.code==1){
+				var rentalTArray=jsonResult.data;
+				console.log(user_id, book_no);
+				alert("반납처리 되었습니다.");
+			}else if(jsonResult.code==2){
+				alert(jsonResult.msg);
+			}
+		}
+	});
+	e.preventDefault();
+});
+})
+=======
 <script type="text/javascript">
 	
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-xxx.git
 </script>
 
 </head>
@@ -77,17 +135,18 @@
 						</div>
 						<ul class="list-group list-group-flush mb-5"  id="menu">
 							<li class="list-group-item">
-								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
+								<a href="" id="btn_mypage" >어드민</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
 								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder"  id="side_userbook_status">나의도서정보</a>
+								<a href="#"  id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>
+									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
 								</ul>
 							</li>
 								
@@ -120,6 +179,21 @@
 						</div>
 						<div class="rentalTable">
 						<!-- 대여리스트 -->
+<<<<<<< HEAD
+						<div class="col-md-9">
+					<div class="col-6">
+						<div class="row">
+							<br>
+						</div>
+						<div class="row" id="item">
+						<br>
+							<button  id="btn_write_form" class="w-btn w-btn-detail" >게시글 작성</button><br>
+						
+							<!-- 도서관 대여 리스트 -->
+							<div class="listTable" id="content" >
+							
+							<!-- 도서관 대여 리스트 -->
+=======
 						<form name="f" method="post">
 
 									<table border="0" cellpadding="0" cellspacing="1" width="590"
@@ -145,6 +219,7 @@
 
 									</table>
 								</form>
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-xxx.git
 						</div>
 					</div>
 				</div>

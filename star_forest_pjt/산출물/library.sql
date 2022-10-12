@@ -184,7 +184,14 @@ CREATE TABLE User_info
 	PRIMARY KEY (user_id)
 );
 
-
+CREATE TABLE Image
+(
+	image_no number NOT NULL,
+	original_name varchar2(500) NOT NULL,
+    temp_name varchar2(500) NOT NULL,
+    image_path varchar2(1000) NOT NULL,
+	PRIMARY KEY (image_no)
+);
 
 /* Create Foreign Keys */
 

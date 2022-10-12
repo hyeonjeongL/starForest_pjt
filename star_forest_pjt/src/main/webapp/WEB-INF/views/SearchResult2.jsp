@@ -218,7 +218,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
 				
-    <table border="1">
+    <table border="1" id="listBook">
         <tr>
             <th>도서 번호</th>
             <th>도서 이미지</th>
@@ -233,7 +233,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
             <td>
                 <a href="${path}/star_forest_pjt/SearchResult2/detail/${row.book_no}">
                     <img class="multi-cover" style="display: none;"
-										src="${row.book_image_src }" alt="${row.book_image }" />
+										src="${row.book_image_src}" alt="${row.book_image}" />
                 </a>
             </td>
             <td>

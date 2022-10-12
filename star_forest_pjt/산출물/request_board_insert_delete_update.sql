@@ -44,7 +44,7 @@ update request_board set board_readcount=board_readcount+1 where board_no=8;
 --모든 게시물 리스트
 select * from
 request_board
-order by groupno desc, board_step asc;
+order by board_groupno desc, board_step asc;
 
 select * from
 ( SELECT rownum idx, s.*  FROM

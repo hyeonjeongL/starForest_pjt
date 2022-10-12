@@ -317,7 +317,7 @@ $(function(){
 					<hr>
 
 					<div class="container">
-						<table id="clubUserList" class="table table-hover">
+						<table id="clubUserList" class="table">
 							
 
 						</table>

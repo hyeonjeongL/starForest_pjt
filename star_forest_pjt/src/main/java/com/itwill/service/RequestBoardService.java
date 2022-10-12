@@ -6,8 +6,11 @@ import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
 import com.itwill.domain.RequestBoardListPageMaker;
 public interface RequestBoardService {
-	//게시물생성
+			//게시물생성
 			int create(RequestBoard requestBoard) throws Exception;
+			
+			//공지사항생성
+			int create_notice(RequestBoard requestBoard) throws Exception;
 			
 			//답글생성
 			int createReply(RequestBoard requestBoard) throws Exception;

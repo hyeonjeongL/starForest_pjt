@@ -87,7 +87,11 @@ public class RentalRestController {
 	
 	//admin 반납 버튼
 	@PostMapping("/rest_return")
+<<<<<<< HEAD
+	public Map one_return(int book_no, String user_id, HttpSession session) throws Exception {
+=======
 	public Map one_return(int book_no, HttpSession session) throws Exception{
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-xxx.git
 		Map resultMap = new HashMap();
 		
 		int code = 2;
@@ -95,14 +99,27 @@ public class RentalRestController {
 		String msg = "";
 		List<Rental> resultList = new ArrayList<Rental>();
 		try {
+<<<<<<< HEAD
+			String sUserId = (String) session.getAttribute("sUserId");
+			sUserId="admin";
+=======
 			String sUserId= (String)session.getAttribute("sUserId");
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-xxx.git
 			bookService.updateReturnBookQty(book_no);
 			bookService.updateByIdNo(sUserId,book_no);
 			int rental = rentalService.updateRentalStatus(sUserId, book_no);
+<<<<<<< HEAD
+			userService.userReturnCount(user_id);
+			if (rental == 1) {
+				code = 1;
+				url = "";
+				msg = "반납완료";
+=======
 			if(rental==1) {
 				code=1;
 				url="";
 				msg="반납완료";
+>>>>>>> branch 'master' of https://github.com/2022-05-JAVA-DEVELOPER/final-project-team2-xxx.git
 			}
 		} catch (Exception e) {
 			code=2;

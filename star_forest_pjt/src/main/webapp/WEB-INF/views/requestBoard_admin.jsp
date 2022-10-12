@@ -39,6 +39,7 @@
 	<script type="text/javascript" src="js/request_html_content_admin.js"></script>
 <script type="text/javascript">
 	$(function() {
+		
 		$.ajax({
 			url:'request_list_json',
 			method:'GET',
@@ -50,7 +51,7 @@
 		});
 		
 		
-		$(document).on('click','#btn_write',function(e){
+		/* $(document).on('click','#btn_write',function(e){
 			$.ajax({
 			url:'login_check',
 			method:'GET',
@@ -63,7 +64,7 @@
 		}
 			}
 		});
-		});
+		}); */
 		
 		$(document).on('click','#menu_RequestBoard',function(e){
 			$.ajax({
@@ -77,9 +78,11 @@
 			});
 			e.preventDefault();
 		});
+		
 		/*
 		requestBoard 게시물 상세보기
 		*/
+		
 		$(document).on('click','.request_item_a',function(e){
 			var board_no=$(e.target).attr('board_no');
 			var param='board_no='+board_no;
@@ -132,10 +135,70 @@
 				data:param,
 				success: function(jsonResult){
 					console.log(jsonResult);
-					e.preventDefault();
+					$('#btn_request_list').trigger('click');
 				}
 			}); 
+			 e.preventDefault();
 			
+		});
+		
+		
+		
+		
+		
+		
+		/*
+		게시물 수정폼
+		*/
+		$(document).on('click','#btn_request_modify_admin_form',function(e){
+					
+					var board_no = $(e.target).attr('board_no');
+					var param = 'board_no='+board_no;
+					console.log(param);
+					$.ajax({
+						
+						url:'request_modify_form',
+						method:'POST',
+						data: param,
+						success:function(jsonResult){
+							var item = jsonResult.data[0];
+							$('#requestBoard_wrap').html(request_modify_form_admin(item));
+						}
+					});
+					
+					
+				});
+		/*
+		게시물 수정액션
+		*/
+		$(document).on('click','#btn_request_modify_admin_action',function(e){
+			var param=$('#request_modify_form_admin').serialize();
+			$.ajax({
+				
+				url:'request_modify_action',
+				method:'POST',
+				data: param,
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						var param = 'board_no='+$("#request_modify_form_admin input[name='board_no']").val();
+						$.ajax({
+							url:'request_view_json',
+							method:'GET',
+							data:param,
+							success:function(jsonResult){
+								var item = jsonResult.data[0];
+								$('#requestBoard_wrap').html(request_view_admin(item));
+							}
+						});
+						alert(jsonResult.msg);
+						}else if(jsonResult.code==2){
+							alert(jsonResult.msg);
+						}else if(jsonResult.code==0){
+							alert(jsonResult.msg);
+					}
+				}
+				
+			});
 			
 		});
 		
@@ -145,23 +208,24 @@
 		
 		
 		
-		$(document).on('click','#btn_request_remove_action',function(e){
-			var param = 'board_groupno='+$(e.target).attr('board_groupno');
+		
+		
+		$(document).on('click','#btn_request_remove_admin_action',function(e){
+			var param = 'board_no='+$(e.target).attr('board_no');
 			console.log(param);
 			$.ajax({
 				
-				url:'request_remove_action',
+				url:'request_remove_admin_action',
 				method:'POST',
 				data: param,
 				success:function(jsonResult){
 					console.log(jsonResult);
 					if(jsonResult.code==1){
+						alert(jsonResult.msg);
 						$('#btn_request_list').trigger('click');
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						$('#btn_request_list').trigger('click');
-					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
 					}
 				}
 				

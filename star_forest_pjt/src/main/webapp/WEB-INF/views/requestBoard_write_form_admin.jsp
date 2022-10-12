@@ -1,4 +1,5 @@
 <%@page import="com.itwill.domain.RequestBoard" %>
+<%@page import="com.itwill.domain.BookCategory" %>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -36,151 +37,77 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="js/request_html_content.js"></script>
+	<script type="text/javascript" src="./js/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
-		$.ajax({
-			url:'request_list_json',
-			method:'GET',
-			success:function(jsonResult){
-				var requestArray = jsonResult.data;
-				console.log(requestArray);
-				$('#requestBoard_wrap').html(request_list_content(requestArray));
+		
+		$.ajax({//로그인 세션확인
+			url : 'user_session_check',
+			method : 'POST',
+			dataType : 'json',
+			success : function(jsonResult) {
+				if (jsonResult.code == 1) {
+					console.log(jsonResult);
+				}else{ //세션 존재하지 않을경우 메세지창보여줌
+					alert('로그인이 필요한 페이지입니다:)');
+				}
 			}
 		});
-		
-		
-		$(document).on('click','#btn_write',function(e){
-			$.ajax({
-			url:'login_check',
-			method:'GET',
-			success:function(jsonResult){
-				if(jsonResult.code==2){
-				alert(jsonResult.msg);
-				location.href='user';
-				}else if(jsonResult.code==1){
-				location.href='requestBoard_write_form';
-		}
-			}
-		});
-		});
-		
-		$(document).on('click','#menu_RequestBoard',function(e){
-			$.ajax({
-				url:'request_list_json',
-				method:'GET',
-				success:function(jsonResult){
-					var requestArray = jsonResult.data;
-					console.log(requestArray);
-					$('#requestBoard_wrap').html(request_list_content(requestArray));
-				}
-			});
-			e.preventDefault();
-		});
+	
 		/*
-		requestBoard 게시물 상세보기
+		게시물 생성
 		*/
-		$(document).on('click','.request_item_a',function(e){
-			var board_no=$(e.target).attr('board_no');
-			var param='board_no='+board_no;
-			console.log(param);
+	
+		$(document).on('click','#btn_request_write_action',function(e){
 			$.ajax({
-				url:'request_view_json',
-				method:'GET',
-				data:param,
-				success:function(jsonResult){
-					var item = jsonResult.data[0];
-					$('#requestBoard_wrap').html(request_view(item));
-				}
-			});
-			
-			
-		});
-		
-		
-		/*
-		게시물 수정
-		*/
-		
-		$(document).on('click','#btn_request_modify_form',function(e){
-			
-			var board_no = $(e.target).attr('board_no');
-			var param = 'board_no='+board_no;
-			$.ajax({
-				
-				url:'request_modify_form',
-				method:'POST',
-				data: param,
-				success:function(jsonResult){
-					var item = jsonResult.data[0];
-					if(jsonResult.code==1){
-					$('#requestBoard_wrap').html(request_modify_form(item));
-					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-					}
-				}
-			});
-			
-			
-		});
-		
-		
-		$(document).on('click','#btn_request_modify_action',function(e){
-			var param=$('#request_modify_form').serialize();
-			console.log(param);
-			$.ajax({
-				url:'request_modify_action',
-				method:'POST',
-				data:param,
-				success: function(jsonResult){
-					console.log(jsonResult);
-					if(jsonResult.code==1){
-						var param ='board_no='+$("#request_modify_form input[name='board_no']").val();
-						$.ajax({
-						    url:'request_view_json',
-						    method:'GET',
-						    dataType:'json',
-						   	data:param,
-						    success:function(jsonResult){
-						    	$('#requestBoard_wrap').html(request_view(jsonResult.data[0]));
-						    }
-						});
-						alert(jsonResult.msg);
-					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
-					}
-				}
-			});
-			
-			
-		});
-		
-		$(document).on('click','#btn_request_remove_action',function(e){
-			var param = 'board_groupno='+$(e.target).attr('board_groupno');
-			console.log(param);
-			$.ajax({
-				
-				url:'request_remove_action',
-				method:'POST',
-				data: param,
+				url:'request_write_action_json',
+				method: 'POST',
+				data:$('#request_write_form').serialize(),
 				success:function(jsonResult){
 					console.log(jsonResult);
+					e.preventDefault();
+					
 					if(jsonResult.code==1){
-						$('#btn_request_list').trigger('click');
-					}else if(code==2){
-						alert(jsonResult.msg);
-					}else if(code==0){
-						alert(jsonResult.msg);
-					}
+					    
+					    //쓰기성공시 guest list보여주기
+					    // - #menu_guest_list anchor의 click event trigger[발생]
+						
+						$('#btn_request_list').trigger('click'); 
+					   	alert(jsonResult.msg);
+				}
+				
+					
 				}
 				
 			});
+			
 		});
-		
-		
-		
+	
+	
+		/*
+		공지사항 쓰기폼
+		*/
+		$(document).on('click','#btn_request_write_notice_action',function(e){
+			var param = $('#request_write_notice_form').serialize();
+			$.ajax({
+				url: 'request_write_notice_action',
+				method:'POST',
+				data:param,
+				success:function(jsonResult){
+						if(jsonResult.code==1){
+					    
+					    //쓰기성공시 guest list보여주기
+					    // - #menu_guest_list anchor의 click event trigger[발생]
+						
+						$('#btn_request_list').trigger('click'); 
+					   	alert(jsonResult.msg);
+				}
+				}
+			});
+			
+		});
+	
+	
 		$(document).on('click','#btn_request_list',function(e){
 			location.href='requestBoard';
 			
@@ -216,17 +143,63 @@
 
 		<!-- MAIN SECTION -->
 		&nbsp;&nbsp;&nbsp;
-		<div id="requestBoard_wrap">
-		
-		
-		
-		
+		<div id="requestBoard_write_wrap" style="width:800px;">
+			<table width="800">
+			<tbody>
+					<tr>
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
+											방명록 쓰기</b></td>
+				    </tr>
+			</tbody>
+			</table> 
+			<!-- request write Form  -->
+						<form id="request_write_notice_form" name="f" method="post">
+							<table border="0" cellpadding="0" cellspacing="1" width="590"
+								bgcolor="BBBBBB">
+								<tbody>
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px">${sUserId}</td>
+									</tr>
+									
+									<!-- <tr>
+									<td width="100" align="center" bgcolor="E6ECDE" height="22">파일</td>
+									<td>
+     								 <input type="file" name="files" multiple="multiple" style="margin-right:420px; font-size:10pt;"/>
+      								</td>
+   									 </tr> -->
+   									 
+   									 
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px"><input type="text"
+											style="width: 350px" name="board_title" value="[공지사항]"></td>
+									</tr>
+									
+									
+									<tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="490" align="left" bgcolor="ffffff"
+											style="padding-left: 10px">
+				
+											<textarea wrap="soft"
+												style="width: 500px" rows="10" name="board_content">
+														
+												</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</form> <br>
+						<input type="button" value="확인" id="btn_request_write_notice_action"> &nbsp; 
+						<input type="button" id="btn_request_list" value="목록">
+								
 		
 		</div>
-		
-		
+	</div>
 			<!-- pageContent끝 -->
-			</div>
 		<!-- .footer-navigation -->
 	<!-- footer start-->
 	&nbsp;
@@ -240,7 +213,10 @@
 	<!-- footer end-->
 
 
-  
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
 
    <script>
       // Get the current year for the copyright

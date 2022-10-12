@@ -1,57 +1,33 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%
-request.setCharacterEncoding("UTF-8");
-String searchType = request.getParameter("searchType");
-String keyword = request.getParameter("keyword");
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-%>
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-  <!-- 구글폰트 전체 기본적용 -->
+   <!-- 구글폰트 전체 기본적용 -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
-  <link rel="stylesheet" href="static/css/style.css">
-    <script type="text/javascript" src="/Search.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+   <link rel="stylesheet" href="css/style.css">
+   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
   <title>도서정보 - 별숲도서관</title>
- 
-<!-- kakao 검색 API -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-	$(function() {
-		
-	});
-	
-	search();
-
-	// footer
-	$('#year').text(new Date().getFullYear());
-	
-	$('#search').click(function() {
-		$("#query").val($("#book_title").val());
-		$('.searchResult-body').children().remove();
-		$('.paging').children().remove();
-		search();
-	})
-});
-</script>
+ <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
 <style type="text/css">
 	/* Lazy Load Styles */
@@ -174,9 +150,14 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
    section#content div.book_title { padding:10px 0; text-align:center; }
    section#content div.book_title a { color:#000; }
 </style>
+<style>
+   section#content ul li { display:inline-block; margin:10px; }
+   section#content div.goodsThumb img { width:200px; height:200px; }
+   section#content div.goodsName { padding:10px 0; text-align:center; }
+   section#content div.goodsName a { color:#000; }
+</style>
 </head>
 <body class="d-flex flex-column">
-	<input type="hidden" value="${query}" id="query">
 	<div id="page-content">
 			<!-- navigation start-->
 			<div id="navigation">
@@ -200,9 +181,9 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 	
  <!-- MAIN SECTION -->
 		<section id="contact" class="py-3">
-			<div class="container">
-				<div class="row">
-					<!-- 사이드바 -->
+      <div class="container">
+        <div class="row">
+				<!-- 사이드바 -->
 					<div class="col-md-3 noto-serif mb-3">
 						<div class="sidebar">
 							<div class="side-head">
@@ -210,17 +191,17 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 							</div>
 							<ul class="list-group list-group-flush mb-5">
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
-                  <li class="list-group-item active"><a href="SearchList">전체 도서</a>
+                  <li class="list-group-item active"><a href="/star_forest_pjt/SearchList?c=999&l=1">전체 도서</a>
 	                  <ul class="low">
-		                  <li><a href="/SearchList/list?c=100&l=2">100 건강/취미/레저</a></li>
-		                  <li><a href="/SearchList/list?c=200&l=2">200 경제경영</a></li>
-		                  <li><a href="/SearchList/list?c=300&l=2">300 고전</a></li>
-		                  <li><a href="/SearchList/list?c=400&l=2">400 과학</a></li>
-		                  <li><a href="/SearchList/list?c=500&l=2">500 만화</a></li>
-		                  <li><a href="/SearchList/list?c=600&l=2">600 사회과학</a></li>
-		                  <li><a href="/SearchList/list?c=700&l=2">700 소설/시/희곡</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">100 건강/취미/레저</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">200 경제경영</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=300&l=2">300 고전</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=400&l=2">400 과학</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=500&l=2">500 만화</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=600&l=2">600 사회과학</a></li>
+		                  <li><a href="/star_forest_pjt/SearchList?c=700&l=2">700 소설/시/희곡</a></li>
 	                  </ul>
-                  </li>
+	                  </li>
                   <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
                   <li class="list-group-item"><a href="Newbooks">신착도서</a></li>                  
                   <li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>
@@ -230,53 +211,34 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 
 <!--  -->
 <!-- 메인내용 -->
-			<div class="col-md-9">
-				<div class="input-group noto-serif">
-				<select data-trigger="" name="search">
-										<option value="all">통합</option>
-										<option value="title">제목</option>
-										<option value="category_name">분야</option>
-										<option value="author">저자</option>
-										<option value="publisher">출판사</option>
-							</select>
-					<input class="form-control searchbar" id="book_title" type="text"
-						placeholder="검색어를 입력하세요.">
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+
+<div class="col-md-9">
+            <div class="row">
+            	<c:forEach items="${list}" var="book" begin="0" end="15">
+					<div class="col-md-3">
+						<div class="card mb-3">
+							<div class="card-body p-0">
+								<a href="book_detail?book_no=${book.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}"></a>
+								<div class="card-body">
+									<div class="card-title">
+										<div class="book-title" id="book-title">${book.book_title}</div>
+										<h6 class="book_author">${book.book_author}</h6>
+
+			
 					</div>
-				</div>
-				<br><br><br>
-				<!-- CARD COLUMNS -->
-				<div class="searchResult-body">
-							<div class="row">
-								<c:forEach items="${bookCategory}" var="book" begin="0" end="2">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-				</div>
-				<div class="paging">
-					
-				</div>
-			</div>
-		  </div>
-		</div>
-	</section>
-	</div>
+				</c:forEach>
+               </div>
+            </div>
+         </div>
+      </div>               
+   </section>
+  </div>
 	
-	<div style="clear: both"></div>
 
 <!--  -->
 <!-- 페이징처리 -->
-	<div style="clear: both"></div>
 <!-- 페이징처리 -->
+<nav>
                  <div class="container mt-5">
               <ul class="pagination justify-content-center">
               <c:if test="${startPage > 1}">
@@ -298,7 +260,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
             </div>
 	
 	<div style="clear: both"></div>
-
+</nav>
   <!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

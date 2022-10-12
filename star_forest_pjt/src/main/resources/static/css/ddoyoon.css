@@ -281,12 +281,21 @@ request_board css
   #td_content {
   	font-size: 10pt;
   }
-  
+  /* 희망도서 신청하기버튼 */
   #btn_write{
   	margin-left: 850px;
   	margin-top: 20px;
   }
+  /* 공지사항쓰기버튼 */
+  #btn_write_notice{
   
+  	margin-left: 850px;
+  	margin-top: 20px;
+  }
+  
+  #notice_title{
+  	color:red;
+  }
   .request_item_a {
   color: black;
   font-size: 10pt;

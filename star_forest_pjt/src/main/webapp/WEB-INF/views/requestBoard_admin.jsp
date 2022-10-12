@@ -115,7 +115,7 @@
 				success:function(jsonResult){
 					var item = jsonResult.data[0];
 					$('#requestBoard_wrap').html(request_reply_form(item));
-					
+					console.log(item);
 				}
 			});
 			
@@ -126,19 +126,24 @@
 		$(document).on('click','#btn_request_reply_action',function(e){
 			var param=$('#request_reply_form').serialize();
 			console.log(param);
-			e.preventDefault();
 			 $.ajax({
 				url:'request_reply_action',
 				method:'POST',
 				data:param,
 				success: function(jsonResult){
 					console.log(jsonResult);
-					$('#btn_request_list').trigger('click');
+					e.preventDefault();
 				}
 			}); 
 			
 			
 		});
+		
+		
+		
+		
+		
+		
 		
 		$(document).on('click','#btn_request_remove_action',function(e){
 			var param = 'board_groupno='+$(e.target).attr('board_groupno');

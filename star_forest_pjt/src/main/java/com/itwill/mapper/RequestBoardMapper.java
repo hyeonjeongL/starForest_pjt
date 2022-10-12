@@ -21,7 +21,7 @@ public interface RequestBoardMapper {
 	
 	//게시물생성
 	@Insert("insert into request_board values(#{board_no},#{board_title},\r\n"
-			+ "									 sysdate,#{board_content},0,'신청접수',#{board_type_no},0,1,\r\n"
+			+ "									 sysdate,#{board_content},0,'신청접수',1,0,1,\r\n"
 			+ "									 SEQ_REQUEST_BOARD_BOARD_NO.currval,#{category_name},#{user_id})")
 	@SelectKey(statement = "select SEQ_REQUEST_BOARD_BOARD_NO.nextval from dual",
 	   keyColumn = "board_no",
@@ -41,7 +41,7 @@ public interface RequestBoardMapper {
 	@Update("update request_board set board_step = board_step+1 where board_step>#{board_step} and groupno=#{groupno}")
 	public int addStep(RequestBoard requestBoard);
 	*/
-	@Update("update request_board set board_step=board_step+1 where board_groupno=#{board_groupno}")
+	@Update("update request_board set board_step=board_step+1 where board_step > #{board_step} and board_groupno=#{board_groupno}")
 	public int addStep(RequestBoard requestBoard);
 	
 	//내가 쓴 게시물들 확인

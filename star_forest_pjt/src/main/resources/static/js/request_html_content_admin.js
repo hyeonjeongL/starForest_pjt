@@ -134,6 +134,10 @@ function request_view_admin(requestBoard){
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
 									</tr>
 									<tr>
+										<td width="150" align="center" bgcolor="E6ECDE" height="22">카테고리</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.category_name}</td>
+									</tr>
+									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="110">제목</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_title}</td>
 									</tr>
@@ -158,13 +162,17 @@ function request_reply_form(requestBoard){
 			<tbody>
 					<tr>
 					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
-											방명록 쓰기</b></td>
+											답글 쓰기</b></td>
 				    </tr>
 			</tbody>
 			</table> 
 			<!-- request reply Form  -->
 						<form id="request_reply_form" name="f" method="post">
+						
 						<input type="hidden" name="board_no" value="${requestBoard.board_no}">
+						
+						
+
 							<table border="0" cellpadding="0" cellspacing="1" width="590"
 								bgcolor="BBBBBB">
 								<tbody>
@@ -186,18 +194,23 @@ function request_reply_form(requestBoard){
 										</td>
 									</tr>
 									<tr>
+										<td width="150" align="center" bgcolor="E6ECDE" height="22">카테고리</td>
+										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px" name="category_name">${requestBoard.category_name}</td>
+									</tr>
+									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="board_title" value="ㄴre)${requestBoard.board_title}"></td>
+											style="width: 350px" name="board_title" value="re)${requestBoard.board_title}"></td>
 									</tr>
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
-				
 											<textarea wrap="soft"
-												style="width: 500px" rows="10" name="board_content"></textarea>
+												style="width: 500px" rows="10" name="board_content">
+												${requestBoard.board_content}
+												</textarea>
 										</td>
 									</tr>
 								</tbody>

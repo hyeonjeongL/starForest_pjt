@@ -186,6 +186,7 @@
 				
 											<textarea wrap="soft"
 												style="width: 500px" rows="10" name="board_content">
+
 ******************************				
 신청 양식
 ******************************

@@ -172,7 +172,12 @@ public class RequestBoardRestController {
 		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
 		
 		try {
+			RequestBoard originalrequestBoard=requestBoardService.selectOne(requestBoard.board_no);
+			requestBoard.setBoard_step(originalrequestBoard.getBoard_step());
+			requestBoard.setBoardGroupno(originalrequestBoard.getBoard_Groupno());
+			requestBoard.setBoard_depth(originalrequestBoard.getBoard_depth());
 			int rowCount = requestBoardService.createReply(requestBoard);
+			
 			if(rowCount==1) {
 				code=1;
 				msg="답글이 완료되었습니다.";

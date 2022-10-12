@@ -41,6 +41,7 @@
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserBookHtmlContents.js"></script>
+<script type="text/javascript" src="./js/FavoriteHtmlContents.js"></script>
 <script type="text/javascript" src="./js/request_html_content.js"></script>
 <script type="text/javascript">
 
@@ -186,6 +187,19 @@ $(function(){
 			});
 			e.preventDefault();
 		});
+		
+		/************favorite_list*************/
+		$(document).on('click','#side_favorite,#user_favorite',function(e){
+		$.ajax({
+			url:'favorite_list',
+			method:'POST',
+			success:function(jsonResult){
+				var favoriteArray=jsonResult.data;
+				$('#content').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
+			}
+		});
+		e.preventDefault();
+	});
 		
 		
 		/**********패스워드체크*************/

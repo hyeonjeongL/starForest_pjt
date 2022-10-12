@@ -26,3 +26,31 @@ a{
 	height:70px;
 	transition-duration:1s;
 }
+/********북디테일 내서재버튼********/
+.w-f-btn {
+    position: relative;
+    border: 2px solid #A9A9A9;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-family: "paybooc-Light", sans-serif;
+    
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s;
+}
+.w-btn-favorite {
+    background-color: #FFFFFF;
+    color: #4c552a;
+}
+
+.w-btn-favorite-outline {
+    border: 2px solid #8FBC8F;
+    color: #4c552a;
+}
+
+.w-btn-favorite-outline:hover {
+	 border: 2px solid #8FBC8F;
+    color: #4c552a;
+    background: #FFFFFF;
+}

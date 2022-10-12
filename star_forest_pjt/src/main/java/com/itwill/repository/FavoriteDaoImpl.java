@@ -25,10 +25,10 @@ public class FavoriteDaoImpl implements FavoriteDao {
 	public boolean isExisted(String user_id,int book_no) throws Exception {
 		Favorite favorite=new Favorite(0, user_id, new Book(book_no, 0, null, null, null, null, null));
 		boolean isExisted=false;
-		int insertCount=favoriteMapper.insert(favorite.getUser_id(),favorite.getBook().getBook_no());
-		if(insertCount==0) {
+		int count=favoriteMapper.isExisted(favorite.getUser_id(),favorite.getBook().getBook_no());
+		if(count==0) {
 			isExisted=false;
-		}else if(insertCount>0) {
+		}else if(count>=1) {
 			isExisted=true;
 		}
 		return isExisted;

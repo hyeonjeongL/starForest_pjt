@@ -10,6 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:description" content="" />
 <link rel="stylesheet" href="css/book_detail.css">
+<link rel="stylesheet" href="./css/yeji.css">
 <link rel="profile" href="https://gmpg.org/xfn/11" />
 <title>도서정보 - 별숲도서관</title>
 
@@ -318,14 +319,16 @@
 		
 		/**********favorite_insert***********/
 		$(document).on('click','#insert_favorite',function(e){
-			var param='book_no='+$(e.target).attr("book_no");
+			var param='book_no='+$(e.target).attr('book_no');
 			console.log(param);
 			$.ajax({
 				url:'favorite_insert',
 				method:'POST',
+				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						alert(jsonResult.msg);
+						location.reload();
 					}else if(jsonResult.code==-1){
 						alert(jsonResult.msg);
 					}else if(jsonResult.code==3){
@@ -339,16 +342,6 @@
 	});
 
 	
-
-</script>
-<script type="text/javascript">
-$(function(){ 
-
-
-
-
-})
-
 
 </script>
 
@@ -508,27 +501,13 @@ $(function(){
 										</h2>
 									</div>
 
-									<div book_no="${book.book_no}"
+									<div 
 										class="item-functions flex-shrink-0 d-flex justify-content-center justify-content-lg-end">
-										<span class="item-modal" data-toggle="modal"
-											data-target="#item-user-request"> <a href="#theModal"
-											role="button" class="item-tooltip" data-toggle="tooltip"
-											data-placement="bottom" title="SNS 공유"><svg
-													class="svg-icon" width="24" height="24" aria-hidden="true"
-													role="img" focusable="false"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-																<path fill="none" d="M0 0h24v24H0z" />
-																<path
-														d="M13.12 17.023l-4.199-2.29a4 4 0 1 1 0-5.465l4.2-2.29a4 4 0 1 1 .959 1.755l-4.2 2.29a4.008 4.008 0 0 1 0 1.954l4.199 2.29a4 4 0 1 1-.959 1.755zM6 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm11-6a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm0 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" /></svg></a>
-										</span> 
+										
+										
 										<span id="insert_favorite" class="item-modal" data-toggle="modal" data-target="#directory-select"> 
-											<a role="button" class="item-tooltip" data-toggle="tooltip" data-placement="bottom" title="내 서재에 보관">
-												<svg book_no="${book.book_no}" class="svg-icon" width="24" height="24" aria-hidden="true" ="img" focusable="false"
-													xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-													<path d="M0 0h24v24H0z" fill="none"></path>
-													<path d="M21.849,7.689l-5.628-5.627c-0.202-0.203-0.533-0.203-0.736,0l-0.023,0.023 c-0.346,0.346-0.535,0.805-0.535,1.292c0,0.314,0.08,0.616,0.229,0.883l-5.89,5.054C8.814,8.911,8.24,8.69,7.63,8.69 c-0.656,0-1.272,0.256-1.738,0.721L5.857,9.445c-0.203,0.203-0.203,0.533,0,0.737l3.371,3.371l-3.283,3.281 c-0.065,0.069-1.619,1.669-2.641,2.945c-0.972,1.213-1.166,1.435-1.175,1.445c-0.18,0.207-0.171,0.516,0.023,0.711 c0.102,0.102,0.234,0.152,0.368,0.152c0.123,0,0.245-0.042,0.343-0.129c0.01-0.006,0.227-0.196,1.447-1.175 c1.273-1.021,2.875-2.576,2.949-2.646l3.277-3.278l3.19,3.191c0.101,0.101,0.236,0.152,0.369,0.152s0.265-0.052,0.366-0.152 l0.035-0.035c0.465-0.465,0.721-1.082,0.721-1.737c0-0.609-0.221-1.185-0.623-1.635l5.053-5.888 c0.269,0.147,0.569,0.227,0.884,0.227c0.488,0,0.947-0.189,1.292-0.535l0.024-0.022C22.052,8.222,22.052,7.892,21.849,7.689z"></path>
-												</svg>
-											</a>
+											<button id="btn_club_join" class="w-f-btn w-btn-favorite" book_no="${book.book_no }" type="button"><img book_no="${book.book_no }" src="./img/favorite.png" alt="">내서재</button>
+											
 										</span>
 									</div>
 									<!-- .item-functions -->

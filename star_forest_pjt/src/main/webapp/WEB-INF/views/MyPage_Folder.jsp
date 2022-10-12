@@ -67,8 +67,13 @@ $(function(){
 				url:'club_user_list',
 				method:'POST',
 				success:function(jsonResult){
-					var bookClubArray=jsonResult.data;
-					$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
+					if(jsonResult.code==1){
+						var bookClubArray=jsonResult.data;
+						$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						location.href='user';
+					}
 				}
 			});
 			e.preventDefault();
@@ -85,6 +90,7 @@ $(function(){
 						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href='user';
 					}
 				}
 			});
@@ -98,6 +104,7 @@ $(function(){
 						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href='user';
 					}
 				}
 			});
@@ -116,6 +123,7 @@ $(function(){
 						$('#clubUserList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href='user';
 					}
 				}
 			});
@@ -134,6 +142,7 @@ $(function(){
 						$('#clubUserList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href='user';
 					}
 				}
 			});
@@ -153,6 +162,7 @@ $(function(){
 						$('#clubUserList').html(UserBookHtmlContents.user_reservation_list_html(reservationArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
+						location.href='user';
 					}
 				}
 			});
@@ -170,6 +180,7 @@ $(function(){
 						$('#clubUserList').html(user_request_list_content(requestArray));
 					}else if(jsonResult.code==0){
 						alert(jsonResult.msg);
+						location.href='user';
 					}
 				}
 			});

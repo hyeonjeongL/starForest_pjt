@@ -323,6 +323,7 @@ public class BookClubRestController {
 		code = 1;
 		url = "";
 		msg = "조회성공";
+		resultList.addAll(resultList);
 
 		resultMap.put("code", code);
 		resultMap.put("url", url);

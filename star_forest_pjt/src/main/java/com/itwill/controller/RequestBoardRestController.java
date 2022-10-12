@@ -264,7 +264,7 @@ public class RequestBoardRestController {
 		}catch (Exception e) {
 			e.printStackTrace();
 			code=0;
-			msg="실패";
+			msg="로그인 후 이용해주세요.";
 		}
 		
 		resultMap.put("msg", msg);

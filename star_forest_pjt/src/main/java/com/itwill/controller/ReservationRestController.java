@@ -89,7 +89,7 @@ public class ReservationRestController {
 					e.printStackTrace();
 					code=2;
 					url="";
-					msg="왕에러";
+					msg="로그인 후 이용해주세요.";
 				}
 
 				

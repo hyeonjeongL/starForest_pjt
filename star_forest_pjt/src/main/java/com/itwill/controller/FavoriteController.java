@@ -18,16 +18,5 @@ import com.itwill.service.FavoriteService;
 public class FavoriteController {
 	@Autowired
 	private FavoriteService favoriteService;
-	
-	//즐겨찾기목록
-//	@LoginCheck
-//	@PostMapping("/favorite_list")
-//	public String favorite_list(HttpServletRequest request,Model model) throws Exception {
-//		String sUserId=(String)request.getSession().getAttribute("sUserId");
-//		List<Favorite> favoriteList=favoriteService.selectById(sUserId);
-//		model.addAttribute("favoriteList", favoriteList);
-//		return "favoriteList";
-//	}
-	
-	
+
 }

@@ -154,11 +154,11 @@
 				</div><!--/.Carousel Wrapper-->
 			</div>
 		</c:if>
-		<%-- <c:if test="${not empty sUserId}">
+		<c:if test="${not empty sUserId}">
 			<div class="col-md-6">
 				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
 					<div class="hr-green mb-4">
-						<h3 class="d-inline-block mb-3 noto-serif">${user.user_id}추천 도서</h3><!--Controls-->
+						<h3 class="d-inline-block mb-3 noto-serif">${sUserId}님의 추천 도서</h3><!--Controls-->
 						<div class="controls-bottom pull-right">
 							<a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
 						</div><!--/.Controls-->
@@ -200,7 +200,7 @@
 					</div><!--/.Slides-->
 				</div><!--/.Carousel Wrapper-->
 			</div>
-		</c:if> --%>
+		</c:if>
 			<div class="col-md-6">
 				<!--Carousel Wrapper-->
 				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example2">

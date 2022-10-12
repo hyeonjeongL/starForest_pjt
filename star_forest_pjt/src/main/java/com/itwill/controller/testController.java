@@ -107,11 +107,6 @@ public class testController {
 		System.out.println("test");
 		return "mypage_main";
 	}
-	@RequestMapping("/popularBook")
-	public String test24() {
-		System.out.println("test");
-		return "popularBook";
-	}
 	@RequestMapping("/postInsert")
 	public String test26() {
 		System.out.println("test");
@@ -171,11 +166,6 @@ public class testController {
 	public String test38() {
 		System.out.println("test");
 		return "book_search_form";
-	}
-	@RequestMapping("/SearchList")
-	public String test39() { 
-		System.out.println("test");
-		return "SearchList";
 	}
 	@RequestMapping("/book_search_result")
 	public String test40() {

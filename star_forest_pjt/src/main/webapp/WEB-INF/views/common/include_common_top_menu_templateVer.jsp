@@ -168,6 +168,14 @@ $(function(){
 						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
 					</ul>
 				</li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown">어드민</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
+						<li><a class="dropdown-item" href="admin"
+							id="menu_adminReturn">도서 반납</a></li>
+						<li><a id="menu_my_seat" class="dropdown-item" href="#">다른 어드민</a></li>
+					</ul>
+				</li>
 				
 			</ul>
 

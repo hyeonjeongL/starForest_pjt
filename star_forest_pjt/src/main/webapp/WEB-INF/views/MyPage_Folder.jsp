@@ -61,7 +61,6 @@ $(function(){
 			}
 		});
 		/************club_list************/
-		
 		$(document).on('click','#side_user_club,#user_club_list',function(e){
 			$.ajax({
 				url:'club_user_list',
@@ -184,6 +183,15 @@ $(function(){
 				$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 			}
 		});
+		$.ajax({
+			url:'favorite_list',
+			method:'POST',
+			success:function(jsonResult){
+				var favoriteArray=jsonResult.data;
+				console.log(favoriteArray);
+				$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
+			}
+		});
 		$(document).on('click','#side_favorite,#user_favorite',function(e){
 			$.ajax({
 				url:'favorite_list',
@@ -237,26 +245,31 @@ $(function(){
 		e.preventDefault();
 	});
 		
+		/*****패스워드체크폼*****
+		$(document).on('click','#updatePW,#side_update',function(e){
+			var user_password=$(e.target).attr('user_password');
+			var param='user_password='+user_password;
+			console.log(param);
+			$('#clubUserList').html(UserHtmlContents.user_pwcheck_form());
+			e.preventDefault();
+		});*/
 		
-		
-		
-		/**********패스워드체크*************/
-		$(document).on('click','#updatePW',function(e){
+		/**********패스워드체크************
+		$(document).on('click','#btn_PW_action',function(e){
+			
 			$.ajax({
 				url:'user_pw_check',
 				method:'POST',
-				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$('#clubUserList').html(UserHtmlContents.user_pwcheck_item());
-					}else if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+					}else{
 						alert(jsonResult.msg);
 					}
 				}
 			});
-		});
+		});*/
 		
-		/*************비밀번호변경***************/
 		
 		
 		

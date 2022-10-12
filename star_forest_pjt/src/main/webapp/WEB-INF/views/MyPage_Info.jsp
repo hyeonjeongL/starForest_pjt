@@ -41,8 +41,41 @@
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript">
+$(function(){
+	/***********로그인 세션확인**************/
+	$.ajax({
+		url : 'user_session_check',
+		method : 'POST',
+		dataType : 'json',
+		success : function(jsonResult) {
+			if (jsonResult.code == 1) {
+				console.log(jsonResult);
+			}else{ //세션 존재하지 않을경우 메세지창보여줌
+				alert('로그인이 필요한 페이지입니다:)');
+			}
+		}
+	});
 	
+	
+	/**********user_modify_form**********/
+	$(document).on('click','#side_update',function(e){
+		$.ajax({
+			url:'user_modify_form',
+			method:'POST',
+			dataType:'json',
+			success:function(jsonResult){
+				$('#updateCustomer').html(UserHtmlContents.user_modify_form(jsonResult.data[0]));
+				
+			}
+		});
+		e.preventDefault();
+	});
+	
+	
+	
+});
 
 	
 	
@@ -83,18 +116,22 @@
 							<h4 class="text-light">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5"  id="menu">
+						<li class="list-group-item">
+								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href=MyPage_Info id="side_update">개인정보변경</a></li>
+									<li><a href=MyPage_Info id="side_user_qr">나의QR</a></li>
 								</ul>
 							</li>
 							<li class="list-group-item">
-								<a href="MyPage_Folder"  id="side_userbook_status">나의도서정보</a>
+								<a href="#"  id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>
+									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
 								</ul>
 							</li>
 								
@@ -102,10 +139,6 @@
 								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
 							<li class="list-group-item">
 								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_qr">나의QR</a></li>
 
 					</ul>
 					</div>
@@ -114,206 +147,7 @@
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<section id="updateCustomer">
-							<form action="UpdateCustomer.do" method="post"
-								enctype="multipart/form-data">
-								<input type="hidden" name="cust_no" value="${c.cust_no}">
-								<input type="hidden" name="birthday" value="${c.birthday }">
-								<input type="hidden" name="name" value="${c.name }">
-								<!-- ============================= 현왕 고객 이름 시작 ========================================================================== -->
-								<div class="form-group mt-2">
-									<label for="name">이름</label>
-									<h3 id="id_css">${c.name }</h3>
-								</div>
-								<!-- ============================= 현왕 고객 이름 종료 ========================================================================== -->
-								<hr>
-								<!-- ============================= 현왕 파일 찾기 아이콘으로 변경해서 찾을수있도록 설정 ========================================================================== -->
-
-								<!-- ============================= 현왕 파일 찾기 아이콘으로 변경해서 찾을수있도록 설정 종료 ========================================================================== -->
-								<hr>
-								<%-- =======================================  현왕 email select로 option 클릭시 자동 써지기 추가  ================================================= --%>
-								<div class="form-group mt-4">
-									<label for="email">이메일</label> <span class="signup_required">*</span>
-									<div>
-										<input type="text" value="${id }" name="id" id="id"
-											readonly="readonly"> @ <input type="text" id="email"
-											value="${email }" name="email" placeholder="이메일 주소를 입력해주세요.">
-
-										<select id="emailSelection" name="emailSelection">
-											<option value="1" selected="selected">직접입력</option>
-											<option value="naver.com">Naver</option>
-											<option value="google.com">Google</option>
-											<option value="hanmail.net">Daum</option>
-											<option value="nate.com">Nate</option>
-											<option value="outlook.com">MSN</option>
-										</select>
-									</div>
-								</div>
-								<%-- =======================================  현왕 email select로 option 클릭시 자동 써지기 추가 종료 ================================================= --%>
-								<hr>
-								<%-- =======================================  현왕 암호 출력 & 모달 시작 ================================================= --%>
-								<%-- =================== 화면에 먼저 보이는 부분 =================== --%>
-								<div class="form-group mt-2">
-									<label for="pw">비밀번호</label> <span class="signup_required">*</span>
-									<div>
-										<input type="hidden" name="pw" value="${c.pw }" id="pw"
-											readonly="readonly">
-										<button type='button' id="modal_btn">암호변경</button>
-									</div>
-									<%-- =================== 화면에 먼저 보이는 부분 =================== --%>
-
-									<%-- =================== 화면에서 안보이는 모달창 부분 [ 버튼 클릭시 모달 화면으로 보이는 내용 ] =================== --%>
-									<div class="black_bg"></div>
-									<div class="modal_wrap">
-										<div class="title">비밀번호 변경하기</div>
-										<br>
-										<br>
-										<br>
-										<div class="content_title">비밀번호</div>
-										<div class="content_content">
-											<input type="password" id="password_1" class="pw"
-												placeholder="비밀번호">
-										</div>
-										<small class="form-text text-muted">비밀번호는 <span
-											class="signup_required">8~16자, 영문, 숫자, 특수문자</span>를 포함해야 합니다.
-										</small> <br>
-										<br>
-										<div class="content_title">비밀번호 확인</div>
-										<div class="content_content">
-											<input type="password" id="password_2" class="pw"
-												placeholder="비밀번호 확인"> <br> <span
-												id="alert-success" style="display: none;">비밀번호가
-												일치합니다.</span> <span id="alert-danger"
-												style="display: none; color: #d92742; font-weight: bold;">비밀번호가
-												일치하지 않습니다.</span> <span id="alert-danger2"
-												style="display: none; color: #d92742; font-weight: bold;">비밀번호가
-												너무 깁니다. 8~16글자 이내로 등록해주세요.</span>
-										</div>
-										<div id="div_result"></div>
-										<br>
-										<button id="btn_pw_ok" type="button">암호 확인</button>
-										<button type="button" class="modal_close">창 닫기</button>
-									</div>
-								</div>
-								<%-- =======================================  현왕 암호 출력 & 모달 종료 ================================================= --%>
-								<hr>
-								<%-- =======================================  현왕 닉네임 시작 ================================================= --%>
-								<div class="form-group my-4">
-									<label for="name">닉네임</label> <span class="signup_required">*</span>
-									<input class="form-control" type="text" id="nickname"
-										name="nickname" placeholder="닉네임을 입력해주세요"
-										value="${c.nickname }"> <small
-										class="form-text text-muted"> 딜리브러리에서 커뮤니티 활동시 사용할
-										닉네임을 입력해주세요. <br> <span class="signup_required">
-											한글 6자 혹은 알파벳 12자 </span> 이내로 기입해주세요. <br> - 띄어쓰기, 특수 문자 사용 불가 <br>
-										- 욕설, 비속어 사용시 이용이 제한될 수도 있습니다.
-									</small>
-								</div>
-								<%-- =======================================  현왕 닉네임 종료 ================================================= --%>
-								<hr>
-								<%-- =======================================  현왕 핸드폰 번호 시작 ================================================= --%>
-								<div class="form-group my-4">
-									<label for="m_phone">휴대폰번호</label> <span
-										class="signup_required">*</span>
-									<div class="input-group mb-3">
-										<input class="form-control" type="tel" id="m_phone"
-											name="m_phone" placeholder="휴대폰번호를 입력해주세요"
-											value="${c.m_phone }">
-									</div>
-								</div>
-								<%-- =======================================  현왕 핸드폰 번호 종료 ================================================= --%>
-								<hr>
-								<%-- =======================================  현왕 주소 시작 ================================================= --%>
-								<label for="m_phone mt-4">주소</label> <span
-									class="signup_required">*</span>
-								<!-- ============= 우편번호 & 참고주소 & 우편찾기 버튼 ============= -->
-								<div id="address_postcode">
-									<div class="input-group">
-										<input class="form-control" type="text" name="addr_num"
-											id="sample6_postcode" value="${addr_num }" placeholder="우편번호">
-										<input class="form-control" type="text" name="addr_ref"
-											id="sample6_extraAddress" value="${addr_ref }"
-											placeholder="참고항목">
-										<button class="btn btn-outline-info btn-Customer"
-											type="button" onclick="sample6_execDaumPostcode()">우편번호찾기</button>
-									</div>
-								</div>
-								<!-- ============= 본 주소 & 상세주소 ============= -->
-								<div class="form-group mt-1">
-									<input class="form-control" type="text" id="sample6_address"
-										name="addr_1" value="${addr_1 }" placeholder="주소"> <input
-										class="form-control mt-1" type="text"
-										id="sample6_detailAddress" name="addr_2" value="${addr_2 }"
-										placeholder="상세주소를 입력해주세요.">
-								</div>
-								<%-- =======================================  현왕 주소 종료 ================================================= --%>
-								<hr>
-								<div class="interest_check">
-									<div class="interest_check">
-										<!-- 관심장르 CHECKBOX START -->
-										<div class="form-group mt-4" style="text-align: center;">
-											<b><label class="mb-1" style="text-align: left;">도서
-													관심장르를 모두 선택해주세요.</label></b><br>
-											<c:set var="interest" value="${c.interest }" />
-											<c:if test="${fn:contains(interest, '1')}">
-												<input type="checkbox" name="genre" value="1"
-													CHECKED="checked">인문
-				            </c:if>
-											&nbsp;
-											<c:if test="${!fn:contains(interest, '1')}">
-												<input type="checkbox" name="genre" value="1">인문
-				            </c:if>
-											&nbsp;
-											<c:if test="${fn:contains(interest, '2')}">
-												<input type="checkbox" name="genre" value="2"
-													CHECKED="checked">경영       
-				            </c:if>
-											&nbsp;
-											<c:if test="${!fn:contains(interest, '2')}">
-												<input type="checkbox" name="genre" value="2">경영       
-				            </c:if>
-											&nbsp;
-											<c:if test="${fn:contains(interest, '3')}">
-												<input type="checkbox" name="genre" value="3"
-													CHECKED="checked">소설  
-				            </c:if>
-											<c:if test="${!fn:contains(interest, '3')}">
-												<input type="checkbox" name="genre" value="3">소설       
-				            </c:if>
-											<br>
-											<c:if test="${fn:contains(interest, '4')}">
-												<input type="checkbox" name="genre" value="4"
-													CHECKED="checked">역사 
-				            </c:if>
-											<c:if test="${!fn:contains(interest, '4')}">
-												<input type="checkbox" name="genre" value="4">역사 
-				            </c:if>
-											&nbsp;
-											<c:if test="${fn:contains(interest, '5')}">
-												<input type="checkbox" name="genre" value="5"
-													CHECKED="checked">순수과학
-				            </c:if>
-											<c:if test="${!fn:contains(interest, '5')}">
-												<input type="checkbox" name="genre" value="5">순수과학
-				            </c:if>
-											&nbsp;
-											<c:if test="${fn:contains(interest, '6')}">
-												<input type="checkbox" name="genre" value="6"
-													CHECKED="checked">응용과학
-				            </c:if>
-											<c:if test="${!fn:contains(interest, '6')}">
-												<input type="checkbox" name="genre" value="6">응용과학
-				            </c:if>
-											&nbsp;
-										</div>
-										<!-- 관심장르 CHECKBOX END -->
-									</div>
-								</div>
-								<button type="submit"
-									class="btn btn-dark btn-block mb-1 btn-Customer">수정하기</button>
-								<button type="button"
-									class="btn btn-outline-danger btn-block mb-1 btn-Customer"
-									data-toggle="modal" data-target="#outModal">회원탈퇴</button>
-							</form>
+							
 						</section>
 					</div>
 				</div>

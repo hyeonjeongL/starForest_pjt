@@ -376,6 +376,7 @@ public class UserInfoRestController {
 			code = 1;
 			url = "";
 			msg = "비밀번호체크성공";
+			
 		} else {
 			code = -1;
 			url = "main";

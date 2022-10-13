@@ -18,6 +18,10 @@ public interface SearchDao {
 	
 	 //1차분류
 	public List<Search> list(int category_no,int cateno) throws Exception;
+	
+	
+	//카테고리
+	public List<Search> cate() throws Exception;
 	 
 	
 /*

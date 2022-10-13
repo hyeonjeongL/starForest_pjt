@@ -70,6 +70,15 @@
 		<!-- 암호찾ㄱ <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-security</artifactId> 
 			<version>2.4.5</version> </dependency> -->
 
+		<!-- 카테고리 -->
+<dependency>
+    <groupId>net.sf.json-lib</groupId>
+    <artifactId>json-lib</artifactId>
+    <version>2.4</version>
+   
+    <classifier>jdk15</classifier>
+</dependency>
+
 		<!-- zxing -->
 		<dependency>
 			<groupId>com.google.zxing</groupId>

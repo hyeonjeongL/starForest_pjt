@@ -191,7 +191,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 							</div>
 							<ul class="list-group list-group-flush mb-5">
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
-                  <li class="list-group-item active"><a href="/star_forest_pjt/SearchList?c=999&l=1">전체 도서</a>
+                  <li class="list-group-item active"><a href="/star_forest_pjt/SearchList?c=900&l=1">전체 도서</a>
 	                  <ul class="low">
 		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">100 건강/취미/레저</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">200 경제경영</a></li>
@@ -212,28 +212,33 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 <!--  -->
 <!-- 메인내용 -->
 
-<div class="col-md-9">
-            <div class="row">
-            	<c:forEach items="${list}" var="book" begin="0" end="15">
-					<div class="col-md-3">
-						<div class="card mb-3">
-							<div class="card-body p-0">
-								<a href="book_detail?book_no=${book.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}"></a>
-								<div class="card-body">
-									<div class="card-title">
-										<div class="book-title" id="book-title">${book.book_title}</div>
-										<h6 class="book_author">${book.book_author}</h6>
+<section id="container">
+		<div id="container_box">
+		
+			<section id="content">
+				
+				<ul>
+					<c:forEach items="${list}" var="list">
+					<li>
+						<div class="goodsThumb">
+							<img src="${list.book_image_src}" alt="${list.book_image}">
+						</div>	
+						<div class="goodsName">
+							<a href="/star_forest_pjt/book_detail?book_no=${list.book_no}">${list.book_title}</a>
+						</div>
+					</li>
+					</c:forEach>
+				</ul>
 
+			</section>
 			
-					</div>
-				</c:forEach>
-               </div>
-            </div>
+		</div>
+	</section>
+	
          </div>
       </div>               
    </section>
   </div>
-	
 
 <!--  -->
 <!-- 페이징처리 -->

@@ -28,6 +28,14 @@ where b.category_no =#{category_no}
 </select>
 
 
+<select id="category" resultType="com.itwill.domain.Search">
+
+select level, category_name, category_no, cateno from book_category
+    start with cateno is null connect by prior category_no = cateno; 
+
+</select>
+
+
 
 <!-- 01. 상품 전체 목록 
  SELECT  

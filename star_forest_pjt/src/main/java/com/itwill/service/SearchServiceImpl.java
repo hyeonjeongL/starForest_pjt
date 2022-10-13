@@ -17,6 +17,7 @@ public class SearchServiceImpl  implements SearchService{
 	public SearchServiceImpl() {
 	}
 	
+	//분류
 	public List<Search> list (int category_no,int level) throws Exception{
 		
 		int cateno=0;
@@ -33,6 +34,12 @@ public class SearchServiceImpl  implements SearchService{
 			  
 			 }
 		
+	}
+
+	//카테고리
+	@Override
+	public List<Search> cate() throws Exception {
+		return searchDao.cate();
 	}
 	
 /*

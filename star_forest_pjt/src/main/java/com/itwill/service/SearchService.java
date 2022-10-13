@@ -16,6 +16,9 @@ public interface SearchService {
 	//분야별 리스트
 	public List<Search> list (int category_no, int level) throws Exception;
 	
+	//카테고리
+	public List<Search> cate() throws Exception;
+	
 	/*
 	// 제목 검색
 		List<Search> titleList(String keyword) throws Exception;

@@ -40,6 +40,11 @@ public class SearchDaoImpl implements SearchDao {
 		return sqlSession.selectList(namespace+".list_1",map);
 	}
 
+	@Override
+	public List<Search> cate() throws Exception {
+		return sqlSession.selectList(namespace+".category");
+	}
+
 /*
 	public List<Search> getSearchList() {
 		// TODO Auto-generated method stub

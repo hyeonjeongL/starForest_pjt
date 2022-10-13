@@ -20,8 +20,18 @@ public class Search {
 	private int book_rental_cnt;
 	private int category_no;
 	private int cateno;//참조 번호
+	private int level;//상위 하위
 	private String category_name;
 	
+	
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
 	public int getCateno() {
 		return cateno;
 	}

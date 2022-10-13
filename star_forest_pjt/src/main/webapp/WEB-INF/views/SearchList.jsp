@@ -28,7 +28,17 @@
   <title>도서정보 - 별숲도서관</title>
  <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
-
+<script type="text/javascript">
+function keywordCheck() {
+	var str_keyword = window.searchform.keyword.value;
+	if (!str_keyword || str_keyword === "") {
+		window.alert("검색어를 입력하세요.");
+		window.searchform.keyword.focus();
+		return false;
+	}
+	window.searchform.submit(); 
+}
+</script>
 <style type="text/css">
 	/* Lazy Load Styles */
 	.card-image {
@@ -212,29 +222,25 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 <!--  -->
 <!-- 메인내용 -->
 
-<section id="container">
-		<div id="container_box">
-		
-			<section id="content">
-				
-				<ul>
-					<c:forEach items="${list}" var="list">
-					<li>
-						<div class="goodsThumb">
-							<img src="${list.book_image_src}" alt="${list.book_image}">
-						</div>	
-						<div class="goodsName">
-							<a href="/star_forest_pjt/book_detail?book_no=${list.book_no}">${list.book_title}</a>
+<div class="col-md-9">
+            <div class="row">
+            	<c:forEach items="${allBook}" var="book" begin="0" end="15">
+					<div class="col-md-3">
+						<div class="card mb-3">
+							<div class="card-body p-0">
+								<a href="book_detail?book_no=${book.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}"></a>
+								<div class="card-body">
+									<div class="card-title">
+										<div class="book-title" id="book-title">${book.book_title}</div>
+										<h6 class="book_author">${book.book_author}</h6>
+									</div>
+								</div>
+							</div>
 						</div>
-					</li>
-					</c:forEach>
-				</ul>
-
-			</section>
-			
-		</div>
-	</section>
-	
+					</div>
+				</c:forEach>
+               </div>
+            </div>
          </div>
       </div>               
    </section>
@@ -296,31 +302,5 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
     });
   </script>
   
-  <script type="text/javascript">
-      window.onload = function() {
-         //푸터 명언
-         const footer_display = document.getElementById('footer-display');
-         const quotes = ['좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴', '내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스', '목적이 없는 독서는 산보일 뿐이다. — B. 리튼', '사람은 책을 만들고, 책은 사람을 만든다. — 신용호','기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨','책은 한 권 한 권이 하나의 세계다. — W. 워즈워스', '책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절'];
-         const getQuote = Math.floor(Math.random() * quotes.length);
-         footer_display.textContent = quotes[getQuote];
-      }   
-
-      <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-	    $(function(){
-	    	$(".mypage").click(function(event){
-	    		if(${cust_no == null}){
-	    			event.preventDefault();
-	    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-	    			console.log(loginOk);
-	    			if(loginOk){
-	    				console.log("로그인하러갑니다.");
-	    				window.location.href = "LoginPage.do";
-	    			}
-	    		}else{
-	    			window.location.href="Home.do";
-	    		}
-	    	});
-	    });
-   </script>
 </body>
 </html>

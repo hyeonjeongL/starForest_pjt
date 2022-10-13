@@ -1,6 +1,11 @@
 package com.itwill.service;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
+
+import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +16,8 @@ import com.itwill.repository.SearchDao;
 //검색기능
 @Service
 public class SearchServiceImpl  implements SearchService{
+	
+	
 	@Autowired
 	private SearchDao searchDao;
 	
@@ -40,6 +47,17 @@ public class SearchServiceImpl  implements SearchService{
 	@Override
 	public List<Search> cate() throws Exception {
 		return searchDao.cate();
+	}
+
+	@Override
+	public List<Search> allList() throws Exception {
+		return searchDao.allList();
+	}
+
+	// 게시물 총 갯수
+	@Override
+	public int searchCount(String searchType, String keyword) throws Exception {
+	 return searchDao.searchCount(searchType, keyword);
 	}
 	
 /*

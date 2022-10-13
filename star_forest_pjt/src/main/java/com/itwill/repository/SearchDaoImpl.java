@@ -1,5 +1,10 @@
 package com.itwill.repository;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -19,6 +24,20 @@ public class SearchDaoImpl implements SearchDao {
 	
 	@Autowired
     private SqlSession sqlSession;
+	
+	@Autowired
+	  private SearchMapper searchMapper;
+	
+	@Autowired
+	private DataSource dataSource;
+	
+	public SearchDaoImpl(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+	
+	public void setDataSource(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
 	//매퍼
 	private static String namespace="com.itwill.mapper.SearchMapper";
@@ -44,6 +63,27 @@ public class SearchDaoImpl implements SearchDao {
 	public List<Search> cate() throws Exception {
 		return sqlSession.selectList(namespace+".category");
 	}
+
+	@Override
+	public List<Search> allList() throws Exception {
+		return searchMapper.allList();
+	}
+
+	
+	// 게시물 총 갯수 + 검색 적용
+	@Override
+	public int searchCount(String searchType, String keyword) throws Exception {
+	 
+		HashMap data = new HashMap();
+	 
+	 data.put("searchType", searchType);
+	 data.put("keyword", keyword);
+	 
+	 return sqlSession.selectOne(namespace + ".searchCount", data); 
+	}
+
+	
+	
 
 /*
 	public List<Search> getSearchList() {

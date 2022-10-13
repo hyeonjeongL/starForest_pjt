@@ -13,16 +13,23 @@ import com.itwill.util.PageUtil;
 public interface SearchDao {
 	
 	//분야별 리스트:2차분류
-	public List<Search> list(int category_no) throws Exception;
+	List<Search> list(int category_no) throws Exception;
 	
 	
 	 //1차분류
-	public List<Search> list(int category_no,int cateno) throws Exception;
+	List<Search> list(int category_no,int cateno) throws Exception;
 	
 	
 	//카테고리
-	public List<Search> cate() throws Exception;
-	 
+	List<Search> cate() throws Exception;
+	
+	
+	//도서 리스트
+	List<Search> allList()throws Exception;
+	
+	
+	// 게시물 총 갯수 + 검색 적용
+	public int searchCount(String searchType, String keyword) throws Exception;
 	
 /*
 	// 제목 검색

@@ -21,27 +21,20 @@
     <script type="text/javascript" src="/Search.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
+  
   <script type="text/javascript">
-	function keywordCheck() {
-		var str_keyword = window.searchform.keyword.value;
-		if (!str_keyword || str_keyword === "") {
-			window.alert("검색어를 입력하세요.");
-			window.searchform.keyword.focus();
-			return false;
-		}
-		window.searchform.submit(); 
-	}
+  
 </script>
-<!-- kakao 검색 API -->
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"crossorigin="anonymous"></script>
-
 <script type="text/javascript">
-	$(function() {
-		
-	});
+function keywordCheck() {
+	var str_keyword = window.searchform.keyword.value;
+	if (!str_keyword || str_keyword === "") {
+		window.alert("검색어를 입력하세요.");
+		window.searchform.keyword.focus();
+		return false;
+	}
+	window.searchform.submit(); 
+}
 </script>
 
 <style type="text/css">
@@ -226,17 +219,16 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 					<!-- 메인내용 -->
 			<div class="col-md-9">
 				<div class="input-group noto-serif">
-				<select data-trigger="" name="search">
+				<select data-trigger="" name="search" id="search">
 										<option value="all">통합</option>
-										<option value="title">제목</option>
-										<option value="category_name">분야</option>
-										<option value="author">저자</option>
-										<option value="publisher">출판사</option>
+										<option value="book_title">제목</option>
+										<option value="book_author">저자</option>
+										<option value="book_publisher">출판사</option>
 							</select>
 					<input class="form-control searchbar" id="keyword" type="text"
 						placeholder="검색어를 입력하세요.">
 					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-r" type="button" id="search" onclick="location.href='SearchList'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+						<button class="btn btn-outline-success btn-r" type="button" id="search">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
 					</div>
 				</div>
 				<br><br><br>
@@ -293,22 +285,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
          footer_display.textContent = quotes[getQuote];
       }   
 
-      <!-- 미로그인시 글쓰기 버튼 누르면 로그인페이지로 이동 -->
-	    $(function(){
-	    	$(".mypage").click(function(event){
-	    		if(${cust_no == null}){
-	    			event.preventDefault();
-	    			const loginOk = confirm("로그인 후 사용 가능합니다. 로그인하시겠습니까?");
-	    			console.log(loginOk);
-	    			if(loginOk){
-	    				console.log("로그인하러갑니다.");
-	    				window.location.href = "LoginPage.do";
-	    			}
-	    		}else{
-	    			window.location.href="Home.do";
-	    		}
-	    	});
-	    });
+     
    </script>
 </body>
 </html>

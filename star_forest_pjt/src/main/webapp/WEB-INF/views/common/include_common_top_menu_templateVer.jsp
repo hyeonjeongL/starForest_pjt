@@ -5,7 +5,6 @@
 <%
 //String u_id = (String)session.getAttribute("sUserId");
 %>
-<script type="text/javascript" src="js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript">
 $(function(){
 	/***********로그인 세션확인**************/

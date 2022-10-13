@@ -441,4 +441,7 @@ public class UserInfoRestController {
 
 	}
 
+	//회원의 대출상태
+	
+	
 }

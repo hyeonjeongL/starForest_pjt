@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="com.itwill.domain.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
@@ -91,6 +92,22 @@ $(function(){
 		e.preventDefault();
 	});
 	
+	/**************user_remove*************/
+	$(document).on('click','#remove_btn',function(e){
+		$.ajax({
+			url:'user_remove_action',
+			method:'POST',
+			success:function(jsonResult){
+				if(jsonResult.code==1){
+					alert("그동안 이용해주셔서 감사합니다.");
+					location.href='Home';
+				}else{
+					alert(jsonResult.msg);
+				}
+			}
+		});
+		e.preventDefault();
+	});
 	
 	
 });
@@ -183,64 +200,8 @@ $(function(){
 		</section>
 	</div>
 
-	<!-- 회원탈퇴 추가 by 유림 1129 -->
-	<div class="modal" id="outModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">회원탈퇴</h5>
-					<button class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="password">회원탈퇴를 위해 비밀번호를 입력해주세요.</label> <input
-								type="password" placeholder="비밀번호를 입력해주세요." class="form-control"
-								id="pwInput" value="${loginUser.user_password }">
-						</div>
-						<div class="form-group">
-							<label for="password">비밀번호를 한번 더 입력해주세요</label> <input
-								type="password" placeholder="비밀번호를 한번 더 입력해주세요."
-								class="form-control" id="pwInputCheck"
-								value="${loginUser.user_password }">
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-danger" data-dismiss="modal"
-						id="outCustomer">회원탈퇴</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	</div>
-	<script type="text/javascript">
-	$(function(){
-		
-		var pwInput = $('#pwInput').val();
-		var pwInputCheck = $('#pwInputCheck').val();
-		if (pwInput != pwInputCheck) {
-			alert("비밀번호를 다시 확인해주세요.");
-		}
-		$(document).on('click','#outCustomer',function(e){
-			$.ajax({
-				url : 'user_remove_action,
-				method : 'POST',
-				success : function(jsonResult) {
-					if (jsonResult.code==1) {
-						alert('탈퇴가 완료되었습니다. 그동안 이용해 주셔서 감사드립니다.');
-						location.href = "Home";
-					} else {
-						alert('오류');
-					}
-				}
-			});
-		});
-		
-		
-	});
-	</script>
 
+	
 	<!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

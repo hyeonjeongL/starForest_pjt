@@ -115,11 +115,7 @@ UserHtmlContents.user_login_form_content = function() {
 			</div>
 	`;
 }
-UserHtmlContents.user_write_form_content = function() {
-	return `
-	
-	`;
-}
+
 
 UserHtmlContents.user_view_content=function(loginUser){
 	return `
@@ -144,16 +140,17 @@ UserHtmlContents.user_view_content=function(loginUser){
 							<table border="0" cellpadding="0" cellspacing="1" width="590"
 								bgcolor="BBBBBB">
 								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_name}</td>
+								</tr>
+								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">
 										아이디</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_id}</td>
 								</tr>
-								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22">이름</td>
-									<td width=490 bgcolor="ffffff" style="padding-left: 10">
-										${loginUser.user_name}</td>
-								</tr>
+								
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
 										주소</td>
@@ -183,7 +180,12 @@ UserHtmlContents.user_view_content=function(loginUser){
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능권수</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
-										${loginUser.user_book_cnt_limit}</td>
+										${loginUser.user_book_cnt_limit} 권</td>
+								</tr>
+								<tr>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능여부</td>
+									<td width=490 bgcolor="ffffff" style="padding-left: 10">
+										${loginUser.user_rental_status}</td>
 								</tr>
 								
 							</table>
@@ -194,7 +196,7 @@ UserHtmlContents.user_view_content=function(loginUser){
 			</table>
 	`;
 }
-UserHtmlContents.user_remove_content=function(){
+UserHtmlContents.user_remove_content=function(loginUser){
 	return `<div class="modal" id="outModal">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -207,12 +209,12 @@ UserHtmlContents.user_remove_content=function(){
 						<div class="form-group">
 							<label for="username">회원탈퇴를 위해 비밀번호를 입력해주세요.</label> <input
 								type="password" placeholder="비밀번호를 입력해주세요." class="form-control"
-								id="pwInput">
+								id="pwInput" value="${loginUser.user_password}">
 						</div>
 						<div class="form-group">
 							<label for="password">비밀번호를 한번 더 입력해주세요</label> <input
 								type="password" placeholder="비밀번호를 한번 더 입력해주세요."
-								class="form-control" id="pwInputCheck">
+								class="form-control" id="pwInputCheck" value="${loginUser.user_password}">
 						</div>
 					</form>
 				</div>
@@ -295,7 +297,7 @@ UserHtmlContents.user_modify_form=function(loginUser){
 									class="btn btn-dark btn-block mb-1 btn-Customer">수정하기</button>
 								<button type="button"
 									class="btn btn-outline-danger btn-block mb-1 btn-Customer"
-									data-toggle="modal" data-target="#outModal">회원탈퇴</button>
+									id="remove_btn" data-toggle="modal" data-target="#outModal">회원탈퇴</button>
 							</form>
 	`;	
 }

@@ -37,7 +37,6 @@
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script type="text/javascript" src="./js/MyLibraryHtmlContents.js"></script>
 <script type="text/javascript" src="./js/BookClubHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserHtmlContents.js"></script>
 <script type="text/javascript" src="./js/UserBookHtmlContents.js"></script>
@@ -67,29 +66,75 @@ $(function(){
 		
 		/***********user_view**********/
 		$.ajax({
-				url:'user_view',
-				method:'POST',
-				dataType:'json',
-				success:function(jsonResult){
-					if(jsonResult.code==1){
-						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-						location.href='user';
-					}
+			url:'user_rental_stop',
+			method:'POST',
+			success:function(jsonResult){
+				if(jsonResult.code==-1){
+					alert(jsonResult.msg);
+					$.ajax({
+						url:'user_view',
+						method:'POST',
+						dataType:'json',
+						success:function(jsonResult){
+							if(jsonResult.code==1){
+								$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+							}else if(jsonResult.code==2){
+								alert(jsonResult.msg);
+								location.href='user';
+							}
+						}
+					});
+				}else{
+					$.ajax({
+						url:'user_view',
+						method:'POST',
+						dataType:'json',
+						success:function(jsonResult){
+							if(jsonResult.code==1){
+								$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+							}else if(jsonResult.code==2){
+								alert(jsonResult.msg);
+								location.href='user';
+							}
+						}
+					});
 				}
-			});
+			}
+		});
 		$(document).on('click','#mypage,#side_mypage',function(e){
 			$.ajax({
-				url:'user_view',
+				url:'user_rental_stop',
 				method:'POST',
-				dataType:'json',
 				success:function(jsonResult){
-					if(jsonResult.code==1){
-						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-					}else if(jsonResult.code==2){
+					if(jsonResult.code==-1){
 						alert(jsonResult.msg);
-						location.href='user';
+						$.ajax({
+							url:'user_view',
+							method:'POST',
+							dataType:'json',
+							success:function(jsonResult){
+								if(jsonResult.code==1){
+									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+								}else if(jsonResult.code==2){
+									alert(jsonResult.msg);
+									location.href='user';
+								}
+							}
+						});
+					}else{
+						$.ajax({
+							url:'user_view',
+							method:'POST',
+							dataType:'json',
+							success:function(jsonResult){
+								if(jsonResult.code==1){
+									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+								}else if(jsonResult.code==2){
+									alert(jsonResult.msg);
+									location.href='user';
+								}
+							}
+						});
 					}
 				}
 			});

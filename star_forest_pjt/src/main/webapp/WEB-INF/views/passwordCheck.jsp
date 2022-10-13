@@ -84,7 +84,7 @@ $(function() {
 					if(jsonResult.code==1){
 						alert(jsonResult.msg);
 						location.href='MyPage_Folder';
-					}else if(jsonResult.code==-1){
+					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 					}
 				}

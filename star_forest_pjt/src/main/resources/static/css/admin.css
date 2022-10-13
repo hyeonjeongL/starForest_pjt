@@ -16,7 +16,6 @@
     
 }
 #admim_search_btn{
-	 left: 1470px; 
 }
 
 #tablehead{
@@ -25,7 +24,8 @@
 }
 
 #admin_user_search{
-	left:1470px;
+	
+	display:inline-block;
 	 border-radius: 20px;
 	 width: 60%;
     margin: 10px 0;

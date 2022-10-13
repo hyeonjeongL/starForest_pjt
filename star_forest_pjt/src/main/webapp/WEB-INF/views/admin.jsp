@@ -35,8 +35,6 @@
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script type="text/javascript"
-	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript" src="./js/adminContents.js"></script>
 <script type="text/javascript">
 /*********도서관 총 대출 리스트***********/
@@ -99,30 +97,41 @@ $(document).on('click','#btn_admin_return',function(e){
 });
 
 
-/*********어드민 검색 회원이 현재 대출중인 도서 리스트***********/
-$(document).on('click','#adsearch',function(e){
-	var param='keyword='+$(e.target).attr('value');
-	console.log("개같다");
+/*********어드민 검색 회원이 현재 대출중인 도서 리스트*****아작스작동안함,,도대체왜******/
+$(document).on('click','#btn_search', function(e){
+	var param='keyword='+$('input').val();
 	console.log(param);
 	$.ajax({
 		url:'admin_user_now_rental_list',
 		method:'GET',
 		data: param,
-		dataType:'json',
 		success:function(jsonResult){
 			if(jsonResult.code==1){
 				var rentalArray=jsonResult.data;
-				$('#listtable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
+				$('.listtable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
 			}else if(jsonResult.code==2){
 				alert(jsonResult.msg);
 			}
-		}
+			
+		},
+		error:function(jqXHR, textStatus, errorThrown ) {
+			
+
+			alert( jqXHR.status );
+
+			alert( jqXHR.statusText );
+
+			alert( jqXHR.responseText );
+
+			alert( jqXHR.readyState );
+
+			},
+		fail : function() {
+            alert("인터넷 연결 상태를 확인해주세요.");
+            $('.wrap-loading').addClass('display-none');
+        }
 	});
 	e.preventDefault();
-});
-
-$(document).on('click','#admim_search_btn',function(e){
-	console.log("Ddd");
 });
 
 
@@ -211,13 +220,10 @@ $(document).on('click','#admim_search_btn',function(e){
 						<div class="row" id="item">
 						
 						<div>
-						<form action="/admin_user_now_rental_list?keyword=" method="get">
-						<input id="admin_user_search" type="text" placeholder="회원아이디 입력" style="left:1330px">
-							<button type="submit" id="adsearch" class="w-btn w-btn-detail" style="left:1470px;bottom:15px">검색</button>
+						<form name="f" action="star_forest_pjt/admin_user_now_rental_list?keyword=" method="POST">
+						<input id="keyword" name="keyword" type="text" placeholder="회원아이디 입력" style="left:1290px">
+							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1070px;bottom:15px">검색</button>
 							</form>
-						</div>
-						<div>
-						<button  id="admim_search_btn" class="w-btn w-btn-detail" >검색</button>
 						</div>
 							<!-- 도서관 대여 리스트 -->
 							<div class="listTable" id="content" >

@@ -96,9 +96,9 @@ public class BookController {
 				model.addAttribute("userBook",userBook);
 			}
 			List<Book> newBook = bookService.selectNew();
-			PageMakerDto<Notice> notice = noticeService.selectAll(pageno);
+			//PageMakerDto<Notice> notice = noticeService.selectAll(pageno);
 			model.addAttribute("newBook",newBook);
-			model.addAttribute("notice",notice);
+			//model.addAttribute("notice",notice);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

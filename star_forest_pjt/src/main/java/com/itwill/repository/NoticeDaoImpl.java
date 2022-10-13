@@ -47,7 +47,7 @@ public class NoticeDaoImpl implements NoticeDao{
 
 	@Override
 	public int updateCount(int notice_no) throws Exception {
-		return noticeMapper.updateCount();
+		return noticeMapper.updateCount(notice_no);
 	}
 
 	@Override

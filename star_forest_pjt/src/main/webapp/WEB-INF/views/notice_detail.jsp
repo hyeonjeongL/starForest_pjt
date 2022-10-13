@@ -70,98 +70,41 @@
             <div class="row">
                 <div class="col-12">
                     <div class="shortcodes_title mb-30">
-                        <h4>공지사항</h4>
+                        <h4>공지사항 상세보기</h4>
                     </div>
                     <div class="shortcodes_content">
                         <div class="table-responsive">
                             <table class="table mb-0 table-bordered">
                                 <thead>
                                     <tr>
-                                        <th scope="col" class="board_no">분류</th>
-                                        <th scope="col" class="board_title">제목</th>
-                                        <th scope="col" class="board_date">날짜</th>
-                                        <th scope="col" class="board_count">조회수</th>
+	                                	<th>제목</th>
+	                                	<th>날짜</th>
+	                                	<th>조회수</th>
+	                                </tr>
+                                    <tr>
+                                        <th scope="col" class="board_title">${notice.notice_title}</th>
+                                        <th scope="col" class="board_date">${notice.notice_date}</th>
+                                        <th scope="col" class="board_count">조회수 : ${notice.notice_count}</th>
                                     </tr>
                                 </thead>
-                                <tbody id="notice_list_tbody">
-                                
-                                	<!-- board start -->
-                                	<c:forEach var="notice" items="${noticeList.itemList}">
-	                                    <tr>
-	                                    <!-- 
-	                                        <th scope="row">${notice.notice_no}</th>
-	                                         -->
-	                                         <th>
-	                                         	<c:if test="${notice.notice_fix eq '1'}">
-	                                        			&nbsp;&nbsp;<span class="badge badge-danger">중요</span>
-	                                        		</c:if>
-	                                        		<c:if test="${notice.notice_fix eq '0'}">
-	                                        			&nbsp;&nbsp;<span class="badge badge-normal">일반</span>
-	                                        		</c:if>
-	                                         </th>
-	                                        <td>
-	                                       
-	                                       
-	                                        	<a href="notice_view?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">
-	                                        		${notice.notice_title}
-	                                        		
-	                                        		
-	                                        		 
-	                                        	</a>
-	                                        	
-	                                        
-	                                        </td>
-	                                        <td>${notice.notice_date}</td>
-	                                        <td>${notice.notice_count}</td>
-	                                    </tr>
-                                    </c:forEach>
-                                   <!-- board end -->
-                 
+                                <tbody>
+                                    <tr>
+                                        <td id="notice_content_td" colspan="3">${notice.notice_content}</td>
+                                    </tr>
                                 </tbody>
                             </table>
-						
                         </div>
                     </div>
-					<input type="button" class="notice_btn write_form" pageno="${pageno}" value="게시글작성" />
+                    	<div id="notice_btn_container">
+							<input class="notice_btn update_form" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
+							<input class="notice_btn delete" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />
+							<input class="notice_btn list" type="button" pageno="${pageno}" value="목록" />
+                    	</div>
                 </div>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="col-12 col-lg-9">
-                    <!-- Shop Pagination Area -->
-                    <div class="shop_pagination_area mt-5">
-                        <nav aria-label="Page navigation">
-                            <ul class="pagination pagination-sm justify-content-center">
-
-                            	<c:if test="${noticeList.pageMaker.prevPage > 0}">  
-	            					<li class="page-item">
-	                                    <button class="page-link" onclick="changeQnaList(${data.pageMaker.prevPage});"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
-	                               	 </li>
-                                </c:if>
-                                <c:forEach var="no" begin="${noticeList.pageMaker.blockBegin}" end="${noticeList.pageMaker.blockEnd}">
-									<c:if test="${noticeList.pageMaker.curPage == no}">
-										<li class="page-item active"><button class="page-link" href="#">${no}</button></li>
-									</c:if>
-									<c:if test="${noticeList.pageMaker.curPage != no}">
-										<li class="page-item"><button class="page-link page" onclick="changeQnaList(${no})">${no}</button></li>
-									</c:if>
-                                </c:forEach>
-                                <c:if test="${noticeList.pageMaker.curPage < noticeList.pageMaker.totPage}">  
-	                                <li class="page-item">
-				                        <button class="page-link" onclick="changeQnaList(${noticeList.pageMaker.nextPage})"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
-			                    	 </li>
-                                </c:if>
-
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            
-            
             
          </div>
-    </div> 
+    </div>   
    </div>
 
   <!-- .footer-navigation -->

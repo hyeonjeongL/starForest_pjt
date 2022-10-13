@@ -31,7 +31,7 @@ public class Noticetest1234 {
       application.setWebApplicationType(WebApplicationType.NONE);
       ConfigurableApplicationContext context=application.run(args);
       NoticeDao noticeDao=(NoticeDao)context.getBean(NoticeDao.class);
-      System.out.println(noticeDao.create(new Notice(6,"9월 휴관안내",null,"휴관", "",1)));
+      System.out.println(noticeDao.create(new Notice(6,"9월 휴관안내",null,"휴관", "",1, 0)));
      // System.out.println(noticeDao.update(new Notice(2,"8월 휴관안내",null,"휴관","1",1)));
       //System.out.println(noticeDao.selectAll());
    }

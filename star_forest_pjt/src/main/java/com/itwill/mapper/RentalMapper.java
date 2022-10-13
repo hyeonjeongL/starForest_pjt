@@ -78,7 +78,8 @@ public interface RentalMapper {
 	public List<Map<String, Object>> selectByNo(int book_no);
 
 
-	/**id 조회 시 대출리스트 뽑기*/
+	//검색 기능 id 조회 시 대출리스트 뽑기 안되면 쿨하게포기
+	public List<Rental> searchSelectById(String keyword);
 	
 
 }

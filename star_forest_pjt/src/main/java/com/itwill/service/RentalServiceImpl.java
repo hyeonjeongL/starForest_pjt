@@ -77,6 +77,11 @@ public class RentalServiceImpl implements RentalService{
 		return rentalDao.selectNowLental();
 	}
 
+	@Override
+	public List<Rental> searchSelectById(String keyword) throws Exception {
+		return rentalDao.searchSelectById(keyword);
+	}
+
 
 
 	

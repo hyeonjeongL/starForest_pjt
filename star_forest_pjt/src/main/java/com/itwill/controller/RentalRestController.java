@@ -40,7 +40,6 @@ public class RentalRestController {
 	
 	// 모달안에 대여 신청 (버튼)
 	@RequestMapping("/rest_rental")
-	@ResponseBody
 	public Map rental_tot(@RequestParam int book_no, HttpSession session) throws Exception{
 		Map resultMap = new HashMap();
 		
@@ -91,25 +90,32 @@ public class RentalRestController {
 	
 	//admin 반납 버튼
 	@PostMapping("/rest_return")
-	public Map one_return(@RequestParam(value="book_no", required=false) int book_no, @RequestParam(value="user_id", required=false) String user_id) throws Exception {
+	public Map admin_return(@RequestParam(value="book_no", required=false) int book_no, 
+						    @RequestParam String user_id, HttpServletRequest request) throws Exception {
 		Map resultMap = new HashMap();
 		
 		int code = 2;
 		String url = "";
 		String msg = "";
 		List<Rental> resultList = new ArrayList<Rental>();
+		resultList = rentalService.selectNowLental();
 		System.out.println(user_id);
+		System.out.println("dddd");
 		System.out.println(book_no);
 		try {
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			int rental = rentalService.updateRentalStatus(user_id, book_no);
 			if (rental == 1) {
 				bookService.updateReturnBookQty(book_no);
 				bookService.updateByIdNo(user_id,book_no);
 				userService.userReturnCount(user_id);
-				
 				code = 1;
 				url = "";
 				msg = "반납완료";	
+			} else if (rental == 0 ){
+				code = -1;
+				url = "";
+				msg = "무슨오륜디";	
 			}
 		} catch (Exception e) {
 			code=2;
@@ -184,7 +190,7 @@ public class RentalRestController {
 		return resultMap;
 	}
 	
-	//도서관 전체 대출 리스트
+		//도서관 전체 대출 리스트
 		@LoginCheck
 		@PostMapping("/total_rental_list")
 		public Map total_rental_list(HttpServletRequest request) {
@@ -198,7 +204,6 @@ public class RentalRestController {
 				String sUserId = (String) request.getSession().getAttribute("sUserId");
 				sUserId="admin";
 				resultList = rentalService.selectNowLental();
-				System.out.println(resultList);
 				code = 1;
 				url = "";
 				msg = "성공";
@@ -207,6 +212,39 @@ public class RentalRestController {
 				code = 2;
 				url = "main";
 				msg = "로그인 후 이용해주세요.";
+			}
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("msg", msg);
+			resultMap.put("data", resultList);
+			return resultMap;
+		}
+		
+		
+		//admin창에서 user 검색 현재 대출중인 도서 리스트
+		@GetMapping("/admin_user_now_rental_list")
+		public Map user_now_rental_list(@RequestParam(value="keyword", defaultValue="") String keyword, HttpServletRequest request) {
+			Map resultMap = new HashMap();
+			int code = 2;
+			String url = "";
+			String msg = "";
+			System.err.println("왜 뭐가 문제인걸까?");
+			List<Rental> resultList = new ArrayList<Rental>();
+			request.getParameterValues(keyword);
+			System.out.println(keyword);
+			String sUserId = (String) request.getSession().getAttribute("sUserId");
+			sUserId="admin";
+			
+			try {
+				resultList=rentalService.searchSelectById(keyword);
+				code = 1;
+				url = "";
+				msg = "성공";
+			}catch (Exception e) {
+				e.printStackTrace();
+				code = 2;
+				url = "";
+				msg = "엥러";
 			}
 			resultMap.put("code", code);
 			resultMap.put("url", url);

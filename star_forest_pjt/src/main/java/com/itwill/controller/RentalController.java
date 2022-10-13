@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.service.BookService;
 import com.itwill.service.BookServiceImpl;
 import com.itwill.service.RentalService;
@@ -13,12 +14,12 @@ import com.itwill.service.RentalService;
 @Controller
 public class RentalController {
 	@Autowired
-	BookServiceImpl service;
 	BookService bookService;
+	@Autowired
 	RentalService rentalService;
 
 
-
+	@LoginCheck
 	@RequestMapping("/admin")
 	public String adminPage(HttpServletRequest request) throws Exception {
 

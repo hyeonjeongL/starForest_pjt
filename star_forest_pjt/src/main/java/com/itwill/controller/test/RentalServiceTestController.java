@@ -29,7 +29,7 @@ public class RentalServiceTestController {
 //		System.out.println(rentalService.updateDate("hyeonjeong", 4));
 //		System.out.println(rentalService.selectById("hyeonjeong")); //리스트 렌탈이라서 렌탈정보만 나옴 이게맞나 --> 렌탈테이블추가해서 모두 출력완료
 //		System.out.println(rentalService.selectByNo(2)); 
-//		System.out.println(rentalService.updateRentalStatus("yeji", 2));
+//		System.out.println(rentalService.updateRentalStatus("yeji", 14));
 //		System.out.println(rentalService.updateRentalStatusOverdue(3));
 //		System.out.println(rentalService.selectMostReturn_duedate(2));	
 //		System.out.println(rentalService.selectByIdTotalList("hyeonjeong"));
@@ -37,6 +37,7 @@ public class RentalServiceTestController {
 //		System.out.println(rentalService.bookCheckDupli("yeji", 700));
 //		System.out.println(rentalService.rentalFiveLimit("hyeonjeong"));
 //		System.out.println(rentalService.selectNowLental());
+		System.out.println(rentalService.searchSelectById("yeji"));
 		
 	}
 

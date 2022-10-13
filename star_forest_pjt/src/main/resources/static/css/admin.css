@@ -3,7 +3,7 @@
 }
 
 .listTable{
-	padding-left: 300px;
+	padding-left: 50px;
 	text-align:center;
 }
 
@@ -15,11 +15,28 @@
     font-weight: 400;
     
 }
-#btn_write_form{
-	float: right;
+#admim_search_btn{
+	 left: 1470px; 
 }
 
 #tablehead{
 	font-weight: bold;
 	font-size: 18px;
+}
+
+#admin_user_search{
+	left:1470px;
+	 border-radius: 20px;
+	 width: 60%;
+    margin: 10px 0;
+    padding: 10px 12px;
+    
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    margin: 0;
+}
+
+#adsearch{
+	position: relative;
 }

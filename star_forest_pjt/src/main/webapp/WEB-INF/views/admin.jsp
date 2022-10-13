@@ -70,16 +70,49 @@ $(document).on('click','#admin_return',function(e){
 	});
 	e.preventDefault();
 });
+
+//잠정적중단 book_no와 user_id 한번에 불러오기가 안됨
 $(document).on('click','#btn_admin_return',function(e){
+	var param='book_no='+$(e.target).attr('book_no');
+	 console.log(param);
 	$.ajax({
 		url:'rest_return',
 		method:'POST',
 		dataType:'json',
-		data:'book_no='+$(e.target).attr("book_no"),
+		data:param,
 		success:function(jsonResult){
 			if(jsonResult.code==1){
 				console.log(user_id, book_no);
 				alert("반납처리 되었습니다.");
+				location.reload();
+			}else if(jsonResult.code==2){
+				alert(jsonResult.msg);
+			}
+		},
+		error:function(jsonResult){	
+			if(jsonResult.code==2){
+				alert("오류어류ㅗ어류");
+			}
+		}
+	});
+	e.preventDefault();
+});
+
+
+/*********어드민 검색 회원이 현재 대출중인 도서 리스트***********/
+$(document).on('click','#adsearch',function(e){
+	var param='keyword='+$(e.target).attr('value');
+	console.log("개같다");
+	console.log(param);
+	$.ajax({
+		url:'admin_user_now_rental_list',
+		method:'GET',
+		data: param,
+		dataType:'json',
+		success:function(jsonResult){
+			if(jsonResult.code==1){
+				var rentalArray=jsonResult.data;
+				$('#listtable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
 			}else if(jsonResult.code==2){
 				alert(jsonResult.msg);
 			}
@@ -87,6 +120,13 @@ $(document).on('click','#btn_admin_return',function(e){
 	});
 	e.preventDefault();
 });
+
+$(document).on('click','#admim_search_btn',function(e){
+	console.log("Ddd");
+});
+
+
+
 })
 	
 </script>
@@ -169,9 +209,16 @@ $(document).on('click','#btn_admin_return',function(e){
 							<br>
 						</div>
 						<div class="row" id="item">
-						<br>
-							<button  id="btn_write_form" class="w-btn w-btn-detail" >게시글 작성</button><br>
 						
+						<div>
+						<form action="/admin_user_now_rental_list?keyword=" method="get">
+						<input id="admin_user_search" type="text" placeholder="회원아이디 입력" style="left:1330px">
+							<button type="submit" id="adsearch" class="w-btn w-btn-detail" style="left:1470px;bottom:15px">검색</button>
+							</form>
+						</div>
+						<div>
+						<button  id="admim_search_btn" class="w-btn w-btn-detail" >검색</button>
+						</div>
 							<!-- 도서관 대여 리스트 -->
 							<div class="listTable" id="content" >
 							

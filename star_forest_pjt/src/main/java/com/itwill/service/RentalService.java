@@ -41,5 +41,6 @@ public interface RentalService {
 
 	int rentalFiveLimit(String user_id)throws Exception;
 
-	
+	//user_id로 검색기능 
+	List<Rental> searchSelectById(String keyword) throws Exception;
 }

@@ -73,6 +73,11 @@ public class RentalDaoImpl implements RentalDao{
 		return rentalMapper.selectNowLental();
 	}
 
+	@Override
+	public List<Rental> searchSelectById(String keyword) throws Exception {
+		return rentalMapper.searchSelectById(keyword);
+	}
+
 
 	
 

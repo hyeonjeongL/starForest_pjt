@@ -2,7 +2,46 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.itwill.mapper.RentalMapper">
 
-
+<!-- 검색기능 -->
+	<select id="searchSelectById" resultMap="SearchBookResultMap">
+		SELECT
+		b.book_no,
+		b.book_title,
+		b.book_author,
+		b.book_publisher,
+		b.book_page,
+		b.category_no,
+		r.rental_date,
+		r.return_duedate,
+		r.rental_status,
+		r.user_id
+		FROM
+		RENTAL r
+		INNER JOIN BOOK b
+		on r.BOOK_NO
+		= b.BOOK_NO
+		WHERE r.rental_status!=0
+        and r.user_id like '%'||#{keyword}||'%'
+		order by r.rental_date asc
+	</select>
+	<resultMap type="book" id="SearchBookResultMap">
+		<!-- <id column="user_id" property="user_id"/> -->
+		<result column="book_no" property="book_no" />
+		<result column="book_title" property="book_title" />
+		<result column="book_author" property="book_author" />
+		<result column="book_publisher" property="book_publisher" />
+		<result column="book_page" property="book_page" />
+		<result column="category_no" property="category_no" />
+		<collection property="rental" resultMap="searchRentalMap">
+		</collection>
+	</resultMap>
+	<resultMap type="rental" id="searchRentalMap">
+		<result column="rental_date" property="rental_date" />
+		<result column="return_duedate" property="return_duedate" />
+		<result column="rental_status" property="rental_status" />
+		<result column="user_id" property="user_id" />
+	</resultMap>
+	
 	<select id="selectById" resultMap="BookResultMap">
 		SELECT
 		b.book_no,

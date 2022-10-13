@@ -69,10 +69,14 @@ $(document).on('click','#admin_return',function(e){
 	e.preventDefault();
 });
 
-//잠정적중단 book_no와 user_id 한번에 불러오기가 안됨
+//book_no와 user_id 콘솔찍힘 근데 타입이 안맞대
 $(document).on('click','#btn_admin_return',function(e){
-	var param='book_no='+$(e.target).attr('book_no');
-	 console.log(param);
+	var book_no= $(e.target).attr("book_no");
+	var user_id= $(e.target).attr('user_id');
+	var param = {'book_no':book_no, 'user_id':user_id};
+	  console.log(book_no);
+	  console.log(user_id);
+	 
 	$.ajax({
 		url:'rest_return',
 		method:'POST',
@@ -97,7 +101,7 @@ $(document).on('click','#btn_admin_return',function(e){
 });
 
 
-/*********어드민 검색 회원이 현재 대출중인 도서 리스트*****아작스작동안함,,도대체왜******/
+/*********어드민 검색 회원이 현재 대출중인 도서 리스트***********/
 $(document).on('click','#btn_search', function(e){
 	var param='keyword='+$('input').val();
 	console.log(param);
@@ -107,9 +111,7 @@ $(document).on('click','#btn_search', function(e){
 		data: param,
 		success:function(jsonResult){
 			if(jsonResult.code==1){
-				alert(jsonResult.msg);
 				var rentalArray=jsonResult.data;
-				console.log(rentalArray);
 				$('.listTable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
 			}else if(jsonResult.code==2){
 				alert(jsonResult.msg);
@@ -207,8 +209,8 @@ $(document).on('click','#btn_search', function(e){
 						
 						<div>
 						<form name="f" action="star_forest_pjt/admin_user_now_rental_list?keyword=" method="POST">
-						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:1290px">
-							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1070px;bottom:15px">검색</button>
+						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:1190px">
+							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1375px;bottom:12px">검색</button>
 							</form>
 						</div>
 							<!-- 도서관 대여 리스트 -->

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -91,17 +92,16 @@ public class RentalRestController {
 	//admin 반납 버튼
 	@PostMapping("/rest_return")
 	public Map admin_return(@RequestParam(value="book_no", required=false) int book_no, 
-						    @RequestParam String user_id, HttpServletRequest request) throws Exception {
+						    @RequestParam(value="user_id", required=false) String user_id, HttpServletRequest request) throws Exception {
 		Map resultMap = new HashMap();
 		
 		int code = 2;
 		String url = "";
-		String msg = "";
+		String msg = "";	
 		List<Rental> resultList = new ArrayList<Rental>();
-		resultList = rentalService.selectNowLental();
 		System.out.println(user_id);
-		System.out.println("dddd");
 		System.out.println(book_no);
+		resultList = rentalService.selectNowLental();
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			int rental = rentalService.updateRentalStatus(user_id, book_no);

@@ -8,12 +8,24 @@
 }
 
 .admintable{
-	width:1500px;
+	width:1200px;
 	hight:20px;
 	border-top: 2px solid #40a509;
     font-size: .9rem;
     font-weight: 400;
+    margin: auto; 
+    text-align: center;
     
+}
+
+.table{
+	width:1200px;
+	hight:20px;
+	border-top: 2px solid #40a509;
+    font-size: .9rem;
+    font-weight: 400;
+    margin: auto; 
+    text-align: center;
 }
 #admim_search_btn{
 }
@@ -23,7 +35,7 @@
 	font-size: 18px;
 }
 
-#admin_user_search{
+#keyword{
 	
 	display:inline-block;
 	 border-radius: 20px;

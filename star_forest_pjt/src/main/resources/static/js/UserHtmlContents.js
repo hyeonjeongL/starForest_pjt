@@ -183,10 +183,10 @@ UserHtmlContents.user_view_content=function(loginUser){
 										${loginUser.user_book_cnt_limit} 권 / 3 권</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능여부</td>
+									<td width=100 align=center bgcolor="E6ECDE" height="22">연체여부</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_rental_status}
-										${(loginUser.user_rental_status=='대출불가')?'<button id="btn_rental_status" class="w-btn w-btn-detail" type="button">자세히</button>':' '}
+										${(loginUser.user_rental_status=='대출불가(연체)')?'<button id="btn_rental_status" class="w-btn w-btn-detail" type="button">자세히</button>':' '}
 									<br></td>
 								</tr>
 								

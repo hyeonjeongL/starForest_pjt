@@ -178,6 +178,7 @@
 		$(document).on('click','#btn_update',function(e){
 			var club_no=$(e.target).attr('club_no');
 			var param='club_no='+club_no;
+			console.log(param);
 			$.ajax({
 				url:'club_update_form',
 				method:'POST',
@@ -185,6 +186,7 @@
 				data:param,
 				success:function(jsonResult){
 					var club=jsonResult.data[0];
+					console.log(club);
 	    			$('#content').html(BookClubHtmlContents.club_modify_form_html(club));
 				}
 			});

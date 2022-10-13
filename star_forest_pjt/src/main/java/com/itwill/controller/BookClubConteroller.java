@@ -22,10 +22,14 @@ public class BookClubConteroller {
 	
 		String sUserId=(String)request.getSession().getAttribute("sUserId");
 		String admin="admin";
-		if(sUserId.equals(admin)) {
-			return "forward:/WEB-INF/views/bookclub_admin.jsp";
-		}else {
-			return "forward:/WEB-INF/views/bookclub.jsp";
+		if(sUserId==null) {
+			return "bookclub";
+		}
+		else if(sUserId.equals(admin)) {
+			return "bookclub_admin";
+		}
+		else {
+			return "bookclub";
 		}
 		
 		

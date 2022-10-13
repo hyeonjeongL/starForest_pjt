@@ -44,7 +44,7 @@ public class UserInfoController {
 	}
 	@RequestMapping("/passwordCheck")
 	public String passwordCheck_form() {
-		return "forward:/WEB-INF/views/passwordCheck.jsp";
+		return "passwordCheck";
 		
 	}
 }

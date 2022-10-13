@@ -25,7 +25,7 @@ BookClubHtmlContents.club_item_html = function(club) {
 								<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed; padding:0px;text-align:middle;padding-left: 20px"><img src="./img/club.png" width=100 height=100>
 								</td>
 								<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed; padding:0px;text-align:left;padding-left: 30px">대상 : ${club.club_person} <br> 모집인원 : ${club.club_count}명 <br> 시간 : ${club.club_time} <br> 장소 : ${club.club_place}
-								</td>
+								</td><input type="hidden" value="${club.club_content}">
 								<td colspan="2" style="width: 250px; height: 250px;word-break:break-all;table-layout:fixed;padding:0px;text-align:center;padding-left: 0px">
 								
 								
@@ -628,11 +628,11 @@ BookClubHtmlContents.club_modify_form_html=function(club){
 												</td>
 												<td colspan="2"
 													style="padding: 0px; text-align: middle; padding-left: 20px">
-													<textarea wrap="soft" style="width: 500px" rows="10"
-														name="club_content" value="${club.club_content}">
-															
-															</textarea>
+													<input type="text" style="width:500px" name="club_content" value="${club.club_content}" } >
 												</td>
+
+
+
 											</tr>
 											
 											<tr style="height: 130px;">

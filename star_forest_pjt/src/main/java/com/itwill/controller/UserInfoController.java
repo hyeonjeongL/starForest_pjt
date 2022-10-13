@@ -47,4 +47,8 @@ public class UserInfoController {
 		return "passwordCheck";
 		
 	}
+	@RequestMapping("/user_qr")
+	public String user_qr() {
+		return "forward:/js/qrcode/user_qr.jsp";
+	}
 }

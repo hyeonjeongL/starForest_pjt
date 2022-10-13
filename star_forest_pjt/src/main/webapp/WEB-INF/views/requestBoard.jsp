@@ -40,6 +40,8 @@
 <script type="text/javascript">
 	$(function() {
 		
+		
+		
 		$.ajax({
 			url:'request_list_json',
 			method:'GET',
@@ -47,9 +49,17 @@
 				var requestArray = jsonResult.data;
 				var pageArray = jsonResult.pageMaker[0];
 				//var pageArray = [startPage,endPage,pageNum,amount] 
+				var startPage = jsonResult.startPage;
+				var endPage = jsonResult.endPage;
+				var content="";
 				console.log(pageArray.startPage);
 				console.log(pageArray);
 				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+				
+				/*for(var num=startPage; num<=endPage; num++){
+					content+='<li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>'
+				}
+				*/
 				//$('#requestBoard_wrap').html(request_list(pageArray));
 			}
 		});

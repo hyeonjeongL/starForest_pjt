@@ -185,7 +185,8 @@ UserHtmlContents.user_view_content=function(loginUser){
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능여부</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
-										${loginUser.user_rental_status}</td>
+										${loginUser.user_rental_status}
+									<button id="btn_rental_status" user_id="${loginUser.user_id}" class="w-btn w-btn-detail" type="button">자세히</button><br></td>
 								</tr>
 								
 							</table>

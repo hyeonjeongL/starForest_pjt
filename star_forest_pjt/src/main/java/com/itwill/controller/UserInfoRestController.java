@@ -441,7 +441,44 @@ public class UserInfoRestController {
 
 	}
 
-	//회원의 대출상태
+	//회원의 대출가능여부
+	@LoginCheck
+	@PostMapping("/user_rental_status")
+	public Map user_rental_status(HttpServletRequest request){
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<User> resultList = new ArrayList<User>();
+		
+		try {
+		String sUserId = (String) request.getSession().getAttribute("sUserId");
+		int stopPeriod = userService.rentalStopPeriod(sUserId);
+		int result=userService.userRentalStatus(sUserId);
+		if(result==1) {
+			code = -1;
+			url = "";
+			msg = sUserId + " 님은 연체로 인해 " + stopPeriod + " 일 동안 대출정지입니다.";//연체기간이 있어서 대출불가
+		}else {
+			code = 1;
+			url = "";
+			msg = sUserId +" 님은 미연체로 현재 대출이 가능한 상태입니다.";
+		}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+			code = 2;
+			url = "";
+			msg = "대출중인 도서가 없습니다.";
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+
+
+	}
 	
 	
 }

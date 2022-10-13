@@ -212,7 +212,7 @@
 			<div id="loginInfo">
 				<p class="text-right m-0 noto-serif">아직 별숲 회원이 아니신가요?</p>
 				<p class="text-right m-0">
-					<a href="insertCustomer">회원가입하기 </a>
+					<a href="insertCustomer2">회원가입하기 </a>
 				</p>
 				<hr class="heroLineSecond">
 				<p class="text-muted text-center mb-5">

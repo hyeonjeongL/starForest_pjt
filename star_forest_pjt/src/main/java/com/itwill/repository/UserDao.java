@@ -39,5 +39,7 @@ public interface UserDao {
 	//반납시 카운트
 	int userReturnCount(String user_id) throws Exception;
 	
+	//대출상태
+	int userRentalStatus(String user_id) throws Exception;
 	
 }

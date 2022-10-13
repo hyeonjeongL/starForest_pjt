@@ -129,6 +129,13 @@ public class UserServiceImpl implements UserService {
 	public int userReturnCount(String user_id) throws Exception {
 		return userDao.userReturnCount(user_id);
 	}
+
+	//대출가능여부
+	@Override
+	public int userRentalStatus(String user_id) throws Exception {
+		return userDao.userRentalStatus(user_id);
+	}
+	
 	
 
 }

@@ -65,81 +65,37 @@ $(function(){
 		});
 		
 		/***********user_view**********/
+		
 		$.ajax({
-			url:'user_rental_stop',
-			method:'POST',
-			success:function(jsonResult){
-				if(jsonResult.code==-1){
-					alert(jsonResult.msg);
-					$.ajax({
-						url:'user_view',
-						method:'POST',
-						dataType:'json',
-						success:function(jsonResult){
-							if(jsonResult.code==1){
-								$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-							}else if(jsonResult.code==2){
-								alert(jsonResult.msg);
-								location.href='user';
-							}
-						}
-					});
-				}else{
-					$.ajax({
-						url:'user_view',
-						method:'POST',
-						dataType:'json',
-						success:function(jsonResult){
-							if(jsonResult.code==1){
-								$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-							}else if(jsonResult.code==2){
-								alert(jsonResult.msg);
-								location.href='user';
-							}
-						}
-					});
+				url:'user_view',
+				method:'POST',
+				dataType:'json',
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						location.href='user';
+					}
 				}
-			}
-		});
+			});
 		$(document).on('click','#mypage,#side_mypage',function(e){
 			$.ajax({
-				url:'user_rental_stop',
+				url:'user_view',
 				method:'POST',
+				dataType:'json',
 				success:function(jsonResult){
-					if(jsonResult.code==-1){
+					if(jsonResult.code==1){
+						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
-						$.ajax({
-							url:'user_view',
-							method:'POST',
-							dataType:'json',
-							success:function(jsonResult){
-								if(jsonResult.code==1){
-									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-								}else if(jsonResult.code==2){
-									alert(jsonResult.msg);
-									location.href='user';
-								}
-							}
-						});
-					}else{
-						$.ajax({
-							url:'user_view',
-							method:'POST',
-							dataType:'json',
-							success:function(jsonResult){
-								if(jsonResult.code==1){
-									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
-								}else if(jsonResult.code==2){
-									alert(jsonResult.msg);
-									location.href='user';
-								}
-							}
-						});
+						location.href='user';
 					}
 				}
 			});
 			e.preventDefault();
 		});
+		
 		
 		/*********user_rental_list***********/
 		$(document).on('click','#side_userbook_status',function(e){
@@ -273,6 +229,69 @@ $(function(){
 		e.preventDefault();
 	});
 		
+		/*******대출정지기간 및 여부확인**********/
+		$(document).on('click','#btn_rental_status',function(e){
+			var param='user_id='+$(e.target).attr('user_id');
+			$.ajax({
+				url:'user_rental_status',
+				method:'POST',
+				success:function(jsonResult){
+					if(jsonResult.code==-1){
+						alert(jsonResult.msg);
+						$.ajax({
+							url:'user_view',
+							method:'POST',
+							dataType:'json',
+							success:function(jsonResult){
+								if(jsonResult.code==1){
+									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+								}else if(jsonResult.code==2){
+									alert(jsonResult.msg);
+									location.href='user';
+								}
+							}
+						});
+					} else if(jsonResult.code==1){
+						alert(jsonResult.msg);
+						$.ajax({
+							url:'user_view',
+							method:'POST',
+							dataType:'json',
+							success:function(jsonResult){
+								if(jsonResult.code==1){
+									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+								}else if(jsonResult.code==2){
+									alert(jsonResult.msg);
+									location.href='user';
+								}
+							}
+						});
+					} else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+						$.ajax({
+							url:'user_view',
+							method:'POST',
+							dataType:'json',
+							success:function(jsonResult){
+								if(jsonResult.code==1){
+									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+								}else if(jsonResult.code==2){
+									alert(jsonResult.msg);
+									location.href='user';
+								}
+							}
+						});
+					}
+				}
+			});
+			e.preventDefault();
+		});
+		
+		
+		
+		
+		
+		
 });		
 
 </script>
@@ -313,32 +332,30 @@ $(function(){
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
-						<ul class="list-group list-group-flush mb-5"  id="menu">
-						<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_favorite">내서재</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="btn_mypage" >마이페이지</a>
+						<ul class="list-group list-group-flush mb-5" id="menu">
+							<li class="list-group-item"><a href="MyPage_Folder"
+								id="side_favorite">내서재</a></li>
+							<li class="list-group-item"><a href="MyPage_Folder"
+								id="btn_mypage">마이페이지</a>
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href="MyPage_Info" id="side_update">개인정보변경</a></li>
 									<li><a href="MyPage_Info" id="side_user_qr">나의QR</a></li>
-								</ul>
-							</li>
-							<li class="list-group-item">
-								<a href="#"  id="side_userbook_status">나의도서정보</a>
+								</ul></li>
+							<li class="list-group-item"><a href="#"
+								id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
 									<li><a href="#" id="side_userbook_status">대출현황</a></li>
 									<li><a href="#" id="side_reservation">예약현황</a></li>
 									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
-								</ul>
-							</li>
-								
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_club">동아리신청내역</a></li>
-							<li class="list-group-item">
-								<a href="MyPage_Folder" id="side_user_request_list">희망도서신청내역</a></li>
+								</ul></li>
 
-					</ul>
+							<li class="list-group-item"><a href="MyPage_Folder"
+								id="side_user_club">동아리신청내역</a></li>
+							<li class="list-group-item"><a href="MyPage_Folder"
+								id="side_user_request_list">희망도서신청내역</a></li>
+
+						</ul>
 					</div>
 				</div>
 
@@ -356,10 +373,8 @@ $(function(){
 								<!-- Search -->
 								<form action="MyPage_Folder_search.do" method="post">
 									<div class="menu-search">
-	
-										<div class="catalog-search">
-											
-										</div>
+
+										<div class="catalog-search"></div>
 									</div>
 								</form>
 							</div>
@@ -369,11 +384,11 @@ $(function(){
 
 					<div class="container">
 						<table id="clubUserList" class="table">
-							
+
 
 						</table>
 					</div>
-					
+
 				</div>
 
 			</div>

@@ -51,5 +51,8 @@ public interface UserMapper {
 	@Update("update user_info set user_book_cnt_limit=user_book_cnt_limit+1"
 			+ "		where user_book_cnt_limit<4 and user_id=#{user_id}")
 	public int userReturnCount(String user_id);
+	
+	@Update("update user_info set user_rental_status='대출불가' where (select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id)<0 and user_id=#{user_id}")
+	public int userRentalStatus(String user_id);
 
 }

@@ -42,5 +42,8 @@ public interface UserService {
 	int rentalStopPeriod(String user_id) throws Exception;
 	
 	//반납시 카운트
-		int userReturnCount(String user_id) throws Exception;
+	int userReturnCount(String user_id) throws Exception;
+		
+	//대출가능여부
+	int userRentalStatus(String user_id) throws Exception;
 }

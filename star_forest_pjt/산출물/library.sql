@@ -178,7 +178,7 @@ CREATE TABLE User_info
 	user_address varchar2(50),
 	user_qr varchar2(50),
 	user_rental_status varchar2(100 char) DEFAULT '대출가능',
-	user_book_cnt_limit number,
+	user_book_cnt_limit number DEFAULT 3,
 	user_book_weight number,
 	category_no number NOT NULL,
 	PRIMARY KEY (user_id)

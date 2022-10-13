@@ -90,6 +90,7 @@ public class RentalRestController {
 	}
 	
 	//admin 반납 버튼
+	//책 수량 +1, 대여 상태 1--> 0 변경, 반납일짜 sysdate, 개인 대출가능 수량 +1
 	@PostMapping("/rest_return")
 	public Map admin_return(@RequestParam(value="book_no", required=false) int book_no, 
 						    @RequestParam(value="user_id", required=false) String user_id, HttpServletRequest request) throws Exception {
@@ -106,7 +107,6 @@ public class RentalRestController {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");
 			int rental = rentalService.updateRentalStatus(user_id, book_no);
 			if (rental == 1) {
-				bookService.updateReturnBookQty(book_no);
 				bookService.updateByIdNo(user_id,book_no);
 				userService.userReturnCount(user_id);
 				code = 1;
@@ -249,6 +249,38 @@ public class RentalRestController {
 			resultMap.put("data", resultList);
 			return resultMap;
 		}
+		
+		//책 대여 기간 연장 7일
+		@PostMapping("/extend_rental")
+		public Map extend_rental(@RequestParam(value="book_no", required=false) int book_no, 
+							    @RequestParam(value="user_id", required=false) String user_id, HttpServletRequest request) throws Exception {
+			Map resultMap = new HashMap();
+			
+			int code = 2;
+			String url = "";
+			String msg = "";	
+			List<Rental> resultList = new ArrayList<Rental>();
+			try {
+				String sUserId = (String) request.getSession().getAttribute("sUserId");
+				rentalService.updateDate(sUserId, book_no);
+					code = 1;
+					url = "";
+					msg = "기간 연장 완료";	
+			} catch (Exception e) {
+				code=2;
+				url="";
+				msg="오류";
+				e.printStackTrace();
+			}
+			
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("msg", msg);
+			resultMap.put("data", resultList);
+			
+			return resultMap;
+		}
+		
 		
 
 }

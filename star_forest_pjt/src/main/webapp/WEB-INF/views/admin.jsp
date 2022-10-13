@@ -69,7 +69,7 @@ $(document).on('click','#admin_return',function(e){
 	e.preventDefault();
 });
 
-//book_no와 user_id 콘솔찍힘 근데 타입이 안맞대
+//admin 반납버튼 구현
 $(document).on('click','#btn_admin_return',function(e){
 	var book_no= $(e.target).attr("book_no");
 	var user_id= $(e.target).attr('user_id');
@@ -93,7 +93,7 @@ $(document).on('click','#btn_admin_return',function(e){
 		},
 		error:function(jsonResult){	
 			if(jsonResult.code==2){
-				alert("오류어류ㅗ어류");
+				alert("오류");
 			}
 		}
 	});
@@ -209,8 +209,8 @@ $(document).on('click','#btn_search', function(e){
 						
 						<div>
 						<form name="f" action="star_forest_pjt/admin_user_now_rental_list?keyword=" method="POST">
-						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:1190px">
-							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1375px;bottom:12px">검색</button>
+						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:900px">
+							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1160px;bottom:12px">검색</button>
 							</form>
 						</div>
 							<!-- 도서관 대여 리스트 -->

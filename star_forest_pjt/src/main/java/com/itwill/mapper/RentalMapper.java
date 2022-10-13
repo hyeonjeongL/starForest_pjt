@@ -44,7 +44,7 @@ public interface RentalMapper {
 		  + "order by r.rental_date asc")
 	public int bookCheckDupli(String user_id, int book_no);
 	
-	/** 반납했을 때 status 0으로 업데이트 (admin)*/
+	// 반납했을 때 status 0으로 업데이트 (admin)
 	@Update("update rental set rental_status = 0 , return_date=sysdate "
 			+ "where user_id = #{user_id} and book_no = #{book_no}")
 	public int updateRentalStatus(String user_id, int book_no);
@@ -55,13 +55,13 @@ public interface RentalMapper {
 			+ "where rental_no=#{rental_no}")
 	public int updateRentalStatusOverdue(int rental_no);
 
-	/** 제일 빠른 반납예정일*/
+	// 제일 빠른 반납예정일
 	@Select("select return_duedate from "
 			+ "(select * from rental order by return_duedate asc)"
 			+ "where book_no=#{book_no} and ROWNUM= 1")
 	public String selectMostReturn_duedate(int book_no);
 
-	//1인당 5권이상 대여x
+	//1인당 3권이상 대여x
 	@Select("select count(r.book_no) from rental r "
 			+ "inner join book b on r.book_no=b.book_no "
 			+ "where r.user_id=#{user_id} "
@@ -78,7 +78,7 @@ public interface RentalMapper {
 	public List<Map<String, Object>> selectByNo(int book_no);
 
 
-	//검색 기능 id 조회 시 대출리스트 뽑기 안되면 쿨하게포기
+	//검색 기능 id 조회 시 대출리스트 뽑기
 	public List<Rental> searchSelectById(String keyword);
 	
 

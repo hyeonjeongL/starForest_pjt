@@ -287,6 +287,26 @@ $(function(){
 			e.preventDefault();
 		});
 		
+		/**********대출 기간 연장 7일************/
+		$(document).on('click','#btn_extend_rental',function(e){
+					$(this).prop("disabled", true);
+		$.ajax({
+			url:'extend_rental',
+			method:'POST',
+			data: 'book_no='+$(e.target).attr('book_no'),
+			success:function(jsonResult){
+				if(jsonResult.code==1){
+					alert(jsonResult.msg);
+					var rentalArray=jsonResult.data;
+					$('#clubUserList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
+					location.reload(); //이거는 시작으로 가지는데 새로고침만 되는거없ㄴㅏ
+				}else{
+					alert(jsonResult.msg);
+				}
+			}
+		});
+		e.preventDefault();
+	});
 		
 		
 		

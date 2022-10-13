@@ -54,6 +54,7 @@ UserBookHtmlContents.user_now_rental_item_content = function(book,i) {
 				<th scope="row">${book.category_no}</th>
 				<th scope="row" style="width:130px">${book.rental.rental_date.substring(0, 10)}</th>
 				<th scope="row">${book.rental.return_duedate.substring(0, 10)}</th>
+				<th scope="row"><button id="btn_extend_rental" class="w-btn w-btn-detail" book_no="${book.book_no}">연장</button></th>
 			</tr>`;
 }
 UserBookHtmlContents.user_now_rental_list_content = function(rentalArray) {
@@ -70,6 +71,7 @@ UserBookHtmlContents.user_now_rental_list_content = function(rentalArray) {
 								<th scope="row">카테고리</th>
 								<th scope="row">대여일</th>
 								<th scope="row">반납예정일</th>
+								<th scope="row">대출연장</th>
 							</tr>
 						</thead>
 						<tbody>

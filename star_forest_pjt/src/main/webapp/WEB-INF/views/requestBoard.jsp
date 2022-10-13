@@ -52,7 +52,12 @@
 				var startPage = jsonResult.startPage;
 				var endPage = jsonResult.endPage;
 				var content="";
-				console.log(pageArray.startPage);
+				var num ='';
+				for(num=startPage; num<=endPage; num++){
+					var test = num;
+				}
+				console.log(test);
+				//console.log(num);
 				console.log(pageArray);
 				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
 				

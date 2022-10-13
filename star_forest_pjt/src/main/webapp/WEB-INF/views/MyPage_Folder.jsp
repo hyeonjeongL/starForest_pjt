@@ -287,7 +287,7 @@ $(function(){
 			e.preventDefault();
 		});
 		
-		/**********대출 기간 연장 7일************/
+		/**********대출 기간 연장 7일*****한번만 버튼 화성화하게 막아야함*******/
 		$(document).on('click','#btn_extend_rental',function(e){
 					$(this).prop("disabled", true);
 		$.ajax({

@@ -84,7 +84,7 @@ function request_list_content(requestArray,pageArray) {
                     	
                     	
 						
-						<!--이걸.. startPage 부터 endpage가 끝날때까지 뽑아야하는 거잖아.{for(var num=$; num<=$;num++)-->
+						<!--이걸.. startPage 부터 endpage가 끝날때까지 뽑아야하는 거잖아.{for(var num=$; num<=$;num++) begin end 왜 못쓰냐고..-->
 						
 						
 						

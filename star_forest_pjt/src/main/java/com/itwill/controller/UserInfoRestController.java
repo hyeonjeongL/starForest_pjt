@@ -479,6 +479,28 @@ public class UserInfoRestController {
 
 
 	}
-	
+	//user_list
+	@LoginCheck
+	@PostMapping("/user_all_list")
+	public Map user_list() throws Exception {
+		Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<User> resultList = new ArrayList<User>();
+		
+		resultList=userService.userList();
+		code = 1;
+		url = "";
+		msg = "성공";
+		resultList.addAll(resultList);
+		
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+
+	}
 	
 }

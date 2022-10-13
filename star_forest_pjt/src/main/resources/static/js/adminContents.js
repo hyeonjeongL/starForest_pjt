@@ -84,3 +84,50 @@ adminContents.admin_user_now_rental_list_content = function(rentalArray) {
 					</table>
 				`;
 }
+adminContents.admin_user_list_item = function(loginUser) {
+	return `
+	
+	<tr>
+				<th scope="row">${loginUser.user_id}</th>
+				<th scope="row">${loginUser.user_name}</th>
+				<th scope="row">${loginUser.user_password}</th>
+				<th scope="row">${loginUser.user_email}</th>
+				<th scope="row">${loginUser.user_birth}</th>
+				<th scope="row">${loginUser.user_gender}</th>
+				<th scope="row">${loginUser.user_phone}</th>
+				<th scope="row">${loginUser.user_address}</th>
+				<th scope="row">${loginUser.user_rental_status}</th>
+				<th scope="row">${loginUser.user_book_cnt_limit}</th>
+				<th scope="row">${loginUser.category_name}</th>
+			</tr>`;
+}
+adminContents.admin_user_list_content = function(userArray) {
+	return `
+			
+			</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="row">아이디</th>
+								<th scope="row">이름</th>
+								<th scope="row">비밀번호</th>
+								<th scope="row">이메일</th>
+								<th scope="row">생일</th>
+								<th scope="row">성별</th>
+								<th scope="row">핸드폰번호</th>
+								<th scope="row">주소</th>
+								<th scope="row">대출상태</th>
+								<th scope="row">대출가능권수</th>
+								<th scope="row">선호카테고리</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- userList start -->
+								${userArray.map(adminContents.admin_user_list_item).join('')
+		}
+							
+							<!-- userList end -->
+						</tbody>
+					</table>
+				`;
+}

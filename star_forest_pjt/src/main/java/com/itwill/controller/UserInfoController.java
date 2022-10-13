@@ -51,4 +51,9 @@ public class UserInfoController {
 	public String user_qr() {
 		return "forward:/js/qrcode/user_qr.jsp";
 	}
+	
+	@RequestMapping("/user_admin")
+	public String user_admin() {
+		return "user_admin";
+	}
 }

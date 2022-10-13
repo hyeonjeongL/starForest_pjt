@@ -65,42 +65,20 @@ public class Search {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Search(int book_no, int isbn, String book_title, String book_author, String book_publisher,
-			String book_summary, String book_publish_date, String book_image, Date book_input_date,
-			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no,String category_name
-			) {
-		super();
-		this.book_no = book_no;
-		this.isbn = isbn;
-		this.book_title = book_title;
-		this.book_author = book_author;
-		this.book_publisher = book_publisher;
-		this.book_summary = book_summary;
-		this.book_publish_date = book_publish_date;//필요?
-		this.book_image = book_image;
-		this.book_input_date = book_input_date;//필요?
-		this.book_image_src = book_image_src;//필요?
-		this.book_page = book_page;//필요?
-		this.book_qty = book_qty;//필요?
-		this.book_res_cnt = book_res_cnt;//필요?
-		this.book_rental_cnt = book_rental_cnt;//필요?
-		this.category_no = category_no;
-		this.category_name = category_name;
-	}
 
 	//검색 리스트
-	public Search(int book_no, String book_title, String book_author, String book_publisher,
-			 String book_image, String book_image_src, int category_no, String category_name
+	public Search(int book_no, String book_title, String book_author,
+			 String book_image, String book_image_src, int category_no, String category_name,int cateno
 			) {
 		super();
 		this.book_no = book_no;
 		this.book_title = book_title;
 		this.book_author = book_author;
-		this.book_publisher = book_publisher;
 		this.book_image = book_image;
 		this.book_image_src = book_image_src;//필요?
 		this.category_no = category_no;
 		this.category_name = category_name;
+		this.cateno = cateno;
 	}
 
 	public String getCategory_name() {

@@ -33,31 +33,11 @@ import com.itwill.service.UserService3;
 public class UserInfoRestController2 {
 	@Autowired
 	private UserService3 userService3;
-	private UserService2 userService2;
+	//private UserService2 userService2;
 	
 	
 		
-	//일반회원 회원가입 완료
-	
-			@PostMapping(value ="/registerOkUser")
-		public String  registerOkUser(@ModelAttribute("user") User user,@RequestParam(value="addr2", required=false)String addr2) throws Exception{
 
-				System.out.println("user : " + user);
-				
-				// 추가 주소가 있다면 주소 세팅
-				if(addr2 != null) {
-					user.setUser_address(user.getUser_address()+" "+addr2);
-				}
-
-				// dto 에서 패스워드 가져와서 다시 인코딩에서 set
-				//user.setUser_password(passwdEncoder.encode(user.getUser_password()));
-
-				int result = userService3.addUser(user);
-
-//					System.out.println("result : " + result);
-
-				return "insertCustomerSuccess";
-		}
 		
 
 		// 아이디 중복 검사
@@ -65,9 +45,9 @@ public class UserInfoRestController2 {
 		@ResponseBody
 		public int checkid(@RequestParam("user_id") String user_id,@RequestParam("type")String type) {
 
-//			System.out.println("ajax 완료 : "+id);
-//			String check = service.checkID(id);
-//			System.out.println("중복검사 : "+a);
+			System.out.println("ajax 완료 : "+user_id);
+			String check = userService3.checkID(user_id,type);
+			System.out.println("중복검사 : "+check);
 
 			if (user_id.equals(userService3.checkID(user_id,type))) {
 				return 1;

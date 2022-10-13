@@ -2,9 +2,13 @@ package com.itwill.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.itwill.domain.User;
 import com.itwill.service.UserService3;
 
 @Controller
@@ -24,7 +28,27 @@ public String user_insertCustomer() {
 	return "insertCustomer2";
 }
 
+//일반회원 회원가입 완료
 
+@PostMapping(value ="/registerOkUser")
+	public String  registerOkUser(@ModelAttribute("user") User user,@RequestParam(value="addr2", required=false)String addr2) throws Exception{
+
+			System.out.println("user : " + user);
+			
+			// 추가 주소가 있다면 주소 세팅
+			if(addr2 != null) {
+				user.setUser_address(user.getUser_address()+" "+addr2);
+			}
+
+			// dto 에서 패스워드 가져와서 다시 인코딩에서 set
+			//user.setUser_password(passwdEncoder.encode(user.getUser_password()));
+
+			int result = userService3.addUser(user);
+
+//				System.out.println("result : " + result);
+
+			return "insertCustomerSuccess";
+	}
 
 
 

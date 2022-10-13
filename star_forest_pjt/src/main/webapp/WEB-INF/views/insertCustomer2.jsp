@@ -74,7 +74,7 @@
 					url : "/star_forest_pjt/checkid",
 					data : {
 						"type" : "user",
-						"id" : $user_id.val()
+						"user_id" : $user_id.val()
 					},
 					success : function(data) {
 						if (data == 1) { // 1이면 중복

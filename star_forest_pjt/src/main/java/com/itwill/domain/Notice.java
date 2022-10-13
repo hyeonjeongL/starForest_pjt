@@ -10,6 +10,9 @@ public class Notice {
 	private String notice_image;
 	private int notice_readcount;
 	
+	public Notice() {
+	}
+	
 	public Notice(int notice_no, String notice_title, Date notice_date, String notice_content, String notice_image,
 			int notice_readcount) {
 		super();
@@ -20,7 +23,7 @@ public class Notice {
 		this.notice_image = notice_image;
 		this.notice_readcount = notice_readcount;
 	}
-
+	
 	public int getNotice_no() {
 		return notice_no;
 	}

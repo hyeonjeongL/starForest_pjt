@@ -132,7 +132,7 @@ UserHtmlContents.user_view_content=function(loginUser){
 				<tr>
 					<td>
 						<!--contents--> <br />
-						<table style="padding-left: 10px" border=0 cellpadding=0
+						<table style="padding-left: 20px" border=0 cellpadding=0
 							cellspacing=0>
 						</table> <!-- view Form  -->
 						<form name="f" method="post">
@@ -153,7 +153,7 @@ UserHtmlContents.user_view_content=function(loginUser){
 								
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">이메일
-										주소</td>
+										</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_email}</td>
 								</tr>
@@ -180,13 +180,14 @@ UserHtmlContents.user_view_content=function(loginUser){
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능권수</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
-										${loginUser.user_book_cnt_limit} 권</td>
+										${loginUser.user_book_cnt_limit} 권 / 3 권</td>
 								</tr>
 								<tr>
 									<td width=100 align=center bgcolor="E6ECDE" height="22">대출가능여부</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_rental_status}
-									<button id="btn_rental_status" user_id="${loginUser.user_id}" class="w-btn w-btn-detail" type="button">자세히</button><br></td>
+										${(loginUser.user_rental_status=='대출불가')?'<button id="btn_rental_status" class="w-btn w-btn-detail" type="button">자세히</button>':' '}
+									<br></td>
 								</tr>
 								
 							</table>
@@ -196,37 +197,6 @@ UserHtmlContents.user_view_content=function(loginUser){
 				</tr>
 			</table>
 	`;
-}
-UserHtmlContents.user_remove_content=function(loginUser){
-	return `<div class="modal" id="outModal">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title">회원탈퇴</h5>
-					<button class="close" data-dismiss="modal">&times;</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="username">회원탈퇴를 위해 비밀번호를 입력해주세요.</label> <input
-								type="password" placeholder="비밀번호를 입력해주세요." class="form-control"
-								id="pwInput" value="${loginUser.user_password}">
-						</div>
-						<div class="form-group">
-							<label for="password">비밀번호를 한번 더 입력해주세요</label> <input
-								type="password" placeholder="비밀번호를 한번 더 입력해주세요."
-								class="form-control" id="pwInputCheck" value="${loginUser.user_password}">
-						</div>
-					</form>
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-danger" data-dismiss="modal"
-						id="outCustomer">회원탈퇴</button>
-				</div>
-			</div>
-		</div>
-	</div>`;	
-
 }
 
 

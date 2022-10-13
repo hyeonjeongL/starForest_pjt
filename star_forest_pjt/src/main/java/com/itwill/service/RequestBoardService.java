@@ -2,9 +2,12 @@ package com.itwill.service;
 
 import java.util.List;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.stereotype.Repository;
+
 import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
-import com.itwill.domain.RequestBoardListPageMaker;
+import com.itwill.util.Criteria;
 public interface RequestBoardService {
 			//게시물생성
 			int create(RequestBoard requestBoard) throws Exception;
@@ -48,5 +51,5 @@ public interface RequestBoardService {
 			RequestBoard selectOne(int board_no) throws Exception;
 			
 			//페이지에 있는 게시물 시작번호 / 끝번호
-			RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception;
+			List<RequestBoard> list(Criteria cri) throws Exception;
 }

@@ -1,6 +1,8 @@
 package com.itwill.repository;
 
 import java.io.InputStream;
+
+
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -12,11 +14,10 @@ import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
-import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.mapper.RequestBoardMapper;
+import com.itwill.util.Criteria;
 import com.itwill.util.PageMaker;
 
-@Repository
 public class RequestBoardDaoImpl implements RequestBoardDao{
 	@Autowired
 	private RequestBoardMapper requestBoardMapper;
@@ -98,10 +99,8 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception {
-		page.setTotalList(requestBoardMapper.countAll());
-		page.setItemList(requestBoardMapper.list(page));
-		return page;
+	public List<RequestBoard> list(Criteria cri) throws Exception {
+		return requestBoardMapper.list(cri);
 	}
 
 }

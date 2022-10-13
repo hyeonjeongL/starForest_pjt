@@ -22,7 +22,6 @@ import com.itwill.service.RequestBoardService;
 public class RequestBoardController {
 	@Autowired
 	private RequestBoardService requestBoardService;
-	
 	@GetMapping(value = {
 			"/requestBoard"},
 		produces = "application/json;charset=UTF-8")
@@ -51,7 +50,6 @@ public class RequestBoardController {
 		}
 		
 	}
-
 	@RequestMapping("/requestBoard_write_form")
 	public String request_write_form(HttpServletRequest request,HttpSession session) {
 		String forwardPath="";

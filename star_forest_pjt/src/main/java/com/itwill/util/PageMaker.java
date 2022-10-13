@@ -1,113 +1,105 @@
 package com.itwill.util;
+
+
 public class PageMaker {
  
-	private int pageList = 10; //페이지당 목록수
-	private int blockPage = 10; //블럭당 페이지수
-	private int totalList; //총목록수
-	private int totalPage; //총페이지수
-	//157 페이지 = 총목록수/페이지당 목록수 + 나머지가 있으면+1
-	private int totalBlock; //총블럭수
-	//16 블럭 = 총페이지수/블럭당 페이지수 + 나머지가 있으면+1
-	private int curPage; //현재페이지번호
-	private int beginList, endList; //현재페이지의 시작/끝 목록번호
-	private int beginPage, endPage; //현재블럭의 시작/끝 페이지번호
+	/* 시작 페이지 */
+	private int startPage;
 	
-	public int getPageList() {
-		return pageList;
-	}
-	public void setPageList(int pageList) {
-		this.pageList = pageList;
-	}
-	public int getBlockPage() {
-		return blockPage;
-	}
-	public void setBlockPage(int blockPage) {
-		this.blockPage = blockPage;
-	}
-	public int getTotalList() {
-		return totalList;
-	}
-	public void setTotalList(int totalList) {
-		this.totalList = totalList;
-		
-		//총페이지수=총목록수/페이지당보여질목록수
-		//576/10 --> 57 ..6 -> 58페이지
-		totalPage = totalList / pageList;
-		if( totalList % pageList >0 ) ++totalPage;
-		
-		//총블럭수=총페이지수/블럭당보여질페이지수
-		//58/10 --> 5..8 -> 6블럭
-		totalBlock = totalPage / blockPage;
-		
-		//시작/끝 목록번호
-		//끝목록번호: 576, 566, 556, 
-		endList = totalList - (curPage-1) * pageList;
-		//시작목록번호: 567, 557, 547, 
-		//= 끝목록번호 - (페이지당보여질목록수-1) 
-		beginList = endList - (pageList-1);
-		
-		//현재 블럭번호 
-		curBlock = curPage / blockPage;
-		if( curPage % blockPage > 0 ) ++curBlock;
-		//시작/끝 페이지번호
-		//끝페이지번호: 10, 20, 30, ...
-		endPage = curBlock * blockPage;
-		//시작페이지번호 : 1, 11, 21, ...
-		beginPage = endList - (blockPage-1);
-		
-		//2048건 ▶ 1페이지 : 2048 ~ 2039, 1 ~ 10
-		//			205페이지 : 8 ~ 1, 51 ~ 58
-		//끝 페이지 번호가 총 페이지 번호보다 크면 총 페이지 번호가 끝 페이지 번호이다.
-		if(endPage > totalPage) {endPage = totalPage; }
-	}
-	private int curBlock; //현재블럭번호 
+	/* 끝 페이지 */
+	private int endPage;
 	
-	public int getCurBlock() {
-		return curBlock;
+	/* 이전 페이지, 다음 페이지 존재유무 */
+	private boolean prev, next;
+	
+	/*전체 게시물 수*/
+	private int total;
+	
+	/* 현재 페이지, 페이지당 게시물 표시수 정보 */
+	private Criteria cri;	
+	
+	/* 생성자 */
+	public PageMaker(Criteria cri, int total) {
+		
+		this.cri = cri;
+		this.total = total;
+		
+		/* 마지막 페이지 */
+		this.endPage = (int)(Math.ceil(cri.getPageNum()/10.0))*10;
+		
+		/* 시작 페이지 */
+		this.startPage = this.endPage - 9;
+		
+		/* 전체 마지막 페이지 (=총페이지 수 계산)*/
+		int realEnd = (int)(Math.ceil(total * 1.0/cri.getAmount()));
+		
+		/* 전체 마지막 페이지(realend)가 화면에 보이는 마지막페이지(endPage)보다 작은 경우, 보이는 페이지(endPage) 값 조정 */
+		if(realEnd < this.endPage) {
+			this.endPage = realEnd;
+		}
+		
+		/* 시작 페이지(startPage)값이 1보다 큰 경우 true */
+		this.prev = this.startPage > 1;
+		
+		/* 마지막 페이지(endPage)값이 1보다 큰 경우 true */
+		this.next = this.endPage < realEnd;
+		
+		
 	}
-	public void setCurBlock(int curBlock) {
-		this.curBlock = curBlock;
+
+	public int getStartPage() {
+		return startPage;
 	}
-	public int getTotalPage() {
-		return totalPage;
+
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
 	}
-	public void setTotalPage(int totalPage) {
-		this.totalPage = totalPage;
-	}
-	public int getTotalBlock() {
-		return totalBlock;
-	}
-	public void setTotalBlock(int totalBlock) {
-		this.totalBlock = totalBlock;
-	}
-	public int getCurPage() {
-		return curPage;
-	}
-	public void setCurPage(int curPage) {
-		this.curPage = curPage;
-	}
-	public int getBeginList() {
-		return beginList;
-	}
-	public void setBeginList(int beginList) {
-		this.beginList = beginList;
-	}
-	public int getEndList() {
-		return endList;
-	}
-	public void setEndList(int endList) {
-		this.endList = endList;
-	}
-	public int getBeginPage() {
-		return beginPage;
-	}
-	public void setBeginPage(int beginPage) {
-		this.beginPage = beginPage;
-	}
+
 	public int getEndPage() {
 		return endPage;
 	}
+
 	public void setEndPage(int endPage) {
 		this.endPage = endPage;
 	}
+
+	public boolean isPrev() {
+		return prev;
+	}
+
+	public void setPrev(boolean prev) {
+		this.prev = prev;
+	}
+
+	public boolean isNext() {
+		return next;
+	}
+
+	public void setNext(boolean next) {
+		this.next = next;
+	}
+
+	public int getTotal() {
+		return total;
+	}
+
+	public void setTotal(int total) {
+		this.total = total;
+	}
+
+	public Criteria getCri() {
+		return cri;
+	}
+
+	public void setCri(Criteria cri) {
+		this.cri = cri;
+	}
+
+	@Override
+	public String toString() {
+		return "PageMakerDTO [startPage=" + startPage + ", endPage=" + endPage + ", prev=" + prev + ", next=" + next
+				+ ", total=" + total + ", cri=" + cri + "]";
+	}	
+	
+	
 }

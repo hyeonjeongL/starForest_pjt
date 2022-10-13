@@ -39,13 +39,18 @@
 	<script type="text/javascript" src="js/request_html_content.js"></script>
 <script type="text/javascript">
 	$(function() {
+		
 		$.ajax({
 			url:'request_list_json',
 			method:'GET',
 			success:function(jsonResult){
 				var requestArray = jsonResult.data;
-				console.log(requestArray);
-				$('#requestBoard_wrap').html(request_list_content(requestArray));
+				var pageArray = jsonResult.pageMaker[0];
+				//var pageArray = [startPage,endPage,pageNum,amount] 
+				console.log(pageArray.startPage);
+				console.log(pageArray);
+				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+				//$('#requestBoard_wrap').html(request_list(pageArray));
 			}
 		});
 		
@@ -64,6 +69,9 @@
 			}
 		});
 		});
+		/*
+		게시물리스트
+		*/
 		
 		$(document).on('click','#menu_RequestBoard',function(e){
 			$.ajax({
@@ -71,12 +79,15 @@
 				method:'GET',
 				success:function(jsonResult){
 					var requestArray = jsonResult.data;
+					var pageArray = jsonResult.pageMaker[0];
 					console.log(requestArray);
-					$('#requestBoard_wrap').html(request_list_content(requestArray));
+					$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+					//$('#page_wrap').html(pageArray);
 				}
 			});
 			e.preventDefault();
 		});
+		
 		/*
 		requestBoard 게시물 상세보기
 		*/
@@ -178,8 +189,27 @@
 				
 			});
 		});
-		
-		
+		/*
+		페이지번호 누르면 해당 페이지로 이동..
+		*/
+		$(document).on('click','.page_btn', function(e){
+	        var param = 'pageNum='+$("#moveForm input[name='pageNum']").val();
+	        console.log(param);
+	        e.preventDefault();
+	        $.ajax({
+				url:'request_list',
+				method:'POST',
+				data:param,
+				success:function(jsonResult){
+					var requestArray = jsonResult.data;
+					var pageArray = jsonResult.pageMaker[0];
+					console.log(requestArray);
+					$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+					//$('#page_wrap').html(pageArray);
+				}
+			});
+	        
+	    });
 		
 		$(document).on('click','#btn_request_list',function(e){
 			location.href='requestBoard';
@@ -216,17 +246,90 @@
 
 		<!-- MAIN SECTION -->
 		&nbsp;&nbsp;&nbsp;
+		<!-- 검색 SECTION -->
+		<!--  
+		<div class="search_wrap">
+	        <div class="search_area">
+	            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+	            <button>Search</button>
+	        </div>
+  	  	</div>    
+		-->
 		<div id="requestBoard_wrap">
+		<!--  
+		<table>
+	
+		<thead>
+		<tr id="table1" align=center style="background-color:pink;">
+		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
+		<td width=30% align=center class=t1><font size=2 color=#000000>제목</td>
+		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>진행상태</td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>날짜</td>
+		<td width=5% align=center class=t1><font size=2 color=#000000>조회수</td>
+		</tr>
+		</thead>
 		
+		<tbody>
+			<!--requestBoard start
+		<c:forEach items="${requestBoard }" var="reqeustBoard">
+		<tr id="table2">
+		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_no}</td>
+		<td width="300" bgcolor="ffffff" style="padding-left: 10">
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}">
+				${requestBoard.board_title}
+				</a>
+		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_status}</font></td>
+		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
+		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
+		</tr>
+		</c:forEach>
+			<!--requestBoard end
+		</tbody>
 		
-		
-		
-		
+		</table>
+		<div>
+		<input type="button" id="btn_write" value="희망도서 신청하기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</div>
+		-->
 		</div>
 		
-		
-			<!-- pageContent끝 -->
+			<div id="page_wrap">
+			 <!-- 
+				  <div class="page_area">
+			<ul id="page">
+			
+				<!-- 이전페이지 버튼
+				<c:if test="${pageMaker.prev}">
+					<li class="page_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+				</c:if>
+				
+				<!-- 각 번호 페이지 버튼
+				<c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+					<li class="page_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+				</c:forEach>
+				
+				<!-- 다음페이지 버튼
+				<c:if test="${pageMaker.next}">
+					<li class="page_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+				</c:if>	
+				
+			</ul>
+			 -->
+		</div>
 			</div>
+			<form id="moveForm" method="get">	
+			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">	
+			<input type="hidden" name="type" value="${pageMaker.cri.type }">	
+			</form>
+			
+		<!-- pageContent끝 -->	
+			
+			
+		</div>	
 		<!-- .footer-navigation -->
 	<!-- footer start-->
 	&nbsp;

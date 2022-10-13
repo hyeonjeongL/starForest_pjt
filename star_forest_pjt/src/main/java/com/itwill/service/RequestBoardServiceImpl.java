@@ -2,13 +2,15 @@ package com.itwill.service;
 
 import java.util.List;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
-import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.repository.RequestBoardDao;
+import com.itwill.util.Criteria;
 @Service
 public class RequestBoardServiceImpl implements RequestBoardService{
 	@Autowired
@@ -96,8 +98,8 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	}
 
 	@Override
-	public RequestBoardListPageMaker list(RequestBoardListPageMaker page) throws Exception {
-		return requestBoardDao.list(page);
+	public List<RequestBoard> list(Criteria cri) throws Exception {
+		return requestBoardDao.list(cri);
 	}
 
 }

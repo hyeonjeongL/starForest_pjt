@@ -5,6 +5,8 @@ import java.util.List;
 
 
 
+
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -13,8 +15,8 @@ import org.apache.ibatis.annotations.SelectKey;
 import org.apache.ibatis.annotations.Update;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.util.Criteria;
 import com.itwill.domain.BookCategory;
-import com.itwill.domain.RequestBoardListPageMaker;
 
 @Mapper
 public interface RequestBoardMapper {
@@ -108,12 +110,7 @@ public interface RequestBoardMapper {
 	public RequestBoard selectOne(int board_no);
 	
 	//페이지에 있는 게시물 시작번호 / 끝번호
-	@Select("SELECT * FROM\r\n"
-			+ "		( SELECT rownum idx, s.*  FROM\r\n"
-			+ "				( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_depth FROM request_board\r\n"
-			+ "					ORDER BY board_groupno DESC,board_step ASC\r\n"
-			+ "				) s\r\n"
-			+ "		 )\r\n"
-			+ "WHERE idx between #{pageBegin} and #{pageEnd}")
-	public List<RequestBoard> list(RequestBoardListPageMaker page);
+	
+	public List<RequestBoard> list(Criteria cri);
+	
 }

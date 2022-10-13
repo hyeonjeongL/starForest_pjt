@@ -304,3 +304,23 @@ request_board css
   .btn_mrl {
    	margin-top: 40px;
   }
+.page_area{
+	margin:auto; 
+ }
+ #page{
+     list-style : none;
+     display: inline-block;
+    margin: 10px 0 0 30px;      
+  }
+  
+ #page li{
+    float: left;
+    font-size: 15px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
+ 

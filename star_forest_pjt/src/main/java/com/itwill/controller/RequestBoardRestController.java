@@ -1,6 +1,8 @@
 package com.itwill.controller;
 
 import java.util.ArrayList;
+
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,24 +22,39 @@ import org.springframework.web.bind.annotation.RestController;
 import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.RequestBoard;
 import com.itwill.service.RequestBoardService;
+import com.itwill.util.Criteria;
+import com.itwill.util.PageMaker;
+
 
 @RestController
 public class RequestBoardRestController {
 	@Autowired
 	private RequestBoardService requestBoardService;
+	
+	
 	@RequestMapping(value="/request_list_json", produces = "application/json;charset=UTF-8")
-	public Map request_list_json() {
+	public Map request_list_json(Criteria cri,Model model) {
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
 		String msg="";
+		//Log.info("boardListGET");
+        
 		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		List<PageMaker> pageMakerList = new ArrayList<PageMaker>();
 		try {
-			List<RequestBoard> requestList = requestBoardService.selectAll();
+			//List<RequestBoard> requestList = requestBoardService.selectAll();
+			List<RequestBoard> requestList = requestBoardService.list(cri);
+			int total = requestBoardService.countAll();
+			PageMaker pageMaker = new PageMaker(cri, total);
+			cri.setKeyword("");
+			pageMakerList.add(pageMaker);
 			code=1;
 			url="";
 			msg="성공";
 			resultList = requestList;
+			//model.addAttribute("list",requestList);
+			//model.addAttribute("pageMaker",pageMaker);
 		}catch (Exception e) {
 			code=2;
 			msg="에러";
@@ -46,9 +64,44 @@ public class RequestBoardRestController {
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
+		resultMap.put("pageMaker", pageMakerList);
 		return resultMap;
 	}
-	
+	@RequestMapping(value="/request_list", produces = "application/json;charset=UTF-8")
+	public Map request_list(Criteria cri,Model model) {
+		Map resultMap = new HashMap();
+		int code=1;
+		String url="";
+		String msg="";
+		//Log.info("boardListGET");
+        
+		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
+		List<PageMaker> pageMakerList = new ArrayList<PageMaker>();
+		try {
+			//List<RequestBoard> requestList = requestBoardService.selectAll();
+			List<RequestBoard> requestList = requestBoardService.list(cri);
+			int total = requestBoardService.countAll();
+			PageMaker pageMaker = new PageMaker(cri, total);
+			cri.setKeyword("");
+			pageMakerList.add(pageMaker);
+			code=1;
+			url="";
+			msg="성공";
+			resultList = requestList;
+			//model.addAttribute("list",requestList);
+			//model.addAttribute("pageMaker",pageMaker);
+		}catch (Exception e) {
+			code=2;
+			msg="에러";
+			e.printStackTrace();
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		resultMap.put("pageMaker", pageMakerList);
+		return resultMap;
+	}
 	
 	@RequestMapping(value = "/request_view_json", produces = "application/json;charset=UTF-8")
 	public Map request_view_json(@RequestParam int board_no) {
@@ -89,9 +142,9 @@ public class RequestBoardRestController {
 			 * String board_status, int board_type_no, int board_depth, int board_step, int groupno, String category_name, String user_id
 			 */
 			if(sUserId=="admin") {
-			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, "신청접수", 2, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
+			//rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, requestBoard.getBoard_status(), 0, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
 			}else {
-			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, null, 0, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
+			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, null, 1, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
 			code=1;
 			msg="글쓰기가 작성됨";
 			resultList.add(requestBoard);
@@ -106,7 +159,9 @@ public class RequestBoardRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	
+	/*
+	 * 관리자 공지사항 쓰기
+	 */
 	@LoginCheck
 	@PostMapping(value="/request_write_notice_action",produces = "application/json;charset=UTF-8")
 	public Map request_write_notice_action(@ModelAttribute RequestBoard requestBoard,HttpSession session) {

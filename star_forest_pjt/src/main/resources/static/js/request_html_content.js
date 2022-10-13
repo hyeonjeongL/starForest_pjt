@@ -3,7 +3,7 @@ function request_item_content(requestBoard){
 	return `<tr id="table2">
 		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_no}</td>
 		<td width="300" bgcolor="ffffff" style="padding-left: 10">
-				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}">
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:pink; font-weight=bold;"':'style="color:black;"'}>
 				${requestBoard.board_title}
 				</a>
 		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
@@ -12,8 +12,36 @@ function request_item_content(requestBoard){
 		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
 		</tr>`;
 }
-
-function request_list_content(requestArray) {
+/*
+function request_page_content(pageArray){
+	return `
+				<div class="page_area">
+					<ul id="page">
+				 		 <!-- 이전페이지 버튼 -->
+                    	<li class="pageInfo_btn previous"><a href="requestBoard?pageNum='${pageArray.startPage-1}'">Previous</a></li>
+                    	
+						<li>${pageArray.startPage}
+						<li>${pageArray.endPage}
+						<!--이걸.. startPage 부터 endpage가 끝날때까지 뽑아야하는 거잖아..-->
+						<!--<%=for(var num=pageArray.startPage; num<=pageArray.endPage; num++){}-->
+	                    <li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>
+	                     <!-- 다음페이지 버튼 -->
+	                    <li class="pageInfo_btn next"><a href="requestBoard?pageNum='${pageArray.endPage + 1 }'">Next</a></li>
+	                    
+               		</ul>
+				</div>
+			</div>
+			</div>
+			<form id = "moveForm" method="get">
+			<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
+        	<input type="hidden" name="amount" value="${pageArray.cri.amount }">    
+			</form>
+	`;
+}
+*/
+//<li>${pageArray.startPage}
+//<li>${pageArray.endPage}
+function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
 		<thead>
@@ -39,9 +67,65 @@ function request_list_content(requestArray) {
 		<div>
 		<input type="button" id="btn_write" value="희망도서 신청하기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
+		
+		
+		<div class="search_wrap">
+	        <div class="search_area">
+	            <input type="text" name="keyword" value="${pageArray.cri.keyword}" style="margin-left:60px;">
+	            <button>Search</button>
+	        </div>
+  	  	</div>    
+  	  	
+  	  	
+		<div class="page_area">
+					<ul id="page">
+				 		 <!-- 이전페이지 버튼 -->
+                    	<li class="pageInfo_btn previous"><a href="requestBoard?pageNum='${pageArray.startPage-1}'">Previous</a></li>
+                    	
+                    	
+						
+						<!--이걸.. startPage 부터 endpage가 끝날때까지 뽑아야하는 거잖아.{for(var num=$; num<=$;num++)-->
+						
+						
+						
+	                    <li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>
+	                    <li class="page_btn"><a href="requestBoard?pageNum='${pageArray.endPage}'">${pageArray.endPage}</a></li>
+	                    
+	                    
+	                     <!-- 다음페이지 버튼 -->
+	                    <li class="pageInfo_btn next"><a href="requestBoard?pageNum='${pageArray.endPage + 1 }'">Next</a></li>
+	                    
+               		</ul>
+		</div>
+			
+			
+			<form id = "moveForm" method="get">
+			<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
+        	<input type="hidden" name="amount" value="${pageArray.cri.amount }">    
+        	<input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
+			</form>
+			
 		`;
 }
-
+/*
+function request_list(pageArray){
+	$.each(pageArray,function(i,pageArray.))
+	
+	for(var num=pageArray.startPage; num<=pageArray.endPage;num++){
+		<li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>
+	}
+}
+*/
+	
+/*
+<div class="search_wrap">
+	        <div class="search_area">
+	        	//*<!--<input type="text" name="keyword" value="${pageMaker.cri.keyword }">-->//
+	            <input type="text" name="keyword" value="">
+	            <button>Search</button>
+	        </div>
+  	  	</div>    
+*/
 
 /*
 function request_write_form_content() {

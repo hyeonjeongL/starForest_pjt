@@ -1,5 +1,7 @@
 package com.itwill.controller.test;
 
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan.Filter;
 import com.itwill.domain.RequestBoard;
 import com.itwill.mapper.RequestBoardMapper;
 import com.itwill.service.RequestBoardService;
+import com.itwill.util.Criteria;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itwill"}, includeFilters = {
@@ -33,9 +36,13 @@ public class RequestBoardServiceTestController {
 		      //int rowCount = requestBoardService.update(new RequestBoard(2, "수정", null, "수정합니데이", 0, "신청접수", 0, 0, 0, 0, "소설/시/희곡", "soyoon"));
 		      //rowCount = requestBoardService.update(new RequestBoard(2, "수정이 되나", null, "수정합니데이", 0, "신청접수", 0, 0, 0, 0, "소설/시/희곡", "soyoon"));
 		      //System.err.println(rowCount);
-		      int rowCount = requestBoardService.deleteByGroupno(2);
-		      System.out.println(rowCount);
+		      //int rowCount = requestBoardService.deleteByGroupno(2);
+		      //System.out.println(rowCount);
 		      //서비스 테스트 완료
+		      Criteria cri = new Criteria();
+		      cri.setPageNum(2);
+		      List<RequestBoard> list = requestBoardService.list(cri);
+		      System.out.println(list);
 	}
 
 }

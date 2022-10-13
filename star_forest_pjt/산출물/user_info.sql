@@ -45,7 +45,7 @@ select count(*) cnt from user_info where user_id='soyun';
 /*비밀번호 체크*/
 select count(*) cnt from user_info where user_id='yeji' and user_password='1111';
 /*대출 정지기간(0이상이면 그 수만큼 대출정지,0미만은 대출가능)*/
-select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id where u.user_id='junghyun';
+select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id where u.user_id='yeji';
 
 
 --update--
@@ -55,7 +55,8 @@ update user_info set user_password='1234' where user_id='yeji';
 update user_info set user_password='0000',user_email='han@naver.com',user_birth='1995-01-01',user_phone='01022223333',user_address='경기도 부천시',category_no=200 where user_id='soyun';
 /*yeji 대출권수 카운트*/
 update user_info set user_book_cnt_limit=user_book_cnt_limit-1 where user_book_cnt_limit>0 and user_id='soyun';
-
+/*대출가능상태여부*/
+update user_info set user_rental_status='대출불가' where (select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id)>0 and user_id='yeji';
 
 --delete--
 /*회원탈퇴*/

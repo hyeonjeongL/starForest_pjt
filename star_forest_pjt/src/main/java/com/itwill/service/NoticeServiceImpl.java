@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.itwill.domain.PageMaker;
 import com.itwill.domain.Notice;
+import com.itwill.domain.PageMakerDto;
 import com.itwill.repository.NoticeDao;
 
 @Service
@@ -20,8 +22,13 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public List<Notice> selectAll() throws Exception {
-		return noticeDao.selectAll();
+	public PageMakerDto<Notice> selectAll(int currentPage) throws Exception {
+		int totNoticeCount = noticeDao.noticeCount();
+		PageMaker pageMaker = new PageMaker(totNoticeCount, currentPage, 10, 5);
+		List<Notice> noticeList = noticeDao.selectAll(pageMaker.getPageBegin(), pageMaker.getPageEnd());
+		PageMakerDto<Notice> pageMakerNoticeList = new PageMakerDto<Notice>(noticeList, pageMaker, totNoticeCount);
+		
+		return pageMakerNoticeList;
 	}
 
 	@Override
@@ -40,8 +47,13 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public int updateCount() throws Exception {
-		return noticeDao.updateCount();
+	public int updateCount(int notice_no) throws Exception {
+		return noticeDao.updateCount(notice_no);
+	}
+
+	@Override
+	public Notice selectByNo(int notice_no) throws Exception {
+		return noticeDao.selectByNo(notice_no);
 	}
 	
 	

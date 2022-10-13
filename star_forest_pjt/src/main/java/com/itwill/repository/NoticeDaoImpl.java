@@ -1,6 +1,8 @@
 package com.itwill.repository;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,15 +16,28 @@ public class NoticeDaoImpl implements NoticeDao{
 	
 	@Autowired
 	private NoticeMapper noticeMapper;
-
+	
+	public NoticeDaoImpl() {
+	}
+	
+	public NoticeMapper getNoticeMapper() {
+		return noticeMapper;
+	}
+	public void setNoticeMappper(NoticeMapper noticeMapper) {
+		this.noticeMapper = noticeMapper;
+	}
+	
 	@Override
 	public int create(Notice notice) throws Exception {
 		return noticeMapper.create(notice);
 	}
 
 	@Override
-	public List<Notice> selectAll() throws Exception {
-		return noticeMapper.selectAll();
+	public List<Notice> selectAll(int pageStart, int pageEnd) throws Exception {
+		Map<String, Integer>map = new HashMap<>();
+		map.put("pageStart", pageStart);
+		map.put("pageEnd", pageEnd);
+		return noticeMapper.selectAll(pageStart, pageEnd);
 	}
 
 	@Override
@@ -31,7 +46,7 @@ public class NoticeDaoImpl implements NoticeDao{
 	}
 
 	@Override
-	public int updateCount() throws Exception {
+	public int updateCount(int notice_no) throws Exception {
 		return noticeMapper.updateCount();
 	}
 
@@ -43,6 +58,11 @@ public class NoticeDaoImpl implements NoticeDao{
 	@Override
 	public int noticeCount() throws Exception {
 		return noticeMapper.noticeCount();
+	}
+
+	@Override
+	public Notice selectByNo(int notice_no) throws Exception {
+		return noticeMapper.selectByNo(notice_no);
 	}
 
 	

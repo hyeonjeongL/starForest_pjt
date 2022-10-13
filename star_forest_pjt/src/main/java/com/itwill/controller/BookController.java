@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.Book;
 import com.itwill.domain.Notice;
+import com.itwill.domain.PageMakerDto;
 import com.itwill.service.BookService;
 import com.itwill.service.NoticeService;
 import com.itwill.service.RentalService;
@@ -84,7 +85,7 @@ public class BookController {
 	}
 	
 	@RequestMapping("/Home")
-	public String Home(Model model,HttpSession session) throws Exception{
+	public String Home(Model model,HttpSession session,Integer pageno) throws Exception{
 		try {
 			String sUserId=(String)session.getAttribute("sUserId");
 			if(sUserId==null) {
@@ -95,7 +96,7 @@ public class BookController {
 				model.addAttribute("userBook",userBook);
 			}
 			List<Book> newBook = bookService.selectNew();
-			List<Notice> notice = noticeService.selectAll();
+			PageMakerDto<Notice> notice = noticeService.selectAll(pageno);
 			model.addAttribute("newBook",newBook);
 			model.addAttribute("notice",notice);
 		}catch (Exception e) {

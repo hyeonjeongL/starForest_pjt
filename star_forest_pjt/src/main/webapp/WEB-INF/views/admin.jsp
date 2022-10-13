@@ -103,33 +103,19 @@ $(document).on('click','#btn_search', function(e){
 	console.log(param);
 	$.ajax({
 		url:'admin_user_now_rental_list',
-		method:'GET',
+		method:'POST',
 		data: param,
 		success:function(jsonResult){
 			if(jsonResult.code==1){
+				alert(jsonResult.msg);
 				var rentalArray=jsonResult.data;
-				$('.listtable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
+				console.log(rentalArray);
+				$('.listTable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
 			}else if(jsonResult.code==2){
 				alert(jsonResult.msg);
 			}
 			
-		},
-		error:function(jqXHR, textStatus, errorThrown ) {
-			
-
-			alert( jqXHR.status );
-
-			alert( jqXHR.statusText );
-
-			alert( jqXHR.responseText );
-
-			alert( jqXHR.readyState );
-
-			},
-		fail : function() {
-            alert("인터넷 연결 상태를 확인해주세요.");
-            $('.wrap-loading').addClass('display-none');
-        }
+		}
 	});
 	e.preventDefault();
 });
@@ -221,7 +207,7 @@ $(document).on('click','#btn_search', function(e){
 						
 						<div>
 						<form name="f" action="star_forest_pjt/admin_user_now_rental_list?keyword=" method="POST">
-						<input id="keyword" name="keyword" type="text" placeholder="회원아이디 입력" style="left:1290px">
+						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:1290px">
 							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1070px;bottom:15px">검색</button>
 							</form>
 						</div>

@@ -222,30 +222,26 @@ public class RentalRestController {
 		
 		
 		//admin창에서 user 검색 현재 대출중인 도서 리스트
-		@ResponseBody
-		@GetMapping("/admin_user_now_rental_list")
+		@LoginCheck
+		@PostMapping("/admin_user_now_rental_list")
 		public Map user_now_rental_list(@RequestParam(value="keyword", defaultValue="") String keyword, HttpServletRequest request) {
 			Map resultMap = new HashMap();
 			int code = 2;
 			String url = "";
 			String msg = "";
 			List<Rental> resultList = new ArrayList<Rental>();
-			System.err.println("왜 뭐가 문제인걸까?");
-			System.out.println(keyword);
-			String sUserId = (String) request.getSession().getAttribute("sUserId");
-			sUserId="admin";
 			
 			try {
 				List<Rental> searchList=rentalService.searchSelectById(keyword);
 				code = 1;
 				url = "";
-				msg = "된거맞ㅈ아?성공";
-				resultList=searchList;
+				msg = "성공";
+				resultList.addAll(searchList);
 			}catch (Exception e) {
 				e.printStackTrace();
 				code = 2;
 				url = "";
-				msg = "엥러";
+				msg = "실패";
 			}
 			resultMap.put("code", code);
 			resultMap.put("url", url);

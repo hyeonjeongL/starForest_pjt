@@ -45,7 +45,7 @@
           ${user_id} 로 별숲도서관 서비스 이용이 가능합니다.
         </p>
         <hr />
-        <a class="btn btn-outline-success btn-lg" href="LoginPage.do" role="button">&nbsp;&nbsp;로그인&nbsp;&nbsp;</a>
+        <a class="btn btn-outline-success btn-lg" href="user" role="button">&nbsp;&nbsp;로그인&nbsp;&nbsp;</a>
       </div>
     </section>
 	</div>

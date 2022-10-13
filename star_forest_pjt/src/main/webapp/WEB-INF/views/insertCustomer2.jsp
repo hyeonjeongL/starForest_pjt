@@ -383,7 +383,7 @@
 		}else{
 			return true;
 		}
-		
+		location.href="insertCustomerSuccess";
 	}
 </script>
 <style>
@@ -600,7 +600,7 @@ span {
           					
           					</div>
           					<hr class="divider">
-							<br /> <button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="formSubmit();" >가입하기</button>
+							<br /> <button class="btn btn-dark btn-block mb-1 btn-Customer" type="submit" onclick="formSubmit();">가입하기</button>
 		
 		</form>
 	</section>

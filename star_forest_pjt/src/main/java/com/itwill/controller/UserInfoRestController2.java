@@ -56,7 +56,7 @@ public class UserInfoRestController2 {
 
 //					System.out.println("result : " + result);
 
-				return "Home";
+				return "insertCustomerSuccess";
 		}
 		
 

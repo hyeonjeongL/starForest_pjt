@@ -28,7 +28,12 @@ public class SearchDaoTest {
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
 		SearchService searchService=(SearchService)context.getBean(SearchService.class);
-		System.out.println(searchService.searchList(new Search(0, "축구", null, null, null)));
+		
+		System.out.println("제목>>"+searchService.searchList(new Search(0, "축구", null, null, null)));
+		
+		System.out.println("분야>>"+searchService.cateList(700));
+
+		System.out.println("전체>>"+searchService.allList());
 		
 		//제목 검색
 		

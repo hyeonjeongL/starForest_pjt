@@ -200,7 +200,8 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 							</div>
 							<ul class="list-group list-group-flush mb-5">
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
-                  <li class="list-group-item active"><a href="/star_forest_pjt/SearchList?c=900&l=1">전체 도서</a>
+                  <li class="list-group-item active"><a href="SearchList">전체 도서</a></li>
+                  <li>
 	                  <ul class="low">
 		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">100 건강/취미/레저</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">200 경제경영</a></li>

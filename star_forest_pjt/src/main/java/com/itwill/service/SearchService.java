@@ -7,28 +7,15 @@ import com.itwill.domain.Search;
 //검색기능
 public interface SearchService {
 	
-	//전체 리스트 뽑기
-	public List<Search> selectNoTot(int book_no); 
-
-/** 번호 리스트 뽑기 */
-List<Search> selectNo(int book_no) throws Exception;
 
 //검색기능 
 List<Search> searchList(Search search) throws Exception;
 	
-	//분야별 리스트
-	List<Search> list (int category_no, int level) throws Exception;
-	
-	//카테고리
-	List<Search> cate() throws Exception;
-	
-	//도서 목록
-	List<Search> allList()throws Exception;
-	
-	
-	// 게시물 총 갯수 + 검색 적용
-	public int searchCount(String searchType, String keyword) throws Exception;
-	
+//분야 리스트 뽑기
+List<Search> cateList(int category_no)throws Exception;
+
+	//전체 리스트 뽑기
+List<Search> allList()throws Exception;
 	/*
 	// 제목 검색
 		List<Search> titleList(String keyword) throws Exception;

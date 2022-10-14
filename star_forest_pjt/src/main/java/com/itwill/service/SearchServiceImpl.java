@@ -20,58 +20,22 @@ public class SearchServiceImpl  implements SearchService{
 	public SearchServiceImpl() {
 	}
 	
-	//분류
-	public List<Search> list (int category_no,int level) throws Exception{
-		
-		int cateno=0;
-		
-		if(level == 1) {  // lavel 1 = 1차 분류.
-			  
-			cateno = category_no;
-			  return searchDao.list(category_no, cateno);
-			  // 두가지 모두 cateCode로 해도 무관
-			  
-			 } else {  // lavel 2 = 2차 분류
-			  
-			  return searchDao.list(category_no);
-			  
-			 }
-		
-	}
-
-	//카테고리
-	@Override
-	public List<Search> cate() throws Exception {
-		return searchDao.cate();
-	}
-
-	@Override
-	public List<Search> allList() throws Exception {
-		return searchDao.allList();
-	}
-
-	// 게시물 총 갯수
-	@Override
-	public int searchCount(String searchType, String keyword) throws Exception {
-	 return searchDao.searchCount(searchType, keyword);
-	}
-
-	@Override
-	public List<Search> selectNoTot(int book_no) {
-		// TODO Auto-generated method stub
-		return searchDao.selectNoTot(book_no);
-	}
-
-	@Override
-	public List<Search> selectNo(int book_no) throws Exception {
-		// TODO Auto-generated method stub
-		return searchDao.selectNo(book_no);
-	}
-
 	@Override
 	public List<Search> searchList(Search search) throws Exception {
 		// TODO Auto-generated method stub
 		return searchDao.searchList(search);
+	}
+
+	@Override
+	public List<Search> cateList(int category_no) throws Exception {
+		// TODO Auto-generated method stub
+		return searchDao.cateList(category_no);
+	}
+
+	@Override
+	public List<Search> allList() throws Exception {
+		// TODO Auto-generated method stub
+		return searchDao.allList();
 	}
 	
 /*

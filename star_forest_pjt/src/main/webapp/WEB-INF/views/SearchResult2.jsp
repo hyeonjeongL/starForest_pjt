@@ -271,7 +271,8 @@ section#content div.goodsName a {
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
-								<li class="list-group-item active"><a href="/star_forest_pjt/SearchList?c=900&l=1">전체 도서</a>
+								<li class="list-group-item active"><a href="SearchList">전체 도서</a></li>
+								<li>
 									<ul class="low">
 										<li><a href="/star_forest_pjt/SearchList?c=100&l=2">100 건강/취미/레저</a></li>
 										<li><a href="/star_forest_pjt/SearchList?c=100&l=2">200 경제경영</a></li>
@@ -280,7 +281,8 @@ section#content div.goodsName a {
 										<li><a href="/star_forest_pjt/SearchList?c=500&l=2">500 만화</a></li>
 										<li><a href="/star_forest_pjt/SearchList?c=600&l=2">600 사회과학</a></li>
 										<li><a href="/star_forest_pjt/SearchList?c=700&l=2">700 소설/시/희곡</a></li>
-									</ul></li>
+									</ul>
+									</li>
 								<li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
 								<li class="list-group-item"><a href="Newbooks">신착도서</a></li>
 								<li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>

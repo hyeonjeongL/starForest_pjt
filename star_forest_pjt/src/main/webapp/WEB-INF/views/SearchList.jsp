@@ -32,15 +32,42 @@
  <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
-function keywordCheck() {
-	var str_keyword = window.searchform.keyword.value;
-	if (!str_keyword || str_keyword === "") {
-		window.alert("검색어를 입력하세요.");
-		window.searchform.keyword.focus();
-		return false;
-	}
-	window.searchform.submit(); 
-}
+$(document).on('click', '#btn_search', function(e) {
+
+	var param = 'searchList';
+	console.log(param);
+	$.ajax({
+		url : 'getSearchList',
+		method : 'GET',
+		data : param,
+		success : function(bookList) {
+			console.log(bookList);
+			var html='';
+			for(var i=0;i < bookList.length;i++){
+				var book = bookList[i];
+				console.log(book.book_image_src);
+				console.log(book.book_title);
+				html+="<div class=\"col-md-3\"><div class=\"card mb-3\">";
+				html+="					<div class=\"card-body p-0\">";
+				html+="					<a href=\"book_detail?book_no=454\">";
+				html+="					<img class=\"card-image-top img-fluid\" width=\"100%\" alt=\"\" src=\""+book.book_image_src+"\">";
+				html+="			</a>";
+				html+="				<div class=\"card-body\">";
+				html+="				<div class=\"card-title\">";
+				html+="						<div class=\"book-title\" id=\"book-title\">"+book.book_title+"</div>";
+				html+="				<h6 class=\"book_author\">"+book.book_author+"</h6>";
+				html+="			</div>";
+				html+="				</div>";
+				html+="			</div>";
+				html+="		</div>";
+				html+="	</div>";
+				console.log(html);	
+			}
+			$('#searchBookList').html(html);
+		}
+	});
+	e.preventDefault();
+});
 </script>
 <style type="text/css">
 	/* Lazy Load Styles */
@@ -204,8 +231,8 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 							</div>
 							<ul class="list-group list-group-flush mb-5">
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
-                  <li class="list-group-item active"><a href="/star_forest_pjt/SearchList?c=900&l=1">전체 도서</a>
-	                  <ul class="low">
+                  <li class="list-group-item active"><a href="SearchList">전체 도서</a>
+	                  <ul class="low" name="category_no" id="category_no">
 		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">100 건강/취미/레저</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">200 경제경영</a></li>
 		                  <li><a href="/star_forest_pjt/SearchList?c=300&l=2">300 고전</a></li>
@@ -224,7 +251,6 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 
 <!--  -->
 <!-- 메인내용 -->
-
 <div class="col-md-9">
             <div class="row">
             	<c:forEach items="${allBook}" var="book" begin="0" end="15">

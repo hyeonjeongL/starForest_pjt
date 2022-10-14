@@ -118,36 +118,16 @@ public class Search {
 	}
 	
 
-	//검색 리스트
-	public Search(int book_no, String book_title, String book_author,String book_publisher,
-			String book_image, String book_image_src, String category_name
-			) {
-		super();
-		this.book_no = book_no;
-		this.book_title = book_title;
-		this.book_author = book_author;
-		this.book_publisher = book_publisher;
-		this.book_image = book_image;
-		this.book_image_src = book_image_src;//필요?
-		this.category_name = category_name;
-	}
+	
 
-	//검색 리스트
-	public Search(int book_no, String book_title, String book_author,
-			 String book_image, String book_image_src, int category_no, String category_name,int cateno
-			) {
+	//검색 리스트_분야
+	public Search(int category_no) {
 		super();
-		this.book_no = book_no;
-		this.book_title = book_title;
-		this.book_author = book_author;
-		this.book_image = book_image;
-		this.book_image_src = book_image_src;//필요?
 		this.category_no = category_no;
-		this.category_name = category_name;
-		this.cateno = cateno;
+		
 	}
 	
-	//검색 리스트2
+	//검색 리스트_성공
 	public Search(int book_no, String book_title, String book_author,
 			String book_image, String book_image_src
 			) {
@@ -157,6 +137,19 @@ public class Search {
 		this.book_author = book_author;
 		this.book_image = book_image;
 		this.book_image_src = book_image_src;//필요?
+	}
+	
+	//검색 리스트_성공
+	public Search(int book_no, String book_title, String book_author, String book_image, String book_image_src,
+			String book_publisher, String category_name) {
+		super();
+		this.book_no = book_no;
+		this.book_title = book_title;
+		this.book_author = book_author;
+		this.book_image = book_image;
+		this.book_image_src = book_image_src;
+		this.book_publisher = book_publisher;
+		this.category_name = category_name;
 	}
 
 	public String getCategory_name() {

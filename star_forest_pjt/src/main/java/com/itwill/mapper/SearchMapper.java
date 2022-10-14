@@ -16,12 +16,18 @@ public interface SearchMapper {
 	//검색 기능 리스트 뽑기
 		public List<Search> searchList(Search search);
 		
+		//분야 리스트 뽑기
+		public List<Search> cateList(int category_no);
+
+		//전체 리스트 뽑기
+		public List<Search> allList();
+		
+	/*
 		// 번호 리스트 뽑기
 		public List<Search> selectNo(int book_no);  
 
 		//전체 리스트 뽑기
 		public List<Search> selectNoTot(int book_no);  
-	/*
 //제목 검색
 	@Select("select "
 			+ "book_no,book_title,book_author,book_image,book_image_src"

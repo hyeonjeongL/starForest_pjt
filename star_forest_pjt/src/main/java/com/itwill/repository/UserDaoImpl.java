@@ -84,5 +84,10 @@ public class UserDaoImpl implements UserDao {
 		return userMapper.userRentalStatus(user_id);
 	}
 
+	@Override
+	public int selectUserRentalStatus(String user_id) {
+		return userMapper.selectUserRentalStatus(user_id);
+	}
+
 
 }

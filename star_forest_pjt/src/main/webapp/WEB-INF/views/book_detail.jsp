@@ -9,10 +9,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta property="og:description" content="" />
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/book_detail.css">
 <link rel="stylesheet" href="./css/yeji.css">
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/faq.css">
+<link rel="stylesheet" href="css/faq.css">
 <link rel="profile" href="https://gmpg.org/xfn/11" />
 <title>도서정보 - 별숲도서관</title>
 
@@ -199,11 +199,6 @@
 						</body>`
 						$(e.target).find('#modal-body-user-request').html(html1);
 						$(document).on('click','.btn.btn-primary.submit-request', function(e){
-							$.ajax({
-								url:'user_rental_count',
-								method:'POST',
-								success:function(jsonResult){
-									if(jsonResult.code==1){
 										$.ajax({
 											url:'rest_rental',
 											data:'book_no='+$(e.target).attr("book_no"),
@@ -215,14 +210,15 @@
 												} else if(jsonResult.code==0){
 									        	alert("이미 대여한 도서입니다.");
 									        	location.reload();
+												} else if(jsonResult.code==-1){
+													alert(jsonResult.msg);
+												}else if(jsonResult.code==3){
+													alert(jsonResult.msg);
+													location.reload();	
 												}
 									        }
 										}); 
-									}else if(jsonResult.code==-1){
-										alert("대출가능권수가 초과되었습니다.");
-										location.reload();	
 									}
-								}
 							});
 							e.preventDefault();
 							
@@ -350,8 +346,7 @@
 </head>
 
 
-<body
-	class="page-template page-template-page-without-title page-template-page-without-title-php page page-id-2053 logged-in wp-custom-logo wp-embed-responsive has-fixed-top singular image-filters-enabled elementor-default elementor-kit-14083">
+<body>
 	<!-- Modal -->
 
 	<div class="modal fade" id="item-user-request" tabindex="-1"
@@ -376,26 +371,8 @@
 			</div>
 		</div>
 	</div>
-	<!-- <div class="modal fade" id="theModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header"></div>
-				<div class="modal-body">... remote content from "data-remote"
-					loads here ...</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-dismiss="modal">Close</button>
-				</div>
-			</div>
-		</div>
-	</div> -->
 
-	<header id="masthead" class="site-header">
-
-		<script type="text/javascript"
-			src="https://library.korea.ac.kr/ezast/service/incscript.n2s?charset=utf-8&acbody=/ezast/service/n2ezast_body_main_result.html"
-			charset="UTF-8"></script>
-
+	<header>
 
 		<!-- navigation start-->
 		<div id="navigation">
@@ -444,7 +421,6 @@
 							</div>
 							<!-- .entry-nav -->
 
-							<h1 class="entry-title">상세정보</h1>
 						</div>
 						<!-- .entry-header-bar -->
 					</header>
@@ -503,13 +479,18 @@
 										</h2>
 									</div>
 
-									<div 
+									<div
 										class="item-functions flex-shrink-0 d-flex justify-content-center justify-content-lg-end">
-										
-										
-										<span id="insert_favorite" class="item-modal" data-toggle="modal" data-target="#directory-select"> 
-											<button id="btn_club_join" class="w-f-btn w-btn-favorite" book_no="${book.book_no }" type="button"><img book_no="${book.book_no }" src="./img/favorite.png" alt="">내서재</button>
-											
+
+
+										<span id="insert_favorite" class="item-modal"
+											data-toggle="modal" data-target="#directory-select">
+											<button id="btn_club_join" class="w-f-btn w-btn-favorite"
+												book_no="${book.book_no }" type="button">
+												<img book_no="${book.book_no }" src="./img/favorite.png"
+													alt="">내서재
+											</button>
+
 										</span>
 									</div>
 									<!-- .item-functions -->
@@ -661,8 +642,9 @@
 							<div class="item-location-footer">
 								<div class="item-services text-right">
 									<span><span class="char-icon char-icon">R</span> 도서예약</span> <span><span
-										class="char-icon char-icon-magenta" id="user_rental_btn">B</span> 간편대출</span> <span><span
-										class="char-icon char-icon-blue">M</span> 소장정보</span>
+										class="char-icon char-icon-magenta" id="user_rental_btn">B</span>
+										간편대출</span> <span><span class="char-icon char-icon-blue">M</span>
+										소장정보</span>
 								</div>
 							</div>
 							<!-- .item-location-footer -->

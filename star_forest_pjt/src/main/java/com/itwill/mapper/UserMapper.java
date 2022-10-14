@@ -54,5 +54,10 @@ public interface UserMapper {
 	
 	@Update("update user_info set user_rental_status='대출불가(연체)' where (select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id)>0 and user_id=#{user_id}")
 	public int userRentalStatus(String user_id);
+	
+	@Select("select count(user_rental_status) from user_info "
+			+ "where user_id=#{user_id} "
+			+ "and user_rental_status='대출가능(미연체)'")
+	public int selectUserRentalStatus(String user_id);
 
 }

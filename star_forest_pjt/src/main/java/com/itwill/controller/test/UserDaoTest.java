@@ -33,18 +33,19 @@ public class UserDaoTest {
 //							 "0102349808", "서울시 강남구", "qr", "대출가능",
 //							  4, 80, 100);
 //		System.out.println(userDao.create(user));
-		System.out.println(userDao.updatePassword(new User("yeji", null, "3445", null, 
-															null, null, null, null, null,
-															null, 0, 0, 500)));
-		
-		System.out.println(userDao.update(new User("soyoon", "소윤", "3333", "so@naver.com", 
-													"1991-03-03", null, "01023456789", "분당",0)));
-		System.out.println("삭제:"+userDao.remove("yeji3"));
-		System.out.println(userDao.userList());
-		System.out.println(userDao.findUser("yeji"));
-		System.out.println(userDao.existedUser("yeji"));
-		System.out.println(userDao.userRentalCount("yeji"));
-		System.out.println(userDao.rentalStopPeriod("yeji"));
+//		System.out.println(userDao.updatePassword(new User("yeji", null, "3445", null, 
+//															null, null, null, null, null,
+//															null, 0, 0, 500)));
+//		
+//		System.out.println(userDao.update(new User("soyoon", "소윤", "3333", "so@naver.com", 
+//													"1991-03-03", null, "01023456789", "분당",0)));
+//		System.out.println("삭제:"+userDao.remove("yeji3"));
+//		System.out.println(userDao.userList());
+//		System.out.println(userDao.findUser("yeji"));
+//		System.out.println(userDao.existedUser("yeji"));
+//		System.out.println(userDao.userRentalCount("yeji"));
+//		System.out.println(userDao.rentalStopPeriod("yeji"));
+		System.out.println(userDao.selectUserRentalStatus("hyeonjeong"));
 
 	}
 	

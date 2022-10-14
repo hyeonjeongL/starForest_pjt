@@ -135,6 +135,13 @@ public class UserServiceImpl implements UserService {
 	public int userRentalStatus(String user_id) throws Exception {
 		return userDao.userRentalStatus(user_id);
 	}
+
+	@Override
+	public int selectUserRentalStatus(String user_id) {
+		return userDao.selectUserRentalStatus(user_id);
+	}
+	
+	
 	
 	
 

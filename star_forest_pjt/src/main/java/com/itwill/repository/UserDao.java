@@ -42,4 +42,7 @@ public interface UserDao {
 	//대출상태
 	int userRentalStatus(String user_id) throws Exception;
 	
+	//대출 할 때 유저렌탈상태 확인하기
+	public int selectUserRentalStatus(String user_id);
+	
 }

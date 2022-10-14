@@ -20,7 +20,7 @@ public interface BookMapper {
 							+ "book_publish_date,book_input_date,book_image,book_image_src,book_page,"
 							+ "book_qty,book_res_cnt,book_rental_cnt,category_no) "
 							+ "values (seq_book_book_no.nextval,#{isbn},#{book_title},#{book_author},"
-							+ "#{book_publisher},#{book_summary},#{book_publish_date},#{book_input_date},"
+							+ "#{book_publisher},#{book_summary},#{book_publish_date},sysdate,"
 							+ "#{book_image},#{book_image_src},#{book_page},#{book_qty},"
 							+ "#{book_res_cnt},#{book_rental_cnt},#{category_no})")
 	public int insertBook(Book book);

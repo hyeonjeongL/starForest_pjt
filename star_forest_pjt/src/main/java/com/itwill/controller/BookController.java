@@ -2,6 +2,7 @@ package com.itwill.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -155,6 +156,23 @@ public class BookController {
 		}
 		return "Newbooks";
 	}
+	
+	@RequestMapping("/adminNewBook")
+	public String adminNewBookPage(HttpServletRequest request) throws Exception {
+		
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		String admin="admin";
+		if(sUserId.equals(admin)) {
+			return "forward:/WEB-INF/views/adminNewBook.jsp";
+		}else {
+			return "forward:/WEB-INF/views/Home.jsp";
+		}
+		
+	}
+	
+	
+	
+	
 	
 
 }

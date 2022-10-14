@@ -132,3 +132,15 @@ adminContents.admin_user_list_content = function(userArray) {
 					</table>
 				`;
 }
+adminContents.admin=function(){
+	return `
+	<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자</a>
+					<ul class="dropdown-menu dropdown-menu-left fade-down">
+						<li><a class="dropdown-item" href="admin"
+							id="menu_adminReturn">도서 반납</a></li>
+						<li><a id="menu_admin_user" class="dropdown-item" href="user_admin">회원관리</a></li>
+						<li><a id="menu_admin_insert_newbook" class="dropdown-item" href="adminNewBook">신착도서 입력</a></li>
+					</ul>
+				</li>`;
+}

@@ -282,7 +282,9 @@ request_board css
     padding: 10px;
     text-align: left;
   }
-  
+  .t1{
+  text-align: center;
+  }
   #td_content {
   	font-size: 10pt;
   }

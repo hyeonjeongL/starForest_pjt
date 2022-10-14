@@ -60,6 +60,7 @@ public class Criteria {
 
 	public void setType(String type) {
 		this.type = type;
+		this.typeArr= type.split("");
 	}
 
 	public String[] getTypeArr() {
@@ -75,6 +76,8 @@ public class Criteria {
 		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", keyword=" + keyword + ", type=" + type
 				+ ", typeArr=" + Arrays.toString(typeArr) + "]";
 	}
+
+	
 
 	
     

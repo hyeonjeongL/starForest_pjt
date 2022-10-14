@@ -2,18 +2,18 @@
 				${requestBoard.board_title}*/
 function request_item_content(requestBoard){
 	return `<tr id="table2">
-		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_no}</td>
+		<td width=5% align=center class=t2><font size=2 color=#000000>${requestBoard.board_no}</td>
 		<td width="300" bgcolor="ffffff" style="padding-left: 10">
 		
 		
-				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:red; font-weight=bold;"':'style="color:black;"'}>
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:red; font-weight:900;"':'style="color:black;"'}>
 				
 				${
 								function(){
 									var html='';
 									
 									if(requestBoard.board_status=='공지사항'){
-										html=`<img src="img/img_cart.png" width=40px;>`;
+										html=`<img src="img/notice_d.png" width=150px; height=40px;>`;
 									}
 									
 									for(var i=0; i<requestBoard.board_depth;i++){
@@ -28,10 +28,10 @@ function request_item_content(requestBoard){
 	               ${requestBoard.board_title}
 	               </a>
 				
-		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
-		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_status}</font></td>
-		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
-		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
+		<td width=15% align=center class=t2><font size=2 color=#000000>${requestBoard.user_id}</font></td>
+		<td width=10% align=center class=t2><font size=2 color=#000000>${requestBoard.board_status}</font></td>
+		<td width=10% align=center class=t2><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
+		<td width=5% align=center class=t2><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
 		</tr>`;
 }
 /*
@@ -67,7 +67,7 @@ function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
 		<thead>
-		<tr id="table1" align=center style="background-color:pink;">
+		<tr id="table1" align=center style="background-color:#1c7b3a;">
 		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
 		<td width=30% align=center class=t1><font size=2 color=#000000>제목</td>
 		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
@@ -94,16 +94,13 @@ function request_list_content(requestArray,pageArray) {
 		<div class="search_wrap">
 			<form id="keyword_form" method="post">
 	        <div class="search_area">
-	        	<select name="type">
-                <option value="" <c:out value="${pageArray.cri.type == null?'selected':'' }"/>>--</option>
-                <option value="T" <c:out value="${pageArray.cri.type =='T'?'selected':'' }"/>>제목</option>
-                <option value="C" <c:out value="${pageArray.cri.type  == 'C'?'selected':'' }"/>>내용</option>
-                <option value="W" <c:out value="${pageArray.cri.type  == 'W'?'selected':'' }"/>>작성자</option>
-                <option value="TC" <c:out value="${pageArray.cri.type  == 'TC'?'selected':'' }"/>>제목 + 내용</option>
-                <option value="TW" <c:out value="${pageArray.cri.type  == 'TW'?'selected':'' }"/>>제목 + 작성자</option>
-                <option value="TCW" <c:out value="${pageArray.cri.type  == 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+	        	<select name="type" id="type_box">
+                <option value="board_title" <c:out value="${pageArray.cri.type =='board_title'?'selected':'' }"/>제목</option>
+                <option value="board_content" <c:out value="${pageArray.cri.type  == 'board_content'?'selected':'' }"/>내용</option>
+                <option value="user_id" <c:out value="${pageArray.cri.type  == 'user_id'?'selected':'' }"/>작성자</option>
+                <option value="all" <c:out value="${pageArray.cri.type  == 'all'?'selected':'' }"/>제목 + 내용</option>
            		 </select>    
-	            <input type="text" id="keyword_box"name="keyword" keyword="${pageArray.cri.keyword}" style="margin-left:60px;">
+	            <input type="text" id="keyword_box" name="keyword" keyword="${pageArray.cri.keyword}" style="margin-left:60px;">
 	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색"></input>
 	        </div>
 	        </form>
@@ -112,9 +109,10 @@ function request_list_content(requestArray,pageArray) {
   	  	
 		<div class="page_area">
 		<form id="page_form" method="get">
-		<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum }">
-        <input type="hidden" name="amount" value="${pageArray.cri.amount }">    
-        <input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
+		<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum}">
+        <input type="hidden" name="amount" value="${pageArray.cri.amount}">    
+        <input type="hidden" name="keyword" value="${pageArray.cri.keyword}">	
+        <input type="hidden" name="type" value="${pageArray.cri.type}">
 					<ul id="page">
 				 		
 				 		

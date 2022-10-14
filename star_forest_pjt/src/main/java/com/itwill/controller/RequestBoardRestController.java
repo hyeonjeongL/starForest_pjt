@@ -33,7 +33,7 @@ public class RequestBoardRestController {
 	
 	
 	@RequestMapping(value="/request_list_json", produces = "application/json;charset=UTF-8")
-	public Map request_list_json(@RequestParam(value="keyword", required = false)String keyword,Criteria cri,Model model) {
+	public Map request_list_json(Criteria cri,Model model) {
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
@@ -49,6 +49,8 @@ public class RequestBoardRestController {
 			List<RequestBoard> requestList = requestBoardService.list(cri);
 			int total = requestBoardService.countAll(cri);
 			PageMaker pageMaker = new PageMaker(cri, total);
+			//key =cri.getKeyword().substring(0,4);
+			//System.out.println("key="+key);
 			//System.out.println("-----------");
 			pageMakerList.add(pageMaker);
 			//startPage = pageMaker.getStartPage();

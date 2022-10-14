@@ -3,21 +3,21 @@ function request_item_content(requestBoard){
 	return `<tr id="table2">
 		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_no}</td>
 		<td width="300" bgcolor="ffffff" style="padding-left: 10">
-				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:red; font-weight=bold;"':'style="color:black;"'}>
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:#1c7b3a; font-weight=bold;"':'style="color:black;"'}>
 				
 				${
 								function(){
 									var html='';
 									
 									if(requestBoard.board_status=='공지사항'){
-										html=`<img src="img/img_cart.png" width=40px;>`;
+										html=`<img src="img/notice_d.png" width=150px; height=40px;>`;
 									}
 									
 									for(var i=0; i<requestBoard.board_depth;i++){
-										html+=`&nbsp;&nbsp;&nbsp`;
+										html+=`&nbsp;&nbsp;&nbsp&nbsp&nbsp`;
 									}
 									if(requestBoard.board_depth>0){
-									html+=`<img src="img/re.gif">`;
+									html+=`<img src="img/reply.png" width=70px;>`;
 									}
 									return html;
 									 }()
@@ -35,7 +35,7 @@ function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
 		<thead>
-		<tr id="table1" align=center style="background-color:pink;">
+		<tr id="table1" align=center style="background-color:#ffc91d;">
 		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
 		<td width=30% align=center class=t1><font size=2 color=#000000>제목</td>
 		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
@@ -280,7 +280,7 @@ function request_reply_form(requestBoard){
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="board_title" value="re)&nbsp;&nbsp;${requestBoard.board_title}"></td>
+											style="width: 350px" name="board_title" value="&nbsp;${requestBoard.board_title}"></td>
 									</tr>
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>

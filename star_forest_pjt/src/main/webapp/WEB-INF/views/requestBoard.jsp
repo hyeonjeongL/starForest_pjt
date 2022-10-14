@@ -79,10 +79,13 @@
 			    });
 				
 				$(document).on('click','#search_btn',function(e){
-					 var pageNum = 'pageNum='+$("#page_form input[name='pageNum']").val();
+					 var pageNum = $("#page_form input[name='pageNum']").val();
+					alert(pageNum);
 					 var keyword= $('#keyword_box').serialize();
-					 var param={'keyword':keyword,'pageNum':pageNum};
-					 console.log(pageNum,keyword);
+					 alert(keyword);
+					 var type= $('#type_box').serialize();
+					 var param={keyword,pageNum,type};
+					 //console.log(pageNum,keyword);
 					 $.ajax({
 							url:'request_list_json',
 							method:'POST',
@@ -90,9 +93,9 @@
 							success:function(jsonResult){
 								var requestArray = jsonResult.data;
 								var pageArray = jsonResult.pageMaker[0];
-								var keyword = jsonResult.keyword;
+								var keyword = jsonResult.pageMaker[0].cri.keyword;
+								console.log(keyword);
 								console.log(pageArray);
-								//console.log('keyword='+keyword);
 								//console.log(requestArray);
 								$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
 								//$('#page_wrap').html(pageArray);

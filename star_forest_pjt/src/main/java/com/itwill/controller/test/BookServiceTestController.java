@@ -26,9 +26,9 @@ public class BookServiceTestController {
 		ConfigurableApplicationContext context = application.run(args);
 		BookService bookService = (BookService) context.getBean(BookService.class);
 		Date date = new Date();
-		Book insertNBookd = new Book(0, 0, "책제목서비스", "저자", "출판사", "책줄거리", "2022년 1월", date, "이미지", "이미지rul", 200, 3, 0, 0, 400,null);
-//		System.out.println(bookService.insertBook(insertNBookd));
-		System.out.println(bookService.selectBookDetail(12));
+		Book insertNBookd = new Book(0, 0, "책제목서비스", "저자", "출판사", "책줄거리", "2022년 1월", date, "이미지", "이미지rul", 200, 3, 0, 0, 400);
+		System.out.println(bookService.insertBook(insertNBookd));
+//		System.out.println(bookService.selectBookDetail(12));
 // 		System.out.println(bookService.updateRentalBookQty(1));
 // 		System.out.println(bookService.updateReturnBookQty(2));
 //		System.out.println(bookService.updateById("hyeonjeong")); 

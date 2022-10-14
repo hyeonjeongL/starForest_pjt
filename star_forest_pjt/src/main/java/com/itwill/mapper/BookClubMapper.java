@@ -26,7 +26,7 @@ public interface BookClubMapper {
 			+ "			where category_no=#{category_no} order by club_no desc")
 	public List<BookClub> selectBycategory(int category_no);
 	
-	@Select("select club_name,club_person,club_time,club_place,club_content from book_club where user_id=#{user_id}")
+	@Select("select club_no,club_name,club_person,club_time,club_place,club_content from book_club where user_id=#{user_id}")
 	public List<BookClub> selectById(String user_id);
 	
 	@Select("select club_no,club_name,club_count,club_person,club_time,club_place,club_content from book_club"
@@ -49,5 +49,8 @@ public interface BookClubMapper {
 	
 	@Delete("delete from book_club where club_no=#{club_no}")
 	public int remove(int club_no);
+	
+	@Delete("delete from book_club where club_no=#{club_no} and user_id=#{user_id}")
+	public int user_delete(String user_id,int club_no);
 	
 }

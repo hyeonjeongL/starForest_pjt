@@ -37,8 +37,8 @@
 <link rel="stylesheet" href="css/ddoyoon.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/favicon-16x16.png">
-<title>도서정보 - 딜리브러리</title>
+	href="favicon/star.png">
+<title>열람실 - 별숲도서관</title>
 
 
 <script type="text/javascript"

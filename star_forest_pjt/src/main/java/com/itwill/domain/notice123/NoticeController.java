@@ -1,4 +1,4 @@
-package com.itwill.controller;
+package com.itwill.domain.notice123;
 
 import java.util.List;
 import java.util.Map;
@@ -23,20 +23,20 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	@RequestMapping("/postList")
+	@RequestMapping("/notice_list")
 	public String notice_list(@RequestParam(required = false, defaultValue = "1") Integer pageno,Model model) throws Exception{
 		try {
 			PageMakerDto<Notice> noticeList = noticeService.selectAll(pageno);
-			System.out.println("noticeListㅇㅇㅇ");
-			model.addAttribute("noticeList",noticeList);
-			System.out.println("noticeList111");
+			System.out.println("notice_listㅇㅇㅇ");
+			model.addAttribute("notice_list",noticeList);
+			System.out.println("notice_list111");
 			model.addAttribute("pageno",pageno);
-			System.out.println("noticeList222");
+			System.out.println("notice_list222");
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "error";
 		}
-		return "postList";
+		return "notice_list";
 	}
 	
 	@RequestMapping("/notice_view")

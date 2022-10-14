@@ -20,7 +20,7 @@ public interface BookMapper {
 							+ "book_publish_date,book_input_date,book_image,book_image_src,book_page,"
 							+ "book_qty,book_res_cnt,book_rental_cnt,category_no) "
 							+ "values (seq_book_book_no.nextval,#{isbn},#{book_title},#{book_author},"
-							+ "#{book_publisher},#{book_summary},#{book_publish_date},#{book_input_date},"
+							+ "#{book_publisher},#{book_summary},#{book_publish_date},sysdate,"
 							+ "#{book_image},#{book_image_src},#{book_page},#{book_qty},"
 							+ "#{book_res_cnt},#{book_rental_cnt},#{category_no})")
 	public int insertBook(Book book);
@@ -89,7 +89,7 @@ public interface BookMapper {
 	@Select("select * from (select * from book order by book_publish_date asc) where category_no=#{category_no} and rownum<=9")
 	public List<Book> selectCategoryNew(int category_no);
 	
-	@Select("select * from book order by book_publish_date asc")
+	@Select("select * from book order by book_input_date desc")
 	public List<Book> selectNew();
 	
 	@Select("select count(*) from book")

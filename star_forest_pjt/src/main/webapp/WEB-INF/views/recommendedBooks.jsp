@@ -11,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
-
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
 	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -30,7 +31,7 @@
    <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/faq.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<title>도서정보 - 딜리브러리</title>
+<title>도서정보 - 별숲도서관</title>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"

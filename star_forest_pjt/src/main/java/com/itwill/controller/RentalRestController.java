@@ -251,7 +251,7 @@ public class RentalRestController {
 		//책 대여 기간 연장 7일
 		@PostMapping("/extend_rental")
 		public Map extend_rental(@RequestParam(value="book_no", required=false) int book_no, 
-							    @RequestParam(value="user_id", required=false) String user_id, HttpServletRequest request) throws Exception {
+							     HttpServletRequest request) throws Exception {
 			Map resultMap = new HashMap();
 			
 			int code = 2;
@@ -260,10 +260,17 @@ public class RentalRestController {
 			List<Rental> resultList = new ArrayList<Rental>();
 			try {
 				String sUserId = (String) request.getSession().getAttribute("sUserId");
+				int onceExtend = rentalService.onceExtend(sUserId, book_no);
+				if(onceExtend==1) {
+					code=-1;
+					url="";
+					msg="연장은 한 번 만 가능합니다.";
+				} else {
 				rentalService.updateDate(sUserId, book_no);
 					code = 1;
 					url = "";
 					msg = "기간 연장 완료";	
+				}
 			} catch (Exception e) {
 				code=2;
 				url="";

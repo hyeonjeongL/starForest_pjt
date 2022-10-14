@@ -27,6 +27,12 @@ public class RentalServiceImpl implements RentalService{
 	public int updateDate(String user_id, int book_no)  throws Exception{
 		return rentalDao.updateDate(user_id, book_no);
 	}
+	
+	//연장은 한 번 만 가능
+	@Override
+	public int onceExtend(String user_id, int book_no) {
+		return rentalDao.onceExtend(user_id, book_no);
+	}
 
 	/** user_id로 대출중인 리스트 뽑기*/
 	@Override
@@ -81,6 +87,8 @@ public class RentalServiceImpl implements RentalService{
 	public List<Rental> searchSelectById(String keyword) throws Exception {
 		return rentalDao.searchSelectById(keyword);
 	}
+
+	
 
 
 

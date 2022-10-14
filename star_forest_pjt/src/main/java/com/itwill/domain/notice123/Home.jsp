@@ -352,7 +352,7 @@ $(function(){
                               <h4>공지사항</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList?option=p_title&search=&group=10"><small
+                              <a href="notice_list?group=10"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>

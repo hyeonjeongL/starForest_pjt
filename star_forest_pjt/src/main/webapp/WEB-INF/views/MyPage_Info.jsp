@@ -34,7 +34,7 @@
 <link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
 <link rel="stylesheet" type="text/css" href="./css/yeji.css">
 <link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/favicon-16x16.png">
+	href="favicon/star.png">
 
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript"

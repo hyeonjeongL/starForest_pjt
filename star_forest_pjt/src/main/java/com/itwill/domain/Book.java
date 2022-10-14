@@ -22,7 +22,7 @@ public class Book {
 	int book_res_cnt;
 	int book_rental_cnt;
 	int category_no;
-	Rental rental;
+	Rental rental; //생성자랑 toString에서 rental 지움 만약 렌탈부분 오류가 난다면 여기를 확인해보자,,, insert 때문에 지웠는데 다시 추가해야겠지,,?
 	
 	
 	public Book() {
@@ -45,8 +45,7 @@ public class Book {
 
 	public Book(int book_no, int isbn, String book_title, String book_author, String book_publisher,
 			String book_summary, String book_publish_date, Date book_input_date, String book_image,
-			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no,
-			Rental rental) {
+			String book_image_src, int book_page, int book_qty, int book_res_cnt, int book_rental_cnt, int category_no) {
 		super();
 		this.book_no = book_no;
 		this.isbn = isbn;
@@ -63,7 +62,6 @@ public class Book {
 		this.book_res_cnt = book_res_cnt;
 		this.book_rental_cnt = book_rental_cnt;
 		this.category_no = category_no;
-		this.rental = rental;
 	}
 
 	public int getBook_no() {
@@ -203,7 +201,7 @@ public class Book {
 				+ ", book_publish_date=" + book_publish_date + ", book_input_date=" + book_input_date + ", book_image="
 				+ book_image + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
 				+ book_qty + ", book_res_cnt=" + book_res_cnt + ", book_rental_cnt=" + book_rental_cnt
-				+ ", category_no=" + category_no + ", rental=" + rental + "]";
+				+ ", category_no=" + category_no + "]"; //렌탈빼봄 insert할때문제됨 ㅡㅡ
 	}
 
 

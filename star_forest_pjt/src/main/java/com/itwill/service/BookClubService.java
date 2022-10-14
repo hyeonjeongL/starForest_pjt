@@ -35,5 +35,8 @@ public interface BookClubService {
 		
 		//동아리삭제
 		int remove(int club_no) throws Exception; 
+		
+		//유저 동아리신청 취소
+		int user_delete(String user_id,int club_no) throws Exception;
 	
 }

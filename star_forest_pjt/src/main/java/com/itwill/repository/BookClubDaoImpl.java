@@ -66,6 +66,11 @@ public class BookClubDaoImpl implements BookClubDao {
 		return bookClubMapper.remove(club_no);
 	}
 
+	@Override
+	public int user_delete(String user_id, int club_no) throws Exception {
+		return bookClubMapper.user_delete(user_id, club_no);
+	}
+
 	
 
 	

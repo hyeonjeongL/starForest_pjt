@@ -20,7 +20,8 @@
    <link rel="stylesheet" href="css/style.css">
    <link rel="stylesheet" href="css/faq.css">
    <link rel="stylesheet" href="css/post.css">
-   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
@@ -41,7 +42,7 @@
         });
      });
      </script>
-  <title>커뮤니티 - 딜리브러리</title>
+  <title>도서관소개 - 별숲도서관</title>
 </head>
 
 <body class="d-flex flex-column">

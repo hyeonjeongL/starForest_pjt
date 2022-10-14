@@ -2,6 +2,7 @@ package com.itwill.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -91,13 +92,16 @@ public class BookController {
 			if(sUserId==null) {
 				List<Book> favorite = bookService.selectFavorite();
 				model.addAttribute("favorite",favorite);
+				System.out.println("favorite");
 			}else {
 				List<Book> userBook = bookService.userBook(sUserId);
 				model.addAttribute("userBook",userBook);
+				System.out.println("userBook");
 			}
 			List<Book> newBook = bookService.selectNew();
 			//PageMakerDto<Notice> notice = noticeService.selectAll(pageno);
 			model.addAttribute("newBook",newBook);
+			System.out.println("newBook");
 			//model.addAttribute("notice",notice);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -152,6 +156,23 @@ public class BookController {
 		}
 		return "Newbooks";
 	}
+	
+	@RequestMapping("/adminNewBook")
+	public String adminNewBookPage(HttpServletRequest request) throws Exception {
+		
+		String sUserId=(String)request.getSession().getAttribute("sUserId");
+		String admin="admin";
+		if(sUserId.equals(admin)) {
+			return "forward:/WEB-INF/views/adminNewBook.jsp";
+		}else {
+			return "forward:/WEB-INF/views/Home.jsp";
+		}
+		
+	}
+	
+	
+	
+	
 	
 
 }

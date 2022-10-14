@@ -30,7 +30,7 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/yeji.css">
 <link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/favicon-16x16.png">
+	href="favicon/star.png">
 <link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
 <link rel="stylesheet" type="text/css" href="./css/delete_btn_hw.css">
 
@@ -98,7 +98,7 @@ $(function(){
 		
 		
 		/*********user_rental_list***********/
-		$(document).on('click','#side_userbook_status',function(e){
+		$(document).on('click','#side_userbook_status,#userbook_status',function(e){
 			$.ajax({
 				url:'user_rental_list',
 				method:'POST',
@@ -199,7 +199,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						alert(jsonResult.msg);
-						location.reload();
+						$('#side_favorite').trigger('click');
 						var favoriteArray=jsonResult.data;
 						$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 					}else if(jsonResult.code==2){
@@ -297,9 +297,7 @@ $(function(){
 			success:function(jsonResult){
 				if(jsonResult.code==1){
 					alert(jsonResult.msg);
-					var rentalArray=jsonResult.data;
-					$('#clubUserList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
-					location.reload(); //이거는 시작으로 가지는데 새로고침만 되는거없ㄴㅏ
+					$('#side_now_userbook_status').trigger('click');
 				}else{
 					alert(jsonResult.msg);
 				}
@@ -307,8 +305,6 @@ $(function(){
 		});
 		e.preventDefault();
 	});
-		
-		
 		
 		
 		
@@ -335,7 +331,7 @@ $(function(){
 				<div class="container">
 					<div class="row">
 						<div class="col-md-6 m-auto text-center">
-							<h1>내서재</h1>
+							<h1>나의도서</h1>
 						</div>
 					</div>
 				</div>

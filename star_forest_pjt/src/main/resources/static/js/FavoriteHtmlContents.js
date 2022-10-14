@@ -39,7 +39,8 @@ FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 						</table>
 					</div>
 					<div class="favorite_delete" style="float: right;">
-						<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>
+					${(favoriteArray.length!=0)?'<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>':''}
+						
 					</div>
 
 			

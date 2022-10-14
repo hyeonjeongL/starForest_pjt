@@ -217,15 +217,14 @@
 													location.reload();	
 												}
 									        }
-										}); 
+										}) 
+										});
+											
+										
 									}
-							});
-							e.preventDefault();
+								});
+								
 							
-						});
-							
-					}
-				});
 			}else if(menu=='도서예약신청'){
 				$(e.target).find('#modal-body-user-request').html("");
 				$.ajax({

@@ -35,5 +35,7 @@ public interface RentalDao {
 	List<Rental> selectNowLental() throws Exception;
 	
 	List<Rental> searchSelectById(String keyword) throws Exception;
+	
+	public int onceExtend(String user_id, int book_no);
 
 }

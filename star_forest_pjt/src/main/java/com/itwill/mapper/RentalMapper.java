@@ -24,10 +24,15 @@ public interface RentalMapper {
 			+ "#{rental_status},#{book_no},#{user_id})")
 	public int insertRental(Rental rental);
 	
-	/** 대여 기간 연장*/
+	// 대여 기간 연장
 	@Update("update rental set return_duedate = return_duedate+7"
 				+ "where user_id=#{user_id} and book_no=#{book_no}")
 	public int updateDate(String user_id, int book_no );
+	
+	//대여는 한 번 만 가능
+	@Select("select count(*) from rental where return_duedate - rental_date > 7 "
+		  + "and user_id=#{user_id} and book_no=#{book_no}")
+	public int onceExtend(String user_id, int book_no);
 	
 	// user_id로 대출 리스트 뽑기
 	public List<Rental> selectById(String user_id);  

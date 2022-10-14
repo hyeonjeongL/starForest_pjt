@@ -24,10 +24,10 @@ function request_item_content(requestBoard){
 	              }
 	               ${requestBoard.board_title}
 	               </a>
-		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
-		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_status}</font></td>
-		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
-		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
+		<td width=7% align=center class=t3><font size=2 color=#000000>${requestBoard.user_id}</font></td>
+		<td width=10% align=center class=t3><font size=2 color=#000000>${requestBoard.board_status}</font></td>
+		<td width=10% align=center class=t3><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
+		<td width=5% align=center class=t3><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
 		</tr>`;
 }
 
@@ -37,8 +37,8 @@ function request_list_content(requestArray,pageArray) {
 		<thead>
 		<tr id="table1" align=center style="background-color:#ffc91d;">
 		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
-		<td width=30% align=center class=t1><font size=2 color=#000000>제목</td>
-		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>
+		<td width=40% align=center class=t1><font size=2 color=#000000>제목</td>
+		<td width=7% align=center class=t1><font size=2 color=#000000>작성자</td>
 		<td width=10% align=center class=t1><font size=2 color=#000000>진행상태</td>
 		<td width=10% align=center class=t1><font size=2 color=#000000>날짜</td>
 		<td width=5% align=center class=t1><font size=2 color=#000000>조회수</td>
@@ -328,6 +328,7 @@ function request_modify_form_admin(requestBoard){
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="board_status">
+												<option value="공지사항" ${(requestBoard.board_status=='공지사항')?'selected':''}>공지사항</option>
 												<option value="신청접수" ${(requestBoard.board_status=='신청접수')?'selected':''}>신청접수</option>
 												<option value="신청검토중" ${(requestBoard.board_status=='신청검토중')?'selected':''}>신청검토중</option>
 												<option value="신청완료" ${(requestBoard.board_status=='신청완료')?'selected':''}>신청완료</option>

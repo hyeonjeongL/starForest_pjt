@@ -175,7 +175,7 @@
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="board_title" value=""></td>
+											style="width: 350px" name="board_title" value="&nbsp;&nbsp;">&nbsp;&nbsp;</td>
 									</tr>
 									
 									

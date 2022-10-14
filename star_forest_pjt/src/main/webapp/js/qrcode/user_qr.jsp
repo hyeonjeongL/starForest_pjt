@@ -124,7 +124,7 @@ $(function(){
 			<div class="container pt-5">
 				<div class="row">
 					<div class="col-md-6 m-auto text-center">
-						<h2>내서재</h2>
+						<h2>나의QR</h2>
 					</div>
 				</div>
 			</div>

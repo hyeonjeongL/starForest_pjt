@@ -330,25 +330,25 @@ $(function(){
 	</div>
 	<!-- navigation end-->
 	<!-- PAGE HEADER -->
-	<header id="page-header" class="noto-serif">
-		<div class="page-header-overlay">
-			<div class="container pt-5">
-				<div class="row">
-					<div class="col-md-6 m-auto text-center">
-						<h2>내서재</h2>
+	<header id="page-header">
+			<div class="darkOverlay">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 m-auto text-center">
+							<h1>내서재</h1>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</header>
+		</header>
 
 	<!-- MAIN SECTION -->
 	<section id="contact" class="py-3">
 		<div class="container">
 			<div class="row">
 				<!-- 사이드바 -->
-				<div class="col-md-3 noto-serif">
-					<div class="sidebar">
+				<div class="col-md-3">
+					<div class="sidebar  noto-serif">
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
@@ -385,18 +385,8 @@ $(function(){
 
 					<div class="container-fluid">
 						<div class="row">
-							<div class="col-sm-6" id="fol_list_title">
-								<form action="MyPage_Folder.do" method="post"></form>
-							</div>
 
 							<div class="col-sm-6">
-								<!-- Search -->
-								<form action="MyPage_Folder_search.do" method="post">
-									<div class="menu-search">
-
-										<div class="catalog-search"></div>
-									</div>
-								</form>
 							</div>
 						</div>
 					</div>

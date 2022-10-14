@@ -98,7 +98,7 @@
               </c:if>
          </div>
                <div class="text-right mb-2">
-                  <form action="QnaList.do" method="get" class="form-inline search">
+                  <form action="QnaList" method="get" class="form-inline search">
                   <div>
                      <p class="mr-2 mb-0 noto-serif">총 ${totalCount}건</p>
                   </div>

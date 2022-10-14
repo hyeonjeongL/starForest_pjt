@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 select {
   width: 100px;
   padding: 2px;
@@ -91,7 +92,7 @@ a.button:hover, a.button:focus {
   border-radius: 0;
   color: #313131;
   font-weight: normal;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ font-family: 'Gowun Dodum', sans-serif;
   background: none;
   box-shadow: none;
   -webkit-appearance: none;
@@ -161,7 +162,7 @@ a.button:hover, a.button:focus {
   position: absolute;
   top: 7px;
   right: 5px;
-  font-family: 'fontawesome'; }
+ font-family: 'Gowun Dodum', sans-serif; }
 
 .input_field:focus + .input_label::after,
 .input--filled .input_label::after {

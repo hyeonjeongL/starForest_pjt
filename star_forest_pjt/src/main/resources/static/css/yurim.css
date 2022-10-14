@@ -13,6 +13,7 @@ btn-secondary #6C757D
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 /* 유림추가 */
 
@@ -81,7 +82,7 @@ a {
 }
 
 .heroTitle {
-  font-family: 'Gugi', cursive;
+  font-family: 'Gowun Dodum', sans-serif;
   font-weight: 100;
   margin: 70px 0 10px 0;
   text-align: center;
@@ -89,12 +90,12 @@ a {
 
 .heroTitle_dot {
   color: #8FBC8F;
-  font-family: "Noto San Serif KR", serif;
+  font-family: 'Gowun Dodum', sans-serif;
   font-weight: 600;
 }
 
 .heroTitle_kor {
-  font-family: 'Gugi', cursive;
+  font-family: 'Gowun Dodum', sans-serif;
   font-weight: 300;
   color: #107637;
 }
@@ -125,5 +126,5 @@ a {
 }
 
 form label{
-	font-family: 'Noto Serif KR', serif;
+	font-family: 'Gowun Dodum', sans-serif;
 }

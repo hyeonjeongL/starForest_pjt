@@ -54,20 +54,20 @@
          <div class="container">
            <div class="row">
                <!-- 사이드바 -->
-               <div class="col-md-3">
-                 <div class="sidebar noto-serif">
-                     <div class="side-head">
-                        <h4 class="text-light text-center">도서관소개</h4>
-                     </div>
-                     <ul class="list-group list-group-flush mb-5">
-                        <li class="list-group-item"><a href="howtoInfo.do">대출/반납/연장</a></li>
-                        <li class="list-group-item"><a href="postList.do?group=10">공지사항</a></li>
-                        <li class="list-group-item active"><a href="faqViewpage.do">자주묻는질문</a></li>                  
-                        <li class="list-group-item"><a href="QnaList.do?option=p_title&search=">묻고답하기</a></li>
-                        <li class="list-group-item"><a href="addrViewpageAPI.do">오시는길</a></li>
-                     </ul>
-                 </div>
-               </div>
+              <div class="col-md-3">
+					  <div class="sidebar noto-serif">
+							<div class="side-head">
+								<h4 class="text-light text-center">도서관소개</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5">
+								<li class="list-group-item active"><a href="howtoInfo">대출/반납</a></li>
+								<li class="list-group-item"><a href="postList?group=10">공지사항</a></li>
+								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
+								<li class="list-group-item"><a href="QnaList">묻고답하기</a></li>
+								<li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
+							</ul>
+					  </div>
+					</div>
       
                   <!-- 메인내용 -->
                   <div class="col-md-9">
@@ -89,44 +89,31 @@
                                        <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 회원가입시 입력하신 관심 주제분야의 추천도서를 제공 받을 수 있습니다.</p></div>
                               <input type="radio" name="accordion" id="answer02"> 
                                  <label for="answer02">Q : 등록된 내 정보를 변경하고 싶습니다.</label>
-                                 <div><p>Delibrary의 회원정보 변경은 고객님께서 직접 홈페이지 로그인 후<br>
-                                       [마이페이지 > 회원정보 > 회원 정보 조회/수정] 에서 정보를 변경하실 수 있습니다.</p></div>
+                                 <div><p>별숲의 회원정보 변경은 고객님께서 직접 홈페이지 로그인 후<br>
+                                       [나의도서 > 마이페이지 > 개인정보변경] 에서 비밀번호 확인 후 정보를 변경하실 수 있습니다.</p></div>
                               <input type="radio" name="accordion" id="answer03"> 
                                  <label for="answer03">Q : 14세 미만은 법정대리인의 동의가 없으면 회원가입을 할 수 없나요?</label>
                                  <div><p>개인정보보호법에 의해 14세 미만 아동의 개인정보수집 시 반드시 법정대리인의 동의를 얻어야 하기 때문에<br>
                                        2011년 9월 30일 이후에는 법정대리인의 동의가 없으면 가입을 하실 수 없습니다.</p></div>   
-                              <input type="radio" name="accordion" id="answer04"> 
-                                 <label for="answer04">Q : 무엇이든 기증할 수 있나요?</label>
-                                 <div><p>국내 발행 일반도서, 어린이·청소년도서, 학술도서, 연구보고서, 세미나·회의자료, 한국관련,외국자료 등을 기증받고 있으며, 기증 제외 자료는 다음과 같습니다.<br>
-                                 <br>
-                                 <기증 제외 자료><br>
-                                 <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 외국서(한국관련 외국서는 기증 가능)<br>
-                                 <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 개인복사물<br>
-                                 <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 오・훼손자료<br>
-                                 <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 3책 이상의 동일자료</p></div>   
                               <input type="radio" name="accordion" id="answer05"> 
                                  <label for="answer05">Q : 도서를 분실했는데 어떻게 하나요?</label>
                                  <div><p>동일도서로 변상하여야 합니다. 시중에 책이 없을 경우에는 시가상당 금액으로 변상하여야 합니다.</p></div>   
                               <input type="radio" name="accordion" id="answer06"> 
                                  <label for="answer06">Q : 도서를 연체한 경우에는 어떻게 되나요?</label>
                                  <div><p>도서의 연체일수 만큼 대출이 정지됩니다. 한 권만 연체해도 그 연체일수 사용할 수 없습니다.</p></div>   
-                              <input type="radio" name="accordion" id="answer07"> 
-                                 <label for="answer07">Q : 이사를 했는데 주소 변경은 어디에서 하나요?</label>
-                                 <div><p>딜리브러리 홈페이지 로그인 후 나의도서->개인정보수정 에서 변경하실 수 있습니다.</p></div>
                               <input type="radio" name="accordion" id="answer08"> 
-                                 <label for="answer08">Q : 서비스 이용에 비용이 발생하나요?</label>
-                                 <div><p>딜리브러리 서비스는 우정사업본부(우체국)와 협약을 통하여 국가에서 제공하는 서비스이며,<br>
-                                 이 과정에서 발생하는 왕복 택배비는 딜리브러리 도서관에서 지원하므로 무료로 이용하실 수 있습니다.</p></div>   
+                                 <label for="answer08">Q : 별숲 QR회원증 발급에 비용이 발생하나요?</label>
+                                 <div><p>QR 회원증 서비스는 별숲 도서관에서 지원하므로 무료로 이용하실 수 있습니다.</p></div>   
                               <input type="radio" name="accordion" id="answer09"> 
                                  <label for="answer09">Q : 희망도서 신청은 어떻게 하며, 도서구입은 얼마나 자주하나요?</label>
-                                 <div><p>홈페이지 ‘묻고 답하기’ 에서 신청 가능합니다.<br>
+                                 <div><p>[커뮤니티 > 도서신청게시판] 에서 신청 가능합니다.<br>
                                        <br>
                                        <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 자료선정시 수험서, 학습교재, 오락성이 강한 출판물, 소장에 적합하지 않은 형태<br>
                                        (스프링제본, 색칠놀이책 등),시리즈・전집류 등은 신청이 제한될 수 있습니다.<br>
                                        <i class="fas fa-angle-right"></i>&nbsp;&nbsp; 도서구입은 매년 도서구입계획에 의해 정기적으로 구입하고 있습니다.</p></div>   
                               <input type="radio" name="accordion" id="answer10"> 
                                  <label for="answer10">Q : 탈퇴는 어떻게 하나요?</label>
-                                 <div><p>Delibrary 홈페이지 로그인 => ‘회원정보수정’ => ‘회원탈퇴’ 메뉴 클릭</p></div>   
+                                 <div><p>별숲 홈페이지 로그인 => [나의도서 > 마이페이지 > 개인정보변경] => 하단의 ‘회원탈퇴’ 클릭</p></div>   
                            </div>
                         </div>
                      </section>

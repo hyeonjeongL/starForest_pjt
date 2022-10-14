@@ -1,7 +1,9 @@
 @charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 /* carousel */
 .carousel-indicators1 {
+	font-family: 'Gowun Dodum', sans-serif;
 	right: 0;
 	bottom: -30px;
 }
@@ -18,6 +20,7 @@
 	height: 60px;
 	padding: 0;
 	text-align: center;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .book-title {
@@ -25,11 +28,13 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 	font-size: medium;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .controls-bottom {
 	display: inline-block;
 	float: right;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .carousel-inner {
@@ -42,22 +47,26 @@
 	text-align: left;
 	font-size: medium;
 	font-weight: normal;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .home_post_date {
 	width: 40%;
 	font-size: medium;
 	font-weight: lighter;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 a {
 	color: black;
 	text-decoration: none;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 a:hover {
 	color: black;
 	text-decoration: none;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 /* 각 도서관 행사정보 링크 */
@@ -66,6 +75,7 @@ a:hover {
 	font-size: xx-large;
 	height: 80px;
 	font-weight: bolder;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 /* <!--11/21 추가 !--> */
@@ -83,40 +93,48 @@ btn-secondary #6C757D
 .navbar {
 	height: 70px;
 	background-color: #107637;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .hr-green {
 	border-bottom: 2px solid #107637;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .img-fit {
 	width: 100px;
 	height: 100px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .home-gray {
 	background-color: #f8f9fa;
 	box-shadow: 0 0 15px 5px #e9e9e9;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .home-table {
 	background-color: white;
 	border: 1px solid #cecece;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .ellipsis {
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .footer-table th {
 	border-right: 1px solid white;
 	padding-right: 10px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .footer-table td {
 	padding-left: 10px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .home-tag {
@@ -124,6 +142,7 @@ btn-secondary #6C757D
 	height: 23%;
 	padding: 15px;
 	background-color: #f8f9fa;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #home-today {
@@ -132,6 +151,7 @@ btn-secondary #6C757D
 	font-weight: 400;
 	height: 50%;
 	padding: 30px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #home-holiday {
@@ -139,24 +159,29 @@ btn-secondary #6C757D
 	color: white;
 	height: 50%;
 	padding: 30px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #home-holiday p{
 	font-size: 20px;
 	font-weight: 100;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #home-display {
 	padding-top: 200px;
 	font-weight: 200;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #home-searchbar {
 	padding-top: 80px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #date {
 	font-size: 40px;
 	font-weight: 400;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 

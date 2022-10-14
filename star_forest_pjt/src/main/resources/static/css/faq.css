@@ -8,8 +8,7 @@ btn-secondary #6C757D
 ������ �� #75BD43
 ������ �� #107637
 */
-
-@charset "EUC-KR";
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 .accordion{
 	margin:10px;
@@ -31,6 +30,7 @@ input[id*="answer"] + label {
 	background-color: #f0f0f0;
 	cursor: pointer;
 	position: relative;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .search_btn_array{
@@ -47,17 +47,20 @@ input[id*="answer"] + label + div {
 	overflow: hidden;
 	background: #f8f9fa;
 	font-size: 16px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 input[id*="answer"] + label + div p {
 	display: inline-block;
 	padding: 5px 20px;
 	font-size: 16px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 input[id*="answer"]:checked  + label + div{
 	max-height: 600px;
 	background-position: 0 -30px;
 	width: 756px;
 	padding: 20px 0;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 	
 /* ���ô±� ���̺� */

@@ -57,5 +57,9 @@ public class UserInfoController {
 		return "user_admin";
 	}
 	
+	@RequestMapping("/addrViewpageAPI")
+	public String addrViewpageAPI() {
+		return "addrViewpageAPI";
+	}
 
 }

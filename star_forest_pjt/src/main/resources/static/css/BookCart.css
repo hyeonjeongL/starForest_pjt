@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 body {
   color: #4f585e;
-  font-family: 'Source Sans Pro', sans-serif;
+ font-family: 'Gowun Dodum', sans-serif;
   text-rendering: optimizeLegibility;
 }
 

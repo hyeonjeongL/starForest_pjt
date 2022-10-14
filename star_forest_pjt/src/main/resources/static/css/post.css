@@ -28,6 +28,7 @@ table tr td{
 	text-overflow: ellipsis;
 	width: 45px;
 	height: 10px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #p_hit{

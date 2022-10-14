@@ -17,104 +17,21 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
-	<link rel="stylesheet" href="static/css/style.css">
-	<link rel="stylesheet" href="static/css/faq.css">
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/faq.css">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <title>도서관소개 - 딜리브러리</title>
+  <title>도서관소개 - 별숲도서관</title>
 </head>
 
 <body class="d-flex flex-column">
 	<div id="page-content">
-	<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light p-0">
-		<div class="container">
-			<a href="Home.do" class="navbar-brand"><img alt="딜리브러리" src="img/logo_sm.png" height="20" class="pl-3 mb-1"></a>
-			<button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse noto-serif" id="navbarCollapse">
-				<ul class="navbar-nav ml-4">
-					<li class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">도서관소개</a>
-							<ul class="dropdown-menu dropdown-menu-left fade-down">
-								<li><a class="dropdown-item" href="howtoInfo.do"> 대출/반납/연장</a></li>
-								<li><a class="dropdown-item" href="postList.do?option=p_title&search=&group=10"> 공지사항 </a></li>
-								<li><a class="dropdown-item" href="faqViewpage.do"> 자주묻는질문</a></li>
-								<li><a class="dropdown-item" href="QnaList.do"> 묻고답하기 </a></li>
-								<li><a class="dropdown-item" href="addrViewpageAPI.do"> 오시는길 </a></li>
-							</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
-							<ul class="dropdown-menu dropdown-menu-left fade-down">
-								<li><a class="dropdown-item" href="SearchResult.do">도서검색</a></li>
-								<li><a class="dropdown-item" href="recommendedBooks.do">사서추천도서</a></li>
-								<li><a class="dropdown-item" href="Newbooks.do">신착도서</a></li>
-								<li><a class="dropdown-item" href="popularBook.do">이달의 인기도서</a></li>
-							</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a href="postList.do?group=20" class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
-							<ul class="dropdown-menu dropdown-menu-left fade-down">
-								<li><a class="dropdown-item" href="postList.do?option=p_title&search=&group=20">창작물게시판</a></li>
-								<li><a class="dropdown-item" href="postList.do?option=p_title&search=&group=30">중고장터</a></li>
-								<li><a class="dropdown-item" href="postList.do?option=p_title&search=&group=60">자유게시판</a></li>
-							</ul>
-					</li>
-					<li class="nav-item dropdown">
-						<a href="mypage_main.do?cust_no=${cust_no }" class="nav-link dropdown-toggle mypage" data-toggle="dropdown">나의도서</a>
-							<ul class="dropdown-menu dropdown-menu-left fade-down">
-								<li><a class="dropdown-item mypage" href="mypage_main.do?cust_no=${cust_no }"> 나의도서정보</a></li>
-								<li><a class="dropdown-item mypage" href="borrowList.do">대출현황</a></li>
-								<li><a class="dropdown-item mypage" href="return_borrowList.do">대출/반납이력</a></li>
-								<li><a class="dropdown-item mypage" href="MyPage_Folder.do?cust_no=${cust_no }&group=50">내서재</a></li>
-								<li><a class="dropdown-item mypage" href="MyPage_Info.do?cust_no=${cust_no }">개인정보수정</a></li>
-							</ul>
-					</li>
-				</ul>
-				<ul id="app" class="navbar-nav ml-auto">
-					<c:if test="${cust_no == 1}">
-						<li class="nav-item" v-bind:title="mamagerpage">
-							<a href="ManagerPage.do" class="nav-link"><i class="fas fa-crown" style="color: #107637;"></i></a><p class="sr-only">관리자페이지</p>
-						</li>
-					</c:if>
-					<c:if test="${cust_no != 1 && cust_no != null }">
-						 <li class="nav-item p-1"><small class="text-dark">${cust_name} 님</small></li>
-					</c:if>
-					<c:if test="${cust_no == null}">
-						<li class="nav-item" v-bind:title="login">
-							<a href="LoginPage.do" class="nav-link"><i class="fas fa-sign-in-alt"></i></a><p class="sr-only">로그인</p>
-						</li>
-						<li class="nav-item" v-bind:title="signup">
-							<a href="insertCustomer.do" class="nav-link"><i class="fas fa-user-plus"></i></a><p class="sr-only">회원가입</p>
-						</li>
-					</c:if>
-					<c:if test="${cust_no != null}">
-						<li class="nav-item" v-bind:title="logout">
-							<a href="logout.do" class="nav-link"><i class="fas fa-sign-out-alt"></i></a><p class="sr-only">로그아웃</p>
-						</li>
-					</c:if>
-					<li class="nav-item" v-bind:title="bookcart">
-						<a href="BookCart.do" class="nav-link mypage"><i class="fas fa-book"></i></a><p class="sr-only">북카트</p>
-					</li>
-					<li class="nav-item" v-bind:title="sitemap">
-						<a href="siteMap.do" class="nav-link"><i class="fas fa-map"></i></a><p class="sr-only">사이트맵</p>
-					</li>
-					<script>
-						var app = new Vue({
-							el: '#app',	
-							data: {
-								login: '로그인',
-								signup: '회원가입',
-								bookcart: '북카트',
-								sitemap: '사이트맵',
-								logout: '로그아웃',
-								mamagerpage: '관리자페이지'
-							}});
-					</script>
-				</ul>
+		<!-- navigation start-->
+			<div id="navigation">
+				<!-- include_common_left.jsp start-->
+				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+				<!-- include_common_left.jsp end-->
 			</div>
-		</div>
-	</nav>
+			<!-- navigation end-->
 	
 	<!-- 도서관소개 PAGE HEADER -->
 		<header id="page-header" class="noto-serif">
@@ -135,45 +52,44 @@
 		<div class="container">
 		  <div class="row">
 			<div class="col-md-3">
-			  <div class="sidebar noto-serif">
-					<div class="side-head">
-						<h4 class="text-light text-center">도서관소개</h4>
+					  <div class="sidebar noto-serif">
+							<div class="side-head">
+								<h4 class="text-light text-center">도서관소개</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5">
+								<li class="list-group-item active"><a href="howtoInfo">대출/반납</a></li>
+								<li class="list-group-item"><a href="postList?group=10">공지사항</a></li>
+								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
+								<li class="list-group-item"><a href="QnaList">묻고답하기</a></li>
+								<li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
+							</ul>
+					  </div>
 					</div>
-					<ul class="list-group list-group-flush mb-5">
-						<li class="list-group-item"><a href="howtoInfo.do">대출/반납/연장</a></li>
-						<li class="list-group-item"><a href="postList.do?group=10">공지사항</a></li>
-						<li class="list-group-item"><a href="faqViewpage.do">자주묻는질문</a></li>					
-						<li class="list-group-item"><a href="QnaList.do?option=p_title&search=">묻고답하기</a></li>
-						<li class="list-group-item active"><a href="addrViewpageAPI.do">오시는길</a></li>
-					</ul>
-			  </div>
-			</div>
 
 			<!-- 메인내용 -->
 			<div class="col-md-9">
 				<div class="p-4">
 				<section id="main_section">      
 				<div class="addr">	
-						<iframe class="col-md-12" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.
-						1103800594706!2d126.93563751468302!3d37.552463132692885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
-						1!3m3!1m2!1s0x357c98be0a2cf6e3%3A0x4d8963de2196f6dc!
-						2z7ISc7Jq47Yq567OE7IucIOuniO2PrOq1rCDrjIDtnaXrj5kg67Cx67KU66GcIDIz!5e0!3m2!1sko!2skr!4v1601211189306!5m2!1sko!2skr" 
-						width="700" height="450" frameborder="0"></iframe>
+				
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.7937003135344!2d126.90864681542784!3d37.55992397979906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99209ebc1031%3A0x49428de79f4b10b4!2z67OE7Iiy!5e0!3m2!1sko!2skr!4v1665714375991!5m2!1sko!2skr" 
+						width="600" height="450" style="border:0;" allowfullscreen="" 
+						loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				
 						<div id="text" align="center">	 
 							<table id="info-table">
-	        		<tbody>
+	        		<tbody><br>
 	        			<tr>
-	        				<th>Delibrary</th>
-	        				<td>서울 마포구 백범로 23 구프라자 3층</td>
+	        				<th>별숲도서관</th>
+	        				<td>서울특별시 마포구 성산1동 32-4</td>
 	        			</tr>
 	        			<tr>
 	        				<th>고객센터</th>
-	        				<td>070-1234-5678</td>
+	        				<td>070-1588-8888</td>
 	        			</tr>
 	        			<tr>
 	        				<th>이용시간</th>
-	        				<td>평일 9:00 - 18:00, 점심시간 12:00 - 13:30 &nbsp;<small>( 주말/공휴일 휴무 )</small></td>
+	        				<td> &nbsp 평일 9:00 - 18:00, 점심시간 12:00 - 13:30</td>
 	        			</tr>
 	        			<tr>
 	        				<th>팩스번호</th>
@@ -181,7 +97,7 @@
 	        			</tr>
 	        			<tr>
 	        				<th>이메일</th>
-	        				<td>delibrary@book.com</td>
+	        				<td>star_forest@library.com</td>
 	        			</tr>
 	        		</tbody>
 	        	</table>
@@ -206,7 +122,7 @@
     		</div>
         <div class="col-md-12">
           <p>Copyright &copy;
-            <span id="year"></span> Delibrary</p>
+            <span id="year"></span> STARFOREST</p>
         </div>
       </div>
     </div>

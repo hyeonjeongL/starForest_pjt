@@ -5,13 +5,14 @@ bg-dark #343a40
 btn-success #28A745
 btn-secondary #6C757D
 
-½ºÇÁ¸µ ¿¬ #75BD43
-½ºÇÁ¸µ Áø #107637
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ #75BD43
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ #107637
 */
 
 @import url(https://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);
 @import url("https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 #btn_text{
 	margin-top: 10px;
 	display: inline-block;
@@ -79,7 +80,7 @@ a.button {
   border-radius: 0;
   color: #313131;
   font-weight: normal;
-  font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Gowun Dodum', sans-serif;
   background: none;
   box-shadow: none;
   -webkit-appearance: none;

@@ -18,6 +18,7 @@
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
    <!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/faq.css">
    <link rel="stylesheet" href="css/post.css">
    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -71,20 +72,20 @@
       <!-- 사이드바 -->
       <div class="container">
         <div class="row">
-         <div class="col-md-3 noto-serif">
-           <div class="sidebar">
-               <div class="side-head">
-                  <h4 class="text-light">도서관소개</h4>
-               </div>
-               <ul class="list-group list-group-flush mb-5">
-                        <li class="list-group-item"><a href="howtoInfo.do">대출/반납/연장</a></li>
-                        <li id="post10" class="list-group-item"><a href="postList.do?option=p_title&search=&group=10">공지사항</a></li>
-                        <li class="list-group-item"><a href="faqViewpage.do">자주묻는질문</a></li>
-                        <li class="list-group-item active"><a href="QnaList.do?option=p_title&search=">묻고답하기</a></li>
-                        <li class="list-group-item"><a href="addrViewpageAPI.do">오시는길</a></li>
-                     </ul>
-           </div>
-         </div>
+         <div class="col-md-3">
+					  <div class="sidebar noto-serif">
+							<div class="side-head">
+								<h4 class="text-light text-center">도서관소개</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5">
+								<li class="list-group-item active"><a href="howtoInfo">대출/반납</a></li>
+								<li class="list-group-item"><a href="postList?group=10">공지사항</a></li>
+								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
+								<li class="list-group-item"><a href="QnaList">묻고답하기</a></li>
+								<li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
+							</ul>
+					  </div>
+					</div>
 <!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->   
          <!-- 메인내용 -->
          <div class="col-md-9">

@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 .rentalTable{
 	text-align:center;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 .listTable{
@@ -26,6 +28,7 @@
     font-weight: 400;
     margin: auto; 
     text-align: center;
+    font-family: 'Gowun Dodum', sans-serif;
 }
 #admim_search_btn{
 }
@@ -33,6 +36,7 @@
 #tablehead{
 	font-weight: bold;
 	font-size: 18px;
+	font-family: 'Gowun Dodum', sans-serif;
 }
 
 #keyword{
@@ -42,7 +46,7 @@
 	 width: 60%;
     margin: 10px 0;
     padding: 10px 12px;
-    
+    font-family: 'Gowun Dodum', sans-serif;
     position: absolute;
     left: 15px;
     top: 15px;

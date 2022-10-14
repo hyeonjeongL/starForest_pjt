@@ -53,12 +53,15 @@
 
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">
-
-   $("#phone_a").click(function(){
-		alert("고객센터 : 070) 1234-5678 \n"
-			+ "이용시간 : 평일 9:00 - 18:00, 점심시간 12:00 - 13:30 \n              ( 주말/공휴일 휴무 ) \n"	
-			+ "팩스번호 : 0504-123-1234 \n"); 
-   });
+$(function(){
+	 
+	   $(document).on('click','#phone_a',function(e){
+		   alert("\n고객센터 : 070) 1588-8888 \n\n"
+					+ "이용시간 : 평일 9:00 - 18:00, 점심시간 12:00 - 13:30 \n              ( 주말/공휴일 휴무 ) \n\n"	
+					+ "팩스번호 : 0504-123-1234 \n\n"); 
+	   });
+});
+  
    
    
 
@@ -273,14 +276,17 @@
             <a href="addrViewpageAPI"><div class="home-tag mb-2">
                   <img class="pr-4 m-0" alt="찾아오시는 길" src="./img/home/map.png"
                      height="30px">찾아오시는 길
-               </div></a><div class="home-tag mb-2" id="phone_a" >
-                  <img class="pr-4 m-0" alt="찾아오시는 길"
+               </div></a>
+               <div class="home-tag mb-2" id="phone_a" >
+                  <img class="pr-4 m-0" alt="전화번호"
                      src="./img/home/telephone.png" height="30px">전화번호
-               </div> <a href="QnaList"><div class="home-tag mb-2">
-                  <img class="pr-4 m-0" alt="찾아오시는 길" src="./img/home/question.png"
+               </div> 
+               <a href="QnaList"><div class="home-tag mb-2">
+                  <img class="pr-4 m-0" alt="묻고답하기" src="./img/home/question.png"
                      height="30px">묻고답하기
-               </div></a> <a href="faqViewpage"><div class="home-tag mb-0">
-                  <img class="pr-4 m-0" alt="찾아오시는 길" src="./img/home/faq.png"
+               </div></a> 
+               <a href="faqViewpage"><div class="home-tag mb-0">
+                  <img class="pr-4 m-0" alt="자주묻는질문" src="./img/home/faq.png"
                      height="30px">자주묻는질문
                </div></a>
          </div>
@@ -369,23 +375,21 @@
                      <div class="hr-green">
                         <div class="row">
                            <div class="col noto-serif">
-                              <h4>창작물게시판</h4>
+                              <h4>독서동아리</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList?option=p_title&search=&group=20"><small
+                              <a href="bookclub"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>
                      </div>
                      <table class="table table-hover">
                         <tbody>
-                           <c:forEach items="${HMakinglist}" var="making" begin="0"
+                           <c:forEach items="${clubList}" var="making" begin="0"
                               end="4" step="1">
                               <tr>
                                  <td class="home_post_title ellipsis"><a
-                                    href="postDetail?p_id=${making.p_id}&&group=20">${making.p_title }</a></td>
-                                 <td class="home_post_date"><fmt:formatDate
-                                       value="${making.p_regdate }" pattern="YYYY-MM-dd" /></td>
+                                    href="bookclub?club_no=${club.club_no}">${club.club_title}</a></td>
                               </tr>
                            </c:forEach>
                         </tbody>
@@ -398,10 +402,10 @@
                      <div class="hr-green">
                         <div class="row">
                            <div class="col noto-serif">
-                              <h4>중고장터</h4>
+                              <h4>열람실예약</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList?option=p_title&search=&group=30"><small
+                              <a href="seatReservation"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>

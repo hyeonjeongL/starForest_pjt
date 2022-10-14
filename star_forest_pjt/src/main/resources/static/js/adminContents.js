@@ -84,21 +84,21 @@ adminContents.admin_user_now_rental_list_content = function(rentalArray) {
 				`;
 }
 
-adminContents.admin_user_list_item = function(loginUser) {
+adminContents.admin_user_list_item = function(user) {
 	return `
 	
 	<tr>
-				<th scope="row">${loginUser.user_id}</th>
-				<th scope="row">${loginUser.user_name}</th>
-				<th scope="row">${loginUser.user_password}</th>
-				<th scope="row">${loginUser.user_email}</th>
-				<th scope="row">${loginUser.user_birth}</th>
-				<th scope="row">${loginUser.user_gender}</th>
-				<th scope="row">${loginUser.user_phone}</th>
-				<th scope="row">${loginUser.user_address}</th>
-				<th scope="row">${loginUser.user_rental_status}</th>
-				<th scope="row">${loginUser.user_book_cnt_limit}</th>
-				<th scope="row">${loginUser.category_name}</th>
+				<th scope="row">${user.user_id}</th>
+				<th scope="row">${user.user_name}</th>
+				<th scope="row">${user.user_password}</th>
+				<th scope="row">${user.user_email}</th>
+				<th scope="row">${user.user_birth}</th>
+				<th scope="row">${user.user_gender}</th>
+				<th scope="row">${user.user_phone}</th>
+				<th scope="row">${user.user_address}</th>
+				<th scope="row">${user.user_rental_status}</th>
+				<th scope="row">${user.user_book_cnt_limit}</th>
+				<th scope="row"><button id="btn_user_delete" class="w-btn w-btn-detail" user_id="${user.user_id}">삭제</button></th>
 			</tr>`;
 }
 adminContents.admin_user_list_content = function(userArray) {
@@ -118,7 +118,8 @@ adminContents.admin_user_list_content = function(userArray) {
 								<th scope="row">주소</th>
 								<th scope="row">대출상태</th>
 								<th scope="row">대출가능권수</th>
-								<th scope="row">선호카테고리</th>
+								<th scope="row">작업</th>
+								
 							</tr>
 						</thead>
 						<tbody>

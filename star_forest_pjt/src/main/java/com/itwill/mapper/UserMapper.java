@@ -29,7 +29,7 @@ public interface UserMapper {
 	@Delete("delete from user_info where user_id=#{user_id}")
 	public int remove(String user_id);
 
-	@Select("select u.user_id,u.user_name,u.user_password,u.user_email,u.user_birth,u.user_gender,u.user_phone,u.user_address,u.user_rental_status,u.user_book_cnt_limit,c.category_name from user_info u join book_category c on u.category_no=c.category_no")
+	@Select("select user_id,user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,user_rental_status,user_book_cnt_limit from user_info")
 	public List<User> userList();
 
 	@Select("select * from user_info u join book_category c on u.category_no=c.category_no where user_id=#{user_id}")

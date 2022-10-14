@@ -286,42 +286,6 @@ public class UserInfoRestController {
 		return resultMap;
 	}
 
-	// 회원 탈퇴
-	@LoginCheck
-	@PostMapping("/user_remove_action")
-	public Map user_remove_action(@ModelAttribute User user, HttpServletRequest request) {
-		Map resultMap = new HashMap();
-		int code = 2;
-		String url = "";
-		String msg = "";
-		List<User> resultList = new ArrayList<User>();
-
-		try {
-			String sUserId = (String) request.getSession().getAttribute("sUserId");
-			int result = userService.remove(sUserId);
-			if (result == 1) {
-				request.getSession().invalidate();
-				code = 1;
-				url = "main";
-				msg = "삭제성공";
-			} else {
-				code = -1;
-				url = "main";
-				msg = "삭제실패";
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			code = 2;
-			url = "main";
-			msg = "잘못된 접근입니다.";
-		}
-		resultMap.put("code", code);
-		resultMap.put("url", url);
-		resultMap.put("msg", msg);
-		resultMap.put("data", resultList);
-		return resultMap;
-	}
-
 	// 상세보기
 	@LoginCheck
 	@PostMapping("/user_view")
@@ -503,4 +467,68 @@ public class UserInfoRestController {
 
 	}
 	
+	// 회원 탈퇴
+		@LoginCheck
+		@PostMapping("/user_remove_action")
+		public Map user_remove_action(@ModelAttribute User user, HttpServletRequest request) {
+			Map resultMap = new HashMap();
+			int code = 2;
+			String url = "";
+			String msg = "";
+			List<User> resultList = new ArrayList<User>();
+
+			try {
+				String sUserId = (String) request.getSession().getAttribute("sUserId");
+				int result = userService.remove(sUserId);
+				if (result == 1) {
+					request.getSession().invalidate();
+					code = 1;
+					url = "main";
+					msg = "삭제성공";
+				} else {
+					code = -1;
+					url = "main";
+					msg = "삭제실패";
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				code = 2;
+				url = "main";
+				msg = "잘못된 접근입니다.";
+			}
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("msg", msg);
+			resultMap.put("data", resultList);
+			return resultMap;
+		}
+		
+		//관리자권한 회원삭제
+		@LoginCheck
+		@PostMapping("admin_user_delete")
+		public Map admin_user_delete(@RequestParam String user_id,HttpServletRequest request) throws Exception {
+			Map resultMap = new HashMap();
+			int code = 2;
+			String url = "";
+			String msg = "";
+			List<User> resultList = new ArrayList<User>();
+			
+			int result=userService.remove(user_id);
+			if(result==1) {
+				request.getSession().invalidate();
+				code = 1;
+				url = "main";
+				msg = "삭제성공";
+			}else {
+				code = -1;
+				url = "main";
+				msg = "삭제실패";
+			}
+			
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("msg", msg);
+			resultMap.put("data", resultList);
+			return resultMap;
+		}
 }

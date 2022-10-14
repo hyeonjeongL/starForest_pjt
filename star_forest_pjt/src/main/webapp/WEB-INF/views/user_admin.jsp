@@ -40,7 +40,6 @@
 $(function(){
 	
 	$(document).on('click','#menu_admin_user',function(e){
-		console.log('d');
 		$.ajax({
 			url:'user_all_list',
 			method:'POST',
@@ -54,6 +53,24 @@ $(function(){
 		e.preventDefault();
 	});
 
+	$(document).on('click','#btn_user_delete',function(e){
+		var param='user_id='+$(e.target).attr('user_id');
+		console.log(param);
+		$.ajax({
+			url:'admin_user_delete',
+			method:'POST',
+			data:param,
+			success:function(jsonResult){
+				if(jsonResult.code==1){
+					alert("회원목록에서 삭제되었습니다.");
+					$('#menu_admin_user').trigger('click');
+				}else{
+					alert(jsonResult.msg);
+				}
+			}
+		});
+		e.preventDefault();
+	});
 
 
 });

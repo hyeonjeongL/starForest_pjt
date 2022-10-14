@@ -56,4 +56,6 @@ public class UserInfoController {
 	public String user_admin() {
 		return "user_admin";
 	}
+	
+
 }

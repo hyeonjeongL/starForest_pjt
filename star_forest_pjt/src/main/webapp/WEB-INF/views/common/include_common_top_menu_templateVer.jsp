@@ -3,7 +3,7 @@
 <%@ page import="com.itwill.domain.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-//String u_id = (String)session.getAttribute("sUserId");
+//String sUserId = (String)session.getAttribute("sUserId");
 %>
 <script type="text/javascript">
 $(function(){
@@ -120,13 +120,11 @@ $(function(){
 				<li class="nav-item dropdown"><a href="howtoInfo"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서관소개</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a class="dropdown-item" href="howtoInfo"> 대출/반납/연장</a></li>
+						<li><a class="dropdown-item" href="howtoInfo"> 대출/반납</a></li>
 						<li><a class="dropdown-item" href="postList?group=10">
 								공지사항 </a></li>
 						<li><a class="dropdown-item" href="faqViewpage"> 자주묻는질문</a></li>
 						<li><a class="dropdown-item" href="QnaList"> 묻고답하기 </a></li>
-						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길
-						</a></li>
 					</ul></li>
 				<li class="nav-item dropdown"><a href="SearchResult"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
@@ -173,6 +171,8 @@ $(function(){
 						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
 					</ul>
 				</li>
+				
+				<c:if test="${sUserId != admin}">
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">어드민</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -182,17 +182,11 @@ $(function(){
 						<li><a id="menu_admin_insert_newbook" class="dropdown-item" href="#">신착도서 입력</a></li>
 					</ul>
 				</li>
-				
+				</c:if>
 			</ul>
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${sUserId == admin}">
-					<li class="nav-item" v-bind:title="managerpage">
-					<a href="admin" class="nav-link">
-					<i class="fas fa-crown" style="color: #107637;"></i></a>
-						<p class="sr-only">관리자페이지</p></li>
-				</c:if>
 				<c:if test="${sUserId == null}">
 					<li class="nav-item" v-bind:title="login">
 					<a href="user" class="nav-link" id="a_user_login_form">
@@ -203,7 +197,7 @@ $(function(){
 					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
-				<c:if test="${sUserId != null&&sUserId!=admin}">
+				<c:if test="${sUserId != null}">
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 					<li class="nav-item" v-bind:title="logout">

@@ -45,7 +45,7 @@
 				<div class="container pt-5">
 				  <div class="row">
 					<div class="col-md-6 m-auto text-center">
-					  <h2>대출/반납/연장</h2>
+					  <h2>대출/반납</h2>
 					</div>
 				  </div>
 				</div>
@@ -63,11 +63,10 @@
 								<h4 class="text-light text-center">도서관소개</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item active"><a href="howtoInfo.do">대출/반납/연장</a></li>
-								<li class="list-group-item"><a href="postList.do?group=10">공지사항</a></li>
-								<li class="list-group-item"><a href="faqViewpage.do">자주묻는질문</a></li>						
-								<li class="list-group-item"><a href="QnaList.do?option=p_title&search=">묻고답하기</a></li>
-								<li class="list-group-item"><a href="addrViewpageAPI.do">오시는길</a></li>
+								<li class="list-group-item active"><a href="howtoInfo">대출/반납</a></li>
+								<li class="list-group-item"><a href="postList?group=10">공지사항</a></li>
+								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
+								<li class="list-group-item"><a href="QnaList">묻고답하기</a></li>
 							</ul>
 					  </div>
 					</div>
@@ -82,9 +81,6 @@
 							<li class="nav-item">
 								<a class="nav-link siteMapAnchor" href="#return" role="tab" aria-controls="return" aria-selected="false">반납안내</a>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link siteMapAnchor" href="#delay"role="tab" aria-controls="delay" aria-selected="false">연장안내</a>
-							</li>
 						</ul>
 					</div>
 					<div class="card-body">
@@ -92,13 +88,13 @@
 							<div class="tab-pane active" id="borrow" role="tabpanel">	
 								<div class="pb-4">
 									<h5 class="card-title">대출권수</h5>
-									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;1인 5권까지</p>
+									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;1인 3권까지</p>
 									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;대출도서에 포함된 부록은 권수에 포함 안됨</p>
 								</div>	
 								<div class="pb-4">
 									<h5 class="card-title">대출기간</h5>
 									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;대출일로부터 14일까지</p>
-									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;연체시 연체된 날짜만큼 대출 제한 </p>
+									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;연체시 연체된 날짜만큼 대출 제한[나의도서에서 확인가능] </p>
 								</div>
 								<div class="pb-4">
 									<h5 class="card-title">재대출</h5>
@@ -110,22 +106,13 @@
 							<div class="tab-pane" id="return" role="tabpanel" aria-labelledby="return-tab">  
 								<h5 class="card-title">도서반납</h5> 
 								<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;반납신청</p>
-								<p class="card-text howtoText pl-4">딜리브러리 홈페이지 [나의도서 > 대출현황] 에서 반납할 자료를 선택한 후 [반납신청] 버튼을 클릭합니다.</p>	
-								<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;택배접수(반납)</p>
-								<p class="card-text howtoText  pl-4">담당자가 반납신청을 확인하여 반납택배를 예약해드립니다. [택배접수(반납) 단계]</p>
+								<p class="card-text howtoText pl-4">별숲 도서관의 직접 방문을 통해 반납을 해주시기 바랍니다.</p>	
+								<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;반납처리</p>
+								<p class="card-text howtoText  pl-4">담당자가 반납도서를 확인 후 반납을 승인할 때까지 기다려주시기 바랍니다.[최대 3일소요]</p>
 								<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;반납완료</p>
-								<p class="card-text howtoText pl-4">반납자료가 딜리브러리에 도착한 후 담당자가 확인처리하면 반납완료됩니다.</p>
+								<p class="card-text howtoText pl-4">담당자의 승인으로 반납이 완료될 경우 회원의 대출수량이 정상처리됩니다.</p>
 							</div>
 
-							<div class="tab-pane" id="delay" role="tabpanel" aria-labelledby="delay-tab">  
-								<h5 class="card-title">반납연장</h5> 
-								<p class="card-text howtoText m-2">딜리브러리 서비스는 참여도서관의 협력으로 이루어지고 있으며,</p>
-								<p class="card-text howtoText m-2">각 도서관 시스템에서 별도로 대출처리 후 서비스를 제공하기 때문에</p>
-								<p class="card-text howtoText m-2">딜리브러리 홈페이지에서 바로 대출기간 연장처리가 불가능합니다.</p>
-								<p class="card-text howtoText m-2">대출기간 연장은 해당도서관으로 문의해주시기 바랍니다.</p>
-								<p class="card-text howtoText m-2">(딜리브러리 반납예정일은 택배반납 신청을 위한 참고사항이고,</p>
-								<p class="card-text howtoText m-2">실제 대출자료의 연기 또는 연체는 해당 도서관에서 처리합니다.)</p>	  
-							</div>
 
 </div>
 </div>

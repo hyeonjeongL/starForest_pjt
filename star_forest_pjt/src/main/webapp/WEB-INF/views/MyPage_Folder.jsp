@@ -98,7 +98,7 @@ $(function(){
 		
 		
 		/*********user_rental_list***********/
-		$(document).on('click','#side_userbook_status',function(e){
+		$(document).on('click','#side_userbook_status,#userbook_status',function(e){
 			$.ajax({
 				url:'user_rental_list',
 				method:'POST',
@@ -199,7 +199,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						alert(jsonResult.msg);
-						location.reload();
+						$('#side_favorite').trigger('click');
 						var favoriteArray=jsonResult.data;
 						$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 					}else if(jsonResult.code==2){

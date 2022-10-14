@@ -1,6 +1,6 @@
 function UserHtmlContents() {
 }
-UserHtmlContents.user_login_content = function(sUser) {
+UserHtmlContents.user_login_content = function(sUserId) {
 	return `
 			<li>
 				<a href=""></a>

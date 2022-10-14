@@ -310,8 +310,6 @@ $(function(){
 		
 		
 		
-		
-		
 });		
 
 </script>

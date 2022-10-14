@@ -359,15 +359,14 @@ BookClubHtmlContents.admin_club_detail_html = function(club) {
 											</div>
 									`;
 }
-BookClubHtmlContents.club_user_item_html=function(club){
+BookClubHtmlContents.club_user_item_html=function(loginUser){
 	return `  	
-				
 				<tr>
-					<th scope="row">${club.club_name}</th>
-					<th scope="row">${club.club_person}</th>
-					<th scope="row">${club.club_time}</th>
-					<th scope="row">${club.club_place}</th>
-					<th scope="row">${club.club_content}</th>
+					<th scope="row">${loginUser.club_no}</th>
+					<th scope="row">${loginUser.club_name}</th>
+					<th scope="row">${loginUser.club_person}</th>
+					<th scope="row">${loginUser.club_time}</th>
+					<th scope="row">${loginUser.club_place}</th>
 				</tr>
 	`;
 }
@@ -377,11 +376,11 @@ BookClubHtmlContents.club_user_list_html=function(bookClubArray){
 		<tr>
 			
 			
+					<th scope="row">번호</th>
 					<th scope="row">이름</th>
 					<th scope="row">대상</th>
 					<th scope="row">시간</th>
 					<th scope="row">장소</th>
-					<th scope="row">내용</th>
 				
 		</tr>
 		

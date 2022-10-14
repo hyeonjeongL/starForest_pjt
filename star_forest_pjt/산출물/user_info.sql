@@ -30,14 +30,15 @@ insert into book_category values(700,'소설/시/희곡');
 --user_info insert--
 insert into user_info values('yeji','한예지','1111','yeji@naver.com','1995-01-30','F','01012345678','경기도 김포시',null,'대출가능(미연체)',3,15,100);
 insert into user_info values('soyoon','장소윤','2222','soyun@naver.com','1994-08-04','F','01012345678','경기도 김포시',null,'대출가능(미연체)',3,80,200);
-insert into user_info values('hyeonjeong','임현정','3333','hyeonjeong@naver.com','1994-06-12','F','01012345678','경기도 김포시',null,'대출가능(미연체)',3,56,300);
-insert into user_info values('junghyun','이정현','4444','jeonghyun@naver.com','1996-08-09','F','01012345678','경기도 김포시',null,'대출가능(미연체)',3,45,400);
-insert into user_info values('woohyuk','이우혁','5555','woohyuk@naver.com','1997-03-23','F','01012345678','경기도 김포시',null,'대출가능(미연체)',3,88,600);
+insert into user_info values('hyeonjeong','임현정','3333','hyeonjeong@naver.com','1994-06-12','F','01012345678','경기도 김포시',null,'대출불가(연체)',3,56,300);
+insert into user_info values('junghyun','이정현','4444','jeonghyun@naver.com','1996-08-09','F','01012345678','경기도 김포시',null,'대출불가(연체)',3,45,400);
+insert into user_info values('woohyuk','이우혁','5555','woohyuk@naver.com','1997-03-23','F','01012345678','경기도 김포시',null,'대출불가(연체)',3,88,600);
 insert into user_info values('admin','관리자','0000','admin@naver.com','1980-03-23','M','01012345678','경기도 김포시',null,'대출가능(미연체)',0,0,100);
 
 --select--
 /*모든 회원의 정보 출력*/
-select  * from user_info u join book_category c on u.category_no=c.category_no;
+select user_id,user_name,user_password,user_email,user_birth,user_gender,user_phone,user_address,user_rental_status,user_book_cnt_limit from user_info;
+select u.user_id,u.user_name,u.user_password,u.user_email,u.user_birth,u.user_gender,u.user_phone,u.user_address,u.user_rental_status,u.user_book_cnt_limit,c.category_name from user_info u join book_category c on u.category_no=c.category_no;
 /*'yeji'회원의 정보 출력*/
 select * from user_info u join book_category c on u.category_no=c.category_no where user_id='yeji';
 /*아이디 중복체크*/
@@ -45,7 +46,7 @@ select count(*) cnt from user_info where user_id='soyun';
 /*비밀번호 체크*/
 select count(*) cnt from user_info where user_id='yeji' and user_password='1111';
 /*대출 정지기간(0이상이면 그 수만큼 대출정지,0미만은 대출가능)*/
-select min(r.return_date)-min(r.return_duedate) period from user_info u join rental r on u.user_id=r.user_id where u.user_id='hyeonjeong';
+select min(r.return_date)-min(r.return_duedate) period from user_info u join rental r on u.user_id=r.user_id where u.user_id='yeji';
 
 
 --update--

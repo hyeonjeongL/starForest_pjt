@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.BookClub;
 import com.itwill.service.BookClubService;
+import com.itwill.util.Criteria;
 
 @RestController
 public class BookClubRestController {

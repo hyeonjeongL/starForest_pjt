@@ -140,9 +140,9 @@
                      <tr>
                         <th>&nbsp;</th>
                         <th>제목</th>
-                        <th>작성자</th>
                         <th>작성일</th>
-                        <th>조회</th>
+                        <th>조회수</th>
+                        <th>첨부파일</th>
                      </tr>
                   </thead>
                   <tbody class="tbody text-center noto-sans">
@@ -175,10 +175,10 @@
 	                                         -->
 	                                         <th>
 	                                         	<c:if test="${notice.setting eq '1'}">
-	                                        			&nbsp;&nbsp;<span class="badge badge-danger">중요</span>
+	                                        			&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20">
 	                                        		</c:if>
 	                                        		<c:if test="${notice.setting eq '0'}">
-	                                        			&nbsp;&nbsp;<span class="badge badge-normal">일반</span>
+	                                        			&nbsp;&nbsp;<span class="badge badge-normal"></span>
 	                                        		</c:if>
 	                                         </th>
 	                                        <td>
@@ -295,6 +295,7 @@
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
     crossorigin="anonymous"></script>
+  <script src="js/notice/notice.js" defer></script>
 
   <script>
     // Get the current year for the copyright

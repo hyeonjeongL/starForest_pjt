@@ -17,10 +17,10 @@ function request_item_content(requestBoard){
 									}
 									
 									for(var i=0; i<requestBoard.board_depth;i++){
-										html+=`&nbsp;&nbsp;&nbsp`;
+										html+=`&nbsp;&nbsp;&nbsp&nbsp&nbsp`;
 									}
 									if(requestBoard.board_depth>0){
-									html+=`<img src="img/re.gif">`;
+									html+=`<img src="img/reply.png">`;
 									}
 									return html;
 									 }()

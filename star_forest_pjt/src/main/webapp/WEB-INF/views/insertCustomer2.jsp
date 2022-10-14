@@ -18,6 +18,8 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/yurim.css">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
 

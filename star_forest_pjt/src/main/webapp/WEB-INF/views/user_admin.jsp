@@ -24,8 +24,10 @@
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/yeji.css">
 <link rel="stylesheet" href="./css/admin.css">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<title>나의도서 - 별숲도서관</title>
+<title>관리자 - 별숲도서관</title>
 <style>
 .img-fluid {
 	height: 250px;

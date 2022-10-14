@@ -41,7 +41,7 @@
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/yeji.css">
 <link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/favicon-16x16.png">
+	href="favicon/star.png">
 <link rel="stylesheet" type="text/css" href="./css/wang_hw.css">
 <link rel="stylesheet" type="text/css" href="./css/delete_btn_hw.css">
 

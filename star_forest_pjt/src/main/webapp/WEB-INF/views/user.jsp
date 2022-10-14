@@ -30,6 +30,8 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="./css/style.css">
 <link rel="stylesheet" href="./css/yurim.css">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"

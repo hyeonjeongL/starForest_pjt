@@ -175,7 +175,7 @@ $(function(){
 				
 				<c:if test="${sUserId != admin}">
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-toggle="dropdown">어드민</a>
+					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="admin"
 							id="menu_adminReturn">도서 반납</a></li>

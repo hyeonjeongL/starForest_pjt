@@ -11,6 +11,8 @@
 <meta property="og:description" content="" />
 <link rel="stylesheet" href="css/book_detail.css">
 <link rel="stylesheet" href="./css/yeji.css">
+<link rel="stylesheet" type="text/css" href="./css/style.css">
+<link rel="stylesheet" type="text/css" href="./css/post.css">
 <link rel="profile" href="https://gmpg.org/xfn/11" />
 <title>도서정보 - 별숲도서관</title>
 

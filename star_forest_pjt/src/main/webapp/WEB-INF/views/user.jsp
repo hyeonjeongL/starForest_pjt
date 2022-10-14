@@ -342,64 +342,63 @@
 	<footer id="main-footer" class="p-5 noto-serif">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 mb-3">
+				<div class="col-md-3 mb-3" align="center">
 					<p class="mb-1">
-						<a href="howtoInfo.do">이용안내</a>
+						<a href="howtoInfo">이용안내</a>
 					</p>
 					<p class="mb-1">
-						<a href="postList.do?option=p_title&search=&group=10">공지사항</a>
+						<a href="postList">공지사항</a>
 					</p>
 					<p class="mb-1">
-						<a href="faqViewpage.do">자주묻는질문</a>
+						<a href="faqViewpage">자주묻는질문</a>
 					</p>
 					<p class="mb-1">
-						<a href="QnaList.do">묻고답하기</a>
+						<a href="QnaList">묻고답하기</a>
 					</p>
 				</div>
-				<div class="col-md-3 mb-3">
+				<div class="col-md-3 mb-3" align="center">
 					<p class="mb-1">
-						<a href="postList.do?option=p_title&search=&group=20">창작물게시판</a>
+						<a href="seatReservation">열람실예약</a>
 					</p>
 					<p class="mb-1">
-						<a href="postList.do?option=p_title&search=&group=30">중고장터</a>
+						<a href="bookclub">도서동아리</a>
 					</p>
 					<p class="mb-1">
-						<a href="postList.do?option=p_title&search=&group=60">자유게시판</a>
+						<a href="requestBoard">도서신청게시판</a>
 					</p>
 					<p class="mb-1">
 						<a
-							href="http://localhost:8088/MyPage_Folder.do?cust_no=${cust_no }&group=50">내서재</a>
+							href="MyPage_Folder">내서재</a>
 					</p>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-6" align="center">
 					<table class="footer-table">
-						<tbody>
-							<tr>
-								<th>Delibrary</th>
-								<td>서울 마포구 백범로 23 구프라자 3층</td>
-							</tr>
-							<tr>
-								<th>고객센터</th>
-								<td>070-1234-5678</td>
-							</tr>
-							<tr>
-								<th>이용시간</th>
-								<td>평일 9:00 - 18:00, 점심시간 12:00 - 13:30 &nbsp;<small>(
-										주말/공휴일 휴무 )</small></td>
-							</tr>
-							<tr>
-								<th>팩스번호</th>
-								<td>0504-123-1234</td>
-							</tr>
-							<tr>
-								<th>이메일</th>
-								<td>delibrary@book.com</td>
-							</tr>
-						</tbody>
+						<tbody><br>
+	        			<tr>
+	        				<th>별숲도서관</th>
+	        				<td>서울특별시 마포구 성산1동 32-4</td>
+	        			</tr>
+	        			<tr>
+	        				<th>고객센터</th>
+	        				<td>070-1588-8888</td>
+	        			</tr>
+	        			<tr>
+	        				<th>이용시간</th>
+	        				<td> &nbsp 평일 9:00 - 18:00, 점심시간 12:00 - 13:30</td>
+	        			</tr>
+	        			<tr>
+	        				<th>팩스번호</th>
+	        				<td>0504-123-1234</td>
+	        			</tr>
+	        			<tr>
+	        				<th>이메일</th>
+	        				<td>star_forest@library.com</td>
+	        			</tr>
+	        		</tbody>
 					</table>
 					<br> <br>
-					<p>
-						Copyright &copy; <span id="year"></span> Delibrary
+					<p align="center">
+						Copyright &copy; <span id="year"></span> STARFOREST
 					</p>
 				</div>
 			</div>

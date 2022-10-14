@@ -202,8 +202,18 @@
 								style="padding-left: 10px"><input type="text"
 								style="width: 350px" name="Book_image_src"></td>
 						</tr>
+						
 					</tbody>
 				</table>
+				<div class="form-group row">
+          <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
+          <div class="col-sm-10">
+            <div class="custom-file" id="inputFile">
+              <input name="file" type="file" class="custom-file-input" id="customFile" />
+              <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
+            </div>
+          </div>
+        </div>
 			</form>
 			<br> <input type="button" value="확인"
 				id="btn_newbook_insert_action"> &nbsp; <input type="button"

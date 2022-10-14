@@ -32,38 +32,40 @@
  <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <script type="text/javascript">
-$(document).on('click', '#btn_search', function(e) {
-
-	var param = 'searchList';
-	console.log(param);
+/********club_list***********/
+$.ajax({
+		url:'club_list',
+		method:'GET',
+		success:function(jsonResult){
+			var bookClubArray=jsonResult.data;
+				$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
+		}
+	});
+$(document).on('click','#side_bookClub,#menu_bookClub,#btn_all,#btn_list',function(e){
 	$.ajax({
-		url : 'getSearchList',
-		method : 'GET',
-		data : param,
-		success : function(bookList) {
-			console.log(bookList);
-			var html='';
-			for(var i=0;i < bookList.length;i++){
-				var book = bookList[i];
-				console.log(book.book_image_src);
-				console.log(book.book_title);
-				html+="<div class=\"col-md-3\"><div class=\"card mb-3\">";
-				html+="					<div class=\"card-body p-0\">";
-				html+="					<a href=\"book_detail?book_no=454\">";
-				html+="					<img class=\"card-image-top img-fluid\" width=\"100%\" alt=\"\" src=\""+book.book_image_src+"\">";
-				html+="			</a>";
-				html+="				<div class=\"card-body\">";
-				html+="				<div class=\"card-title\">";
-				html+="						<div class=\"book-title\" id=\"book-title\">"+book.book_title+"</div>";
-				html+="				<h6 class=\"book_author\">"+book.book_author+"</h6>";
-				html+="			</div>";
-				html+="				</div>";
-				html+="			</div>";
-				html+="		</div>";
-				html+="	</div>";
-				console.log(html);	
-			}
-			$('#searchBookList').html(html);
+		url:'club_list',
+		method:'GET',
+		success:function(jsonResult){
+			var bookClubArray=jsonResult.data;
+			$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
+		}
+	});
+	e.preventDefault();
+});
+
+/********club_category_list********/
+$(document).on('click','#btn1',function(e){
+	var param='category_no='+$(e.target).attr('value');
+	
+	$.ajax({
+		url:'club_select_by_category',
+		method:'POST',
+		dataType:'json',
+		data:param,
+		success:function(jsonResult){
+			var bookClubArray=jsonResult.data;
+			console.log(bookClubArray);
+			$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
 		}
 	});
 	e.preventDefault();
@@ -231,17 +233,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 							</div>
 							<ul class="list-group list-group-flush mb-5">
                   <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
-                  <li class="list-group-item active"><a href="SearchList">전체 도서</a>
-	                  <ul class="low" name="category_no" id="category_no">
-		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">100 건강/취미/레저</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList?c=100&l=2">200 경제경영</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList?c=300&l=2">300 고전</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList?c=400&l=2">400 과학</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList?c=500&l=2">500 만화</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList?c=600&l=2">600 사회과학</a></li>
-		                  <li><a href="/star_forest_pjt/SearchList?c=700&l=2">700 소설/시/희곡</a></li>
-	                  </ul>
-	                  </li>
+                  <li class="list-group-item active"><a href="SearchList">전체 도서</a></li>
                   <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
                   <li class="list-group-item"><a href="Newbooks">신착도서</a></li>                  
                   <li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>
@@ -253,6 +245,17 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 <!-- 메인내용 -->
 <div class="col-md-9">
             <div class="row">
+            <div>
+				             <button type="button" id="btn_all" value="all" style="width:50px">전체</button>
+				             <button type="button" id="btn1" value="100" style="width:130px">건강/취미/레저</button>
+				             <button type="button" id="btn1" value="200" style="width:80px">경제경영</button>
+				             <button type="button" id="btn1" value="300" style="width:50px">고전</button>
+				             <button type="button" id="btn1" value="400" style="width:50px">과학</button> 
+				             <button type="button" id="btn1" value="500" style="width:50px">만화</button>
+				             <button type="button" id="btn1" value="600" style="width:85px">사회과학</button>
+				             <button type="button" id="btn1" value="700" style="width:120px">소설/시/희곡</button>
+				             <br>
+				        </div>
             	<c:forEach items="${allBook}" var="book" begin="0" end="15">
 					<div class="col-md-3">
 						<div class="card mb-3">

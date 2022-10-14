@@ -74,8 +74,6 @@ $(document).on('click','#btn_admin_return',function(e){
 	var book_no= $(e.target).attr("book_no");
 	var user_id= $(e.target).attr('user_id');
 	var param = {'book_no':book_no, 'user_id':user_id};
-	  console.log(book_no);
-	  console.log(user_id);
 	 
 	$.ajax({
 		url:'rest_return',
@@ -84,7 +82,6 @@ $(document).on('click','#btn_admin_return',function(e){
 		data:param,
 		success:function(jsonResult){
 			if(jsonResult.code==1){
-				console.log(user_id, book_no);
 				alert("반납처리 되었습니다.");
 				location.reload();
 			}else if(jsonResult.code==2){

@@ -100,8 +100,6 @@ public class RentalRestController {
 		String url = "";
 		String msg = "";	
 		List<Rental> resultList = new ArrayList<Rental>();
-		System.out.println(user_id);
-		System.out.println(book_no);
 		resultList = rentalService.selectNowLental();
 		try {
 			String sUserId = (String) request.getSession().getAttribute("sUserId");

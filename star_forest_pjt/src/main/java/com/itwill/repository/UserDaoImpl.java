@@ -76,7 +76,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public int userReturnCount(String user_id) throws Exception {
-		return userRentalCount(user_id);
+		return userMapper.userReturnCount(user_id);
 	}
 
 	@Override

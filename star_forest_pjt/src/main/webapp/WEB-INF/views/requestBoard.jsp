@@ -61,6 +61,7 @@
 				$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
 			        
 					 var param = 'pageNum='+$(e.target).attr('pageNum');
+					
 			        console.log(param);
 			        $.ajax({
 						url:'request_list_json',
@@ -76,6 +77,29 @@
 					});
 			        e.preventDefault();
 			    });
+				
+				$(document).on('click','#search_btn',function(e){
+					 var pageNum = 'pageNum='+$("#page_form input[name='pageNum']").val();
+					 var keyword= $('#keyword_box').serialize();
+					 var param={'keyword':keyword,'pageNum':pageNum};
+					 console.log(pageNum,keyword);
+					 $.ajax({
+							url:'request_list_json',
+							method:'POST',
+							data: param,
+							success:function(jsonResult){
+								var requestArray = jsonResult.data;
+								var pageArray = jsonResult.pageMaker[0];
+								var keyword = jsonResult.keyword;
+								console.log(pageArray);
+								//console.log('keyword='+keyword);
+								//console.log(requestArray);
+								$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+								//$('#page_wrap').html(pageArray);
+							}
+						});
+					
+				});
 			}
 		});
 		

@@ -1,11 +1,33 @@
-
+/*<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:pink; font-weight=bold;"':'style="color:black;"'}>
+				${requestBoard.board_title}*/
 function request_item_content(requestBoard){
 	return `<tr id="table2">
 		<td width=5% align=center class=t1><font size=2 color=#000000>${requestBoard.board_no}</td>
 		<td width="300" bgcolor="ffffff" style="padding-left: 10">
-				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:pink; font-weight=bold;"':'style="color:black;"'}>
-				${requestBoard.board_title}
-				</a>
+		
+		
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:red; font-weight=bold;"':'style="color:black;"'}>
+				
+				${
+								function(){
+									var html='';
+									
+									if(requestBoard.board_status=='공지사항'){
+										html=`<img src="img/img_cart.png" width=40px;>`;
+									}
+									
+									for(var i=0; i<requestBoard.board_depth;i++){
+										html+=`&nbsp;&nbsp;&nbsp`;
+									}
+									if(requestBoard.board_depth>0){
+									html+=`<img src="img/re.gif">`;
+									}
+									return html;
+									 }()
+	              }
+	               ${requestBoard.board_title}
+	               </a>
+				
 		<td width=15% align=center class=t1><font size=2 color=#000000>${requestBoard.user_id}</font></td>
 		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_status}</font></td>
 		<td width=10% align=center class=t1><font size=2 color=#000000>${requestBoard.board_date.substring(0,10)}</font></td>
@@ -70,16 +92,27 @@ function request_list_content(requestArray,pageArray) {
 		
 		
 		<div class="search_wrap">
+			<form id="keyword_form" method="post">
 	        <div class="search_area">
-	            <input type="text" name="keyword" value="${pageArray.cri.keyword}" style="margin-left:60px;">
-	            <button>Search</button>
+	        	<select name="type">
+                <option value="" <c:out value="${pageArray.cri.type == null?'selected':'' }"/>>--</option>
+                <option value="T" <c:out value="${pageArray.cri.type =='T'?'selected':'' }"/>>제목</option>
+                <option value="C" <c:out value="${pageArray.cri.type  == 'C'?'selected':'' }"/>>내용</option>
+                <option value="W" <c:out value="${pageArray.cri.type  == 'W'?'selected':'' }"/>>작성자</option>
+                <option value="TC" <c:out value="${pageArray.cri.type  == 'TC'?'selected':'' }"/>>제목 + 내용</option>
+                <option value="TW" <c:out value="${pageArray.cri.type  == 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                <option value="TCW" <c:out value="${pageArray.cri.type  == 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+           		 </select>    
+	            <input type="text" id="keyword_box"name="keyword" keyword="${pageArray.cri.keyword}" style="margin-left:60px;">
+	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색"></input>
 	        </div>
+	        </form>
   	  	</div>    
   	  	
   	  	
 		<div class="page_area">
 		<form id="page_form" method="get">
-		<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
+		<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum }">
         <input type="hidden" name="amount" value="${pageArray.cri.amount }">    
         <input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
 					<ul id="page">

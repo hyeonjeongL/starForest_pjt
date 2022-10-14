@@ -89,8 +89,8 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public int countAll() throws Exception {
-		return requestBoardMapper.countAll();
+	public int countAll(Criteria cri) throws Exception {
+		return requestBoardMapper.countAll(cri);
 	}
 
 	@Override

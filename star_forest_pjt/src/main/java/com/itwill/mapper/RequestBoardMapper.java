@@ -99,9 +99,7 @@ public interface RequestBoardMapper {
 	public List<BookCategory> selectCategoryAll();
 	
 	//게시물 총 갯수
-	@Select("select count(*)\r\n"
-			+ "	from request_board")
-	public int countAll();
+	public int countAll(Criteria cri);
 	
 	//게시물 상세보기
 	@Select("select *\r\n"

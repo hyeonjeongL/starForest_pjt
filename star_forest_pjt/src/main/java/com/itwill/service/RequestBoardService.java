@@ -45,7 +45,7 @@ public interface RequestBoardService {
 			List<BookCategory> selectCategoryAll() throws Exception;
 			
 			//게시물 총 갯수
-			int countAll() throws Exception;
+			int countAll(Criteria cri) throws Exception;
 			
 			//게시물 상세보기
 			RequestBoard selectOne(int board_no) throws Exception;

@@ -88,8 +88,8 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	}
 
 	@Override
-	public int countAll() throws Exception {
-		return requestBoardDao.countAll();
+	public int countAll(Criteria cri) throws Exception {
+		return requestBoardDao.countAll(cri);
 	}
 
 	@Override

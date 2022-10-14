@@ -58,13 +58,12 @@
 				}
 				*/
 				//$('#requestBoard_wrap').html(request_list(pageArray));
-				$(document).on('click','.page_btn a', function(e){
-					
-			        var param = 'pageNum='+$(e.target).text();
+				$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
+			        
+					 var param = 'pageNum='+$(e.target).attr('pageNum');
 			        console.log(param);
-			        e.preventDefault();
 			        $.ajax({
-						url:'request_list',
+						url:'request_list_json',
 						method:'POST',
 						data:param,
 						success:function(jsonResult){
@@ -75,14 +74,12 @@
 							//$('#page_wrap').html(pageArray);
 						}
 					});
-			        
+			        e.preventDefault();
 			    });
 			}
 		});
 		
-		/*
-		페이지번호 누르면 해당 페이지로 이동..
-		*/
+		
 		
 		$(document).on('click','#btn_write',function(e){
 			$.ajax({

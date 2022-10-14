@@ -46,7 +46,7 @@ public interface RequestBoardMapper {
 	//답글생성
 	
 	@Insert("insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval ,#{board_title},sysdate,\r\n"
-			+ "									 #{board_content},0,#{board_status},2,#{board_depth}+1,#{board_step}+1,\r\n"
+			+ "									 #{board_content},0,#{board_status},1,#{board_depth}+1,#{board_step}+1,\r\n"
 			+ "									 #{board_groupno},#{category_name},#{user_id})\r\n")
 	public int createReply(RequestBoard requestBoard);
 	/*

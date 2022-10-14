@@ -96,17 +96,17 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 
 SELECT * FROM
 <![CDATA[
-		( SELECT rownum idx, s.*  FROM
-				( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board where rownum<=#{pageNum}*#{amount}
-					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
-				) s
-		 )
+      ( SELECT rownum idx, s.*  FROM
+            ( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
+               ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+            ) s
+       )
 ]]>
 <if test="keyword != null">
                     and board_title like '%'||#{keyword}||'%' or board_content like '%'||#{keyword}||'%'
                 </if>
 <![CDATA[
-WHERE idx > (#{pageNum}-1) * #{amount}
+WHERE idx > (#{pageNum}-1) * #{amount} and idx< #{pageNum} * #{amount}
 ]]>
 </select>
  

@@ -42,7 +42,6 @@ function request_page_content(pageArray){
 //<li>${pageArray.startPage}
 //<li>${pageArray.endPage}
 function request_list_content(requestArray,pageArray) {
-	console.log(pageArray);
 	return `<table>
 	
 		<thead>
@@ -79,33 +78,51 @@ function request_list_content(requestArray,pageArray) {
   	  	
   	  	
 		<div class="page_area">
+		<form id="page_form" method="get">
+		<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
+        <input type="hidden" name="amount" value="${pageArray.cri.amount }">    
+        <input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
 					<ul id="page">
 				 		
 				 		
 				 		<!-- 이전페이지 버튼 -->
-                    	<li class="pageInfo_btn previous"><a href="requestBoard?pageNum=${pageArray.startPage-1}">Previous</a></li>
+				 		${
+							function(){
+								var prev = pageArray.prev;
+								var html='';
+								if(prev){
+									html=`<li class="page_btn_prev"><a href="requestBoard?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
+								}
+								return html;
+							}()
+						}
                     	${
 							function(){
 								var html='';	
 							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
-							 		html+=`<li class="page_btn"><a href="requestBoard?pageNum=${i}">${i}</a></li>`;
-								}
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="requestBoard?pageNum=${i}" pageNum=${i}>${i}</a></li>`;
+								}							
 								return html;
 							}()
 	                    }
 	                    
-	                     <!-- 다음페이지 버튼 -->
-	                    <li class="pageInfo_btn next"><a href="requestBoard?pageNum=${pageArray.endPage + 1 }">Next</a></li>
+	                     <!-- 다음페이지 버튼 -->${
+							function(){
+								var next = pageArray.next;
+								var html='';
+								if(next){
+									html=`<li class="page_btn_next"><a href="requestBoard?pageNum=${pageArray.endPage + 1 }" pageNum=${pageArray.endPage+1}>Next</a></li>`
+								}
+								return html;
+							}()
+						}
+	                    
 	                    
                		</ul>
+               		</form>
 		</div>
 			
 			
-			<form id = "moveForm" method="get">
-			<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
-        	<input type="hidden" name="amount" value="${pageArray.cri.amount }">    
-        	<input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
-			</form>
 			
 		`;
 }

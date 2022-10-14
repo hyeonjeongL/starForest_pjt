@@ -22,21 +22,7 @@ import com.itwill.service.RequestBoardService;
 public class RequestBoardController {
 	@Autowired
 	private RequestBoardService requestBoardService;
-	@GetMapping(value = {
-			"/requestBoard"},
-		produces = "application/json;charset=UTF-8")
-	public Map guest_json_get() {
-	Map resultMap=new HashMap();
-	int code=2;
-	String url="requestBoard";
-	String msg="잘못된 요청방식입니다.";
-	List<RequestBoard> resultList=new ArrayList<RequestBoard>();
-	resultMap.put("code", code);
-	resultMap.put("url", url);
-	resultMap.put("msg", msg);
-	resultMap.put("data",resultList);
-	return resultMap;
-	}
+	
 	@RequestMapping("/requestBoard")
 	public String requestBoard_main(HttpSession session) {
 			String sUserId =(String)session.getAttribute("sUserId");

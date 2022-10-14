@@ -13,7 +13,7 @@ function request_item_content(requestBoard){
 		</tr>`;
 }
 
-function request_list_content_admin(requestArray) {
+function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
 		<thead>
@@ -39,8 +39,67 @@ function request_list_content_admin(requestArray) {
 		<div>
 		<input type="button" id="btn_write_notice" value="공지사항쓰기" onClick="location.href='requestBoard_write_form_admin'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
+		
+		
+		<div class="search_wrap">
+	        <div class="search_area">
+	            <input type="text" name="keyword" value="${pageArray.cri.keyword}" style="margin-left:60px;">
+	            <button>Search</button>
+	        </div>
+  	  	</div>    
+  	  	
+  	  	
+		<div class="page_area">
+		<form id="page_form" method="get">
+		<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
+        <input type="hidden" name="amount" value="${pageArray.cri.amount }">    
+        <input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
+					<ul id="page">
+				 		
+				 		
+				 		<!-- 이전페이지 버튼 -->
+				 		${
+							function(){
+								var prev = pageArray.prev;
+								var html='';
+								if(prev){
+									html=`<li class="pageInfo_btn previous"><a href="requestBoard?pageNum=${pageArray.startPage-1}">Previous</a></li>`
+								}
+								return html;
+							}()
+						}
+                    	${
+							function(){
+								var html='';	
+							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="requestBoard?pageNum=${i}">${i}</a></li>`;
+								}							
+								return html;
+							}()
+	                    }
+	                    
+	                     <!-- 다음페이지 버튼 -->${
+							function(){
+								var next = pageArray.next;
+								var html='';
+								if(next){
+									html=`<li class="pageInfo_btn next"><a href="requestBoard?pageNum=${pageArray.endPage + 1 }">Next</a></li>`
+								}
+								return html;
+							}()
+						}
+	                    
+	                    
+               		</ul>
+               		</form>
+		</div>
+			
+			
+			
 		`;
 }
+
+
 /*
 function request_write_form_content() {
 	return `<table width="0" border="0" cellpadding="0" cellspacing="0">

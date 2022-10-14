@@ -45,8 +45,36 @@
 			method:'GET',
 			success:function(jsonResult){
 				var requestArray = jsonResult.data;
-				console.log(requestArray);
-				$('#requestBoard_wrap').html(request_list_content_admin(requestArray));
+				var pageArray = jsonResult.pageMaker[0];
+				//var pageArray = [startPage,endPage,pageNum,amount] 
+				//console.log(num);
+				console.log(pageArray);
+				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+				
+				/*for(var num=startPage; num<=endPage; num++){
+					content+='<li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>'
+				}
+				*/
+				//$('#requestBoard_wrap').html(request_list(pageArray));
+				$(document).on('click','.page_btn a', function(e){
+					
+			        var param = 'pageNum='+$(e.target).text();
+			        console.log(param);
+			        e.preventDefault();
+			        $.ajax({
+						url:'request_list_json',
+						method:'POST',
+						data:param,
+						success:function(jsonResult){
+							var requestArray = jsonResult.data;
+							var pageArray = jsonResult.pageMaker[0];
+							console.log(requestArray);
+							$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+							//$('#page_wrap').html(pageArray);
+						}
+					});
+			        
+			    });
 			}
 		});
 		

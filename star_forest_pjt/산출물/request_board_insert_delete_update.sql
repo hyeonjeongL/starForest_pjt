@@ -71,9 +71,41 @@ SELECT * FROM
 		 )
 WHERE idx >=1 AND idx <= 10 ;
 
-select *,rownum 
-from request_board;
 
 
-SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board where rownum<=13
-					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC;
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+insert into request_board values(SEQ_REQUEST_BOARD_BOARD_NO.nextval,'안녕',sysdate,'ㅎㅇ',0,'신청접수',1,0,1,SEQ_REQUEST_BOARD_BOARD_NO.currval,'소설/시/희곡','yeji');
+
+
+
+
+
+commit;
+
+
+SELECT s.*  FROM
+				( SELECT rownum as idx,board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth,board_type_no FROM request_board
+					ORDER BY board_type_no asc
+				) s
+
+		where idx>=1 and idx<=10;
+        
+        
+        SELECT rownum as idx,board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth,board_type_no FROM request_board
+					ORDER BY board_type_no asc;
+                    
+                    

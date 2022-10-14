@@ -49,14 +49,6 @@
 				var requestArray = jsonResult.data;
 				var pageArray = jsonResult.pageMaker[0];
 				//var pageArray = [startPage,endPage,pageNum,amount] 
-				var startPage = jsonResult.startPage;
-				var endPage = jsonResult.endPage;
-				var content="";
-				var num ='';
-				for(num=startPage; num<=endPage; num++){
-					var test = num;
-				}
-				console.log(test);
 				//console.log(num);
 				console.log(pageArray);
 				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
@@ -66,9 +58,31 @@
 				}
 				*/
 				//$('#requestBoard_wrap').html(request_list(pageArray));
+				$(document).on('click','.page_btn a', function(e){
+					
+			        var param = 'pageNum='+$(e.target).text();
+			        console.log(param);
+			        e.preventDefault();
+			        $.ajax({
+						url:'request_list',
+						method:'POST',
+						data:param,
+						success:function(jsonResult){
+							var requestArray = jsonResult.data;
+							var pageArray = jsonResult.pageMaker[0];
+							console.log(requestArray);
+							$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+							//$('#page_wrap').html(pageArray);
+						}
+					});
+			        
+			    });
 			}
 		});
 		
+		/*
+		페이지번호 누르면 해당 페이지로 이동..
+		*/
 		
 		$(document).on('click','#btn_write',function(e){
 			$.ajax({
@@ -204,27 +218,7 @@
 				
 			});
 		});
-		/*
-		페이지번호 누르면 해당 페이지로 이동..
-		*/
-		$(document).on('click','.page_btn', function(e){
-	        var param = 'pageNum='+$("#moveForm input[name='pageNum']").val();
-	        console.log(param);
-	        e.preventDefault();
-	        $.ajax({
-				url:'request_list',
-				method:'POST',
-				data:param,
-				success:function(jsonResult){
-					var requestArray = jsonResult.data;
-					var pageArray = jsonResult.pageMaker[0];
-					console.log(requestArray);
-					$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
-					//$('#page_wrap').html(pageArray);
-				}
-			});
-	        
-	    });
+		
 		
 		$(document).on('click','#btn_request_list',function(e){
 			location.href='requestBoard';

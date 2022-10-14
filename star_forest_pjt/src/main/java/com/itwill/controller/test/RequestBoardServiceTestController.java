@@ -40,7 +40,7 @@ public class RequestBoardServiceTestController {
 		      //System.out.println(rowCount);
 		      //서비스 테스트 완료
 		      Criteria cri = new Criteria();
-		      cri.setPageNum(2);
+		      cri.setPageNum(1);
 		      List<RequestBoard> list = requestBoardService.list(cri);
 		      System.out.println(list);
 	}

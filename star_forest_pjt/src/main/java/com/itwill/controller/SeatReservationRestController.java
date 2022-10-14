@@ -129,6 +129,7 @@ public class SeatReservationRestController {
 				resultList.add(seatReservation);
 				code=1;
 				msg="";
+				
 			}catch (Exception e) {
 				code=2;
 				e.printStackTrace();

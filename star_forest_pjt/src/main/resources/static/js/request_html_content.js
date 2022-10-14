@@ -42,6 +42,7 @@ function request_page_content(pageArray){
 //<li>${pageArray.startPage}
 //<li>${pageArray.endPage}
 function request_list_content(requestArray,pageArray) {
+	console.log(pageArray);
 	return `<table>
 	
 		<thead>
@@ -79,21 +80,22 @@ function request_list_content(requestArray,pageArray) {
   	  	
 		<div class="page_area">
 					<ul id="page">
-				 		 <!-- 이전페이지 버튼 -->
-                    	<li class="pageInfo_btn previous"><a href="requestBoard?pageNum='${pageArray.startPage-1}'">Previous</a></li>
-                    	
-                    	
-						
-						<!--이걸.. startPage 부터 endpage가 끝날때까지 뽑아야하는 거잖아.{for(var num=$; num<=$;num++) begin end 왜 못쓰냐고..-->
-						
-						
-						
-	                    <li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>
-	                    <li class="page_btn"><a href="requestBoard?pageNum='${pageArray.endPage}'">${pageArray.endPage}</a></li>
-	                    
+				 		
+				 		
+				 		<!-- 이전페이지 버튼 -->
+                    	<li class="pageInfo_btn previous"><a href="requestBoard?pageNum=${pageArray.startPage-1}">Previous</a></li>
+                    	${
+							function(){
+								var html='';	
+							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
+							 		html+=`<li class="page_btn"><a href="requestBoard?pageNum=${i}">${i}</a></li>`;
+								}
+								return html;
+							}()
+	                    }
 	                    
 	                     <!-- 다음페이지 버튼 -->
-	                    <li class="pageInfo_btn next"><a href="requestBoard?pageNum='${pageArray.endPage + 1 }'">Next</a></li>
+	                    <li class="pageInfo_btn next"><a href="requestBoard?pageNum=${pageArray.endPage + 1 }">Next</a></li>
 	                    
                		</ul>
 		</div>

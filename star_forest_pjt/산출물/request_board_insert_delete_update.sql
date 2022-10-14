@@ -49,7 +49,7 @@ order by board_groupno desc, board_step asc;
 select * from
 ( SELECT rownum idx, s.*  FROM
 				( SELECT * FROM request_board
-					ORDER BY groupno DESC,board_step ASC
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
 				) s
 		 );
 
@@ -65,8 +65,15 @@ where board_no=8;
 
 SELECT * FROM
 		( SELECT rownum idx, s.*  FROM
-				( SELECT board_no, board_title, user_id,board_date,board_readcount,groupno,board_step, board_depth FROM request_board
-					ORDER BY groupno DESC,board_step ASC
+				( SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_depth FROM request_board
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
 				) s
 		 )
-WHERE idx >=1 AND idx <= 7 ;
+WHERE idx >=1 AND idx <= 10 ;
+
+select *,rownum 
+from request_board;
+
+
+SELECT board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board where rownum<=13
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC;

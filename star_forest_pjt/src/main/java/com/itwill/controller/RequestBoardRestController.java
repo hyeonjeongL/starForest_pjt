@@ -34,6 +34,7 @@ public class RequestBoardRestController {
 	
 	@RequestMapping(value="/request_list_json", produces = "application/json;charset=UTF-8")
 	public Map request_list_json(Criteria cri,Model model) {
+		System.out.println(cri);
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
@@ -74,12 +75,15 @@ public class RequestBoardRestController {
 	}
 	@RequestMapping(value="/request_list", produces = "application/json;charset=UTF-8")
 	public Map request_list(Criteria cri,Model model) {
+		
+		System.out.println(cri);
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
 		String msg="";
 		//Log.info("boardListGET");
-        
+        int startPage =-999;
+        int endPage =-999;
 		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
 		List<PageMaker> pageMakerList = new ArrayList<PageMaker>();
 		try {
@@ -89,6 +93,8 @@ public class RequestBoardRestController {
 			PageMaker pageMaker = new PageMaker(cri, total);
 			cri.setKeyword("");
 			pageMakerList.add(pageMaker);
+			startPage = pageMaker.getStartPage();
+			endPage = pageMaker.getEndPage();
 			code=1;
 			url="";
 			msg="성공";
@@ -105,6 +111,8 @@ public class RequestBoardRestController {
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
 		resultMap.put("pageMaker", pageMakerList);
+		resultMap.put("startPage", startPage);
+		resultMap.put("endPage", endPage);
 		return resultMap;
 	}
 	

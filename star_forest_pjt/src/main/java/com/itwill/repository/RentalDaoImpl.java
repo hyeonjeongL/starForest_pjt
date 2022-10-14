@@ -78,6 +78,11 @@ public class RentalDaoImpl implements RentalDao{
 		return rentalMapper.searchSelectById(keyword);
 	}
 
+	@Override
+	public int onceExtend(String user_id, int book_no) {
+		return rentalMapper.onceExtend(user_id, book_no);
+	}
+
 
 	
 

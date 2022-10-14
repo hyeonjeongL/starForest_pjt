@@ -91,13 +91,16 @@ public class BookController {
 			if(sUserId==null) {
 				List<Book> favorite = bookService.selectFavorite();
 				model.addAttribute("favorite",favorite);
+				System.out.println("favorite");
 			}else {
 				List<Book> userBook = bookService.userBook(sUserId);
 				model.addAttribute("userBook",userBook);
+				System.out.println("userBook");
 			}
 			List<Book> newBook = bookService.selectNew();
 			//PageMakerDto<Notice> notice = noticeService.selectAll(pageno);
 			model.addAttribute("newBook",newBook);
+			System.out.println("newBook");
 			//model.addAttribute("notice",notice);
 		}catch (Exception e) {
 			e.printStackTrace();

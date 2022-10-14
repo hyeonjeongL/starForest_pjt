@@ -54,12 +54,12 @@
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">
 $(function(){
-	 
-	   $(document).on('click','#phone_a',function(e){
-		   alert("\n고객센터 : 070) 1588-8888 \n\n"
-					+ "이용시간 : 평일 9:00 - 18:00, 점심시간 12:00 - 13:30 \n              ( 주말/공휴일 휴무 ) \n\n"	
-					+ "팩스번호 : 0504-123-1234 \n\n"); 
-	   });
+    
+      $(document).on('click','#phone_a',function(e){
+         alert("\n고객센터 : 070) 1588-8888 \n\n"
+               + "이용시간 : 평일 9:00 - 18:00, 점심시간 12:00 - 13:30 \n              ( 주말/공휴일 휴무 ) \n\n"   
+               + "팩스번호 : 0504-123-1234 \n\n"); 
+      });
 });
   
    
@@ -69,13 +69,13 @@ $(function(){
 
 </head>
 <body>
-	<!-- navigation start-->
-			<div id="navigation">
-				<!-- include_common_left.jsp start-->
-				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
-				<!-- include_common_left.jsp end-->
-			</div>
-			<!-- navigation end-->
+   <!-- navigation start-->
+         <div id="navigation">
+            <!-- include_common_left.jsp start-->
+            <jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+            <!-- include_common_left.jsp end-->
+         </div>
+         <!-- navigation end-->
 
    <!-- HOME HEADING SECTION -->
    <section id="home-heading" class="p-4 noto-serif">
@@ -108,152 +108,152 @@ $(function(){
    </section>
 
    <!-- SHOWCASE SLIDER   -->
-	<div class="container pt-5">
-		<div class="row">
-			<c:if test="${empty sUserId}">
-			<div class="col-md-6">
-				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
-					<div class="hr-green mb-4">
-						<h3 class="d-inline-block mb-3 noto-serif">추천 도서</h3><!--Controls-->
-						<div class="controls-bottom pull-right">
-							<a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
-						</div><!--/.Controls-->
-					</div>
-					<!--Slides-->
-					<div class="carousel-inner" role="listbox">
-						<!--First slide-->
-						<div class="carousel-item active">
-							<div class="row">
-								<c:forEach items="${favorite}" var="book" begin="0" end="2">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-						<!--Second slide-->
-						<div class="carousel-item">
-							<div class="row">
-								<c:forEach items="${favorite}" var="book" begin="3" end="5">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div><!--/.Second slide-->
-					</div><!--/.Slides-->
-				</div><!--/.Carousel Wrapper-->
-			</div>
-		</c:if>
-		<c:if test="${not empty sUserId}">
-			<div class="col-md-6">
-				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
-					<div class="hr-green mb-4">
-						<h3 class="d-inline-block mb-3 noto-serif">${sUserId}님의 추천 도서</h3><!--Controls-->
-						<div class="controls-bottom pull-right">
-							<a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
-						</div><!--/.Controls-->
-					</div>
-					<!--Slides-->
-					<div class="carousel-inner" role="listbox">
-						<!--First slide-->
-						<div class="carousel-item active">
-							<div class="row">
-								<c:forEach items="${userBook}" var="book" begin="0" end="2">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-						<!--Second slide-->
-						<div class="carousel-item">
-							<div class="row">
-								<c:forEach items="${userBook}" var="book" begin="3" end="5">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div><!--/.Second slide-->
-					</div><!--/.Slides-->
-				</div><!--/.Carousel Wrapper-->
-			</div>
-		</c:if>
-			<div class="col-md-6">
-				<!--Carousel Wrapper-->
-				<div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example2">
-					<div class="hr-green mb-4">
-						<h3 class="d-inline-block mb-3 noto-serif">이번달 신작 도서</h3><!--Controls-->
-						<div class="controls-bottom pull-right">
-							<a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example2"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example2"><i class="fa fa-chevron-right"></i></a>
-						</div><!--/.Controls-->
-					</div>
-					<!--Slides-->
-					<div class="carousel-inner" role="listbox">
-						<!--First slide-->
-						<div class="carousel-item active">
-							<div class="row">
-								<c:forEach items="${newBook}" var="book" begin="6" end="8">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-						<!--Second slide-->
-						<div class="carousel-item">
-							<div class="row">
-								<c:forEach items="${newBook}" var="book" begin="9" end="11">
-									<div class="col-md-4 clearfix d-none d-md-block">
-										<div class="card"><a href="book_detail?book_no=${book.book_no}">
-											<img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-												<div class="card-body" class="card-title">
-												<div class="book-title" id="book-title">${book.book_title}</div>
-												<h6>${book.book_author}</h6>
-											</div>
-										</div>
-									</div>
-								</c:forEach>
-							</div>
-						</div>
-						<!--/.Second slide-->
-					</div>
-					<!--/.Slides-->
-				</div><!--/.Carousel Wrapper-->
-			</div>
-		</div>
-	</div>
+   <div class="container pt-5">
+      <div class="row">
+         <c:if test="${empty sUserId}">
+         <div class="col-md-6">
+            <div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
+               <div class="hr-green mb-4">
+                  <h3 class="d-inline-block mb-3 noto-serif">추천 도서</h3><!--Controls-->
+                  <div class="controls-bottom pull-right">
+                     <a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
+                  </div><!--/.Controls-->
+               </div>
+               <!--Slides-->
+               <div class="carousel-inner" role="listbox">
+                  <!--First slide-->
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <c:forEach items="${favorite}" var="book" begin="0" end="2">
+                           <div class="col-md-4 clearfix d-none d-md-block">
+                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                                 <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+                                    <div class="card-body" class="card-title">
+                                    <div class="book-title" id="book-title">${book.book_title}</div>
+                                    <h6>${book.book_author}</h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+                  </div>
+                  <!--Second slide-->
+                  <div class="carousel-item">
+                     <div class="row">
+                        <c:forEach items="${favorite}" var="book" begin="3" end="5">
+                           <div class="col-md-4 clearfix d-none d-md-block">
+                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                                 <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+                                    <div class="card-body" class="card-title">
+                                    <div class="book-title" id="book-title">${book.book_title}</div>
+                                    <h6>${book.book_author}</h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+                  </div><!--/.Second slide-->
+               </div><!--/.Slides-->
+            </div><!--/.Carousel Wrapper-->
+         </div>
+      </c:if>
+      <c:if test="${not empty sUserId}">
+         <div class="col-md-6">
+            <div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example">
+               <div class="hr-green mb-4">
+                  <h3 class="d-inline-block mb-3 noto-serif">${sUserId}님의 추천 도서</h3><!--Controls-->
+                  <div class="controls-bottom pull-right">
+                     <a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example"><i class="fa fa-chevron-right"></i></a>
+                  </div><!--/.Controls-->
+               </div>
+               <!--Slides-->
+               <div class="carousel-inner" role="listbox">
+                  <!--First slide-->
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <c:forEach items="${userBook}" var="book" begin="0" end="2">
+                           <div class="col-md-4 clearfix d-none d-md-block">
+                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                                 <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+                                    <div class="card-body" class="card-title">
+                                    <div class="book-title" id="book-title">${book.book_title}</div>
+                                    <h6>${book.book_author}</h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+                  </div>
+                  <!--Second slide-->
+                  <div class="carousel-item">
+                     <div class="row">
+                        <c:forEach items="${userBook}" var="book" begin="3" end="5">
+                           <div class="col-md-4 clearfix d-none d-md-block">
+                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                                 <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+                                    <div class="card-body" class="card-title">
+                                    <div class="book-title" id="book-title">${book.book_title}</div>
+                                    <h6>${book.book_author}</h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+                  </div><!--/.Second slide-->
+               </div><!--/.Slides-->
+            </div><!--/.Carousel Wrapper-->
+         </div>
+      </c:if>
+         <div class="col-md-6">
+            <!--Carousel Wrapper-->
+            <div class="carousel slide carousel-multi-item" data-ride="carousel" id="multi-item-example2">
+               <div class="hr-green mb-4">
+                  <h3 class="d-inline-block mb-3 noto-serif">이번달 신작 도서</h3><!--Controls-->
+                  <div class="controls-bottom pull-right">
+                     <a class="btn btn-outline-success prev" data-slide="prev" href="#multi-item-example2"><i class="fa fa-chevron-left"></i></a> <a class="btn btn-outline-success next" data-slide="next" href="#multi-item-example2"><i class="fa fa-chevron-right"></i></a>
+                  </div><!--/.Controls-->
+               </div>
+               <!--Slides-->
+               <div class="carousel-inner" role="listbox">
+                  <!--First slide-->
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <c:forEach items="${newBook}" var="book" begin="6" end="8">
+                           <div class="col-md-4 clearfix d-none d-md-block">
+                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                                 <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+                                    <div class="card-body" class="card-title">
+                                    <div class="book-title" id="book-title">${book.book_title}</div>
+                                    <h6>${book.book_author}</h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+                  </div>
+                  <!--Second slide-->
+                  <div class="carousel-item">
+                     <div class="row">
+                        <c:forEach items="${newBook}" var="book" begin="9" end="11">
+                           <div class="col-md-4 clearfix d-none d-md-block">
+                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                                 <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
+                                    <div class="card-body" class="card-title">
+                                    <div class="book-title" id="book-title">${book.book_title}</div>
+                                    <h6>${book.book_author}</h6>
+                                 </div>
+                              </div>
+                           </div>
+                        </c:forEach>
+                     </div>
+                  </div>
+                  <!--/.Second slide-->
+               </div>
+               <!--/.Slides-->
+            </div><!--/.Carousel Wrapper-->
+         </div>
+      </div>
+   </div>
 
    <!-- TODAY, ADs -->
    <div class="container pb-5">
@@ -431,13 +431,13 @@ $(function(){
    </div>
 
   <!-- .footer-navigation -->
-	<!-- footer start-->
-	<div id="navigation">
-		<!-- include_common_left.jsp start-->
-		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
-		<!-- include_common_left.jsp end-->
-	</div>
-	<!-- footer end-->
+   <!-- footer start-->
+   <div id="navigation">
+      <!-- include_common_left.jsp start-->
+      <jsp:include page="common/include_common_bottom_templateVer.jsp" />
+      <!-- include_common_left.jsp end-->
+   </div>
+   <!-- footer end-->
 
 
    <script type="text/javascript">

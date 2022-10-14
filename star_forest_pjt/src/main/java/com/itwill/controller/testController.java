@@ -112,7 +112,7 @@ public class testController {
 		System.out.println("test");
 		return "postInsert";
 	}
-	@RequestMapping("/postList")
+	@RequestMapping("/postList123")
 	public String test27() {
 		System.out.println("test");
 		return "postList";

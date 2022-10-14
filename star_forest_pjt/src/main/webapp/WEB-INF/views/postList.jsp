@@ -18,7 +18,6 @@
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
    <!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/faq.css">
    <link rel="stylesheet" href="css/post.css">
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -77,11 +76,11 @@
                         <h4 class="text-light">도서관소개</h4>
                      </div>
                      <ul class="list-group list-group-flush mb-5">
-                        <li class="list-group-item"><a href="howtoInfo.do">대출/반납/연장</a></li>
-                        <li id="post10" class="list-group-item"><a href="postList.do?option=p_title&search=&group=10">공지사항</a></li>
-                        <li class="list-group-item"><a href="faqViewpage.do">자주묻는질문</a></li>
-                        <li class="list-group-item"><a href="QnaList.do?option=p_title&search=">묻고답하기</a></li>
-                        <li class="list-group-item"><a href="addrViewpageAPI.do">오시는길</a></li>
+                        <li class="list-group-item"><a href="howtoInfo">대출/반납/연장</a></li>
+                        <li id="post10" class="list-group-item"><a href="postList?option=p_title&search=&group=10">공지사항</a></li>
+                        <li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>
+                        <li class="list-group-item"><a href="QnaList?option=p_title&search=">묻고답하기</a></li>
+                        <li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
                      </ul>
                  </div>      
                </c:when>
@@ -91,9 +90,9 @@
                         <h4 class="text-light">커뮤니티</h4>
                      </div>
                      <ul class="list-group list-group-flush mb-5">
-                        <li id="post20" class="list-group-item"><a href="postList.do?option=p_title&search=&group=20" class="returnAll">창작물게시판</a></li>
-                        <li id="post30" class="list-group-item"><a href="postList.do?option=p_title&search=&group=30" class="returnAll">중고장터</a></li>
-                        <li id="post60" class="list-group-item"><a href="postList.do?option=p_title&search=&group=60" class="returnAll">자유게시판</a></li>
+                        <li id="post20" class="list-group-item"><a href="postList?option=p_title&search=&group=20" class="returnAll">창작물게시판</a></li>
+                        <li id="post30" class="list-group-item"><a href="postList?option=p_title&search=&group=30" class="returnAll">중고장터</a></li>
+                        <li id="post60" class="list-group-item"><a href="postList?option=p_title&search=&group=60" class="returnAll">자유게시판</a></li>
                      </ul>
                  </div>
                </c:otherwise>
@@ -105,7 +104,7 @@
             <div class="row py-4">
             <div class="col pb-4">
                <!-- 공지사항 게시판 글쓰기버튼 관리자만 보임 -->
-               <c:if test="${group==10&&cust_no==1 }">
+               <c:if test="${group==10&&sUserId==1 }">
                  <button class="btn btn-outline-success" onclick="postInsert()">글쓰기</button>
                  </c:if>
                <!-- 나머지 게시판은 전부 -->
@@ -113,12 +112,12 @@
                  <button class="btn btn-outline-success" onclick="postInsert()">글쓰기</button>
                  </c:if>                     
               <!-- 비로그인시 cust_no를 0으로 설정 -->
-              <c:if test="${empty cust_no }">
+              <c:if test="${empty sUserId }">
                  <c:set var="cust_no" value="0"></c:set>
               </c:if>
                </div>
                <div class="text-right mb-2">
-                  <form action="postList.do" method="get" class="search form-inline">
+                  <form action="postList" method="get" class="search form-inline">
                      <div class="form-group">
                         <p class="mr-2 mb-0">총 ${totalCount}건</p>
                      </div>
@@ -147,11 +146,12 @@
                      </tr>
                   </thead>
                   <tbody class="tbody text-center noto-sans">
-                     <c:forEach var="p" items="${list }">
+                  
+                     <%-- <c:forEach var="notice" items="${noticeList.itemList }">
                         <tr>
                            <td scope="row" width="5%">${p.p_no%10000 }</td>
                            <td width="40%" class="text-left">
-                              <a href="postDetail.do?p_id=${p.p_id}&&group=${group}">
+                              <a href="postDetail?p_id=${p.p_id}&&group=${group}">
                                  <c:choose>
                                     <c:when test="${group==10 }">[공지]</c:when>
                                     <c:when test="${group==20||group==30 }">[${p.p_option}]</c:when>
@@ -166,41 +166,113 @@
                            <td><fmt:formatDate pattern = "yyyy-MM-dd" value = "${p.p_regdate }" /></td>
                            <td width="10%" class="text-center">${p.p_hit }</td>
                         </tr>
-                     </c:forEach>
+                     </c:forEach> --%>
+                     
+                     <c:forEach var="notice" items="${noticeList.itemList}">
+	                                    <tr>
+	                                    <!-- 
+	                                        <th scope="row">${notice.notice_no}</th>
+	                                         -->
+	                                         <th>
+	                                         	<c:if test="${notice.setting eq '1'}">
+	                                        			&nbsp;&nbsp;<span class="badge badge-danger">중요</span>
+	                                        		</c:if>
+	                                        		<c:if test="${notice.setting eq '0'}">
+	                                        			&nbsp;&nbsp;<span class="badge badge-normal">일반</span>
+	                                        		</c:if>
+	                                         </th>
+	                                        <td>
+	                                       
+	                                       
+	                                        	<a href="notice_view?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">
+	                                        		${notice.notice_title}
+	                                        		
+	                                        		
+	                                        		 
+	                                        	</a>
+	                                        	
+	                                        
+	                                        </td>
+	                                        <td>${notice.notice_date}</td>
+	                                        <td>${notice.notice_readcount}</td>
+	                                    </tr>
+                                    </c:forEach>
+			                     	<!-- board end -->
+			                 
+			                                </tbody>
+			                            </table>
+									
+			                        </div>
+			                    </div>
+								<input type="button" class="notice_btn write_form" pageno="${pageno}" value="게시글작성" />
+			                </div>
+			            </div>
+			            
+			            <div class="row justify-content-center">
+			                <div class="col-12 col-lg-9">
+			                    <!-- Shop Pagination Area -->
+			                    <div class="shop_pagination_area mt-5">
+			                        <nav aria-label="Page navigation">
+			                            <ul class="pagination pagination-sm justify-content-center">
+			
+			                            	<c:if test="${noticeList.pageMaker.prevPage > 0}">  
+				            					<li class="page-item">
+				                                    <button class="page-link" onclick="changeQnaList(${data.pageMaker.prevPage});"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+				                               	 </li>
+			                                </c:if>
+			                                <c:forEach var="no" begin="${noticeList.pageMaker.blockBegin}" end="${noticeList.pageMaker.blockEnd}">
+												<c:if test="${noticeList.pageMaker.curPage == no}">
+													<li class="page-item active"><button class="page-link" href="#">${no}</button></li>
+												</c:if>
+												<c:if test="${noticeList.pageMaker.curPage != no}">
+													<li class="page-item"><button class="page-link page" onclick="changeQnaList(${no})">${no}</button></li>
+												</c:if>
+			                                </c:forEach>
+			                                <c:if test="${noticeList.pageMaker.curPage < noticeList.pageMaker.totPage}">  
+				                                <li class="page-item">
+							                        <button class="page-link" onclick="changeQnaList(${noticeList.pageMaker.nextPage})"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+						                    	 </li>
+			                                </c:if>
+			
+			                            </ul>
+			                        </nav>
+			                    </div>
+			                </div>
+			            </div>
                   </tbody>
                </table>
             </div>
             <!-- 페이징처리 -->
-            <nav>
+            <%-- <nav>
             <ul class="pagination justify-content-center">
               <c:if test="${startPage > 1}">
-                <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
+                <li class="page-item"><a class="page-link" id="page-link" href="postList?pageNUM=${startPage-1 }&group=${group}">
                      <span>&laquo;</span>
               <span class="sr-only">이전 페이지</span>
                   </a></li>
               </c:if>
               <c:if test="${startPage == 1}">
-                <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
+                <li class="page-item disabled"><a class="page-link" id="page-link" href="postList?pageNUM=${startPage-1 }&group=${group}">
                      <span>&laquo;</span>
                 <span class="sr-only">이전 페이지</span>
                   </a></li>
               </c:if>
                     <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="postList.do?pageNUM=${i }&group=${group}">${i }</a></li>
+                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="postList?pageNUM=${i }&group=${group}">${i }</a></li>
                  </c:forEach>
               <c:if test="${endPage < totalPage}">              
-                 <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
+                 <li class="page-item"><a class="page-link" id="page-link" href="postList?pageNUM=${endPage+1 }&group=${group}">
                      <span>&raquo;</span>
               <span class="sr-only">다음 페이지</span>
                   </a></li>
               </c:if>
               <c:if test="${endPage == totalPage}">
-                  <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
+                  <li class="page-item disabled"><a class="page-link" id="page-link" href="postList?pageNUM=${endPage+1 }&group=${group}">
                         <span>&raquo;</span>
                 <span class="sr-only">다음 페이지</span>
                      </a></li>
               </c:if>
-        </nav>
+        </nav> --%>
         </div>
       </div>
    </section>

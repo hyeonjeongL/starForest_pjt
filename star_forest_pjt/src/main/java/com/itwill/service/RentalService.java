@@ -14,6 +14,9 @@ public interface RentalService {
 
 	/** 대여 기간 연장 */
 	int updateDate(String user_id, int book_no) throws Exception;
+	
+	//연장은 한 번 만 가능
+	public int onceExtend(String user_id, int book_no);
 
 	/** user_id로 대출중인 리스트 뽑기 */
 	List<Rental> selectById(String user_id) throws Exception;

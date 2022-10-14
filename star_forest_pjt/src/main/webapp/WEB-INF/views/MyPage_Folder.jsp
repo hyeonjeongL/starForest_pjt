@@ -299,7 +299,8 @@ $(function(){
 					alert(jsonResult.msg);
 					var rentalArray=jsonResult.data;
 					$('#clubUserList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
-					location.reload(); //이거는 시작으로 가지는데 새로고침만 되는거없ㄴㅏ
+				}else if(jsonResult.code==-1){
+					alert("대출 기간 연장은 한 번 만 가능합니다.");
 				}else{
 					alert(jsonResult.msg);
 				}

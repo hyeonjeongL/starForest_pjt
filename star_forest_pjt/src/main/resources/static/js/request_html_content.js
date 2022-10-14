@@ -6,7 +6,7 @@ function request_item_content(requestBoard){
 		<td width="300" bgcolor="ffffff" style="padding-left: 10">
 		
 		
-				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:red; font-weight:900;"':'style="color:black;"'}>
+				<a href="#" class="request_item_a" board_no="${requestBoard.board_no}" ${(requestBoard.board_status=='공지사항')?'style="color:#1c7b3a; font-weight:900;"':'style="color:black;"'}>
 				
 				${
 								function(){
@@ -20,7 +20,7 @@ function request_item_content(requestBoard){
 										html+=`&nbsp;&nbsp;&nbsp&nbsp&nbsp`;
 									}
 									if(requestBoard.board_depth>0){
-									html+=`<img src="img/reply.png">`;
+									html+=`<img src="img/reply.png" width=70px;>`;
 									}
 									return html;
 									 }()
@@ -67,7 +67,7 @@ function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
 		<thead>
-		<tr id="table1" align=center style="background-color:#1c7b3a;">
+		<tr id="table1" align=center style="background-color:#ffc91d;">
 		<td width=5% align=center class=t1><font size=2 color=#000000>번호</td>
 		<td width=30% align=center class=t1><font size=2 color=#000000>제목</td>
 		<td width=15% align=center class=t1><font size=2 color=#000000>작성자</td>

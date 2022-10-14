@@ -17,9 +17,18 @@ public interface SearchMapper {
 		public List<Search> searchList(Search search);
 		
 		//분야 리스트 뽑기
+		@Select("SELECT "
+				+ " book_no,book_title,book_author,book_image,book_image_src,category_no"
+				+ " FROM book"
+				+ " where category_no = #{category_no}"
+				+ " order by book_no asc")
 		public List<Search> cateList(int category_no);
 
 		//전체 리스트 뽑기
+		@Select(" select"
+				+ "		 book_no,book_title,book_author,book_image,book_image_src"
+				+ "		 from book"
+				+ "		 order by book_no asc")
 		public List<Search> allList();
 		
 	/*

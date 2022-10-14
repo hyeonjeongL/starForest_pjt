@@ -1,8 +1,10 @@
 function Search() {
 }
 
-Search.cate_join_html = function(bookCate) {
-	return `<div class="category" id="btn_category">
+Search.cate_join_html = function(bookCateArray) {
+	return `
+	<div class="row">
+	<div class="category" id="btn_category">
 				            <div>
 				             <button type="button" id="btn_all" value="all" style="width:50px" >전체</button>
 				             <button type="button" id="btn1" value="100" style="width:130px">건강/취미/레저</button>
@@ -14,10 +16,11 @@ Search.cate_join_html = function(bookCate) {
 				             <button type="button" id="btn1" value="700" style="width:120px">소설/시/희곡</button>
 				             <br>
 				        </div>
-							<br><br>
+				        </div>
+							<br><br><br>
 	
-								<div class="rentalTable">
-									${bookCate.map(Search.cate_item_html).join('')
+								<div class="searchAllList">
+									${bookCateArray.map(Search.cate_item_html).join('')
 		}
 								</div>
 							
@@ -28,12 +31,12 @@ Search.cate_join_html = function(bookCate) {
 
 Search.cate_item_html = function(cate) {
 	return `
-			<div class="row" id="searchAllList">
+			<div class="searchAllList" id="content">
 							<div class="col-md-3">
 								<div class="card mb-3">
 									<div class="card-body p-0">
 										<a href="book_detail?book_no=${cate.book_no}">
-											<img class="card-image-top img-fluid" width="100%" alt="${cate.book_image}" src="${cate.book_image_src}">
+											<img class="card-image-top img-fluid" width="100%" alt="" src="${cate.book_image_src}">
 										</a>
 										<div class="card-body">
 											<div class="card-title">

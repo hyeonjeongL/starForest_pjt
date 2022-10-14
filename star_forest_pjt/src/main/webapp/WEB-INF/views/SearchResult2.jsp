@@ -217,26 +217,6 @@ section#content div.book_title a {
 	color: #000;
 }
 </style>
-<style>
-section#content ul li {
-	display: inline-block;
-	margin: 10px;
-}
-
-section#content div.goodsThumb img {
-	width: 200px;
-	height: 200px;
-}
-
-section#content div.goodsName {
-	padding: 10px 0;
-	text-align: center;
-}
-
-section#content div.goodsName a {
-	color: #000;
-}
-</style>
 </head>
 <body class="d-flex flex-column">
 	<div id="page-content">
@@ -324,6 +304,7 @@ section#content div.goodsName a {
 						    -------------------------------- -->
 						</div>
 					</div>
+				</div>
 				</div>
 		</section>
 	</div>

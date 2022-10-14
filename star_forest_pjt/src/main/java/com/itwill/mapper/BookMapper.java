@@ -89,7 +89,7 @@ public interface BookMapper {
 	@Select("select * from (select * from book order by book_publish_date asc) where category_no=#{category_no} and rownum<=9")
 	public List<Book> selectCategoryNew(int category_no);
 	
-	@Select("select * from book order by book_publish_date asc")
+	@Select("select * from book order by book_input_date desc")
 	public List<Book> selectNew();
 	
 	@Select("select count(*) from book")

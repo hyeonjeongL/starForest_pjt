@@ -30,8 +30,8 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="css/ddoyoon.css">
 <link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/favicon-16x16.png">
-<title>도서정보 - 별숲</title>
+	href="favicon/star.png">
+<title>커뮤니티 - 별숲도서관</title>
 
 
 <script type="text/javascript"

@@ -1,17 +1,20 @@
 package com.itwill.service;
 
 import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.itwill.domain.Search;
-import com.itwill.repository.SearchDao;
-import com.itwill.util.PageUtil;
 
 //검색기능
 public interface SearchService {
+	
+	//전체 리스트 뽑기
+	public List<Search> selectNoTot(int book_no); 
+
+/** 번호 리스트 뽑기 */
+List<Search> selectNo(int book_no) throws Exception;
+
+//검색기능 
+List<Search> searchList(Search search) throws Exception;
 	
 	//분야별 리스트
 	List<Search> list (int category_no, int level) throws Exception;

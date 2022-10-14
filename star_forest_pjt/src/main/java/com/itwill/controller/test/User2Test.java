@@ -1,4 +1,4 @@
-package com.itwill.DAOtest;
+package com.itwill.controller.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;

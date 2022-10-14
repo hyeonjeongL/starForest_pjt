@@ -1,27 +1,81 @@
 package com.itwill.domain;
 //검색기능
-import java.util.Date;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Search {
 	
 	private int book_no;
-	private int isbn;
 	private String book_title;
 	private String book_author;
-	private String book_publisher;
-	private String book_summary;
-	private String book_publish_date;
 	private String book_image;
-	private Date book_input_date;
 	private String book_image_src;
-	private int book_page;
-	private int book_qty;
-	private int book_res_cnt;
-	private int book_rental_cnt;
+	private String book_publisher;
+	Book book;
+	
 	private int category_no;
+	private String category_name;
+
 	private int cateno;//참조 번호
 	private int level;//상위 하위
-	private String category_name;
+	
+	
+	//검색 필터
+		private String type;//검색 타입
+		private String Keyword; //검색 내용
+	
+	
+	public Search(int book_no, String book_title, String book_author, String book_image, String book_image_src,
+			String book_publisher, Book book, int category_no, String category_name, int cateno, int level, String type,
+			String keyword) {
+		super();
+		this.book_no = book_no;
+		this.book_title = book_title;
+		this.book_author = book_author;
+		this.book_image = book_image;
+		this.book_image_src = book_image_src;
+		this.book_publisher = book_publisher;
+		this.book = book;
+		this.category_no = category_no;
+		this.category_name = category_name;
+		this.cateno = cateno;
+		this.level = level;
+		this.type = type;
+		Keyword = keyword;
+	}
+
+	@Override
+	public String toString() {
+		return "Search [book_no=" + book_no + ", book_title=" + book_title + ", book_author=" + book_author
+				+ ", book_image=" + book_image + ", book_image_src=" + book_image_src + ", book_publisher="
+				+ book_publisher + ", book=" + book + ", category_no=" + category_no + ", category_name="
+				+ category_name + ", cateno=" + cateno + ", level=" + level + ", type=" + type + ", Keyword=" + Keyword
+				+ "]";
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	public String getBook_publisher() {
+		return book_publisher;
+	}
+
+	public void setBook_publisher(String book_publisher) {
+		this.book_publisher = book_publisher;
+	}
+
+
+	
 	
 	
 	public int getLevel() {
@@ -41,9 +95,7 @@ public class Search {
 	}
 
 	
-	//검색 필터
-	private String type;//검색 타입
-	private String Keyword; //검색 내용
+	
 	
 	public String getType() {
 		return type;
@@ -67,6 +119,20 @@ public class Search {
 	
 
 	//검색 리스트
+	public Search(int book_no, String book_title, String book_author,String book_publisher,
+			String book_image, String book_image_src, String category_name
+			) {
+		super();
+		this.book_no = book_no;
+		this.book_title = book_title;
+		this.book_author = book_author;
+		this.book_publisher = book_publisher;
+		this.book_image = book_image;
+		this.book_image_src = book_image_src;//필요?
+		this.category_name = category_name;
+	}
+
+	//검색 리스트
 	public Search(int book_no, String book_title, String book_author,
 			 String book_image, String book_image_src, int category_no, String category_name,int cateno
 			) {
@@ -79,6 +145,18 @@ public class Search {
 		this.category_no = category_no;
 		this.category_name = category_name;
 		this.cateno = cateno;
+	}
+	
+	//검색 리스트2
+	public Search(int book_no, String book_title, String book_author,
+			String book_image, String book_image_src
+			) {
+		super();
+		this.book_no = book_no;
+		this.book_title = book_title;
+		this.book_author = book_author;
+		this.book_image = book_image;
+		this.book_image_src = book_image_src;//필요?
 	}
 
 	public String getCategory_name() {
@@ -97,13 +175,6 @@ public class Search {
 		this.book_no = book_no;
 	}
 
-	public int getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(int isbn) {
-		this.isbn = isbn;
-	}
 
 	public String getBook_title() {
 		return book_title;
@@ -121,29 +192,8 @@ public class Search {
 		this.book_author = book_author;
 	}
 
-	public String getBook_publisher() {
-		return book_publisher;
-	}
 
-	public void setBook_publisher(String book_publisher) {
-		this.book_publisher = book_publisher;
-	}
-
-	public String getBook_summary() {
-		return book_summary;
-	}
-
-	public void setBook_summary(String book_summary) {
-		this.book_summary = book_summary;
-	}
-
-	public String getBook_publish_date() {
-		return book_publish_date;
-	}
-
-	public void setBook_publish_date(String book_publish_date) {
-		this.book_publish_date = book_publish_date;
-	}
+	
 
 	public String getBook_image() {
 		return book_image;
@@ -153,13 +203,7 @@ public class Search {
 		this.book_image = book_image;
 	}
 
-	public Date getBook_input_date() {
-		return book_input_date;
-	}
-
-	public void setBook_input_date(Date book_input_date) {
-		this.book_input_date = book_input_date;
-	}
+	
 
 	public String getBook_image_src() {
 		return book_image_src;
@@ -169,37 +213,7 @@ public class Search {
 		this.book_image_src = book_image_src;
 	}
 
-	public int getBook_page() {
-		return book_page;
-	}
-
-	public void setBook_page(int book_page) {
-		this.book_page = book_page;
-	}
-
-	public int getBook_qty() {
-		return book_qty;
-	}
-
-	public void setBook_qty(int book_qty) {
-		this.book_qty = book_qty;
-	}
-
-	public int getBook_res_cnt() {
-		return book_res_cnt;
-	}
-
-	public void setBook_res_cnt(int book_res_cnt) {
-		this.book_res_cnt = book_res_cnt;
-	}
-
-	public int getBook_rental_cnt() {
-		return book_rental_cnt;
-	}
-
-	public void setBook_rental_cnt(int book_rental_cnt) {
-		this.book_rental_cnt = book_rental_cnt;
-	}
+	
 
 	public int getCategory_no() {
 		return category_no;
@@ -209,15 +223,8 @@ public class Search {
 		this.category_no = category_no;
 	}
 
-	@Override
-	public String toString() {
-		return "Search [book_no=" + book_no + ", isbn=" + isbn + ", book_title=" + book_title + ", book_author="
-				+ book_author + ", book_publisher=" + book_publisher + ", book_summary=" + book_summary
-				+ ", book_publish_date=" + book_publish_date + ", book_image=" + book_image + ", book_input_date="
-				+ book_input_date + ", book_image_src=" + book_image_src + ", book_page=" + book_page + ", book_qty="
-				+ book_qty + ", book_res_cnt=" + book_res_cnt + ", book_rental_cnt=" + book_rental_cnt
-				+ ", category_no=" + category_no + "]";
-	}
+
+	
 
 	
 	

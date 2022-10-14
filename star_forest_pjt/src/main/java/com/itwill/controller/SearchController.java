@@ -7,25 +7,50 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.itwill.domain.Book;
 import com.itwill.domain.Search;
+import com.itwill.repository.SearchDao;
 import com.itwill.service.SearchService;
-//검색기능
+
+
 @Controller
-@RequestMapping("/star_forest_pjt/*")
 public class SearchController {
 	
 	@Autowired
 	private SearchService searchService;
 	
+	@GetMapping("/getSearchList")
+	@ResponseBody
+	public List<Search> getSearchList (@RequestParam("type") String type,
+			@RequestParam("keyword") String keyword, Model model) throws Exception{
+		Search search= new Search();
+		search.setType(type);
+		search.setKeyword(keyword);
+		return searchService.searchList(search);
+		
+		
+	}
 	
-	private static final Logger logger =LoggerFactory.getLogger(SearchController.class);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	/*
+	 * private static final Logger logger =LoggerFactory.getLogger(SearchController.class);
 	
 	//분야별 리스트
 	@RequestMapping(value = "/SearchList", method = RequestMethod.GET)
@@ -49,23 +74,6 @@ public class SearchController {
 		}
 		return "SearchResult";
 	}
-	
-	
-	@RequestMapping(value = "listSearch", method = RequestMethod.GET)
-	public void getlistSearch (Model model,
-			@RequestParam (value="searchType",required=false, defaultValue="title") String searchType,
-			@RequestParam (value="keyword",required=false, defaultValue="") String keyword)throws Exception{
-		
-		List<Search> list= null;
-		model.addAttribute("list", list);
-		model.addAttribute("searchType", searchType);
-		model.addAttribute("keyword", keyword);
-		
-	}
-	
-	
-		
-	/*
 	@RequestMapping(value="/SearchList",method=RequestMethod.GET)
 	public String SearchList() {
 		return "SearchList";

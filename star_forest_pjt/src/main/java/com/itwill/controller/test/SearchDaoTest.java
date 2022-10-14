@@ -1,4 +1,4 @@
-package com.itwill.DAOtest;
+package com.itwill.controller.test;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
@@ -8,26 +8,42 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.FilterType;
 
-import com.itwill.mapper.GoodMapper;
-import com.itwill.repository.GoodDao;
-import com.itwill.service.GoodService;
+import com.itwill.domain.Search;
+import com.itwill.mapper.SearchMapper;
+import com.itwill.repository.SearchDao;
+import com.itwill.service.SearchService;
 
+//검색 기능
 
 @SpringBootApplication
 @ComponentScan(basePackages = {"com.itwill"},
 includeFilters= {@Filter(type= FilterType.ASSIGNABLE_TYPE,
-				classes= {GoodDao.class,GoodService.class,GoodMapper.class}
+				classes= {SearchDao.class,SearchService.class,SearchMapper.class}
 		)
 })
-public class GoodDaoTest {
+public class SearchDaoTest {
 	public static void main(String[] args) throws Exception {
 		SpringApplication application = 
-				new SpringApplication(GoodDaoTest.class);
+				new SpringApplication(SearchDaoTest.class);
 		application.setWebApplicationType(WebApplicationType.NONE);
 		ConfigurableApplicationContext context=application.run(args);
-		GoodDao goodDao=(GoodDao)context.getBean(GoodDao.class);
-		GoodService goodService=(GoodService)context.getBean(GoodService.class);
-
-		//분야 추천
+		SearchService searchService=(SearchService)context.getBean(SearchService.class);
+		System.out.println(searchService.searchList(new Search(0, "축구", null, null, null)));
+		
+		//제목 검색
+		
+		//번호 검색
+		
+		//분야명 검색
+		//분야번호 검색
+		
+		//출판사 검섹
+		
+		//저자 검색
+		
+		//통합 검색
+		
+		//도서 전체 리스트
+		
 	}
 }

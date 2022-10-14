@@ -2,15 +2,22 @@ package com.itwill.repository;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-
 import com.itwill.domain.Search;
-import com.itwill.util.PageUtil;
+
 
 
 //검색기능
 public interface SearchDao {
+	
+	
+	//전체 리스트 뽑기
+			public List<Search> selectNoTot(int book_no); 
+	
+	/** 번호 리스트 뽑기 */
+	List<Search> selectNo(int book_no) throws Exception;
+	
+	//검색기능 
+		List<Search> searchList(Search search) throws Exception;
 	
 	//분야별 리스트:2차분류
 	List<Search> list(int category_no) throws Exception;

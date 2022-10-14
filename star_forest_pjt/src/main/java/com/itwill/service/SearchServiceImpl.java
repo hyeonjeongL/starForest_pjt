@@ -1,11 +1,7 @@
 package com.itwill.service;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
-import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,6 +54,24 @@ public class SearchServiceImpl  implements SearchService{
 	@Override
 	public int searchCount(String searchType, String keyword) throws Exception {
 	 return searchDao.searchCount(searchType, keyword);
+	}
+
+	@Override
+	public List<Search> selectNoTot(int book_no) {
+		// TODO Auto-generated method stub
+		return searchDao.selectNoTot(book_no);
+	}
+
+	@Override
+	public List<Search> selectNo(int book_no) throws Exception {
+		// TODO Auto-generated method stub
+		return searchDao.selectNo(book_no);
+	}
+
+	@Override
+	public List<Search> searchList(Search search) throws Exception {
+		// TODO Auto-generated method stub
+		return searchDao.searchList(search);
 	}
 	
 /*

@@ -6,7 +6,7 @@
 <select id="list_1" resultType="com.itwill.domain.Search">
 
 select 
-b.book_no,b.book_title,b.book_author,b.book_publisher,b.book_image,b.book_image_src,b.category_no,bc.category_name,bc.cateno
+b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,b.category_no,bc.category_name,bc.cateno
 from book b 
 inner join  book_category bc 
 on b.category_no=bc.category_no  
@@ -19,7 +19,7 @@ or bc.cateno=#{cateno}
 <select id="list_2" resultType="com.itwill.domain.Search">
 
 select 
-b.book_no,b.book_title,b.book_author,b.book_publisher,b.book_image,b.book_image_src,b.category_no,bc.category_name,bc.cateno
+b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,b.category_no,bc.category_name,bc.cateno
 from book b 
 inner join  book_category bc 
 on b.category_no=bc.category_no  
@@ -35,9 +35,20 @@ select level, category_name, category_no, cateno from book_category
 
 </select>
 
+ <select id='bookListAjax' resultType='com.itwill.domain.Search'>
+        select book_no,book_title,book_author
+        from book order by book_no desc
+    </select>
+    
+    <select id='bookList' resultType='com.itwill.domain.Search'>
+        select book_no,book_title,book_author
+        from book order by book_no
+    </select>
 
 
-<!-- 01. 상품 전체 목록 
+<!-- 01. 상품 전체 목록
+book_no,book_title,book_author,book_image,book_image_src 
+ 
  SELECT  
         	b.book_no,b.book_title,b.book_author,b.book_publisher,b.book_image,b.book_image_src,b.category_no,bc.category_name
         from book b 
@@ -51,7 +62,69 @@ select level, category_name, category_no, cateno from book_category
         left join  book_category bc 
 		on b.category_no=bc.category_no
         ORDER BY book_no
+        
+        SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,bc.category_name
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		 on b.category_no=bc.category_no
+		 WHERE b.book_no=#{book_no}
+		 b.book_title like '%'||#{keyword}||'%'
+		 b.book_author like '%'||#{keyword}||'%'
+		 b.book_publisher like '%'||#{keyword}||'%'
+		 bc.category_name like '%'||#{keyword}||'%'
+		 order by book_no asc
     </select-->
+    
+    <!-- 검색기능 -->
+	<select id="searchList" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,bc.category_name
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		 on b.category_no=bc.category_no
+		 <where>
+		    <if test="type !=null and type.equals('book_title')">
+		        b.book_title like '%'||#{keyword}||'%'
+		    </if>
+		    <if test="type !=null and type.equals('book_author')">
+		        or b.book_author like '%'||#{keyword}||'%'
+		    </if>
+		    <if test="type !=null and type.equals('book_publisher')">
+		        or b.book_publisher like '%'||#{keyword}||'%'
+		    </if>
+		    <if test="type !=null and type.equals('category_name')">
+		       or bc.category_name like '%'||#{keyword}||'%'
+		    </if>
+  		</where>
+		  order by book_no asc
+	</select>
+	
+	
+	<select id="selectNo" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 b.book_no,b.book_title,b.book_author,b.book_image,b.book_image_src,bc.category_name
+		 FROM book b 
+		 INNER JOIN
+		 book_category bc 
+		  on b.category_no=bc.category_no
+		 WHERE b.book_no=#{book_no}
+		 order by book_no asc
+	</select>
+	
+	
+	
+	<select id="selectNoTot" resultType="com.itwill.domain.Search" parameterType="com.itwill.domain.Search">
+		SELECT 
+		 book_no,book_title,book_author,book_image,book_image_src
+		 FROM book
+		 WHERE book_no=#{book_no}
+		 order by book_no asc
+	</select>
+	
+	
     
     
 </mapper>

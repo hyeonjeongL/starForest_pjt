@@ -1,3 +1,30 @@
+Search.list_content = function(SearchArray) {
+	return ` 
+	${SearchArray.map(Search.list_content).join('')}
+	<div class="col-md-9">
+            <div class="row">
+					<div class="col-md-3">
+						<div class="card mb-3">
+							<div class="card-body p-0">
+								<a href="book_detail?book_no="><img class="card-image-top img-fluid" width="100%" alt="" src=""></a>
+								<div class="card-body">
+									<div class="card-title">
+										<div class="book-title" id="book-title"></div>
+										<h6 class="book_author"></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+               </div>
+				<!-- CARD COLUMNS -->
+				
+					
+					
+            </div>			
+				`;
+}
+
 Search.__html = function(SearchArray) {
 	return `
 	<div class="category" id="btn_category">

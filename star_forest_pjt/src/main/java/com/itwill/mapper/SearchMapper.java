@@ -13,6 +13,15 @@ import com.itwill.domain.Search;
 @Mapper
 public interface SearchMapper {
 	
+	//검색 기능 리스트 뽑기
+		public List<Search> searchList(Search search);
+		
+		// 번호 리스트 뽑기
+		public List<Search> selectNo(int book_no);  
+
+		//전체 리스트 뽑기
+		public List<Search> selectNoTot(int book_no);  
+	/*
 //제목 검색
 	@Select("select "
 			+ "book_no,book_title,book_author,book_image,book_image_src"
@@ -25,7 +34,7 @@ public interface SearchMapper {
 			+ "book_no,book_title,book_author,book_image,book_image_src"
 			+ "from book"
 			+ " from book where book_no=#{book_no}")
-	public Search selectByNo(int book_no);
+	//public Search selectByNo(int book_no);
 	
 	//저자검색
 	@Select("select"
@@ -46,7 +55,7 @@ public interface SearchMapper {
 			+ "book_no,book_title,book_author,book_image,book_image_src"
 			+ "from book "
 			+ "where book_title =#{book_title} or book_author =#{book_author} or book_publisher =#{book_publisher}")
-	public List<Search> searchList();
+	//public List<Search> searchList();
 	
 	//도서 리스트
 	@Select("select "
@@ -67,6 +76,6 @@ public interface SearchMapper {
 	@Select("select book_no,book_title,book_author,book_image,book_image_src,category_no"
 			+ "from book where category_no =#{category_no}")
 	public List<Search> cateNoList(int category_no);
-	 
+	 */
 	 
 }

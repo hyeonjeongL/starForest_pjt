@@ -1,51 +1,34 @@
 package com.itwill.repository;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.sql.DataSource;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.Search;
-import com.itwill.domain.SearchSQL;
 import com.itwill.mapper.SearchMapper;
-import com.itwill.util.PageUtil;
+
 
 @Repository
 public class SearchDaoImpl implements SearchDao {
 	
-	@Autowired
-    private SqlSession sqlSession;
+
 	
 	@Autowired
-	  private SearchMapper searchMapper;
+	private SearchMapper searchMapper;
 	
-	@Autowired
-	private DataSource dataSource;
-	
-	public SearchDaoImpl(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
-	
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
 
 	//매퍼
-	private static String namespace="com.itwill.mapper.SearchMapper";
+	
 
 	//분야별 리스트:2차 분류
 	@Override
 	public List<Search> list(int category_no) throws Exception {
-		return sqlSession.selectList(namespace+".list_2",category_no);
+		
+		return searchMapper.searchList(new Search());
 	}
 
 	//분야별 리스트:1차 분류
@@ -56,18 +39,14 @@ public class SearchDaoImpl implements SearchDao {
 		map.put("category_no",category_no);
 		map.put("cateno",cateno);
 		
-		return sqlSession.selectList(namespace+".list_1",map);
+		return searchMapper.searchList(new Search());
 	}
 
 	@Override
 	public List<Search> cate() throws Exception {
-		return sqlSession.selectList(namespace+".category");
+		return null;
 	}
 
-	@Override
-	public List<Search> allList() throws Exception {
-		return searchMapper.allList();
-	}
 
 	
 	// 게시물 총 갯수 + 검색 적용
@@ -79,7 +58,28 @@ public class SearchDaoImpl implements SearchDao {
 	 data.put("searchType", searchType);
 	 data.put("keyword", keyword);
 	 
-	 return sqlSession.selectOne(namespace + ".searchCount", data); 
+	 return 0;
+	}
+
+	@Override
+	public List<Search> allList() throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Search> selectNo(int book_no) throws Exception {
+		return searchMapper.selectNo(book_no);
+	}
+
+	@Override
+	public List<Search> searchList(Search search) throws Exception {
+		return searchMapper.searchList(search);
+	}
+
+	@Override
+	public List<Search> selectNoTot(int book_no) {
+		return searchMapper.selectNoTot(book_no);
 	}
 
 	

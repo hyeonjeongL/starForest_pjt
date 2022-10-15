@@ -125,13 +125,27 @@
 			<div class="seat_wrap" style="text-align:center;">
 				<div id="A_room">
 						<c:forEach items="${seatList}" var="seat" begin="0" end="9">
-						<div class="a-deck">
+						<c:choose>
+						<c:when test="${seat.seat_status==0 }">
+							<div class="a-deck" style="background-color:#fffac2;">
+						</c:when>
+						<c:when test="${seat.seat_status==1 }">
+							<div class="a-deck" style="background-color:#9b9b9b;">
+						</c:when>
+						</c:choose>
+						<c:choose>
+						 <c:when test="${seat.seat_status==0 }">
 		          		 <p class="card-text">${seat.seat_no}</p>
+		          		 </c:when>
+		          		 <c:when test="${seat.seat_status==1 }">
+		          		 <p class="card_text">사용중</p>
+		          		 </c:when>
+		          		 </c:choose>
 		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
 		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 						 <c:choose>
 						 <c:when test="${seat.seat_status == 1}">
-		                 <p class="card_text"><b>사용중</b></p>
+		                 <p class="card_text"><b></b></p>
 		                 </c:when>
 		                 <c:when test="${seat.seat_status == 0 }">
 		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">

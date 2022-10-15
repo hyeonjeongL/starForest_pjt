@@ -64,8 +64,9 @@ seat_reservation css
 	position: static;
 }
 .a-deck{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	background-color: #fff171;
+	border-radius: 20px; 
 	width:150px; 
 	height:150px;
 	float: left; 
@@ -86,8 +87,9 @@ seat_reservation css
 	position: static;
 }
 .b-deck{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	background-color: #d4edff; 
+	border-radius: 20px;
 	width:150px; 
 	height:150px;
 	float: left; 
@@ -108,8 +110,9 @@ seat_reservation css
 	position: static;
 }
 .c-deck{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #ffe6f6; 
 	width:150px; 
 	height:150px;
 	float: left; 
@@ -131,8 +134,9 @@ seat_reservation css
 }
 	
 .d-deck{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #e4ffc5; 
 	width:150px; 
 	height:150px;
 	float: left; 
@@ -218,7 +222,8 @@ seat_reservation css
 .card-text{
 	margin:auto;
 	width: 120px;
-	padding-bottom: 0px;
+	padding-top: 7px;
+	padding-bottom: 7px;
 }
 /*
 사용중
@@ -226,8 +231,9 @@ seat_reservation css
 .card_text{
 	margin:auto;
 	width: 120px;
-	padding-bottom: 5px;
-	color:red;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	color: red;
 	font-style: italic;
 	font-weight: bold;
 }

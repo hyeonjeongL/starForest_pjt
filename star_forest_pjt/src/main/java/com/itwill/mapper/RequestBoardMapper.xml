@@ -93,13 +93,13 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 			<foreach collection="typeArr" item="type">
 				<trim prefix="OR">
 					<choose>
-						<when test="type == 'title'">
+						<when test="type == 'board_title'">
 							board_title like '%'||#{keyword}||'%' 
 						</when>
-						<when test="type == 'content'">
+						<when test="type == 'board_content'">
 							board_content like '%'||#{keyword}||'%' 
 						</when>
-						<when test="type == 'writer'">
+						<when test="type == 'user_id'">
 							user_id like '%'||#{keyword}||'%' 
 						</when>
 					</choose>

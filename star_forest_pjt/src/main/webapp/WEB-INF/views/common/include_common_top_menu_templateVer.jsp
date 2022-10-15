@@ -130,7 +130,7 @@ $(function(){
 				<li class="nav-item dropdown"><a href="SearchResult"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a class="dropdown-item" href="SearchResult">도서 검색</a></li>
+						<li><a class="dropdown-item" href="SearchResult2">도서 검색</a></li>
 						<li><a class="dropdown-item" href="recommendedBooks">사서추천도서</a></li>
 						<li><a class="dropdown-item" href="Newbooks">신착도서</a></li>
 						<li><a class="dropdown-item" href="popularBook">이달의 인기도서</a></li>
@@ -188,7 +188,7 @@ $(function(){
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${sUserId == null}">
+				<c:if test="${sUserId eq null}">
 					<li class="nav-item" v-bind:title="login">
 					<a href="user" class="nav-link" id="a_user_login_form">
 					<i class="fas fa-sign-in-alt"></i></a>
@@ -198,7 +198,7 @@ $(function(){
 					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
-				<c:if test="${sUserId != null}">
+				<c:if test="${sUserId ne null}">
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 					<li class="nav-item" v-bind:title="logout">

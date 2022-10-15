@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -41,7 +42,7 @@ public class UserInfoRestController {
 	// 세션체크
 	@LoginCheck
 	@PostMapping("/user_session_check")
-	public Map user_session_check(HttpSession session) throws Exception {
+	public Map user_session_check(HttpSession session,Model model) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 1;
 		String url = "main";
@@ -51,7 +52,7 @@ public class UserInfoRestController {
 		String sUserId = (String) session.getAttribute("sUserId");
 		User sUser = userService.findUser(sUserId);
 		resultList.add(sUser);
-
+		model.addAttribute("sUserId", sUserId);
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);

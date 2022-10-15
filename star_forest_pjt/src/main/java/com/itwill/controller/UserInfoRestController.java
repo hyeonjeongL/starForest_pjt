@@ -445,19 +445,22 @@ public class UserInfoRestController {
 	}
 	//user_list
 	@LoginCheck
-	@PostMapping("/user_all_list")
-	public Map user_list() throws Exception {
+	@GetMapping("/user_all_list")
+	public Map user_list(HttpSession session) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
 		String msg = "";
+		String admin="admin";
+		String sUserId = (String)session.getAttribute("sUserId");
 		List<User> resultList = new ArrayList<User>();
-		
+		if(admin.equals(sUserId)) {
 		resultList=userService.userList();
 		code = 1;
 		url = "";
 		msg = "성공";
-		resultList.addAll(resultList);
+		//resultList.addAll(resultList);
+		}
 		
 		resultMap.put("code", code);
 		resultMap.put("url", url);

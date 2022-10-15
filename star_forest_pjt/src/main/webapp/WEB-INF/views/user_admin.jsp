@@ -40,11 +40,20 @@
 <script type="text/javascript" src="./js/adminContents.js"></script>
 <script type="text/javascript">
 $(function(){
-	
+	$.ajax({
+		url:'user_all_list',
+		method:'GET',
+		success:function(jsonResult){
+			var userArray=jsonResult.data;
+			console.log(userArray);
+			$('.listTable').html(adminContents.admin_user_list_content(userArray));
+		}
+			
+	});
 	$(document).on('click','#menu_admin_user',function(e){
 		$.ajax({
 			url:'user_all_list',
-			method:'POST',
+			method:'GET',
 			success:function(jsonResult){
 				var userArray=jsonResult.data;
 				console.log(userArray);

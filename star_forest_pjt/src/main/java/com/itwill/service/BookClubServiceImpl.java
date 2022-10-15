@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.itwill.domain.BookClub;
 import com.itwill.repository.BookClubDao;
+import com.itwill.util.Criteria;
 
 @Service
 public class BookClubServiceImpl implements BookClubService {
@@ -20,11 +21,6 @@ public class BookClubServiceImpl implements BookClubService {
 		return bookClubDao.create(bookClub);
 	}
 
-	//동아리 전체 리스트조회
-	@Override
-	public List<BookClub> selectAll() throws Exception {
-		return bookClubDao.selectAll();
-	}
 
 	//카테고리별 동아리리스트 조회
 	@Override
@@ -77,6 +73,16 @@ public class BookClubServiceImpl implements BookClubService {
 	@Override
 	public int user_delete(String user_id, int club_no) throws Exception {
 		return bookClubDao.user_delete(user_id, club_no);
+	}
+
+	@Override
+	public int clubCount(Criteria cri) throws Exception {
+		return bookClubDao.clubCount(cri);
+	}
+
+	@Override
+	public List<BookClub> selectAll(Criteria cri) throws Exception {
+		return bookClubDao.selectAll(cri);
 	}
 
 	

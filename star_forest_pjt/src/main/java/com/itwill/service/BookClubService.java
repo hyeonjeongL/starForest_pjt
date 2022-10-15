@@ -3,14 +3,18 @@ package com.itwill.service;
 import java.util.List;
 
 import com.itwill.domain.BookClub;
+import com.itwill.util.Criteria;
 
 public interface BookClubService {
 	
 		//동아리생성
 		int create(BookClub bookClub) throws Exception;	
 		 
+		//동아리 총 카운트
+		int clubCount(Criteria cri) throws Exception;
+		
 		//동아리 전체리스트
-		List<BookClub> selectAll() throws Exception;
+		List<BookClub> selectAll(Criteria cri) throws Exception;
 		
 		//카테고리별 동아리조회
 		List<BookClub> selectByCategory(int category_no) throws Exception;

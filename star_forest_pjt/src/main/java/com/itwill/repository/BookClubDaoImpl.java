@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.itwill.domain.BookClub;
 import com.itwill.mapper.BookClubMapper;
 import com.itwill.mapper.UserMapper;
+import com.itwill.util.Criteria;
 
 @Repository
 public class BookClubDaoImpl implements BookClubDao {
@@ -22,11 +23,7 @@ public class BookClubDaoImpl implements BookClubDao {
 		return bookClubMapper.create(bookClub);
 	}
 
-	@Override
-	public List<BookClub> selectAll() throws Exception {
-		return bookClubMapper.selectAll();
-	}
-
+	
 	@Override
 	public List<BookClub> selectByCategory(int category_no) throws Exception {
 		return bookClubMapper.selectBycategory(category_no);
@@ -69,6 +66,16 @@ public class BookClubDaoImpl implements BookClubDao {
 	@Override
 	public int user_delete(String user_id, int club_no) throws Exception {
 		return bookClubMapper.user_delete(user_id, club_no);
+	}
+
+	@Override
+	public int clubCount(Criteria cri) throws Exception {
+		return bookClubMapper.clubCount(cri);
+	}
+
+	@Override
+	public List<BookClub> selectAll(Criteria cri) throws Exception {
+		return bookClubMapper.selectAll(cri);
 	}
 
 	

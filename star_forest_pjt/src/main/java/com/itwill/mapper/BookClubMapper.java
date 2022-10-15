@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
 import com.itwill.domain.BookClub;
+import com.itwill.util.Criteria;
 @Mapper
 public interface BookClubMapper {
   
@@ -17,10 +18,10 @@ public interface BookClubMapper {
 			+ "							 0,#{category_no},#{user_id})")
 	public int create(BookClub bookClub);
 	
+	@Select("select count(*) cnt from book_club")
+	public int clubCount(Criteria cri);
 	
-	
-	@Select("select * from book_club order by club_no desc")
-	public List<BookClub> selectAll();
+	public List<BookClub> selectAll(Criteria cri);
 	
 	@Select("select club_no,club_name,club_count,club_person,club_time,club_place,club_content,category_no from book_club"
 			+ "			where category_no=#{category_no} order by club_no desc")
@@ -52,5 +53,7 @@ public interface BookClubMapper {
 	
 	@Delete("delete from book_club where club_no=#{club_no} and user_id=#{user_id}")
 	public int user_delete(String user_id,int club_no);
+	
+	
 	
 }

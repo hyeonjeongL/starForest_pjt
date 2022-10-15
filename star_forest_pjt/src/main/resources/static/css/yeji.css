@@ -54,3 +54,22 @@ a{
     color: #4c552a;
     background: #FFFFFF;
 }
+
+.page_area{
+	margin:auto; 
+ }
+ #page_form{
+ 	text-align: center;
+ }
+ #page{
+     list-style : none;
+     display: inline-block;
+  }
+  
+ #page li{
+    float: left;
+    font-size: 15px;
+    margin-left: 18px;
+    padding: 7px;
+    font-weight: 500;
+  }

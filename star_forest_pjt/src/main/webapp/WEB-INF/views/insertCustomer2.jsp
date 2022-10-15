@@ -68,7 +68,7 @@
 				$("#check").css({
 					"color" : "#FA3E3E",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 			} else { // 공백아니면 중복체크
 				$.ajax({
@@ -85,7 +85,7 @@
 							$("#check").css({
 								"color" : "#FA3E3E",
 								"font-weight" : "bold",
-								"font-size" : "10px"
+								"font-size" : "13px"
 							})
 							//console.log("중복아이디");
 						} else { // 아니면 중복아님
@@ -94,7 +94,7 @@
 							$("#check").css({
 								"color" : "#0D6EFD",
 								"font-weight" : "bold",
-								"font-size" : "10px"
+								"font-size" : "13px"
 							})
 							//console.log("중복아닌 아이디");
 						}
@@ -112,7 +112,7 @@
 				$("#chkpwd").css({
 					"color" : "#FA3E3E",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 				pwdchk = false;
 			} else {
@@ -121,7 +121,7 @@
 				$("#chkpwd").css({
 					"color" : "#0D6EFD",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 				pwdchk = true;
 				//console.log("idchk : "+idchk);
@@ -138,7 +138,7 @@
 				$("#checkpwd").css({
 					"color" : "#FA3E3E",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 			} else {
 				pwdconfrimchk = true;
@@ -147,7 +147,7 @@
 				$("#checkpwd").css({
 					"color" : "#0D6EFD",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 			}
 		})
@@ -159,7 +159,7 @@
 				$("#nmchk").css({
 					"color" : "#FA3E3E",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 			} else {
 				namechk = true;
@@ -179,7 +179,7 @@
 								$("#chkbir").css({
 									"color" : "#FA3E3E",
 									"font-weight" : "bold",
-									"font-size" : "10px"
+									"font-size" : "13px"
 								})
 							} else {
 								birchk = true;
@@ -190,7 +190,7 @@
 								$("#chkbir").css({
 									"color" : "#0D6EFD",
 									"font-weight" : "bold",
-									"font-size" : "10px"
+									"font-size" : "13px"
 								})
 								//console.log("idchk : "+idchk);
 								//console.log("pwdconfrimchk : "+pwdconfrimchk);
@@ -210,7 +210,7 @@
 								$("#chkmail").css({
 									"color" : "#FA3E3E",
 									"font-weight" : "bold",
-									"font-size" : "10px"
+									"font-size" : "13px"
 								})
 							} else {
 								emchk  = true;
@@ -221,7 +221,7 @@
 								$("#chkmail").css({
 									"color" : "#0D6EFD",
 									"font-weight" : "bold",
-									"font-size" : "10px"
+									"font-size" : "13px"
 								})
 							}
 						})
@@ -234,11 +234,11 @@
 			if (!regExp.test($user_phone.val())) {
 				//console.log("형식 미확인");
 				$("#phoneTxt").html(
-						"<span id='chkphone'>핸드폰 번호 형식이 맞지 않습니다</span>")
+						"<span text-align='left' id='chkphone'>핸드폰 번호 형식이 맞지 않습니다</span>")
 				$("#chkphone").css({
 					"color" : "#FA3E3E",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 				phchk = false;
 			} else {
@@ -249,7 +249,7 @@
 					"text-align" : "center",
 					"color" : "#0D6EFD",
 					"font-weight" : "bold",
-					"font-size" : "10px"
+					"font-size" : "13px"
 				})
 				phchk = true;
 				//console.log("idchk : "+idchk);
@@ -480,6 +480,15 @@ span {
   	.bg-white {
   		padding-bottom: 30px;
   	}
+  	.btn-group{
+  		display:inline-block;
+  	}
+  	.form-group last mb-4 addr_input{
+  		display:inline-block;
+  	}
+  	#findAddr{
+  		vertical-align: middle;
+  	}
 </style>
 	<!-- header -->
 <title>회원가입 - 별숲도서관</title>
@@ -511,6 +520,7 @@ span {
 			<!-- 폼 시작 -->
 			<form action='<c:url value='/registerOkUser'/>' method="post"  name="frm" >
 							<!-- <span>아이디</span> -->
+							<br>
 							<div class="form-group first">
 								<label for="user_id" id="id"></label> 
 								<input type="text" class="form-control" name="user_id" id="user_id" placeholder="아이디 입력 (영어 소문자)" required>
@@ -540,7 +550,7 @@ span {
 								<label for="user_address" id="muser_address"></label>
 								<input type="text" class="form-control" name="user_address" id="user_address" placeholder="주소 입력" required>
 							</div>
-							<input type="button" class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기" required><br>
+								<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button"  class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기" required><br>
 							
 							<!-- <span>상세 주소</span> -->
 							<div class="form-group last mb-4 addr_detail">
@@ -548,17 +558,6 @@ span {
 								<input type="text" class="form-control" name="user_address2" id="user_address2" placeholder="상세 주소 입력" required>
 							</div>
 
-							<span>성별</span>
-							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="M">
-							  <label class="btn btn-outline-primary check" for="male">남성 M</label>
-							
-							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="F">
-							  <label class="btn btn-outline-primary check" for="female">여성 F</label>
-						  	</div>
-						  	
-						  	<br />
-							<br />
 							<!-- <span>생년월일</span> -->
 							<div class="form-group last mb-4">
 								<label for="user_birth" id="briTxt" ></label> <input
@@ -570,15 +569,23 @@ span {
 								<label for="user_email" id="mailTxt"></label> 
 								<input type="text" class="form-control" name="user_email" id="user_email" placeholder="이메일 입력" required>
 							</div>
-							
+							<br><br>
 
 							<!-- <span>핸드폰 번호</span> -->
-							<div class="form-group last mb-4">
+							<div class="form-group last mb-4"><br>
 								<label for="user_phone" id="phoneTxt"></label>
 								<input type="text" class="form-control" name="user_phone"
 									id="user_phone" placeholder="전화번호 입력 (숫자만)" required >
 							</div>
-
+							<br>
+							<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+							  <input type="radio" class="btn-check" name="user_gender" id="male" autocomplete="off" value="M">
+							 남성
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							  <input type="radio" class="btn-check" name="user_gender" id="female" autocomplete="off" value="F">
+							  여성
+						  	</div>
+						  	<br>	<br>	
 							<!-- <span>관심 분야</span> -->
 							<div class="selectbox">
 								<!-- <span for="select">관심분야 선택</span> --> 

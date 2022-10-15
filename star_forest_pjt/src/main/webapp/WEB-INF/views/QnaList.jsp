@@ -79,10 +79,10 @@
 								<h4 class="text-light text-center">도서관소개</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item active"><a href="howtoInfo">대출/반납</a></li>
+								<li class="list-group-item"><a href="howtoInfo">대출/반납</a></li>
 								<li class="list-group-item"><a href="postList?group=10">공지사항</a></li>
 								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
-								<li class="list-group-item"><a href="QnaList">묻고답하기</a></li>
+								<li class="list-group-item  active" ><a href="QnaList">묻고답하기</a></li>
 								<li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
 							</ul>
 					  </div>

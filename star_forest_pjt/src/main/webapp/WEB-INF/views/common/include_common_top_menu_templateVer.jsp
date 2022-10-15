@@ -124,7 +124,6 @@ $(function(){
 						<li><a class="dropdown-item" href="postList?group=10">
 								공지사항 </a></li>
 						<li><a class="dropdown-item" href="faqViewpage"> 자주묻는질문</a></li>
-						<li><a class="dropdown-item" href="QnaList"> 묻고답하기 </a></li>
 						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길 </a></li>
 					</ul></li>
 				<li class="nav-item dropdown"><a href="SearchResult"

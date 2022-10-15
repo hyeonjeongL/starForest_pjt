@@ -26,6 +26,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
 <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="css/faq.css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -264,20 +265,18 @@
 	<section id="contact" class="py-3">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-3 noto-serif">
-					<div class="sidebar">
-						<div class="side-head">
-							<h4 class="text-light">커뮤니티</h4>
-						</div>
-						<ul class="list-group list-group-flush mb-5">
-							<li id="side_bookClub" class="list-group-item"><a href="bookclub"
-								class="returnAll">도서동아리</a></li>
-							<li id="post60" class="list-group-item"><a
-								href="requestBoard"
-								class="menu_RequestBoard">도서신청게시판</a></li>
-						</ul>
+			<div class="col-md-3">
+					  <div class="sidebar noto-serif">
+							<div class="side-head">
+								<h4 class="text-light text-center">커뮤니티</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5">
+								<li id="side_bookClub" class="list-group-item active"><a href="bookclub" class="returnAll">도서동아리</a></li>
+								<li id="post60" class="list-group-item"><a href="requestBoard" class="menu_RequestBoard">도서신청게시판</a></li>
+							</ul>
+					  </div>
 					</div>
-				</div>
+				
 
 				<!-- 메인내용 -->
 				<div class="col-md-9">

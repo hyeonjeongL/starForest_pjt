@@ -132,7 +132,6 @@ $(function(){
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                                     <div class="card-body" class="card-title">
                                     <div class="book-title" id="book-title">${book.book_title}</div>
-                                    <h6>${book.book_author}</h6>
                                  </div>
                               </div>
                            </div>
@@ -148,7 +147,6 @@ $(function(){
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                                     <div class="card-body" class="card-title">
                                     <div class="book-title" id="book-title">${book.book_title}</div>
-                                    <h6>${book.book_author}</h6>
                                  </div>
                               </div>
                            </div>
@@ -179,7 +177,6 @@ $(function(){
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                                     <div class="card-body" class="card-title">
                                     <div class="book-title" id="book-title">${book.book_title}</div>
-                                    <h6>${book.book_author}</h6>
                                  </div>
                               </div>
                            </div>
@@ -195,7 +192,6 @@ $(function(){
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                                     <div class="card-body" class="card-title">
                                     <div class="book-title" id="book-title">${book.book_title}</div>
-                                    <h6>${book.book_author}</h6>
                                  </div>
                               </div>
                            </div>
@@ -226,7 +222,6 @@ $(function(){
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                                     <div class="card-body" class="card-title">
                                     <div class="book-title" id="book-title">${book.book_title}</div>
-                                    <h6>${book.book_author}</h6>
                                  </div>
                               </div>
                            </div>
@@ -242,7 +237,6 @@ $(function(){
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                                     <div class="card-body" class="card-title">
                                     <div class="book-title" id="book-title">${book.book_title}</div>
-                                    <h6>${book.book_author}</h6>
                                  </div>
                               </div>
                            </div>

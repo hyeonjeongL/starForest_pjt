@@ -87,7 +87,6 @@
 											<div class="card-body">
 												<div class="card-title">
 													<div class="book-title" id="book-title">${book.book_title}</div>
-													<h6 class="book_author">${book.book_author}</h6>
 												</div>
 											</div>
 										</div>

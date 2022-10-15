@@ -64,8 +64,8 @@ $(function(){
                + "팩스번호 : 0504-123-1234 \n\n"); 
       });
 });
-  
-function keywordCheck() {
+
+$(function keywordCheck() {
 	var str_keyword = window.searchform.keyword.value;
 	if (!str_keyword || str_keyword === "") {
 		window.alert("검색어를 입력하세요.");
@@ -73,6 +73,23 @@ function keywordCheck() {
 		return false;
 	}
 	window.searchform.submit();
+});
+$(function() {
+	var $type=$("type");
+	var $keyword=$("keyword");
+}
+
+function formSubmit(){
+	if($("#select").val() == "none"){
+		frm.type.focus();
+		return false;
+	}else if($("#input").val() == "none"){
+		frm.keyword.focus();
+		return false;
+	}else{
+		return true;
+	}
+	location.href="SearchResult";
 }
 
 /* 검색 *

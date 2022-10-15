@@ -33,9 +33,9 @@ if(type==null|| type.equals("")){
   
 <script type="text/javascript">
 
-$(function() {
-
-	var param = 'keyword=' + $("input").val() + '&type='+ $("select").val();
+$(function(e) {
+	
+	var param = 'type='+ $('type').val()+'&keyword=' + $('keyword').val() ;
 	console.log(param);
 	$.ajax({
 		url : 'getSearchList',

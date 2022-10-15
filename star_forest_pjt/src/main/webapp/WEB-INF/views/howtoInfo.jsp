@@ -95,7 +95,7 @@
 								</div>	
 								<div class="pb-4">
 									<h5 class="card-title">대출기간</h5>
-									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;대출일로부터 14일까지</p>
+									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;대출일로부터 7일까지</p>
 									<p class="card-text howtoText m-2"><i class="fas fa-angle-right"></i>&nbsp;&nbsp;연체시 연체된 날짜만큼 대출 제한[나의도서에서 확인가능] </p>
 								</div>
 								<div class="pb-4">

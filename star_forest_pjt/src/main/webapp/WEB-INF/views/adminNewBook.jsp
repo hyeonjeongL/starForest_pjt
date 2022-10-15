@@ -81,7 +81,29 @@
 
 	});
 </script>
+<!--  <script>
+  $("#inputFile").change(function(){
+   if(this.files && this.files[0]) {
+    var reader = new FileReader;
+    reader.onload = function(data) {
+     $(".select_img img").attr("src", data.target.result).width(500);        
+    }
+    reader.readAsDataURL(this.files[0]);
+   }
+  });
+ </script> -->
 
+ <script type="text/javascript">
+		$(document).on('change','#inputFile', function(){
+			  if(this.files && this.files[0]) {
+	      var reader = new FileReader;
+	      reader.onload = function(data) {
+	       $(".select_img img").attr("src", data.target.result).width(500);          
+	      }
+	      reader.readAsDataURL(this.files[0]);
+			  }
+	    });
+</script>
 </head>
 <body class="d-flex flex-column">
 	<div id="page-content">
@@ -151,8 +173,7 @@
 							<td width="100" align="center" bgcolor="E6ECDE" height="22">신청도서
 								카테고리</td>
 							<td width="490" align="left" bgcolor="ffffff"
-								style="padding-left: 10px"><select
-								name="category_no">
+								style="padding-left: 10px"><select name="category_no">
 									<option value="100">건강/취미/레저</option>
 									<option value="200">경제경영</option>
 									<option value="300">고전</option>
@@ -190,36 +211,36 @@
 </textarea></td>
 						</tr>
 
+
+
 						<!-- 책 표지 이미지 첨부파일 넣을 것	 -->
 						<tr>
-							<td width="100" align="center" bgcolor="E6ECDE" height="22">책 이미지</td>
+							<td width="100" align="center" bgcolor="E6ECDE" height="22">책
+								이미지</td>
 							<td width="490" align="left" bgcolor="ffffff"
 								style="padding-left: 10px"><input type="text"
 								style="width: 350px" name="book_image"></td>
-						</tr><tr>
+						</tr>
+						<!-- <tr>
 							<td width="100" align="center" bgcolor="E6ECDE" height="22">첨부파일</td>
 							<td width="490" align="left" bgcolor="ffffff"
 								style="padding-left: 10px"><input type="text"
 								style="width: 350px" name="Book_image_src"></td>
+						</tr> -->
+						<tr>
+							<td width="100" align="center" bgcolor="E6ECDE" height="22">첨부파일</td>
+							<td bgcolor="ffffff"><input type="file" id="inputFile"
+								name="inputFile" />
+								<div class="select_img">
+									<img src="" />
+								</div></td>
 						</tr>
 						
 					</tbody>
 				</table>
-				<div class="form-group row">
-          <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
-          <div class="col-sm-10">
-            <div class="custom-file" id="inputFile">
-              <input name="file" type="file" class="custom-file-input" id="customFile" />
-              <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
-            </div>
-          </div>
-        </div>
-			</form>
-			<br> <input type="button" value="확인"
-				id="btn_newbook_insert_action"> &nbsp; <input type="button"
-				id="btn_request_list" value="목록">
-
-
+				<br> <input type="button" value="확인"
+					id="btn_newbook_insert_action"> &nbsp; <input type="button"
+					id="btn_request_list" value="목록">
 		</div>
 	</div>
 	<!-- pageContent끝 -->

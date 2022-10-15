@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itwill.domain.Book;
 import com.itwill.mapper.BookMapper;
@@ -41,7 +43,7 @@ public class BookRestController {
 	
 	
 	@PostMapping("/admin_newbook_insert_action")
-	public Map admin_newbook_action(@ModelAttribute Book book, HttpSession session) {
+	public Map admin_newbook_action(@ModelAttribute Book book,@RequestParam("book_img_src") MultipartFile book_img_src, HttpSession session) {
 		Map resultMap = new HashMap();
 		
 		int code=2;

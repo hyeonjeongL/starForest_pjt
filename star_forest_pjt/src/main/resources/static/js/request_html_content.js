@@ -100,7 +100,7 @@ function request_list_content(requestArray,pageArray) {
                 <option value="user_id" <c:out value="${pageArray.cri.type  == 'user_id'?'selected':'' }"/>작성자</option>
                 <option value="all" <c:out value="${pageArray.cri.type  == 'all'?'selected':'' }"/>제목 + 내용</option>
            		 </select>    
-	            <input type="text" id="keyword_box" name="keyword" keyword="${pageArray.cri.keyword}" style="margin-left:60px;">
+	            <input type="text" id="keyword_box" name="keyword" value="${(pageArray.cri.keyword==null)?'':''}" style="margin-left:60px;">
 	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색"></input>
 	        </div>
 	        </form>

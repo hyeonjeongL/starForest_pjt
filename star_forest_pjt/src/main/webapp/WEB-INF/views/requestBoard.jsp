@@ -81,8 +81,8 @@
 				$(document).on('click','#search_btn',function(e){
 					 var pageNum = $("#page_form input[name='pageNum']").val();
 					alert(pageNum);
-					 var keyword= $('#keyword_box').serialize();
-					 alert(keyword);
+					 var keyword= $("input[name='keyword']").val();
+					 console.log(keyword);
 					 var type= $('#type_box').serialize();
 					 var param={keyword,pageNum,type};
 					 //console.log(pageNum,keyword);

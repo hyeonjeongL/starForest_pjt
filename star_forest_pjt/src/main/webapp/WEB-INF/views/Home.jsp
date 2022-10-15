@@ -137,7 +137,7 @@ width:150px;"
 										<option value="book_publisher">출판사</option>
 										<option value="category_name">분야명</option>
 									</select>
-                     <input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}">
+                     <input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." required>
                      <div class="input-group-append">
                         <button class="btn btn-outline-light btn-lg px-5" 
                            type="submit" onclick="formSubmit();">

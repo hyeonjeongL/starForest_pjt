@@ -36,6 +36,13 @@
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript"
 	src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+	<style type="text/css">
+	.card-body.p-0 img{
+	width:170px;
+	height:220px;
+	}
+	
+	</style>
 </head>
 <body class="d-flex flex-column">
 	<div id="page-content">

@@ -519,7 +519,6 @@ public class UserInfoRestController {
 			
 			int result=userService.remove(user_id);
 			if(result==1) {
-				request.getSession().invalidate();
 				code = 1;
 				url = "main";
 				msg = "삭제성공";

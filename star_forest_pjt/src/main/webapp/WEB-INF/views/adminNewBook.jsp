@@ -59,6 +59,8 @@
 		 */
 
 		$(document).on('click', '#btn_newbook_insert_action', function(e) {
+			var param=$('#request_write_form').serialize();
+			console.log(param);
 			$.ajax({
 				url : 'admin_newbook_insert_action',
 				method : 'POST',
@@ -71,6 +73,8 @@
 						//$('#btn_request_list').trigger('click'); 
 						alert(jsonResult.msg);
 						location.href='Newbooks';
+					}else{
+						alert("실패");
 					}
 
 				}
@@ -230,9 +234,9 @@
 						<tr>
 							<td width="100" align="center" bgcolor="E6ECDE" height="22">첨부파일</td>
 							<td bgcolor="ffffff"><input type="file" id="inputFile"
-								name="inputFile" />
+								name="book_img_src" accept="*.gif, *.jpeg, *.png, *.jpg"/>
 								<div class="select_img">
-									<img src="" />
+									<img src="${book.book_image_src}" />
 								</div></td>
 						</tr>
 						

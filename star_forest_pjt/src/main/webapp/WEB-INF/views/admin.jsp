@@ -22,6 +22,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
 <link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/faq.css">
 <link rel="stylesheet" href="./css/yeji.css">
 <link rel="stylesheet" href="./css/admin.css">
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -30,6 +31,16 @@
 .img-fluid {
 	height: 250px;
 	width: 244px;
+}
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.listTable{
+	font-family: 'GmarketSansMedium';
 }
 </style>
 
@@ -142,7 +153,7 @@ $(document).on('click','#btn_search', function(e){
 			<div class="container pt-5">
 				<div class="row">
 					<div class="col-md-6 m-auto text-center">
-						<h2>어드민</h2>
+						<h2>관리자</h2>
 					</div>
 				</div>
 			</div>

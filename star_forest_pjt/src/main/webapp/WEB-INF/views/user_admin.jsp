@@ -40,6 +40,19 @@
 <script type="text/javascript" src="./js/adminContents.js"></script>
 <script type="text/javascript">
 $(function(){
+	/***********로그인 세션확인**************/
+	$.ajax({
+		url : 'user_session_check',
+		method : 'POST',
+		dataType : 'json',
+		success : function(jsonResult) {
+			if (jsonResult.code == 1) {
+				console.log(jsonResult);
+			}else{ //세션 존재하지 않을경우 메세지창보여줌
+				alert('로그인이 필요한 페이지입니다:)');
+			}
+		}
+	});
 	$.ajax({
 		url:'user_all_list',
 		method:'GET',
@@ -74,7 +87,16 @@ $(function(){
 			success:function(jsonResult){
 				if(jsonResult.code==1){
 					alert("회원목록에서 삭제되었습니다.");
-					$('#menu_admin_user').trigger('click');
+					$.ajax({
+						url:'user_all_list',
+						method:'GET',
+						success:function(jsonResult){
+							var userArray=jsonResult.data;
+							console.log(userArray);
+							$('.listTable').html(adminContents.admin_user_list_content(userArray));
+						}
+							
+					});
 				}else{
 					alert(jsonResult.msg);
 				}
@@ -153,8 +175,6 @@ $(function(){
 				</div> -->
 
 				<!-- 메인내용 -->
-				<div class="col-md-9">
-					<div class="p-4">
 						<div class="mypage">
 
 						</div>
@@ -176,7 +196,6 @@ $(function(){
 					</div>
 				</div>
 			</div>
-		</div>
 
 
 	</section>

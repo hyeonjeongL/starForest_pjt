@@ -61,7 +61,7 @@ adminContents.admin_user_now_rental_list_content = function(rentalArray) {
 	return `
 			
 			</div>
-					<table class="table">
+					<table class="table" >
 						<thead id=tablehead>
 							<tr>
 								<th scope="row">No.</th>
@@ -88,16 +88,14 @@ adminContents.admin_user_list_item = function(user) {
 	return `
 	
 	<tr>
-				<th scope="row">${user.user_id}</th>
 				<th scope="row">${user.user_name}</th>
+				<th scope="row">${user.user_id}</th>
 				<th scope="row">${user.user_password}</th>
-				<th scope="row">${user.user_email}</th>
+				<th scope="row" width="100">${user.user_email}</th>
 				<th scope="row">${user.user_birth}</th>
-				<th scope="row">${user.user_gender}</th>
 				<th scope="row">${user.user_phone}</th>
-				<th scope="row">${user.user_address}</th>
 				<th scope="row">${user.user_rental_status}</th>
-				<th scope="row">${user.user_book_cnt_limit}</th>
+				<th scope="row"  width="100">${user.user_book_cnt_limit}</th>
 				<th scope="row"><button id="btn_user_delete" class="w-btn w-btn-detail" user_id="${user.user_id}">삭제</button></th>
 			</tr>`;
 }
@@ -105,19 +103,17 @@ adminContents.admin_user_list_content = function(userArray) {
 	return `
 			
 			</div>
-					<table class="table">
+					<table class="table" align="center" style="margin-left:180px; margin-top:50px">
 						<thead>
 							<tr>
-								<th scope="row">아이디</th>
 								<th scope="row">이름</th>
+								<th scope="row">아이디</th>
 								<th scope="row">비밀번호</th>
-								<th scope="row">이메일</th>
+								<th scope="row"  width="100">이메일</th>
 								<th scope="row">생일</th>
-								<th scope="row">성별</th>
 								<th scope="row">핸드폰번호</th>
-								<th scope="row">주소</th>
 								<th scope="row">대출상태</th>
-								<th scope="row">대출가능권수</th>
+								<th scope="row"  width="100">대출가능</th>
 								<th scope="row">작업</th>
 								
 							</tr>

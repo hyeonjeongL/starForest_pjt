@@ -92,8 +92,7 @@ $(function(){
                </div>
                <div class="container">
                   <div class="input-group mb-3" id="home-searchbar">
-                     <input class="form-control searchbar" id="bookName" type="text"
-                        placeholder="검색어를 입력하세요.">
+                     <input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}">
                      <div class="input-group-append">
                         <button class="btn btn-outline-light btn-lg px-5" type="button"
                            id="search">

@@ -41,7 +41,7 @@ $(function() {
 /* 검색 */
 $(function() {
 	$('#search').click(function() {
-		location.href = "http://star_forest_pjt/SearchResult?query=" + $("#bookName").val();
+		location.href = "http://localhost/star_forest_pjt/SearchResult2?query=" + $("#keyword").val();
 	})
 });
 

@@ -101,8 +101,8 @@ $(function() {
 
 </script>
 <style type="text/css">
-.card img{
-height:180px;
+.main_card img{
+height:210px;
 width:150px;"
 }
 </style>
@@ -174,7 +174,7 @@ width:150px;"
                      <div class="row">
                         <c:forEach items="${favorite}" var="book" begin="0" end="2">
                            <div class="col-md-4 clearfix d-none d-md-block">
-                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                              <div class="main_card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                               </div>
                            </div>
@@ -186,7 +186,7 @@ width:150px;"
                      <div class="row">
                         <c:forEach items="${favorite}" var="book" begin="3" end="5">
                            <div class="col-md-4 clearfix d-none d-md-block">
-                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                              <div class="main_card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                               </div>
                            </div>
@@ -213,11 +213,8 @@ width:150px;"
                      <div class="row">
                         <c:forEach items="${userBook}" var="book" begin="0" end="2">
                            <div class="col-md-4 clearfix d-none d-md-block">
-                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                              <div class="main_card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-                                    <div class="card-body" class="card-title">
-                                    <div class="book-title" id="book-title">${book.book_title}</div>
-                                 </div>
                               </div>
                            </div>
                         </c:forEach>
@@ -228,7 +225,7 @@ width:150px;"
                      <div class="row">
                         <c:forEach items="${userBook}" var="book" begin="3" end="5">
                            <div class="col-md-4 clearfix d-none d-md-block">
-                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                              <div class="main_card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                               </div>
                            </div>
@@ -255,7 +252,7 @@ width:150px;"
                      <div class="row">
                         <c:forEach items="${newBook}" var="book" begin="6" end="8">
                            <div class="col-md-4 clearfix d-none d-md-block">
-                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                              <div class="main_card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                               </div>
                            </div>
@@ -267,7 +264,7 @@ width:150px;"
                      <div class="row">
                         <c:forEach items="${newBook}" var="book" begin="9" end="11">
                            <div class="col-md-4 clearfix d-none d-md-block">
-                              <div class="card"><a href="book_detail?book_no=${book.book_no}">
+                              <div class="main_card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
                               </div>
                            </div>

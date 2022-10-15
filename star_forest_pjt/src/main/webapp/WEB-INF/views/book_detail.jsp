@@ -59,6 +59,8 @@
 .broken_link, a.broken_link {
 	text-decoration: line-through;
 }
+d
+.container.container-fluid
 </style>
 <link rel="icon"
 	href="https://library.korea.ac.kr/wp-content/uploads/2020/02/cropped-favicon-3-32x32.png"
@@ -675,140 +677,20 @@
 
 
 
-						<!-- 2020.02.29 추가 - 관련분야 인기자료 출력 -->
-						<div class="item-popular-books item-additional-info">
-							<h3 class="mb-3">관련분야 인기자료</h3>
-							<div class="item-popular-books-content">
-								<div class="item-popular-book-slider"
-									data-slick='{"slidesToScroll": 1}'>
-									<div class="item item-popular-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000045341864&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=9788973377947&amp;control_no=000045341864&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.36 조정래 태g</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000045341864&ctype=m">太白山脈 :
-														趙廷來 大河小說 / 제4판</a>
-												</h4>
-											</div>
-											<div class="item-author">조정래 (2007)</div>
-										</div>
-									</div>
-									<!-- .item -->
-									<div class="item item-popular-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000000691603&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=898447164X&amp;control_no=000000691603&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.36 하주완 검</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000000691603&ctype=m">검마전 .
-														1-8</a>
-												</h4>
-											</div>
-											<div class="item-author">하주완 (2000)</div>
-										</div>
-									</div>
-									<!-- .item -->
-
-
-								</div>
-								<!-- .item-popular-book-slider -->
-								<a class="item-popular-books-prev"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" viewBox="0 0 24 24" version="1.1"
-										xmlns="http://www.w3.org/2000/svg"
-										xmlns:xlink="http://www.w3.org/1999/xlink">
-										<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-										<path d="M0 0h24v24H0z" fill="none"></path></svg></a> <a
-									class="item-popular-books-next"><svg class="svg-icon"
-										width="48" height="48" aria-hidden="true" role="img"
-										focusable="false" xmlns="http://www.w3.org/2000/svg"
-										viewBox="0 0 24 24">
-										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-
-							</div>
-							<!-- .item-popular-books-content -->
-						</div>
-						<!-- .item-popular-books.item-additional-info -->
-
-
-						<!-- 2020.03.06 추가 - 관련분야 신착자료 출력 -->
-						<div class="item-newarrival-books item-additional-info">
-							<h3 class="mb-3">관련분야 신착자료</h3>
-							<div class="item-newarrival-books-content">
-								<div class="item-newarrival-book-slider"
-									data-slick='{"slidesToScroll": 1}'>
-									<div class="item item-newarrival-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000046128977&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(/n2app/public/coverimage.php?type=book&amp;field=isbn&amp;value=9791196934217&amp;control_no=000046128977&amp;sysd=CAT)"></div>
-											</a>
-										</div>
-										<div class="item-meta">
-											<!-- <div class="item-marc">897.1708 2020 2</div> -->
-											<div class="item-title">
-												<h4>
-													<a href="/detail/?cid=CAT000046128977&ctype=m">은빛에 물든
-														포토시집 : 2021 부산문협 시분과 무크지</a>
-												</h4>
-											</div>
-											<div class="item-author">박혜숙 (2022)</div>
-										</div>
-									</div>
-									<!-- .item -->
-									<div class="item item-newarrival-book">
-										<div class="item-cover">
-											<a href="/detail/?cid=CAT000046128962&ctype=m">
-												<div class="item-cover-image"
-													style="background-image: url(https://image.aladin.co.kr/product/28409/75/cover/k832835010_1.jpg)"></div>
-											</a>
-										</div>
-										<div class="item-meta"></div>
-										<!-- .item-newarrival-book-slider -->
-										<a class="item-newarrival-books-prev"><svg
-												class="svg-icon" width="48" height="48" aria-hidden="true"
-												role="img" focusable="false" viewBox="0 0 24 24"
-												version="1.1" xmlns="http://www.w3.org/2000/svg"
-												xmlns:xlink="http://www.w3.org/1999/xlink">
-										<path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
-										<path d="M0 0h24v24H0z" fill="none"></path></svg></a> <a
-											class="item-newarrival-books-next"><svg class="svg-icon"
-												width="48" height="48" aria-hidden="true" role="img"
-												focusable="false" xmlns="http://www.w3.org/2000/svg"
-												viewBox="0 0 24 24">
-										<path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
-										<path d="M0 0h24v24H0z" fill="none"></path></svg></a>
-
-									</div>
-									<!-- .item-newarrival-books-content -->
-								</div>
-								<!-- .item-newarrival-books.item-additional-info -->
-							</div>
-							<!-- .container -->
-							<!-- .item-detail-content -->
-
-						</div>
-						<!-- .entry-content -->
-				</article>
-				<!-- #post-2053 -->
-
-
-			</main>
-			<!-- #main -->
 		</div>
-		<!-- #primary -->
+		<!-- .container -->
+		<!-- .item-detail-content -->
+
+	</div>
+	<!-- .entry-content -->
+	</article>
+	<!-- #post-2053 -->
+
+
+	</main>
+	<!-- #main -->
+	</div>
+	<!-- #primary -->
 
 
 	</div>

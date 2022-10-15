@@ -139,10 +139,10 @@ width:150px;"
 									</select>
                      <input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}">
                      <div class="input-group-append">
-                        <input class="btn btn-outline-light btn-lg px-5" type="submit"
-                           action="getSearchList" method="get" value="도서검색" id="btn_search">
-                           &nbsp;&nbsp;&nbsp;<b></b> &nbsp;&nbsp;&nbsp;
-                        </input>
+                        <button class="btn btn-outline-light btn-lg px-5" 
+                           type="submit" onclick="formSubmit();">
+                           &nbsp;&nbsp;&nbsp;<b>도서 검색</b> &nbsp;&nbsp;&nbsp;
+                        </button>
                      </div>
                   </div>
                   </form>

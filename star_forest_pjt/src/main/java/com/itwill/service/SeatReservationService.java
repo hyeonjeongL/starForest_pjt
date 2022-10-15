@@ -36,6 +36,9 @@ public interface SeatReservationService {
 		 //사용 가능한 좌석 카운트
 		 int countAvailableSeat(int seat_status)throws Exception;
 		 
+		//전체 좌석 카운트
+		 int countAll()throws Exception;
+		 
 		 //사용하고 있는 좌석 시작시간,종료시간 보기
 		 SeatReservation selectTimeUsingSeat(String seat_no)throws Exception;
 		 

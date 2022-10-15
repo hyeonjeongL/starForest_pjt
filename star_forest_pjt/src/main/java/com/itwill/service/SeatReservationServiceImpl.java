@@ -81,6 +81,11 @@ public class SeatReservationServiceImpl implements SeatReservationService{
 		return seatReservationDao.findSeat(user_id);
 	}
 
+	@Override
+	public int countAll() throws Exception {
+		return seatReservationDao.countAll();
+	}
+
 	
 
 	

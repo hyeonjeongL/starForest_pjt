@@ -123,10 +123,12 @@
 		</header>
 
 		<!-- MAIN SECTION -->
-		
 			<div class="seat_category_wrap" style="text-align:center;">
-				<input type = "button" id="btn_seat_partition" value="칸막이석" onClick="location.href='seatReservation_list_partition'"><img src="img/starforest_bg.png"></input>
-				<input type = "button" id="btn_seat_nopartition" value="자유석" onClick="location.href='seatReservation_list_nopartition'">
+				<img alt="" src="img/seat_notice.png" width=600px;><br><br><br>
+				<font size="6pt">사용 가능한 좌석 ${available}/${all} 입니다.</font><br><br><br>
+				<input type = "image" src="img/seat_partition.png" id="btn_seat_partition" value="칸막이석" onClick="location.href='seatReservation_list_partition'">
+				<input type = "image" src="img/seat_no_partition.png" id="btn_seat_nopartition" value="자유석" onClick="location.href='seatReservation_list_nopartition'">
+				<br><br><br><br>
 		</div> <!-- seat_category_wrap 끝 -->
 		</div>
 	<!-- pageContent끝 -->

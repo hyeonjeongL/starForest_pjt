@@ -50,6 +50,9 @@ public interface SeatReservationMapper {
 	@Select("select count(*) from seat_reservation where seat_status=0")
 	public int countAvailableSeat(int seat_status);
 	
+	@Select("select count(*) from seat_reservation")
+	public int countAll();
+	
 	@Select("select seat_no, seat_date, seat_start_time, seat_end_time, user_id,seat_status\r\n"
 			+ "	from seat_reservation\r\n"
 			+ "	where seat_no=#{seat_no}")

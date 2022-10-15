@@ -59,6 +59,11 @@ public class SeatReservationDaoImpl implements SeatReservationDao{
 	public int countAvailableSeat(int seat_status) throws Exception {
 		return seatReservationMapper.countAvailableSeat(seat_status);
 	}
+	
+	@Override
+	public int countAll()throws Exception{
+		return seatReservationMapper.countAll();
+	}
 
 	@Override
 	public SeatReservation selectTimeUsingSeat(String seat_no) throws Exception {

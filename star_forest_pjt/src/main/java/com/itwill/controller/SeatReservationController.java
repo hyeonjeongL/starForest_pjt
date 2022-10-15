@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itwill.domain.SeatReservation;
@@ -46,7 +47,16 @@ public class SeatReservationController {
 		return forwardPath;
 	}
 	@RequestMapping("/seatReservation")
-	public String seatReservation_main() {
+	public String seatReservation_main(Model model) {
+		try {
+			int count = seatReservationService.countAvailableSeat(0);
+			int countAll = seatReservationService.countAll();
+			model.addAttribute("available", count);
+			model.addAttribute("all", countAll);
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		return "forward:/WEB-INF/views/seatReservation.jsp";
 	}
 	

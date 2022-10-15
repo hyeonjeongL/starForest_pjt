@@ -53,11 +53,7 @@
 				console.log(pageArray);
 				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
 				
-				/*for(var num=startPage; num<=endPage; num++){
-					content+='<li class="page_btn"><a href="requestBoard?pageNum='${pageArray.cri.pageNum}'">${pageArray.cri.pageNum}</a></li>'
-				}
-				*/
-				//$('#requestBoard_wrap').html(request_list(pageArray));
+				
 				$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
 			        
 					 var param = 'pageNum='+$(e.target).attr('pageNum');

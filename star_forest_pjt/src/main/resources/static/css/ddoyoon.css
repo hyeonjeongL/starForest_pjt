@@ -288,6 +288,16 @@ request_board css
   .t3{
   text-align: center;
   }
+  .t4{
+  text-align: center;
+  width:100px;
+  }
+  .t5{
+  text-align: left;
+  padding-left: 10px;
+  width:150px;
+  background-color: white;
+  }
   #td_content {
   	font-size: 10pt;
   }

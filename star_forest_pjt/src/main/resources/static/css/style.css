@@ -9,8 +9,8 @@ btn-secondary #6C757D
 스프링 진 #107637
 */
 @font-face {
-    font-family: 'Gowun Dodum', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -36,8 +36,8 @@ img, .paging-num{
 }
  .paging a.paging-num:hover{
 	text-decoration: underline;
-	font-family: 'Gowun Dodum', sans-serif;
-}
+	font-family: 'GmarketSansMedium';
+ }
 @media all and (min-width: 992px) {
   .navbar .nav-item .dropdown-menu {
     display: block;
@@ -66,22 +66,22 @@ img, .paging-num{
 
 .dropdown-item{
 	font-weight: 300;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 b{
 	font-weight: 500;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 .icons {
   height: 15px;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 #home-icons p {
   font-size: 14px;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 .navbar .nav-link {
@@ -89,7 +89,7 @@ b{
   text-transform: uppercase;
   padding-left: 1rem !important;
   padding-right: 1rem !important;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 .carousel-item {
@@ -123,7 +123,7 @@ b{
   text-align: center;
   color: #fff;
   padding-top: 200px;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 .dark-overlay {
@@ -133,7 +133,7 @@ b{
   width: 100%;
   height: 100%;
   background: #1C9249;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 #video-play {
@@ -144,7 +144,7 @@ b{
   background-repeat: no-repeat;
   background-position: 0 -300px;
   text-align: center;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
   color: #fff;
 }
 
@@ -161,7 +161,7 @@ b{
   color: #fff;
   border-bottom: 1px #eee solid;
   padding-top: 50px;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 .page-header-overlay {
@@ -184,13 +184,13 @@ b{
 #faq a {
   color: #fff;
   text-decoration: none;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 #faq .card-body,
 #faq .card-header {
   background: rgb(255, 255, 255);
-   border-collapse:collapse;
+  border-collapse:collapse;
 }
 
 #main-footer p {
@@ -198,7 +198,7 @@ b{
   color: #fff;
   flex-shrink: none;
   font-size: 14px;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 /*  ------------------------------------------- */
@@ -210,13 +210,13 @@ b{
 
 html, body{
 	height: 100%;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 #page-content{
 	flex: 1 0 auto;
 	text-align: center;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 .sidebar {
@@ -239,14 +239,13 @@ html, body{
 .active a{
 	color: #107637;
 	font-weight: 500;	
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
-
 .list-group .active{
 	background-color: #f8f9fa;
 	color: #343a40;
 	border-color: #d8d8d8;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 } 
 
 .btn {
@@ -259,13 +258,13 @@ html, body{
 	text-overflow: ellipsis;
 	font-size: large;
 	font-weight: bold;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 
 .tbody a{
 	color: #343a40;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 .book-title {
@@ -274,32 +273,32 @@ html, body{
    text-overflow: ellipsis;
    font-size: medium;
    font-weight: bold;
-   font-family: 'Gowun Dodum', sans-serif;
+   font-family: 'GmarketSansMedium';
 }
 .book-writer{
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
    font-size: small;
-   font-family: 'Gowun Dodum', sans-serif;
+   font-family: 'GmarketSansMedium';
 }
 
 .footer-table *{
 	font-weight: 200;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 .footer-table th{
 	border-right: 1px solid white;
 	padding-right:15px; 
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 .footer-table td{
 	padding-left: 15px;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 .footer-table a{
 	padding-bottom: 10px;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 /* 유림 추가 홈헤딩 START */
@@ -309,7 +308,7 @@ html, body{
 	text-align: right;
 	font-size: 13px;
 	margin-right: 20px;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 #heroDesc {
@@ -327,7 +326,7 @@ html, body{
 	text-align: center;
 	color: #107637;
 	font-weight: 500;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 .siteMapAnchor {
@@ -336,7 +335,7 @@ html, body{
 	font-weight: 300;
 	font-size: 17px;
 	text-align: center;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 .siteMapAnchor:hover {
@@ -347,7 +346,7 @@ html, body{
 
 /* 유림 추가 대출반납연장 START */
 .howtoText {
-	 font-family: 'Gowun Dodum', sans-serif;
+	 font-family: 'GmarketSansMedium';
 }
 
 
@@ -538,13 +537,14 @@ font-family: 'Gowun Dodum', sans-serif;
 /*********동아리버튼************/
 #btn1{
 	float:left;
-	height:30px;
+	height:28px;
 	background-color:#efebcc;
 	border:1px;
 	border-radius:10px;
 	box-shadow: 3px 3px 3px #d8d7ce;
 	transition-duration:0.3s;
 	margin-right:-4px;
+	font-size:small;
 }
 #btn1:active{
 	margin-left:5px;
@@ -554,13 +554,14 @@ font-family: 'Gowun Dodum', sans-serif;
 }
 #btn_all{
 	float:left;
-	height:30px;
+	height:28px;
 	background-color:#efebcc;
 	border:1px;
 	border-radius:10px;
 	box-shadow: 3px 3px 3px #d8d7ce;
 	transition-duration:0.3s;
 	margin-right:-4px;
+	font-size:small;
 }
 #btn_all:active{
 	margin-left:5px;

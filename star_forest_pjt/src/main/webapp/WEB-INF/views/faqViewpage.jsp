@@ -76,12 +76,6 @@
                     <div class="p-4">
                      <section id="main_section">      
                         <div class="faq">
-                           <div class="search_btn_array form-inline">
-                                  <form name="f1" action="" onSubmit="if(this.t1.value!=null && this.t1.value!='') findString(this.t1.value);return false">
-                                  <input type="text" name=t1 placeholder="검색어를 입력하세요!" id="input_search" class="form-control">
-                                  <button class="btn btn-outline-secondary button_search ml-2" name=b1><i class="fas fa-search"></i></button>
-                              </form>
-                           </div>
                            <hr>                  
                            <div class="accordion">
                               <input type="radio" name="accordion" id="answer01"> 

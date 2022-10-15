@@ -123,6 +123,7 @@
 		</header>
 
 		<!-- MAIN SECTION -->
+		
 			<div class="seat_category_wrap" style="text-align:center;">
 				<input type = "button" id="btn_seat_partition" value="칸막이석" onClick="location.href='seatReservation_list_partition'">
 				<input type = "button" id="btn_seat_nopartition" value="자유석" onClick="location.href='seatReservation_list_nopartition'">

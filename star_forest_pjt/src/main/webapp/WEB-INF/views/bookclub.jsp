@@ -34,7 +34,12 @@
 
 <title>나의도서 - 별숲도서관</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .img-fluid {
 	height: 250px;
 	width: 244px;
@@ -52,7 +57,7 @@
 }
 
 #btn_category,.rentalTable{
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 </style>
 

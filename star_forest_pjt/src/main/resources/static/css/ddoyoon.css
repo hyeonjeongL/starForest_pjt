@@ -3,7 +3,7 @@
 seat_reservation css
 */
 .seat_category_wrap {
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 	margin-left:0;
 	margin-right:0;
 	margin-top:150px;
@@ -12,7 +12,7 @@ seat_reservation css
 }
 
 .seat_wrap {
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 	margin:auto;
 	align-content: center;
 	width:1800px;
@@ -27,7 +27,7 @@ seat_reservation css
 	width:100%;
 }
 #my_seat_table_wrap{
-	font-family: 'Gowun Dodum', sans-serif;
+		font-family: 'GmarketSansMedium';
 		border-left:1px solid;
 		border-right:1px solid;
 		width:600px;

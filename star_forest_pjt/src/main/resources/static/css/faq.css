@@ -8,8 +8,12 @@ btn-secondary #6C757D
 ������ �� #75BD43
 ������ �� #107637
 */
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
-
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .accordion{
 	margin:10px;
 }
@@ -30,7 +34,7 @@ input[id*="answer"] + label {
 	background-color: #f0f0f0;
 	cursor: pointer;
 	position: relative;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 
 .search_btn_array{
@@ -47,20 +51,20 @@ input[id*="answer"] + label + div {
 	overflow: hidden;
 	background: #f8f9fa;
 	font-size: 16px;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 input[id*="answer"] + label + div p {
 	display: inline-block;
 	padding: 5px 20px;
 	font-size: 16px;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 input[id*="answer"]:checked  + label + div{
 	max-height: 600px;
 	background-position: 0 -30px;
 	width: 756px;
 	padding: 20px 0;
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 	
 /* ���ô±� ���̺� */

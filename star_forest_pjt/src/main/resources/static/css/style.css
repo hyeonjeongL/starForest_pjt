@@ -450,11 +450,10 @@ request_board css
   vertical-align: middle; 
   word-break: keep-all;
   padding-right: 3em;
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
 }
 
 @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 * {
     margin: 0;
@@ -471,7 +470,7 @@ button {
     display: inline-block;
     padding: 5px 10px;
     border-radius: 10px;
-font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
     
     text-decoration: none;
     font-weight: 600;
@@ -482,7 +481,7 @@ font-family: 'Gowun Dodum', sans-serif;
     position: relative;
     padding: 5px 10px;
     border-radius: 150x;
-    font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'GmarketSansMedium';
    
     text-decoration: none;
     font-weight: 600;
@@ -576,5 +575,5 @@ font-family: 'Gowun Dodum', sans-serif;
     border-top: 2px solid #40a509;
     font-size: .9rem;
     font-weight: 400;
-    font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'GmarketSansMedium';
 }

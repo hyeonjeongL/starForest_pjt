@@ -71,7 +71,8 @@
 								<h4 class="text-light">분야 추천 도서</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-                  <li class="list-group-item"><a href="SearchResult">도서검색</a></li>
+                  <li class="list-group-item"><a href="SearchResult2">도서검색</a></li>
+                  <li class="list-group-item"><a href="SearchList">전체 도서</a></li>
                   <li class="list-group-item active"><a href="recommendedBooks">분야 추천 도서</a></li>
                   <li class="list-group-item"><a href="Newbooks">신착도서</a></li>                  
                   <li class="list-group-item"><a href="popularBook">이달의 인기도서</a></li>

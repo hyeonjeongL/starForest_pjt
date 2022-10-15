@@ -130,6 +130,7 @@ $(function(){
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="SearchResult2">도서 검색</a></li>
+						<li><a class="dropdown-item" href="SearchList">전체 도서</a></li>
 						<li><a class="dropdown-item" href="recommendedBooks">사서추천도서</a></li>
 						<li><a class="dropdown-item" href="Newbooks">신착도서</a></li>
 						<li><a class="dropdown-item" href="popularBook">이달의 인기도서</a></li>

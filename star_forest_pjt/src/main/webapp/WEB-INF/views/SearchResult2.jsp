@@ -265,7 +265,7 @@ section#content div.book_title a {
 							<form name="f" action="getSearchList">
 								<div class="input-group noto-serif">
 									<select data-trigger="" name="type" id="type">
-										<option selected value="">검색 선택</option>
+										<option selected value="">선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>
 										<option value="book_publisher">출판사</option>

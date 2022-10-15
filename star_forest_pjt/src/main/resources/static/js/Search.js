@@ -17,7 +17,7 @@ Search.cate_join_html = function(bookCateArray) {
 				             <br>
 				        </div>
 				        </div>
-							<br><br><br>
+							<br><br><br>	
 	
 								<div class="searchAllList">
 									${bookCateArray.map(Search.cate_item_html).join('')
@@ -31,24 +31,25 @@ Search.cate_join_html = function(bookCateArray) {
 
 Search.cate_item_html = function(cate) {
 	return `
-			<div class="searchAllList" id="content">
-							<div class="col-md-3">
-								<div class="card mb-3">
-									<div class="card-body p-0">
-										<a href="book_detail?book_no=${cate.book_no}">
-											<img class="card-image-top img-fluid" width="100%" alt="" src="${cate.book_image_src}">
-										</a>
-										<div class="card-body">
-											<div class="card-title">
-												<div class="book-title" id="book-title">${cate.book_title}</div>
-												<h6 class="book_author">${cate.book_author}</h6>
+	<div class="col-md-9">
+						<div class="row">
+								<div class="col-md-3">
+									<div class="card mb-3">
+										<div class="card-body p-0">
+											<a href="book_detail?book_no=${cate.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${cate.book_image}" src="${cate.book_image_src}"></a>
+											<div class="card-body">
+												<div class="card-title">
+													<div class="book-title" id="book-title">${cate.book_title}</div>
+												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-							</div>
-							
-						</div>`;
+						</div>
+					</div>
+	
+	
+	`;
 }
 
 

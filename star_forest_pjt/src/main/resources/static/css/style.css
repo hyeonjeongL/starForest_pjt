@@ -573,3 +573,6 @@ button {
     font-weight: 400;
     font-family: 'GmarketSansMedium';
 }
+.card{
+	border:none;
+}

@@ -27,12 +27,9 @@
 <link rel="stylesheet" href="./css/style.css">
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="./js/Search.js"></script>
 
 <title>도서정보 - 별숲도서관</title>
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript">
 	/********all list***********/
 	$.ajax({
@@ -264,7 +261,7 @@ section#content div.book_title a {
 								<h4 class="text-light">도서검색</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item active"><a href="SearchResult2">도서검색</a></li>
+								<li class="list-group-item"><a href="SearchResult2">도서검색</a></li>
 								<li class="list-group-item active" id="side_book"><a href="SearchList">전체 도서</a></li>
 								<li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
 								<li class="list-group-item"><a href="Newbooks">신착도서</a></li>
@@ -295,36 +292,6 @@ section#content div.book_title a {
 	</div>
 
 	<!--  -->
-	<!-- 페이징처리 -->
-	<!-- 페이징처리 -->
-	<nav>
-		<div class="container mt-5">
-			<ul class="pagination justify-content-center">
-				<c:if test="${startPage > 1}">
-					<li class="page-item"><a class="page-link" id="page-link"
-						href="QnaList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
-				</c:if>
-				<c:if test="${startPage == 1}">
-					<li class="page-item disabled"><a class="page-link"
-						id="page-link" href="QnaList.do?pageNUM=${startPage-1 }">&laquo;</a></li>
-				</c:if>
-				<c:forEach var="i" begin="${startPage }" end="${endPage }">
-					<li class="page-item" id="page${i }"><a class="page-link"
-						id="page-link" href="QnaList.do?pageNUM=${i }">${i }</a></li>
-				</c:forEach>
-				<c:if test="${endPage < totalPage}">
-					<li class="page-item"><a class="page-link" id="page-link"
-						href="QnaList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
-				</c:if>
-				<c:if test="${endPage == totalPage}">
-					<li class="page-item disabled"><a class="page-link"
-						id="page-link" href="QnaList.do?pageNUM=${endPage+1 }">&raquo;</a></li>
-				</c:if>
-			</ul>
-		</div>
-
-		<div style="clear: both"></div>
-	</nav>
 	<!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">
@@ -333,13 +300,6 @@ section#content div.book_title a {
 		<!-- include_common_left.jsp end-->
 	</div>
 	<!-- footer end-->
-
-	<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 	<script>
 		// Get the current year for the copyright
 		$('#year').text(new Date().getFullYear());

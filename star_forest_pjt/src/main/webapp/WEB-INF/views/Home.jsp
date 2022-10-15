@@ -65,7 +65,15 @@ $(function(){
       });
 });
   
-   
+function keywordCheck() {
+	var str_keyword = window.searchform.keyword.value;
+	if (!str_keyword || str_keyword === "") {
+		window.alert("검색어를 입력하세요.");
+		window.searchform.keyword.focus();
+		return false;
+	}
+	window.searchform.submit();
+}
    
 
 </script>
@@ -91,15 +99,24 @@ $(function(){
                   </div>
                </div>
                <div class="container">
+               <form  action="SearchResult" method="get">
                   <div class="input-group mb-3" id="home-searchbar">
+                  <select data-trigger="" name="type" id="type">
+										<option selected value="">선택하세요</option>
+										<option value="book_title">제목</option>
+										<option value="book_author">저자</option>
+										<option value="book_publisher">출판사</option>
+										<option value="category_name">분야명</option>
+									</select>
                      <input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}">
                      <div class="input-group-append">
-                        <button class="btn btn-outline-light btn-lg px-5" type="button"
-                           id="search">
-                           &nbsp;&nbsp;&nbsp;<b>도서검색</b> &nbsp;&nbsp;&nbsp;
-                        </button>
+                        <input class="btn btn-outline-light btn-lg px-5" type="submit"
+                           onclick="SearchResult" value="도서검색" id="btn_search">
+                           &nbsp;&nbsp;&nbsp;<b></b> &nbsp;&nbsp;&nbsp;
+                        </input>
                      </div>
                   </div>
+                  </form>
                </div>
             </div>
          </div>

@@ -38,12 +38,13 @@ $(function() {
 	});
 });
 
-/* 검색 */
+	/**location.href = "http://localhost:8088/SearchResult.do?query=" + $("#bookName").val(); */
+/* 검색 *
 $(function() {
 	$('#search').click(function() {
-		location.href = "http://localhost/star_forest_pjt/SearchResult2?query=" + $("#keyword").val();
+		location.href = "http://localhost/star_forest_pjt/SearchResult?query="+$("#keyword").val();
 	})
-});
+	});*/
 
 /* 추천도서 누르면 bookDetail 페이지로 이동 */
 $(function() {

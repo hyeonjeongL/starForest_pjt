@@ -1,6 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+request.setCharacterEncoding("UTF-8");
+String type = request.getParameter("type");
+String keyword = request.getParameter("keyword");
+if(type==null|| type.equals("")){
+	response.sendRedirect("Home");
+	return;
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,24 +29,46 @@
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
 	<!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/faq.css">
-    <script type="text/javascript" src="/Search.js"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
   <title>도서정보 - 별숲도서관</title>
   
-  <script type="text/javascript">
-  
-</script>
 <script type="text/javascript">
-function keywordCheck() {
-	var str_keyword = window.searchform.keyword.value;
-	if (!str_keyword || str_keyword === "") {
-		window.alert("검색어를 입력하세요.");
-		window.searchform.keyword.focus();
-		return false;
-	}
-	window.searchform.submit(); 
-}
+
+$(function() {
+
+	var param = 'keyword=' + $("keyword").val() + '&type='+ $("type").val();
+	console.log(param);
+	$.ajax({
+		url : 'getSearchList',
+		method : 'GET',
+		data : param,
+		success : function(bookList) {
+			console.log(bookList);
+			var html='';
+			for(var i=0;i < bookList.length;i++){
+				var book = bookList[i];
+				console.log(book.book_image_src);
+				console.log(book.book_title);
+				html+="<div class=\"col-md-3\"><div class=\"card mb-3\">";
+				html+="					<div class=\"card-body p-0\">";
+				html+="					<a href=\"book_detail?book_no="+book.book_no+"\">";
+				html+="					<img class=\"card-image-top img-fluid\" width=\"100%\" alt=\"\" src=\""+book.book_image_src+"\">";
+				html+="			</a>";
+				html+="				<div class=\"card-body\">";
+				html+="				<div class=\"card-title\">";
+				html+="						<div class=\"book-title\" id=\"book-title\">"+book.book_title+"</div>";
+				html+="				<h6 class=\"book_author\">"+book.book_author+"</h6>";
+				html+="			</div>";
+				html+="				</div>";
+				html+="			</div>";
+				html+="		</div>";
+				html+="	</div>";
+				console.log(html);	
+			}
+			$('#searchBookList').html(html);
+		}
+	});
+	e.preventDefault();
+});
 </script>
 
 <style type="text/css">
@@ -166,7 +197,6 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 
 </head>
 <body class="d-flex flex-column">
-	<input type="hidden" value="${query}" id="query">
 	<div id="page-content">
 			<!-- navigation start-->
 			<div id="navigation">
@@ -199,7 +229,7 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 								<h4 class="text-light">도서검색</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-                  <li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
+                  <li class="list-group-item active"><a href="SearchResult2">도서검색</a></li>
                   <li class="list-group-item active"><a href="SearchList">전체 도서</a></li>
                   
                   <li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
@@ -212,27 +242,31 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 
 					<!-- 메인내용 -->
 			<div class="col-md-9">
-				<div class="input-group noto-serif">
-				<select data-trigger="" name="search" id="search">
-										<option value="all">통합</option>
-										<option value="book_title">제목</option>
-										<option value="book_author">저자</option>
-										<option value="book_publisher">출판사</option>
-							</select>
-					<input class="form-control searchbar" id="keyword" type="text"
-						placeholder="검색어를 입력하세요.">
-					<div class="input-group-append">
-						<button class="btn btn-outline-success btn-r" type="button" id="search">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
-					</div>
+			<div class="row">
 				</div>
 				<br><br><br>
 				<!-- CARD COLUMNS -->
-				<div class="searchResult-body">
-					
-				</div>
-				<div class="paging">
-					
-				</div>
+				<div class="paging"></div>
+				<div class="row" id="searchBookList">
+							<!-- -------------------------------- 
+							<div class="col-md-3">
+								<div class="card mb-3">
+									<div class="card-body p-0">
+										<a href="book_detail?book_no=454">
+											<img class="card-image-top img-fluid" width="100%" alt="남주의 첫날밤을 가져 버렸다 1.img" src="https://image.aladin.co.kr/product/30197/26/cover200/k912839296_1.jpg">
+										</a>
+										<div class="card-body">
+											<div class="card-title">
+												<div class="book-title" id="book-title">남주의 첫날밤을 가져 버렸다 1</div>
+												<h6 class="book_author">황도톨(원작),MSG(그림),티바(각색)</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						    -------------------------------- -->
+						</div>
 			</div>
 		  </div>
 		</div>
@@ -258,7 +292,6 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js"></script>
       <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-   <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <script>
     // Get the current year for the copyright
     $('#year').text(new Date().getFullYear());

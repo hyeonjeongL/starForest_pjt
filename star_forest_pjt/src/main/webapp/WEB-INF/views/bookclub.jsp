@@ -101,11 +101,6 @@
 					var pageArray = jsonResult.pageArray[0];
 					console.log(pageArray);
 						$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray,pageArray));
-						
-						
-						
-						
-						
 						$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
 							 var param = 'pageNum='+$(e.target).attr('pageNum');
 					        console.log(param);
@@ -119,32 +114,21 @@
 									$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray,pageArray));
 								}
 
-				});
+							});
 					        e.preventDefault();
-				
-			});
-						
-				}	
+						});
+					}	
 				});				
-						
-						
-						
-						
-						
-						
-						
-						
 		$(document).on('click','#side_bookClub,#menu_bookClub,#btn_all,#btn_list',function(e){
 			$.ajax({
 				url:'club_list',
 				method:'GET',
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
+					var pageArray = jsonResult.pageArray[0];
 					$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray,pageArray));
 					$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
-				        
 						 var param = 'pageNum='+$(e.target).attr('pageNum');
-						
 				        console.log(param);
 				        $.ajax({
 							url:'club_list',

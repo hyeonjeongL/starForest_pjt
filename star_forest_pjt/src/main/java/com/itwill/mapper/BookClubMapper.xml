@@ -4,7 +4,7 @@
 	<select id="selectAll" resultType="com.itwill.domain.BookClub">
 	SELECT * FROM
 		( SELECT rownum idx, s.*  FROM
-				( SELECT club_no, club_name, club_count, club_person, club_time, club_place, club_content FROM book_club
+				( SELECT club_no, club_name,club_readcount, club_count, club_person, club_time, club_place, club_content FROM book_club
 					ORDER BY club_no DESC
 				) s
 		 )

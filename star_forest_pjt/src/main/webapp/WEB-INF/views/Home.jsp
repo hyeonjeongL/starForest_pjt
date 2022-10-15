@@ -83,6 +83,12 @@ $(function() {
 	});*/
 
 </script>
+<style type="text/css">
+.card img{
+height:180px;
+width:150px;"
+}
+</style>
 
 </head>
 <body>
@@ -153,9 +159,6 @@ $(function() {
                            <div class="col-md-4 clearfix d-none d-md-block">
                               <div class="card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-                                    <div class="card-body" class="card-title">
-                                    <div class="book-title" id="book-title">${book.book_title}</div>
-                                 </div>
                               </div>
                            </div>
                         </c:forEach>
@@ -168,9 +171,6 @@ $(function() {
                            <div class="col-md-4 clearfix d-none d-md-block">
                               <div class="card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-                                    <div class="card-body" class="card-title">
-                                    <div class="book-title" id="book-title">${book.book_title}</div>
-                                 </div>
                               </div>
                            </div>
                         </c:forEach>
@@ -213,9 +213,6 @@ $(function() {
                            <div class="col-md-4 clearfix d-none d-md-block">
                               <div class="card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-                                    <div class="card-body" class="card-title">
-                                    <div class="book-title" id="book-title">${book.book_title}</div>
-                                 </div>
                               </div>
                            </div>
                         </c:forEach>
@@ -243,9 +240,6 @@ $(function() {
                            <div class="col-md-4 clearfix d-none d-md-block">
                               <div class="card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-                                    <div class="card-body" class="card-title">
-                                    <div class="book-title" id="book-title">${book.book_title}</div>
-                                 </div>
                               </div>
                            </div>
                         </c:forEach>
@@ -258,9 +252,6 @@ $(function() {
                            <div class="col-md-4 clearfix d-none d-md-block">
                               <div class="card"><a href="book_detail?book_no=${book.book_no}">
                                  <img src="${book.book_image_src}" class="img-fluid" alt="Card image cap"></a>
-                                    <div class="card-body" class="card-title">
-                                    <div class="book-title" id="book-title">${book.book_title}</div>
-                                 </div>
                               </div>
                            </div>
                         </c:forEach>

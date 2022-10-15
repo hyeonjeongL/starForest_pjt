@@ -173,7 +173,7 @@ $(function(){
 					</ul>
 				</li>
 				
-				<c:if test="${sUserId!=admin}">
+				<c:if test="${sUserId=='admin'}">
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">

@@ -80,10 +80,8 @@
 				
 				$(document).on('click','#search_btn',function(e){
 					 var pageNum = $("#page_form input[name='pageNum']").val();
-					alert(pageNum);
 					 var keyword= $("input[name='keyword']").val();
-					 console.log(keyword);
-					 var type= $('#type_box').serialize();
+					 var type= $("#type_box option:selected").val();
 					 var param={keyword,pageNum,type};
 					 //console.log(pageNum,keyword);
 					 $.ajax({
@@ -94,7 +92,6 @@
 								var requestArray = jsonResult.data;
 								var pageArray = jsonResult.pageMaker[0];
 								var keyword = jsonResult.pageMaker[0].cri.keyword;
-								console.log(keyword);
 								console.log(pageArray);
 								//console.log(requestArray);
 								$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));

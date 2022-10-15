@@ -95,10 +95,10 @@ function request_list_content(requestArray,pageArray) {
 			<form id="keyword_form" method="post">
 	        <div class="search_area">
 	        	<select name="type" id="type_box">
-                <option value="board_title" <c:out value="${pageArray.cri.type =='board_title'?'selected':'' }"/>제목</option>
-                <option value="board_content" <c:out value="${pageArray.cri.type  == 'board_content'?'selected':'' }"/>내용</option>
-                <option value="user_id" <c:out value="${pageArray.cri.type  == 'user_id'?'selected':'' }"/>작성자</option>
-                <option value="all" <c:out value="${pageArray.cri.type  == 'all'?'selected':'' }"/>제목 + 내용</option>
+                <option value="board_title" ${pageArray.cri.type =='board_title'?'selected':''}"/>제목</option>
+                <option value="board_content" ${pageArray.cri.type  == 'board_content'?'selected':''}"/>내용</option>
+                <option value="user_id" ${pageArray.cri.type  == 'user_id'?'selected':''}"/>작성자</option>
+                <option value="all" ${pageArray.cri.type  == 'all'?'selected':''}"/>제목 + 내용</option>
            		 </select>    
 	            <input type="text" id="keyword_box" name="keyword" value="${(pageArray.cri.keyword==null)?'':''}" style="margin-left:60px;">
 	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색"></input>

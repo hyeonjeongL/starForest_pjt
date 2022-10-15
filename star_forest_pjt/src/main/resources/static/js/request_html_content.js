@@ -251,34 +251,34 @@ function request_view(requestBoard){
 								<input type="hidden" name="board_groupno" value="${requestBoard.groupno}">
 								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
 									<tbody><tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">번호</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_no}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="22">번호</td>
+										<td width="300" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_no}</td>
 									</tr>
 									<tr>
-										<td width="200" align="center" bgcolor="E6ECDE" height="22">작성자</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.user_id}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="22">작성자</td>
+										<td width="300" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.user_id}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">날짜</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_date.substring(0,10)}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="22">날짜</td>
+										<td width="300" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_date.substring(0,10)}</td>
 									</tr><tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">조회수</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_readcount}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="22">조회수</td>
+										<td width="300" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_readcount}</td>
 									</tr>
 									<tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="22">진행상태</td>
+										<td width="300" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
 									</tr>
 									<tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">카테고리</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.category_name}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="22">카테고리</td>
+										<td width="300" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.category_name}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="110">제목</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_title}</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="110">제목</td>
+										<td width="600" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_title}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="110">내용</td>
+										<td width="200" align="center" bgcolor="#ffc91d" height="110">내용</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px" id="td_content"><pre style="font-size:12pt;">${requestBoard.board_content}</pre></td>
 									</tr>
 								</tbody></table>

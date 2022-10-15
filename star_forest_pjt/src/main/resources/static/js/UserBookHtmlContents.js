@@ -9,7 +9,8 @@ UserBookHtmlContents.user_rental_item_content = function(book,i) {
 				<th scope="row">${book.rental.rental_date.substring(0, 10)}</th>
 				<th scope="row">${book.rental.return_duedate.substring(0, 10)}</th>
 				<th scope="row">${(book.rental.return_date!=null)?book.rental.return_date.substring(0, 10):'미반납'}</th>
-			</tr>`
+			</tr>
+			`
 				;
 }
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
@@ -33,7 +34,26 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 							
 							<!-- rentalList end -->
 						</tbody>
+						
 					</table>
+					나의 마음의 양식은 
+					${
+						function(){
+							var weight=0;
+							var test='';
+							var finalweight=0;
+							for(var i=0; i<rentalArray.length; i++){
+								weight =rentalArray[i].book_page;
+								finalweight+=weight;
+							}
+							
+							if(finalweight>1000){
+								test
+							}
+							return finalweight;
+						}()
+					}
+					쪽입니다
 				`;
 }
 

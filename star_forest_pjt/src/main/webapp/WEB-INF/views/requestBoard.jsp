@@ -91,7 +91,6 @@
 							success:function(jsonResult){
 								var requestArray = jsonResult.data;
 								var pageArray = jsonResult.pageMaker[0];
-								var keyword = jsonResult.pageMaker[0].cri.keyword;
 								console.log(pageArray);
 								//console.log(requestArray);
 								$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));

@@ -106,6 +106,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						var rentalArray=jsonResult.data;
+						console.log(rentalArray);
 						$('#clubUserList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);

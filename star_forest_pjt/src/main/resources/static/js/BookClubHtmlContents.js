@@ -46,7 +46,7 @@ BookClubHtmlContents.club_item_html = function(club) {
 }
 
 
-BookClubHtmlContents.club_join_html = function(bookClubArray) {
+BookClubHtmlContents.club_join_html = function(bookClubArray,pageArray) {
 	return `<div class="category" id="btn_category">
 				            <div>
 				             <button type="button" id="btn_all" value="all" style="width:50px" >전체</button>
@@ -65,7 +65,49 @@ BookClubHtmlContents.club_join_html = function(bookClubArray) {
 									${bookClubArray.map(BookClubHtmlContents.club_item_html).join('')
 		}
 								</div>
-							
+							<div class="page_area">
+		<form id="page_form" method="get">
+		<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum}">
+        <input type="hidden" name="amount" value="${pageArray.cri.amount}">    
+					<ul id="page">
+				 		
+				 		
+				 		<!-- 이전페이지 버튼 -->
+				 		${
+							function(){
+								var prev = pageArray.prev;
+								var html='';
+								if(prev){
+									html=`<li class="page_btn_prev"><a href="bookclub?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
+								}
+								return html;
+							}()
+						}
+                    	${
+							function(){
+								var html='';	
+							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="bookclub?pageNum=${i}" pageNum=${i}>${i}</a></li>`;
+								}							
+								return html;
+							}()
+	                    }
+	                    
+	                     <!-- 다음페이지 버튼 -->${
+							function(){
+								var next = pageArray.next;
+								var html='';
+								if(next){
+									html=`<li class="page_btn_next"><a href="bookclub?pageNum=${pageArray.endPage + 1 }" pageNum=${pageArray.endPage+1}>Next</a></li>`
+								}
+								return html;
+							}()
+						}
+	                    
+	                    
+               		</ul>
+               		</form>
+		</div>
 									
 									
 							`;

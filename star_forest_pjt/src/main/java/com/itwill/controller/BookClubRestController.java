@@ -19,6 +19,8 @@ import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.BookClub;
 import com.itwill.service.BookClubService;
 import com.itwill.util.Criteria;
+import com.itwill.util.PageMakeDTO;
+import com.itwill.util.PageMaker;
 
 @RestController
 public class BookClubRestController {
@@ -310,26 +312,32 @@ public class BookClubRestController {
 		return resultMap;
 	}
 
+	
+	
 	// 동아리리스트
 	
-	@GetMapping("/club_list")
-	public Map club_list() throws Exception {
+	@RequestMapping(value="/club_list",produces = "application/json;charset=UTF-8")
+	public Map club_list(Criteria cri) throws Exception {
 		Map resultMap = new HashMap();
 		int code = 2;
 		String url = "";
 		String msg = "";
 		List<BookClub> resultList = new ArrayList<BookClub>();
-
-		resultList = bookClubService.selectAll();
+		List<PageMaker> pageList=new ArrayList<PageMaker>();
+		cri.setAmount(4);
+		int totCount=bookClubService.clubCount(cri);
+		resultList = bookClubService.selectAll(cri);
+		PageMaker pageMaker = new PageMaker(cri, totCount);
+		pageList.add(pageMaker);
 		code = 1;
 		url = "";
 		msg = "조회성공";
-		resultList.addAll(resultList);
 
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
 		resultMap.put("data", resultList);
+		resultMap.put("pageArray", pageList);
 		return resultMap;
 	}
 

@@ -65,6 +65,10 @@ update book_club set user_id='yeji',club_count=club_count-1 where club_count>0 a
 /*조회수 증가*/
 update book_club set club_readcount=club_readcount+1 where club_no=5;
 
+select rownum idx, * from book_club 
+
+		WHERE idx >= 1 and idx<= 10 order by club_no desc;
+
 
 --delete--
 /*게시물 삭제*/

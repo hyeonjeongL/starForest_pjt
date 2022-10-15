@@ -13,6 +13,7 @@ import com.itwill.domain.BookClub;
 import com.itwill.mapper.BookClubMapper;
 import com.itwill.repository.BookClubDao;
 import com.itwill.repository.FavoriteDao;
+import com.itwill.util.Criteria;
 
 /**
  * @author itwill
@@ -37,7 +38,7 @@ public class BookClubDaoTest {
 		BookClub bookClub = new BookClub(0, "동아리제목", 8, "동아리대상", "매주 화요일", 
 										 "강남역 2번출구앞", "동아리내용", 2, 100, "yeji");
 		System.out.println(bookClubDao.create(bookClub));
-		System.out.println(bookClubDao.selectAll());
+		System.out.println(bookClubDao.selectAll(new Criteria(0, 0)));
 		System.out.println(bookClubDao.selectByCategory(200));
 		System.out.println(bookClubDao.selectById("yeji"));
 		System.out.println(bookClubDao.selectByNo(3));

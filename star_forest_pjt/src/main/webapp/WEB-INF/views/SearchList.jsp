@@ -264,7 +264,7 @@ section#content div.book_title a {
 								<h4 class="text-light">도서검색</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
+								<li class="list-group-item active"><a href="SearchResult2">도서검색</a></li>
 								<li class="list-group-item active" id="side_book"><a href="SearchList">전체 도서</a></li>
 								<li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
 								<li class="list-group-item"><a href="Newbooks">신착도서</a></li>

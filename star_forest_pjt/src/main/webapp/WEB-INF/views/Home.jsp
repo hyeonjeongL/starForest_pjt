@@ -75,6 +75,13 @@ function keywordCheck() {
 	window.searchform.submit();
 }
 
+/* 검색 *
+$(function() {
+	$('#search').click(function() {
+		location.href = "http://localhost/star_forest_pjt/SearchResult?query="+$("#keyword").val();
+	})
+	});*/
+
 </script>
 
 </head>

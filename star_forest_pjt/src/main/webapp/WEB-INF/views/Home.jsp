@@ -131,7 +131,7 @@ width:150px;"
                <form  action="SearchResult" method="get">
                   <div class="input-group mb-3" id="home-searchbar">
                   <select data-trigger="" name="type" id="type">
-										<option selected value="">선택하세요</option>
+										<option selected disabled>선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>
 										<option value="book_publisher">출판사</option>

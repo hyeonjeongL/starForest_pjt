@@ -265,13 +265,13 @@ section#content div.book_title a {
 							<form name="f" action="getSearchList">
 								<div class="input-group noto-serif">
 									<select data-trigger="" name="type" id="type">
-										<option selected value="">선택하세요</option>
+										<option selected disabled>선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>
 										<option value="book_publisher">출판사</option>
 										<option value="category_name">분야명</option>
 									</select>
-									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}">
+									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}" required>
 									<div class="input-group-append">
 										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

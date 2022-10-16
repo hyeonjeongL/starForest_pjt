@@ -1,3 +1,4 @@
+<%@page import="com.itwill.domain.Search"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -24,10 +25,9 @@
   <title>도서정보 - 별숲도서관</title>
   
 <script type="text/javascript">
+$(document).on('click', '#btn_search', function(e) {
 
-$(function(e) {
-	
-	var param = 'type='+ $('type').val()+'&keyword=' + $('keyword').val() ;
+	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
 	console.log(param);
 	$.ajax({
 		url : 'getSearchList',
@@ -235,6 +235,21 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 					<!-- 메인내용 -->
 			<div class="col-md-9">
 			<div class="row">
+			<form name="f" action="getSearchList">
+								<div class="input-group noto-serif">
+										<div id ="test" style ="display:none">
+											<select data-trigger="" name="type" id="type">
+												<option value="<%=request.getParameter("type")%>"></option>
+											</select>
+											</div>
+									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="<%=request.getParameter("keyword")%>">
+									<div class="input-group-append">
+										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</button>
+									</div>
+								</div>
+							</form> 
 				</div>
 				<br><br><br>
 				<!-- CARD COLUMNS -->
@@ -242,7 +257,21 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 				
 				<!-- 리스트 -->
 							<div class="row" id="searchBookList">
-							
+							<!-- <div class="col-md-3">
+								<div class="card mb-3">
+									<div class="card-body p-0">
+										<a href="book_detail?book_no=454">
+											<img class="card-image-top img-fluid" width="100%" alt="남주의 첫날밤을 가져 버렸다 1.img" src="https://image.aladin.co.kr/product/30197/26/cover200/k912839296_1.jpg">
+										</a>
+										<div class="card-body">
+											<div class="card-title">
+												<div class="book-title" id="book-title">남주의 첫날밤을 가져 버렸다 1</div>
+												<h6 class="book_author">황도톨(원작),MSG(그림),티바(각색)</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
 						</div>
 							<!-- 리스트 -->
 							

@@ -24,6 +24,7 @@
 <script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <!-- <script type="text/javascript" src="./js/Search.js"></script> -->
 <script type="text/javascript">
+
 	$(document).on('click', '#btn_search', function(e) {
 
 		var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
@@ -42,7 +43,7 @@
 					html+="<div class=\"col-md-3\"><div class=\"card mb-3\">";
 					html+="					<div class=\"card-body p-0\">";
 					html+="					<a href=\"book_detail?book_no="+book.book_no+"\">";
-					html+="					<img class=\"card-image-top img-fluid\" width=\"100%\" alt=\"\" src=\""+book.book_image_src+"\">";
+					html+="					<img class=\"card-image-top img-fluid\" width=\"100%\" alt=\""+book.book_image+"\" src=\""+book.book_image_src+"\">";
 					html+="			</a>";
 					html+="				<div class=\"card-body\">";
 					html+="				<div class=\"card-title\">";
@@ -250,7 +251,7 @@ section#content div.book_title a {
 								<h4 class="text-light">도서검색</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item active"><a href="SearchResult">도서검색</a></li>
+								<li class="list-group-item active"><a href="SearchResult2">도서검색</a></li>
 								<li class="list-group-item"><a href="SearchList">전체 도서</a></li>
 								<li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
 								<li class="list-group-item"><a href="Newbooks">신착도서</a></li>
@@ -262,16 +263,16 @@ section#content div.book_title a {
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<div class="row">
-							<form name="f" action="getSearchList">
+							<form name="f" action="getSearchList" onsubmit="return false;" >
 								<div class="input-group noto-serif">
-									<select data-trigger="" name="type" id="type">
-										<option selected value="">선택하세요</option>
+									<select data-trigger="" name="type" id="type" required>
+										<option value="" selected disabled>선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>
 										<option value="book_publisher">출판사</option>
 										<option value="category_name">분야명</option>
 									</select>
-									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="${search.keyword}">
+									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." required>
 									<div class="input-group-append">
 										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

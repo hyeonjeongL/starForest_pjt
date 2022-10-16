@@ -56,6 +56,7 @@
 
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">
+
 $(function(){
     
       $(document).on('click','#phone_a',function(e){
@@ -91,6 +92,7 @@ function formSubmit(){
 	}
 	location.href="SearchResult";
 }
+
 
 /* 검색 *
 $(function() {
@@ -130,8 +132,8 @@ width:150px;"
                <div class="container">
                <form  action="SearchResult" method="get">
                   <div class="input-group mb-3" id="home-searchbar">
-                  <select data-trigger="" name="type" id="type">
-										<option selected value="">선택하세요</option>
+                  <select data-trigger="" name="type" id="type" required>
+										<option value="" selected disabled>선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>
 										<option value="book_publisher">출판사</option>
@@ -373,7 +375,7 @@ width:150px;"
                               <h4>공지사항</h4>
                            </div>
                            <div class="text-right mr-4">
-                              <a href="postList?option=p_title&search=&group=10"><small
+                              <a href="notice_list"><small
                                  class="text-muted">전체보기 &gt;</small></a>
                            </div>
                         </div>

@@ -121,12 +121,12 @@ $(function(){
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서관소개</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="howtoInfo"> 대출/반납</a></li>
-						<li><a class="dropdown-item" href="postList?group=10">
+						<li><a class="dropdown-item" href="notice_list">
 								공지사항 </a></li>
 						<li><a class="dropdown-item" href="faqViewpage"> 자주묻는질문</a></li>
 						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길 </a></li>
 					</ul></li>
-				<li class="nav-item dropdown"><a href="SearchResult"
+				<li class="nav-item dropdown"><a href="SearchResult2"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="SearchResult2">도서 검색</a></li>

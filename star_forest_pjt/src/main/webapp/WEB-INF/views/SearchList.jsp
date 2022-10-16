@@ -8,26 +8,28 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-
-<link rel="stylesheet"
-	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
-	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
-	crossorigin="anonymous">
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-	crossorigin="anonymous">
-<link rel="icon" type="image/png" sizes="16x16"
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+   <!-- 구글폰트 전체 기본적용 -->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/star.png">
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-<link rel="stylesheet" href="./css/style.css">
-<script type="text/javascript"
-	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<!-- 구글폰트 전체 기본적용 END -->
+   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/faq.css">
+   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="./js/Search.js"></script>
+<script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 
 <title>도서정보 - 별숲도서관</title>
 <script type="text/javascript">
@@ -72,159 +74,10 @@
 </script>
 <style type="text/css">
 /* Lazy Load Styles */
-.card-image {
-	display: block;
-	background: #fff center center no-repeat;
-	background-size: cover;
-	margin: 0 auto;
-	/* filter: blur(3px); /* blur the lowres image */
-	*/
-}
-
-.card-image>img {
-	display: block;
-	width: 100%;
-	opacity: 0; /* visually hide the img element */
-}
-
-.card-image.is-loaded {
-	filter: none; /* remove the blur on fullres image */
-	transition: filter 1s;
-	margin: 0 auto;
-}
-
-/* Layout Styles */
-.card-list {
-	display: block;
-	padding: 0;
-	font-size: 0;
-	text-align: center;
-	list-style: none;
-	width: 825px;
-}
-
-.card-body {
-	padding: 0;
-}
-
-.card {
-	display: inline-block;
-	width: 200px;
-	height: 250px;
-	margin: 1rem;
-	font-size: 1rem;
-	text-decoration: none;
-	overflow: hidden;
-	box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
-	transition: transform 0.1s ease-in-out, box-shadow 0.1s;
-}
-
-.card:hover {
-	transform: translateY(-0.5rem) scale(1.0125);
-	box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
-}
-
-.card-description {
-	display: block;
-	color: #515151;
-	width: 200px;
-	height: 100px;
-	text-align: center;
-}
-
-.card-description>h4 {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-size: large;
-	font-weight: bold;
-}
-
-.searchResult-body {
-	float: left;
-	width: 100%;
-}
-
-.searchResult-options {
-	margin-left: 150px;
-	float: left;
-	width: 20%;
-	text-align: center;
-}
-
-.paging {
-	margin: 0 auto;
-	text-align: center;
-	width: 100%;
-	float: left;
-}
-
-.paging-num {
-	margin: 0 10px;
-}
-
-.input-group {
-	height: 26px;
-	padding: 25px 5px 25px 5px;
-	border: 1px;
-	float: left;
-}
-
-.searchResult-body {
-	float: left;
-}
-</style>
-<style>
-li {
-	position: relative;
-}
-
-li:hover {
-	background: #eee;
-}
-
-li>ul.low {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 180px;
-}
-
-li:hover>ul.low {
-	display: block;
-}
-
-li:hover>ul.low li a {
-	background: #eee;
-	border: 1px solid #eee;
-}
-
-li:hover>ul.low li a:hover {
-	background: #fff;
-}
-
-li>ul.low li {
-	width: 180px;
-}
-</style>
-<style>
-ul li {
-	
-}
-
-section#content div.book_image_src img {
-	width: 200px;
-	height: 200px;
-}
-
-section#content div.book_title {
-	padding: 10px 0;
-	text-align: center;
-}
-
-section#content div.book_title a {
-	color: #000;
-}
+.card-body.p-0 img{
+	width:170px;
+	height:220px;
+	}
 </style>
 
 </head>
@@ -243,7 +96,7 @@ section#content div.book_title a {
 				<div class="container pt-5">
 					<div class="row">
 						<div class="col-md-6 m-auto text-center">
-							<h2>도서검색</h2>
+							<h2>전체 도서</h2>
 						</div>
 					</div>
 				</div>
@@ -300,16 +153,6 @@ section#content div.book_title a {
 		<!-- include_common_left.jsp end-->
 	</div>
 	<!-- footer end-->
-	<script>
-		// Get the current year for the copyright
-		$('#year').text(new Date().getFullYear());
-
-		$('.slider').click({
-			infinite : true,
-			slideToShow : 1,
-			slideToScroll : 1
-		});
-	</script>
 
 </body>
 </html>

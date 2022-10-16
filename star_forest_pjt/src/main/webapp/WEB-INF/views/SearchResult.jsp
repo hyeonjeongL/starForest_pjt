@@ -1,33 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>  
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-  <!-- 구글폰트 전체 기본적용 -->
+   <!-- 구글폰트 전체 기본적용 -->
 	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/star.png">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
+	<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 	<!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/faq.css">
+   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+   <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
+   
   <title>도서정보 - 별숲도서관</title>
   
 <script type="text/javascript">
 
-$(function(e) {
+$(document).on('click', '#btn_search', function(e) {
 	
-	var param = 'type='+ $('type').val()+'&keyword=' + $('keyword').val() ;
+	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
 	console.log(param);
 	$.ajax({
 		url : 'getSearchList',
@@ -48,7 +55,6 @@ $(function(e) {
 				html+="				<div class=\"card-body\">";
 				html+="				<div class=\"card-title\">";
 				html+="						<div class=\"book-title\" id=\"book-title\">"+book.book_title+"</div>";
-				html+="				<h6 class=\"book_author\">"+book.book_author+"</h6>";
 				html+="			</div>";
 				html+="				</div>";
 				html+="			</div>";
@@ -64,127 +70,10 @@ $(function(e) {
 </script>
 
 <style type="text/css">
-	/* Lazy Load Styles */
-	.card-image {
-		display: block;
-		background: #fff center center no-repeat;
-		background-size: cover;
-		margin: 0 auto;
-		/* filter: blur(3px); /* blur the lowres image */ */
+.card-body.p-0 img{
+	width:170px;
+	height:220px;
 	}
-	
-	.card-image > img {
-		display: block;
-		width: 100%;
-		opacity: 0; /* visually hide the img element */
-	
-	}
-	
-	.card-image.is-loaded {
-		filter: none; /* remove the blur on fullres image */
-		transition: filter 1s;
-		margin: 0 auto;
-	}
-	
-	/* Layout Styles */
-	
-	.card-list {
-		display: block;
-		padding: 0;
-		font-size: 0;
-		text-align: center;
-		list-style: none;
-		width: 825px;
-	}
-	
-	.card-body {
-		padding: 0;
-	}
-	
-	.card {
-		display: inline-block;
-		width: 200px;
-		height: 250px;
-		margin: 1rem;
-		font-size: 1rem;
-		text-decoration: none;
-		overflow: hidden;
-		box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
-		transition: transform 0.1s ease-in-out, box-shadow 0.1s;
-	}
-	
-	.card:hover {
-		transform: translateY(-0.5rem) scale(1.0125);
-		box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
-	}
-	
-	.card-description {
-		display: block;
-		color: #515151;
-		width: 200px;
-		height: 100px;
-		text-align: center;
-	}
-	
-	.card-description > h4 {
-		white-space: nowrap;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		font-size: large;
-		font-weight: bold;
-	}
-	
-	.searchResult-body {
-		float: left;
-		width: 100%;
-	}
-	
-	.searchResult-options {
-		margin-left: 150px;
-		float: left;
-		width: 20%;
-		text-align: center;
-	}
-	
-	.paging {
-		margin: 0 auto;
-		text-align: center;
-		width: 100%;
-		float: left;
-	}
-	
-	.paging-num {
-		margin: 0 10px;
-	}
-	
-	.input-group {
-		height: 26px;
-		padding: 25px 5px 25px 5px;
-		border: 1px; 
-		float: left;
-	}
-	
-	.searchResult-body {
-		float: left;
-	}
-</style>
-
-   
-<style>
- li { position:relative; }
-li:hover { background:#eee; }     
-li > ul.low { display:none; position:absolute; top:0; left:180px;  }
- li:hover > ul.low { display:block; }
-li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
- li:hover > ul.low li a:hover { background:#fff;}
- li > ul.low li { width:180px; }
-</style>
-
-<style>
-   ul li {}
-   section#content div.book_image_src img { width:200px; height:200px; }
-   section#content div.book_title { padding:10px 0; text-align:center; }
-   section#content div.book_title a { color:#000; }
 </style>
 
 </head>
@@ -235,6 +124,24 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 					<!-- 메인내용 -->
 			<div class="col-md-9">
 			<div class="row">
+			<form name="f" action="getSearchList">
+								<div class="input-group noto-serif">
+										 <div id ="test" style ="display:none"> 
+											<select data-trigger="" name="type" id="type">
+												<option value="<%=request.getParameter("type")%>"></option>
+											</select>
+											 </div>
+									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="<%=request.getParameter("keyword")%>" readonly>
+									<div class="input-group-append">
+										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</button>
+										<button class="btn btn-outline-success btn-r" type="button" onclick="location.href='SearchResult2'">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>다른 도서 검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</button>
+									</div>
+								</div>
+							</form> 
 				</div>
 				<br><br><br>
 				<!-- CARD COLUMNS -->
@@ -242,6 +149,22 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 				
 				<!-- 리스트 -->
 							<div class="row" id="searchBookList">
+							
+							<!-- <div class="col-md-3">
+								<div class="card mb-3">
+									<div class="card-body p-0">
+										<a href="book_detail?book_no=${book.book_no}">
+											<img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}">
+										</a>
+										<div class="card-body">
+											<div class="card-title">
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6 class="book_author">${book.book_book_author}</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> -->
 							
 						</div>
 							<!-- 리스트 -->

@@ -83,7 +83,7 @@
 					 //console.log(pageNum,keyword);
 					 $.ajax({
 							url:'request_list_json',
-							method:'GET',
+							method:'POST',
 							data: param,
 							success:function(jsonResult){
 								var requestArray = jsonResult.data;
@@ -91,6 +91,8 @@
 								console.log(pageArray);
 								//console.log(requestArray);
 								$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+								//var url = "requestBoard?"+${param};
+								//window.location.href=url;
 								//$('#page_wrap').html(pageArray);
 							}
 						});

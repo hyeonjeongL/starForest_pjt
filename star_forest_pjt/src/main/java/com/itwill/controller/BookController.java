@@ -114,6 +114,7 @@ public class BookController {
 		try {
 			List<Book> favorite = bookService.selectFavorite();
 			model.addAttribute("favorite",favorite);
+			System.out.println("favorite");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -125,6 +126,7 @@ public class BookController {
 		try {
 			List<Book> favorite = bookService.selectFavorite();
 			model.addAttribute("favorite",favorite);
+			System.out.println("favorite");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -151,6 +153,7 @@ public class BookController {
 		try {
 			List<Book> newBook = bookService.selectNew();
 			model.addAttribute("newBook",newBook);
+			System.out.println("newBook");
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -23,7 +23,7 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	@RequestMapping("/postList")
+	@RequestMapping("/notice_list")
 	public String notice_list(@RequestParam(required = false, defaultValue = "1") Integer pageno,Model model) throws Exception{
 		try {
 			PageMakerDto<Notice> noticeList = noticeService.selectAll(pageno);
@@ -36,13 +36,13 @@ public class NoticeController {
 			e.printStackTrace();
 			return "error";
 		}
-		return "postList";
+		return "notice_list";
 	}
 	
 	@RequestMapping("/notice_view")
 	public String notice_view(@RequestParam Integer pageno, Integer notice_no, Model model) throws Exception{
 		if(pageno==null || notice_no==null) {
-			return "postList";
+			return "notice_list";
 		}
 		try {
 			Notice notice = noticeService.selectByNo(notice_no);

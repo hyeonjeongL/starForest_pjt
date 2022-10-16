@@ -24,6 +24,19 @@
 <script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <!-- <script type="text/javascript" src="./js/Search.js"></script> -->
 <script type="text/javascript">
+function check(){
+	
+    if(document.getElementById("keyword").value==""){
+        alert("키워드를 입력하세요");
+        return;
+    }
+    if(document.getElementById("type").value==""){
+        alert("선택하세요");
+        return;
+    }
+    document.f.submit(); //직접 submit()이라는 메소드를 호출. 액션을 들고 가줌
+}
+
 	$(document).on('click', '#btn_search', function(e) {
 
 		var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
@@ -262,10 +275,10 @@ section#content div.book_title a {
 					<!-- 메인내용 -->
 					<div class="col-md-9">
 						<div class="row">
-							<form name="f" action="getSearchList" onsubmit="return false;">
+							<form name="f" action="getSearchList" onsubmit="return false;" >
 								<div class="input-group noto-serif">
 									<select data-trigger="" name="type" id="type" required>
-										<option selected disabled>선택하세요</option>
+										<option value="" selected disabled>선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>
 										<option value="book_publisher">출판사</option>
@@ -273,7 +286,7 @@ section#content div.book_title a {
 									</select>
 									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." required>
 									<div class="input-group-append">
-										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
+										<button class="btn btn-outline-success btn-r" type="button" id="btn_search" onclick="check();">
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</button>
 									</div>

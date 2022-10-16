@@ -548,9 +548,9 @@ span {
 							
 							<div class="form-group last mb-4 addr_input">
 								<label for="user_address" id="muser_address"></label>
-								<input type="text" class="form-control" name="user_address" id="user_address" placeholder="주소 입력" required>
+								<input type="text" class="form-control" name="user_address" id="user_address" placeholder="주소 입력" required readonly>
 							</div>
-								<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button"  class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기" required><br>
+								<br><input type="button"  class="btn btn-outline-primary addr_btn" id="findAddr" onclick="daumPostcode()" value="주소 찾기" required><br>
 							
 							<!-- <span>상세 주소</span> -->
 							<div class="form-group last mb-4 addr_detail">

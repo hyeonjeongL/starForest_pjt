@@ -23,11 +23,14 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
 <!-- <script type="text/javascript" src="./js/Search.js"></script> -->
+<script type="text/javascript"> 
+</script>
 <script type="text/javascript">
-
+	
 	$(document).on('click', '#btn_search', function(e) {
 
 		var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
+		  
 		console.log(param);
 		$.ajax({
 			url : 'getSearchList',
@@ -58,9 +61,11 @@
 				}
 				$('#searchBookList').html(html);
 			}
+			
 		});
 		e.preventDefault();
 	});
+
 </script>
 <style type="text/css">
 /* Lazy Load Styles */

@@ -278,8 +278,22 @@ section#content div.book_title a {
 					<div class="col-md-9">
 						<div id="searchAllList" class="row">
 							<div class="category" id="btn_category">
-							</div>
 						<!-- -------------------------------->
+						<c:forEach items="${allBook}" var="cate" begin="0" end="15" varStatus="cate">
+						<div class="col-md-3">
+									<div class="card mb-3">
+										<div class="card-body p-0">
+											<a href="book_detail?book_no=${cate.book_no}"><img class="card-image-top img-fluid" width="100%" alt="${cate.book_image}" src="${cate.book_image_src}"></a>
+											<div class="card-body">
+												<div class="card-title">
+													<div class="book-title" id="book-title">${cate.book_title}</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								</c:forEach>
+							</div>
 						<!-------------------------------- -->
 						</div>
 					</div>

@@ -14,11 +14,11 @@ function changeQnaList(pageno){
 				let htmlBuffer = ``;
 				data.itemList.forEach(function(notice, i){
 					
-	                if(notice.notice_fix == 1){
-						htmlBuffer += `<tr><td>&nbsp;&nbsp;<span class="badge badge-danger">중요</span></td>`
+	                if(notice.setting == 1){
+						htmlBuffer += `<tr><td>&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20"></td>`
 					}
-	                if(notice.notice_fix == 0){
-						htmlBuffer += `<tr><td>&nbsp;&nbsp;<span class="badge badge-normal">일반</span></td>`
+	                if(notice.setting == 0){
+						htmlBuffer += `<tr><td>&nbsp;&nbsp;<span class="badge badge-normal"></td>`
 					}
 	                               
 					htmlBuffer += `
@@ -27,7 +27,7 @@ function changeQnaList(pageno){
 	                
                     htmlBuffer += `</td>
 	                                    <td>${notice.notice_date}</td>
-	                                    <td>${notice.notice_count}</td>
+	                                    <td>${notice.notice_readcount}</td>
 	                                </tr>`;
 				});
 				$("#notice_list_tbody").html(htmlBuffer);

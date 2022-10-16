@@ -1,8 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -10,26 +11,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-   <!-- 구글폰트 전체 기본적용 -->
+  <!-- 구글폰트 전체 기본적용 -->
+  <link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
    <!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/post.css">
+   <link rel="stylesheet" href="css/faq.css">
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
    <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
      </script>
-  <title>커뮤니티 - 별빛도서관</title>
+  <title>도서관소개 - 별숲도서관</title>
 </head>
 
 <body class="d-flex flex-column">
    <div id="page-content">
-   	<!-- navigation start-->
+     	<!-- navigation start-->
 			<div id="navigation">
 				<!-- include_common_left.jsp start-->
 				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
@@ -37,32 +38,7 @@
 			</div>
 			<!-- navigation end-->
 
-   <!-- 커뮤니티 헤더 -->
-   <header id="page-header" class="noto-serif">
-   <div class="page-header-overlay">
-      <div class="container pt-5">
-        <div class="row">
-            <div class="col m-auto text-center">
-              <c:if test="${group eq 10}">
-                  <h2>공지사항</h2>
-               </c:if>
-              <c:if test="${group eq 20}">
-                  <h2>창작물 게시판</h2>
-               </c:if>
-               <c:if test="${group eq 30}">
-                  <h2>중고장터</h2>
-               </c:if>
-               <c:if test="${group eq 40}">
-                  <h2>묻고답하기</h2>
-               </c:if>
-               <c:if test="${group eq 60}">
-                  <h2>자유게시판</h2>
-               </c:if>
-            </div>
-        </div>
-      </div>
-   </div>
-   </header>
+   
    
    <!-- MAIN SECTION -->
    <div class="shortcodes_area section_padding_100">
@@ -84,7 +60,7 @@
                                     <tr>
                                         <th scope="col" class="board_title">${notice.notice_title}</th>
                                         <th scope="col" class="board_date">${notice.notice_date}</th>
-                                        <th scope="col" class="board_count">조회수 : ${notice.notice_count}</th>
+                                        <th scope="col" class="board_count">조회수 : ${notice.notice_readcount}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

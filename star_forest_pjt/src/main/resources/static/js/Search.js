@@ -48,6 +48,7 @@ Search.cate_item_html = function(cate) {
 	
 	
 	`;
+	
 }
 
 

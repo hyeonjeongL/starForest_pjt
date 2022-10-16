@@ -29,6 +29,7 @@
 
 <title>도서정보 - 별숲도서관</title>
 <script type="text/javascript">
+/*주석처리 정렬해보기?*/
 	/********all list***********/
 	$.ajax({
 		url : 'book_list',

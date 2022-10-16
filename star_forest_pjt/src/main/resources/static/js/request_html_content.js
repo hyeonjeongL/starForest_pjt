@@ -61,8 +61,7 @@ function request_page_content(pageArray){
 	`;
 }
 */
-//<li>${pageArray.startPage}
-//<li>${pageArray.endPage}
+//onClick="location.href='requestBoard?pageNum=${pageArray.cri.pageNum}&keyword=${pageArray.cri.keyword}&type=${pageArray.cri.type}'"
 function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
@@ -100,7 +99,7 @@ function request_list_content(requestArray,pageArray) {
                 <option value="user_id" ${pageArray.cri.type  == 'board_content'?'selected':''}"/>작성자</option>
            		 </select>    
 	            <input type="text" id="keyword_box" name="keyword" value="${(pageArray.cri.keyword==null)?'':''}" style="margin-left:60px;">
-	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색"></input>
+	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색" >
 	        </div>
 	        </form>
   	  	</div>    

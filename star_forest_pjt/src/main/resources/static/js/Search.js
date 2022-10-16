@@ -19,7 +19,7 @@ Search.cate_join_html = function(bookCateArray) {
 				        </div>
 							<br><br><br>	
 	
-								<div class="searchAllList">
+								<div id="searchAllList">
 									${bookCateArray.map(Search.cate_item_html).join('')
 		}
 								</div>
@@ -31,8 +31,7 @@ Search.cate_join_html = function(bookCateArray) {
 
 Search.cate_item_html = function(cate) {
 	return `
-	<div class="col-md-9">
-						<div class="row">
+	<div id="searchAllList" class="row">
 								<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
@@ -45,7 +44,6 @@ Search.cate_item_html = function(cate) {
 										</div>
 									</div>
 								</div>
-						</div>
 					</div>
 	
 	

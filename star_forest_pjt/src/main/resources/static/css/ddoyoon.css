@@ -157,8 +157,9 @@ seat_reservation css
 	position: static;
 }
 .a_sec{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #fffac2; 
 	width:150px; 
 	height:150px;
 	margin-left:20px; 
@@ -170,8 +171,9 @@ seat_reservation css
 }
 
 .b_sec{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #fffac2; 
 	width:150px; 
 	height:150px;
 	margin-left:20px; 
@@ -193,8 +195,9 @@ seat_reservation css
 	position: static;
 }
 .c_sec{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #d4edff; 
 	width:150px; 
 	height:150px;
 	margin-left:20px; 
@@ -206,8 +209,9 @@ seat_reservation css
 }
 
 .d_sec{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #d4edff; 
 	width:150px; 
 	height:150px;
 	margin-left:20px; 
@@ -347,6 +351,7 @@ request_board css
     padding: 7px;
     font-weight: 500;
   }
+
  a:link {color:black; text-decoration: none;}
  a:visited {color:black; text-decoration: none;}
  a:hover {color:black; text-decoration: underline;}

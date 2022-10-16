@@ -13,6 +13,13 @@ UserBookHtmlContents.user_rental_item_content = function(book,i) {
 			`
 				;
 }
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+function numberWithCommas(x) {
+    return x.toLoaclString();
+}
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 	return `
 	<div class="mybook">
@@ -29,31 +36,28 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 						</thead>
 						<tbody>
 							<!-- rentalList start -->
-								${rentalArray.map(UserBookHtmlContents.user_rental_item_content).join('')
-		}
-							
+								${rentalArray.map(UserBookHtmlContents.user_rental_item_content).join('')}
 							<!-- rentalList end -->
 						</tbody>
-						
 					</table>
-					나의 마음의 양식은 
+					</div>
+					<div class="count_wrap"> 
+					나의 마음의 양식은<span class="count"">
 					${
 						function(){
 							var weight=0;
-							var test='';
 							var finalweight=0;
 							for(var i=0; i<rentalArray.length; i++){
 								weight =rentalArray[i].book_page;
 								finalweight+=weight;
 							}
 							
-							if(finalweight>1000){
-								test
-							}
 							return finalweight;
-						}()
+							}()
+							
 					}
-					쪽입니다
+					</span>쪽입니다
+					</div>
 				`;
 }
 

@@ -271,6 +271,9 @@
 
 		<!-- MAIN SECTION -->
 		&nbsp;&nbsp;&nbsp;
+		<br><br>
+		<img alt="" src="img/request_notice.png" width=700px;>
+			<br><br><br>
 		<!-- 검색 SECTION -->
 		<!--  
 		<div class="search_wrap">

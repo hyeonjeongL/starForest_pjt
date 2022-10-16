@@ -73,3 +73,10 @@ a{
     padding: 7px;
     font-weight: 500;
   }
+  
+   .count_wrap{
+   display:flex;
+  text-align: center;
+  margin: auto;
+ 
+  }

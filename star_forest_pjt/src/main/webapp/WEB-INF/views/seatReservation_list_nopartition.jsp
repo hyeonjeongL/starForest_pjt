@@ -125,13 +125,27 @@
 			<div class="seat_wrap" style="text-align:center;">
 				<div id="ABsection">
 						<c:forEach items="${seatList}" var="seat" begin="40" end="46">
-						<div class="a_sec">
+						<c:choose>
+						<c:when test="${seat.seat_status==0 }" >
+						<div class="a_sec" style="background-color:#fffac2;">
+						</c:when>
+						<c:when test="${seat.seat_status==1 }">
+						<div class="a_sec" style="background-color:#9b9b9b;">
+						</c:when>
+						</c:choose>
+						<c:choose>
+						 <c:when test="${seat.seat_status==0 }">
 		          		 <p class="card-text">${seat.seat_no}</p>
+		          		  </c:when>
+		          		   <c:when test="${seat.seat_status==1 }">
+		          		 <p class="card_text"><b>사용중</b></p>
+		          		 </c:when>
+		          		 </c:choose>
 		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
 		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 						 <c:choose>
 						 <c:when test="${seat.seat_status == 1}">
-		                 <p class="card_text"><b>사용중</b></p>
+		                 <p class="card_text"><b></b></p>
 		                 </c:when>
 		                 <c:when test="${seat.seat_status == 0 }">
 		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
@@ -139,15 +153,31 @@
 		                 </c:choose>
 	            		 </div>
 		                 </c:forEach>
+		                 
 	            	<img alt="" src="img/seat_table.png" width=1200px height=2px style="margin-right:60px;">
+	            	
 	            	<c:forEach items="${seatList}" var="seat" begin="47" end="53">
-						<div class="b_sec">
+						<c:choose>
+						<c:when test="${seat.seat_status==0 }" >
+						<div class="b_sec" style="background-color:#fffac2;">
+						</c:when>
+						<c:when test="${seat.seat_status==1 }">
+						<div class="b_sec" style="background-color:#9b9b9b;">
+						</c:when>
+						</c:choose>
+						<c:choose>
+						 <c:when test="${seat.seat_status==0 }">
 		          		 <p class="card-text">${seat.seat_no}</p>
+		          		  </c:when>
+		          		   <c:when test="${seat.seat_status==1 }">
+		          		 <p class="card_text"><b>사용중</b></p>
+		          		 </c:when>
+		          		 </c:choose>
 		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
 		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 						 <c:choose>
 						 <c:when test="${seat.seat_status == 1}">
-		                 <p class="card_text"><b>사용중</b></p>
+		                 <p class="card_text"><b></b></p>
 		                 </c:when>
 		                 <c:when test="${seat.seat_status == 0 }">
 		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
@@ -158,13 +188,27 @@
 	            </div>
 				<div id="CDsection">
 						<c:forEach items="${seatList}" var="seat" begin="54" end="60">
-						<div class="c_sec">
+						<c:choose>
+						<c:when test="${seat.seat_status==0 }" >
+						<div class="c_sec" style="background-color:#d4edff;">
+						</c:when>
+						<c:when test="${seat.seat_status==1 }">
+						<div class="c_sec" style="background-color:#9b9b9b;">
+						</c:when>
+						</c:choose>
+						<c:choose>
+						 <c:when test="${seat.seat_status==0 }">
 		          		 <p class="card-text">${seat.seat_no}</p>
+		          		  </c:when>
+		          		   <c:when test="${seat.seat_status==1 }">
+		          		 <p class="card_text"><b>사용중</b></p>
+		          		 </c:when>
+		          		 </c:choose>
 		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
 		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 						 <c:choose>
 						 <c:when test="${seat.seat_status == 1}">
-		                 <p class="card_text"><b>사용중</b></p>
+		                 <p class="card_text"><b></b></p>
 		                 </c:when>
 		                 <c:when test="${seat.seat_status == 0 }">
 		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">
@@ -174,13 +218,27 @@
 		                 </c:forEach>
 	            	<img alt="" src="img/seat_table.png" width=1200px height=2px style="margin-right:60px;">
 	            	<c:forEach items="${seatList}" var="seat" begin="71" end="77">
-						<div class="d_sec">
+						<c:choose>
+						<c:when test="${seat.seat_status==0 }" >
+						<div class="d_sec" style="background-color:#d4edff;">
+						</c:when>
+						<c:when test="${seat.seat_status==1 }">
+						<div class="d_sec" style="background-color:#9b9b9b;">
+						</c:when>
+						</c:choose>
+						<c:choose>
+						 <c:when test="${seat.seat_status==0 }">
 		          		 <p class="card-text">${seat.seat_no}</p>
+		          		  </c:when>
+		          		   <c:when test="${seat.seat_status==1 }">
+		          		 <p class="card_text"><b>사용중</b></p>
+		          		 </c:when>
+		          		 </c:choose>
 		                 <p class="card-text">시작시간 : ${seat.seat_start_time}</p>
 		                 <p class="card-text">종료시간 : ${seat.seat_end_time}</p>
 						 <c:choose>
 						 <c:when test="${seat.seat_status == 1}">
-		                 <p class="card_text"><b>사용중</b></p>
+		                 <p class="card_text"><b></b></p>
 		                 </c:when>
 		                 <c:when test="${seat.seat_status == 0 }">
 		                 <input type="button" class="btn_seat_reservation" value="예약" seat_no="${seat.seat_no }">

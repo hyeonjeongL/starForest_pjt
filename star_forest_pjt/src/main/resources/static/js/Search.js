@@ -33,7 +33,6 @@ Search.cate_item_html = function(cate) {
 	return `
 	<div id="searchAllList" class="row">
 							<div class="category" id="btn_category">
-							</div>
 						<!-- -------------------------------->
 						<c:forEach items="" var="cate" begin="0" end="15" varStatus="cate">
 						<div class="col-md-3">
@@ -49,6 +48,7 @@ Search.cate_item_html = function(cate) {
 									</div>
 								</div>
 								</c:forEach>
+							</div>
 						<!-------------------------------- -->
 						</div>
 	

@@ -278,7 +278,6 @@ section#content div.book_title a {
 					<div class="col-md-9">
 						<div id="searchAllList" class="row">
 							<div class="category" id="btn_category">
-							</div>
 						<!-- -------------------------------->
 						<c:forEach items="${allBook}" var="cate" begin="0" end="15" varStatus="cate">
 						<div class="col-md-3">
@@ -294,6 +293,7 @@ section#content div.book_title a {
 									</div>
 								</div>
 								</c:forEach>
+							</div>
 						<!-------------------------------- -->
 						</div>
 					</div>

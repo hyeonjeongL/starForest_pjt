@@ -39,8 +39,8 @@ public class NoticeController {
 		return "notice_list";
 	}
 	
-	@RequestMapping("/notice_view")
-	public String notice_view(@RequestParam Integer pageno, Integer notice_no, Model model) throws Exception{
+	@RequestMapping("/notice_detail")
+	public String notice_detail(@RequestParam Integer pageno, Integer notice_no, Model model) throws Exception{
 		if(pageno==null || notice_no==null) {
 			return "notice_list";
 		}
@@ -57,7 +57,7 @@ public class NoticeController {
 			e.printStackTrace();
 			return "error";
 		}
-		return "notice_view";
+		return "notice_detail";
 	}
 	
 	@RequestMapping("/notice_write_form")

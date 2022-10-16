@@ -78,11 +78,12 @@
 					 var pageNum = $("#page_form input[name='pageNum']").val();
 					 var keyword= $("input[name='keyword']").val();
 					 var type= $("#type_box option:selected").val();
-					 var param={keyword,pageNum,type};
+					 var param='pageNum='+pageNum+'&keyword='+keyword+'&type='+type;
+					 
 					 //console.log(pageNum,keyword);
 					 $.ajax({
 							url:'request_list_json',
-							method:'POST',
+							method:'GET',
 							data: param,
 							success:function(jsonResult){
 								var requestArray = jsonResult.data;

@@ -56,6 +56,8 @@
 
 <!-- 관리자 페이지 script, css -->
 <script type="text/javascript">
+$("#type option:checked").text();
+
 $(function(){
     
       $(document).on('click','#phone_a',function(e){
@@ -91,6 +93,7 @@ function formSubmit(){
 	}
 	location.href="SearchResult";
 }
+
 
 /* 검색 *
 $(function() {
@@ -130,7 +133,7 @@ width:150px;"
                <div class="container">
                <form  action="SearchResult" method="get">
                   <div class="input-group mb-3" id="home-searchbar">
-                  <select data-trigger="" name="type" id="type">
+                  <select data-trigger="" name="type" id="type" required>
 										<option selected disabled>선택하세요</option>
 										<option value="book_title">제목</option>
 										<option value="book_author">저자</option>

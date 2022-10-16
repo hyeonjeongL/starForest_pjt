@@ -1,3 +1,4 @@
+<%@page import="com.itwill.domain.Book"%>
 <%@page import="com.itwill.domain.Search"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -25,8 +26,10 @@
   <title>도서정보 - 별숲도서관</title>
   
 <script type="text/javascript">
-$(document).on('click', '#btn_search', function(e) {
 
+$(document).on('click', '#btn_search', function(e) {
+	
+$("#type option:checked").text();
 	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
 	console.log(param);
 	$.ajax({
@@ -237,15 +240,18 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 			<div class="row">
 			<form name="f" action="getSearchList">
 								<div class="input-group noto-serif">
-										<div id ="test" style ="display:none">
+										 <div id ="test" style ="display:none"> 
 											<select data-trigger="" name="type" id="type">
 												<option value="<%=request.getParameter("type")%>"></option>
 											</select>
-											</div>
-									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="<%=request.getParameter("keyword")%>">
+											 </div>
+									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="<%=request.getParameter("keyword")%>" readonly>
 									<div class="input-group-append">
 										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
 											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										</button>
+										<button class="btn btn-outline-success btn-r" type="button" onclick="location.href='SearchResult2'">
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>다른 도서 검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 										</button>
 									</div>
 								</div>
@@ -257,21 +263,23 @@ li:hover > ul.low li a { background:#eee; border:1px solid #eee; }
 				
 				<!-- 리스트 -->
 							<div class="row" id="searchBookList">
+							
 							<!-- <div class="col-md-3">
 								<div class="card mb-3">
 									<div class="card-body p-0">
-										<a href="book_detail?book_no=454">
-											<img class="card-image-top img-fluid" width="100%" alt="남주의 첫날밤을 가져 버렸다 1.img" src="https://image.aladin.co.kr/product/30197/26/cover200/k912839296_1.jpg">
+										<a href="book_detail?book_no=${book.book_no}">
+											<img class="card-image-top img-fluid" width="100%" alt="${book.book_image}" src="${book.book_image_src}">
 										</a>
 										<div class="card-body">
 											<div class="card-title">
-												<div class="book-title" id="book-title">남주의 첫날밤을 가져 버렸다 1</div>
-												<h6 class="book_author">황도톨(원작),MSG(그림),티바(각색)</h6>
+												<div class="book-title" id="book-title">${book.book_title}</div>
+												<h6 class="book_author">${book.book_book_author}</h6>
 											</div>
 										</div>
 									</div>
 								</div>
 							</div> -->
+							
 						</div>
 							<!-- 리스트 -->
 							

@@ -2,9 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,165 +68,36 @@
 		e.preventDefault();
 	});
 	
-	
 </script>
 <style type="text/css">
 /* Lazy Load Styles */
-./* Lazy Load Styles */
-.card-image {
-	display: block;
-	background: #fff center center no-repeat;
-	background-size: cover;
-	margin: 0 auto;
-	/* filter: blur(3px); /* blur the lowres image */
-	*/
-}
+/* Lazy Load Styles */
 
-.card-image>img {
-	display: block;
-	width: 100%;
-	opacity: 0; /* visually hide the img element */
-}
 
-.card-image.is-loaded {
-	filter: none; /* remove the blur on fullres image */
-	transition: filter 1s;
-	margin: 0 auto;
-}
 
 /* Layout Styles */
-.card-list {
-	display: block;
-	padding: 0;
-	font-size: 0;
-	text-align: center;
-	list-style: none;
-	width: 825px;
-}
 
-.card-body {
-	padding: 0;
-}
 
+
+	.card-body.p-0 img{
+	width:170px;
+	height:220px;
+	}
+	
+	
 .card {
 	display: inline-block;
-	width: 200px;
-	height: 250px;
+	width:170px;
+	height:220px;
 	margin: 1rem;
 	font-size: 1rem;
-	text-decoration: none;
-	overflow: hidden;
-	box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.5);
-	transition: transform 0.1s ease-in-out, box-shadow 0.1s;
 }
 
-.card:hover {
-	transform: translateY(-0.5rem) scale(1.0125);
-	box-shadow: 0 0.5em 3rem -1rem rgba(0, 0, 0, 0.5);
-}
 
-.card-description {
-	display: block;
-	color: #515151;
-	width: 200px;
-	height: 100px;
-	text-align: center;
-}
 
-.card-description>h4 {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	font-size: large;
-	font-weight: bold;
-}
 
-.searchResult-body {
-	float: left;
-	width: 100%;
-}
-
-.searchResult-options {
-	margin-left: 150px;
-	float: left;
-	width: 20%;
-	text-align: center;
-}
-
-.paging {
-	margin: 0 auto;
-	text-align: center;
-	width: 100%;
-	float: left;
-}
-
-.paging-num {
-	margin: 0 10px;
-}
-
-.input-group {
-	height: 26px;
-	padding: 25px 5px 25px 5px;
-	border: 1px;
-	float: left;
-}
-
-.searchResult-body {
-	float: left;
-}
 </style>
-<style>
-li {
-	position: relative;
-}
 
-li:hover {
-	background: #eee;
-}
-
-li>ul.low {
-	display: none;
-	position: absolute;
-	top: 0;
-	left: 180px;
-}
-
-li:hover>ul.low {
-	display: block;
-}
-
-li:hover>ul.low li a {
-	background: #eee;
-	border: 1px solid #eee;
-}
-
-li:hover>ul.low li a:hover {
-	background: #fff;
-}
-
-li>ul.low li {
-	width: 180px;
-}
-</style>
-<style>
-ul li {
-	
-}
-
-section#content div.book_image_src img {
-	width: 200px;
-	height: 200px;
-}
-
-section#content div.book_title {
-	padding: 10px 0;
-	text-align: center;
-}
-
-section#content div.book_title a {
-	color: #000;
-}
-</style>
 
 </head>
 <body class="d-flex flex-column">
@@ -276,10 +146,13 @@ section#content div.book_title a {
 					<!--  -->
 					<!-- 메인내용 -->
 					<div class="col-md-9">
+					<div class="row">
+							<div class="category" id="btn_category"></div>
+								</div>
+								
 						<div id="searchAllList" class="row">
-							<div class="category" id="btn_category">
 						<!-- -------------------------------->
-						<c:forEach items="${allBook}" var="cate" begin="0" end="15" varStatus="cate">
+						<c:forEach items="${allBook}" var="cate" varStatus="cate">
 						<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
@@ -293,9 +166,9 @@ section#content div.book_title a {
 									</div>
 								</div>
 								</c:forEach>
-							</div>
+								</div>
 						<!-------------------------------- -->
-						</div>
+						
 					</div>
 				</div>
 			</div>

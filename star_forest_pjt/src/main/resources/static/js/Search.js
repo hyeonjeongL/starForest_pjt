@@ -31,10 +31,14 @@ Search.cate_join_html = function(bookCateArray) {
 
 Search.cate_item_html = function(cate) {
 	return `
-	<div id="searchAllList" class="row">
-							<div class="category" id="btn_category">
+							<div class="col-md-9">
+					<div class="row">
+							<div class="category" id="btn_category"></div>
+								</div>
+								
+						<div id="searchAllList" class="row">
 						<!-- -------------------------------->
-						<c:forEach items="" var="cate" begin="0" end="15" varStatus="cate">
+						<c:forEach items="" var="cate" varStatus="cate">
 						<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
@@ -48,9 +52,10 @@ Search.cate_item_html = function(cate) {
 									</div>
 								</div>
 								</c:forEach>
-							</div>
+								</div>
 						<!-------------------------------- -->
-						</div>
+						
+					</div>
 	
 	
 	`;

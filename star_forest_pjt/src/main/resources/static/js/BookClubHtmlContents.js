@@ -482,7 +482,7 @@ BookClubHtmlContents.club_user_item_html=function(loginUser,i){
 BookClubHtmlContents.club_user_list_html=function(bookClubArray){
 	return `  
 	<h2>동아리 신청 내역</h2>
-	<table width="100%" class="table01">
+	<table width="100%" class="table">
 		<tr>
 			
 			

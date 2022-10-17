@@ -112,36 +112,6 @@
 		</section>
 		</div>
 
-		<nav>
-            <ul class="pagination justify-content-center">
-              <c:if test="${startPage > 1}">
-                <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
-                     <span>&laquo;</span>
-              <span class="sr-only">이전 페이지</span>
-                  </a></li>
-              </c:if>
-              <c:if test="${startPage == 1}">
-                <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${startPage-1 }&group=${group}">
-                     <span>&laquo;</span>
-                <span class="sr-only">이전 페이지</span>
-                  </a></li>
-              </c:if>
-                    <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                 <li class="page-item" id="page${i }"><a class="page-link" id="page-link" href="postList.do?pageNUM=${i }&group=${group}">${i }</a></li>
-                 </c:forEach>
-              <c:if test="${endPage < totalPage}">              
-                 <li class="page-item"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
-                     <span>&raquo;</span>
-              <span class="sr-only">다음 페이지</span>
-                  </a></li>
-              </c:if>
-              <c:if test="${endPage == totalPage}">
-                  <li class="page-item disabled"><a class="page-link" id="page-link" href="postList.do?pageNUM=${endPage+1 }&group=${group}">
-                        <span>&raquo;</span>
-                <span class="sr-only">다음 페이지</span>
-                     </a></li>
-              </c:if>
-        </nav>
 <!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

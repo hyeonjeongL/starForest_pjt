@@ -2,6 +2,7 @@
 게시물 리스트 변경
 */
 function changeQnaList(pageno){
+	console.log(pageno);
 	$.ajax({
 		url: "notice_list_rest",
 		method: "post",
@@ -62,15 +63,16 @@ function changeQnaList(pageno){
 게시글 목록 이동
 */
 
-$(".notice_btn.list").on("click", function(){
+$("#ddd").on("click", function(){
 	let pageno = $(this).attr("pageno");
 	location.href = `notice_list?pageno=${pageno}`;
+	console.log(pageno);
 });
 
 /*
 게시글 삭제 
 */
-$(".notice_btn.delete").on("click", function(){
+$("#ccc").on("click", function(){
 	let pageno = $(this).attr("pageno");
 	let notice_no = $(this).attr("notice_no");
 	ToastConfirm.fire({ icon: 'question', 
@@ -98,28 +100,31 @@ $(".notice_btn.delete").on("click", function(){
 /*
 게시글 수정 폼 
 */
-$(".notice_btn.update_form").on("click", function(){
+$(".notice_btn.modify_form").on("click", function(){
 	let notice_no = $(this).attr("notice_no");
 	let pageno = $(this).attr("pageno");
-	location.href = `notice_update_form?notice_no=${notice_no}&pageno=${pageno}`;
+	location.href = `notice_modify_form?notice_no=${notice_no}&pageno=${pageno}`;
 });
 
 /* 
 게시글 수정 
 */ 
 $(".notice_btn.update").on("click", function(){ 
-	if($("#notice_title_txt").val() == "" || CKEDITOR.instances.notice_content_area.getData() == ""){
-		Toast.fire({ icon: 'warning', title: "필수 입력값을 입력하지 않았습니다.\n 제목과 내용을 모두 입력해주세요" });
-		return;
-	}
-		ToastConfirm.fire({ icon: 'question', 
-							title: "게시글을 수정하시겠습니까?"}).then((result) => {
-							if(result.isConfirmed){
-								let notice_no = $(this).attr("notice_no"); 
-								$("#qna_update_form").attr("action", "notice_update"); 
-								$("#qna_update_form").submit(); // q_no, q_titla, q_content 
-							}
-					});
+	let notice_no = $(this).attr("notice_no");
+	let pageno = $(this).attr("pageno");
+	$.ajax({
+		url:'notice_modify_form',
+		method:'POST',
+		data:param,
+		success:function(jsonResult){
+			var item = jsonResult.data[0];
+					if(jsonResult.code==1){
+					$('#requestBoard_wrap').html(request_modify_form(item));
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}
+		}
+	})
 });
 
 /*
@@ -147,8 +152,8 @@ $(".notice_btn.new_write").on("click", function(){
 게시글 등록시 체크에 따라 고정글 설정
 */
 /*
-if(document.getElementById("notice_fix").checked) {
-    document.getElementById("notice_fix_hidden").disabled = true;
+if(document.getElementById("setting").checked) {
+    document.getElementById("setting_hidden").disabled = true;
 }
 */
 
@@ -168,28 +173,6 @@ $(() => {
                  	});
 	}
 });
-
-/*
-alert 세팅
-*/
-const Toast =  Swal.mixin({ 
-	toast: true, 
-	position: 'center', 
-	showConfirmButton: true, 
-	confirmButtonColor: '#3085d6',
-	width: '400px'
- });
-
-const ToastConfirm =  Swal.mixin({ 
-	toast: true, 
-	position: 'center', 
-	showConfirmButton: true, 
-	confirmButtonColor: '#3085d6',
-	showDenyButton: true,
-	denyButtonText: 'Cancle',
-	width: '400px'
- });
-
 
 
 

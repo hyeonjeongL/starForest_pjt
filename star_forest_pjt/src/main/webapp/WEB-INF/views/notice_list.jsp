@@ -1,82 +1,69 @@
+<%@page import="com.itwill.domain.RequestBoard" %>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
-  <!-- 구글폰트 전체 기본적용 -->
-  <link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/star.png">
-   <link rel="preconnect" href="https://fonts.gstatic.com">
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Serif+KR:wght@200;300&display=swap" rel="stylesheet">
-   <!-- 구글폰트 전체 기본적용 END -->
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/faq.css">
-   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-   <script type="text/javascript" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript">
-     </script>
-  <title>도서관소개 - 별숲도서관</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+	integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+<!-- 구글폰트 전체 기본적용 -->
 
+<!-- 구글폰트 전체 기본적용 END -->
+<link rel="stylesheet" href="css/ddoyoon.css">
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
+<title>커뮤니티 - 별숲도서관</title>
+
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+	<script type="text/javascript" src="js/request_html_content.js"></script>
+<script type="text/javascript">
+</script>
+
+</head>
 <body class="d-flex flex-column">
-   <div id="page-content">
-     	<!-- navigation start-->
+	<div id="page-content">
+
+			<!-- navigation start-->
 			<div id="navigation">
 				<!-- include_common_left.jsp start-->
 				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
 				<!-- include_common_left.jsp end-->
 			</div>
 			<!-- navigation end-->
-  
-      <!-- PAGE HEADER -->
-      <header id="page-header" class="noto-serif">
-         <div class="page-header-overlay">
-            <div class="container pt-5">
-              <div class="row">
-               <div class="col-md-6 m-auto text-center">
-                 <h2>공지사항</h2>
-               </div>
-              </div>
-            </div>
-         </div>
-      </header>
+
+		<!-- PAGE HEADER -->
+		<header id="page-header" class="noto-serif">
+			<div class="page-header-overlay">
+				<div class="container pt-5">
+					<div class="row">
+						<div class="col-md-6 m-auto text-center">
+							<h2>공지사항게시판</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
 		
-   <%-- <!-- 커뮤니티 헤더 -->
-   <header id="page-header" class="noto-serif">
-   <div class="page-header-overlay">
-      <div class="container pt-5">
-        <div class="row">
-            <div class="col m-auto text-center">
-              <c:if test="${group_no eq 10}">
-                  <h2>공지사항</h2>
-               </c:if>
-              <c:if test="${group_no eq 20}">
-                  <h2>창작물 게시판</h2>
-               </c:if>
-               <c:if test="${group_no eq 30}">
-                  <h2>중고장터</h2>
-               </c:if>
-               <c:if test="${group_no eq 40}">
-                  <h2>묻고답하기</h2>
-               </c:if>
-               <c:if test="${group_no eq 60}">
-                  <h2>자유게시판</h2>
-               </c:if>
-            </div>
-        </div>
-      </div>
-   </div>
-   </header> --%>
    
    <!-- MAIN SECTION -->
    <div class="shortcodes_area section_padding_100">
@@ -84,35 +71,18 @@
             <div class="row">
             <!-- 사이드바 -->
 	         <div class="col-md-3">
-	            <%-- <c:choose>
-	               <c:when test="${group_no eq 10 || group_no eq 40 }">
-	                  <div class="sidebar">
-	                     <div class="side-head">
-	                        <h4 class="text-light">도서관소개</h4>
-	                     </div>
-	                     <ul class="list-group list-group-flush mb-5">
-	                        <li class="list-group-item"><a href="howtoInfo">대출/반납/연장</a></li>
-	                        <li id="post10" class="list-group-item"><a href="notice_list">공지사항</a></li>
-	                        <li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>
-	                        <li class="list-group-item"><a href="QnaList?option=p_title&search=">묻고답하기</a></li>
-	                        <li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
-	                     </ul>
-	                 </div>      
-	               </c:when>
-	               <c:otherwise> --%>
-	                  <div class="sidebar">
-	                     <div class="side-head">
-	                        <h4 class="text-light">커뮤니티</h4>
-	                     </div>
-	                     <ul class="list-group list-group-flush mb-5">
-	                        <li id="post20" class="list-group-item"><a href="notice_list?group_no=20" class="returnAll">창작물게시판</a></li>
-	                        <li id="post30" class="list-group-item"><a href="notice_list?group_no=30" class="returnAll">중고장터</a></li>
-	                        <li id="post60" class="list-group-item"><a href="notice_list?group_no=60" class="returnAll">자유게시판</a></li>
-	                     </ul>
-	                 </div>
-	              <%--  </c:otherwise>
-	            </c:choose> --%>
-	         </div>
+					  <div class="sidebar noto-serif">
+							<div class="side-head">
+								<h4 class="text-light text-center">도서관소개</h4>
+							</div>
+							<ul class="list-group list-group-flush mb-5">
+								<li class="list-group-item"><a href="howtoInfo">대출/반납</a></li>
+								<li class="list-group-item active"><a href="notice_list">공지사항</a></li>
+								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
+								<li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
+							</ul>
+					  </div>
+					</div>
                 <div class="col-md-9">
             <div class="row py-4">
             <div class="col pb-4">
@@ -120,10 +90,6 @@
                <c:if test="${sUserId=='admin'}">
                  <button class="btn btn-outline-success" onclick="postInsert()">글쓰기</button>
                  </c:if>
-               <!-- 나머지 게시판은 전부 -->
-                 <%-- <c:if test="${group_no==20 ||group_no==30 ||group_no==60 }">
-                 <button class="btn btn-outline-success" onclick="postInsert()">글쓰기</button>
-                 </c:if> --%>                     
               <!-- 비로그인시 cust_no를 0으로 설정 -->
               <c:if test="${empty sUserId }">
                  <c:set var="cust_no" value="0"></c:set>
@@ -137,7 +103,6 @@
                      <div class="form-group noto-sans">
                  <select name="option" size="1" class="form-control">
                        <option value="p_title">제목</option>
-                       <option value="p_writer">작성자</option>
                        <option value="p_content">내용</option>
                     </select>
                  <input type="search" name="search" class="form-control mr-2">
@@ -149,7 +114,7 @@
               </form>
                </div>
                <table class="table table-hover">
-                  <thead class="bg-light text-center">
+                  <tr id="table1" align="center" style="background-color:#ffc91d;">
                      <tr>
                         <th>&nbsp;</th>
                         <th>제목</th>
@@ -157,8 +122,8 @@
                         <th>조회수</th>
                         <th>첨부파일</th>
                      </tr>
-                  </thead>
-                  <tbody class="tbody text-center noto-sans">
+                  </tr>
+                  <tbody id="notice_list_tbody">
                                 
                   <!-- board start -->
                   <c:forEach var="notice" items="${noticeList.itemList}">
@@ -167,27 +132,25 @@
 	                                        <th scope="row">${notice.notice_no}</th>
 	                                         -->
 	                                         <th>
-	                                         	<c:if test="${notice.setting eq '1'}">
-	                                        			&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20">
-	                                        		</c:if>
-	                                        		<c:if test="${notice.setting eq '0'}">
-	                                        			&nbsp;&nbsp;<span class="badge badge-normal"></span>
-	                                        		</c:if>
+	                                         	<c:if test="${notice.setting eq '1'}">&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20"></c:if>
+	                                        	<c:if test="${notice.setting eq '0'}">&nbsp;&nbsp;<span class="badge badge-normal"></span></c:if>
 	                                         </th>
 	                                        <td>
 	                                       
 	                                       
-	                                        	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">
-	                                        		${notice.notice_title}
-	                                        		
-	                                        		
-	                                        		 
-	                                        	</a>
+	                                        	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">${notice.notice_title}</a>
 	                                        	
 	                                        
 	                                        </td>
 	                                        <td>${notice.notice_date}</td>
 	                                        <td>${notice.notice_readcount}</td>
+		                                    <td><c:if test="${notice.notice_image eq '1'}">
+		                                        &nbsp;&nbsp;
+		                                        </c:if>
+		                                        <c:if test="${notice.notice_image eq null}">
+		                                        &nbsp;&nbsp;<img src="img/notice_file.png" width="20" height="20">
+		                                        </c:if></td>
+	                                        <%-- <td>${notice.notice_img}</td> --%>
 	                                    </tr>
                                     </c:forEach>
                                    <!-- board end -->
@@ -215,7 +178,7 @@
                                 </c:if>
                                 <c:forEach var="no" begin="${noticeList.pageMaker.blockBegin}" end="${noticeList.pageMaker.blockEnd}">
 									<c:if test="${noticeList.pageMaker.curPage == no}">
-										<li class="page-item active"><button class="page-link" href="notice_list?pageNum=${noticeList.pageMaker.curPage}">${no}</button></li>
+										<li class="page-item active"><button class="page-link" href="#">${no}</button></li>
 									</c:if>
 									<c:if test="${noticeList.pageMaker.curPage != no}">
 										<li class="page-item"><button class="page-link page" onclick="changeQnaList(${no})">${no}</button></li>

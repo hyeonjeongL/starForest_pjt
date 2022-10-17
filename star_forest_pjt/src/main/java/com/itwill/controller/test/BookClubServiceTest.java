@@ -41,6 +41,6 @@ public class BookClubServiceTest {
 //		System.out.println(bookClubService.addReadCount(8));
 //		System.out.println(bookClubService.remove(28));
 		
-		System.out.println(bookClubService.selectAll(new Criteria(2,10)));
+//		System.out.println(bookClubService.selectAll(new Criteria(2,10)));
 	}
 }

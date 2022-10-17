@@ -181,7 +181,7 @@ $(function(){
 						<div class="rentalTable">
 						<!-- 대여리스트 -->
 						<div class="col-md-9">
-					<div class="col-6">
+					<div class="col-6" style="margin-left: auto; margin-right: auto;">
 						<div class="row">
 							<br>
 						</div>
@@ -189,7 +189,7 @@ $(function(){
 						
 						
 							<!-- 도서관 대여 리스트 -->
-							<div class="listTable" id="content" >
+							<div class="listTable" id="content"  style="margin-left:40px;">
 							
 							<!-- 도서관 대여 리스트 -->
 						</div>

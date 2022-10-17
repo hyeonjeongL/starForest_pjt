@@ -6,13 +6,18 @@
 <html>
 <head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 	h4,h6 {
 		text-align:center;
 		
 	}
 	.container{
-		font-family: 'Gowun Dodum', sans-serif;
+		 font-family: 'GmarketSansMedium';
 	}
 	
 </style>
@@ -136,8 +141,8 @@ $(function(){
 		<div class="container">
 			<div class="row">
 				<!-- 사이드바 -->
-				<div class="col-md-3 noto-serif">
-					<div class="sidebar">
+				<div class="col-md-3">
+					<div class="sidebar  noto-serif">
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
@@ -149,14 +154,14 @@ $(function(){
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href="MyPage_Info" id="side_update">개인정보변경</a></li>
-									<li><a href="MyPage_Info" id="side_user_qr">나의QR</a></li>
+									<li><a href="user_qr" id="side_user_qr">나의QR</a></li>
 								</ul></li>
 							<li class="list-group-item"><a href="#"
 								id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
-									<li><a href="#" id="side_userbook_status">대출현황</a></li>
-									<li><a href="#" id="side_reservation">예약현황</a></li>
-									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
+									<li><a href="MyPage_Folder" id="side_userbook_status">대출현황</a></li>
+									<li><a href="MyPage_Folder" id="side_reservation">예약현황</a></li>
+									<li><a href="MyPage_Folder" id="side_now_userbook_status">현재대출현황</a></li>
 								</ul></li>
 
 							<li class="list-group-item"><a href="MyPage_Folder"
@@ -191,8 +196,8 @@ $(function(){
 					</div>
 				
 
-					<div class="container">
-					<h4 >나의 QR발급</h4><hr><br>
+					<div class="container"><br>
+					<h4 >${sUserId } 님의 QR</h4><br><hr><br>
 					<h6>생성된 QR CODE를 직원에게 보여주세요.</h6><br><br>
 							<div id="qrcode"></div>
 					</div>

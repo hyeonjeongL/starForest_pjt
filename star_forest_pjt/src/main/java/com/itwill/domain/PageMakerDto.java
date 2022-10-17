@@ -40,5 +40,12 @@ public class PageMakerDto<E> {
 	public void setTotRecordCount(int totRecordCount) {
 		this.totRecordCount = totRecordCount;
 	}
+
+	@Override
+	public String toString() {
+		return "PageMakerDto [itemList=" + itemList + ", pageMaker=" + pageMaker + ", totRecordCount=" + totRecordCount
+				+ "]";
+	}
+	
 	
 }

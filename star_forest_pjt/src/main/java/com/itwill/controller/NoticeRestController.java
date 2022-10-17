@@ -21,6 +21,7 @@ public class NoticeRestController {
 	
 	@RequestMapping("/notice_list_rest")
 	public Map<String, Object> notice_list_rest(@RequestParam(required = false, defaultValue ="1") Integer pageno){
+		System.out.println(pageno);
 		Map<String, Object> resultMap = new HashMap<>();
 		PageMakerDto<Notice> notice = null;
 		try {
@@ -33,6 +34,7 @@ public class NoticeRestController {
 			resultMap.put("errorCode", -1);
 			resultMap.put("errorMsg", "error");
 		}
+		System.out.println(notice);
 		return resultMap;
 	}
 	

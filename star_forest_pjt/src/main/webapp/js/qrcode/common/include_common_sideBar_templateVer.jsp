@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-<link rel="stylesheet" href="static/css/sytle.css" type="text/css">
+<link rel="stylesheet" href="./css/sytle.css" type="text/css">
 	<footer id="main-footer" class="text-center p-4 noto-serif">
 		<div class="container">
 			<div class="row">

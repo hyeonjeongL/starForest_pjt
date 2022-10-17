@@ -201,28 +201,31 @@ $(document).on('click','#btn_search', function(e){
 				</div> -->
 
 				<!-- 메인내용 -->
-				<div class="col-md-9">
+				<div class="col-md-12">
 					<div class="p-4">
 						<div class="mypage">
 
 						</div>
-						<div class="rentalTable">
+						<div class="rentalTable" >
+
+						
 						<!-- 대여리스트 -->
-						<div class="col-md-9">
-					<div class="col-6">
+						<div class="col-md-9" >
+					<div class="col-6" style="margin-left: auto; margin-right: auto;">
 						<div class="row">
 							<br>
 						</div>
 						<div class="row" id="item">
 						
 						<div>
-						<form name="f" action="star_forest_pjt/admin_user_now_rental_list?keyword=" method="POST">
-						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:900px">
-							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1160px;bottom:12px">검색</button>
+						<form name="f" action="star_forest_pjt/admin_user_now_rental_list?keyword=" method="POST" style="float:right;">
+						<input id="keyword" name="keyword" type="text" value="${rental.keyword }" placeholder="회원아이디 입력" style="left:850px;">
+							<button type="button" id="btn_search" class="w-btn w-btn-detail" style="left:1120px;bottom:12px">검색</button>
 							</form>
 						</div>
 							<!-- 도서관 대여 리스트 -->
-							<div class="listTable" id="content" >
+							<h2>관리자 - 도서반납</h2>
+							<div class="listTable" id="content"  style="margin-left: auto; margin-right: auto;">
 							
 							<!-- 도서관 대여 리스트 -->
 						</div>

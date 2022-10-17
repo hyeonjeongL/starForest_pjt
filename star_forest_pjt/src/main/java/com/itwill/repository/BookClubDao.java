@@ -44,7 +44,5 @@ public interface BookClubDao {
 	//동아리삭제
 	int remove(int club_no) throws Exception;
 	
-	//동아리신청취소(유저)
-	int user_delete(String user_id,int club_no) throws Exception;
 	
 }

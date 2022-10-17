@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="./css/style.css" type="text/css">
 
 	<footer id="main-footer" class="text-center p-4 noto-serif">
     <div class="container">
-      <div class="row">
-      	<div class="col-md-12 pb-2">
+      <div class="row" >
+      	<div class="col-md-12 pb-2"><br>
 	      	<!--  책 관련된 명언 랜덤으로 보여주기 -->
-      		<p id="footer-display"></p>
+      		<div id="footer-display"></div>
     		</div>
         <div class="col-md-12">
-          <p>Copyright &copy;
-            <span id="year"></span> STARFOREST</p>
+          <div>Copyright &copy;
+            <span id="year"></span> STARFOREST</div>
         </div>
       </div>
     </div>
@@ -23,16 +24,20 @@
    <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script> -->
 
+
 <script type="text/javascript">
 	const footer_display = document.getElementById('footer-display');
 	const footer_quotes = [
-			'좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴',
+			'책 속에는 과거의 모든 영혼이 가로누워 있다. - 칼라일',
 			'내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스',
+			'A word after a word after a word is power. – Margaret Atwood',
+			'책이란 넓디넓은 시간의 바다를 지나가는 배이다. - 프랜시스 베이컨',
 			'목적이 없는 독서는 산보일 뿐이다. — B. 리튼',
 			'사람은 책을 만들고, 책은 사람을 만든다. — 신용호',
-			'기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이 제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨',
+			'Think before you speak. Read before you think. – Fran Lebowitz',
+			'Books are a uniquely portable magic. – Stephen King',
 			'책은 한 권 한 권이 하나의 세계다. — W. 워즈워스',
-			'책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절' ];
+			'We read to know we are not alone. – C.S. Lewis' ];
 	const footer_getQuote = Math.floor(Math.random() * footer_quotes.length);
 	footer_display.textContent = footer_quotes[footer_getQuote];
 </script>

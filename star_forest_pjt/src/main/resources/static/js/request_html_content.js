@@ -384,6 +384,7 @@ function user_request_item_content(requestBoard) {
 }
 function user_request_list_content(requestArray) {
 	return `
+	<h2>희망도서신청내역</h2>
 			
 	<div class="mybook">
 			

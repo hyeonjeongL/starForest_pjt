@@ -1,11 +1,11 @@
 function FavoriteHtmlContents() {
 }
 
-FavoriteHtmlContents.favorite_item_content = function(favorite) {
+FavoriteHtmlContents.favorite_item_content = function(favorite,i) {
 	return `
 					<div class="rentalTable">
 						<tr id="favorite_item">
-								<td id="favoriteNo">${favorite.favorite_no}
+								<td id="favoriteNo">${i+1}
 								<td class="bookTitle">${favorite.book.book_title}</td>
 								<td class="bookAuthor">${favorite.book.book_author}</td>
 								<td class="bookPubl">${favorite.book.book_publisher}</td>
@@ -19,7 +19,7 @@ FavoriteHtmlContents.favorite_item_content = function(favorite) {
 
 FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 	return `
-
+<h2>내서재</h2>
 
 					<div class="container">
 						<table id="favoriteList" class="table table-hover">

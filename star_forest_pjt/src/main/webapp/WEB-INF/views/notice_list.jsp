@@ -28,7 +28,8 @@
 <!-- 구글폰트 전체 기본적용 -->
 
 <!-- 구글폰트 전체 기본적용 END -->
-<link rel="stylesheet" href="css/ddoyoon.css">
+
+<link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/star.png">
 <title>커뮤니티 - 별숲도서관</title>
@@ -85,7 +86,6 @@
 					</div>
                 <div class="col-md-9">
             <div class="row py-4">
-            <div class="col pb-4">
                <!-- 공지사항 게시판 글쓰기버튼 관리자만 보임 -->
                <c:if test="${sUserId=='admin'}">
                  <button class="btn btn-outline-success" onclick="postInsert()">글쓰기</button>
@@ -95,26 +95,9 @@
                  <c:set var="cust_no" value="0"></c:set>
               </c:if>
                </div>
-               <div class="text-right mb-2">
-                  <form action="postList" method="get" class="search form-inline">
-                     <div class="form-group">
-                        <p class="mr-2 mb-0">총 ${totalCount}건</p>
-                     </div>
-                     <div class="form-group noto-sans">
-                 <select name="option" size="1" class="form-control">
-                       <option value="p_title">제목</option>
-                       <option value="p_content">내용</option>
-                    </select>
-                 <input type="search" name="search" class="form-control mr-2">
-                 <input type="hidden" name="group" value="${group }">
-                     </div>
-                     <div class="form-group px-2">
-                 <button class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
-                     </div>
-              </form>
-               </div>
-               <table class="table table-hover">
-                  <tr id="table1" align="center" style="background-color:#ffc91d;">
+               <table class="tableList" style="width:100%">
+                  <tr id="table1" align="center" >
+                  <thead >
                      <tr>
                         <th>&nbsp;</th>
                         <th>제목</th>
@@ -122,7 +105,7 @@
                         <th>조회수</th>
                         <th>첨부파일</th>
                      </tr>
-                  </tr>
+                     </thead>
                   <tbody id="notice_list_tbody">
                                 
                   <!-- board start -->
@@ -135,21 +118,21 @@
 	                                         	<c:if test="${notice.setting eq '1'}">&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20"></c:if>
 	                                        	<c:if test="${notice.setting eq '0'}">&nbsp;&nbsp;<span class="badge badge-normal"></span></c:if>
 	                                         </th>
-	                                        <td>
+	                                        <th>
 	                                       
 	                                       
 	                                        	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">${notice.notice_title}</a>
 	                                        	
 	                                        
-	                                        </td>
-	                                        <td>${notice.notice_date}</td>
-	                                        <td>${notice.notice_readcount}</td>
-		                                    <td><c:if test="${notice.notice_image eq '1'}">
+	                                        </th>
+	                                        <th>${notice.notice_date}</th>
+	                                        <th>${notice.notice_readcount}</th>
+		                                    <th><c:if test="${notice.notice_image eq '1'}">
 		                                        &nbsp;&nbsp;
 		                                        </c:if>
 		                                        <c:if test="${notice.notice_image eq null}">
 		                                        &nbsp;&nbsp;<img src="img/notice_file.png" width="20" height="20">
-		                                        </c:if></td>
+		                                        </c:if></th>
 	                                        <%-- <td>${notice.notice_img}</td> --%>
 	                                    </tr>
                                     </c:forEach>
@@ -159,7 +142,6 @@
                             </table>
 						
                         </div>
-                    </div>
 					<%-- <input type="button" class="notice_btn write_form" pageno="${pageno}" value="게시글작성" /> --%>
                 </div>
             </div>

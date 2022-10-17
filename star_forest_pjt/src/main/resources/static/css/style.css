@@ -221,7 +221,7 @@ html, body{
   border: 1px solid gainsboro;
 }
 .side-head {
-  background: linear-gradient(to bottom right, #75BD43, #107637);
+  background: #1c7b3a;
   padding: 40px;
 }
 .sidebar a{

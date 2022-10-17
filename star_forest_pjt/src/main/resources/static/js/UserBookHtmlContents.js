@@ -29,9 +29,9 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 							<tr>
 								<th scope="row" style="width:20px">No.</th>
 								<th scope="row">제목</th>
-								<th scope="row" style="width:130px">대여일</th>
-								<th scope="row"style="width:130px">반납예정일</th>
-								<th scope="row"style="width:130px">반납일자</th>
+								<th scope="row" style="width:150px">대여일</th>
+								<th scope="row" style="width:150px">반납예정일</th>
+								<th scope="row" style="width:150px">반납일자</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -81,10 +81,10 @@ UserBookHtmlContents.user_now_rental_list_content = function(rentalArray) {
 						<thead>
 							<tr>
 								<th scope="row">No.</th>
-								<th scope="row">제목</th>
+								<th scope="row" >제목</th>
 								<th scope="row">저자</th>
-								<th scope="row">대여일</th>
-								<th scope="row">반납예정일</th>
+								<th scope="row" style="width:150px">대여일</th>
+								<th scope="row" style="width:150px">반납예정일</th>
 								<th scope="row">대출연장</th>
 							</tr>
 						</thead>
@@ -121,10 +121,10 @@ UserBookHtmlContents.user_reservation_list_html=function(resList){
 						<thead>
 							<tr>
 								<th scope="row" style="width:20px">No.</th>
-								<th scope="row"style="width:130px">ISBN</th>
+								<th scope="row">ISBN</th>
 								<th scope="row">제목</th>
 								<th scope="row" >저자</th>
-								<th scope="row"style="width:130px">예약일시</th>
+								<th scope="row"style="width:150px">예약일시</th>
 							</tr>
 						</thead>
 						<tbody>

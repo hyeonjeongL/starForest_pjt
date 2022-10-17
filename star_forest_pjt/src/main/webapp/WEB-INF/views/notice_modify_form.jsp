@@ -96,8 +96,8 @@
                         </div>
                     </div>
                     	<div id="notice_btn_container">
-							<input class="notice_btn update" type="button" value="수정" />
-							<input class="notice_btn list" type="button" pageno="${pageno}" value="목록" />
+							<input class="notice_btn update" id="aaa" type="button" value="수정" />
+							<input class="notice_btn list" id="ddd" type="button" pageno="${pageno}" value="목록" />
                     	</div>
                 </div>
             </div>

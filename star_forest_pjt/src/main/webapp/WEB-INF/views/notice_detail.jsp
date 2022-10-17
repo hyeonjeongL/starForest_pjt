@@ -101,7 +101,7 @@
                     		<c:if test="${sUserId=='admin'}">
                     		</c:if>
                     	<div id="notice_btn_container">
-								<input class="notice_btn modify_form" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
+								<input class="notice_btn modify_form" id="aaa" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
 								<input class="notice_btn delete" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />
 								<input class="notice_btn list" id="ddd" type="button" pageno="${pageno}" value="목록" />
                     	</div>

@@ -24,7 +24,7 @@ function changeQnaList(pageno){
 	                               
 					htmlBuffer += `
 	                               
-	                                <td><a href="notice_view?notice_no=${notice.notice_no}&pageno=${data.pageMaker.curPage}">${notice.notice_title}</a>`;
+	                                <td><a href="notice_detail?notice_no=${notice.notice_no}&pageno=${data.pageMaker.curPage}">${notice.notice_title}</a>`;
 	                
                     htmlBuffer += `</td>
 	                                    <td>${notice.notice_date}</td>
@@ -73,34 +73,13 @@ $("#ddd").on("click", function(){
 게시글 삭제 
 */
 $("#ccc").on("click", function(){
-	let pageno = $(this).attr("pageno");
-	let notice_no = $(this).attr("notice_no");
-	ToastConfirm.fire({ icon: 'question', 
-						title: "게시글을 삭제하시겠습니까?\n 삭제 후 복구가 불가능합니다"}).then((result) => {
-						if(result.isConfirmed){
-							$.ajax({
-								url: "notice_delete_rest",
-								method: "post",
-								data: {"notice_no":notice_no},
-								dataType: "json",
-								success:function(resultObj){
-									if(resultObj.errorCode > 0){
-										Toast.fire({ icon: 'success', title: resultObj.errorMsg }).then((result) => {
-												location.href = "notice_list?pageno=" + pageno;
-											});
-									}else{
-										Toast.fire({ icon: 'error', title: resultObj.errorMsg });
-									}
-								}
-							});
-						}
-	});
+	
 });
 
 /*
 게시글 수정 폼 
 */
-$(".notice_btn.modify_form").on("click", function(){
+$("#aaa").on("click", function(){
 	let notice_no = $(this).attr("notice_no");
 	let pageno = $(this).attr("pageno");
 	location.href = `notice_modify_form?notice_no=${notice_no}&pageno=${pageno}`;
@@ -109,7 +88,7 @@ $(".notice_btn.modify_form").on("click", function(){
 /* 
 게시글 수정 
 */ 
-$(".notice_btn.update").on("click", function(){ 
+$("#aaa").on("click", function(){ 
 	let notice_no = $(this).attr("notice_no");
 	let pageno = $(this).attr("pageno");
 	$.ajax({

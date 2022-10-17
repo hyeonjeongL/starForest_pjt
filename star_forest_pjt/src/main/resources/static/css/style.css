@@ -191,12 +191,13 @@ b{
   border-collapse:collapse;
 }
 
-#main-footer p {
+#main-footer div {
   background-color: #107637;
   color: #fff;
   flex-shrink: none;
   font-size: 14px;
   font-family: 'GmarketSansMedium';
+  height:50px;
 }
 
 /*  ------------------------------------------- */
@@ -212,7 +213,6 @@ html, body{
 }
 
 #page-content{
-	flex: 1 0 auto;
 	text-align: center;
 	font-family: 'GmarketSansMedium';
 }

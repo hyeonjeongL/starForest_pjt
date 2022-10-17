@@ -159,9 +159,9 @@ $(function(){
 							<li class="list-group-item"><a href="#"
 								id="side_userbook_status">나의도서정보</a>
 								<ul class='submenu'>
-									<li><a href="#" id="side_userbook_status">대출현황</a></li>
-									<li><a href="#" id="side_reservation">예약현황</a></li>
-									<li><a href="#" id="side_now_userbook_status">현재대출현황</a></li>
+									<li><a href="MyPage_Folder" id="side_userbook_status">대출현황</a></li>
+									<li><a href="MyPage_Folder" id="side_reservation">예약현황</a></li>
+									<li><a href="MyPage_Folder" id="side_now_userbook_status">현재대출현황</a></li>
 								</ul></li>
 
 							<li class="list-group-item"><a href="MyPage_Folder"

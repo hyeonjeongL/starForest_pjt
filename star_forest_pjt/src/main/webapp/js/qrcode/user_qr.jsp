@@ -6,13 +6,18 @@
 <html>
 <head>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 	h4,h6 {
 		text-align:center;
 		
 	}
 	.container{
-		font-family: 'Gowun Dodum', sans-serif;
+		 font-family: 'GmarketSansMedium';
 	}
 	
 </style>
@@ -192,7 +197,7 @@ $(function(){
 				
 
 					<div class="container">
-					<h4 >나의 QR발급</h4><hr><br>
+					<h4 >${sUserId } 님의 QR</h4><hr><br>
 					<h6>생성된 QR CODE를 직원에게 보여주세요.</h6><br><br>
 							<div id="qrcode"></div>
 					</div>

@@ -44,7 +44,7 @@
             <div class="container pt-5">
               <div class="row">
                <div class="col-md-6 m-auto text-center">
-                 <h2>공지사항</h2>
+                 <h2>공지사항 수정하기</h2>
                </div>
               </div>
             </div>
@@ -57,53 +57,47 @@
    <div class="shortcodes_area section_padding_100">
         <div class="container">
             <div class="row">
-            <!-- 사이드바 -->
-            <div class="col-md-3">
-					  <div class="sidebar noto-serif">
-							<div class="side-head">
-								<h4 class="text-light text-center">도서관소개</h4>
-							</div>
-							<ul class="list-group list-group-flush mb-5">
-								<li class="list-group-item"><a href="howtoInfo">대출/반납</a></li>
-								<li class="list-group-item active"><a href="notice_list">공지사항</a></li>
-								<li class="list-group-item"><a href="faqViewpage">자주묻는질문</a></li>						
-								<li class="list-group-item"><a href="addrViewpageAPI">오시는길</a></li>
-							</ul>
-					  </div>
-					</div>
-                <div class="col-9">
+                <div class="col-12">
                     <div class="shortcodes_title mb-30">
                         <h4></h4>
                     </div>
                     <div class="shortcodes_content">
                         <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead class="bg-light text-center">
-                                    <tr>
+                        	<form id="qna_update_form" method="post">
+	                            <table class="table mb-0 table-bordered">
+	                                <thead>
+	                                	<tr>
 	                                	<th>제목</th>
+	                                	<th>고정글</th>
 	                                	<th>날짜</th>
-	                                	<th>조회수</th>
 	                                </tr>
-                                    <tr>
-                                        <th scope="col" class="notice_title">${notice.notice_title}</th>
-                                        <th scope="col" class="notice_date">${notice.notice_date}</th>
-                                        <th scope="col" class="notice_readcount">조회수 : ${notice.notice_readcount}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td id="notice_content_td" colspan="3">${notice.notice_content}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+	                                    <tr>
+	                                        <th scope="col" class="board_title">
+	                                        	<input type="text" name="notice_title" id="notice_title_txt" placeholder=" title" value="${notice.notice_title}" />
+	                                        </th>
+	                                        <th scope="col" class="board_fix">
+	                                        	<input type="checkbox" name = "setting" value="1" id="setting" >
+	                                        	<input type="hidden" name = "setting" value="0" id="setting_hidden" >
+	                                        </th>
+	                                        <th scope="col" name="notice_date" class="board_date">${notice.notice_date}</th>
+	                                    </tr>
+	                                </thead>
+	                                <tbody>
+	                                    <tr>
+	                                        <td id="notice_content_td" colspan="3">
+	                                        	<textarea name="notice_content" id="notice_content_area" >${notice.notice_content}</textarea>
+	                                        </td>
+	                                    </tr>
+	                                </tbody>
+	                            </table>
+                       				<input type="hidden" name="notice_no" value="${notice.notice_no}" />
+                      				<input type="hidden" name="pageno" value="${pageno}" />
+                			</form>
                         </div>
                     </div>
-                    		<c:if test="${sUserId=='admin'}">
-                    		</c:if>
                     	<div id="notice_btn_container">
-								<input class="notice_btn modify_form" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
-								<input class="notice_btn delete" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />
-								<input class="notice_btn list" id="ddd" type="button" pageno="${pageno}" value="목록" />
+							<input class="notice_btn update" type="button" value="수정" />
+							<input class="notice_btn list" type="button" pageno="${pageno}" value="목록" />
                     	</div>
                 </div>
             </div>

@@ -19,10 +19,11 @@ FavoriteHtmlContents.favorite_item_content = function(favorite,i) {
 
 FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 	return `
-<h2>내서재</h2>
+<h2>&nbsp내서재</h2>
 
 					<div class="container">
-						<table id="favoriteList" class="table table-hover">
+						<table id="favoriteList" class="tableList">
+						<thead>
 							<tr>
 								<th scope="row">No.</th>
 								<th scope="row">제목</th>
@@ -30,6 +31,7 @@ FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 								<th scope="row">출판사</th>
 								<th scope="row">작업</th>
 							</tr>
+							</thead>
 							<!--favorite start -->
 							 ${
 								favoriteArray.map(FavoriteHtmlContents.favorite_item_content).join('')

@@ -95,7 +95,7 @@ b{
 }
 
 .carousel-image-1 {
-  background: url('../img//home/ad1.png');
+  background: url('../img//home/enter.png');
   background-color: cadetblue;
   background-size: cover;
 }
@@ -192,6 +192,7 @@ b{
 }
 
 #main-footer div {
+ text-align:center;
   background-color: #107637;
   color: #fff;
   flex-shrink: none;
@@ -282,6 +283,7 @@ html, body{
 }
 
 .footer-table *{
+	width:100%;
 	font-weight: 200;
 	font-family: 'GmarketSansMedium';
 }
@@ -438,14 +440,12 @@ request_board css
   text-align: center; 
   vertical-align: middle; 
   word-break: keep-all;
-  padding-right: 3em;
 }
 
 .container table tr td {
   text-align: center; 
   vertical-align: middle; 
   word-break: keep-all;
-  padding-right: 3em;
   font-family: 'GmarketSansMedium';
 }
 
@@ -572,6 +572,27 @@ button {
     font-size: .9rem;
     font-weight: 400;
     font-family: 'GmarketSansMedium';
+}
+
+.tableList thead{
+	border-bottom-color: 1px solid #000000;
+	background-color:#ffc91d;
+	text-align: center;
+	font-size: .9rem;
+	height: 50px;
+	padding-left: 20px;
+	padding-right: 10px;
+	
+	
+}
+
+.tableList th{
+	border-top: 1px solid #000000;
+	font-weight: 200;
+    font-family: 'GmarketSansMedium';
+    padding-left: 20px;
+	padding-right: 10px;
+    
 }
 .card{
 	border:none;

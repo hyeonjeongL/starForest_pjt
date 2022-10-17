@@ -25,7 +25,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 						<h3>대출현황</h3>
 	<div class="mybook">
 			 
-					<table class="table">
+					<table class="tableList">
 						<thead>
 							<tr>
 								<th scope="row" style="width:20px">No.</th>
@@ -83,7 +83,7 @@ UserBookHtmlContents.user_now_rental_list_content = function(rentalArray) {
 	<h3>현재 대출 리스트</h3>
 			
 			</div>
-					<table class="table">
+					<table class="tableList">
 						<thead>
 							<tr>
 								<th scope="row">No.</th>
@@ -124,7 +124,7 @@ UserBookHtmlContents.user_reservation_list_html=function(resList){
 	<h3>예약현황</h3>
 			<div class="mybook">
 			 
-					<table class="table">
+					<table class="tableList">
 						<thead>
 							<tr>
 								<th scope="row" style="width:20px">No.</th>

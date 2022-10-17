@@ -23,7 +23,6 @@
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" type="text/css" href="./css/style.css">
 <link rel="stylesheet" type="text/css" href="./css/yeji.css">
-<link rel="stylesheet" type="text/css" href="./css/yeji.css">
 <link rel="stylesheet" type="text/css" href="./css/faq.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/star.png">
@@ -342,7 +341,7 @@ $(function(){
 				<div class="col-md-3">
 					<div class="sidebar  noto-serif">
 						<div class="side-head">
-							<h4 class="text-light">나의도서</h4>
+							<h4 class="text-light" style="text-align:center;'">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5" id="menu">
 							<li class="list-group-item"><a href="MyPage_Folder"
@@ -382,10 +381,9 @@ $(function(){
 							</div>
 						</div>
 					</div>
-					<hr>
 
 					<div class="container">
-						<div id="myPageList" class="table">
+						<div id="myPageList" class="myPage">
 
 
 						</div>

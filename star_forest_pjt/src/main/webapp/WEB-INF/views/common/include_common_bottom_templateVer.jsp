@@ -4,7 +4,7 @@
 
 	<footer id="main-footer" class="text-center p-4 noto-serif">
     <div class="container">
-      <div class="row">
+      <div class="row" >
       	<div class="col-md-12 pb-2"><br>
 	      	<!--  책 관련된 명언 랜덤으로 보여주기 -->
       		<div id="footer-display"></div>

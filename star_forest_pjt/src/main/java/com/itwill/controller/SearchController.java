@@ -63,16 +63,7 @@ public class SearchController {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		
+			
 	/*
 	 * private static final Logger logger =LoggerFactory.getLogger(SearchController.class);
 	

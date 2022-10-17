@@ -72,13 +72,6 @@
 	
 </script>
 <style type="text/css">
-/* Lazy Load Styles */
-/* Lazy Load Styles */
-
-
-
-/* Layout Styles */
-
 
 
 	.card-body.p-0 img{
@@ -132,7 +125,7 @@
 					<div class="col-md-3 noto-serif mb-3">
 						<div class="sidebar">
 							<div class="side-head">
-								<h4 class="text-light">도서검색</h4>
+								<h4 class="text-light">전체 도서</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item"><a href="SearchResult2">도서검색</a></li>
@@ -148,13 +141,12 @@
 					<!--  -->
 					<!-- 메인내용 -->
 					<div class="col-md-9">
-					<div class="row">
+					<div class="row" id="searchAllList">
 							<div class="category" id="btn_category"></div>
 								</div>
 								
-						<div id="searchAllList" class="row">
 						<!-- -------------------------------->
-						<c:forEach items="${allBook}" var="cate" varStatus="cate">
+						<c:forEach items="${allBook}" var="cate" varStatus="cate" begin="0" end="15">
 						<div class="col-md-3">
 									<div class="card mb-3">
 										<div class="card-body p-0">
@@ -168,7 +160,6 @@
 									</div>
 								</div>
 								</c:forEach>
-								</div>
 						<!-------------------------------- -->
 						
 					</div>

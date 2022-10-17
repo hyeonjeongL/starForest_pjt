@@ -32,7 +32,7 @@
   
 <script type="text/javascript">
 
-$(document).on('click', '#btn_search', function(e) {
+$(document).ready(function() {
 	
 	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
 	console.log(param);
@@ -130,16 +130,8 @@ $(document).on('click', '#btn_search', function(e) {
 											<select data-trigger="" name="type" id="type">
 												<option value="<%=request.getParameter("type")%>"></option>
 											</select>
-											 </div>
 									<input class="form-control searchbar" id="keyword" name="keyword" type="text" placeholder="검색어를 입력하세요." value="<%=request.getParameter("keyword")%>" readonly>
-									<div class="input-group-append">
-										<button class="btn btn-outline-success btn-r" type="button" id="btn_search">
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>도서검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</button>
-										<button class="btn btn-outline-success btn-r" type="button" onclick="location.href='SearchResult2'">
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>다른 도서 검색</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										</button>
-									</div>
+											 </div>
 								</div>
 							</form> 
 				</div>

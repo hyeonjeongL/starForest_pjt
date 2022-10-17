@@ -158,7 +158,7 @@
                         <th>첨부파일</th>
                      </tr>
                   </thead>
-                  <tbody class="tbody text-center noto-sans">
+                  <tbody id="notice_list_tbody">
                                 
                   <!-- board start -->
                   <c:forEach var="notice" items="${noticeList.itemList}">
@@ -188,6 +188,13 @@
 	                                        </td>
 	                                        <td>${notice.notice_date}</td>
 	                                        <td>${notice.notice_readcount}</td>
+		                                    <td><c:if test="${notice.notice_image eq '1'}">
+		                                        &nbsp;&nbsp;
+		                                        </c:if>
+		                                        <c:if test="${notice.notice_image eq null}">
+		                                        &nbsp;&nbsp;<img src="img/notice_file.png" width="20" height="20">
+		                                        </c:if></td>
+	                                        <%-- <td>${notice.notice_img}</td> --%>
 	                                    </tr>
                                     </c:forEach>
                                    <!-- board end -->
@@ -215,7 +222,7 @@
                                 </c:if>
                                 <c:forEach var="no" begin="${noticeList.pageMaker.blockBegin}" end="${noticeList.pageMaker.blockEnd}">
 									<c:if test="${noticeList.pageMaker.curPage == no}">
-										<li class="page-item active"><button class="page-link" href="notice_list?pageNum=${noticeList.pageMaker.curPage}">${no}</button></li>
+										<li class="page-item active"><button class="page-link" href="#">${no}</button></li>
 									</c:if>
 									<c:if test="${noticeList.pageMaker.curPage != no}">
 										<li class="page-item"><button class="page-link page" onclick="changeQnaList(${no})">${no}</button></li>

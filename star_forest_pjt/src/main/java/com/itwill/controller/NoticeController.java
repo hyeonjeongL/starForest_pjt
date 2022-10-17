@@ -25,6 +25,7 @@ public class NoticeController {
 	
 	@RequestMapping("/notice_list")
 	public String notice_list(@RequestParam(required = false, defaultValue = "1") Integer pageno,Model model) throws Exception{
+		System.out.println(pageno);
 		try {
 			PageMakerDto<Notice> noticeList = noticeService.selectAll(pageno);
 			System.out.println("selectAll(pageno)");

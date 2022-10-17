@@ -2,6 +2,7 @@
 게시물 리스트 변경
 */
 function changeQnaList(pageno){
+	console.log(pageno);
 	$.ajax({
 		url: "notice_list_rest",
 		method: "post",
@@ -54,6 +55,7 @@ function changeQnaList(pageno){
 			}else{
 				Toast.fire({ icon: 'error', title: resultObj.errorMsg });
 			}
+		console.log("asdf");
 		}
 	});
 }
@@ -169,26 +171,7 @@ $(() => {
 	}
 });
 
-/*
-alert 세팅
-*/
-const Toast =  Swal.mixin({ 
-	toast: true, 
-	position: 'center', 
-	showConfirmButton: true, 
-	confirmButtonColor: '#3085d6',
-	width: '400px'
- });
 
-const ToastConfirm =  Swal.mixin({ 
-	toast: true, 
-	position: 'center', 
-	showConfirmButton: true, 
-	confirmButtonColor: '#3085d6',
-	showDenyButton: true,
-	denyButtonText: 'Cancle',
-	width: '400px'
- });
 
 
 

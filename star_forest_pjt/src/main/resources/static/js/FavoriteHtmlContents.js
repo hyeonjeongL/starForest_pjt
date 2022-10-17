@@ -5,13 +5,13 @@ FavoriteHtmlContents.favorite_item_content = function(favorite,i) {
 	return `
 					<div class="rentalTable">
 						<tr id="favorite_item">
-								<td id="favoriteNo">${i+1}
-								<td class="bookTitle">${favorite.book.book_title}</td>
-								<td class="bookAuthor">${favorite.book.book_author}</td>
-								<td class="bookPubl">${favorite.book.book_publisher}</td>
-								<td>
+								<th id="favoriteNo">${i+1}
+								<th class="bookTitle">${favorite.book.book_title}</th>
+								<th class="bookAuthor">${favorite.book.book_author}</th>
+								<th class="bookPubl">${favorite.book.book_publisher}</th>
+								<th>
 									<button id="btn_delete" class="w-btn w-btn-delete" type="button" favorite_no="${favorite.favorite_no}">삭제</button>
-								</td>
+								</th>
 							</tr>
 					 </div>					
 `;
@@ -40,6 +40,7 @@ FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 
 						</table>
 					</div>
+					<br>
 					<div class="favorite_delete" style="float: right;">
 					${(favoriteArray.length!=0)?'<button id="btn_all_delete" class="w-btn w-btn-delete" type="button">전체삭제</button>':''}
 						

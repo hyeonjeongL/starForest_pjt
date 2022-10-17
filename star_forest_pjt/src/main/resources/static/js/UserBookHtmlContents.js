@@ -44,6 +44,10 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 					</div>
 					<br>
 					<br>
+					<br>
+					<br>
+					<br>
+					<br>
 					<table>
 					<div class="count_wrap"> 
 					나의 마음의 양식은<span class="count"">

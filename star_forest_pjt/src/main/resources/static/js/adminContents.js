@@ -40,6 +40,9 @@ adminContents.admin_total_rental_list_content = function(rentalTArray) {
 							<!-- rentalList end -->
 						</tbody>
 					</table>
+					
+					<br>
+					<br>
 				`;
 }
 
@@ -81,13 +84,17 @@ adminContents.admin_user_now_rental_list_content = function(rentalArray) {
 							<!-- rentalList end -->
 						</tbody>
 					</table>
+					
+					<br>
+					<br>
 				`;
 }
 
-adminContents.admin_user_list_item = function(user) {
+adminContents.admin_user_list_item = function(user,i) {
 	return `
 	
 	<tr>
+				<th scope="row">${i+1}</th>
 				<th scope="row">${user.user_name}</th>
 				<th scope="row">${user.user_id}</th>
 				<th scope="row">${user.user_password}</th>
@@ -96,16 +103,17 @@ adminContents.admin_user_list_item = function(user) {
 				<th scope="row">${user.user_phone}</th>
 				<th scope="row">${user.user_rental_status}</th>
 				<th scope="row"  width="100">${user.user_book_cnt_limit}</th>
-				<th scope="row"><button id="btn_user_delete" class="w-btn w-btn-detail" user_id="${user.user_id}">삭제</button></th>
+				<th scope="row"><button id="btn_user_delete" class="w-btn w-btn-detail" user_id="${user.user_id}">회원삭제</button></th>
 			</tr>`;
 }
 adminContents.admin_user_list_content = function(userArray) {
 	return `
 			
 			</div>
-					<table class="table" align="center" style="margin-left:180px; margin-top:50px">
+					<table class="table" align="center" >
 						<thead>
 							<tr>
+								<th scope="row">번호</th>
 								<th scope="row">이름</th>
 								<th scope="row">아이디</th>
 								<th scope="row">비밀번호</th>

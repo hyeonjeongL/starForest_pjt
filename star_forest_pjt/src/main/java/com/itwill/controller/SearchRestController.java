@@ -21,6 +21,7 @@ public class SearchRestController {
 	@Autowired
 	private SearchService searchService;
 	
+	//카테고리
 	@PostMapping("/search_category")
 	public Map search_category(@RequestParam int category_no) throws Exception {
 		Map resultMap = new HashMap();
@@ -42,6 +43,7 @@ public class SearchRestController {
 
 	}
 	
+	//도서 리스트
 	@GetMapping("/book_list")
 	public Map book_list() throws Exception {
 		Map resultMap = new HashMap();

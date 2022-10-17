@@ -57,7 +57,7 @@ public interface UserDao3 {
 		
 		// 일반 회원 아이디 찾기
 		//@Select("select user_id from user_info where user_name=#{user_name} and user_phone=#{user_phone}")
-		@Select("select RPAD(substr(user_id , 1, 2), lengthb(user_id), '*') user_id from user_info where user_name=#{user_name} and user_phone=#{user_phone}")
+		@Select("select RPAD(substr(user_id , 1, 3), lengthb(user_id), '*') user_id from user_info where user_name=#{user_name} and user_phone=#{user_phone}")
 		String findUId(@Param("user_name")String user_name, @Param("user_phone")String user_phone);
 
 		// 일반 회원 패스워드 찾기

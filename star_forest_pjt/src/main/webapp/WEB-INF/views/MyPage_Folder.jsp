@@ -49,7 +49,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						var bookClubArray=jsonResult.data;
-						$('#clubUserList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
+						$('#myPageList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -67,7 +67,7 @@ $(function(){
 				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+						$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -81,7 +81,7 @@ $(function(){
 				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+						$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -102,7 +102,7 @@ $(function(){
 					if(jsonResult.code==1){
 						var rentalArray=jsonResult.data;
 						console.log(rentalArray);
-						$('#clubUserList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
+						$('#myPageList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -121,7 +121,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						var rentalArray=jsonResult.data;
-						$('#clubUserList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
+						$('#myPageList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -141,7 +141,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						var reservationArray=jsonResult.data;
-						$('#clubUserList').html(UserBookHtmlContents.user_reservation_list_html(reservationArray));
+						$('#myPageList').html(UserBookHtmlContents.user_reservation_list_html(reservationArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -159,7 +159,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						var requestArray=jsonResult.data;
-						$('#clubUserList').html(user_request_list_content(requestArray));
+						$('#myPageList').html(user_request_list_content(requestArray));
 					}else if(jsonResult.code==0){
 						alert(jsonResult.msg);
 						location.href='user';
@@ -178,7 +178,7 @@ $(function(){
 				success:function(jsonResult){
 					var favoriteArray=jsonResult.data;
 					console.log(favoriteArray);
-					$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
+					$('#myPageList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 				}
 			});
 		e.preventDefault();
@@ -197,7 +197,7 @@ $(function(){
 						alert(jsonResult.msg);
 						$('#side_favorite').trigger('click');
 						var favoriteArray=jsonResult.data;
-						$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
+						$('#myPageList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 					}
@@ -216,7 +216,7 @@ $(function(){
 				if(jsonResult.code==1){
 					alert(jsonResult.msg);
 					var favoriteArray=jsonResult.data;
-					$('#clubUserList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
+					$('#myPageList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 				}else{
 					alert(jsonResult.msg);
 				}
@@ -240,7 +240,7 @@ $(function(){
 							dataType:'json',
 							success:function(jsonResult){
 								if(jsonResult.code==1){
-									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+									$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 								}else if(jsonResult.code==2){
 									alert(jsonResult.msg);
 									location.href='user';
@@ -255,7 +255,7 @@ $(function(){
 							dataType:'json',
 							success:function(jsonResult){
 								if(jsonResult.code==1){
-									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+									$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 								}else if(jsonResult.code==2){
 									alert(jsonResult.msg);
 									location.href='user';
@@ -270,7 +270,7 @@ $(function(){
 							dataType:'json',
 							success:function(jsonResult){
 								if(jsonResult.code==1){
-									$('#clubUserList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
+									$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 								}else if(jsonResult.code==2){
 									alert(jsonResult.msg);
 									location.href='user';
@@ -385,10 +385,10 @@ $(function(){
 					<hr>
 
 					<div class="container">
-						<table id="clubUserList" class="table">
+						<div id="myPageList" class="table">
 
 
-						</table>
+						</div>
 					</div>
 
 				</div>

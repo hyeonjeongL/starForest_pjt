@@ -22,6 +22,7 @@ function numberWithCommas(x) {
 }
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 	return `
+						<h3>대출현황</h3>
 	<div class="mybook">
 			 
 					<table class="table">
@@ -41,6 +42,9 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 						</tbody>
 					</table>
 					</div>
+					<br>
+					<br>
+					<table>
 					<div class="count_wrap"> 
 					나의 마음의 양식은<span class="count"">
 					${
@@ -58,6 +62,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 					}
 					</span>쪽입니다
 					</div>
+					</table>
 				`;
 }
 
@@ -75,6 +80,7 @@ UserBookHtmlContents.user_now_rental_item_content = function(book,i) {
 }
 UserBookHtmlContents.user_now_rental_list_content = function(rentalArray) {
 	return `
+	<h3>현재 대출 리스트</h3>
 			
 			</div>
 					<table class="table">
@@ -115,6 +121,7 @@ function user_list_item_content(resList,i){
 
 UserBookHtmlContents.user_reservation_list_html=function(resList){
 	return `
+	<h3>예약현황</h3>
 			<div class="mybook">
 			 
 					<table class="table">

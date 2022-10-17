@@ -43,14 +43,10 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 					</table>
 					</div>
 					<br>
-					<br>
-					<br>
-					<br>
-					<br>
-					<br>
 					<table>
-					<div class="count_wrap"> 
-					나의 마음의 양식은<span class="count"">
+					<img src="img/book_flip.gif" width="500px;" style="margin-left:70px;"><br>
+					<div class="count_wrap" style="margin-left:120px; font-size:20pt; font-weight:900;"> 
+					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;">
 					${
 						function(){
 							var weight=0;
@@ -64,7 +60,11 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 							}()
 							
 					}
-					</span>쪽입니다
+					쪽</span>&nbsp;입니다
+					<br>
+					<br>
+					<br>
+					<br>
 					</div>
 					</table>
 				`;

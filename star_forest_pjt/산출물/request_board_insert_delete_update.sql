@@ -108,4 +108,13 @@ SELECT s.*  FROM
         SELECT rownum as idx,board_no, board_title, user_id,board_date,board_readcount,board_groupno,board_step, board_status,board_depth,board_type_no FROM request_board
 					ORDER BY board_type_no asc;
                     
-                    
+      
+SELECT * FROM
+
+		( SELECT rownum idx, s.*  FROM
+				( SELECT board_no, board_title, user_id,board_date,board_content,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
+					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+				) s
+		 )
+
+			where board_title like '%안녕%' or board_content like '%대출%'or user_id like '%soyoon%' ;              

@@ -1,16 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="./css/style.css" type="text/css">
 
 	<footer id="main-footer" class="text-center p-4 noto-serif">
     <div class="container">
       <div class="row">
-      	<div class="col-md-12 pb-2">
+      	<div class="col-md-12 pb-2"><br>
 	      	<!--  책 관련된 명언 랜덤으로 보여주기 -->
-      		<p id="footer-display"></p>
+      		<div id="footer-display"></div>
     		</div>
         <div class="col-md-12">
-          <p>Copyright &copy;
-            <span id="year"></span> STARFOREST</p>
+          <div>Copyright &copy;
+            <span id="year"></span> STARFOREST</div>
         </div>
       </div>
     </div>
@@ -22,6 +23,7 @@
    <script type="text/javascript"   src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
    <script type="text/javascript"   src="../jquery-ui-1.12.1/jquery-ui.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script> -->
+
 
 <script type="text/javascript">
 	const footer_display = document.getElementById('footer-display');

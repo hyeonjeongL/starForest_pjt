@@ -141,8 +141,8 @@ $(function(){
 		<div class="container">
 			<div class="row">
 				<!-- 사이드바 -->
-				<div class="col-md-3 noto-serif">
-					<div class="sidebar">
+				<div class="col-md-3">
+					<div class="sidebar  noto-serif">
 						<div class="side-head">
 							<h4 class="text-light">나의도서</h4>
 						</div>
@@ -154,7 +154,7 @@ $(function(){
 								<ul class='submenu'>
 									<li><a href="MyPage_Folder" id="side_mypage">내정보</a></li>
 									<li><a href="MyPage_Info" id="side_update">개인정보변경</a></li>
-									<li><a href="MyPage_Info" id="side_user_qr">나의QR</a></li>
+									<li><a href="user_qr" id="side_user_qr">나의QR</a></li>
 								</ul></li>
 							<li class="list-group-item"><a href="#"
 								id="side_userbook_status">나의도서정보</a>

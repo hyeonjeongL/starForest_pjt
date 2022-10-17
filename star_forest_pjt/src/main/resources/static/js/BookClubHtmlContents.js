@@ -468,10 +468,10 @@ BookClubHtmlContents.admin_club_detail_html = function(club) {
 											</div>
 									`;
 }
-BookClubHtmlContents.club_user_item_html=function(loginUser){
+BookClubHtmlContents.club_user_item_html=function(loginUser,i){
 	return `  	
 				<tr>
-					<th scope="row">${loginUser.club_no}</th>
+					<th scope="row">${i+1}</th>
 					<th scope="row">${loginUser.club_name}</th>
 					<th scope="row">${loginUser.club_person}</th>
 					<th scope="row">${loginUser.club_time}</th>

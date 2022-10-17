@@ -51,8 +51,6 @@ public interface BookClubMapper {
 	@Delete("delete from book_club where club_no=#{club_no}")
 	public int remove(int club_no);
 	
-	@Delete("delete from book_club where club_no=#{club_no} and user_id=#{user_id}")
-	public int user_delete(String user_id,int club_no);
 	
 	
 	

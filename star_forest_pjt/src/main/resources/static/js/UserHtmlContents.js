@@ -140,50 +140,50 @@ UserHtmlContents.user_view_content=function(loginUser){
 							<table border="0" cellpadding="0" cellspacing="1" width="590"
 								bgcolor="BBBBBB">
 								<tr>
-									<td width=140 align=center bgcolor="E6ECDE" height="22"  style=" padding-right: 12px;">이름</td>
+									<td width=140 align=center bgcolor="#ffc91d" height="22"  style=" padding-right: 12px;">이름</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_name}</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">
 										아이디</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_id}</td>
 								</tr>
 								
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">이메일
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">이메일
 										</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_email}</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">생일</td>
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">생일</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_birth.substring(0,10)}</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">성별</td>
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">성별</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_gender}</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">휴대폰번호</td>
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">휴대폰번호</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_phone}</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">주소</td>
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">주소</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_address}</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">대출가능권수</td>
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">대출가능권수</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_book_cnt_limit} 권 / 3 권</td>
 								</tr>
 								<tr>
-									<td width=100 align=center bgcolor="E6ECDE" height="22" style=" padding-right: 12px;">연체여부</td>
+									<td width=100 align=center bgcolor="#ffc91d" height="22" style=" padding-right: 12px;">연체여부</td>
 									<td width=490 bgcolor="ffffff" style="padding-left: 10">
 										${loginUser.user_rental_status}
 										${(loginUser.user_rental_status=='대출불가(연체)')?'<button id="btn_rental_status" class="w-btn w-btn-detail" type="button">자세히</button>':' '}

@@ -150,7 +150,7 @@
 		/********club_category_list********/
 		$(document).on('click','#btn1',function(e){
 			var param='category_no='+$(e.target).attr('value');
-			
+			console.log(param);
 			$.ajax({
 				url:'club_select_by_category',
 				method:'POST',
@@ -158,8 +158,7 @@
 				data:param,
 				success:function(jsonResult){
 					var bookClubArray=jsonResult.data;
-					console.log(bookClubArray);
-					$('#content').html(BookClubHtmlContents.club_join_html(bookClubArray));
+					$('#content').html(BookClubHtmlContents.club_cate_join_html(bookClubArray));
 				}
 			});
 			e.preventDefault();

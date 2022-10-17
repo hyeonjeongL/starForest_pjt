@@ -48,6 +48,7 @@ insert into book_club values(SEQ_book_club_club_no.nextval,'다독다독',8,'따
 --select--
 /*모든 동아리 출력*/
 select * from book_club order by club_no desc;
+select count(*) cnt from book_club;
 /*카테고리별 동아리 출력*/
 select club_name,club_count,club_person,club_time,club_place,club_content from book_club where category_no=700 order by club_no desc;
 /*동아리 상세보기*/
@@ -65,11 +66,17 @@ update book_club set user_id='yeji',club_count=club_count-1 where club_count>0 a
 /*조회수 증가*/
 update book_club set club_readcount=club_readcount+1 where club_no=5;
 
-select rownum idx, * from book_club 
 
-		WHERE idx >= 1 and idx<= 10 order by club_no desc;
+SELECT * FROM
+		( SELECT rownum idx, s.*  FROM
+				( SELECT club_no, club_name,club_readcount, club_count, club_person, club_time, club_place, club_content FROM book_club
+					ORDER BY club_no DESC
+				) s
+		 )
+WHERE idx >2 AND idx <= 5 ;
 
 
+select rownum,club_no,club_name,club_count,club_person,club_time,club_place,club_content from book_club order by club_no desc;
 --delete--
 /*게시물 삭제*/
 delete from book_club;

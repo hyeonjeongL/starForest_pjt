@@ -196,8 +196,8 @@ $(function(){
 					</div>
 				
 
-					<div class="container">
-					<h4 >${sUserId } 님의 QR</h4><hr><br>
+					<div class="container"><br>
+					<h4 >${sUserId } 님의 QR</h4><br><hr><br>
 					<h6>생성된 QR CODE를 직원에게 보여주세요.</h6><br><br>
 							<div id="qrcode"></div>
 					</div>

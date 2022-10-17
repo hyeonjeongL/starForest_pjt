@@ -3,7 +3,7 @@
 <%@ page import="com.itwill.domain.User"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-//String u_id = (String)session.getAttribute("sUserId");
+//String sUserId = (String)session.getAttribute("sUserId");
 %>
 <script type="text/javascript">
 $(function(){
@@ -120,18 +120,17 @@ $(function(){
 				<li class="nav-item dropdown"><a href="howtoInfo"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서관소개</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a class="dropdown-item" href="howtoInfo"> 대출/반납/연장</a></li>
-						<li><a class="dropdown-item" href="postList?group=10">
+						<li><a class="dropdown-item" href="howtoInfo"> 대출/반납</a></li>
+						<li><a class="dropdown-item" href="notice_list">
 								공지사항 </a></li>
 						<li><a class="dropdown-item" href="faqViewpage"> 자주묻는질문</a></li>
-						<li><a class="dropdown-item" href="QnaList"> 묻고답하기 </a></li>
-						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길
-						</a></li>
+						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길 </a></li>
 					</ul></li>
-				<li class="nav-item dropdown"><a href="SearchResult"
+				<li class="nav-item dropdown"><a href="SearchResult2"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
-						<li><a class="dropdown-item" href="SearchResult">도서 검색</a></li>
+						<li><a class="dropdown-item" href="SearchResult2">도서 검색</a></li>
+						<li><a class="dropdown-item" href="SearchList">전체 도서</a></li>
 						<li><a class="dropdown-item" href="recommendedBooks">사서추천도서</a></li>
 						<li><a class="dropdown-item" href="Newbooks">신착도서</a></li>
 						<li><a class="dropdown-item" href="popularBook">이달의 인기도서</a></li>
@@ -173,26 +172,23 @@ $(function(){
 						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
 					</ul>
 				</li>
+				
+				<c:if test="${sUserId=='admin'}">
 				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" data-toggle="dropdown">어드민</a>
+					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="admin"
 							id="menu_adminReturn">도서 반납</a></li>
-						<li><a id="menu_my_seat" class="dropdown-item" href="#">다른 어드민</a></li>
+						<li><a id="menu_admin_user" class="dropdown-item" href="user_admin">회원관리</a></li>
+						<li><a id="menu_admin_insert_newbook" class="dropdown-item" href="adminNewBook">신착도서 입력</a></li>
 					</ul>
 				</li>
-				
+				</c:if>
 			</ul>
 
 
 			<ul id="app" class="navbar-nav ml-auto">
-				<c:if test="${sUserId == admin}">
-					<li class="nav-item" v-bind:title="managerpage">
-					<a href="admin" class="nav-link">
-					<i class="fas fa-crown" style="color: #107637;"></i></a>
-						<p class="sr-only">관리자페이지</p></li>
-				</c:if>
-				<c:if test="${sUserId == null}">
+				<c:if test="${sUserId eq null}">
 					<li class="nav-item" v-bind:title="login">
 					<a href="user" class="nav-link" id="a_user_login_form">
 					<i class="fas fa-sign-in-alt"></i></a>
@@ -202,7 +198,7 @@ $(function(){
 					<i class="fas fa-user-plus"></i></a>
 						<p class="sr-only">회원가입</p></li>
 				</c:if>
-				<c:if test="${sUserId != null&&sUserId!=admin}">
+				<c:if test="${sUserId ne null}">
 					<li class="nav-item p-1"><small class="text-dark">${sUserId}
 							님</small></li>
 					<li class="nav-item" v-bind:title="logout">

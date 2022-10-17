@@ -24,16 +24,19 @@ public class NoticeDaoImpl implements NoticeDao{
 		return noticeMapper;
 	}
 	public void setNoticeMappper(NoticeMapper noticeMapper) {
+		System.out.println(">>> noticeDaoImpl():setNoticeMappper()");
 		this.noticeMapper = noticeMapper;
 	}
 	
 	@Override
 	public int create(Notice notice) throws Exception {
+		System.out.println(">>>noticeDaoImpl:create()");
 		return noticeMapper.create(notice);
 	}
 
 	@Override
 	public List<Notice> selectAll(int pageStart, int pageEnd) throws Exception {
+		System.out.println(">>>noticeDaoImpl:selectAll()");
 		Map<String, Integer>map = new HashMap<>();
 		map.put("pageStart", pageStart);
 		map.put("pageEnd", pageEnd);
@@ -42,26 +45,31 @@ public class NoticeDaoImpl implements NoticeDao{
 
 	@Override
 	public int update(Notice notice) throws Exception {
+		System.out.println(">>>noticeDaoImpl:update()");
 		return noticeMapper.update(notice);
 	}
 
 	@Override
 	public int updateCount(int notice_no) throws Exception {
+		System.out.println(">>>noticeDaoImpl:updateCount()");
 		return noticeMapper.updateCount(notice_no);
 	}
 
 	@Override
 	public int delete(int notice_no) throws Exception {
+		System.out.println(">>>noticeDaoImpl:delete()");
 		return noticeMapper.delete(notice_no);
 	}
 
 	@Override
 	public int noticeCount() throws Exception {
+		System.out.println(">>>noticeDaoImpl:noticeCount()");
 		return noticeMapper.noticeCount();
 	}
 
 	@Override
 	public Notice selectByNo(int notice_no) throws Exception {
+		System.out.println(">>>noticeDaoImpl:selectByNo()");
 		return noticeMapper.selectByNo(notice_no);
 	}
 

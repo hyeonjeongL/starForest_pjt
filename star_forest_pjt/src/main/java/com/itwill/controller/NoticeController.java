@@ -27,11 +27,11 @@ public class NoticeController {
 	public String notice_list(@RequestParam(required = false, defaultValue = "1") Integer pageno,Model model) throws Exception{
 		try {
 			PageMakerDto<Notice> noticeList = noticeService.selectAll(pageno);
-			System.out.println("noticeListㅇㅇㅇ");
+			System.out.println("selectAll(pageno)");
 			model.addAttribute("noticeList",noticeList);
 			System.out.println("noticeList111");
 			model.addAttribute("pageno",pageno);
-			System.out.println("noticeList222");
+			System.out.println("pageno");
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "error";

@@ -302,7 +302,7 @@
 			<div class="col-md-3">
 					  <div class="sidebar noto-serif">
 							<div class="side-head">
-								<h4 class="text-light text-center">커뮤니티</h4>
+								<h4 class="text-light text-center" style="color:black !important; font-weight: 900 !important">커뮤니티</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li id="side_bookClub" class="list-group-item active"><a href="bookclub" class="returnAll">도서동아리</a></li>

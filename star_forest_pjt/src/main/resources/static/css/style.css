@@ -192,6 +192,7 @@ b{
 }
 
 #main-footer div {
+	margin-bottom:0;
  text-align:center;
   background-color: #107637;
   color: #fff;
@@ -200,7 +201,22 @@ b{
   font-family: 'GmarketSansMedium';
   height:50px;
 }
+#new_footer div {
+ text-align:center;
+  background-color: #dcdcdc;
+  color: #000000;
+  flex-shrink: none;
+  font-size: 14px;
+  font-family: 'GmarketSansMedium';
+  height:40px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+}
 
+#newdiv{
+	margin-top: 0px;
+	height:20px;
+}
 /*  ------------------------------------------- */
 /*    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      */
 /*    !!!!!!!  공통부분 추가 css 입니다  !!!!!!!      */
@@ -222,8 +238,10 @@ html, body{
   border: 1px solid gainsboro;
 }
 .side-head {
-  background: #1c7b3a;
+	background-color: #ffffff;
   padding: 40px;
+  color: black;
+  font-weight: 900 !important;
 }
 .sidebar a{
 	color: #343a40;
@@ -300,6 +318,7 @@ html, body{
 	padding-bottom: 10px;
 	font-family: 'GmarketSansMedium';
 }
+
 
 /* 유림 추가 홈헤딩 START */
 

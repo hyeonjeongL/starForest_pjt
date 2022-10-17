@@ -109,7 +109,7 @@
 					<div class="col-md-3 noto-serif mb-3">
 						<div class="sidebar">
 							<div class="side-head">
-								<h4 class="text-light">도서검색</h4>
+								<h4 class="text-light" style="color:black !important; font-weight: 900 !important">도서검색</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item active"><a href="SearchResult2">도서검색</a></li>

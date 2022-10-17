@@ -2,19 +2,10 @@
 	pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="./css/style.css" type="text/css">
 
-	<footer id="main-footer" class="text-center p-4 noto-serif">
-    <div class="container">
-      <div class="row" >
-      	<div class="col-md-12 pb-2"><br>
-	      	<!--  책 관련된 명언 랜덤으로 보여주기 -->
+	<footer id="new_footer" class="text-center p-4 noto-serif">
       		<div id="footer-display"></div>
-    		</div>
-        <div class="col-md-12">
-          <div>Copyright &copy;
+          		<div id="newdiv">Copyright &copy;
             <span id="year"></span> STARFOREST</div>
-        </div>
-      </div>
-    </div>
   </footer>
 	
  <!--<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>

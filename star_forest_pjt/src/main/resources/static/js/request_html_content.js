@@ -415,7 +415,7 @@ function user_request_list_content(requestArray) {
 	<div class="mybook">
 			
 			</div>
-					<table class="tableList">
+					<table class="tableList" width="100%">
 						<thead>
 							<tr>
 								<th scope="row">제목</th>

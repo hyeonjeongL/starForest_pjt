@@ -73,7 +73,7 @@
 	         <div class="col-md-3">
 					  <div class="sidebar noto-serif">
 							<div class="side-head">
-								<h4 class="text-light text-center">도서관소개</h4>
+								<h4 class="text-light text-center" style="color:black !important; font-weight: 900 !important">도서관소개</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item"><a href="howtoInfo">대출/반납</a></li>

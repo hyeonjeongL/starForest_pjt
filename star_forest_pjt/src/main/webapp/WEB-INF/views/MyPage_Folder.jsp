@@ -341,7 +341,7 @@ $(function(){
 				<div class="col-md-3">
 					<div class="sidebar  noto-serif">
 						<div class="side-head">
-							<h4 class="text-light" style="text-align:center;'">나의도서</h4>
+							<h4 class="text-light" style="text-align:center; color:black !important; font-weight: 900 !important">나의도서</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5" id="menu">
 							<li class="list-group-item"><a href="MyPage_Folder"
@@ -383,7 +383,7 @@ $(function(){
 					</div>
 
 					<div class="container">
-						<div id="myPageList" class="myPage">
+						<div id="myPageList" class="myPage" >
 
 
 						</div>
@@ -397,11 +397,6 @@ $(function(){
 
 	<!-- .footer-navigation -->
 	<!-- footer start-->
-	<div id="navigation">
-		<!-- include_common_left.jsp start-->
-		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
-		<!-- include_common_left.jsp end-->
-	</div>
 	<!-- footer end-->
 
 
@@ -432,4 +427,9 @@ $(function(){
 		});
 	</script>
 </body>
+<div id="navigation">
+		<!-- include_common_left.jsp start-->
+		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
+		<!-- include_common_left.jsp end-->
+	</div>
 </html>

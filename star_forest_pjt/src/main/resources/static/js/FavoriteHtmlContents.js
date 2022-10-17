@@ -22,7 +22,7 @@ FavoriteHtmlContents.favorite_list_content = function(favoriteArray) {
 <h2>&nbsp내서재</h2>
 
 					<div class="container">
-						<table id="favoriteList" class="tableList">
+						<table id="favoriteList" class="tableList"width="100%">
 						<thead>
 							<tr>
 								<th scope="row">No.</th>

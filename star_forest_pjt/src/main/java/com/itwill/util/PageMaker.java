@@ -2,7 +2,8 @@ package com.itwill.util;
 
 
 public class PageMaker {
- 
+	private int pageBegin;  // #{start}
+	private int pageEnd;    // #{end}
 	/* 시작 페이지 */
 	private int startPage;
 	
@@ -44,7 +45,31 @@ public class PageMaker {
 		/* 마지막 페이지(endPage)값이 1보다 큰 경우 true */
 		this.next = this.endPage < realEnd;
 		
+		
+		
+		 pageBegin = (cri.getPageNum()-1)*10+1;
+	        // 끝번호 = 시작번호+페이지당 게시물수 -1
+	     pageEnd = pageBegin+10-1;
+		System.out.println("pageNum:"+cri.getPageNum());
+		System.out.println("pageBegin:"+pageBegin);
+		System.out.println("pageEnd:"+pageEnd);
+	
+	}
+	
+	public int getPageBegin() {
+		return pageBegin;
+	}
 
+	public void setPageBegin(int pageBegin) {
+		this.pageBegin = pageBegin;
+	}
+
+	public int getPageEnd() {
+		return pageEnd;
+	}
+
+	public void setPageEnd(int pageEnd) {
+		this.pageEnd = pageEnd;
 	}
 
 	public int getStartPage() {

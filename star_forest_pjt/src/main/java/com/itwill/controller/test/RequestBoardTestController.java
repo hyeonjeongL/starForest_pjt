@@ -43,7 +43,7 @@ public class RequestBoardTestController {
 	    //System.out.println(requestBoardDao.update(new RequestBoard(8, "수정", null, "수정", 0, null, 0, 0, 0, 0, 100, null)));
 	    //System.out.println(requestBoardDao.addReadCount(8));
 	      
-	    System.out.println(requestBoardDao.selectAll());  
+	    //System.out.println(requestBoardDao.selectAll());  
 	   // System.out.println(requestBoardDao.countAll(5));
 	    System.out.println(requestBoardDao.selectOne(8));
 	    //List<RequestBoard> itemList = new ArrayList();

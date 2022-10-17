@@ -1,8 +1,6 @@
 package com.itwill.controller;
 
 import java.util.ArrayList;
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.itwill.controller.interceptor.LoginCheck;
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.service.RequestBoardService;
 import com.itwill.util.Criteria;
 import com.itwill.util.PageMaker;
@@ -34,45 +32,41 @@ public class RequestBoardRestController {
 	
 	@RequestMapping(value="/request_list_json", produces = "application/json;charset=UTF-8")
 	public Map request_list_json(Criteria cri,Model model) {
+		
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
 		String msg="";
-		String key ="";
 		//Log.info("boardListGET");
-        int startPage =-999;
-        int endPage =-999;
-		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
-		List<PageMaker> pageMakerList = new ArrayList<PageMaker>();
+        System.out.println("Controller:"+cri);
+        RequestBoardListPageMaker requestBoardListPageMaker=null;
+        List<PageMaker> pageMakerList =null;
 		try {
-			//List<RequestBoard> requestList = requestBoardService.selectAll();
-			List<RequestBoard> requestList = requestBoardService.list(cri);
-			int total = requestBoardService.countAll(cri);
-			PageMaker pageMaker = new PageMaker(cri, total);
-			//key =cri.getKeyword().substring(0,4);
-			//System.out.println("key="+key);
-			//System.out.println("-----------");
-			pageMakerList.add(pageMaker);
-			//startPage = pageMaker.getStartPage();
-			//endPage = pageMaker.getEndPage();
-			//cri.setKeyword(keyword);
-			//key=cri.getKeyword();
+			
+			requestBoardListPageMaker = requestBoardService.list(cri);
+			pageMakerList = new ArrayList<>();
+			pageMakerList.add(requestBoardListPageMaker.pageMaker);
+		
 			code=1;
 			url="";
 			msg="성공";
-			resultList = requestList;
+			
+		
 			//model.addAttribute("list",requestList);
 			//model.addAttribute("pageMaker",pageMaker);
+			
 		}catch (Exception e) {
 			code=2;
 			msg="에러";
 			e.printStackTrace();
 		}
+		
 		resultMap.put("code", code);
 		resultMap.put("url", url);
 		resultMap.put("msg", msg);
-		resultMap.put("data", resultList);
+		resultMap.put("data", requestBoardListPageMaker.boardList);
 		resultMap.put("pageMaker", pageMakerList);
+		System.out.println(requestBoardListPageMaker.boardList);
 		//resultMap.put("keyword", key);
 		
 		return resultMap;

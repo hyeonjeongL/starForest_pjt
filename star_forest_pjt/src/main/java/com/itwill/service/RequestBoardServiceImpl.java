@@ -1,5 +1,6 @@
 package com.itwill.service;
 
+import java.security.interfaces.RSAMultiPrimePrivateCrtKey;
 import java.util.List;
 
 
@@ -9,8 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.repository.RequestBoardDao;
 import com.itwill.util.Criteria;
+import com.itwill.util.PageMaker;
 @Service
 public class RequestBoardServiceImpl implements RequestBoardService{
 	@Autowired
@@ -77,16 +80,9 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 		return requestBoardDao.addReadCount(board_no);
 	}
 
-	@Override
-	public List<RequestBoard> selectAll() throws Exception {
-		return requestBoardDao.selectAll();
-	}
-	
-	@Override
-	public List<BookCategory> selectCategoryAll() throws Exception {
-		return requestBoardDao.selectCategoryAll();
-	}
 
+	
+	
 	@Override
 	public int countAll(Criteria cri) throws Exception {
 		return requestBoardDao.countAll(cri);
@@ -98,8 +94,21 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 	}
 
 	@Override
-	public List<RequestBoard> list(Criteria cri) throws Exception {
-		return requestBoardDao.list(cri);
+	public RequestBoardListPageMaker list(Criteria cri) throws Exception {
+		
+		
+		RequestBoardListPageMaker boardListPageMaker=new RequestBoardListPageMaker();
+		int totCount=requestBoardDao.countAll(cri);
+		System.out.println("totCount==>"+totCount);
+		PageMaker pageMaker=new PageMaker(cri, totCount);
+		
+		
+		List<RequestBoard> boardList= requestBoardDao.list(pageMaker.getPageBegin(),pageMaker.getPageEnd(),cri);
+		
+		boardListPageMaker.boardList=boardList;
+		boardListPageMaker.pageMaker=pageMaker;
+		boardListPageMaker.totRecordCount=totCount;
+		return boardListPageMaker;
 	}
 
 }

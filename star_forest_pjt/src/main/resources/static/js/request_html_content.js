@@ -89,28 +89,54 @@ function request_list_content(requestArray,pageArray) {
 		<input type="button" id="btn_write" value="희망도서 신청하기">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		
-		
-		<div class="search_wrap">
-			<form id="keyword_form" method="post">
-	        <div class="search_area">
-	        	<select name="type" id="type_box">
-                <option value="board_title" ${pageArray.cri.type =='board_title'?'selected':''}"/>제목</option>
-                <option value="board_content" ${pageArray.cri.type  == 'board_content'?'selected':''}"/>내용</option>
-                <option value="user_id" ${pageArray.cri.type  == 'board_content'?'selected':''}"/>작성자</option>
-           		 </select>    
-	            <input type="text" id="keyword_box" name="keyword" value="${(pageArray.cri.keyword==null)?'':''}" style="margin-left:60px;">
-	            <input type="button" id="search_btn" keyword="${pageArray.cri.keyword}" value="검색" >
-	        </div>
-	        </form>
-  	  	</div>    
-  	  	
+		<form id="page_form">
+				<div class="search_wrap">
+					<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum?pageArray.cri.pageNum:1}">
+	        		<input type="hidden" name="amount" value="${pageArray.cri.amount?pageArray.cri.amount:10}">   
+			        <div class="search_area">
+			        	<select name="type" id="type_box" >
+			        		${
+								function(){
+									if(pageArray.cri.type ==='board_title'){
+											return`
+												<option value="board_title" selected="selected">제목</option>
+		                						<option value="board_content">내용</option>
+		                						<option value="user_id" >작성자</option>
+		                						`
+									}
+									if(pageArray.cri.type ==='board_content'){
+											return`
+												<option value="board_title" >제목</option>
+		                						<option value="board_content" selected="selected">내용</option>
+		                						<option value="user_id" >작성자</option>
+		                						`
+									}
+									if(pageArray.cri.type ==='user_id'){
+											return`
+												<option value="board_title" >제목</option>
+		                						<option value="board_content">내용</option>
+		                						<option value="user_id" selected="selected">작성자</option>
+		                						`
+									}
+									return`
+											<option value="board_title" selected="selected">제목</option>
+	                						<option value="board_content">내용</option>
+	                						<option value="user_id" >작성자</option>
+	                						`
+							
+								}()
+				
+							}
+		                	
+		           		 </select>    
+			            <input type="text" id="keyword_box" name="keyword" value="${(pageArray.cri.keyword==null)?'':pageArray.cri.keyword}" style="margin-left:60px;">
+			            <input type="button" id="search_btn" value="검색" >
+			        </div>
+	  	  		</div>    
+  	  	  </form>
   	  	
 		<div class="page_area">
-		<form id="page_form" method="get">
-		<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum}">
-        <input type="hidden" name="amount" value="${pageArray.cri.amount}">    
-        <input type="hidden" name="keyword" value="${pageArray.cri.keyword}">	
-        <input type="hidden" name="type" value="${pageArray.cri.type}">
+	
 					<ul id="page">
 				 		
 				 		
@@ -148,7 +174,7 @@ function request_list_content(requestArray,pageArray) {
 	                    
 	                    
                		</ul>
-               		</form>
+               		
 		</div>
 			
 			

@@ -38,68 +38,50 @@
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script type="text/javascript" src="js/request_html_content.js"></script>
 <script type="text/javascript">
+/*************************************************/
+	function board_list_json(param){
+	console.log(param)	   
+	$.ajax({
+				url:'request_list_json',
+				method:'GET',
+				data:param,
+				success:function(jsonResult){
+					var requestArray = jsonResult.data;
+					var pageArray = jsonResult.pageMaker[0];
+					console.log(jsonResult);
+					$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
+					//$('#page_wrap').html(pageArray);
+				}
+			});
+	}
+	/***********************************************/
 	$(function() {
+		var param=$('#page_form').serialize();
+		board_list_json(param);
 		
-		
-		
-		$.ajax({
-			url:'request_list_json',
-			method:'GET',
-			success:function(jsonResult){
-				var requestArray = jsonResult.data;
-				var pageArray = jsonResult.pageMaker[0];
-				//var pageArray = [startPage,endPage,pageNum,amount] 
-				//console.log(num);
-				console.log(pageArray);
-				$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
-				
-				
-				$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
-			        
-					 var param = 'pageNum='+$(e.target).attr('pageNum');
-					
-			        console.log(param);
-			        $.ajax({
-						url:'request_list_json',
-						method:'POST',
-						data:param,
-						success:function(jsonResult){
-							var requestArray = jsonResult.data;
-							var pageArray = jsonResult.pageMaker[0];
-							console.log(requestArray);
-							$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
-							//$('#page_wrap').html(pageArray);
-						}
-					});
-			        e.preventDefault();
-			    });
-				
-				$(document).on('click','#search_btn',function(e){
-					 var pageNum = $("#page_form input[name='pageNum']").val();
-					 var keyword= $("input[name='keyword']").val();
-					 var type= $("#type_box option:selected").val();
-					 var param='pageNum='+pageNum+'&keyword='+keyword+'&type='+type;
-					 
-					 //console.log(pageNum,keyword);
-					 $.ajax({
-							url:'request_list_json',
-							method:'POST',
-							data: param,
-							success:function(jsonResult){
-								var requestArray = jsonResult.data;
-								var pageArray = jsonResult.pageMaker[0];
-								console.log(pageArray);
-								//console.log(requestArray);
-								$('#requestBoard_wrap').html(request_list_content(requestArray,pageArray));
-								//var url = "requestBoard?"+${param};
-								//window.location.href=url;
-								//$('#page_wrap').html(pageArray);
-							}
-						});
-					
-				});
-			}
+		$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
+			var pageNum=$(e.target).attr('pageNum');
+			$("#page_form input[name='pageNum']").val(pageNum);
+			
+			param=$('#page_form').serialize();
+			console.log(">>>>>>>"+param);
+			board_list_json(param);
+	        
+			e.preventDefault();
+	    });
+	
+		$(document).on('click','#search_btn',function(e){
+			
+			 //var pageNum = $("#page_form input[name='pageNum']").val();
+			 //var keyword= $("input[name='keyword']").val();
+			 //var type= $("#type_box option:selected").val();
+			 param= $('#page_form').serialize();
+			 board_list_json(param);
+			
+			
 		});
+		
+		
 		
 		
 		
@@ -350,12 +332,12 @@
 			 -->
 		</div>
 			</div>
-			<form id="moveForm" method="get">	
+		<%-- 	<form id="moveForm" method="get">	
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">	
 			<input type="hidden" name="type" value="${pageMaker.cri.type }">	
-			</form>
+			</form> --%>
 			
 		<!-- pageContent끝 -->	
 			

@@ -11,6 +11,7 @@ import org.springframework.context.annotation.FilterType;
 import org.springframework.context.annotation.ComponentScan.Filter;
 
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.mapper.RequestBoardMapper;
 import com.itwill.service.RequestBoardService;
 import com.itwill.util.Criteria;
@@ -41,8 +42,11 @@ public class RequestBoardServiceTestController {
 		      //서비스 테스트 완료
 		      Criteria cri = new Criteria();
 		      cri.setPageNum(1);
-		      List<RequestBoard> list = requestBoardService.list(cri);
-		      System.out.println(list);
+		     cri.setType("board_content");
+		    cri.setKeyword("정지");
+		      RequestBoardListPageMaker bp  = requestBoardService.list(cri);
+		      
+		      System.out.println(bp.totRecordCount);
 	}
 
 }

@@ -1,11 +1,7 @@
 package com.itwill.mapper;
 
 import java.util.List;
-
-
-
-
-
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -88,17 +84,9 @@ public interface RequestBoardMapper {
 			+ "	where board_no=#{board_no}")
 	public int addReadCount(int board_no);
 	
-	//게시물 전체 리스트
-	@Select("select board_no,board_title,board_date,board_content,board_readcount,board_status,board_type_no,category_name,user_id from\r\n"
-			+ "	request_board\r\n"
-			+ "	order by board_type_no asc,board_groupno desc, board_step asc")
-	public List<RequestBoard> selectAll();
+
 	
-	//카테고리 리스트
-	@Select("select * from book_category")
-	public List<BookCategory> selectCategoryAll();
-	
-	//게시물 총 갯수
+	//게시물 검색 총 갯수
 	public int countAll(Criteria cri);
 	
 	//게시물 상세보기
@@ -109,6 +97,6 @@ public interface RequestBoardMapper {
 	
 	//페이지에 있는 게시물 시작번호 / 끝번호
 	
-	public List<RequestBoard> list(Criteria cri);
+	public List<RequestBoard> list(Map map);
 	
 }

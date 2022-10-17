@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
+import com.itwill.domain.RequestBoardListPageMaker;
 import com.itwill.util.Criteria;
 public interface RequestBoardService {
 			//게시물생성
@@ -38,12 +39,7 @@ public interface RequestBoardService {
 			//조회수 증가
 			int addReadCount(int board_no) throws Exception;
 			
-			//게시물 전체 리스트
-			List<RequestBoard> selectAll() throws Exception;
-			
-			//카테고리 전체 리스트
-			List<BookCategory> selectCategoryAll() throws Exception;
-			
+		
 			//게시물 총 갯수
 			int countAll(Criteria cri) throws Exception;
 			
@@ -51,5 +47,5 @@ public interface RequestBoardService {
 			RequestBoard selectOne(int board_no) throws Exception;
 			
 			//페이지에 있는 게시물 시작번호 / 끝번호
-			List<RequestBoard> list(Criteria cri) throws Exception;
+			RequestBoardListPageMaker list(Criteria cri) throws Exception;
 }

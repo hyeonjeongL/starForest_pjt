@@ -109,70 +109,79 @@ selectKey를 쓰면 SEQ_REQUEST_BOARD_BOARD_NO.nextval 의 숫자가 뭔지 받�
 	</sql>
 -->
 <!--검색 조건문-->
-	<sql id="criteria">
-		<trim prefix="AND (" suffix=")" prefixOverrides="OR">
-			<foreach collection="typeArr" item="type">
-			  <trim prefix="OR">
-					<choose>
-						<when test="type == 'board_title'">
-							 board_title like '%'||#{keyword}||'%' 
-						</when>
-						<when test="type == 'board_content'">
-							 board_content like '%'||#{keyword}||'%' 
-						</when>
-						<when test="type == 'user_id'">
-							 user_id like '%'||#{keyword}||'%' 
-						</when>
-					</choose>
-				</trim>
-			</foreach>
-		</trim>
-	
+<sql id="criteria">
+ 	<if test="type != null and keyword!=null">
+		<where>
+			    <if test="type == 'board_title'">
+			         and board_title like '%'||#{keyword}||'%' 
+			    </if>
+			    <if test="type == 'board_content'">
+			        and board_content like '%'||#{keyword}||'%' 
+			    </if>
+			    <if test="type == 'user_id'">
+			        and user_id like '%'||#{keyword}||'%' 
+			    </if>
+		</where>
+	</if>
 </sql>
-
-	 
+<sql id="test1">
+	<where>
+  			       <if test="type != null and type == 'board_title' and keyword != null ">
+				         and board_title like '%'||#{keyword}||'%' 
+				    </if>
+				    <if test="type != null and  type == 'board_content' and keyword != null">
+				        and board_content like '%'||#{keyword}||'%' 
+				    </if>
+				    <if test="type != null and  type == 'user_id' and keyword != null">
+				        and user_id like '%'||#{keyword}||'%' 
+				    </if>
+   </where>
+</sql>	 
+<sql id="test2">
+	<where>
+  			       <if test="cri.type != null and cri.type == 'board_title' and cri.keyword != null ">
+				         and board_title like '%'||#{cri.keyword}||'%' 
+				    </if>
+				    <if test="cri.type != null and  cri.type == 'board_content' and cri.keyword != null">
+				        and board_content like '%'||#{cri.keyword}||'%' 
+				    </if>
+				    <if test="cri.type != null and  cri.type == 'user_id' and cri.keyword != null">
+				        and user_id like '%'||#{cri.keyword}||'%' 
+				    </if>
+   </where>
+</sql>	 
  <!-- 게시물 총 갯수 -->
 	
-<select id="countAll" resultType="Integer">
+<select id="countAll" resultType="Integer" parameterType="com.itwill.util.Criteria">
 	select count(*)
 	from request_board
-	 <if test="keyword != null and !keyword.equals('')">
-        
-           where board_no > 0 <include refid="criteria"></include>
-        
-     </if>
+	<include refid="test1"/>
     
 	
 </select>
 
+
 <!--  // 페이지에 있는 게시물 시작번호 / 끝번호-->
 
-<select id="list" resultType="com.itwill.domain.RequestBoard"> 
+<select id="list" resultType="com.itwill.domain.RequestBoard"  parameterType="map"> 
 
 SELECT * FROM
 <![CDATA[
 		( SELECT rownum idx, s.*  FROM
 				( SELECT board_no, board_title, user_id,board_date,board_content,board_readcount,board_groupno,board_step, board_status,board_depth FROM request_board
-					ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
-				) s
-		  )
+]]>					
+					
+					<include refid="test2"/>
+<![CDATA[						         
+								 ORDER BY board_type_no asc,board_groupno DESC,board_step ASC
+			) s
+	  )
+	   where idx >= #{pageBegin} and idx <=  #{pageEnd}
 ]]>
-				
-<![CDATA[
- where rownum< #{pageNum} * #{amount} and rownum > (#{pageNum}-1) * #{amount} 
-]]>
-<if test="keyword != null and !keyword.equals('')">
-                 	<if test="type=='board_title'">
-                 		and board_title like '%'||#{keyword}||'%' 
-                 	</if>
-                 	<if test="type=='board_content'">
-                 		and board_content like '%'||#{keyword}||'%' 
-                 	</if>
-					<if test="type=='user_id'">
-                 		and user_id like '%'||#{keyword}||'%' 
-                 	</if>
-
-                </if>
+			
+	
+   			
+   	
 </select>
 <!--  // 페이지에 있는 게시물 시작번호 / 끝번호
 

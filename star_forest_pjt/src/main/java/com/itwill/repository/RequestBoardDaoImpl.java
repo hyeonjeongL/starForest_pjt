@@ -1,22 +1,14 @@
 package com.itwill.repository;
 
-import java.io.InputStream;
-
-
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
-import com.itwill.domain.BookCategory;
 import com.itwill.domain.RequestBoard;
 import com.itwill.mapper.RequestBoardMapper;
 import com.itwill.util.Criteria;
-import com.itwill.util.PageMaker;
 
 public class RequestBoardDaoImpl implements RequestBoardDao{
 	@Autowired
@@ -78,15 +70,7 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 		return requestBoardMapper.addReadCount(board_no);
 	}
 	
-	@Override
-	public List<RequestBoard> selectAll() throws Exception {
-		return requestBoardMapper.selectAll();
-	}
 	
-	@Override
-	public List<BookCategory> selectCategoryAll() throws Exception {
-		return requestBoardMapper.selectCategoryAll();
-	}
 
 	@Override
 	public int countAll(Criteria cri) throws Exception {
@@ -99,8 +83,15 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 	}
 
 	@Override
-	public List<RequestBoard> list(Criteria cri) throws Exception {
-		return requestBoardMapper.list(cri);
+	public List<RequestBoard> list(int pageBegin,int pageEnd,Criteria cri) throws Exception {
+		
+		System.out.println("3.Dao-->"+cri);
+		Map map=new HashMap();
+		map.put("pageBegin",pageBegin);
+		map.put("pageEnd",pageEnd);
+		map.put("cri",cri);
+		System.out.println(">>>>>"+map);
+		return requestBoardMapper.list(map);
 	}
 
 }

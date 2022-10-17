@@ -479,7 +479,7 @@ width:150px;"
       
          //홈헤딩 명언
          const home_display = document.getElementById('home-display');
-         const quotes = ['무슨 책 읽을래?', '글짓기가 창조인 것처럼 글 읽기 또한 창조이다.', '진정한 책을 만났을 때 그것은 사랑에 빠지는 것과도 같다.', '다다익선 다독익선.','책은 한 권, 한 권이 하나의 세계이다.','네가 읽는 책들이 너를 말해준다.', '한 시간 독서로 누그러지지 않은 걱정은 결코 없다.'];
+         const quotes = ['무슨 책 읽을래?', '한 시간 정도 독서하면 어떤 고통도 진정된다.', '책과 친구는 수가 적고 좋아야 한다. ', '약으로 병을 고치듯이 독서로 마음을 다스린다. ','친구를 고르는 것처럼 저자를 고르라.','네가 읽는 책들이 너를 말해준다.', '단 한 권의 책 밖에 읽은 적이 없는 사람을 경계하라.'];
          const getQuote = Math.floor(Math.random() * quotes.length);
          
          home_display.textContent = quotes[getQuote];
@@ -499,11 +499,6 @@ width:150px;"
          heroImageEng.textContent = locEng[getImage];
          heroDescKor.textContent = locKor[getImage];
 
-         //푸터 명언
-         const footer_display = document.getElementById('footer-display');
-         const footer_quotes = ['좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴', '내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스', '목적이 없는 독서는 산보일 뿐이다. — B. 리튼', '사람은 책을 만들고, 책은 사람을 만든다. — 신용호','기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이 제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨','책은 한 권 한 권이 하나의 세계다. — W. 워즈워스', '책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절'];
-         const footer_getQuote = Math.floor(Math.random() * footer_quotes.length);
-         footer_display.textContent =footer_quotes[footer_getQuote];
       }   
       //오늘 날짜, 휴관일
       let today=new Date();

@@ -5,7 +5,7 @@ UserBookHtmlContents.user_rental_item_content = function(book,i) {
 					
 	<tr>
 				<th scope="row">${i+1}</th>
-				<th scope="row">${book.book_title}</th>
+				<th scope="row"><a href="book_detail?book_no=${book.book_no}">${book.book_title}</a></th>
 				<th scope="row">${book.rental.rental_date.substring(0, 10)}</th>
 				<th scope="row">${book.rental.return_duedate.substring(0, 10)}</th>
 				<th scope="row">${(book.rental.return_date!=null)?book.rental.return_date.substring(0, 10):'미반납'}</th>
@@ -75,7 +75,7 @@ UserBookHtmlContents.user_now_rental_item_content = function(book,i) {
 	
 	<tr>
 				<th scope="row">${i+1}</th>
-				<th scope="row">${book.book_title}</th>
+				<th scope="row"><a href="book_detail?book_no=${book.book_no}">${book.book_title}</a></th>
 				<th scope="row">${book.book_author}</th>
 				<th scope="row" style="width:130px">${book.rental.rental_date.substring(0, 10)}</th>
 				<th scope="row" style="width:130px">${book.rental.return_duedate.substring(0, 10)}</th>
@@ -114,7 +114,7 @@ function user_list_item_content(resList,i){
 			<tr>
 				<th scope="row">${i+1}</th>
 				<th scope="row">${resList.ISBN}</th>
-				<th scope="row">${resList.BOOK_TITLE}</th>
+				<th scope="row"><a href="book_detail?book_no=${resList.BOOK_NO}">${resList.BOOK_TITLE}</a></th>
 				<th scope="row">${resList.BOOK_AUTHOR}</th>
 				<th scope="row">${resList.RES_DATE.substring(0, 10)}</th>
 			</tr>

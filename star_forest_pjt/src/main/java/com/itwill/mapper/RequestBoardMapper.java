@@ -95,6 +95,11 @@ public interface RequestBoardMapper {
 			+ "	where board_no=#{board_no}")
 	public RequestBoard selectOne(int board_no);
 	
+	@Select("select *\r\n"
+			+ "	from request_board\r\n"
+			+ "	where board_groupno=#{board_groupno}")
+	public RequestBoard selectBygroupNo(int board_groupno);
+	
 	//페이지에 있는 게시물 시작번호 / 끝번호
 	
 	public List<RequestBoard> list(Map map);

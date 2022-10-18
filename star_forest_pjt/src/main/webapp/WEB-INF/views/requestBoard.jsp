@@ -209,10 +209,13 @@
 				success:function(jsonResult){
 					console.log(jsonResult);
 					if(jsonResult.code==1){
-						$('#btn_request_list').trigger('click');
-					}else if(code==2){
 						alert(jsonResult.msg);
-					}else if(code==0){
+						$('#btn_request_list').trigger('click');
+					}else if(jsonResult.code==2){
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==0){
+						alert(jsonResult.msg);
+					}else if(jsonResult.code==3){
 						alert(jsonResult.msg);
 					}
 				}

@@ -312,7 +312,7 @@ function request_view(requestBoard){
 							<div class="btn_mrl">
 							
 										<input type="button" value="수정" id="btn_request_modify_form" board_no="${requestBoard.board_no}"> &nbsp; 
-										<input type="button" value="삭제" id="btn_request_remove_action" board_groupno="${requestBoard.board_groupno}"> &nbsp; 
+										<input type="button" value="삭제" id="btn_request_remove_action" board_groupno="${requestBoard.board_groupno}" board_no="${requestBoard.board_no}"> &nbsp; 
 										<input type="button" value="목록" id="btn_request_list">
 							</div>
 	

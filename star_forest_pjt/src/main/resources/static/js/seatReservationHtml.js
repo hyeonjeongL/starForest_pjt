@@ -1,14 +1,8 @@
 function my_seat(seat) {
 	return `
-	<table id="my_seat_table_wrap">
-	<thead>
-	<tr>
-	<td>
-	내가 예약한 좌석 정보
-	</td>
-	</thead>
+	<div id="my_seat_table_wrap">
+	<img src="img/myseat.png" width="560px;">
 	<tbody>
-	<td>
 	<div id="my_room">
 						<div class="my-deck">
 		          		 <p class="card-text">${seat.seat_no}</p>
@@ -19,10 +13,7 @@ function my_seat(seat) {
 		                 </div>
 		                 
 	</div>
-	</td>
-	</tbody>
-	</tr>
-	</table>
+</div>
 		`;
 }
 

@@ -3,7 +3,7 @@
 <mapper namespace="com.itwill.mapper.FavoriteMapper">
 	
 	<select id="selectById"  resultMap="favoriteResultMap">
-		select f.favorite_no,b.book_title,b.book_author,b.book_publisher 
+		select f.favorite_no,b.book_no,b.book_title,b.book_author,b.book_publisher 
 		from favorite f 
 		join book b on f.book_no=b.book_no 
 		where user_id=#{user_id}
@@ -14,6 +14,7 @@
 		<collection property="book" resultMap="bookMap"></collection>
 	</resultMap>
 	<resultMap type="book" id="bookMap">
+		<result column="book_no" property="book_no"/>
 		<result column="book_title" property="book_title"/>
 		<result column="book_author" property="book_author"/>
 		<result column="book_publisher" property="book_publisher"/>

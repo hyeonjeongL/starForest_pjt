@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -56,11 +57,35 @@
 			dataType : "json",
 			success : function(jsonResult) {
 				if (jsonResult.code == 0) {
-					alert("아이디가 존재하지않습니다.");
+					Swal.fire({
+						  title: '아이디가 존재하지 않습니다.',
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+						  }
+				}) 
+				}else if (jsonResult.code == 1) {
 					console.log(jsonResult);
-				} else if (jsonResult.code == 1) {
-					console.log(jsonResult);
-					alert("비밀번호가 일치하지 않습니다.");
+					Swal.fire({
+						  title: '비밀번호가 일치하지 않습니다.',
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+						    
+						  }
+						})
 				} else if (jsonResult.code == 2) {
 					
 					location.href="Home";
@@ -123,8 +148,7 @@
 						$idText.text("회원님의 아이디 : "+data)
 						$idText.css({
 							"color" : "#0D6EFD",
-							"font-weight" : "bold",
-							"font-size" : "10px"
+							"font-size" : "16px"
 						})
 						$findOk.show();	
 					}
@@ -150,8 +174,7 @@
 						$idText.text("회원님의 비밀번호 : "+data)
 						$idText.css({
 							"color" : "#0D6EFD",
-							"font-weight" : "bold",
-							"font-size" : "10px"
+							"font-size" : "16px"
 						})
 						$findOk.show();	
 					}

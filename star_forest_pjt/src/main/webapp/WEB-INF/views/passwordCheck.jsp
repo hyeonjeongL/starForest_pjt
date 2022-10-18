@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>나의도서 - 별빛도서관</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <link rel="stylesheet"

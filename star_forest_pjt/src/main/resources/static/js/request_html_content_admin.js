@@ -30,8 +30,8 @@ function request_item_content(requestBoard){
 		<td width=5% align=center class=t3><font size=2 color=#000000>${requestBoard.board_readcount}</font></td>
 		</tr>`;
 }
-
-function request_list_content(requestArray,pageArray) {
+/*<input type="button" id="btn_write_notice" value="공지사항쓰기" onClick="location.href='requestBoard_write_form_admin'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/
+	function request_list_content(requestArray,pageArray) {
 	return `<table>
 	
 		<thead>
@@ -58,20 +58,54 @@ function request_list_content(requestArray,pageArray) {
 		<input type="button" id="btn_write_notice" value="공지사항쓰기" onClick="location.href='requestBoard_write_form_admin'">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 		
-		
-		<div class="search_wrap">
-	        <div class="search_area">
-	            <input type="text" name="keyword" value="${pageArray.cri.keyword}" style="margin-left:60px;">
-	            <button>Search</button>
-	        </div>
-  	  	</div>    
-  	  	
+		<form id="page_form">
+				<div class="search_wrap">
+					<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum?pageArray.cri.pageNum:1}">
+	        		<input type="hidden" name="amount" value="${pageArray.cri.amount?pageArray.cri.amount:10}">   
+			        <div class="search_area">
+			        	<select name="type" id="type_box" >
+			        		${
+								function(){
+									if(pageArray.cri.type ==='board_title'){
+											return`
+												<option value="board_title" selected="selected">제목</option>
+		                						<option value="board_content">내용</option>
+		                						<option value="user_id" >작성자</option>
+		                						`
+									}
+									if(pageArray.cri.type ==='board_content'){
+											return`
+												<option value="board_title" >제목</option>
+		                						<option value="board_content" selected="selected">내용</option>
+		                						<option value="user_id" >작성자</option>
+		                						`
+									}
+									if(pageArray.cri.type ==='user_id'){
+											return`
+												<option value="board_title" >제목</option>
+		                						<option value="board_content">내용</option>
+		                						<option value="user_id" selected="selected">작성자</option>
+		                						`
+									}
+									return`
+											<option value="board_title" selected="selected">제목</option>
+	                						<option value="board_content">내용</option>
+	                						<option value="user_id" >작성자</option>
+	                						`
+							
+								}()
+				
+							}
+		                	
+		           		 </select>    
+			            <input type="text" id="keyword_box" name="keyword" value="${(pageArray.cri.keyword==null)?'':pageArray.cri.keyword}" style="margin-left:60px;">
+			            <input type="button" id="search_btn" value="검색" >
+			        </div>
+	  	  		</div>    
+  	  	  </form>
   	  	
 		<div class="page_area">
-		<form id="page_form" method="get">
-		<input type="hidden" name="pageNum" value="${pageArray.cri.pageNum }">
-        <input type="hidden" name="amount" value="${pageArray.cri.amount }">    
-        <input type="hidden" name="keyword" value="${pageArray.cri.keyword }">	
+	
 					<ul id="page">
 				 		
 				 		
@@ -81,7 +115,7 @@ function request_list_content(requestArray,pageArray) {
 								var prev = pageArray.prev;
 								var html='';
 								if(prev){
-									html=`<li class="pageInfo_btn previous"><a href="requestBoard?pageNum=${pageArray.startPage-1}">Previous</a></li>`
+									html=`<li class="page_btn_prev"><a href="requestBoard?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
 								}
 								return html;
 							}()
@@ -90,7 +124,7 @@ function request_list_content(requestArray,pageArray) {
 							function(){
 								var html='';	
 							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
-							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="requestBoard?pageNum=${i}">${i}</a></li>`;
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="requestBoard?pageNum=${i}" pageNum=${i}>${i}</a></li>`;
 								}							
 								return html;
 							}()
@@ -101,7 +135,7 @@ function request_list_content(requestArray,pageArray) {
 								var next = pageArray.next;
 								var html='';
 								if(next){
-									html=`<li class="pageInfo_btn next"><a href="requestBoard?pageNum=${pageArray.endPage + 1 }">Next</a></li>`
+									html=`<li class="page_btn_next"><a href="requestBoard?pageNum=${pageArray.endPage + 1 }" pageNum=${pageArray.endPage+1}>Next</a></li>`
 								}
 								return html;
 							}()
@@ -109,7 +143,7 @@ function request_list_content(requestArray,pageArray) {
 	                    
 	                    
                		</ul>
-               		</form>
+               		
 		</div>
 			
 			
@@ -188,39 +222,41 @@ function request_write_form_content() {
 */
 function request_view_admin(requestBoard){
 	return `
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	<form name="f" method="post">
+								<input type="hidden" name="board_no" value="${requestBoard.board_no}">
 								<input type="hidden" name="board_groupno" value="${requestBoard.board_groupno}">
-								<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
+								<table border="0" cellpadding="0" cellspacing="1" width="400" bgcolor="BBBBBB">
 									<tbody><tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">번호</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_no}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">번호</td>
+										<td class="t5">${requestBoard.board_no}</td>
 									</tr>
 									<tr>
-										<td width="200" align="center" bgcolor="E6ECDE" height="22">작성자</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.user_id}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">작성자</td>
+										<td class="t5">${requestBoard.user_id}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">날짜</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_date.substring(0,10)}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">날짜</td>
+										<td class="t5">${requestBoard.board_date.substring(0,10)}</td>
 									</tr><tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">조회수</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_readcount}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">조회수</td>
+										<td class="t5">${requestBoard.board_readcount}</td>
 									</tr>
 									<tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_status}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">진행상태</td>
+										<td class="t5">${requestBoard.board_status}</td>
 									</tr>
 									<tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">카테고리</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.category_name}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">카테고리</td>
+										<td class="t5">${requestBoard.category_name}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="110">제목</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px">${requestBoard.board_title}</td>
+										<td bgcolor="#ffc91d" height="22" class="t4">제목</td>
+										<td class="t5">${requestBoard.board_title}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="110">내용</td>
-										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px" id="td_content"><pre style="font-size:12pt;">${requestBoard.board_content}</pre></td>
+										<td bgcolor="#ffc91d" height="22" class="t4">내용</td>
+										<td id="td_content" class="t5"><pre style="font-size:12pt;">${requestBoard.board_content}</pre></td>
 									</tr>
 								</tbody></table>
 							</form>
@@ -239,7 +275,7 @@ function request_reply_form(requestBoard){
 	<table width="800">
 			<tbody>
 					<tr>
-					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>admin -
 											답글 쓰기</b></td>
 				    </tr>
 			</tbody>
@@ -256,13 +292,13 @@ function request_reply_form(requestBoard){
 								bgcolor="BBBBBB">
 								<tbody>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">작성자</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px" name="user_id">admin</td>
 									</tr>
 								
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">진행상태</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="board_status">
@@ -273,17 +309,17 @@ function request_reply_form(requestBoard){
 										</td>
 									</tr>
 									<tr>
-										<td width="150" align="center" bgcolor="E6ECDE" height="22">카테고리</td>
+										<td width="150" align="center" bgcolor="#ffc91d" height="22">카테고리</td>
 										<td width="490" bgcolor="ffffff" align="left" style="padding-left: 10px" name="category_name">${requestBoard.category_name}</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 350px" name="board_title" value="&nbsp;${requestBoard.board_title}"></td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<textarea wrap="soft"
@@ -306,8 +342,8 @@ function request_modify_form_admin(requestBoard){
 	<table width="800">
 			<tbody>
 					<tr>
-					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
-											방명록 수정</b></td>
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>admin -
+											게시글 수정</b></td>
 				    </tr>
 			</tbody>
 			</table> 
@@ -318,13 +354,13 @@ function request_modify_form_admin(requestBoard){
 								bgcolor="BBBBBB">
 								<tbody>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">작성자</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">${requestBoard.user_id}</td>
 									</tr>
 								
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">진행상태</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="board_status">
@@ -338,14 +374,14 @@ function request_modify_form_admin(requestBoard){
 										</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 350px" name="board_title" value="${requestBoard.board_title}"></td>
 									</tr>
 									
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">신청도서 카테고리</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">신청도서 카테고리</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="category_name">
@@ -361,7 +397,7 @@ function request_modify_form_admin(requestBoard){
 											</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 				

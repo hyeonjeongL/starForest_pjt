@@ -14,12 +14,6 @@ UserBookHtmlContents.user_rental_item_content = function(book,i) {
 				;
 }
 
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-function numberWithCommas(x) {
-    return x.toLoaclString();
-}
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 	return `
 						<h3>대출현황</h3>
@@ -45,7 +39,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 					<br>
 					<table>
 					<img src="img/book_flip.gif" width="500px;" style="margin-left:70px;"><br>
-					<div class="count_wrap" style="margin-left:120px; font-size:20pt; font-weight:900;"> 
+					<div class="count_wrap" style="margin-left:85px; font-size:20pt; font-weight:900;"> 
 					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;">
 					${
 						function(){
@@ -60,7 +54,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 							}()
 							
 					}
-					쪽</span>&nbsp;입니다
+					</span>&nbsp;&nbsp;쪽&nbsp;입니다.
 					<br>
 					<br>
 					<br>
@@ -136,7 +130,6 @@ UserBookHtmlContents.user_reservation_list_html=function(resList){
 								<th scope="row">제목</th>
 								<th scope="row" >저자</th>
 								<th scope="row"style="width:150px">예약일시</th>
-								<th scope="row" >대출가능여부</th>
 							</tr>
 						</thead>
 						<tbody>

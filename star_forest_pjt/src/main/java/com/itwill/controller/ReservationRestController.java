@@ -31,7 +31,7 @@ public class ReservationRestController {
 	private BookService bookService;
 	
 	//예약신청
-	@RequestMapping("/reservation")
+	@PostMapping("/reservation")
 	public Map reservation(int book_no, HttpSession session) throws Exception{
 		Map resultMap = new HashMap();
 		

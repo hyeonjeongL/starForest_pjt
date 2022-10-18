@@ -252,11 +252,15 @@ seat_reservation css
 	float:left;
 }
 .my-deck{
-	border: 1px solid; 
-	background-color: #519642; 
+	border: none; 
+	border-radius: 20px;
+	background-color: #e4ffc5; 
 	width:150px; 
+	height:150px;
 	float: left; 
-	margin:auto;
+	margin-left:20px; 
+	margin-right: 5px;
+	margin-top: 20px;
 	text-align: center;
 	align-content: center;
 }
@@ -313,16 +317,208 @@ request_board css
   }
   /* 희망도서 신청하기버튼 */
   #btn_write{
+  	  position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
   	margin-left: 850px;
   	margin-top: 20px;
   }
   /* 공지사항쓰기버튼 */
   #btn_write_notice{
-  
+  	  position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
   	margin-left: 850px;
   	margin-top: 20px;
   }
   
+  #btn_request_write_notice_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_list{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #search_btn{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_reply_form{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_modify_admin_form{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  }
+  #btn_request_remove_admin_action{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+    }
+   #btn_request_reply_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_modify_admin_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_modify_action{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_modify_form{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_remove_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+   #btn_request_write_action{
+    position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+   }
+  .btn_seat_continue{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+  } 
+  .btn_seat_return{
+   position: relative;
+    border: none;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 10px;
+	font-family: 'GmarketSansMedium';
+     background-color: #eef2dd;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.25s; 	
+    }
+    .btn_seat_reservation{ 
+    border-radius: 5px;
+     border: none;
+     width:50px;
+    }
   #notice_title{
   	color:red;
   }

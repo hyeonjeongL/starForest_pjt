@@ -38,7 +38,31 @@
 <script type="text/javascript" src="./js/FavoriteHtmlContents.js"></script>
 <script type="text/javascript" src="./js/request_html_content.js"></script>
 <script type="text/javascript">
+/*************animate number*************/
+function animateNumber(count){
+	$({ val : 0 }).animate({ val : count }, {
+	  duration: 2500,
+	  step: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".count").text(num);
+	  },
+	  complete: function() {
+	    var num = numberWithCommas(Math.floor(this.val));
+	    $(".count").text(num);
+	  }
+	});
+	
+
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+/**********************************/
 $(function(){
+		
+				
 	
 		/************club_list************/
 		$(document).on('click','#side_user_club,#user_club_list',function(e){
@@ -102,6 +126,8 @@ $(function(){
 						var rentalArray=jsonResult.data;
 						console.log(rentalArray);
 						$('#myPageList').html(UserBookHtmlContents.user_rental_list_content(rentalArray));
+						console.log($('.count').text().trim());
+						animateNumber($('.count').text().replace('쪽','').trim());
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 						location.href='user';

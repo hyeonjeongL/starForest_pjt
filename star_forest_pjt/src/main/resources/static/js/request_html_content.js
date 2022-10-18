@@ -326,8 +326,8 @@ function request_modify_form(requestBoard){
 	<table width="800">
 			<tbody>
 					<tr>
-					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
-											방명록 수정</b></td>
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>도서신청게시판 -
+											게시글 수정</b></td>
 				    </tr>
 			</tbody>
 			</table> 
@@ -338,13 +338,13 @@ function request_modify_form(requestBoard){
 								bgcolor="BBBBBB">
 								<tbody>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">작성자</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">${requestBoard.user_id}</td>
 									</tr>
 								
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">진행상태</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="board_status">
@@ -353,14 +353,14 @@ function request_modify_form(requestBoard){
 										</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 350px" name="board_title" value="${requestBoard.board_title}"></td>
 									</tr>
 									
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">신청도서 카테고리</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">신청도서 카테고리</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="category_name">
@@ -376,7 +376,7 @@ function request_modify_form(requestBoard){
 											</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 				

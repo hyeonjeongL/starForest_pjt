@@ -126,8 +126,8 @@
 			<table width="800">
 			<tbody>
 					<tr>
-					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>방명록 관리 -
-											방명록 쓰기</b></td>
+					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>도서신청게시판 -
+											게시글 쓰기</b></td>
 				    </tr>
 			</tbody>
 			</table> 
@@ -137,7 +137,7 @@
 								bgcolor="BBBBBB">
 								<tbody>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">작성자</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">작성자</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">${sUserId}</td>
 									</tr>
@@ -148,7 +148,7 @@
 											style="width: 150" name="guest_email"></td>
 									</tr> -->
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">진행상태</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">진행상태</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="board_status">
@@ -157,14 +157,14 @@
 										</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">제목</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 350px" name="board_title"></td>
 									</tr>
 									
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">신청도서 카테고리</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">신청도서 카테고리</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 											<select name="category_name">
@@ -180,7 +180,7 @@
 											</td>
 									</tr>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
 				

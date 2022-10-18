@@ -29,18 +29,34 @@
 <title>도서정보 - 별숲도서관</title>
 <script type="text/javascript">
 	/********all list***********/
+$(function(){
+	
+	
+	var param = 'category_no=900&pageNum=1&amount=10';
 	$.ajax({
-		url : 'book_list',
+		url : 'search_list_json',
 		method : 'GET',
+		data:param,
 		success : function(jsonResult) {
 			var bookCateArray = jsonResult.data;
 			$('#searchAllList').html(Search.cate_join_html(bookCateArray));
 		}
+		
 	});
-	$(document).on('click', '#side_book,#btn_all', function(e) {
+	
+});	
+	
+	
+	$(document).on('click', '#side_book , .btn_category_search', function(e) {
+		const category_no=$(e.target).attr('value');
+		console.log(">>>>>>>>>>>>>>>"+category_no);
+		if(category_no==null||category_no=='')category_no=900;
+		
+		var param = "category_no="+category_no+"&pageNum=1&amount=10";
 		$.ajax({
-			url : 'book_list',
+			url : 'search_list_json',
 			method : 'GET',
+			data:param,
 			success : function(jsonResult) {
 				var bookCateArray = jsonResult.data;
 				$('#searchAllList').html(Search.cate_join_html(bookCateArray));
@@ -49,7 +65,7 @@
 		e.preventDefault();
 	});
 
-	/********category_list********/
+	/********category_list*******
 	$(document).on('click', '#btn1', function(e) {
 		var param = 'category_no=' + $(e.target).attr('value');
 
@@ -66,10 +82,10 @@
 		});
 		e.preventDefault();
 	});
-	
+	*/
 	/********페이징********/
 	
-	/************************************************
+	/***********************************************
 	function book_list_json(param){
 	console.log(param)	   
 	$.ajax({
@@ -101,7 +117,7 @@
 	});
 
 	
-	/*$(document).on('click', '#btn1', function(e) {
+	$(document).on('click', '#btn1', function(e) {
 		var param = 'category_no=' + $(e.target).attr('value');
 
 		$.ajax({
@@ -145,6 +161,7 @@
 
 </head>
 <body class="d-flex flex-column">
+	
 	<div id="page-content">
 		<!-- navigation start-->
 		<div id="navigation">
@@ -192,14 +209,14 @@
 					<div class="col-md-9">
 						<div class="row col-md-12">
 							<div class="category" id="btn_category">
-								 <button type="button" id="btn_all" value="all" style="width:50px" >전체</button>
-					             <button type="button" id="btn1" value="100" style="width:130px">건강/취미/레저</button>
-					             <button type="button" id="btn1" value="200" style="width:80px">경제경영</button>
-					             <button type="button" id="btn1" value="300" style="width:50px">고전</button>
-					             <button type="button" id="btn1" value="400" style="width:50px">과학</button> 
-					             <button type="button" id="btn1" value="500" style="width:50px">만화</button>
-					             <button type="button" id="btn1" value="600" style="width:85px">사회과학</button>
-				             	<button type="button" id="btn1" value="700" style="width:120px">소설/시/희곡</button>
+								 <button type="button" id="btn1"  class="btn_category_search" value="900" style="width:50px" >전체</button>
+					             <button type="button" id="btn1"  class="btn_category_search" value="100" style="width:130px">건강/취미/레저</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="200" style="width:80px">경제경영</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="300" style="width:50px">고전</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="400" style="width:50px">과학</button> 
+					             <button type="button" id="btn1" class="btn_category_search" value="500" style="width:50px">만화</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="600" style="width:85px">사회과학</button>
+				             	<button type="button" id="btn1" class="btn_category_search" value="700" style="width:120px">소설/시/희곡</button>
 				             	<br>
 				        	</div>
 						</div>
@@ -208,7 +225,15 @@
 						
 						<!-------------------------------- -->
 					   </div>
-					
+					   
+					   
+					<!-------------페이징------------------- -->
+					<div class="page_area">
+	
+					<ul id="page">
+					</ul>
+               		
+		</div>
 				</div>
 			</div>
 		</section>

@@ -10,20 +10,19 @@ import com.itwill.util.Criteria;
 public interface SearchService {
 	
 	//게시물 검색 총 갯수
-	int allCount(Criteria cri)throws Exception;
+	
 	
 	//페이지에 있는 게시물 시작번호 / 끝번호
-	SearchListPageMaker listAll(Criteria cri)throws Exception;
-	
+	public SearchListPageMaker listAll(Criteria cri,int category_no) throws Exception;
 
-//검색기능 
-List<Search> searchList(Search search) throws Exception;
+	//검색기능 
+	List<Search> searchList(Search search) throws Exception;
+		
+	//분야 리스트 뽑기
+	List<Search> cateList(int category_no)throws Exception;
 	
-//분야 리스트 뽑기
-List<Search> cateList(int category_no)throws Exception;
-
-	//전체 리스트 뽑기
-List<Search> allList()throws Exception;
+		//전체 리스트 뽑기
+	List<Search> allList()throws Exception;
 	/*
 	// 제목 검색
 		List<Search> titleList(String keyword) throws Exception;

@@ -28,7 +28,7 @@ public class SearchRestController {
 	
 	//페이징
 	@RequestMapping(value="/search_list_json", produces = "application/json;charset=UTF-8")
-	public Map search_list_json(Criteria cri,Model model) {
+	public Map search_list_json(Criteria cri,@RequestParam int category_no,Model model) {
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
@@ -37,7 +37,7 @@ public class SearchRestController {
         SearchListPageMaker listPageMaker=null;
         List<PageMaker> pageMakerList =null;
         try {
-        	listPageMaker=searchService.listAll(cri);
+        	listPageMaker=searchService.listAll(cri,category_no);
         	pageMakerList = new ArrayList<>();
 			pageMakerList.add(listPageMaker.pageMaker);
 			code=1;
@@ -55,12 +55,14 @@ public class SearchRestController {
 		resultMap.put("msg", msg);
 		resultMap.put("data",listPageMaker.bookList);
 		resultMap.put("pageMaker", pageMakerList);
+		resultMap.put("category_no", category_no);
+		
 		System.out.println(listPageMaker.bookList);
 		
 		return resultMap;
 		
 	}
-	
+	/*
 	//카테고리
 	@PostMapping("/search_category")
 	public Map search_category(@RequestParam int category_no) throws Exception {
@@ -82,8 +84,9 @@ public class SearchRestController {
 		return resultMap;
 
 	}
-	
+	*/
 	//도서 리스트
+	/*
 	@GetMapping("/book_list")
 	public Map book_list() throws Exception {
 		Map resultMap = new HashMap();
@@ -104,7 +107,7 @@ public class SearchRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
-	
+	*/
 	
 	
 	/*

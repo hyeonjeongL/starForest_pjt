@@ -41,22 +41,18 @@ public class SearchServiceImpl  implements SearchService{
 		return searchDao.allList();
 	}
 
-	@Override
-	public int allCount(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return searchDao.allCount(cri);
-	}
 
 	@Override
-	public SearchListPageMaker listAll(Criteria cri) throws Exception {
+	public SearchListPageMaker listAll(Criteria cri,int category_no) throws Exception {
 		
 		SearchListPageMaker bookListPageMaker=new SearchListPageMaker();
-		int totCount=searchDao.allCount(cri);
-		System.out.println("totCount==>"+totCount);
+		int totCount=searchDao.categoryCount(category_no);
+		System.out.println("1. Service totCount==>"+totCount);
 		PageMaker pageMaker=new PageMaker(cri, totCount);
-		
-		List<Search> bookList=searchDao.listAll(pageMaker.getPageBegin(),pageMaker.getPageEnd(),cri);
-		
+		System.out.println("2. pageMaker ==>"+pageMaker);
+		List<Search> bookList=searchDao.listAll(pageMaker.getPageBegin(),pageMaker.getPageEnd(),cri,category_no);
+		System.out.println("3. category_no ==>"+category_no);
+		System.out.println("4. bookList ==>"+bookList);
 		bookListPageMaker.bookList=bookList;
 		bookListPageMaker.pageMaker=pageMaker;
 		bookListPageMaker.totRecordCount=totCount;

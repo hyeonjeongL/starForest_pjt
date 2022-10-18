@@ -218,11 +218,14 @@ book_no,book_title,book_author,book_image,book_image_src
 	
 	<!-- 게시물 총 갯수 -->
 	
-<select id="allCount" resultType="Integer" parameterType="com.itwill.util.Criteria">
+<select id="categoryCount" resultType="Integer" parameterType="int">
 	select count(*)
 	from book
-    
-	
+     <where>
+     	<if test="catrgory_no!=null">
+		       category_no =#{category_no}
+		</if>       
+  	</where>
 </select>
 
 
@@ -234,7 +237,13 @@ SELECT * FROM
 <![CDATA[
 		( SELECT rownum idx, s.*  FROM
 				( SELECT book_no,book_title,book_image,book_image_src FROM book
-								 ORDER BY book_no asc
+				  
+]]>					
+     		<if test="category_no != null">
+		       	 where category_no =#{category_no}
+			</if>       
+<![CDATA[	
+		order by book_no asc 					 
 			) s
 	  )
 	   where idx >= #{pageBegin} and idx <=  #{pageEnd}

@@ -17,7 +17,7 @@ import com.itwill.util.Criteria;
 public interface SearchMapper {
 	
 	//게시물 검색 총 갯수
-		public int allCount(Criteria cri);
+		public int categoryCount(int  category_no);
 		
 		//페이지에 있는 게시물 시작번호 / 끝번호
 		public List<Search> listAll(Map map);

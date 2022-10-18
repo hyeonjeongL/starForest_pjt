@@ -42,22 +42,30 @@ public class SearchDaoImpl implements SearchDao {
 	}
 
 
-	@Override
-	public int allCount(Criteria cri) throws Exception {
-		// TODO Auto-generated method stub
-		return searchMapper.allCount(cri);
-	}
+	
 
 
 	@Override
-	public List<Search> listAll(int pageBegin, int pageEnd, Criteria cri) throws Exception {
+	public List<Search> listAll(int pageBegin, int pageEnd, Criteria cri,int category_no) throws Exception {
 		System.out.println("3.Dao-->"+cri);
 		Map map=new HashMap();
 		map.put("pageBegin",pageBegin);
 		map.put("pageEnd",pageEnd);
 		map.put("cri",cri);
+		if(category_no==900) {
+			map.put("category_no",null);
+		}else {
+			map.put("category_no",category_no);
+		}
 		System.out.println(">>>>>"+map);
 		return searchMapper.listAll(map);
+	}
+
+
+	@Override
+	public int categoryCount(int category_no) throws Exception {
+		// TODO Auto-generated method stub
+		return searchMapper.categoryCount(category_no);
 	}
 
 	

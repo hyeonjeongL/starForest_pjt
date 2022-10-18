@@ -207,7 +207,7 @@ $(function(){
 			e.preventDefault();
 		});
 		
-		/*********회원의 총 대출 리스트***********/
+		/*********회원의 총 예약 리스트***********/
 		$(document).on('click','#side_reservation',function(e){
 			$.ajax({
 				url:'reservation_list',
@@ -236,6 +236,51 @@ $(function(){
 			});
 			e.preventDefault();
 		});
+		
+		//예약삭제
+		$(document).on('click','#btn_delete_res',function(e){
+			$.ajax({
+				url:'reservation_delete',
+				method:'POST',
+				data:'book_no='+$(e.target).attr('book_no'),
+				success:function(jsonResult){
+					if(jsonResult.code==1){
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'success',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                    	   location.reload();
+		                       }
+		                     })
+						
+					}else if(jsonResult.code==2){
+						Swal.fire({
+							  title: '다시 시도하십시오',
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
+					}
+				}
+				
+			})
+			
+			
+		})
+		
 		
 		/***********user_request_list***********/
 		$(document).on('click','#side_user_request_list',function(e){
@@ -469,7 +514,7 @@ $(function(){
 			e.preventDefault();
 		});
 		
-		/**********대출 기간 연장 7일*****한번만 버튼 화성화하게 막아야함*******/
+		/**********대출 기간 연장 7일************/
 		$(document).on('click','#btn_extend_rental',function(e){
 					$(this).prop("disabled", true);
 		$.ajax({

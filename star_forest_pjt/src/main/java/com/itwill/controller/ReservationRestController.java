@@ -69,6 +69,40 @@ public class ReservationRestController {
 		return resultMap;
 	}
 	
+	@PostMapping("/reservation_delete")
+	public Map reservation_delete(int book_no, HttpSession session) throws Exception{
+		Map resultMap = new HashMap();
+		
+		int code=2;
+		String url="";
+		String msg="";
+		List<Reservation> resultList = new ArrayList<Reservation>();
+		try {
+			String sUserId= (String)session.getAttribute("sUserId");
+			int resDelete = reservationService.deleteReservation(sUserId, book_no);
+			if(resDelete == 1) {
+					code=1;
+					url="";
+					msg="삭제완료";
+			}else if (resDelete !=1){
+				code=0;
+				url="";
+				msg="에러";
+			}
+		} catch (Exception e) {
+			code=2;
+			url="";
+			msg="오류";
+			e.printStackTrace();
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		
+		return resultMap;
+	}
+	
 	//회원이 예약한 예약 리스트 뽑기
 			@LoginCheck
 			@PostMapping("/reservation_list")

@@ -320,8 +320,7 @@ d
 											<div class="content-l">
 												<ol>
 													<li>
-														<div>예약자료 도착 알림 : 개인공지 / E-mail / 카카오알림톡(또는 SMS)</div>
-														<div>&lt;도서관 홈페이지 - 나의공간 - 이용자정보관리&gt;에서 <font color="red">연락처를 확인</font>하여 주시기 바랍니다.</div>
+														<div>예약자료 도착 알림 : 개인공지 </div>
 													</li><li>
 														<div>예약 정보 확인 및 취소 : &lt;나의공간 - 대출/예약 현황&gt; 메뉴</div>
 														<div>단, <font color="red">도착통보 후에는 직접 취소가 불가</font>하오니 1:1 문의 게시판 또는 전화로 취소 요청하시기 바랍니다.</div>

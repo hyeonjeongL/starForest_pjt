@@ -160,6 +160,34 @@ book_no,book_title,book_author,book_image,book_image_src
 			}
 		});
 		e.preventDefault();
+		
+		
+		<trim prefix="WHERE" prefixOverrides="AND|OR">
+
+			<if test="type=='book_title' and keyword != null and keyword != '' ">
+
+				AND b.book_title like '%'||#{keyword}||'%'
+
+			</if>
+
+			<if test="type=='book_author' and keyword != null and keyword != '' ">
+
+				AND b.book_author like '%'||#{keyword}||'%'
+			</if>
+
+			<if test="type=='book_publisher' and keyword != null and keyword != '' ">
+
+				AND b.book_publisher like '%'||#{keyword}||'%'
+
+			</if>	
+			<if test="type=='category_name' and keyword != null and keyword != '' ">
+
+				AND bc.category_name like '%'||#{keyword}||'%'
+
+			</if>	
+
+		</trim>
+		
     </select-->
     
     <!-- 검색기능 -->
@@ -188,7 +216,34 @@ book_no,book_title,book_author,book_image,book_image_src
 	</select>
 	
 	
+	<!-- 게시물 총 갯수 -->
 	
+<select id="allCount" resultType="Integer" parameterType="com.itwill.util.Criteria">
+	select count(*)
+	from book
+    
+	
+</select>
+
+
+<!--  // 페이지에 있는 게시물 시작번호 / 끝번호-->
+
+<select id="listAll" resultType="com.itwill.domain.Search"  parameterType="map"> 
+
+SELECT * FROM
+<![CDATA[
+		( SELECT rownum idx, s.*  FROM
+				( SELECT book_no,book_title,book_image,book_image_src FROM book
+								 ORDER BY book_no asc
+			) s
+	  )
+	   where idx >= #{pageBegin} and idx <=  #{pageEnd}
+]]>
+			
+	
+   			
+   	
+</select>
 
 	
 	

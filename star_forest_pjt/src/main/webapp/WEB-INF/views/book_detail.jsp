@@ -62,9 +62,8 @@
 d
 .container.container-fluid
 </style>
-<link rel="icon"
-	href="https://library.korea.ac.kr/wp-content/uploads/2020/02/cropped-favicon-3-32x32.png"
-	sizes="32x32" />
+   <link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 <link rel="icon"
 	href="https://library.korea.ac.kr/wp-content/uploads/2020/02/cropped-favicon-3-192x192.png"
 	sizes="192x192" />

@@ -204,8 +204,9 @@ public class RequestBoardRestController {
 				msg="글 쓴 본인만 수정할 수 있습니다";
 			}
 		}catch (Exception e) {
+			code=0;
 			e.printStackTrace();
-			msg="글쓰기수정폼에러";
+			msg="로그인 후 사용해주세요.";
 		}
 		
 		resultMap.put("msg", msg);

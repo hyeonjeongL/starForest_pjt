@@ -41,7 +41,7 @@
 	href="favicon/star.png">
 <title>열람실 - 별숲도서관</title>
 
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script type="text/javascript" src="js/seatReservationHtml.js"></script>
@@ -56,7 +56,21 @@
 				if (jsonResult.code == 1) {
 					console.log(jsonResult);
 				}else{ //세션 존재하지 않을경우 메세지창보여줌
-					alert('로그인이 필요한 페이지입니다:)');
+					//alert('로그인이 필요한 페이지입니다:)');
+					Swal.fire({
+						  title: '로그인이 필요한 페이지입니다:)',
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+							  location.href='user';
+						  }
+						})
 				}
 			}
 		});

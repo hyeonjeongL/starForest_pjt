@@ -174,7 +174,7 @@
 										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="board_title"></td>
+											style="width: 350px" name="board_title" value="[신청합니다]"></td>
 									</tr>
 									
 									<tr>

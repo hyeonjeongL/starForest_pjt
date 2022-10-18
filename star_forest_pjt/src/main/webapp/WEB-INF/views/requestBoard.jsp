@@ -92,8 +92,20 @@
 			success:function(jsonResult){
 				if(jsonResult.code==2){
 					
-				alert(jsonResult.msg);
-				location.href='user';
+				//alert(jsonResult.msg);
+				Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+								  location.href='user';
+							  }
+							})
 				}else if(jsonResult.code==1){
 				location.href='requestBoard_write_form';
 		}
@@ -158,6 +170,21 @@
 					if(jsonResult.code==1){
 					$('#requestBoard_wrap').html(request_modify_form(item));
 					}else if(jsonResult.code==2){
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
+					}else if(jsonResult.code==0){
 						Swal.fire({
 							  title: jsonResult.msg,
 							  text: '',

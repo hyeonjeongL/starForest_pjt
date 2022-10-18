@@ -5,6 +5,8 @@
 <%
 //String sUserId = (String)session.getAttribute("sUserId");
 %>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
 $(function(){
@@ -115,7 +117,7 @@ $(function(){
 	});
 	});
 	
-	
+	/*
 	$(document).on('click','#seatReservation_my',function(e){
 		$.ajax({
 		url:'login_check',
@@ -144,6 +146,7 @@ $(function(){
 		}
 	});
 	});
+	*/
 	
 });	
 </script>
@@ -213,7 +216,7 @@ $(function(){
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="seatReservation"
 							id="menu_seatReservation">열람실예약</a></li>
-						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
+						<li><a id="menu_my_seat" class="dropdown-item">예약확인</a></li>
 					</ul>
 				</li>
 				

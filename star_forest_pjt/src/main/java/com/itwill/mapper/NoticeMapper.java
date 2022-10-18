@@ -16,7 +16,7 @@ public interface NoticeMapper {
 	
 	public List<Notice> selectAll(int pageStart, int pageEnd) throws Exception;
 	
-	@Insert("insert into notice values(SEQ_notice_notice_no.nextval,#{notice_title},sysdate, #{notice_content},#{notice_image},#{setting})")
+	@Insert("insert into notice(notice_no,notice_date,notice_title,notice_content) values(SEQ_notice_notice_no.nextval,#{notice_title},sysdate, #{notice_content})")
 	public int create(Notice notice) throws Exception;
 	
 	@Update("update notice set notice_title=#{notice_title},notice_content=#{notice_content} "

@@ -146,4 +146,38 @@ public class NoticeRestController {
 		resultMap.put("data", resultList);
 		return resultMap;
 	}
+	
+	@PostMapping(value="/notice_write_action", produces = "application/json;charset=UTF-8")
+	public Map notice_write_action(@ModelAttribute Notice notice) {
+		Map resultMap = new HashMap();
+		System.out.println(notice);
+		int code = 1;
+		String msg="";
+		System.out.println("write111");
+		List<Notice> resultList = new ArrayList<Notice>();
+		System.out.println("write222");
+		int rowCount = 0;
+		try {
+			System.out.println("code111");
+			rowCount = noticeService.create(notice);
+			System.out.println("code222");
+			if(rowCount==1) {
+				System.out.println("code333");
+				code=1;
+				msg="등록이 완료되었습니다.";
+			}else {
+				code=2;
+				msg="error";
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="error";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", notice.getNotice_no());
+		return resultMap;
+	}
 }

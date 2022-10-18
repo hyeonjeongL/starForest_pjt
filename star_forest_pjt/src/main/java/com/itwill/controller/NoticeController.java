@@ -97,5 +97,10 @@ public class NoticeController {
 		}
 		return "notice_modify_form";
 	}
+	
+	@RequestMapping("/write")
+	public String write() throws Exception{
+		return "notice_write_form";
+	}
 
 }

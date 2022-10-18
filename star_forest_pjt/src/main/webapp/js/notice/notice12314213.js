@@ -160,33 +160,22 @@ $(document).on('click','#btn_request_modify_action',function(e){
 /*
 새글 등록 폼 
 */
-/*
-$("#fff").on("click", function(){
+$(".notice_btn.write_form").on("click", function(){
 	let pageno = $(this).attr("pageno");
 	location.href = "notice_write_form?pageno=" + pageno;
 });
-*/
+
 
 /*
 게시글 등록
 */
-$("#fff").on("click", function(){
-	var param = $('#notice_write_form').serialize();
-	console.log(param);
-	$.ajax({
-		url:'notice_write_action',
-		method:'POST',
-		data:$('#notice_write_form').serialize(),
-		success:function(jsonResult){
-			console.log(jsonResult);
-			//e.preventDefault();
-			
-			if(jsonResult.code==1){
-				$('#ddd').trigger('click');
-				alert(jsonResult.msg);
-			}
-		}
-	})
+$(".notice_btn.new_write").on("click", function(){
+	if($("#q_title_txt").val() == "" || CKEDITOR.instances.notice_content_area.getData() == ""){
+		Toast.fire({ icon: 'warning', title: "필수 입력값을 입력하지 않았습니다.\n 제목과 내용을 모두 입력해주세요" });
+		return;
+	}
+	$("#notice_write_form").attr("action", "notice_new_write");
+	$("#notice_write_form").submit();
 });
 
 /*

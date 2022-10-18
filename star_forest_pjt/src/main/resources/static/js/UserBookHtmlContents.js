@@ -110,6 +110,7 @@ function user_list_item_content(resList,i){
 				<th scope="row"><a href="book_detail?book_no=${resList.BOOK_NO}">${resList.BOOK_TITLE}</a></th>
 				<th scope="row">${resList.BOOK_AUTHOR}</th>
 				<th scope="row">${resList.RES_DATE.substring(0, 10)}</th>
+				<th scope="row"><button id="btn_delete_res" class="w-btn w-btn-detail" book_no="${resList.BOOK_NO}">예약삭제</button></th>
 			</tr>
 	
 	
@@ -129,6 +130,7 @@ UserBookHtmlContents.user_reservation_list_html=function(resList){
 								<th scope="row">제목</th>
 								<th scope="row" >저자</th>
 								<th scope="row"style="width:150px">예약일시</th>
+								<th scope="row" >삭제</th>
 							</tr>
 						</thead>
 						<tbody>

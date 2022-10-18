@@ -9,6 +9,9 @@ import com.itwill.util.Criteria;
 //검색기능
 public interface SearchService {
 	
+	//검색값 체크
+	//int searching(String Keyword)throws Exception;
+	
 	//게시물 검색 총 갯수
 	
 	

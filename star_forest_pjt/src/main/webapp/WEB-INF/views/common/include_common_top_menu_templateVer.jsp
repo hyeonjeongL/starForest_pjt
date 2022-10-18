@@ -173,6 +173,7 @@ $(function(){
 						<li><a class="dropdown-item" href="faqViewpage"> 자주묻는질문</a></li>
 						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길 </a></li>
 					</ul></li>
+				
 				<li class="nav-item dropdown"><a href="SearchResult2"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -182,6 +183,7 @@ $(function(){
 						<li><a class="dropdown-item" href="Newbooks">신착도서</a></li>
 						<li><a class="dropdown-item" href="popularBook">이달의 인기도서</a></li>
 					</ul></li>
+					
 				<li class="nav-item dropdown"><a href="postList?group=20"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -189,6 +191,7 @@ $(function(){
 						<li><a class="dropdown-item" href="requestBoard"
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
+					<c:if test="${sUserId!='admin'}">
 				<li class="nav-item dropdown">
 					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -210,7 +213,7 @@ $(function(){
 
 					</ul>
 				</li>
-
+				
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -219,7 +222,7 @@ $(function(){
 						<li><a id="menu_my_seat" class="dropdown-item">예약확인</a></li>
 					</ul>
 				</li>
-				
+				</c:if>
 				<c:if test="${sUserId=='admin'}">
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자</a>
@@ -227,7 +230,6 @@ $(function(){
 						<li><a class="dropdown-item" href="admin"
 							id="menu_adminReturn">도서 반납</a></li>
 						<li><a id="menu_admin_user" class="dropdown-item" href="user_admin">회원관리</a></li>
-						<li><a id="menu_admin_insert_newbook" class="dropdown-item" href="adminNewBook">신착도서 입력</a></li>
 					</ul>
 				</li>
 				</c:if>

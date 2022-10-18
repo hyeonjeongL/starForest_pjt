@@ -130,7 +130,7 @@ d
 									 <div class="container">
 										<div class="entry-content">
 											<div class="content-d">
-												<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 소장정보 모바일(알림톡/SMS) 발송 서비스</h4>
+												<h4 class="content-h4"><i class="fas fa-arrow-alt-circle-right"></i> 소장정보 인쇄 서비스</h4>
 												<div class="content-l">
 													<h5>소장정보</h5>
 													<ul>
@@ -142,16 +142,8 @@ d
 													</ul>
 												</div>
 											</div>
-											<div class="content-d">
-												<div class="content-l">
-													<h5>수신 이메일 : ${user.user_email}</h5>
-													<div class="content-desc">
-														※ 수신번호 변경 방법<br>- 도서관 아이디 이용자 : 도서관 홈페이지 로그인 후 [내 정보 변경] 페이지에서 직접 변경
-													</div>
-												</div>
-											</div>
 											<div class="content-d d-flex justify-content-center">
-												<button type="button" class="btn btn-primary submit-request" >신청</button>
+												<button type="button" class="btn btn-primary submit-request" >인쇄</button>
 											</div>
 										</div><!-- .entry-content -->
 									</div><!-- .container -->
@@ -182,7 +174,7 @@ d
 																
 																<div>
 												<label class="attr-value-label">
-													<input type="radio" checked="checked" name="receive_location_code" class="purchase-type" > 별빛도서관 1층 데스크
+													<input type="radio" checked="checked" name="receive_location_code" class="purchase-type" > 별숲도서관 1층 데스크
 												</label>
 											</div>
 															</div>
@@ -320,8 +312,7 @@ d
 											<div class="content-l">
 												<ol>
 													<li>
-														<div>예약자료 도착 알림 : 개인공지 / E-mail / 카카오알림톡(또는 SMS)</div>
-														<div>&lt;도서관 홈페이지 - 나의공간 - 이용자정보관리&gt;에서 <font color="red">연락처를 확인</font>하여 주시기 바랍니다.</div>
+														<div>예약자료 도착 알림 : 개인공지 </div>
 													</li><li>
 														<div>예약 정보 확인 및 취소 : &lt;나의공간 - 대출/예약 현황&gt; 메뉴</div>
 														<div>단, <font color="red">도착통보 후에는 직접 취소가 불가</font>하오니 1:1 문의 게시판 또는 전화로 취소 요청하시기 바랍니다.</div>
@@ -512,7 +503,7 @@ d
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="item-user-request-title">신청 제목</h5>
+					<h5 class="modal-title" id="item-user-request-title">별숲도서관</h5>
 					<button type="button" class="close reset-iframe-content"
 						data-dismiss="modal" aria-label="닫기">
 						<span aria-hidden="true">&times;</span>

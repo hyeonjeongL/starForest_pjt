@@ -1,11 +1,15 @@
 package com.itwill.controller;
 
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,6 +33,36 @@ public class SearchController {
 		search.setKeyword(keyword);
 		return searchService.searchList(search);
 	}
+	
+	/*
+	 * public Map getSearchList (@RequestParam("type") String type,
+			@RequestParam("keyword") String keyword, Model model) throws Exception{
+	 * Map resultMap = new HashMap();
+		int code = 2;
+		String url = "";
+		String msg = "";
+		List<Search> resultList = new ArrayList<Search>();
+		
+		int result= keyword??
+		
+		if (){
+		resultList = searchService.allList();
+		code = 1;
+		url = "";
+		msg = "조회성공";
+		resultList.addAll(resultList);
+		} else if{
+			code = 2;
+			url = "main";
+			msg = "결과가 없습니다.";
+		}
+		
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
+		return resultMap;
+	 */
 	
 	
 	@GetMapping("/getCateList")

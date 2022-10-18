@@ -32,51 +32,6 @@
   
 <script type="text/javascript">
 
-/* var checkArr = new Array();
-
-...
-
-$.ajax({
-  url : "/shop/deleteCart",
-  type : "post",
-  data : {
-    chbox : checkArr
-  },
-  success : function(result){
-    if(result == 1) {
-      location.href = "/shop/cartList";
-    } else {
-      alert("삭제 실패");
-    }
-  }
-}); 
-
-$(e.target).find('#modal-body-user-request').html(html1);
-$(document).on('click','.btn.btn-primary.submit-request', function(e){
-				$.ajax({
-					url:'rest_rental',
-					dataType :'json',
-					data:'book_no='+$(e.target).attr("book_no"),
-					method:'POST',
-					success: function (jsonResult) {
-						if(jsonResult.code==1){
-			            alert("대여신청이 완료되었습니다.");
-			            console.log(jsonResult.code);
-			            location.href='book_detail?book_no='+$(e.target).attr("book_no");
-						} else if(jsonResult.code==0){
-			        	alert("이미 대여한 도서입니다.");
-			        	location.reload();
-						} else if(jsonResult.code==-1){
-							alert(jsonResult.msg);
-						}else if(jsonResult.code==3){
-							alert(jsonResult.msg);
-							location.reload();	
-						}
-			        }
-				}) 
-				});
-				
-*/
 
 $(document).ready(function() {
 	

@@ -59,6 +59,11 @@ public class SearchServiceImpl  implements SearchService{
 		
 		return bookListPageMaker;
 	}
+
+
+
+
+	//빈칸체크
 	
 /*
 	//제목 검색

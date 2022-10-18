@@ -169,10 +169,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="0" end="9">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="a-deck" style="background-color:#fffac2;">
+							<div class="a-deck" style="background-color:#fff5d9;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="a-deck" style="background-color:#9b9b9b;">
+							<div class="a-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -202,10 +202,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="10" end="19">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="b-deck" style="background-color:#d4edff;">
+							<div class="b-deck" style="background-color:#edf2fa;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="b-deck" style="background-color:#9b9b9b;">
+							<div class="b-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -234,10 +234,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="20" end="29">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="c-deck" style="background-color:#ffe6f6;">
+							<div class="c-deck" style="background-color:#ffddd9;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="c-deck" style="background-color:#9b9b9b;">
+							<div class="c-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -267,10 +267,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="30" end="39">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="d-deck" style="background-color:#e4ffc5;">
+							<div class="d-deck" style="background-color:#dadaef;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="d-deck" style="background-color:#9b9b9b;">
+							<div class="d-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>

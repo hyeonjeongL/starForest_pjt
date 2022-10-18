@@ -166,10 +166,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="40" end="46">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }" >
-						<div class="a_sec" style="background-color:#fffac2;">
+						<div class="a_sec" style="background-color:#e7f2eb;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-						<div class="a_sec" style="background-color:#9b9b9b;">
+						<div class="a_sec" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -198,10 +198,10 @@
 	            	<c:forEach items="${seatList}" var="seat" begin="47" end="53">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }" >
-						<div class="b_sec" style="background-color:#fffac2;">
+						<div class="b_sec" style="background-color:#e7f2eb;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-						<div class="b_sec" style="background-color:#9b9b9b;">
+						<div class="b_sec" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -229,7 +229,7 @@
 						<c:forEach items="${seatList}" var="seat" begin="54" end="60">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }" >
-						<div class="c_sec" style="background-color:#d4edff;">
+						<div class="c_sec" style="background-color:#f9eaf3;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
 						<div class="c_sec" style="background-color:#9b9b9b;">
@@ -259,7 +259,7 @@
 	            	<c:forEach items="${seatList}" var="seat" begin="71" end="77">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }" >
-						<div class="d_sec" style="background-color:#d4edff;">
+						<div class="d_sec" style="background-color:#f9eaf3;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
 						<div class="d_sec" style="background-color:#9b9b9b;">

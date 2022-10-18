@@ -68,27 +68,6 @@ a:hover {
 	font-family: 'GmarketSansMedium';
 }
 
-/* 각 도서관 행사정보 링크 */
-.event-title {
-	text-align: center;
-	font-size: xx-large;
-	height: 80px;
-	font-weight: bolder;
-	font-family: 'GmarketSansMedium';
-}
-
-/* <!--11/21 추가 !--> */
-/*
-bg-light #f8f9fa
-bg-dark #343a40
-
-btn-success #28A745
-btn-secondary #6C757D
-
-스프링 연 #75BD43
-스프링 진 #107637
-
-*/
 .navbar {
 	height: 70px;
 	background-color: #107637;

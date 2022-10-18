@@ -21,4 +21,8 @@ public interface ReservationService {
 	
 	//회원이 책 예약 중복 확인
 	int resCheckDupli(String user_id, int book_no);
+	
+	int selectReservationListCnt(int book_no);
+	
+	int resUpdateStatus(String user_id, int book_no);
 }

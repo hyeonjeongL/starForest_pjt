@@ -38,6 +38,9 @@ public interface BookService {
 
 	/** 예약시 예약카운트 증가 최대 5명 */
 	int updateResCnt(int book_no) throws Exception;
+	
+	//예약 후 렌탈 시 예약카운트 감소
+	int updateResCntM(int book_no) throws Exception;
 
 	/** 카테고리별 출력 */
 	List<Book> selectCategory(int category_no) throws Exception;

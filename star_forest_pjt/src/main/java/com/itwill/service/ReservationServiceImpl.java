@@ -42,6 +42,16 @@ public class ReservationServiceImpl implements ReservationService {
 		return reservationDao.resCheckDupli(user_id, book_no);
 	}
 
+	@Override
+	public int selectReservationListCnt(int book_no) {
+		return reservationDao.selectReservationListCnt(book_no);
+	}
+
+	@Override
+	public int resUpdateStatus(String user_id, int book_no) {
+		return reservationDao.resUpdateStatus(user_id, book_no);
+	}
+
 	
 	
 	

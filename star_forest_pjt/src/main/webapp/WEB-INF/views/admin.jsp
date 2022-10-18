@@ -96,7 +96,7 @@ $(document).on('click','#btn_admin_return',function(e){
 				alert("반납처리 되었습니다.");
 				location.reload();
 				
-			}else if(jsonResult.code==2){
+			}else if(jsonResult.code==-1){
 				alert(jsonResult.msg);
 			}
 		},

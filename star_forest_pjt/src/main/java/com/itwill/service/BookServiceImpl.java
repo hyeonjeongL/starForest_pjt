@@ -118,4 +118,10 @@ public class BookServiceImpl implements BookService {
 		return bookDao.userBook(user_id);
 	}
 
+
+	@Override
+	public int updateResCntM(int book_no) throws Exception {
+		return bookDao.updateResCntM(book_no);
+	}
+
 }

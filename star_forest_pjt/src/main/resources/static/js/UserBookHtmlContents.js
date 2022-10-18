@@ -19,7 +19,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 						<table>
 					<img src="img/book_flip.gif" width="500px;" style="margin-left:150px;"><br>
 					<div class="count_wrap" style="margin-left:150px; font-size:20pt; font-weight:900;"> 
-					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;">
+					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;color:#7a341e;">
 					${
 						function(){
 							var weight=0;

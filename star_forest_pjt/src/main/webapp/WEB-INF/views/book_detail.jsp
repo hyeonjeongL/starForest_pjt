@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta property="og:description" content="" />
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/book_detail.css">
@@ -93,7 +94,21 @@ d
 				if (jsonResult.code == 1) {
 					console.log(jsonResult);
 				}else{ //세션 존재하지 않을경우 메세지창보여줌
-					alert('로그인이 필요한 페이지입니다:)');
+					//alert('로그인이 필요한 페이지입니다:)');
+					Swal.fire({
+						  title: '로그인이 필요한 페이지입니다:)',
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+						    
+						  }
+						})
 				}
 			}
 		});
@@ -206,17 +221,74 @@ d
 											method:'POST',
 											success: function (jsonResult) {
 												if(jsonResult.code==1){
-									            alert("대여신청이 완료되었습니다.");
-									            console.log(jsonResult.code);
-									            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+									            //alert("대여신청이 완료되었습니다.");
+									            //console.log(jsonResult.code);
+									            Swal.fire({
+															  title: '대여신청이 완료되었습니다.',
+															  text: '',
+															  icon: 'success',
+															  showCancelButton: false,
+															  confirmButtonColor: '#3085d6',
+															  cancelButtonColor: '#d33',
+															  confirmButtonText: '확인'
+															}).then((result) => {
+															  if (result.isConfirmed) {
+																  
+														            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+															    
+															  }
+															})
 												} else if(jsonResult.code==0){
-									        	alert("이미 대여한 도서입니다.");
-									        	location.reload();
+									        	//alert("이미 대여한 도서입니다.");
+									        	Swal.fire({
+														  title: '이미 대여한 도서입니다.',
+														  text: '',
+														  icon: 'error',
+														  showCancelButton: false,
+														  confirmButtonColor: '#3085d6',
+														  cancelButtonColor: '#d33',
+														  confirmButtonText: '확인'
+														}).then((result) => {
+														  if (result.isConfirmed) {
+														  
+													        	location.reload();
+														    
+														  }
+														})
 												} else if(jsonResult.code==-1){
-													alert(jsonResult.msg);
+													//alert(jsonResult.msg);
+													Swal.fire({
+														  title: jsonResult.msg,
+														  text: '',
+														  icon: 'error',
+														  showCancelButton: false,
+														  confirmButtonColor: '#3085d6',
+														  cancelButtonColor: '#d33',
+														  confirmButtonText: '확인'
+														}).then((result) => {
+														  if (result.isConfirmed) {
+														  
+														    
+														  }
+														})
 												}else if(jsonResult.code==3){
-													alert(jsonResult.msg);
-													location.reload();	
+													//alert(jsonResult.msg);
+													Swal.fire({
+														  title: jsonResult.msg,
+														  text: '',
+														  icon: 'error',
+														  showCancelButton: false,
+														  confirmButtonColor: '#3085d6',
+														  cancelButtonColor: '#d33',
+														  confirmButtonText: '확인'
+														}).then((result) => {
+														  if (result.isConfirmed) {
+														  
+													        	location.reload();
+														    
+														  }
+														})
+													//location.reload();	
 												}
 									        }
 										}) 
@@ -279,14 +351,56 @@ d
 							method:'POST',
 							success:function(jsonResult){
 								if(jsonResult.code==1){
-						            alert("예약이 완료되었습니다.");
+						           // alert("예약이 완료되었습니다.");
 						        		console.log(jsonResult.code);
-						            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+						        		Swal.fire({
+											  title: '예약이 완료되었습니다.',
+											  text: '',
+											  icon: 'success',
+											  showCancelButton: false,
+											  confirmButtonColor: '#3085d6',
+											  cancelButtonColor: '#d33',
+											  confirmButtonText: '확인'
+											}).then((result) => {
+											  if (result.isConfirmed) {
+											  
+									            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+										        	
+											    
+											  }
+											})
 						        	}else if(jsonResult.code==0){
-						            alert("이미 예약한 도서입니다.");
-						        		
+						            //alert("이미 예약한 도서입니다.");
+						        		Swal.fire({
+													  title: '이미 예약한 도서입니다.',
+													  text: '',
+													  icon: 'error',
+													  showCancelButton: false,
+													  confirmButtonColor: '#3085d6',
+													  cancelButtonColor: '#d33',
+													  confirmButtonText: '확인'
+													}).then((result) => {
+													  if (result.isConfirmed) {
+													  
+													    
+													  }
+													})
 						        	}else if(jsonResult.code==2){
-						        		alert(jsonResult.msg);
+						        		//alert(jsonResult.msg);
+						        		Swal.fire({
+													  title: jsonResult.msg,
+													  text: '',
+													  icon: 'error',
+													  showCancelButton: false,
+													  confirmButtonColor: '#3085d6',
+													  cancelButtonColor: '#d33',
+													  confirmButtonText: '확인'
+													}).then((result) => {
+													  if (result.isConfirmed) {
+													  
+													    
+													  }
+													})
 						        	}
 							} ,
 							error:function(jqXHR, textStatus, errorThrown ) {
@@ -325,13 +439,55 @@ d
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+						  title: jsonResult.msg,
+						  text: '',
+						  icon: 'success',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
 						location.reload();
+						    
+						  }
+						})
 					}else if(jsonResult.code==-1){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+						  title: jsonResult.msg,
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+						    
+						  }
+						})
 					}else if(jsonResult.code==3){
-						alert("로그인 후 이용해주세요.");
-						location.href="user";
+
+						//alert(jsonResult.msg);
+						Swal.fire({
+						  title: jsonResult.msg,
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+						    
+						  }
+						})
 					}
 				}
 			});

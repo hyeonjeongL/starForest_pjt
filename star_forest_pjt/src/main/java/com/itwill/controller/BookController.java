@@ -46,7 +46,7 @@ public class BookController {
 				book.setBook_qty(0);
 			}
 			int book_res_cnt = book.getBook_res_cnt();
-			if(book_qty<=3 && book_qty>=1) {
+			if(book_qty==1) {
 				model.addAttribute("rental_status", "대출가능");
 				model.addAttribute("res_status", "");
 				model.addAttribute("rentalPos", "<span\n"
@@ -67,12 +67,7 @@ public class BookController {
 				model.addAttribute("rental_status", "예약불가");
 				model.addAttribute("res_status", "예약한도초과");
 			}
-			
-			/**대여시 실행해야 할 쿼리
-			 * Book - updateRentalBookQty (재고감소)
-			 * Book - updateRentalCnt (대여횟수 증가)
-			 * Rental - insertRental(대여)
-			*/
+		
 			
 			forwardPath = "forward:/WEB-INF/views/book_detail.jsp";
 			

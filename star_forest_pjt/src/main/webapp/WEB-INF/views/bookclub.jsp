@@ -61,6 +61,18 @@
 #btn_category,.rentalTable{
 	font-family: 'GmarketSansMedium';
 }
+.active a{
+	color:#107637;
+	fontweight:500;
+	font-family: 'GmarketSansMedium';
+}
+a:hover{
+	color:black;
+	text-decoration:underline;
+}
+a{
+	color:black;
+}
 </style>
 
 

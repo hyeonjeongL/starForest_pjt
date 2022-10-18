@@ -76,47 +76,26 @@ public class NoticeController {
 		return "notice_write_form";
 	}
 	
-	@LoginCheck
-	@RequestMapping("/notice_modify_action")
-	public String notice_modify_action(@RequestParam Map<String, String> params,HttpSession session) throws Exception{
-
-			String pageno = params.get("pageno");
-			String notice_no = params.get("notice_no");
-			String sUserId=(String)session.getAttribute("sUserId");
-			if(pageno == null || notice_no == null || sUserId != "admin") {
-				return "notice_list";
-			}
-			Notice notice = new Notice();
-			System.out.println("modify_action111");
-			notice.setNotice_no(Integer.parseInt(notice_no));
-			System.out.println("modify_action222");
-			notice.setNotice_title(params.get("notice_title"));
-			System.out.println("modify_action333");
-			notice.setNotice_content(params.get("notice_content"));
-			System.out.println("modify_action444");
-			noticeService.update(notice);
-			System.out.println("modify_action555");
-			
-			return "notice_detail?pageno="+pageno+"&notice_no="+notice_no;
-	}
+	
+	
 	
 	@LoginCheck
+
 	@RequestMapping("/notice_modify_form")
-	public String notice_modify_form(@RequestParam Integer pageno, Integer notice_no, Model model) throws Exception{
-		if(pageno == null || notice_no == null) {
+	public String notice_modify_form(@RequestParam Integer notice_no, Model model) throws Exception {
+		if (notice_no == null) {
 			return "notice_list";
 		}
 		try {
 			Notice notice = noticeService.selectByNo(notice_no);
 			System.out.println("modify_form111");
-			model.addAttribute("notice",notice);
-			System.out.println("modify_form222");
-			model.addAttribute("pageno",pageno);
+			model.addAttribute("notice", notice);
 			System.out.println("modify_form333");
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			return "error";
 		}
 		return "notice_modify_form";
 	}
+
 }

@@ -72,10 +72,35 @@ $("#ddd").on("click", function(){
 /*
 게시글 삭제 
 */
+/*
 $("#ccc").on("click", function(){
-	
+	let notice_no = $(this).attr("notice_no");
+	let pageno = $(this).attr("pageno");
+	location.href = `notice_modify_form?notice_no=${notice_no}&pageno=${pageno}`;
 });
-
+*/
+$("#ccc").on('click', function(e){
+			var param = 'notice_no='+$(e.target).attr('notice_no');
+			console.log(param);
+			$.ajax({
+				
+				url:'notice_delete_action',
+				method:'POST',
+				data: param,
+				success:function(jsonResult){
+					console.log(jsonResult);
+					if(jsonResult.code==1){
+						$('#btn_request_list').trigger('click');
+						location.href='notice_list';
+					}else if(code==2){
+						alert(jsonResult.msg);
+					}else if(code==0){
+						alert(jsonResult.msg);
+					}
+				}
+				
+			});
+		});
 /*
 게시글 수정 폼 
 */
@@ -88,24 +113,50 @@ $("#aaa").on("click", function(){
 /* 
 게시글 수정 
 */ 
-$("#aaa").on("click", function(){ 
-	let notice_no = $(this).attr("notice_no");
-	let pageno = $(this).attr("pageno");
+$("#asd").on("click", function(){ 
+	var param = $('#notice_modify_form').serialize();
+	console.log(param);
+	
 	$.ajax({
-		url:'notice_modify_form',
+		url:'notice_modify_action',
 		method:'POST',
 		data:param,
 		success:function(jsonResult){
-			var item = jsonResult.data[0];
+			var item = jsonResult.data;
 					if(jsonResult.code==1){
-					$('#requestBoard_wrap').html(request_modify_form(item));
+					var param = 'notice_no='+$("#notice_modify_from input[name='notice_no']").val();
+					location.href = `notice_detail?notice_no=${item}&pageno=1`;
 					}else if(jsonResult.code==2){
 						alert(jsonResult.msg);
 					}
 		}
 	})
+	let notice_no = $(this).attr("notice_no");
 });
 
+/*
+$(document).on('click','#btn_request_modify_action',function(e){
+         var param=$('#request_modify_form').serialize();
+         console.log(param);
+         $.ajax({
+            url:'request_modify_action',
+            method:'POST',
+            data:param,
+            success: function(jsonResult){
+               console.log(jsonResult);
+               if(jsonResult.code==1){
+                  var param ='board_no='+$("#request_modify_form input[name='board_no']").val();
+                  $.ajax({
+                      url:'request_view_json',
+                      method:'GET',
+                      dataType:'json',
+                        data:param,
+                      success:function(jsonResult){
+                         $('#requestBoard_wrap').html(request_view(jsonResult.data[0]));
+                      }
+                 
+                  });
+*/
 /*
 새글 등록 폼 
 */
@@ -144,14 +195,4 @@ $()
 /*
 ckeditor
 */
-
-$(() => {
-	if($("#notice_content_area").length != 0){
-		 CKEDITOR.replace('notice_content_area', {
-						height: 500                                                  
-                 	});
-	}
-});
-
-
 

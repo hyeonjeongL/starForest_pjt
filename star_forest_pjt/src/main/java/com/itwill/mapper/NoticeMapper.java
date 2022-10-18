@@ -19,8 +19,8 @@ public interface NoticeMapper {
 	@Insert("insert into notice values(SEQ_notice_notice_no.nextval,#{notice_title},sysdate, #{notice_content},#{notice_image},#{setting})")
 	public int create(Notice notice) throws Exception;
 	
-	@Update("update notice set notice_title=#{notice_title},notice_content=#{notice_content}, setting=#{setting}, "
-			+ "notice_image=#{notice_image} where notice_no=#{notice_no}")
+	@Update("update notice set notice_title=#{notice_title},notice_content=#{notice_content} "
+			+ "where notice_no=#{notice_no}")
 	public int update(Notice notice) throws Exception;
 	
 	@Update("update notice set notice_readcount=notice_readcount+1 where notice_no=#{notice_no}")

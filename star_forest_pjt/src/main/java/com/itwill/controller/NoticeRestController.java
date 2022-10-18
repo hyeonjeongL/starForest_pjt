@@ -8,12 +8,15 @@ import java.util.Map;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itwill.domain.Notice;
 import com.itwill.domain.PageMakerDto;
+import com.itwill.domain.RequestBoard;
 import com.itwill.service.NoticeService;
 
 @RestController
@@ -21,8 +24,8 @@ public class NoticeRestController {
 	@Autowired
 	private NoticeService noticeService;
 	
-	@RequestMapping("/notice_list_json")
-	public Map<String, Object> notice_list_json(@RequestParam(required = false, defaultValue ="1") Integer pageno){
+	@RequestMapping("/notice_list_rest")
+	public Map<String, Object> notice_list_rest(@RequestParam(required = false, defaultValue ="1") Integer pageno){
 		System.out.println(pageno);
 		Map<String, Object> resultMap = new HashMap<>();
 		PageMakerDto<Notice> notice = null;
@@ -40,34 +43,9 @@ public class NoticeRestController {
 		return resultMap;
 	}
 	
-	@RequestMapping("/notice_delete_json")
-	public Map<String, Object> notice_delete_json(Integer pageno,Integer notice_no,HttpSession session){
-		Map<String, Object> resultMap = new HashMap<>();
-		String sUserId=(String)session.getAttribute("sUserId");
-		if(pageno == null || notice_no == null || sUserId == "admin") {
-			resultMap.put("errorCode", -1);
-			resultMap.put("errorMsg", "error");
-		}
-		try {
-			int result = noticeService.delete(notice_no);
-			if(result ==1) {
-				resultMap.put("errorCode", 1);
-				resultMap.put("errorMsg", "게시글이 삭제되었습니다");
-			}else {
-				resultMap.put("errorCode", -2);
-				resultMap.put("errorMsg", "게시글이 삭제되지 않았습니다");
-			}
-		}catch (Exception e) {
-			e.printStackTrace();
-			resultMap.put("errorCode", -3);
-			resultMap.put("errorMsg", "error");
-		}
-		
-		return resultMap;
-	}
 	
-	@RequestMapping(value = "/notice_detail_json", produces = "application/json;charset=UTF-8")
-	public Map request_view_json(@RequestParam int notice_no) {
+	@RequestMapping(value = "/notice_detail_rest", produces = "application/json;charset=UTF-8")
+	public Map notice_detail_rest(@RequestParam int notice_no) {
 		Map resultMap = new HashMap();
 		int code=1;
 		String msg="";
@@ -87,6 +65,85 @@ public class NoticeRestController {
 		resultMap.put("msg",msg);
 		resultMap.put("code",code);
 		resultMap.put("data",resultList);
+		return resultMap;
+	}
+	
+	@PostMapping(value="/notice_modify_form",produces = "application/json;charset=UTF-8")
+	public Map notice_modify_form(@RequestParam int notice_no,HttpSession session) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<Notice> resultList = new ArrayList<Notice>();
+		
+		try {
+			String sUserId = (String)session.getAttribute("sUserId");
+			String admin = "admin";
+			Notice requestBoard = noticeService.selectByNo(notice_no);
+		}catch (Exception e) {
+			e.printStackTrace();
+			msg="글쓰기수정폼에러";
+		}
+		
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
+		
+		return resultMap;
+	}
+	
+	@PostMapping(value="/notice_modify_action", produces = "application/json;charset=UTF-8")
+	public Map notice_modify_action(@ModelAttribute Notice notice) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<Notice> resultList = new ArrayList<Notice>();
+		int rowCount = 0;
+		try {
+			rowCount = noticeService.update(notice);
+			if(rowCount==1) {
+				code=1;
+				msg="수정이 완료되었습니다.";
+			}else {
+				code=2;
+				msg="수정에서 에러남";
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="수정에서 뭔가가 잘못됨";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", notice.getNotice_no());
+		return resultMap;
+	}
+	
+	@PostMapping(value="/notice_delete_action", produces = "application/json;charset=UTF-8")
+	public Map notice_delete_action(@RequestParam int notice_no) {
+		Map resultMap = new HashMap();
+		int code = 1;
+		String msg="";
+		List<Notice> resultList = new ArrayList<Notice>();
+		
+		try {
+			int rowCount = noticeService.delete(notice_no);
+			if(rowCount==1) {
+				code=1;
+				msg="삭제가 완료되었습니다.";
+			}else if(rowCount==0){
+				code=2;
+				msg="답글이 달려있는 글은 삭제가 불가능합니다.";
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+			code=0;
+			msg="삭제에서 뭔가가 잘못됨";
+		}
+		resultMap.put("msg", msg);
+		resultMap.put("code", code);
+		resultMap.put("data", resultList);
 		return resultMap;
 	}
 }

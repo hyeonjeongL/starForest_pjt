@@ -63,7 +63,7 @@ public interface RentalMapper {
 	// 제일 빠른 반납예정일
 	@Select("select return_duedate from "
 			+ "(select * from rental order by return_duedate asc)"
-			+ "where book_no=#{book_no} and ROWNUM= 1")
+			+ "where book_no=#{book_no} and rental_status=1 and ROWNUM= 1")
 	public String selectMostReturn_duedate(int book_no);
 
 	//1인당 3권이상 대여x

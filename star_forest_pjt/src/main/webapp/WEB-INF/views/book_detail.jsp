@@ -598,7 +598,7 @@ d
 													<td><span class="th-item">소장처</span> 별숲도서관</td>
 													<td><span class="th-item">ISBN</span> ${book.isbn }</td>
 													<td><span class="th-item">대출가능권수</span>
-														${book.book_qty}/3</td>
+														${book.book_qty}/1</td>
 													<td><span class="th-item">도서상태</span> ${rental_status}</td>
 													<td><span class="th-item">반납예정일</span>
 														${rental_duedate.substring(0,10)}</td>

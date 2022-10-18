@@ -130,7 +130,6 @@ UserBookHtmlContents.user_reservation_list_html=function(resList){
 								<th scope="row">제목</th>
 								<th scope="row" >저자</th>
 								<th scope="row"style="width:150px">예약일시</th>
-								<th scope="row" >대출가능여부</th>
 							</tr>
 						</thead>
 						<tbody>

@@ -128,7 +128,7 @@ $(function() {
 					<div class="col-md-3 noto-serif">
 						<div class="sidebar">
 							<div class="side-head">
-								<h4 class="text-light">나의도서</h4>
+								<h4 class="text-light" style="color:black !important;">나의도서</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5" id="menu">
 								<li class="list-group-item"><a href="MyPage_Folder"

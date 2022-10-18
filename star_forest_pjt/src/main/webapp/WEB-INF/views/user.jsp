@@ -123,8 +123,7 @@
 						$idText.text("회원님의 아이디 : "+data)
 						$idText.css({
 							"color" : "#0D6EFD",
-							"font-weight" : "bold",
-							"font-size" : "10px"
+							"font-size" : "16px"
 						})
 						$findOk.show();	
 					}
@@ -150,8 +149,7 @@
 						$idText.text("회원님의 비밀번호 : "+data)
 						$idText.css({
 							"color" : "#0D6EFD",
-							"font-weight" : "bold",
-							"font-size" : "10px"
+							"font-size" : "16px"
 						})
 						$findOk.show();	
 					}

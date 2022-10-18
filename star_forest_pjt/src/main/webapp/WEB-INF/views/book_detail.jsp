@@ -330,7 +330,8 @@ d
 					}else if(jsonResult.code==-1){
 						alert(jsonResult.msg);
 					}else if(jsonResult.code==3){
-						alert(jsonResult.msg);
+						alert("로그인 후 이용해주세요.");
+						location.href="user";
 					}
 				}
 			});

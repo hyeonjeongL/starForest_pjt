@@ -180,7 +180,7 @@ $("#fff").on("click", function(){
 		success:function(jsonResult){
 			console.log(jsonResult);
 			//e.preventDefault();
-			
+			 
 			if(jsonResult.code==1){
 				$('#ddd').trigger('click');
 				alert(jsonResult.msg);

@@ -6,7 +6,7 @@ import com.itwill.domain.Notice;
 import com.itwill.domain.PageMakerDto;
 
 public interface NoticeService {
-	
+	 
 		PageMakerDto<Notice> selectAll(int currentPage) throws Exception;
 		
 		//공지사항 생성

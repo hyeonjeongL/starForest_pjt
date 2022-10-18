@@ -13,7 +13,7 @@ import com.itwill.domain.Notice;
 
 @Mapper
 public interface NoticeMapper {
-	
+	 
 	public List<Notice> selectAll(int pageStart, int pageEnd) throws Exception;
 	
 	@Insert("insert into notice(notice_no,notice_date,notice_title,notice_content) values(SEQ_notice_notice_no.nextval,#{notice_title},sysdate, #{notice_content})")

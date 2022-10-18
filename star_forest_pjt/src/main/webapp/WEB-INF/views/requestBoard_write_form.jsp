@@ -57,7 +57,7 @@
 		/*
 		게시물 생성
 		*/
-	
+	 
 		$(document).on('click','#btn_request_write_action',function(e){
 			$.ajax({
 				url:'request_write_action_json',

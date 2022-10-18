@@ -294,7 +294,7 @@
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 240" name="notice_title" id=""></td>
-									</tr>
+									</tr> 
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"

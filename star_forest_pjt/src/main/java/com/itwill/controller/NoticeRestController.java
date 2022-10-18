@@ -157,7 +157,7 @@ public class NoticeRestController {
 		List<Notice> resultList = new ArrayList<Notice>();
 		System.out.println("write222");
 		int rowCount = 0;
-		try {
+		try { 
 			System.out.println("code111");
 			rowCount = noticeService.create(notice);
 			System.out.println("code222");

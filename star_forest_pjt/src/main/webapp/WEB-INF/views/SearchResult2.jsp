@@ -81,9 +81,19 @@
 				$('#searchBookList').html(html);
 			}
 		
-		
-			
 		});
+		
+		$.ajax({
+			url : 'getSearchList',
+			method : 'GET',
+			data : param,
+			success : function(bookList) {
+				if(bookList == ""){
+					alert("검색 결과가 없습니다.");
+					window.location.href = "SearchResult2";
+				}
+			}
+			});
 		
 		e.preventDefault();
 	});

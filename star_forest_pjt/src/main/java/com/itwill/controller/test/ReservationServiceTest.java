@@ -34,10 +34,11 @@ public class ReservationServiceTest {
 		ReservationService reservationService=(ReservationService)context.getBean(ReservationService.class);
 		Date date = new Date();
 		Reservation newRes = new Reservation(100, date, 1, 100, "woohyuk");
-//		System.out.println(reservationService.insertReservation(newRes));
+		System.out.println(reservationService.resCheckDupli("woohyuk", 100));
+		System.out.println(reservationService.insertReservation(newRes));
 //		System.out.println(reservationService.deleteReservation("woohyuk", 100));
 //		System.out.println(reservationService.selectReservationList(3));
-		System.out.println(reservationService.selectReservationListById("hyeonjeong"));
+//		System.out.println(reservationService.selectReservationListById("hyeonjeong"));
 	
 	}
 }

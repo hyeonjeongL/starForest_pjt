@@ -72,11 +72,11 @@ public class RentalRestController {
 						code = 0;
 						url = "";
 						msg = "이미 대여한 도서입니다.";
-					} else if (fiveLimit >= 3) {
+					} 
+					}else if (fiveLimit >= 3) {
 						code = -1;
 						url = "";
 						msg = "최대 대여 가능 권수 3권을 대여하였습니다.";
-					}
 				}
 			}else if(userStatus==0) {
 				System.err.println("나 정지");

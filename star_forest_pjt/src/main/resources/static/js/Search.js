@@ -1,6 +1,5 @@
 function Search() {
 }
-
 Search.cate_join_html = function(bookCateArray) {
 	return `
 	<div class="row">
@@ -32,6 +31,61 @@ Search.cate_item_html = function(cate) {
 	`;
 	
 }
+
+
+
+/*function cate_list_content(bookCateArray,pageArray) {
+	return `
+	<div class="row">
+		${bookCateArray.map(Search.cate_item_html).join('')}
+	</div>	
+	
+  	  	
+		<div class="page_area">
+	
+					<ul id="page">
+				 		
+				 		
+				 		<!-- 이전페이지 버튼 -->
+				 		${
+							function(){
+								var prev = pageArray.prev;
+								var html='';
+								if(prev){
+									html=`<li class="page_btn_prev"><a href="SearchList?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
+								}
+								return html;
+							}()
+						}
+                    	${
+							function(){
+								var html='';	
+							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="SearchList?pageNum=${i}" pageNum=${i}>${i}</a></li>`;
+								}							
+								return html;
+							}()
+	                    }
+	                    
+	                     <!-- 다음페이지 버튼 -->${
+							function(){
+								var next = pageArray.next;
+								var html='';
+								if(next){
+									html=`<li class="page_btn_next"><a href="SearchList?pageNum=${pageArray.endPage + 1 }" pageNum=${pageArray.endPage+1}>Next</a></li>`
+								}
+								return html;
+							}()
+						}
+	                    
+	                    
+               		</ul>
+               		
+		</div>
+		
+	`; 
+}*/
+
 
 
 

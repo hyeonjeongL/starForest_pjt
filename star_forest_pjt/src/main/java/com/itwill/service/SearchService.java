@@ -3,9 +3,17 @@ package com.itwill.service;
 import java.util.List;
 
 import com.itwill.domain.Search;
+import com.itwill.domain.SearchListPageMaker;
+import com.itwill.util.Criteria;
 
 //검색기능
 public interface SearchService {
+	
+	//게시물 검색 총 갯수
+	int allCount(Criteria cri)throws Exception;
+	
+	//페이지에 있는 게시물 시작번호 / 끝번호
+	SearchListPageMaker listAll(Criteria cri)throws Exception;
 	
 
 //검색기능 

@@ -1,15 +1,21 @@
 package com.itwill.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import com.itwill.domain.Search;
+import com.itwill.util.Criteria;
 
 
 
 //검색기능
 public interface SearchDao {
 	
-	
+	//게시물 검색 총 갯수
+			int allCount(Criteria cri)throws Exception;
+			
+			//페이지에 있는 게시물 시작번호 / 끝번호
+			List<Search> listAll(int startNo,int endNum,Criteria cri)throws Exception;
 	
 	
 	//검색기능 

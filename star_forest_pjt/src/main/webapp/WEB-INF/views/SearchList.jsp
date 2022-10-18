@@ -69,6 +69,56 @@
 	
 	/********페이징********/
 	
+	/************************************************
+	function book_list_json(param){
+	console.log(param)	   
+	$.ajax({
+				url:'search_list_json',
+				method:'GET',
+				data:param,
+				success:function(jsonResult){
+					var bookCateArray = jsonResult.data;
+					var pageArray = jsonResult.pageMaker[0];
+					console.log(jsonResult);
+					$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+					//$('#page_wrap').html(pageArray);
+				}
+			});
+	}
+	
+		
+	$(document).on('click', '#side_book,#btn_all', function(e) {
+		$.ajax({
+			url : 'search_list_json',
+			method : 'GET',
+			success : function(jsonResult) {
+				var bookCateArray = jsonResult.data;
+				var pageArray = jsonResult.pageMaker[0];
+				$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+			}
+		});
+		e.preventDefault();
+	});
+
+	
+	/*$(document).on('click', '#btn1', function(e) {
+		var param = 'category_no=' + $(e.target).attr('value');
+
+		$.ajax({
+			url : 'search_category',
+			method : 'POST',
+			dataType : 'json',
+			data : param,
+			success : function(jsonResult) {
+				var bookCateArray = jsonResult.data;
+				console.log(bookCateArray);
+				var pageArray = jsonResult.pageMaker[0];
+				$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+			}
+		});
+		e.preventDefault();
+	});*/
+	
 </script>
 <style type="text/css">
 

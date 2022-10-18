@@ -33,9 +33,22 @@
 <script type="text/javascript"> 
 </script>
 <script type="text/javascript">
-	
+
+		
 	$(document).on('click', '#btn_search', function(e) {
 
+		const keyword=$('input').val();
+		const type=$('type').val();
+		
+		if($("#type").val() == null){
+			alert("선택해주세요.");
+			return false;
+		}
+		if($("#keyword").val() == false){
+			alert("입력해주세요.");
+			return false;
+		}
+		
 		var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
 		  
 		console.log(param);
@@ -67,8 +80,11 @@
 				}
 				$('#searchBookList').html(html);
 			}
+		
+		
 			
 		});
+		
 		e.preventDefault();
 	});
 

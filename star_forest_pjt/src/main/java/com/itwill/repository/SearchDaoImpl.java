@@ -68,6 +68,13 @@ public class SearchDaoImpl implements SearchDao {
 		return searchMapper.categoryCount(category_no);
 	}
 
+
+	@Override
+	public List<Search> searching(Search search) throws Exception {
+		// TODO Auto-generated method stub
+		return searchMapper.searchList(search);
+	}
+
 	
 	
 	

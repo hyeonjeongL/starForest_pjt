@@ -10,6 +10,8 @@ import com.itwill.util.Criteria;
 
 //검색기능
 public interface SearchDao {
+	//빈칸 체크
+	List<Search> searching(Search search) throws Exception;
 	
 	//게시물 검색 총 갯수
 	int categoryCount(int category_no)throws Exception;

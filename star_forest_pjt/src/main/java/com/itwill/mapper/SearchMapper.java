@@ -1,6 +1,7 @@
 package com.itwill.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -8,10 +9,18 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.itwill.domain.RequestBoard;
 import com.itwill.domain.Search;
+import com.itwill.util.Criteria;
 //검색 기능
 @Mapper
 public interface SearchMapper {
+	
+	//게시물 검색 총 갯수
+		public int allCount(Criteria cri);
+		
+		//페이지에 있는 게시물 시작번호 / 끝번호
+		public List<Search> listAll(Map map);
 	
 	//검색 기능 리스트 뽑기
 		public List<Search> searchList(Search search);

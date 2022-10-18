@@ -32,6 +32,7 @@
   
 <script type="text/javascript">
 
+
 $(document).ready(function() {
 	
 	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
@@ -65,6 +66,8 @@ $(document).ready(function() {
 			$('#searchBookList').html(html);
 		}
 	});
+	
+	
 	e.preventDefault();
 });
 </script>

@@ -2,7 +2,7 @@ package com.itwill.repository;
 
 import java.util.HashMap;
 import java.util.List;
-
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwill.domain.Search;
 import com.itwill.mapper.SearchMapper;
+import com.itwill.util.Criteria;
 
 
 @Repository
@@ -38,6 +39,25 @@ public class SearchDaoImpl implements SearchDao {
 	@Override
 	public List<Search> allList() throws Exception{
 		return searchMapper.allList();
+	}
+
+
+	@Override
+	public int allCount(Criteria cri) throws Exception {
+		// TODO Auto-generated method stub
+		return searchMapper.allCount(cri);
+	}
+
+
+	@Override
+	public List<Search> listAll(int pageBegin, int pageEnd, Criteria cri) throws Exception {
+		System.out.println("3.Dao-->"+cri);
+		Map map=new HashMap();
+		map.put("pageBegin",pageBegin);
+		map.put("pageEnd",pageEnd);
+		map.put("cri",cri);
+		System.out.println(">>>>>"+map);
+		return searchMapper.listAll(map);
 	}
 
 	

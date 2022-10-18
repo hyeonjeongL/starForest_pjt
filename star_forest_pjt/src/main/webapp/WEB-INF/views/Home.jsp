@@ -78,7 +78,7 @@ $(function keywordCheck() {
 $(function() {
 	var $type=$("type");
 	var $keyword=$("keyword");
-}
+})
 
 function formSubmit(){
 	if($("#select").val() == "none"){

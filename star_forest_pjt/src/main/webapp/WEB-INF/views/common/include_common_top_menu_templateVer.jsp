@@ -5,6 +5,7 @@
 <%
 //String sUserId = (String)session.getAttribute("sUserId");
 %>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
 $(function(){
 	/***********로그인 세션확인**************/
@@ -16,7 +17,22 @@ $(function(){
 			if (jsonResult.code == 1) {
 				console.log(jsonResult);
 			}else{ //세션 존재하지 않을경우 메세지창보여줌
-				alert('로그인이 필요한 페이지입니다:)');
+				//alert('로그인이 필요한 페이지입니다:)');
+				Swal.fire({
+					  title: '로그인이 필요한 페이지입니다:)',
+					  text: '',
+					  icon: 'error',
+					  showCancelButton: false,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: '확인'
+					}).then((result) => {
+					  if (result.isConfirmed) {
+					  
+					    
+					  }
+					})
+	
 			}
 		}
 	});
@@ -76,8 +92,22 @@ $(function(){
 		method:'GET',
 		success:function(jsonResult){
 			if(jsonResult.code==2){
-			alert(jsonResult.msg);
+			//alert(jsonResult.msg);
+			Swal.fire({
+			  title: jsonResult.msg,
+			  text: '',
+			  icon: 'error',
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: '확인'
+			}).then((result) => {
+			  if (result.isConfirmed) {
+			  
 			location.href='user';
+			    
+			  }
+			})
 			}else if(jsonResult.code==1){
 			location.href='seatReservation_my';
 	}
@@ -92,8 +122,22 @@ $(function(){
 		method:'GET',
 		success:function(jsonResult){
 			if(jsonResult.code==2){
-			alert(jsonResult.msg);
-			location.href='user';
+			//alert(jsonResult.msg);
+			Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								location.href='user';
+							    
+							  }
+							})
 			}else if(jsonResult.code==1){
 			location.href='seatReservation_my';
 	}

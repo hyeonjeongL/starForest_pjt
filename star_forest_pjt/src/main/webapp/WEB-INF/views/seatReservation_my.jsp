@@ -171,7 +171,7 @@
 							}).then((result) => {
 							  if (result.isConfirmed) {
 							  
-								  location.href='seatReservation_my';
+								  //location.href='seatReservation_my';
 							  }
 							})
 					}else if(jsonResult.code==0){
@@ -186,7 +186,7 @@
 							}).then((result) => {
 							  if (result.isConfirmed) {
 							  
-								  location.href='seatReservation_my';
+								  //location.href='seatReservation_my';
 							  }
 							})
 					}

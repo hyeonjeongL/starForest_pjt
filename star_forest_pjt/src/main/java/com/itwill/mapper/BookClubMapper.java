@@ -23,7 +23,7 @@ public interface BookClubMapper {
 	
 	public List<BookClub> selectAll(Criteria cri);
 	
-	@Select("select club_no,club_name,club_count,club_person,club_time,club_place,club_content,category_no from book_club"
+	@Select("select club_no,club_name,club_count,club_person,club_readcount,club_time,club_place,club_content,category_no from book_club"
 			+ "			where category_no=#{category_no} order by club_no desc")
 	public List<BookClub> selectBycategory(int category_no);
 	

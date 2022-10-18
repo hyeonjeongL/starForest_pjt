@@ -82,7 +82,7 @@ a {
 }
 
 .heroTitle {
-  font-family: 'Gowun Dodum', sans-serif;
+  font-family: 'GmarketSansMedium';
   font-weight: 100;
   margin: 70px 0 10px 0;
   text-align: center;
@@ -90,12 +90,12 @@ a {
 
 .heroTitle_dot {
   color: #8FBC8F;
-  font-family: 'Gowun Dodum', sans-serif;
+   font-family: 'GmarketSansMedium';
   font-weight: 600;
 }
 
 .heroTitle_kor {
-  font-family: 'Gowun Dodum', sans-serif;
+   font-family: 'GmarketSansMedium';
   font-weight: 300;
   color: #107637;
 }
@@ -126,5 +126,5 @@ a {
 }
 
 form label{
-	font-family: 'Gowun Dodum', sans-serif;
+	 font-family: 'GmarketSansMedium';
 }

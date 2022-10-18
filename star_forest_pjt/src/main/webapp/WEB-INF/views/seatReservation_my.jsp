@@ -107,7 +107,7 @@
 							}).then((result) => {
 							  if (result.isConfirmed) {
 							  
-								  location.href='seatReservation';
+								  location.href='seatReservation_my';
 							  }
 							})
 						
@@ -142,12 +142,53 @@
 				method:'POST',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
-						location.href='seatReservation_my';
+						//alert(jsonResult.msg);
+						//location.href='seatReservation_my';
+							Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='seatReservation_my';
+							  }
+							})
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='seatReservation_my';
+							  }
+							})
 					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='seatReservation_my';
+							  }
+							})
 					}
 				}
 				

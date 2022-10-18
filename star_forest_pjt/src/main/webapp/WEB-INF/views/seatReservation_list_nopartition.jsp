@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -57,14 +58,52 @@
 				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$('#menu_seatReservation').trigger('click');
-						alert(jsonResult.msg);
-						location.href='seatReservation';
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='seatReservation_my';
+							  }
+							})
+						//$('#menu_seatReservation').trigger('click');
+						//alert(jsonResult.msg);
+						//location.href='seatReservation';
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-						location.href='user';
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='user';
+							  }
+							})
 					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							  }
+							})
 					}
 				}
 				

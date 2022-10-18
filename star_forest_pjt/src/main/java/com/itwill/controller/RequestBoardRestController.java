@@ -137,7 +137,7 @@ public class RequestBoardRestController {
 			}else {
 			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, null, 1, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
 			code=1;
-			msg="글쓰기가 작성됨";
+			msg="글쓰기가 완료되었습니다";
 			resultList.add(requestBoard);
 			}
 		}catch (Exception e) {
@@ -169,7 +169,7 @@ public class RequestBoardRestController {
 			 * String board_status, int board_type_no, int board_depth, int board_step, int groupno, String category_name, String user_id
 			 */
 			rowCount = requestBoardService.create_notice(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, "공지사항", 0, 0, 0, 0, null, sUserId));
-			msg="글쓰기가 작성됨";
+			msg="글쓰기가 완료되었습니다";
 			resultList.add(requestBoard);
 			code=1;
 		}catch (Exception e) {
@@ -264,7 +264,7 @@ public class RequestBoardRestController {
 				msg="답글이 완료되었습니다.";
 			}else {
 				code=2;
-				msg="답글에서 에러남";
+				msg="답글쓰기가 잘못되었습니다.";
 			}
 			
 		}catch (Exception e) {

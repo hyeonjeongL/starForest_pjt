@@ -56,11 +56,39 @@
 			dataType : "json",
 			success : function(jsonResult) {
 				if (jsonResult.code == 0) {
-					alert("아이디가 존재하지않습니다.");
+					//alert("아이디가 존재하지않습니다.");
+					Swal.fire({
+							  title: '아이디가 존재하지않습니다.',
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					console.log(jsonResult);
 				} else if (jsonResult.code == 1) {
 					console.log(jsonResult);
-					alert("비밀번호가 일치하지 않습니다.");
+					//alert("비밀번호가 일치하지 않습니다.");
+					Swal.fire({
+							  title: '비밀번호가 일치하지 않습니다.',
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 				} else if (jsonResult.code == 2) {
 					
 					location.href="Home";

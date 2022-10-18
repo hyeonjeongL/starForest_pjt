@@ -64,7 +64,21 @@ $(function() {
 						});
 						
 					}else if(jsonResult.code==-1){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}
 				}
 			});
@@ -82,10 +96,38 @@ $(function() {
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
-						location.href='MyPage_Folder';
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+								  
+								location.href='MyPage_Folder';
+							    
+							  }
+							})
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}
 				}
 			});

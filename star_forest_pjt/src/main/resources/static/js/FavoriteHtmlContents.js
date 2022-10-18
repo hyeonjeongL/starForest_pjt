@@ -6,7 +6,7 @@ FavoriteHtmlContents.favorite_item_content = function(favorite,i) {
 					<div class="rentalTable">
 						<tr id="favorite_item">
 								<th id="favoriteNo">${i+1}
-								<th class="bookTitle">${favorite.book.book_title}</th>
+								<th class="bookTitle"><a href="book_detail?book_no=${favorite.book.book_no}">${favorite.book.book_title}</a></th>
 								<th class="bookAuthor">${favorite.book.book_author}</th>
 								<th class="bookPubl">${favorite.book.book_publisher}</th>
 								<th>

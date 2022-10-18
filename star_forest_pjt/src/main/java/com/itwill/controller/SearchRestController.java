@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwill.domain.Reservation;
 import com.itwill.domain.Search;
 import com.itwill.domain.SearchListPageMaker;
 import com.itwill.service.SearchService;
@@ -111,34 +115,46 @@ public class SearchRestController {
 	
 	
 	/*
-	private static final org.slf4j.Logger logger =LoggerFactory.getLogger(SearchRestController.class);
+	 * @PostMapping("/reservation")
+	 
+	public Map reservation(int book_no, HttpSession session) throws Exception{
+		Map resultMap = new HashMap();
+		
+		int code=2;
+		String url="";
+		String msg="";
+		List<Reservation> resultList = new ArrayList<Reservation>();
+		try {
+			String sUserId= (String)session.getAttribute("sUserId");
+			int duplicationRes = reservationService.resCheckDupli(sUserId, book_no);
+			if(duplicationRes == 0) {
+				int res = reservationService.insertReservation(new Reservation(0, null, 1, book_no, sUserId));
+				bookService.updateResCnt(book_no);
+				if(res==1) {
+					code=1;
+					url="";
+					msg="신청완료";
+				}
+			}else if (duplicationRes !=0){
+				code=0;
+				url="";
+				msg="이미 예약한 도서입니다.";
+			}
+		} catch (Exception e) {
+			code=2;
+			url="";
+			msg="오류";
+			e.printStackTrace();
+		}
+		resultMap.put("code", code);
+		resultMap.put("url", url);
+		resultMap.put("msg", msg);
+		resultMap.put("data", resultList);
 	
-	//분야별 리스트
-	@RequestMapping(value = "/SearchList", method = RequestMethod.GET)
-	public void getList(@RequestParam ("c") int category_no,@RequestParam ("l") int level, Model model )throws Exception{
-		logger.info("get SearchList");
-		
-		List<Search> list=null;
-		list = searchService.list(category_no,level);
-		
-		model.addAttribute("SearchList",list);
-		
+		return resultMap;
 	}
 	
-	
-	
-	@Autowired(required = true)
-	private BookService bookService;
-
-	@RequestMapping("/rest_book_detail")
-	public Book book_detail(@RequestParam(value = "book_no", required = false) String book_noStr, Model model) throws Exception {
-
-		Book book = bookService.selectBookDetail(Integer.parseInt(book_noStr));
-		
-		return book;
-	}
 	*/
-	
 	
 	
 }

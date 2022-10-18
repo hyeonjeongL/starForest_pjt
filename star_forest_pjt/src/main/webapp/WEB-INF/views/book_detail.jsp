@@ -207,6 +207,7 @@ d
 											success: function (jsonResult) {
 												if(jsonResult.code==1){
 									            alert("대여신청이 완료되었습니다.");
+									            console.log(jsonResult.code);
 									            location.href='book_detail?book_no='+$(e.target).attr("book_no");
 												} else if(jsonResult.code==0){
 									        	alert("이미 대여한 도서입니다.");
@@ -273,12 +274,20 @@ d
 							console.log($(event.target).attr('book_no'));
 							$.ajax({
 							url:'reservation',
-							dataType :'text',
+							dataType :'json',
 							data:'book_no='+$(e.target).attr("book_no"),
 							method:'POST',
-							succss:function(res){
-								console.log("test");
-							/* 	alert("예약이 완료되었습니다.");		 */	
+							success:function(jsonResult){
+								if(jsonResult.code==1){
+						            alert("예약이 완료되었습니다.");
+						        		console.log(jsonResult.code);
+						            location.href='book_detail?book_no='+$(e.target).attr("book_no");
+						        	}else if(jsonResult.code==0){
+						            alert("이미 예약한 도서입니다.");
+						        		
+						        	}else if(jsonResult.code==2){
+						        		alert(jsonResult.msg);
+						        	}
 							} ,
 							error:function(jqXHR, textStatus, errorThrown ) {
 								
@@ -295,15 +304,6 @@ d
 							fail : function() {
 					            alert("인터넷 연결 상태를 확인해주세요.");
 					            $('.wrap-loading').addClass('display-none');
-					        },
-					        complete: function (jsonResult) {
-					        	if(jsonResult.code==1){
-					            alert("예약이 완료되었습니다.");
-					            location.href='book_detail?book_no='+$(e.target).attr("book_no");
-					        	}else if(jsonResult!=0){
-					            alert("이미 예약한 도서입니다.");
-					        		
-					        	}
 					        }
 						}) 
 						});

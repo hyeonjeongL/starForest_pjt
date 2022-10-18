@@ -191,7 +191,7 @@ $(function(){
 					<div class="col-md-3 noto-serif mb-3">
 						<div class="sidebar">
 							<div class="side-head">
-								<h4 class="text-light">전체 도서</h4>
+								<h4 class="text-light" style="color:black !important; font-weight: 900 !important">전체 도서</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item"><a href="SearchResult2">도서검색</a></li>

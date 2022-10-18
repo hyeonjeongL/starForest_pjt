@@ -202,6 +202,7 @@ d
 						$(document).on('click','.btn.btn-primary.submit-request', function(e){
 										$.ajax({
 											url:'rest_rental',
+											dataType :'json',
 											data:'book_no='+$(e.target).attr("book_no"),
 											method:'POST',
 											success: function (jsonResult) {

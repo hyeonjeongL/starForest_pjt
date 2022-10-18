@@ -15,8 +15,30 @@ UserBookHtmlContents.user_rental_item_content = function(book,i) {
 }
 
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
-	return `
-						<h3>대출현황</h3>
+	return `<br>
+						<table>
+					<img src="img/book_flip.gif" width="500px;" style="margin-left:150px;"><br>
+					<div class="count_wrap" style="margin-left:150px; font-size:20pt; font-weight:900;"> 
+					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;">
+					${
+						function(){
+							var weight=0;
+							var finalweight=0;
+							for(var i=0; i<rentalArray.length; i++){
+								weight =rentalArray[i].book_page;
+								finalweight+=weight;
+							}
+							
+							return finalweight;
+							}()
+							
+					}
+					</span>&nbsp;&nbsp;쪽&nbsp;입니다.
+					<br>
+					<br>
+				<br>
+					</div>
+					</table>
 	<div class="mybook">
 			 
 					<table class="tableList">
@@ -37,30 +59,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 					</table>
 					</div>
 					<br>
-					<table>
-					<img src="img/book_flip.gif" width="500px;" style="margin-left:70px;"><br>
-					<div class="count_wrap" style="margin-left:85px; font-size:20pt; font-weight:900;"> 
-					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;">
-					${
-						function(){
-							var weight=0;
-							var finalweight=0;
-							for(var i=0; i<rentalArray.length; i++){
-								weight =rentalArray[i].book_page;
-								finalweight+=weight;
-							}
-							
-							return finalweight;
-							}()
-							
-					}
-					</span>&nbsp;&nbsp;쪽&nbsp;입니다.
-					<br>
-					<br>
-					<br>
-					<br>
-					</div>
-					</table>
+					<br><br><br>
 				`;
 }
 

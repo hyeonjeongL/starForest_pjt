@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -95,13 +96,40 @@
 				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert('반납이 완료됐습니다.')
+						Swal.fire({
+							  title: '반납이 완료되었습니다.',
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='seatReservation';
+							  }
+							})
+						
+						//alert('반납이 완료됐습니다.')
 						/*
 						삭제 성공시 새로고침
 						*/
-						location.href='seatReservation';
+						//location.href='seatReservation';
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							  }
+							})
 					}
 				}
 				

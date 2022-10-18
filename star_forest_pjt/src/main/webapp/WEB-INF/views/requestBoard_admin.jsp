@@ -11,6 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
 	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -164,7 +165,23 @@
 				data:param,
 				success: function(jsonResult){
 					console.log(jsonResult);
-					$('#btn_request_list').trigger('click');
+					if(jsonResult.code==1){
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  	location.href="requestBoard";
+							    
+							  }
+							})						
+					//$('#btn_request_list').trigger('click');
+					}
 				}
 			}); 
 			 e.preventDefault();
@@ -219,11 +236,52 @@
 								$('#requestBoard_wrap').html(request_view_admin(item));
 							}
 						});
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 						}else if(jsonResult.code==2){
-							alert(jsonResult.msg);
+							Swal.fire({
+								  title: jsonResult.msg,
+								  text: '',
+								  icon: 'error',
+								  showCancelButton: false,
+								  confirmButtonColor: '#3085d6',
+								  cancelButtonColor: '#d33',
+								  confirmButtonText: '확인'
+								}).then((result) => {
+								  if (result.isConfirmed) {
+								  
+								    
+								  }
+								})
+							//alert(jsonResult.msg);
 						}else if(jsonResult.code==0){
-							alert(jsonResult.msg);
+							Swal.fire({
+								  title: jsonResult.msg,
+								  text: '',
+								  icon: 'error',
+								  showCancelButton: false,
+								  confirmButtonColor: '#3085d6',
+								  cancelButtonColor: '#d33',
+								  confirmButtonText: '확인'
+								}).then((result) => {
+								  if (result.isConfirmed) {
+								  
+								    
+								  }
+								})
+							//alert(jsonResult.msg);
 					}
 				}
 				
@@ -250,11 +308,38 @@
 				success:function(jsonResult){
 					console.log(jsonResult);
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
-						$('#btn_request_list').trigger('click');
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    location.href="requestBoard";
+							  }
+							})
+						//alert(jsonResult.msg);
+						//$('#btn_request_list').trigger('click');
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-						$('#btn_request_list').trigger('click');
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
+						//alert(jsonResult.msg);
 					}
 				}
 				

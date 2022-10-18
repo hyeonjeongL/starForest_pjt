@@ -11,6 +11,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 
 <link rel="stylesheet"
@@ -207,15 +209,55 @@ a{
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==-2){
-						alert(jsonResult.msg);
+						   Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'error',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}else if(jsonResult.code==-1){
-						alert(jsonResult.msg);
+						   Swal.fire({
+		                       title: jsonResult.msg, text: '',
+		                       icon: 'error',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}else if(jsonResult.code==1){
-						alert("신청되었습니다 :)");
-						location.reload(); //인원수 카운트 후 새로고침
+						Swal.fire({
+		                       title: '신청되었습니다.', text: '',
+		                       icon: 'success',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                    	   location.href='bookclub';
+		                       }
+		                     })
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                       title: jsonResult.msg, text: '',
+		                       icon: 'warning',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
 						location.href="user";
+		                       }
+		                     })
 					}
 				}
 			});
@@ -271,10 +313,30 @@ a{
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$("#btn_list").trigger('click');
-						alert(jsonResult.msg);
+						//$("#btn_list").trigger('click');
+						 Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'success',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						 Swal.fire({
+		                       title: jsonResult.msg, text: '',
+		                       icon: 'error',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}
 				}
 				

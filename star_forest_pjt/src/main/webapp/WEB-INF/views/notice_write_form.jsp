@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -91,7 +92,17 @@
 			method:'GET',
 			success:function(jsonResult){
 				if(jsonResult.code==2){
-				alert(jsonResult.msg);
+					Swal.fire({
+	                    title: '',  text: jsonResult.msg,
+	                    icon: 'error',
+	                    showCancelButton: false,
+	                    confirmButtonColor: '#3085d6',
+	                    cancelButtonColor: '#d33',
+	                    confirmButtonText: '확인'
+	                  }).then((result) => {
+	                    if (result.isConfirmed) {
+	                    }
+	                  })
 				location.href='user';
 				}else if(jsonResult.code==1){
 				location.href='notice_write_form';
@@ -161,7 +172,17 @@
 					if(jsonResult.code==1){
 					$('#notice_wrap').html(notice_modify_form(item));
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                    title: '',  text: jsonResult.msg,
+		                    icon: 'error',
+		                    showCancelButton: false,
+		                    confirmButtonColor: '#3085d6',
+		                    cancelButtonColor: '#d33',
+		                    confirmButtonText: '확인'
+		                  }).then((result) => {
+		                    if (result.isConfirmed) {
+		                    }
+		                  })
 					}
 				}
 			});
@@ -190,11 +211,41 @@
 						    	$('#notice_wrap').html(notice_detail(jsonResult.data[0]));
 						    }
 						});
-						alert(jsonResult.msg);
+						Swal.fire({
+		                    title: '',  text: jsonResult.msg,
+		                    icon: 'success',
+		                    showCancelButton: false,
+		                    confirmButtonColor: '#3085d6',
+		                    cancelButtonColor: '#d33',
+		                    confirmButtonText: '확인'
+		                  }).then((result) => {
+		                    if (result.isConfirmed) {
+		                    }
+		                  })
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                    title: '',  text: jsonResult.msg,
+		                    icon: 'error',
+		                    showCancelButton: false,
+		                    confirmButtonColor: '#3085d6',
+		                    cancelButtonColor: '#d33',
+		                    confirmButtonText: '확인'
+		                  }).then((result) => {
+		                    if (result.isConfirmed) {
+		                    }
+		                  })
 					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                    title: '',  text: jsonResult.msg,
+		                    icon: 'error',
+		                    showCancelButton: false,
+		                    confirmButtonColor: '#3085d6',
+		                    cancelButtonColor: '#d33',
+		                    confirmButtonText: '확인'
+		                  }).then((result) => {
+		                    if (result.isConfirmed) {
+		                    }
+		                  })
 					}
 				}
 			});
@@ -215,9 +266,29 @@
 					if(jsonResult.code==1){
 						$('#btn_notice_list').trigger('click');
 					}else if(code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                    title: '',  text: jsonResult.msg,
+		                    icon: 'error',
+		                    showCancelButton: false,
+		                    confirmButtonColor: '#3085d6',
+		                    cancelButtonColor: '#d33',
+		                    confirmButtonText: '확인'
+		                  }).then((result) => {
+		                    if (result.isConfirmed) {
+		                    }
+		                  })
 					}else if(code==0){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                    title: '',  text: jsonResult.msg,
+		                    icon: 'error',
+		                    showCancelButton: false,
+		                    confirmButtonColor: '#3085d6',
+		                    cancelButtonColor: '#d33',
+		                    confirmButtonText: '확인'
+		                  }).then((result) => {
+		                    if (result.isConfirmed) {
+		                    }
+		                  })
 					}
 				}
 				

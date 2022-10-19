@@ -5,7 +5,7 @@
 <select id = "selectAll" parameterType="map" resultType = "com.itwill.domain.Notice">
 		select ss.* from 
 		(select rownum idx, s.* from
-		(select * from notice order by setting desc, notice_no desc)s
+		(select * from notice order by setting asc, notice_no desc)s
 		)ss
 		where ss.idx <![CDATA[ >= ]]> #{pageStart} and ss.idx <![CDATA[ <= ]]> #{pageEnd}
 	</select>

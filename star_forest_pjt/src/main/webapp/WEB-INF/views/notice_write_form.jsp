@@ -293,8 +293,20 @@
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">타이틀</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 240" name="notice_title" id=""></td>
-									</tr> 
+											style="width: 240" name="notice_title" id="">
+										</td>
+										<!-- <th scope="col" class="setting">
+	                                        	<input type="checkbox" name = "setting" value="1" id="setting" >
+	                                        	<input type="hidden" name = "setting" value="0" id="setting_hidden" >
+	                                	</th> -->
+									</tr>
+									<!-- <tr>
+										<td width="100" align="center" bgcolor="E6ECDE" height="22">고정</td>
+										<th scope="col" class="setting">
+	                                        	<input type="checkbox" name = "setting" bgcolor="E6ECDE" value="1" id="setting" >
+	                                        	<input type="hidden" name = "setting"  value="0" id="setting_hidden" >
+	                                	</th>
+									</tr> -->
 									<tr>
 										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"

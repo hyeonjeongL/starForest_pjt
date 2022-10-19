@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>나의도서 - 별빛도서관</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <link rel="stylesheet"
@@ -64,7 +65,21 @@ $(function() {
 						});
 						
 					}else if(jsonResult.code==-1){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}
 				}
 			});
@@ -82,10 +97,38 @@ $(function() {
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
-						location.href='MyPage_Folder';
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+								  
+								location.href='MyPage_Folder';
+							    
+							  }
+							})
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						//alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}
 				}
 			});

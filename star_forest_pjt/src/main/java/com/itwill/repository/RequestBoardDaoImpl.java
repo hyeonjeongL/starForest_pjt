@@ -94,4 +94,9 @@ public class RequestBoardDaoImpl implements RequestBoardDao{
 		return requestBoardMapper.list(map);
 	}
 
+	@Override
+	public RequestBoard selectBygroupNo(int board_groupno) throws Exception {
+		return requestBoardMapper.selectBygroupNo(board_groupno);
+	}
+
 }

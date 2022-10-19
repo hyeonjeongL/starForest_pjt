@@ -137,7 +137,7 @@ public class RequestBoardRestController {
 			}else {
 			rowCount = requestBoardService.create(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, null, 1, 0, 0, 0, requestBoard.getCategory_name(), sUserId));
 			code=1;
-			msg="글쓰기가 작성됨";
+			msg="글쓰기가 완료되었습니다";
 			resultList.add(requestBoard);
 			}
 		}catch (Exception e) {
@@ -169,7 +169,7 @@ public class RequestBoardRestController {
 			 * String board_status, int board_type_no, int board_depth, int board_step, int groupno, String category_name, String user_id
 			 */
 			rowCount = requestBoardService.create_notice(new RequestBoard(0, requestBoard.getBoard_title(), requestBoard.getBoard_date(), requestBoard.getBoard_content(), 0, "공지사항", 0, 0, 0, 0, null, sUserId));
-			msg="글쓰기가 작성됨";
+			msg="글쓰기가 완료되었습니다";
 			resultList.add(requestBoard);
 			code=1;
 		}catch (Exception e) {
@@ -204,8 +204,9 @@ public class RequestBoardRestController {
 				msg="글 쓴 본인만 수정할 수 있습니다";
 			}
 		}catch (Exception e) {
+			code=0;
 			e.printStackTrace();
-			msg="글쓰기수정폼에러";
+			msg="로그인 후 사용해주세요.";
 		}
 		
 		resultMap.put("msg", msg);
@@ -264,7 +265,7 @@ public class RequestBoardRestController {
 				msg="답글이 완료되었습니다.";
 			}else {
 				code=2;
-				msg="답글에서 에러남";
+				msg="답글쓰기가 잘못되었습니다.";
 			}
 			
 		}catch (Exception e) {
@@ -307,26 +308,33 @@ public class RequestBoardRestController {
 	}
 	
 	@PostMapping(value="/request_remove_action", produces = "application/json;charset=UTF-8")
-	public Map request_remove_action(@RequestParam int board_groupno) {
+	public Map request_remove_action(int board_groupno,HttpSession session) {
 		Map resultMap = new HashMap();
 		int code = 1;
 		String msg="";
+		String sUserId = (String)session.getAttribute("sUserId");
+		String admin="admin";
 		List<RequestBoard> resultList = new ArrayList<RequestBoard>();
-		
 		try {
+			RequestBoard requestBoard = requestBoardService.selectBygroupNo(board_groupno);
+			if(requestBoard.getUser_id().equals(sUserId)||sUserId.equals(admin)) {
 			int rowCount = requestBoardService.deleteByGroupno(board_groupno);
 			if(rowCount==1) {
 				code=1;
 				msg="삭제가 완료되었습니다.";
+				
 			}else if(rowCount==0){
 				code=2;
 				msg="답글이 달려있는 글은 삭제가 불가능합니다.";
 			}
-			
+			}else {
+				code=3;
+				msg="글쓴 본인만 삭제 가능합니다.";
+			}
 		}catch (Exception e) {
 			e.printStackTrace();
 			code=0;
-			msg="삭제에서 뭔가가 잘못됨";
+			msg="관리자만 삭제 가능합니다.";
 		}
 		resultMap.put("msg", msg);
 		resultMap.put("code", code);
@@ -337,15 +345,18 @@ public class RequestBoardRestController {
 	 * admin 삭제
 	 */
 	@PostMapping(value="/request_remove_admin_action", produces = "application/json;charset=UTF-8")
-	public Map request_remove_admin_action(@RequestParam int board_no) {
+	public Map request_remove_admin_action(@RequestParam int board_no,HttpSession session) {
 		Map resultMap = new HashMap();
 		String msg="";
 		int code=-999;
-		
+		String sUserId = (String)session.getAttribute("sUserId");
+		String admin = "admin";
 		try {
+			if(sUserId.equals(admin)) {
 			int rowCount = requestBoardService.delete(board_no);
 			msg="삭제가 완료되었습니다";
 			code=1;
+			}
 		} catch (Exception e) {
 			code=2;
 			msg="삭제에서 에러났네";

@@ -50,6 +50,8 @@ public interface RequestBoardDao {
 		//게시물 상세보기
 		RequestBoard selectOne(int board_no) throws Exception;
 		
+		RequestBoard selectBygroupNo(int board_groupno)throws Exception;
+		
 		//페이지에 있는 게시물 시작번호 / 끝번호
 		List<RequestBoard> list(int startNo,int endNum,Criteria cri) throws Exception;
 		

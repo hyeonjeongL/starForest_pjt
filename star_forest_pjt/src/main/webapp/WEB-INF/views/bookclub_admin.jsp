@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -34,7 +34,12 @@
 
 <title>나의도서 - 별숲도서관</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 .img-fluid {
 	height: 250px;
 	width: 244px;
@@ -52,7 +57,7 @@
 }
 
 #btn_category,.rentalTable{
-	font-family: 'Gowun Dodum', sans-serif;
+	font-family: 'GmarketSansMedium';
 }
 </style>
 
@@ -163,10 +168,30 @@
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'success',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 						$("#btn_list").trigger('click');
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'error',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}
 				}
 				
@@ -207,6 +232,17 @@
 						var club_no=$("#club_modify_form input[name='club_no']").val();
 						var param='club_no='+club_no;
 						console.log(param);
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'success',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 						$.ajax({
 							url:'club_detail',
 							method:'POST',
@@ -218,7 +254,17 @@
 							}
 						});
 					} else if(jsonResult.code==-1){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'error',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}
 				}
 				
@@ -234,10 +280,30 @@
 				data:param,
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert(jsonResult.msg);
-						location.reload();
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'success',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+								location.reload();
+		                       }
+		                     })
 					}else if(jsonResult.code==-1){
-						alert(jsonResult.msg);
+						Swal.fire({
+		                       title: jsonResult.msg,  text: '',
+		                       icon: 'error',
+		                       showCancelButton: false,
+		                       confirmButtonColor: '#3085d6',
+		                       cancelButtonColor: '#d33',
+		                       confirmButtonText: '확인'
+		                     }).then((result) => {
+		                       if (result.isConfirmed) {
+		                       }
+		                     })
 					}
 				}
 			});
@@ -276,7 +342,7 @@
 				<div class="col-md-3 noto-serif">
 					<div class="sidebar">
 						<div class="side-head">
-							<h4 class="text-light">커뮤니티</h4>
+							<h4 class="text-light" style="color:black !important">커뮤니티</h4>
 						</div>
 						<ul class="list-group list-group-flush mb-5">
 							<li id="side_bookClub" class="list-group-item"><a href="bookclub"

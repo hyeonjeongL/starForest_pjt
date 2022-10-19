@@ -124,7 +124,7 @@ public class RentalRestController {
 			} else if (rental == 0) {
 				code = -1;
 				url = "";
-				msg = "무슨오륜디";
+				msg = "error";
 			}
 		} catch (Exception e) {
 			code = 2;

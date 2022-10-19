@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -71,9 +72,22 @@
 					    
 					    //쓰기성공시 guest list보여주기
 					    // - #menu_guest_list anchor의 click event trigger[발생]
-						
-						$('#btn_request_list').trigger('click'); 
-					   	alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='requestBoard';
+							  }
+							})
+						//$('#btn_request_list').trigger('click'); 
+					   //	alert(jsonResult.msg);
 				}
 				
 					
@@ -160,7 +174,7 @@
 										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="board_title"></td>
+											style="width: 350px" name="board_title" value="[신청합니다]"></td>
 									</tr>
 									
 									<tr>

@@ -1,26 +1,31 @@
 package com.itwill.repository;
 
 import java.util.List;
+import java.util.Map;
 
 import com.itwill.domain.Search;
+import com.itwill.util.Criteria;
 
 
 
 //검색기능
 public interface SearchDao {
+	//빈칸 체크
+	List<Search> searching(Search search) throws Exception;
 	
+	//게시물 검색 총 갯수
+	int categoryCount(int category_no)throws Exception;
 	
-	
+	//페이지에 있는 게시물 시작번호 / 끝번호
+	List<Search> listAll(int startNo,int endNum,Criteria cri,int category_no)throws Exception;
 	
 	//검색기능 
-		List<Search> searchList(Search search) throws Exception;
+	List<Search> searchList(Search search) throws Exception;
 	
-	
-		//분야 리스트 뽑기
-			 List<Search> cateList(int category_no)throws Exception;
-
-				//전체 리스트 뽑기
-			List<Search> allList()throws Exception;
+	//분야 리스트 뽑기
+	 List<Search> cateList(int category_no)throws Exception;
+		//전체 리스트 뽑기
+	List<Search> allList()throws Exception;
 /*
 	// 제목 검색
 	List<Search> titleList(String keyword) throws Exception;

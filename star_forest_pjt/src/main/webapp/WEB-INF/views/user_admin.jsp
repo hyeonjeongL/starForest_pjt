@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <link rel="stylesheet"
@@ -86,7 +87,21 @@ $(function(){
 			data:param,
 			success:function(jsonResult){
 				if(jsonResult.code==1){
-					alert("회원목록에서 삭제되었습니다.");
+					Swal.fire({
+						  title: '회원목록에서 삭제되었습니다.',
+						  text: '',
+						  icon: 'error',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+						  
+						    
+						  }
+						})
+					//alert("회원목록에서 삭제되었습니다.");
 					$.ajax({
 						url:'user_all_list',
 						method:'GET',
@@ -98,7 +113,21 @@ $(function(){
 							
 					});
 				}else{
-					alert(jsonResult.msg);
+					//alert(jsonResult.msg);
+					Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 				}
 			}
 		});

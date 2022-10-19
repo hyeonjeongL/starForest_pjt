@@ -111,4 +111,10 @@ public class RequestBoardServiceImpl implements RequestBoardService{
 		return boardListPageMaker;
 	}
 
+	@Override
+	public RequestBoard selectBygroupNo(int board_groupno) throws Exception {
+		
+		return requestBoardDao.selectBygroupNo(board_groupno);
+	}
+
 }

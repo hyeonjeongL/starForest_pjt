@@ -3,19 +3,29 @@ package com.itwill.service;
 import java.util.List;
 
 import com.itwill.domain.Search;
+import com.itwill.domain.SearchListPageMaker;
+import com.itwill.util.Criteria;
 
 //검색기능
 public interface SearchService {
 	
-
-//검색기능 
-List<Search> searchList(Search search) throws Exception;
+	//검색값 체크
+	//int searching(String Keyword)throws Exception;
 	
-//분야 리스트 뽑기
-List<Search> cateList(int category_no)throws Exception;
+	//게시물 검색 총 갯수
+	
+	
+	//페이지에 있는 게시물 시작번호 / 끝번호
+	public SearchListPageMaker listAll(Criteria cri,int category_no) throws Exception;
 
-	//전체 리스트 뽑기
-List<Search> allList()throws Exception;
+	//검색기능 
+	List<Search> searchList(Search search) throws Exception;
+		
+	//분야 리스트 뽑기
+	List<Search> cateList(int category_no)throws Exception;
+	
+		//전체 리스트 뽑기
+	List<Search> allList()throws Exception;
 	/*
 	// 제목 검색
 		List<Search> titleList(String keyword) throws Exception;

@@ -534,4 +534,32 @@ public class UserInfoRestController {
 			resultMap.put("data", resultList);
 			return resultMap;
 		}
+		
+		//대출정지기간
+		@PostMapping("/rental_stop_period")
+		public Map rental_stop_period(@RequestParam String user_id) throws Exception {
+			Map resultMap = new HashMap();
+			int code = 2;
+			String url = "";
+			String msg = "";
+			List<User> resultList = new ArrayList<User>();
+			
+			int stopPeroid=userService.rentalStopPeriod(user_id);
+			if(stopPeroid>0) {
+				code = 1;
+				url = "main";
+				msg = "삭제성공";
+			}else {
+				code = -1;
+				url = "main";
+				msg = "삭제실패";
+			}
+			
+			
+			resultMap.put("code", code);
+			resultMap.put("url", url);
+			resultMap.put("msg", msg);
+			resultMap.put("data", resultList);
+			return resultMap;
+		}
 }

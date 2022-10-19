@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
@@ -57,14 +58,55 @@
 				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						$('#menu_seatReservation').trigger('click');
-						alert(jsonResult.msg);
-						location.href='seatReservation';
+						//$('#menu_seatReservation').trigger('click');
+						//alert(jsonResult.msg);
+						//location.href='seatReservation';
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='seatReservation_my';
+							  }
+							})
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-						location.href='user';
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								  location.href='user';
+							  }
+							})
+						//alert(jsonResult.msg);
+						//location.href='user';
 					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							  }
+							})
+						//alert(jsonResult.msg);
 					}
 				}
 				
@@ -127,10 +169,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="0" end="9">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="a-deck" style="background-color:#fffac2;">
+							<div class="a-deck" style="background-color:#fff5d9;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="a-deck" style="background-color:#9b9b9b;">
+							<div class="a-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -160,10 +202,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="10" end="19">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="b-deck" style="background-color:#d4edff;">
+							<div class="b-deck" style="background-color:#edf2fa;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="b-deck" style="background-color:#9b9b9b;">
+							<div class="b-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -192,10 +234,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="20" end="29">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="c-deck" style="background-color:#ffe6f6;">
+							<div class="c-deck" style="background-color:#ffddd9;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="c-deck" style="background-color:#9b9b9b;">
+							<div class="c-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>
@@ -225,10 +267,10 @@
 						<c:forEach items="${seatList}" var="seat" begin="30" end="39">
 						<c:choose>
 						<c:when test="${seat.seat_status==0 }">
-							<div class="d-deck" style="background-color:#e4ffc5;">
+							<div class="d-deck" style="background-color:#dadaef;">
 						</c:when>
 						<c:when test="${seat.seat_status==1 }">
-							<div class="d-deck" style="background-color:#9b9b9b;">
+							<div class="d-deck" style="background-color:#c9c9c9;">
 						</c:when>
 						</c:choose>
 						<c:choose>

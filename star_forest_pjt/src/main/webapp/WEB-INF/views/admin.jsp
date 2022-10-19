@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 <link rel="stylesheet"
@@ -59,7 +60,21 @@ $(function(){
 				var rentalTArray=jsonResult.data;
 				$('.listTable').html(adminContents.admin_total_rental_list_content(rentalTArray));
 			}else if(jsonResult.code==2){
-				alert(jsonResult.msg);
+				//alert(jsonResult.msg);
+				Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 			}
 		}
 	});
@@ -73,7 +88,21 @@ $(document).on('click','#admin_return',function(e){
 				var rentalTArray=jsonResult.data;
 				$('.listTable').html(adminContents.admin_total_rental_list_content(rentalTArray));
 			}else if(jsonResult.code==2){
-				alert(jsonResult.msg);
+				//alert(jsonResult.msg);
+				Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 			}
 		}
 	});
@@ -93,15 +122,56 @@ $(document).on('click','#btn_admin_return',function(e){
 		data:param,
 		success:function(jsonResult){
 			if(jsonResult.code==1){
-				alert("반납처리 되었습니다.");
-				location.reload();
-			}else if(jsonResult.code==2){
-				alert(jsonResult.msg);
+				//alert("반납처리 되었습니다.");
+				//location.reload();
+				Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  	location.href="admin";
+							    
+							  }
+							})
+				
+			}else if(jsonResult.code==-1){
+				Swal.fire({
+					  title: jsonResult.msg,
+					  text: '',
+					  icon: 'error',
+					  showCancelButton: false,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: '확인'
+					}).then((result) => {
+					  if (result.isConfirmed) {
+					  
+					    
+					  }
+					})
 			}
 		},
 		error:function(jsonResult){	
 			if(jsonResult.code==2){
-				alert("오류");
+				Swal.fire({
+					  title: '오류',
+					  text: '',
+					  icon: 'error',
+					  showCancelButton: false,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: '확인'
+					}).then((result) => {
+					  if (result.isConfirmed) {
+					  
+					    
+					  }
+					})
 			}
 		}
 	});
@@ -122,7 +192,21 @@ $(document).on('click','#btn_search', function(e){
 				var rentalArray=jsonResult.data;
 				$('.listTable').html(adminContents.admin_user_now_rental_list_content(rentalArray));
 			}else if(jsonResult.code==2){
-				alert(jsonResult.msg);
+				//alert(jsonResult.msg);
+				Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 			}
 			
 		}

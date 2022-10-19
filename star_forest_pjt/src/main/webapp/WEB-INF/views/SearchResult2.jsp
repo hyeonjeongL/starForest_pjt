@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-< <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
@@ -33,9 +33,22 @@
 <script type="text/javascript"> 
 </script>
 <script type="text/javascript">
-	
+
+		
 	$(document).on('click', '#btn_search', function(e) {
 
+		const keyword=$('input').val();
+		const type=$('type').val();
+		
+		if($("#type").val() == null){
+			alert("선택해주세요.");
+			return false;
+		}
+		if($("#keyword").val() == false){
+			alert("입력해주세요.");
+			return false;
+		}
+		
 		var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
 		  
 		console.log(param);
@@ -67,8 +80,21 @@
 				}
 				$('#searchBookList').html(html);
 			}
-			
+		
 		});
+		
+		$.ajax({
+			url : 'getSearchList',
+			method : 'GET',
+			data : param,
+			success : function(bookList) {
+				if(bookList == ""){
+					alert("검색 결과가 없습니다.");
+					window.location.href = "SearchResult2";
+				}
+			}
+			});
+		
 		e.preventDefault();
 	});
 

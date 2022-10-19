@@ -69,7 +69,7 @@ BookClubHtmlContents.club_join_html = function(bookClubArray,pageArray) {
 		<form id="page_form" method="get">
 		<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum}">
         <input type="hidden" name="amount" value="${pageArray.cri.amount}">    
-					<ul id="page">
+					<ul id="page" >
 				 		
 				 		
 				 		<!-- 이전페이지 버튼 -->
@@ -78,7 +78,7 @@ BookClubHtmlContents.club_join_html = function(bookClubArray,pageArray) {
 								var prev = pageArray.prev;
 								var html='';
 								if(prev){
-									html=`<li class="page_btn_prev"><a href="bookclub?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
+									html=`<li class="page_btn_prev" ><a href="bookclub?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
 								}
 								return html;
 							}()

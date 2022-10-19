@@ -29,18 +29,34 @@
 <title>도서정보 - 별숲도서관</title>
 <script type="text/javascript">
 	/********all list***********/
+$(function(){
+	
+	
+	var param = 'category_no=900&pageNum=1&amount=10';
 	$.ajax({
-		url : 'book_list',
+		url : 'search_list_json',
 		method : 'GET',
+		data:param,
 		success : function(jsonResult) {
 			var bookCateArray = jsonResult.data;
 			$('#searchAllList').html(Search.cate_join_html(bookCateArray));
 		}
+		
 	});
-	$(document).on('click', '#side_book,#btn_all', function(e) {
+	
+});	
+	
+	
+	$(document).on('click', '#side_book , .btn_category_search', function(e) {
+		const category_no=$(e.target).attr('value');
+		console.log(">>>>>>>>>>>>>>>"+category_no);
+		if(category_no==null||category_no=='')category_no=900;
+		
+		var param = "category_no="+category_no+"&pageNum=1&amount=10";
 		$.ajax({
-			url : 'book_list',
+			url : 'search_list_json',
 			method : 'GET',
+			data:param,
 			success : function(jsonResult) {
 				var bookCateArray = jsonResult.data;
 				$('#searchAllList').html(Search.cate_join_html(bookCateArray));
@@ -49,7 +65,7 @@
 		e.preventDefault();
 	});
 
-	/********category_list********/
+	/********category_list*******
 	$(document).on('click', '#btn1', function(e) {
 		var param = 'category_no=' + $(e.target).attr('value');
 
@@ -66,8 +82,58 @@
 		});
 		e.preventDefault();
 	});
-	
+	*/
 	/********페이징********/
+	
+	/***********************************************
+	function book_list_json(param){
+	console.log(param)	   
+	$.ajax({
+				url:'search_list_json',
+				method:'GET',
+				data:param,
+				success:function(jsonResult){
+					var bookCateArray = jsonResult.data;
+					var pageArray = jsonResult.pageMaker[0];
+					console.log(jsonResult);
+					$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+					//$('#page_wrap').html(pageArray);
+				}
+			});
+	}
+	
+		
+	$(document).on('click', '#side_book,#btn_all', function(e) {
+		$.ajax({
+			url : 'search_list_json',
+			method : 'GET',
+			success : function(jsonResult) {
+				var bookCateArray = jsonResult.data;
+				var pageArray = jsonResult.pageMaker[0];
+				$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+			}
+		});
+		e.preventDefault();
+	});
+
+	
+	$(document).on('click', '#btn1', function(e) {
+		var param = 'category_no=' + $(e.target).attr('value');
+
+		$.ajax({
+			url : 'search_category',
+			method : 'POST',
+			dataType : 'json',
+			data : param,
+			success : function(jsonResult) {
+				var bookCateArray = jsonResult.data;
+				console.log(bookCateArray);
+				var pageArray = jsonResult.pageMaker[0];
+				$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+			}
+		});
+		e.preventDefault();
+	});*/
 	
 </script>
 <style type="text/css">
@@ -95,6 +161,7 @@
 
 </head>
 <body class="d-flex flex-column">
+	
 	<div id="page-content">
 		<!-- navigation start-->
 		<div id="navigation">
@@ -124,7 +191,7 @@
 					<div class="col-md-3 noto-serif mb-3">
 						<div class="sidebar">
 							<div class="side-head">
-								<h4 class="text-light">전체 도서</h4>
+								<h4 class="text-light" style="color:black !important; font-weight: 900 !important">전체 도서</h4>
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item"><a href="SearchResult2">도서검색</a></li>
@@ -142,14 +209,14 @@
 					<div class="col-md-9">
 						<div class="row col-md-12">
 							<div class="category" id="btn_category">
-								 <button type="button" id="btn_all" value="all" style="width:50px" >전체</button>
-					             <button type="button" id="btn1" value="100" style="width:130px">건강/취미/레저</button>
-					             <button type="button" id="btn1" value="200" style="width:80px">경제경영</button>
-					             <button type="button" id="btn1" value="300" style="width:50px">고전</button>
-					             <button type="button" id="btn1" value="400" style="width:50px">과학</button> 
-					             <button type="button" id="btn1" value="500" style="width:50px">만화</button>
-					             <button type="button" id="btn1" value="600" style="width:85px">사회과학</button>
-				             	<button type="button" id="btn1" value="700" style="width:120px">소설/시/희곡</button>
+								 <button type="button" id="btn1"  class="btn_category_search" value="900" style="width:50px" >전체</button>
+					             <button type="button" id="btn1"  class="btn_category_search" value="100" style="width:130px">건강/취미/레저</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="200" style="width:80px">경제경영</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="300" style="width:50px">고전</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="400" style="width:50px">과학</button> 
+					             <button type="button" id="btn1" class="btn_category_search" value="500" style="width:50px">만화</button>
+					             <button type="button" id="btn1" class="btn_category_search" value="600" style="width:85px">사회과학</button>
+				             	<button type="button" id="btn1" class="btn_category_search" value="700" style="width:120px">소설/시/희곡</button>
 				             	<br>
 				        	</div>
 						</div>
@@ -158,7 +225,62 @@
 						
 						<!-------------------------------- -->
 					   </div>
-					
+					   
+					   
+					<!-------------페이징------------------- -->
+					<div id="page_wrap">
+		<%-- <form id="page_form">
+					<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum?pageArray.cri.pageNum:1}">
+	        		<input type="hidden" name="amount" value="${pageArray.cri.amount?pageArray.cri.amount:10}">   
+			        	  
+  	  	  </form>
+  	  	
+		<div class="page_area">
+	
+					<ul id="page">
+				 		
+				 		
+				 		<!-- 이전페이지 버튼 -->
+				 		${
+							function(){
+								var prev = pageArray.prev;
+								var html='';
+								if(prev){
+									html=`<li class="page_btn_prev"><a href="SearchList?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
+								}
+								return html;
+							}()
+						}
+                    	${
+							function(){
+								var html='';	
+							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="SearchList?pageNum=${i}" pageNum=${i}>${i}</a></li>`;
+								}							
+								return html;
+							}()
+	                    }
+	                    
+	                     <!-- 다음페이지 버튼 -->${
+							function(){
+								var next = pageArray.next;
+								var html='';
+								if(next){
+									html=`<li class="page_btn_next"><a href="SearchList?pageNum=${pageArray.endPage + 1 }" pageNum=${pageArray.endPage+1}>Next</a></li>`
+								}
+								return html;
+							}()
+						}
+	                    
+	                    
+               		</ul>
+               		
+		</div> --%>
+		
+					</div>
+		
+		
+		
 				</div>
 			</div>
 		</section>

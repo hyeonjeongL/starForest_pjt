@@ -217,12 +217,7 @@ b{
 	margin-top: 0px;
 	height:20px;
 }
-/*  ------------------------------------------- */
-/*    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      */
-/*    !!!!!!!  공통부분 추가 css 입니다  !!!!!!!      */
-/*    !!!!!!!      지우지 마세요       !!!!!!!      */
-/*    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!      */
-/*  ------------------------------------------- */
+
 
 html, body{
 	height: 100%;
@@ -320,7 +315,6 @@ html, body{
 }
 
 
-/* 유림 추가 홈헤딩 START */
 
 #heroDesc,
 #heroDescKor {
@@ -338,9 +332,7 @@ html, body{
 	margin-top: -53px;
 	color: #DCDCDC;
 }
-/* 유림 추가 홈헤딩 END*/
 
-/* 유림 추가 사이트맵 START */
 .siteMapTitle {
 	text-align: center;
 	color: #107637;
@@ -360,10 +352,8 @@ html, body{
 .siteMapAnchor:hover {
 	color:#75BD43;
 }
-/* 유림 추가 사이트맵 END */
 
 
-/* 유림 추가 대출반납연장 START */
 .howtoText {
 	 font-family: 'GmarketSansMedium';
 }
@@ -436,22 +426,6 @@ html, body{
     max-width: 75%;
   }
 
-/*
-request_board css
-*/
-/* .requestBoard_wrap{
-	margin:auto;
-	margin-left:50px; 
-	width:120px;
-	height:200px;
-	align:center;
-	background-color: black;
-	
-}
-#table2 {
-	border-bottom: 1px;
-	color: pink;
-} */
 
 
 /****예지꺼 지우면 안되용******/
@@ -623,3 +597,4 @@ button {
 }
 #myPageList a:visited {
   color : black;
+}

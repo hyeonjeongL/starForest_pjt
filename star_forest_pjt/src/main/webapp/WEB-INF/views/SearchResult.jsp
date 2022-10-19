@@ -32,6 +32,7 @@
   
 <script type="text/javascript">
 
+
 $(document).ready(function() {
 	
 	var param = 'keyword=' + $('input').val() + '&type='+ $('select').val();
@@ -41,7 +42,7 @@ $(document).ready(function() {
 		method : 'GET',
 		data : param,
 		success : function(bookList) {
-			console.log(bookList);
+			console.log(bookList);//bookList[i]==O array==o
 			var html='';
 			for(var i=0;i < bookList.length;i++){
 				var book = bookList[i];
@@ -60,11 +61,23 @@ $(document).ready(function() {
 				html+="			</div>";
 				html+="		</div>";
 				html+="	</div>";
-				console.log(html);	
+				console.log(html);
 			}
 			$('#searchBookList').html(html);
 		}
 	});
+	
+	$.ajax({
+		url : 'getSearchList',
+		method : 'GET',
+		data : param,
+		success : function(bookList) {
+			if(bookList == ""){
+				alert("검색 결과가 없습니다.");
+				window.location.href = "SearchResult2";
+				}
+			}
+		});
 	e.preventDefault();
 });
 </script>

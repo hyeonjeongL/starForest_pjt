@@ -5,6 +5,9 @@
 <%
 //String sUserId = (String)session.getAttribute("sUserId");
 %>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script type="text/javascript">
 $(function(){
 	/***********로그인 세션확인**************/
@@ -16,7 +19,22 @@ $(function(){
 			if (jsonResult.code == 1) {
 				console.log(jsonResult);
 			}else{ //세션 존재하지 않을경우 메세지창보여줌
-				alert('로그인이 필요한 페이지입니다:)');
+				//alert('로그인이 필요한 페이지입니다:)');
+				Swal.fire({
+					  title: '로그인이 필요한 페이지입니다:)',
+					  text: '',
+					  icon: 'error',
+					  showCancelButton: false,
+					  confirmButtonColor: '#3085d6',
+					  cancelButtonColor: '#d33',
+					  confirmButtonText: '확인'
+					}).then((result) => {
+					  if (result.isConfirmed) {
+					  
+					    
+					  }
+					})
+	
 			}
 		}
 	});
@@ -76,8 +94,22 @@ $(function(){
 		method:'GET',
 		success:function(jsonResult){
 			if(jsonResult.code==2){
-			alert(jsonResult.msg);
+			//alert(jsonResult.msg);
+			Swal.fire({
+			  title: jsonResult.msg,
+			  text: '',
+			  icon: 'error',
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: '확인'
+			}).then((result) => {
+			  if (result.isConfirmed) {
+			  
 			location.href='user';
+			    
+			  }
+			})
 			}else if(jsonResult.code==1){
 			location.href='seatReservation_my';
 	}
@@ -85,21 +117,36 @@ $(function(){
 	});
 	});
 	
-	
+	/*
 	$(document).on('click','#seatReservation_my',function(e){
 		$.ajax({
 		url:'login_check',
 		method:'GET',
 		success:function(jsonResult){
 			if(jsonResult.code==2){
-			alert(jsonResult.msg);
-			location.href='user';
+			//alert(jsonResult.msg);
+			Swal.fire({
+							  title: jsonResult.msg,
+							  text: '',
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+								location.href='user';
+							    
+							  }
+							})
 			}else if(jsonResult.code==1){
 			location.href='seatReservation_my';
 	}
 		}
 	});
 	});
+	*/
 	
 });	
 </script>
@@ -126,6 +173,7 @@ $(function(){
 						<li><a class="dropdown-item" href="faqViewpage"> 자주묻는질문</a></li>
 						<li><a class="dropdown-item" href="addrViewpageAPI"> 오시는길 </a></li>
 					</ul></li>
+				
 				<li class="nav-item dropdown"><a href="SearchResult2"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">도서정보</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -135,6 +183,7 @@ $(function(){
 						<li><a class="dropdown-item" href="Newbooks">신착도서</a></li>
 						<li><a class="dropdown-item" href="popularBook">이달의 인기도서</a></li>
 					</ul></li>
+					
 				<li class="nav-item dropdown"><a href="postList?group=20"
 					class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -142,6 +191,7 @@ $(function(){
 						<li><a class="dropdown-item" href="requestBoard"
 							id="menu_RequestBoard">도서신청게시판</a></li>
 					</ul></li>
+					<c:if test="${sUserId!='admin'}">
 				<li class="nav-item dropdown">
 					<a id="myMenu" class="nav-link dropdown-toggle" data-toggle="dropdown">나의도서</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
@@ -163,16 +213,16 @@ $(function(){
 
 					</ul>
 				</li>
-
+				
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">열람실</a>
 					<ul class="dropdown-menu dropdown-menu-left fade-down">
 						<li><a class="dropdown-item" href="seatReservation"
 							id="menu_seatReservation">열람실예약</a></li>
-						<li><a id="menu_my_seat" class="dropdown-item" href="seatReservation_my">예약확인</a></li>
+						<li><a id="menu_my_seat" class="dropdown-item">예약확인</a></li>
 					</ul>
 				</li>
-				
+				</c:if>
 				<c:if test="${sUserId=='admin'}">
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" data-toggle="dropdown">관리자</a>
@@ -180,7 +230,6 @@ $(function(){
 						<li><a class="dropdown-item" href="admin"
 							id="menu_adminReturn">도서 반납</a></li>
 						<li><a id="menu_admin_user" class="dropdown-item" href="user_admin">회원관리</a></li>
-						<li><a id="menu_admin_insert_newbook" class="dropdown-item" href="adminNewBook">신착도서 입력</a></li>
 					</ul>
 				</li>
 				</c:if>

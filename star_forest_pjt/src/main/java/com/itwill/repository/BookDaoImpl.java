@@ -105,6 +105,11 @@ public class BookDaoImpl implements BookDao {
 		return bookMapper.userBook(usre_id);
 	}
 
+	@Override
+	public int updateResCntM(int book_no) {
+		return bookMapper.updateResCntM(book_no);
+	}
+
 
 
 }

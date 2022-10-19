@@ -15,8 +15,30 @@ UserBookHtmlContents.user_rental_item_content = function(book,i) {
 }
 
 UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
-	return `
-						<h3>대출현황</h3>
+	return `<br>
+						<table>
+					<img src="img/book_flip.gif" width="500px;" style="margin-left:150px;"><br>
+					<div class="count_wrap" style="margin-left:150px; font-size:20pt; font-weight:900;"> 
+					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;color:#7a341e;">
+					${
+						function(){
+							var weight=0;
+							var finalweight=0;
+							for(var i=0; i<rentalArray.length; i++){
+								weight =rentalArray[i].book_page;
+								finalweight+=weight;
+							}
+							
+							return finalweight;
+							}()
+							
+					}
+					</span>&nbsp;&nbsp;쪽&nbsp;입니다.
+					<br>
+					<br>
+				<br>
+					</div>
+					</table>
 	<div class="mybook">
 			 
 					<table class="tableList">
@@ -37,30 +59,7 @@ UserBookHtmlContents.user_rental_list_content = function(rentalArray) {
 					</table>
 					</div>
 					<br>
-					<table>
-					<img src="img/book_flip.gif" width="500px;" style="margin-left:70px;"><br>
-					<div class="count_wrap" style="margin-left:85px; font-size:20pt; font-weight:900;"> 
-					나의 마음의 양식은&nbsp;<span class="count" style="font-size:30pt;">
-					${
-						function(){
-							var weight=0;
-							var finalweight=0;
-							for(var i=0; i<rentalArray.length; i++){
-								weight =rentalArray[i].book_page;
-								finalweight+=weight;
-							}
-							
-							return finalweight;
-							}()
-							
-					}
-					</span>&nbsp;&nbsp;쪽&nbsp;입니다.
-					<br>
-					<br>
-					<br>
-					<br>
-					</div>
-					</table>
+					<br><br><br>
 				`;
 }
 
@@ -111,6 +110,7 @@ function user_list_item_content(resList,i){
 				<th scope="row"><a href="book_detail?book_no=${resList.BOOK_NO}">${resList.BOOK_TITLE}</a></th>
 				<th scope="row">${resList.BOOK_AUTHOR}</th>
 				<th scope="row">${resList.RES_DATE.substring(0, 10)}</th>
+				<th scope="row"><button id="btn_delete_res" class="w-btn w-btn-detail" book_no="${resList.BOOK_NO}">예약삭제</button></th>
 			</tr>
 	
 	
@@ -130,6 +130,7 @@ UserBookHtmlContents.user_reservation_list_html=function(resList){
 								<th scope="row">제목</th>
 								<th scope="row" >저자</th>
 								<th scope="row"style="width:150px">예약일시</th>
+								<th scope="row" >삭제</th>
 							</tr>
 						</thead>
 						<tbody>

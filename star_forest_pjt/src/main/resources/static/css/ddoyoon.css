@@ -32,10 +32,11 @@ seat_reservation css
 		border-right:1px solid;
 		width:600px;
 		height:500px;
-		margin-left:650px;
+		margin-left:600px;
 		margin-right:0;
 		margin-top:10px;
 		align-content: center;
+		border:none;
 }
 .no_seat {
 	margin:auto;
@@ -250,13 +251,14 @@ seat_reservation css
 	text-align: center;
 	align-content: center;
 	float:left;
+	position: relative; top: -400px; left: -15px; right:400px; 
 }
 .my-deck{
 	border: none; 
 	border-radius: 20px;
-	background-color: #e4ffc5; 
+	background-color: #ffed9f; 
 	width:150px; 
-	height:150px;
+	height:200px;
 	float: left; 
 	margin-left:20px; 
 	margin-right: 5px;
@@ -309,7 +311,7 @@ request_board css
   .t5{
   text-align: left;
   padding-left: 10px;
-  width:150px;
+  width:100px;
   background-color: white;
   }
   #td_content {
@@ -497,7 +499,7 @@ request_board css
     padding: 5px 10px;
     border-radius: 10px;
 	font-family: 'GmarketSansMedium';
-     background-color: #eef2dd;
+     background-color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s; 	
@@ -509,7 +511,7 @@ request_board css
     padding: 5px 10px;
     border-radius: 10px;
 	font-family: 'GmarketSansMedium';
-     background-color: #eef2dd;
+     background-color: #ffffff;
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s; 	
@@ -518,6 +520,7 @@ request_board css
     border-radius: 5px;
      border: none;
      width:50px;
+    background-color: white;
     }
   #notice_title{
   	color:red;

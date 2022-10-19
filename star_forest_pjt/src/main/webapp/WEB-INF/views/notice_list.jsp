@@ -110,6 +110,7 @@ $(function(){
                 <div class="col-md-9">
             <div class="row py-4">
                <!-- 공지사항 게시판 글쓰기버튼 관리자만 보임 -->
+                <img alt="" src="img/notice.png">
                <c:if test="${sUserId=='admin'}">
                  <button class="btn btn-outline-success" id="12331" style="float:right; margin-left:760px;">글쓰기</button>
                  </c:if>

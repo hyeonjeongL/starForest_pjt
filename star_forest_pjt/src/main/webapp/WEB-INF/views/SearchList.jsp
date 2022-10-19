@@ -65,6 +65,34 @@ $(function(){
 		e.preventDefault();
 	});
 
+	
+	
+	/* $(function() {
+		var param=$('#page_form').serialize();
+		search_list_json(param);
+		
+		$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
+			var pageNum=$(e.target).attr('pageNum');
+			$("#page_form input[name='pageNum']").val(pageNum);
+			
+			param=$('#page_form').serialize();
+			console.log(">>>>>>>"+param);
+			search_list_json(param);
+	        
+			e.preventDefault();
+	    });
+	
+		$(document).on('click','#search_btn',function(e){
+			
+			 //var pageNum = $("#page_form input[name='pageNum']").val();
+			 //var keyword= $("input[name='keyword']").val();
+			 //var type= $("#type_box option:selected").val();
+			 param= $('#page_form').serialize();
+			 search_list_json(param);
+			
+			
+		}); */
+		
 	/********category_list*******
 	$(document).on('click', '#btn1', function(e) {
 		var param = 'category_no=' + $(e.target).attr('value');

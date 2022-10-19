@@ -101,9 +101,9 @@
 	                    confirmButtonText: '확인'
 	                  }).then((result) => {
 	                    if (result.isConfirmed) {
+				location.href='user';
 	                    }
 	                  })
-				location.href='user';
 				}else if(jsonResult.code==1){
 				location.href='notice_write_form';
 		}

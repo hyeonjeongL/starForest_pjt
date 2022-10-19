@@ -282,7 +282,7 @@
 									</tr>
 									<tr>
 										<td bgcolor="#ffc91d" height="22" class="tt">날짜</td>
-										<td class="t5">${notice.notice_date}</td>
+										<td class="t5"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.notice_date}"/></td>
 									</tr><tr>
 										<td bgcolor="#ffc91d" height="22" class="tt">조회수</td>
 										<td class="t5">${notice.notice_readcount}</td>

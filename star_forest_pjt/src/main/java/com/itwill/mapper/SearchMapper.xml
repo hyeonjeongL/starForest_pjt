@@ -218,11 +218,11 @@ book_no,book_title,book_author,book_image,book_image_src
 	
 	<!-- 게시물 총 갯수 -->
 	
-<select id="categoryCount" resultType="Integer" parameterType="int">
+<select id="categoryCount" resultType="Integer" parameterType="java.lang.Integer">
 	select count(*)
 	from book
      <where>
-     	<if test="catrgory_no!=null">
+     	<if test="catrgory_no!=900">
 		       category_no =#{category_no}
 		</if>       
   	</where>

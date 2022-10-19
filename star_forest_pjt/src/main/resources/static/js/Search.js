@@ -1,14 +1,63 @@
 function Search() {
 }
-Search.cate_join_html = function(bookArray,pageMaker) {
+Search.cate_join_html = function(bookArray,pageArray,category_no) {
 	return `
-
-	
+	<form id="page_form">
+			<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum?pageArray.cri.pageNum:1}">
+       		<input type="hidden" name="amount" value="${pageArray.cri.amount?pageArray.cri.amount:10}">
+       		<input type="hidden" name="category_no" value="${category_no}">
+    </form>   		  
 	<div class="row">
+			${bookArray.map(Search.cate_item_html).join('')}
+	</div>
 	
-		${bookArray.map(Search.cate_item_html).join('')}
-	</div>	
-	`; 
+	<div class="page_area">
+	
+					<ul id="page">
+				 		
+				 		
+				 		<!-- 이전페이지 버튼 -->
+				 		${
+							function(){
+								var prev = pageArray.prev;
+								var html='';
+								if(prev){
+									html=`<li class="page_btn_prev">
+											<a href="searchList" category_no="${category_no}" pageNum="${pageArray.startPage-1}">
+												Prev
+											</a>
+										  </li>`
+								}
+								return html;
+							}()
+						}
+                    	${
+							function(){
+								var html='';	
+							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
+							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="searchList" pageNum="${i}" category_no="${category_no}">${i}</a></li>`;
+								}							
+								return html;
+							}()
+	                    }
+	                    
+	                     <!-- 다음페이지 버튼 -->
+	                      ${
+							function(){
+								var next = pageArray.next;
+								var html='';
+								if(next){
+									html=`<li class="page_btn_next"><a href="searchList" pageNum="${pageArray.endPage+1}" category_no="${category_no}">Next</a></li>`
+								}
+								return html;
+							}()
+						}
+	                    
+	                    
+               		</ul>
+               		
+		</div>
+		`; 
 }
 
 Search.cate_item_html = function(book) {

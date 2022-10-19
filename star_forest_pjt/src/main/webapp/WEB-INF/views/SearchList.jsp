@@ -21,6 +21,7 @@
 	href="favicon/star.png">
 	<!-- 구글폰트 전체 기본적용 END -->
    <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="css/ddoyoon.css">
    <link rel="stylesheet" href="css/faq.css">
    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 <script type="text/javascript" src="./js/Search.js"></script>
@@ -31,137 +32,73 @@
 	/********all list***********/
 $(function(){
 	
+	const category_no=900;
+	const pageNum=1;
+	const amount=10;
+	$("#page_form[name='pageNum']").val(pageNum);
+	$("#page_form[name='category_no']").val(category_no);
+	$("#page_form[name='amount']").val(amount);
+	const param = 'category_no='+category_no+'&pageNum='+pageNum+'&amount='+amount;
 	
-	var param = 'category_no=900&pageNum=1&amount=10';
 	$.ajax({
 		url : 'search_list_json',
 		method : 'GET',
 		data:param,
 		success : function(jsonResult) {
 			var bookCateArray = jsonResult.data;
-			$('#searchAllList').html(Search.cate_join_html(bookCateArray));
+			var pageArray = jsonResult.pageMaker[0];
+			$('#searchAllList').html(Search.cate_join_html(bookCateArray,pageArray,category_no));
 		}
 		
 	});
 	
-});	
 	
-	
-	$(document).on('click', '#side_book , .btn_category_search', function(e) {
-		const category_no=$(e.target).attr('value');
-		console.log(">>>>>>>>>>>>>>>"+category_no);
-		if(category_no==null||category_no=='')category_no=900;
+	$(document).on('click', '#side_book a , .btn_category_search,.page_btn a,.page_btn_next a , .page_btn_prev a', function(e) {
+		let category_no=900;
+		let pageNum=1;
+		let amount=10;
+		let param = 'category_no='+category_no+'&pageNum='+pageNum+'&amount='+amount;
 		
-		var param = "category_no="+category_no+"&pageNum=1&amount=10";
+		if(e.target.tagName=='BUTTON'){
+			category_no = $(e.target).val();
+			
+			pageNum=1;
+			amount=10;
+			
+			$("#page_form[name='pageNum']").val(pageNum);
+			$("#page_form[name='category_no']").val(category_no);
+			$("#page_form[name='amount']").val(amount);
+			
+			param = 'category_no='+category_no+'&pageNum='+pageNum+'&amount='+amount;
+			
+		}else if(e.target.tagName=='A'){
+			
+			category_no = $(e.target).attr('category_no');
+			pageNum =  $(e.target).attr('pagenum');
+			amount=10;
+			
+			$("#page_form[name='pageNum']").val(pageNum);
+			$("#page_form[name='category_no']").val(category_no);
+			$("#page_form[name='amount']").val(amount);
+			
+			param = 'category_no='+category_no+'&pageNum='+pageNum+'&amount='+amount;
+		}
+		
 		$.ajax({
 			url : 'search_list_json',
 			method : 'GET',
 			data:param,
 			success : function(jsonResult) {
 				var bookCateArray = jsonResult.data;
-				$('#searchAllList').html(Search.cate_join_html(bookCateArray));
-			}
-		});
-		e.preventDefault();
-	});
-
-	
-	
-	/* $(function() {
-		var param=$('#page_form').serialize();
-		search_list_json(param);
-		
-		$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
-			var pageNum=$(e.target).attr('pageNum');
-			$("#page_form input[name='pageNum']").val(pageNum);
-			
-			param=$('#page_form').serialize();
-			console.log(">>>>>>>"+param);
-			search_list_json(param);
-	        
-			e.preventDefault();
-	    });
-	
-		$(document).on('click','#search_btn',function(e){
-			
-			 //var pageNum = $("#page_form input[name='pageNum']").val();
-			 //var keyword= $("input[name='keyword']").val();
-			 //var type= $("#type_box option:selected").val();
-			 param= $('#page_form').serialize();
-			 search_list_json(param);
-			
-			
-		}); */
-		
-	/********category_list*******
-	$(document).on('click', '#btn1', function(e) {
-		var param = 'category_no=' + $(e.target).attr('value');
-
-		$.ajax({
-			url : 'search_category',
-			method : 'POST',
-			dataType : 'json',
-			data : param,
-			success : function(jsonResult) {
-				var bookCateArray = jsonResult.data;
-				console.log(bookCateArray);
-				$('#searchAllList').html(Search.cate_join_html(bookCateArray));
-			}
-		});
-		e.preventDefault();
-	});
-	*/
-	/********페이징********/
-	
-	/***********************************************
-	function book_list_json(param){
-	console.log(param)	   
-	$.ajax({
-				url:'search_list_json',
-				method:'GET',
-				data:param,
-				success:function(jsonResult){
-					var bookCateArray = jsonResult.data;
-					var pageArray = jsonResult.pageMaker[0];
-					console.log(jsonResult);
-					$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
-					//$('#page_wrap').html(pageArray);
-				}
-			});
-	}
-	
-		
-	$(document).on('click', '#side_book,#btn_all', function(e) {
-		$.ajax({
-			url : 'search_list_json',
-			method : 'GET',
-			success : function(jsonResult) {
-				var bookCateArray = jsonResult.data;
 				var pageArray = jsonResult.pageMaker[0];
-				$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
+				$('#searchAllList').html(Search.cate_join_html(bookCateArray,pageArray,category_no));
 			}
 		});
+		
 		e.preventDefault();
 	});
-
 	
-	$(document).on('click', '#btn1', function(e) {
-		var param = 'category_no=' + $(e.target).attr('value');
-
-		$.ajax({
-			url : 'search_category',
-			method : 'POST',
-			dataType : 'json',
-			data : param,
-			success : function(jsonResult) {
-				var bookCateArray = jsonResult.data;
-				console.log(bookCateArray);
-				var pageArray = jsonResult.pageMaker[0];
-				$('#searchAllList').html(cate_list_content(bookCateArray,pageArray));
-			}
-		});
-		e.preventDefault();
-	});*/
+});	
 	
 </script>
 <style type="text/css">
@@ -223,7 +160,7 @@ $(function(){
 							</div>
 							<ul class="list-group list-group-flush mb-5">
 								<li class="list-group-item"><a href="SearchResult2">도서검색</a></li>
-								<li class="list-group-item active" id="side_book"><a href="SearchList">전체 도서</a></li>
+								<li class="list-group-item active" id="side_book"><a href="SearchList" category_no="900">전체 도서</a></li>
 								<li class="list-group-item"><a href="recommendedBooks">사서추천도서</a></li>
 								<li class="list-group-item"><a href="Newbooks">신착도서</a></li>
 								<li class="list-group-item"><a href="popularBook">이달의
@@ -257,53 +194,10 @@ $(function(){
 					   
 					<!-------------페이징------------------- -->
 					<div id="page_wrap">
-		<%-- <form id="page_form">
-					<input type="hidden" name="pageNum" id="pageNum_hidden" value="${pageArray.cri.pageNum?pageArray.cri.pageNum:1}">
-	        		<input type="hidden" name="amount" value="${pageArray.cri.amount?pageArray.cri.amount:10}">   
-			        	  
-  	  	  </form>
+		
+				
   	  	
-		<div class="page_area">
-	
-					<ul id="page">
-				 		
-				 		
-				 		<!-- 이전페이지 버튼 -->
-				 		${
-							function(){
-								var prev = pageArray.prev;
-								var html='';
-								if(prev){
-									html=`<li class="page_btn_prev"><a href="SearchList?pageNum=${pageArray.startPage-1}" pageNum=${pageArray.startPage-1}>Prev</a></li>`
-								}
-								return html;
-							}()
-						}
-                    	${
-							function(){
-								var html='';	
-							 	for(var i=pageArray.startPage;i <= pageArray.endPage;i++){
-							 		html+=`<li class="page_btn ${pageArray.cri.pageNum == i ? 'active':'' }"><a href="SearchList?pageNum=${i}" pageNum=${i}>${i}</a></li>`;
-								}							
-								return html;
-							}()
-	                    }
-	                    
-	                     <!-- 다음페이지 버튼 -->${
-							function(){
-								var next = pageArray.next;
-								var html='';
-								if(next){
-									html=`<li class="page_btn_next"><a href="SearchList?pageNum=${pageArray.endPage + 1 }" pageNum=${pageArray.endPage+1}>Next</a></li>`
-								}
-								return html;
-							}()
-						}
-	                    
-	                    
-               		</ul>
-               		
-		</div> --%>
+		
 		
 					</div>
 					</div>

@@ -2,6 +2,10 @@ package com.itwill.util;
 
 
 public class PageMaker {
+    // 페이지당 게시물 수
+    public static final int PAGE_SCALE = 10;
+    // 화면당 페이지 수
+    public static final int BLOCK_SCALE = 10;
 	private int pageBegin;  // #{start}
 	private int pageEnd;    // #{end}
 	/* 시작 페이지 */
@@ -47,10 +51,12 @@ public class PageMaker {
 		
 		
 		
-		 pageBegin = (cri.getPageNum()-1)*10+1;
-	        // 끝번호 = 시작번호+페이지당 게시물수 -1
-	     pageEnd = pageBegin+10-1;
+		pageBegin = (cri.getPageNum()-1)*10+1;
+	    // 끝번호 = 시작번호+페이지당 게시물수 -1
+	    pageEnd = pageBegin+10-1;
 		System.out.println("pageNum:"+cri.getPageNum());
+		System.out.println("startPage:"+startPage);
+		System.out.println("endPage:"+endPage);
 		System.out.println("pageBegin:"+pageBegin);
 		System.out.println("pageEnd:"+pageEnd);
 	

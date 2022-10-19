@@ -7,6 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
   
@@ -73,8 +74,18 @@ $(document).ready(function() {
 		data : param,
 		success : function(bookList) {
 			if(bookList == ""){
-				alert("검색 결과가 없습니다.");
-				window.location.href = "SearchResult2";
+				Swal.fire({
+                    title: '검색결과가 없습니다.',  text: '',
+                    icon: 'error',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '확인'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+						location.href = "SearchResult2";
+                    }
+                  })
 				}
 			}
 		});

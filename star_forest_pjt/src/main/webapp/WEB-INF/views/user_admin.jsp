@@ -88,9 +88,9 @@ $(function(){
 			success:function(jsonResult){
 				if(jsonResult.code==1){
 					Swal.fire({
-						  title: '회원목록에서 삭제되었습니다.',
-						  text: '',
-						  icon: 'error',
+						  title: '',
+						  text: '회원목록에서 삭제되었습니다.',
+						  icon: 'success',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',
 						  cancelButtonColor: '#d33',
@@ -115,8 +115,8 @@ $(function(){
 				}else{
 					//alert(jsonResult.msg);
 					Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',

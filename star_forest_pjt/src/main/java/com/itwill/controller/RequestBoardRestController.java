@@ -201,7 +201,7 @@ public class RequestBoardRestController {
 				resultList.add(requestBoard);
 			}else {
 				code=2;
-				msg="글 쓴 본인만 수정할 수 있습니다";
+				msg="작성자만 수정가능합니다.";
 			}
 		}catch (Exception e) {
 			code=0;
@@ -329,7 +329,7 @@ public class RequestBoardRestController {
 			}
 			}else {
 				code=3;
-				msg="글쓴 본인만 삭제 가능합니다.";
+				msg="작성자만 삭제 가능합니다.";
 			}
 		}catch (Exception e) {
 			e.printStackTrace();

@@ -72,8 +72,8 @@
 					    //쓰기성공시 guest list보여주기
 					    // - #menu_guest_list anchor의 click event trigger[발생]
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -113,7 +113,18 @@
 					    // - #menu_guest_list anchor의 click event trigger[발생]
 						
 						$('#btn_request_list').trigger('click'); 
-					   	alert(jsonResult.msg);
+						Swal.fire({
+							  title: '',
+							  text: jsonResult.msg,
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  }
+							})
 				}
 				}
 			});

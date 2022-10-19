@@ -169,7 +169,7 @@
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -182,7 +182,7 @@
 						$("#btn_list").trigger('click');
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'error',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -233,7 +233,7 @@
 						var param='club_no='+club_no;
 						console.log(param);
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -255,7 +255,7 @@
 						});
 					} else if(jsonResult.code==-1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'error',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -281,7 +281,7 @@
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -294,7 +294,7 @@
 		                     })
 					}else if(jsonResult.code==-1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'error',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',

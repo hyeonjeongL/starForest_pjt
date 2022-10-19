@@ -76,7 +76,7 @@ $(function(){
 						$('#myPageList').html(BookClubHtmlContents.club_user_list_html(bookClubArray));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -104,7 +104,7 @@ $(function(){
 						$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -128,7 +128,7 @@ $(function(){
 						$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -161,7 +161,7 @@ $(function(){
 						animateNumber($('.count').text().replace('쪽','').trim());
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -190,7 +190,7 @@ $(function(){
 						$('#myPageList').html(UserBookHtmlContents.user_now_rental_list_content(rentalArray));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title:'' ,  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -220,7 +220,7 @@ $(function(){
 						$('#myPageList').html(UserBookHtmlContents.user_reservation_list_html(reservationArray));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -246,7 +246,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title:'',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -260,8 +260,8 @@ $(function(){
 						
 					}else if(jsonResult.code==2){
 						Swal.fire({
-							  title: '다시 시도하십시오',
-							  text: '',
+							  title: '',
+							  text: '다시 시도하십시오.',
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -293,7 +293,7 @@ $(function(){
 						$('#myPageList').html(user_request_list_content(requestArray));
 					}else if(jsonResult.code==0){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -336,7 +336,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -351,8 +351,8 @@ $(function(){
 						$('#myPageList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
-		                       icon: 'success',
+		                       title: '',  text: jsonResult.msg,
+		                       icon: 'error',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
 		                       cancelButtonColor: '#d33',
@@ -376,7 +376,7 @@ $(function(){
 			success:function(jsonResult){
 				if(jsonResult.code==1){
 					Swal.fire({
-	                       title: jsonResult.msg,  text: '',
+	                       title: '',  text: jsonResult.msg,
 	                       icon: 'success',
 	                       showCancelButton: false,
 	                       confirmButtonColor: '#3085d6',
@@ -390,8 +390,8 @@ $(function(){
 					$('#myPageList').html(FavoriteHtmlContents.favorite_list_content(favoriteArray));
 				}else{
 					Swal.fire({
-	                       title: jsonResult.msg,  text: '',
-	                       icon: 'success',
+	                       title: '',  text: jsonResult.msg,
+	                       icon: 'error',
 	                       showCancelButton: false,
 	                       confirmButtonColor: '#3085d6',
 	                       cancelButtonColor: '#d33',
@@ -415,7 +415,7 @@ $(function(){
 				success:function(jsonResult){
 					if(jsonResult.code==-1){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
+		                       title: '',  text: jsonResult.msg,
 		                       icon: 'success',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
@@ -434,7 +434,7 @@ $(function(){
 									$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 								}else if(jsonResult.code==2){
 									Swal.fire({
-					                       title: jsonResult.msg,  text: '',
+					                       title: '',  text: jsonResult.msg,
 					                       icon: 'success',
 					                       showCancelButton: false,
 					                       confirmButtonColor: '#3085d6',
@@ -459,8 +459,8 @@ $(function(){
 									$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 								}else if(jsonResult.code==2){
 									Swal.fire({
-					                       title: jsonResult.msg,  text: '',
-					                       icon: 'success',
+					                       title: '',  text: jsonResult.msg,
+					                       icon: 'error',
 					                       showCancelButton: false,
 					                       confirmButtonColor: '#3085d6',
 					                       cancelButtonColor: '#d33',
@@ -475,8 +475,8 @@ $(function(){
 						});
 					} else if(jsonResult.code==2){
 						Swal.fire({
-		                       title: jsonResult.msg,  text: '',
-		                       icon: 'success',
+		                       title:'',  text:  jsonResult.msg,
+		                       icon: 'error',
 		                       showCancelButton: false,
 		                       confirmButtonColor: '#3085d6',
 		                       cancelButtonColor: '#d33',
@@ -494,8 +494,8 @@ $(function(){
 									$('#myPageList').html(UserHtmlContents.user_view_content(jsonResult.data[0]));
 								}else if(jsonResult.code==2){
 									Swal.fire({
-					                       title: jsonResult.msg,  text: '',
-					                       icon: 'success',
+					                       title:'',  text:  jsonResult.msg,
+					                       icon: 'error',
 					                       showCancelButton: false,
 					                       confirmButtonColor: '#3085d6',
 					                       cancelButtonColor: '#d33',
@@ -524,7 +524,7 @@ $(function(){
 			success:function(jsonResult){
 				if(jsonResult.code==1){
 					Swal.fire({
-	                       title: jsonResult.msg,  text: '',
+	                       title: '',  text:  jsonResult.msg,
 	                       icon: 'success',
 	                       showCancelButton: false,
 	                       confirmButtonColor: '#3085d6',
@@ -537,8 +537,8 @@ $(function(){
 	                     })
 				}else{
 					Swal.fire({
-	                       title: jsonResult.msg,  text: '',
-	                       icon: 'success',
+	                       title: '',  text: jsonResult.msg,
+	                       icon: 'error',
 	                       showCancelButton: false,
 	                       confirmButtonColor: '#3085d6',
 	                       cancelButtonColor: '#d33',

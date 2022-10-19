@@ -392,7 +392,7 @@ public class UserInfoRestController {
 		if (stopPeriod > 0) {
 			code = -1;
 			url = "main";
-			msg = sUserId + " 님은 연체로 인해 " + stopPeriod + " 일 동안 대출정지입니다.";
+			msg = sUserId + " 님은 연체로 인해 "+ stopPeriod + " 일 동안 대출정지입니다.";
 		} else {
 			code = 1;
 			url = "";

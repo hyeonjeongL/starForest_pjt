@@ -94,8 +94,8 @@
 					
 				//alert(jsonResult.msg);
 				Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -171,8 +171,8 @@
 					$('#requestBoard_wrap').html(request_modify_form(item));
 					}else if(jsonResult.code==2){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -186,8 +186,8 @@
 							})
 					}else if(jsonResult.code==0){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title:'' ,
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -228,8 +228,8 @@
 						    }
 						});
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -243,8 +243,8 @@
 							})
 					}else if(jsonResult.code==2){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -259,8 +259,8 @@
 						//alert(jsonResult.msg);
 					}else if(jsonResult.code==0){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text:jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -292,8 +292,8 @@
 					console.log(jsonResult);
 					if(jsonResult.code==1){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -309,8 +309,8 @@
 						//$('#btn_request_list').trigger('click');
 					}else if(jsonResult.code==2){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -325,8 +325,8 @@
 						//alert(jsonResult.msg);
 					}else if(jsonResult.code==0){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -342,8 +342,8 @@
 					}else if(jsonResult.code==3){
 						//alert(jsonResult.msg);
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',

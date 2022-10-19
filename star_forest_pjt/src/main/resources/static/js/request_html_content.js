@@ -401,7 +401,7 @@ function user_request_item_content(requestBoard) {
 	
 	<tr>
 				<th scope="row">${requestBoard.board_title}</th>
-				<th scope="row">${requestBoard.board_date.substring(0,10)}</th>
+				<th scope="row" style="width:130px;">${requestBoard.board_date.substring(0,10)}</th>
 				<th scope="row">${requestBoard.board_content}</th>
 				<th scope="row">${requestBoard.board_status}</th>
 				<th scope="row">${requestBoard.category_name}</th>

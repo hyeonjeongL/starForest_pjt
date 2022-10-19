@@ -85,8 +85,8 @@ $(function(){
 					}else if(jsonResult.code==2){
 						//alert(jsonResult.msg);
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -112,8 +112,8 @@ $(function(){
 					}else if(jsonResult.code==2){
 						//alert(jsonResult.msg);
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -144,8 +144,8 @@ $(function(){
 					}else if(jsonResult.code==2){
 						//alert(jsonResult.msg);
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -175,8 +175,8 @@ $(function(){
 					}else if(jsonResult.code==-1){
 						//alert(jsonResult.msg);
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -193,7 +193,6 @@ $(function(){
 			});
 		});
 		
-		/*************비밀번호변경***************/
 		
 		
 		

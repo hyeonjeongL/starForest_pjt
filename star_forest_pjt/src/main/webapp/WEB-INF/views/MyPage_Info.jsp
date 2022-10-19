@@ -67,8 +67,8 @@ $(function(){
 				}else{
 					//alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
 					Swal.fire({
-							  title: '비밀번호가 틀렸습니다. 다시 입력해주세요.',
-							  text: '',
+							  title: '',
+							  text: '비밀번호가 틀렸습니다. 다시 입력해주세요.',
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -102,8 +102,8 @@ $(function(){
 				}else if(jsonResult.code==-1){
 					//alert(jsonResult.msg);
 					Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -130,8 +130,8 @@ $(function(){
 				if(jsonResult.code==1){
 					//alert("그동안 이용해주셔서 감사합니다.");
 					Swal.fire({
-							  title: '그동안 이용해주셔서 감사합니다.',
-							  text: '',
+							  title: '',
+							  text: '그동안 이용해주셔서 감사합니다.',
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -147,8 +147,8 @@ $(function(){
 				}else{
 					//alert(jsonResult.msg);
 					Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title:'',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',

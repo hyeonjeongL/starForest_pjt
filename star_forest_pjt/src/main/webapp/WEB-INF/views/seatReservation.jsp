@@ -60,12 +60,49 @@
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						$('#menu_seatReservation').trigger('click');
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: '',
+							  text: jsonResult.msg,
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
 						location.href='seatReservation';
+							  }
+							})
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: '',
+							  text: jsonResult.msg,
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: '',
+							  text: jsonResult.msg,
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}
 				}
 				
@@ -82,13 +119,38 @@
 				dataType:'json',
 				success:function(jsonResult){
 					if(jsonResult.code==1){
-						alert('반납이 완료됐습니다.')
+						Swal.fire({
+							  title: '',
+							  text: '반납이 완료되었습니다.',
+							  icon: 'success',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+						location.href='seatReservation';
+							  }
+							})
 						/*
 						삭제 성공시 새로고침
 						*/
-						location.href='seatReservation';
 					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
+						Swal.fire({
+							  title: '',
+							  text: jsonResult.msg,
+							  icon: 'error',
+							  showCancelButton: false,
+							  confirmButtonColor: '#3085d6',
+							  cancelButtonColor: '#d33',
+							  confirmButtonText: '확인'
+							}).then((result) => {
+							  if (result.isConfirmed) {
+							  
+							    
+							  }
+							})
 					}
 				}
 				

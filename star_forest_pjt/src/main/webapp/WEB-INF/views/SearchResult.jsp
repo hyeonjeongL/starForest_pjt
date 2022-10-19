@@ -75,7 +75,7 @@ $(document).ready(function() {
 		success : function(bookList) {
 			if(bookList == ""){
 				Swal.fire({
-                    title: '검색결과가 없습니다.',  text: '',
+                    title: '',  text: '검색결과가 없습니다.',
                     icon: 'error',
                     showCancelButton: false,
                     confirmButtonColor: '#3085d6',

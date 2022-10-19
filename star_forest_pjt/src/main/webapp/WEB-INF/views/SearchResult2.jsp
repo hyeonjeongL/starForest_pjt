@@ -41,11 +41,35 @@
 		const type=$('type').val();
 		
 		if($("#type").val() == null){
-			alert("검색 항목을 선택해주세요.");
+			Swal.fire({
+				  title: '',
+				  text: '검색항목을 선택해주세요.',
+				  icon: 'warning',
+				  showCancelButton: false,
+				  confirmButtonColor: '#3085d6',
+				  cancelButtonColor: '#d33',
+				  confirmButtonText: '확인'
+				}).then((result) => {
+				  if (result.isConfirmed) {
+				  
+				  }
+				})
 			return false;
 		}
 		if($("#keyword").val() == false){
-			alert("검색어를 입력해주세요.");
+			Swal.fire({
+				  title: '',
+				  text: '검색어를 입력해주세요.',
+				  icon: 'warning',
+				  showCancelButton: false,
+				  confirmButtonColor: '#3085d6',
+				  cancelButtonColor: '#d33',
+				  confirmButtonText: '확인'
+				}).then((result) => {
+				  if (result.isConfirmed) {
+				  
+				  }
+				})
 			return false;
 		}
 		
@@ -89,8 +113,20 @@
 			data : param,
 			success : function(bookList) {
 				if(bookList == ""){
-					alert("검색 결과가 없습니다.");
-					window.location.href = "SearchResult2";
+					Swal.fire({
+						  title: '',
+						  text: '검색결과가 없습니다.',
+						  icon: 'warning',
+						  showCancelButton: false,
+						  confirmButtonColor: '#3085d6',
+						  cancelButtonColor: '#d33',
+						  confirmButtonText: '확인'
+						}).then((result) => {
+						  if (result.isConfirmed) {
+							window.location.href = "SearchResult2";
+						  
+						  }
+						})
 				}
 			}
 			});

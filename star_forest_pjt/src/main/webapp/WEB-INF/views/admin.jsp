@@ -11,7 +11,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+<link rel="icon" type="image/png" sizes="16x16"
+	href="favicon/star.png">
 <link rel="stylesheet"
 	href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
 	integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
@@ -40,7 +41,10 @@
     font-style: normal;
 }
 
-.listTable{
+.listTable,.admintable{
+	font-family: 'GmarketSansMedium';
+}
+h2,#keyword,#tablehead{
 	font-family: 'GmarketSansMedium';
 }
 </style>
@@ -62,8 +66,8 @@ $(function(){
 			}else if(jsonResult.code==2){
 				//alert(jsonResult.msg);
 				Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -90,8 +94,8 @@ $(document).on('click','#admin_return',function(e){
 			}else if(jsonResult.code==2){
 				//alert(jsonResult.msg);
 				Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.ms,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -125,8 +129,8 @@ $(document).on('click','#btn_admin_return',function(e){
 				//alert("반납처리 되었습니다.");
 				//location.reload();
 				Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -141,8 +145,8 @@ $(document).on('click','#btn_admin_return',function(e){
 				
 			}else if(jsonResult.code==-1){
 				Swal.fire({
-					  title: jsonResult.msg,
-					  text: '',
+					  title: '',
+					  text: jsonResult.msg,
 					  icon: 'error',
 					  showCancelButton: false,
 					  confirmButtonColor: '#3085d6',
@@ -159,8 +163,8 @@ $(document).on('click','#btn_admin_return',function(e){
 		error:function(jsonResult){	
 			if(jsonResult.code==2){
 				Swal.fire({
-					  title: '오류',
-					  text: '',
+					  title: '',
+					  text: '오류',
 					  icon: 'error',
 					  showCancelButton: false,
 					  confirmButtonColor: '#3085d6',
@@ -194,8 +198,8 @@ $(document).on('click','#btn_search', function(e){
 			}else if(jsonResult.code==2){
 				//alert(jsonResult.msg);
 				Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -285,8 +289,7 @@ $(document).on('click','#btn_search', function(e){
 				</div> -->
 
 				<!-- 메인내용 -->
-				<div class="col-md-12">
-					<div class="p-4">
+				
 						<div class="mypage">
 
 						</div>
@@ -319,7 +322,6 @@ $(document).on('click','#btn_search', function(e){
 		</div>
 
 
-	</section>
 	<!-- .footer-navigation -->
 	<!-- footer start-->
 	<div id="navigation">

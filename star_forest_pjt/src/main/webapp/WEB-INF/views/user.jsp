@@ -58,8 +58,8 @@
 			success : function(jsonResult) {
 				if (jsonResult.code == 0) {
 					Swal.fire({
-						  title: '아이디가 존재하지 않습니다.',
-						  text: '',
+						  title: '',
+						  text: '아이디가 존재하지 않습니다.',
 						  icon: 'error',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',
@@ -73,8 +73,8 @@
 				}else if (jsonResult.code == 1) {
 					console.log(jsonResult);
 					Swal.fire({
-						  title: '비밀번호가 일치하지 않습니다.',
-						  text: '',
+						  title: '',
+						  text: '비밀번호가 일치하지 않습니다.',
 						  icon: 'error',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',

@@ -58,8 +58,8 @@
 				}else{ //세션 존재하지 않을경우 메세지창보여줌
 					//alert('로그인이 필요한 페이지입니다:)');
 					Swal.fire({
-						  title: '로그인이 필요한 페이지입니다:)',
-						  text: '',
+						  title: '',
+						  text: '로그인이 필요한 페이지입니다:)',
 						  icon: 'error',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',
@@ -111,8 +111,8 @@
 				success:function(jsonResult){
 					if(jsonResult.code==1){
 						Swal.fire({
-							  title: '반납이 완료되었습니다.',
-							  text: '',
+							  title: '',
+							  text: '반납이 완료되었습니다.',
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -132,8 +132,8 @@
 						//location.href='seatReservation';
 					}else if(jsonResult.code==2){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -159,8 +159,8 @@
 						//alert(jsonResult.msg);
 						//location.href='seatReservation_my';
 							Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'success',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -175,8 +175,8 @@
 					}else if(jsonResult.code==2){
 						//alert(jsonResult.msg);
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',
@@ -190,8 +190,8 @@
 							})
 					}else if(jsonResult.code==0){
 						Swal.fire({
-							  title: jsonResult.msg,
-							  text: '',
+							  title: '',
+							  text: jsonResult.msg,
 							  icon: 'error',
 							  showCancelButton: false,
 							  confirmButtonColor: '#3085d6',

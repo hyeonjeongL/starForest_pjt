@@ -60,17 +60,41 @@
 $(function(){
     
       $(document).on('click','#phone_a',function(e){
-         alert("\n고객센터 : 070) 1588-8888 \n\n"
-               + "이용시간 : 평일 9:00 - 18:00, 점심시간 12:00 - 13:30 \n              ( 주말/공휴일 휴무 ) \n\n"   
-               + "팩스번호 : 0504-123-1234 \n\n"); 
+    	  Swal.fire({
+			  title: '',
+			  html: "<br>고객센터 : 070) 1588-8888 <br>"
+	               + "이용시간 : 평일 9:00 - 18:00,<br> &nbsp&nbsp점심시간 12:00 - 13:30 (주말/공휴일 휴무) <br>"   
+	               + "팩스번호 : 0504-123-1234 <br>",
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: '확인'
+			}).then((result) => {
+			  if (result.isConfirmed) {
+			  
+			    
+			  }
+			})
       });
 });
 
 $(function keywordCheck() {
 	var str_keyword = window.searchform.keyword.value;
 	if (!str_keyword || str_keyword === "") {
-		window.alert("검색어를 입력하세요.");
+		Swal.fire({
+			  title: '',
+			  text: '검색어를 입력하세요.',
+			  icon: 'warning',
+			  showCancelButton: false,
+			  confirmButtonColor: '#3085d6',
+			  cancelButtonColor: '#d33',
+			  confirmButtonText: '확인'
+			}).then((result) => {
+			  if (result.isConfirmed) {
 		window.searchform.keyword.focus();
+			  
+			  }
+			})
 		return false;
 	}
 	window.searchform.submit();

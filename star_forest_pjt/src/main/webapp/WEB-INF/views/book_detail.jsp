@@ -216,8 +216,8 @@ d
 									            //alert("대여신청이 완료되었습니다.");
 									            //console.log(jsonResult.code);
 									            Swal.fire({
-															  title: '대여신청이 완료되었습니다.',
-															  text: '',
+															  title: '',
+															  text: '대여신청이 완료되었습니다.',
 															  icon: 'success',
 															  showCancelButton: false,
 															  confirmButtonColor: '#3085d6',
@@ -233,8 +233,8 @@ d
 												} else if(jsonResult.code==0){
 									        	//alert("이미 대여한 도서입니다.");
 									        	Swal.fire({
-														  title: '이미 대여한 도서입니다.',
-														  text: '',
+														  title: '',
+														  text: '이미 대여한 도서입니다.',
 														  icon: 'error',
 														  showCancelButton: false,
 														  confirmButtonColor: '#3085d6',
@@ -250,8 +250,8 @@ d
 												} else if(jsonResult.code==-1){
 													//alert(jsonResult.msg);
 													Swal.fire({
-														  title: jsonResult.msg,
-														  text: '',
+														  title: '',
+														  text: jsonResult.msg,
 														  icon: 'error',
 														  showCancelButton: false,
 														  confirmButtonColor: '#3085d6',
@@ -266,8 +266,8 @@ d
 												}else if(jsonResult.code==3){
 													//alert(jsonResult.msg);
 													Swal.fire({
-														  title: jsonResult.msg,
-														  text: '',
+														  title: '',
+														  text: jsonResult.msg,
 														  icon: 'error',
 														  showCancelButton: false,
 														  confirmButtonColor: '#3085d6',
@@ -345,8 +345,8 @@ d
 						           // alert("예약이 완료되었습니다.");
 						        		console.log(jsonResult.code);
 						        		Swal.fire({
-											  title: '예약이 완료되었습니다.',
-											  text: '',
+											  title: '',
+											  text: '예약이 완료되었습니다.',
 											  icon: 'success',
 											  showCancelButton: false,
 											  confirmButtonColor: '#3085d6',
@@ -363,8 +363,8 @@ d
 						        	}else if(jsonResult.code==0){
 						            //alert("이미 예약한 도서입니다.");
 						        		Swal.fire({
-													  title: '이미 예약한 도서입니다.',
-													  text: '',
+													  title: '',
+													  text: '이미 예약한 도서입니다.',
 													  icon: 'error',
 													  showCancelButton: false,
 													  confirmButtonColor: '#3085d6',
@@ -379,8 +379,8 @@ d
 						        	}else if(jsonResult.code==2){
 						        		//alert(jsonResult.msg);
 						        		Swal.fire({
-													  title: jsonResult.msg,
-													  text: '',
+													  title: '',
+													  text: jsonResult.msg,
 													  icon: 'error',
 													  showCancelButton: false,
 													  confirmButtonColor: '#3085d6',
@@ -407,8 +407,21 @@ d
 
 								},
 							fail : function() {
-					            alert("인터넷 연결 상태를 확인해주세요.");
-					            $('.wrap-loading').addClass('display-none');
+								Swal.fire({
+									  title: '',
+									  text: '인터넷 연결상태를 확인해주세요.',
+									  icon: 'error',
+									  showCancelButton: false,
+									  confirmButtonColor: '#3085d6',
+									  cancelButtonColor: '#d33',
+									  confirmButtonText: '확인'
+									}).then((result) => {
+									  if (result.isConfirmed) {
+							            $('.wrap-loading').addClass('display-none');
+									  
+									    
+									  }
+									})
 					        }
 						}) 
 						});
@@ -432,8 +445,8 @@ d
 					if(jsonResult.code==1){
 						//alert(jsonResult.msg);
 						Swal.fire({
-						  title: jsonResult.msg,
-						  text: '',
+						  title: '',
+						  text: jsonResult.msg,
 						  icon: 'success',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',
@@ -449,8 +462,8 @@ d
 					}else if(jsonResult.code==-1){
 						//alert(jsonResult.msg);
 						Swal.fire({
-						  title: jsonResult.msg,
-						  text: '',
+						  title: '',
+						  text: jsonResult.msg,
 						  icon: 'error',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',
@@ -466,8 +479,8 @@ d
 
 						//alert(jsonResult.msg);
 						Swal.fire({
-						  title: jsonResult.msg,
-						  text: '',
+						  title: '',
+						  text: jsonResult.msg,
 						  icon: 'error',
 						  showCancelButton: false,
 						  confirmButtonColor: '#3085d6',

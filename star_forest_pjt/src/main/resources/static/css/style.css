@@ -599,6 +599,9 @@ button {
   color : black;
 }
 
-#t7{
-	width:500px;
+.tt{
+	width:1px;
+	text-align: center;
 }
+
+

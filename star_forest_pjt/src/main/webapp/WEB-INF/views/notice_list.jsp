@@ -111,7 +111,7 @@ $(function(){
             <div class="row py-4">
                <!-- 공지사항 게시판 글쓰기버튼 관리자만 보임 -->
                <c:if test="${sUserId=='admin'}">
-                 <button class="btn btn-outline-success" id="12331">글쓰기</button>
+                 <button class="btn btn-outline-success" id="12331" style="float:right; margin-left:760px;">글쓰기</button>
                  </c:if>
               <!-- 비로그인시 cust_no를 0으로 설정 -->
               <c:if test="${empty sUserId }">

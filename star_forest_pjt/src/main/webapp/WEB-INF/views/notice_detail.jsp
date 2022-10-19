@@ -29,6 +29,7 @@
 
 <!-- 구글폰트 전체 기본적용 END -->
 <link rel="stylesheet" href="css/ddoyoon.css">
+<link rel="stylesheet" href="css/style.css">
 <link rel="icon" type="image/png" sizes="16x16"
 	href="favicon/star.png">
 <title>커뮤니티 - 별숲도서관</title>
@@ -274,31 +275,32 @@
 		-->
 							<form name="f" method="post" style="width:1000px; margin-right: auto; margin-left: auto;">
 								<input type="hidden" name="notice_no" value="${notice.notice_no}">
-								<table border="0" cellpadding="0" cellspacing="1" sytle="width:100%" bgcolor="BBBBBB">
+								<table border="0" cellpadding="0" cellspacing="1" bgcolor="BBBBBB">
 									<tbody><tr>
-										<td bgcolor="#ffc91d" height="22" style="width:10px;" class="t4">번호</td>
+										<td bgcolor="#ffc91d" height="22" class="tt">번호</td>
 										<td class="t5">${notice.notice_no}</td>
 									</tr>
 									<tr>
-										<td bgcolor="#ffc91d" height="22" style="width:10px;" class="t4">날짜</td>
+										<td bgcolor="#ffc91d" height="22" class="tt">날짜</td>
 										<td class="t5">${notice.notice_date}</td>
 									</tr><tr>
-										<td bgcolor="#ffc91d" height="22" style="width:10px;" class="t4">조회수</td>
+										<td bgcolor="#ffc91d" height="22" class="tt">조회수</td>
 										<td class="t5">${notice.notice_readcount}</td>
 									</tr>
 									<tr>
-										<td bgcolor="#ffc91d" height="22" style="width:10px; co" class="t4">제목</td>
+										<td bgcolor="#ffc91d" height="22" class="tt">제목</td>
 										<td class="t5">${notice.notice_title}</td>
 									</tr>
 									<tr>
-										<td bgcolor="#ffc91d" height="350" style="width:10px;" class="t4">내용</td>
+										<td bgcolor="#ffc91d" height="350" class="tt">내용</td>
 										<td id="td_content" class="t5"><pre style="font-size:12pt;">${notice.notice_content}</pre></td>
 									</tr>
 								</tbody></table>
 							</form>
+							<br>
 							<div id="notice_btn_container">
-								<input class="w-btn w-btn-detail" id="aaa" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
-								<input class="w-btn w-btn-detail" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />
+								<input class="w-btn w-btn-detail" id="aaa" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />&nbsp;&nbsp;
+								<input class="w-btn w-btn-detail" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />&nbsp;&nbsp;
 								<input class="w-btn w-btn-detail" id="ddd" type="button" pageno="${pageno}" value="목록" />
                     		</div>
 		

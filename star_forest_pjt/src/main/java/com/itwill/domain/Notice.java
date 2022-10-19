@@ -7,28 +7,19 @@ public class Notice {
 	private String notice_title;
 	private String notice_date;
 	private String notice_content;
-	private String notice_image;
 	private int notice_readcount;
-	private int setting;
 	
 	public Notice() {
 	}
 	
-	
-
-	public Notice(int notice_no, String notice_title, String notice_date, String notice_content, String notice_image,
-			int notice_readcount, int setting) {
+	public Notice(int notice_no, String notice_title, String notice_date, String notice_content, int notice_readcount) {
 		super();
 		this.notice_no = notice_no;
 		this.notice_title = notice_title;
 		this.notice_date = notice_date;
 		this.notice_content = notice_content;
-		this.notice_image = notice_image;
 		this.notice_readcount = notice_readcount;
-		this.setting = setting;
 	}
-
-
 
 	public int getNotice_no() {
 		return notice_no;
@@ -62,14 +53,6 @@ public class Notice {
 		this.notice_content = notice_content;
 	}
 
-	public String getNotice_image() {
-		return notice_image;
-	}
-
-	public void setNotice_image(String notice_image) {
-		this.notice_image = notice_image;
-	}
-
 	public int getNotice_readcount() {
 		return notice_readcount;
 	}
@@ -78,22 +61,14 @@ public class Notice {
 		this.notice_readcount = notice_readcount;
 	}
 
-	public int getSetting() {
-		return setting;
-	}
-
-	public void setSetting(int setting) {
-		this.setting = setting;
-	}
-
-
-
 	@Override
 	public String toString() {
 		return "Notice [notice_no=" + notice_no + ", notice_title=" + notice_title + ", notice_date=" + notice_date
-				+ ", notice_content=" + notice_content + ", notice_image=" + notice_image + ", notice_readcount="
-				+ notice_readcount + ", setting=" + setting + "]";
+				+ ", notice_content=" + notice_content + ", notice_readcount=" + notice_readcount + "]";
 	}
+	
+	
+	
 	
 	
 	

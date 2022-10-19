@@ -273,10 +273,9 @@
   	  	</div>    
 		-->
 		<div id="requestBoard_wrap">
-		<table width="0" border="0" cellpadding="0" cellspacing="0">
+		<table >
 			<tbody>
 				<tr>
-					<td>
 						<!--contents--> <br>
 						<table style="padding-left: 10px" border="0" cellpadding="0"
 							cellspacing="0">
@@ -293,7 +292,7 @@
 										<td width="100" align="center" bgcolor="#ffc91d" height="22">타이틀</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
-											style="width: 240" name="notice_title" id="">
+											style="width: 600px" name="notice_title" id="">
 										</td>
 										<!-- <th scope="col" class="setting">
 	                                        	<input type="checkbox" name = "setting" value="1" id="setting" >
@@ -304,7 +303,7 @@
 										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><textarea wrap="soft"
-												style="width: 240px" rows="10" name="notice_content"></textarea>
+												style="width: 600px" rows="10" name="notice_content"></textarea>
 										</td>
 									</tr>
 								</tbody>
@@ -318,7 +317,6 @@
 								</tr>
 							</tbody>
 						</table>
-					</td>
 				</tr>
 			</tbody>
 		</table> <br>

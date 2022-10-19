@@ -310,10 +310,10 @@
 										</td>
 									</tr> --%>
 						<tr>
-							<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
+							<td width="100" align="center" bgcolor="#ffc91d" height="22" >제목</td>
 							<td width="490" align="left" bgcolor="ffffff"
 								style="padding-left: 10px"><input type="text"
-								style="width: 350px" name="notice_title"
+								style="width: 600px" name="notice_title"
 								value="${notice.notice_title}"></td>
 						</tr>
 
@@ -337,7 +337,7 @@
 							<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 							<td width="490" align="left" bgcolor="ffffff"
 								style="padding-left: 10px"><textarea wrap="soft"
-									style="width: 500px" rows="10" name="notice_content">
+									style="width: 600px" rows="10" name="notice_content">
 			${notice.notice_content}
 												</textarea></td>
 						</tr>
@@ -345,7 +345,7 @@
 				</table>
 			</form>
 			<br> <input class="w-btn w-btn-detail" id="asd" type="button"
-				pageno="${pageno}" value="확인" /> <input class="w-btn w-btn-detail"
+				pageno="${pageno}" value="확인" />&nbsp;&nbsp; <input class="w-btn w-btn-detail"
 				id="ddd" type="button" pageno="${pageno}" value="목록" />
 
 		</div>

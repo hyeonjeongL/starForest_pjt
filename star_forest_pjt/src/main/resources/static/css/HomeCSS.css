@@ -124,7 +124,7 @@ a:hover {
 }
 
 #home-today {
-	background-color: #75BD43;
+	background-color: #8FBC8F;
 	color: white;
 	font-weight: 400;
 	height: 50%;
@@ -133,8 +133,8 @@ a:hover {
 }
 
 #home-holiday {
-	background-color: #107637;
-	color: white;
+	background-color: #FAFAD2;
+	color: black;
 	height: 50%;
 	padding: 30px;
 	font-family: 'GmarketSansMedium';

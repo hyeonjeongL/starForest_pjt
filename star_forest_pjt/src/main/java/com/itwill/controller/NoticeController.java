@@ -25,14 +25,13 @@ public class NoticeController {
 	
 	@RequestMapping("/notice_list")
 	public String notice_list(@RequestParam(required = false, defaultValue = "1") Integer pageno,Model model) throws Exception{
+		System.out.println("notice_list start");
 		System.out.println(pageno);
 		try {
 			PageMakerDto<Notice> noticeList = noticeService.selectAll(pageno);
-			System.out.println("selectAll(pageno)");
 			model.addAttribute("noticeList",noticeList);
 			System.out.println("noticeList111");
 			model.addAttribute("pageno",pageno);
-			System.out.println("pageno");
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "error";
@@ -47,13 +46,11 @@ public class NoticeController {
 		}
 		try {
 			Notice notice = noticeService.selectByNo(notice_no);
-			System.out.println("view111");
+			System.out.println("notice_detail start");
 			noticeService.updateCount(notice_no);
-			System.out.println("view222");
 			model.addAttribute("notice",notice);
-			System.out.println("view333");
 			model.addAttribute("pageno",pageno);
-			System.out.println("view444");
+			System.out.println(notice);
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "error";

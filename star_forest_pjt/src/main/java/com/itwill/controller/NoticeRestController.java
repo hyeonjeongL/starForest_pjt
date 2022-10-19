@@ -56,7 +56,7 @@ public class NoticeRestController {
 			Notice notice= noticeService.selectByNo(notice_no);
 			code=1;
 			resultList.add(notice);
-			
+			System.out.println(notice);
 		}catch (Exception e) {
 			e.printStackTrace();
 			code=2;
@@ -76,9 +76,11 @@ public class NoticeRestController {
 		List<Notice> resultList = new ArrayList<Notice>();
 		
 		try {
+			System.out.println("modify_form");
 			String sUserId = (String)session.getAttribute("sUserId");
 			String admin = "admin";
-			Notice requestBoard = noticeService.selectByNo(notice_no);
+			Notice notice = noticeService.selectByNo(notice_no);
+			System.out.println(notice);
 		}catch (Exception e) {
 			e.printStackTrace();
 			msg="글쓰기수정폼에러";
@@ -99,7 +101,9 @@ public class NoticeRestController {
 		List<Notice> resultList = new ArrayList<Notice>();
 		int rowCount = 0;
 		try {
+			System.out.println("modify_action start");
 			rowCount = noticeService.update(notice);
+			System.out.println(rowCount);
 			if(rowCount==1) {
 				code=1;
 				msg="수정이 완료되었습니다.";
@@ -125,12 +129,13 @@ public class NoticeRestController {
 		int code = 1;
 		String msg="";
 		List<Notice> resultList = new ArrayList<Notice>();
-		
+		System.out.println("delete_action start");
 		try {
 			int rowCount = noticeService.delete(notice_no);
 			if(rowCount==1) {
 				code=1;
 				msg="삭제가 완료되었습니다.";
+				System.out.println(rowCount);
 			}else if(rowCount==0){
 				code=2;
 				msg="답글이 달려있는 글은 삭제가 불가능합니다.";
@@ -153,16 +158,15 @@ public class NoticeRestController {
 		System.out.println(notice);
 		int code = 1;
 		String msg="";
-		System.out.println("write111");
+		System.out.println("write_action start");
 		List<Notice> resultList = new ArrayList<Notice>();
 		System.out.println("write222");
 		int rowCount = 0;
 		try { 
-			System.out.println("code111");
 			rowCount = noticeService.create(notice);
-			System.out.println("code222");
+			System.out.println(notice);
 			if(rowCount==1) {
-				System.out.println("code333");
+				System.out.println("code111");
 				code=1;
 				msg="등록이 완료되었습니다.";
 			}else {

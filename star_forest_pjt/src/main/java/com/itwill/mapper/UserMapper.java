@@ -41,7 +41,7 @@ public interface UserMapper {
 	@Select("select count(*) from user_info where user_id=#{user_id} and user_password=#{user_password}")
 	public int PWcheck(String user_id,String user_password);
 	
-	@Select("select trunc(sysdate)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id where u.user_id=#{user_id}")
+	@Select("select min(r.return_date)-min(r.return_duedate) from user_info u join rental r on u.user_id=r.user_id where u.user_id=#{user_id}")
 	public int rentalStopPeriod(String user_id);
 	
 	@Update("update user_info set user_book_cnt_limit=user_book_cnt_limit-1"

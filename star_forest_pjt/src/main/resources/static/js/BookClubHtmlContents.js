@@ -47,7 +47,9 @@ BookClubHtmlContents.club_item_html = function(club) {
 
 
 BookClubHtmlContents.club_join_html = function(bookClubArray,pageArray) {
-	return `<div class="category" id="btn_category">
+	return `
+	<img src="img/book_club_notice.png" width="700px;" style="margin-left:30px;"><br><br><br>
+	<div class="category" id="btn_category">
 				            <div>
 				             <button type="button" id="btn_all" value="all" style="width:50px" >전체</button>
 				             <button type="button" id="btn1" value="100" style="width:130px">건강/취미/레저</button>

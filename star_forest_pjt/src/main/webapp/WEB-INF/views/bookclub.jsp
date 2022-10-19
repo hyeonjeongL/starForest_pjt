@@ -395,6 +395,7 @@ a{
 						<div class="row" id="item">
 						<br>
 							<!-- 동아리신청,상세 -->
+							
 							<div class="rentalTable" id="content">
 							
 								<!-- 동아리신청,상세 -->

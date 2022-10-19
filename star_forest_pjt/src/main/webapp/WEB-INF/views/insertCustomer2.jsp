@@ -509,7 +509,7 @@ span {
 					<div class="row">
 						<div class="col-md-6 m-auto text-center">
 							<h2>회원가입</h2>
-							<small style="color: Gainsboro;">별숲도서관의 도서를 온라인으로 대여하세요.</small>
+							<small style="color: Gainsboro;">별숲도서관에 오신 걸 환영합니다.</small>
 						</div>
 					</div>
 				</div>

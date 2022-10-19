@@ -41,11 +41,11 @@
 		const type=$('type').val();
 		
 		if($("#type").val() == null){
-			alert("선택해주세요.");
+			alert("검색 항목을 선택해주세요.");
 			return false;
 		}
 		if($("#keyword").val() == false){
-			alert("입력해주세요.");
+			alert("검색어를 입력해주세요.");
 			return false;
 		}
 		

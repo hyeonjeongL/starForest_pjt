@@ -278,6 +278,7 @@ $(function(){
 		</div> --%>
 		
 					</div>
+					</div>
 		
 		
 		

@@ -370,8 +370,10 @@
 							</form>
 							<br>
 							<div id="notice_btn_container">
+								<c:if test="${sUserId=='admin'}">
 								<input class="w-btn w-btn-detail" id="aaa" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />&nbsp;&nbsp;
 								<input class="w-btn w-btn-detail" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />&nbsp;&nbsp;
+								</c:if>
 								<input class="w-btn w-btn-detail" id="ddd" type="button" pageno="${pageno}" value="목록" />
                     		</div>
 		

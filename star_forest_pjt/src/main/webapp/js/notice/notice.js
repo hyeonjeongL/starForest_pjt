@@ -90,6 +90,20 @@ $("#ccc").on('click', function(e){
 				method:'POST',
 				data: param,
 				success:function(jsonResult){
+					if(jsonResult.code==1){
+				$('#ddd').trigger('click');
+				Swal.fire({
+                    title: '',  text: jsonResult.msg,
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '확인'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                    }
+                  })
+			}
 					console.log(jsonResult);
 					if(jsonResult.code==1){
 						$('#btn_request_list').trigger('click');

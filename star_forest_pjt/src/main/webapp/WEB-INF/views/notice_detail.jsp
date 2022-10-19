@@ -272,47 +272,34 @@
 	        </div>
   	  	</div>    
 		-->
-							<form name="f" method="post">
+							<form name="f" method="post" style="width:1000px; margin-right: auto; margin-left: auto;">
 								<input type="hidden" name="notice_no" value="${notice.notice_no}">
-								<%-- <input type="hidden" name="notice_groupno" value="${notice.groupno}"> --%>
-								<table border="0" cellpadding="0" cellspacing="1" width="400" bgcolor="BBBBBB">
+								<table border="0" cellpadding="0" cellspacing="1" sytle="width:100%" bgcolor="BBBBBB">
 									<tbody><tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">번호</td>
+										<td bgcolor="#ffc91d" height="22" style="width:10px;" class="t4">번호</td>
 										<td class="t5">${notice.notice_no}</td>
 									</tr>
-									<%-- <tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">작성자</td>
-										<td class="t5">${notice.user_id}</td>
-									</tr> --%>
 									<tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">날짜</td>
+										<td bgcolor="#ffc91d" height="22" style="width:10px;" class="t4">날짜</td>
 										<td class="t5">${notice.notice_date}</td>
 									</tr><tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">조회수</td>
+										<td bgcolor="#ffc91d" height="22" style="width:10px;" class="t4">조회수</td>
 										<td class="t5">${notice.notice_readcount}</td>
 									</tr>
-									<%-- <tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">진행상태</td>
-										<td class="t5">${notice.notice_status}</td>
-									</tr>
 									<tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">카테고리</td>
-										<td class="t5">${notice.category_name}</td>
-									</tr> --%>
-									<tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">제목</td>
+										<td bgcolor="#ffc91d" height="22" style="width:10px; co" class="t4">제목</td>
 										<td class="t5">${notice.notice_title}</td>
 									</tr>
 									<tr>
-										<td bgcolor="#ffc91d" height="22" class="t4">내용</td>
+										<td bgcolor="#ffc91d" height="350" style="width:10px;" class="t4">내용</td>
 										<td id="td_content" class="t5"><pre style="font-size:12pt;">${notice.notice_content}</pre></td>
 									</tr>
 								</tbody></table>
 							</form>
 							<div id="notice_btn_container">
-								<input class="notice_btn modify_form" id="aaa" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
-								<input class="notice_btn delete" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />
-								<input class="notice_btn list" id="ddd" type="button" pageno="${pageno}" value="목록" />
+								<input class="w-btn w-btn-detail" id="aaa" type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="수정" />
+								<input class="w-btn w-btn-detail" id="ccc"  type="button" pageno="${pageno}" notice_no="${notice.notice_no}" value="삭제" />
+								<input class="w-btn w-btn-detail" id="ddd" type="button" pageno="${pageno}" value="목록" />
                     		</div>
 		
 		</div>

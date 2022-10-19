@@ -16,20 +16,22 @@ function changeQnaList(pageno){
 				data.itemList.forEach(function(notice, i){
 					
 	                if(notice.setting == 1){
-						htmlBuffer += `<tr><td>&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20"></td>`
+						htmlBuffer += `<tr><th>&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20"></th>`
 					}
 	                if(notice.setting == 0){
-						htmlBuffer += `<tr><td>&nbsp;&nbsp;<span class="badge badge-normal"></td>`
+						htmlBuffer += `<tr><th>&nbsp;&nbsp;<span class="badge badge-normal"></th>`
 					}
 	                               
 					htmlBuffer += `
-	                               
-	                                <td><a href="notice_detail?notice_no=${notice.notice_no}&pageno=${data.pageMaker.curPage}">${notice.notice_title}</a>`;
+	                               	<th>${notice.notice_no}</th>
+	                                <th><a href="notice_detail?notice_no=${notice.notice_no}&pageno=${data.pageMaker.curPage}">${notice.notice_title}</a>`;
 	                
-                    htmlBuffer += `</td>
-	                                    <td>${notice.notice_date}</td>
-	                                    <td>${notice.notice_readcount}</td>
-	                                </tr>`;
+                    htmlBuffer += `</th>
+	                                    <th>${notice.notice_date}</th>
+	                                    <th>${notice.notice_readcount}</th>
+	                                     `
+	                                   
+		                                       
 				});
 				$("#notice_list_tbody").html(htmlBuffer);
 				let paginationBuffer = ``;

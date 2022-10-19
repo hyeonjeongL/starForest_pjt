@@ -26,7 +26,20 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
 <!-- 구글폰트 전체 기본적용 -->
-
+<style>
+  a:link {
+  color : black;
+}
+a:visited {
+  color : black;
+}
+a:hover {
+  color : black;
+}
+a:active {
+  color : black;
+}
+</style>
 <!-- 구글폰트 전체 기본적용 END -->
 
 <link rel="stylesheet" href="css/style.css">
@@ -109,11 +122,10 @@ $(function(){
                   <tr id="table1" align="center" >
                   <thead >
                      <tr>
-                        <th>&nbsp;</th>
-                        <th>제목</th>
-                        <th>작성일</th>
-                        <th>조회수</th>
-                        <th>첨부파일</th>
+                        <th style="width:100px">번호</th>
+                        <th style="width:500px">제목</th>
+                        <th style="width:250px">작성일</th>
+                        <th style="width:200px">조회수</th>
                      </tr>
                      </thead>
                   <tbody id="notice_list_tbody">
@@ -121,32 +133,15 @@ $(function(){
                   <!-- board start -->
                   <c:forEach var="notice" items="${noticeList.itemList}">
 	              	<tr>
-	                                    <!-- 
-	                                        <th scope="row">${notice.notice_no}</th>
-	                                         -->
-	                                         <th>
-	                                         	<c:if test="${notice.setting eq '1'}">&nbsp;&nbsp;<img src="img/notice.png" width="20" height="20"></c:if>
-	                                        	<c:if test="${notice.setting eq '0'}">&nbsp;&nbsp;<span class="badge badge-normal"></span></c:if>
-	                                         </th>
-	                                        <th>
-	                                       
-	                                       
-	                                        	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">${notice.notice_title}</a>
-	                                        	
-	                                        
-	                                        </th>
-	                                        <th>${notice.notice_date}</th>
-	                                        <th>${notice.notice_readcount}</th>
-		                                    <th><c:if test="${notice.notice_image eq '1'}">
-		                                        &nbsp;&nbsp;
-		                                        </c:if>
-		                                        <c:if test="${notice.notice_image eq null}">
-		                                        &nbsp;&nbsp;<img src="img/notice_file.png" width="20" height="20">
-		                                        </c:if></th>
-	                                        <%-- <td>${notice.notice_img}</td> --%>
-	                                    </tr>
-                                    </c:forEach>
-                                   <!-- board end -->
+	                <th>${notice.notice_no}</th>
+	                <th>
+	                	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">${notice.notice_title}</a>
+	                </th>
+	                <th>${notice.notice_date}</th>
+	                <th>${notice.notice_readcount}</th>
+	                </tr>
+                   </c:forEach>
+                    <!-- board end -->
                  
                                 </tbody>
                             </table>

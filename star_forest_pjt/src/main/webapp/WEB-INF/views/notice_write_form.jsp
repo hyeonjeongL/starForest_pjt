@@ -272,6 +272,7 @@
 	        </div>
   	  	</div>    
 		-->
+		<div id="requestBoard_wrap">
 		<table width="0" border="0" cellpadding="0" cellspacing="0">
 			<tbody>
 				<tr>
@@ -281,16 +282,15 @@
 							cellspacing="0">
 							<tbody>
 								<tr>
-									<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>공지사항</b></td>
+									<td bgcolor="f4f4f4" height="22" style="width:100%">&nbsp;&nbsp;<b>공지사항</b></td>
 								</tr>
 							</tbody>
 						</table> <!-- guest write Form  -->
 						<form id="notice_write_form" name="f" method="post">
-							<table border="0" cellpadding="0" cellspacing="1" width="590"
-								bgcolor="BBBBBB">
+							<table border="0" cellpadding="0" cellspacing="1" width="590" bgcolor="BBBBBB">
 								<tbody>
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">타이틀</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">타이틀</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><input type="text"
 											style="width: 240" name="notice_title" id="">
@@ -300,15 +300,8 @@
 	                                        	<input type="hidden" name = "setting" value="0" id="setting_hidden" >
 	                                	</th> -->
 									</tr>
-									<!-- <tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">고정</td>
-										<th scope="col" class="setting">
-	                                        	<input type="checkbox" name = "setting" bgcolor="E6ECDE" value="1" id="setting" >
-	                                        	<input type="hidden" name = "setting"  value="0" id="setting_hidden" >
-	                                	</th>
-									</tr> -->
 									<tr>
-										<td width="100" align="center" bgcolor="E6ECDE" height="22">내용</td>
+										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px"><textarea wrap="soft"
 												style="width: 240px" rows="10" name="notice_content"></textarea>
@@ -320,8 +313,8 @@
 						<table width="590" border="0" cellpadding="0" cellspacing="0">
 							<tbody>
 								<tr>
-									<td align="center"><input type="button" value="공지사항쓰기" id="fff" notice_no="${notice.notice_no}"> &nbsp; 
-									<input class="notice_btn list" id="ddd" type="button" pageno="${pageno}" value="공지사항목록" /></td>
+									<input type="button" class="w-btn w-btn-detail" value="공지사항쓰기" id="fff" notice_no="${notice.notice_no}"> &nbsp; 
+									<input class="w-btn w-btn-detail" id="ddd" type="button" pageno="${pageno}" value="공지사항목록" />
 								</tr>
 							</tbody>
 						</table>
@@ -329,6 +322,7 @@
 				</tr>
 			</tbody>
 		</table> <br>
+		</div>
 		
 		</div>
 		

@@ -1,4 +1,4 @@
-<%@page import="com.itwill.domain.Notice" %>
+<%@page import="com.itwill.domain.Notice"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -28,81 +28,78 @@
 <!-- 구글폰트 전체 기본적용 -->
 
 <!-- 구글폰트 전체 기본적용 END -->
+<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/ddoyoon.css">
-<link rel="icon" type="image/png" sizes="16x16"
-	href="favicon/star.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/star.png">
 <title>커뮤니티 - 별숲도서관</title>
 
 
 <script type="text/javascript"
 	src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script type="text/javascript" src="js/request_html_content.js"></script>
+<script type="text/javascript" src="js/request_html_content.js"></script>
 <script type="text/javascript">
-/*************************************************/
-	function notice_list_rest(param){
-	console.log(param)	   
-	$.ajax({
-				url:'notice_list_rest',
-				method:'GET',
-				data:param,
-				success:function(jsonResult){
-					var requestArray = jsonResult.data;
-					var pageArray = jsonResult.pageMaker[0];
-					console.log(jsonResult);
-					$('#notice_wrap').html(notice_list_content(requestArray,pageArray));
-					//$('#page_wrap').html(pageArray);
-				}
-			});
+	/*************************************************/
+	function notice_list_rest(param) {
+		console.log(param)
+		$.ajax({
+			url : 'notice_list_rest',
+			method : 'GET',
+			data : param,
+			success : function(jsonResult) {
+				var requestArray = jsonResult.data;
+				var pageArray = jsonResult.pageMaker[0];
+				console.log(jsonResult);
+				$('#notice_wrap').html(
+						notice_list_content(requestArray, pageArray));
+				//$('#page_wrap').html(pageArray);
+			}
+		});
 	}
 	/***********************************************/
 	$(function() {
-		var param=$('#page_form').serialize();
+		var param = $('#page_form').serialize();
 		//notice_list_json(param);
-		
-		$(document).on('click','.page_btn a,.page_btn_next a , .page_btn_prev a', function(e){
-			var pageNum=$(e.target).attr('pageNum');
-			$("#page_form input[name='pageNum']").val(pageNum);
-			
-			param=$('#page_form').serialize();
-			console.log(">>>>>>>"+param);
+
+		$(document).on('click',
+				'.page_btn a,.page_btn_next a , .page_btn_prev a', function(e) {
+					var pageNum = $(e.target).attr('pageNum');
+					$("#page_form input[name='pageNum']").val(pageNum);
+
+					param = $('#page_form').serialize();
+					console.log(">>>>>>>" + param);
+					notice_list_json(param);
+
+					e.preventDefault();
+				});
+
+		$(document).on('click', '#search_btn', function(e) {
+
+			//var pageNum = $("#page_form input[name='pageNum']").val();
+			//var keyword= $("input[name='keyword']").val();
+			//var type= $("#type_box option:selected").val();
+			param = $('#page_form').serialize();
 			notice_list_json(param);
-	        
-			e.preventDefault();
-	    });
-	
-		$(document).on('click','#search_btn',function(e){
-			
-			 //var pageNum = $("#page_form input[name='pageNum']").val();
-			 //var keyword= $("input[name='keyword']").val();
-			 //var type= $("#type_box option:selected").val();
-			 param= $('#page_form').serialize();
-			 notice_list_json(param);
-			
-			
+
 		});
-		
-		
-		
-		
-		
-		$(document).on('click','#btn_write',function(e){
+
+		$(document).on('click', '#btn_write', function(e) {
 			$.ajax({
-			url:'login_check',
-			method:'GET',
-			success:function(jsonResult){
-				if(jsonResult.code==2){
-				alert(jsonResult.msg);
-				location.href='user';
-				}else if(jsonResult.code==1){
-				location.href='notice_write_form';
-		}
-			}
-		});
+				url : 'login_check',
+				method : 'GET',
+				success : function(jsonResult) {
+					if (jsonResult.code == 2) {
+						alert(jsonResult.msg);
+						location.href = 'user';
+					} else if (jsonResult.code == 1) {
+						location.href = 'notice_write_form';
+					}
+				}
+			});
 		});
 		/*
 		게시물리스트
-		*/
-		$("#ddd").on("click", function(){
+		 */
+		$("#ddd").on("click", function() {
 			let pageno = $(this).attr("pageno");
 			location.href = `notice_list?pageno=${pageno}`;
 			console.log(pageno);
@@ -121,115 +118,122 @@
 			});
 			e.preventDefault();
 		}); */
-		
+
 		/*
 		notice 게시물 상세보기
-		*/
-		$(document).on('click','.notice_item_a',function(e){
-			var notice_no=$(e.target).attr('notice_no');
-			var param='notice_no='+notice_no;
+		 */
+		$(document).on('click', '.notice_item_a', function(e) {
+			var notice_no = $(e.target).attr('notice_no');
+			var param = 'notice_no=' + notice_no;
 			console.log(param);
 			$.ajax({
-				url:'notice_detail_rest',
-				method:'GET',
-				data:param,
-				success:function(jsonResult){
+				url : 'notice_detail_rest',
+				method : 'GET',
+				data : param,
+				success : function(jsonResult) {
 					var item = jsonResult.data[0];
 					$('#notice_wrap').html(notice_detail(item));
 				}
 			});
-			
-			
+
 		});
-		
-		
+
 		/*
 		게시물 수정
-		*/
-		
-		$(document).on('click','#btn_notice_modify_form',function(e){
-			
+		 */
+
+		$(document).on('click', '#btn_notice_modify_form', function(e) {
+
 			var notice_no = $(e.target).attr('notice_no');
-			var param = 'notice_no='+notice_no;
+			var param = 'notice_no=' + notice_no;
 			$.ajax({
-				
-				url:'notice_modify_form',
-				method:'POST',
-				data: param,
-				success:function(jsonResult){
+
+				url : 'notice_modify_form',
+				method : 'POST',
+				data : param,
+				success : function(jsonResult) {
 					var item = jsonResult.data[0];
-					if(jsonResult.code==1){
-					$('#notice_wrap').html(notice_modify_form(item));
-					}else if(jsonResult.code==2){
+					if (jsonResult.code == 1) {
+						$('#notice_wrap').html(notice_modify_form(item));
+					} else if (jsonResult.code == 2) {
 						alert(jsonResult.msg);
 					}
 				}
 			});
-			
-			
+
 		});
-		
-		
-		$(document).on('click','#btn_notice_modify_action',function(e){
-			var param=$('#notice_modify_form').serialize();
-			console.log(param);
-			$.ajax({
-				url:'notice_modify_action',
-				method:'POST',
-				data:param,
-				success: function(jsonResult){
-					console.log(jsonResult);
-					if(jsonResult.code==1){
-						var param ='notice_no='+$("#notice_modify_form input[name='notice_no']").val();
-						$.ajax({
-						    url:'notice_detail_json',
-						    method:'GET',
-						    dataType:'json',
-						   	data:param,
-						    success:function(jsonResult){
-						    	$('#notice_wrap').html(notice_detail(jsonResult.data[0]));
-						    }
+
+		$(document)
+				.on(
+						'click',
+						'#btn_notice_modify_action',
+						function(e) {
+							var param = $('#notice_modify_form').serialize();
+							console.log(param);
+							$
+									.ajax({
+										url : 'notice_modify_action',
+										method : 'POST',
+										data : param,
+										success : function(jsonResult) {
+											console.log(jsonResult);
+											if (jsonResult.code == 1) {
+												var param = 'notice_no='
+														+ $(
+																"#notice_modify_form input[name='notice_no']")
+																.val();
+												$
+														.ajax({
+															url : 'notice_detail_json',
+															method : 'GET',
+															dataType : 'json',
+															data : param,
+															success : function(
+																	jsonResult) {
+																$(
+																		'#notice_wrap')
+																		.html(
+																				notice_detail(jsonResult.data[0]));
+															}
+														});
+												alert(jsonResult.msg);
+											} else if (jsonResult.code == 2) {
+												alert(jsonResult.msg);
+											} else if (jsonResult.code == 0) {
+												alert(jsonResult.msg);
+											}
+										}
+									});
+
 						});
-						alert(jsonResult.msg);
-					}else if(jsonResult.code==2){
-						alert(jsonResult.msg);
-					}else if(jsonResult.code==0){
-						alert(jsonResult.msg);
-					}
-				}
-			});
-			
-			
-		});
-		
-		$(document).on('click','#btn_notice_remove_action',function(e){
-			var param = 'notice_no='+$(e.target).attr('notice_no');
+
+		$(document).on('click', '#btn_notice_remove_action', function(e) {
+			var param = 'notice_no=' + $(e.target).attr('notice_no');
 			console.log(param);
 			$.ajax({
-				
-				url:'notice_remove_action',
-				method:'POST',
-				data: param,
-				success:function(jsonResult){
+
+				url : 'notice_remove_action',
+				method : 'POST',
+				data : param,
+				success : function(jsonResult) {
 					console.log(jsonResult);
-					if(jsonResult.code==1){
+					if (jsonResult.code == 1) {
 						$('#btn_notice_list').trigger('click');
-					}else if(code==2){
+					} else if (code == 2) {
 						alert(jsonResult.msg);
-					}else if(code==0){
+					} else if (code == 0) {
 						alert(jsonResult.msg);
 					}
 				}
-				
+
 			});
 		});
-		
-		
-		$(document).on('click','#btn_notice_list',function(e){
-			location.href='notice_list';
-			
+
+		$(document).on('click', '#btn_notice_list', function(e) {
+			location.href = 'notice_list';
+
 		});
-		
+
 	});
 </script>
 
@@ -237,13 +241,13 @@
 <body class="d-flex flex-column">
 	<div id="page-content">
 
-			<!-- navigation start-->
-			<div id="navigation">
-				<!-- include_common_left.jsp start-->
-				<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
-				<!-- include_common_left.jsp end-->
-			</div>
-			<!-- navigation end-->
+		<!-- navigation start-->
+		<div id="navigation">
+			<!-- include_common_left.jsp start-->
+			<jsp:include page="common/include_common_top_menu_templateVer.jsp" />
+			<!-- include_common_left.jsp end-->
+		</div>
+		<!-- navigation end-->
 
 		<!-- PAGE HEADER -->
 		<header id="page-header" class="noto-serif">
@@ -259,10 +263,12 @@
 		</header>
 
 		<!-- MAIN SECTION -->
-		&nbsp;&nbsp;&nbsp;
-		<br><br>
+		&nbsp;&nbsp;&nbsp; <br>
+		<br>
 		<!-- <img alt="" src="img/request_notice.png" width=700px;> -->
-			<br><br><br>
+		<br>
+		<br>
+		<br>
 		<!-- 검색 SECTION -->
 		<!--  
 		<div class="search_wrap">
@@ -272,21 +278,23 @@
 	        </div>
   	  	</div>    
 		-->
-							<table width="800">
-			<tbody>
+		<div id="requestBoard_wrap">
+			<table>
+				<tbody>
 					<tr>
-					<td bgcolor="f4f4f4" height="22">&nbsp;&nbsp;<b>공지사항 -
-											게시글 수정</b></td>
-				    </tr>
-			</tbody>
-			</table> 
+						<td bgcolor="f4f4f4" height="22" id="t7">&nbsp;&nbsp;<b>공지사항
+								- 게시글 수정</b></td>
+					</tr>
+				</tbody>
+			</table>
+			<br>
 			<!-- request modify Form  -->
-						<form id="notice_modify_form" name="f" method="post">
-							<input type="hidden" name="notice_no" value="${notice.notice_no}">
-							<table border="0" cellpadding="0" cellspacing="1" width="590"
-								bgcolor="BBBBBB">
-								<tbody>
-									<%-- <tr>
+			<form id="notice_modify_form" class="tableList" name="f"
+				method="post">
+				<input type="hidden" name="notice_no" value="${notice.notice_no}">
+				<table border="0" cellpadding="0" cellspacing="1" bgcolor="BBBBBB">
+					<tbody>
+						<%-- <tr>
 										<td width="100" align="center" bgcolor="#ffc91d" height="22">작성자</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">${notice.user_id}</td>
@@ -301,14 +309,15 @@
 											</select>
 										</td>
 									</tr> --%>
-									<tr>
-										<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
-										<td width="490" align="left" bgcolor="ffffff"
-											style="padding-left: 10px"><input type="text"
-											style="width: 350px" name="notice_title" value="${notice.notice_title}"></td>
-									</tr>
-									
-									<%-- <tr>
+						<tr>
+							<td width="100" align="center" bgcolor="#ffc91d" height="22">제목</td>
+							<td width="490" align="left" bgcolor="ffffff"
+								style="padding-left: 10px"><input type="text"
+								style="width: 350px" name="notice_title"
+								value="${notice.notice_title}"></td>
+						</tr>
+
+						<%-- <tr>
 										<td width="100" align="center" bgcolor="#ffc91d" height="22">신청도서 카테고리</td>
 										<td width="490" align="left" bgcolor="ffffff"
 											style="padding-left: 10px">
@@ -324,27 +333,26 @@
 											</select>
 											</td>
 									</tr> --%>
-									<tr>
-										<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
-										<td width="490" align="left" bgcolor="ffffff"
-											style="padding-left: 10px">
-				
-											<textarea wrap="soft"
-												style="width: 500px" rows="10" name="notice_content">
+						<tr>
+							<td width="100" align="center" bgcolor="#ffc91d" height="22">내용</td>
+							<td width="490" align="left" bgcolor="ffffff"
+								style="padding-left: 10px"><textarea wrap="soft"
+									style="width: 500px" rows="10" name="notice_content">
 			${notice.notice_content}
-												</textarea>
-										</td>
-									</tr>
-								</tbody>
-							</table>
-						</form> <br>
-						<input class="btn_request_modify_action" id="asd" type="button" pageno="${pageno}" value="확인" />
-						<input class="notice_btn list" id="ddd" type="button" pageno="${pageno}" value="목록" />
-		
+												</textarea></td>
+						</tr>
+					</tbody>
+				</table>
+			</form>
+			<br> <input class="w-btn w-btn-detail" id="asd" type="button"
+				pageno="${pageno}" value="확인" /> <input class="w-btn w-btn-detail"
+				id="ddd" type="button" pageno="${pageno}" value="목록" />
+
 		</div>
-		
-			<div id="page_wrap">
-			 <!-- 
+	</div>
+
+	<div id="page_wrap">
+		<!-- 
 				  <div class="page_area">
 			<ul id="page">
 			
@@ -365,24 +373,22 @@
 				
 			</ul>
 			 -->
-		</div>
-			</div>
-		<%-- 	<form id="moveForm" method="get">	
+	</div>
+	</div>
+	<%-- 	<form id="moveForm" method="get">	
 			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">	
 			<input type="hidden" name="type" value="${pageMaker.cri.type }">	
 			</form> --%>
-			
-		<!-- pageContent끝 -->	
-			
-			
-		</div>	
-		<!-- .footer-navigation -->
+
+	<!-- pageContent끝 -->
+
+
+	</div>
+	<!-- .footer-navigation -->
 	<!-- footer start-->
-	&nbsp;
-	&nbsp;
-	&nbsp;
+	&nbsp; &nbsp; &nbsp;
 	<div id="navigation">
 		<!-- include_common_left.jsp start-->
 		<jsp:include page="common/include_common_bottom_templateVer.jsp" />
@@ -391,19 +397,27 @@
 	<!-- footer end-->
 
 
-  
 
-   <script src="js/notice/notice.js" defer>
-      // Get the current year for the copyright
-      $('#year').text(new Date().getFullYear());
-   
-      window.onload=function(){
-         //푸터 명언
-         const footer_display = document.getElementById('footer-display');
-         const footer_quotes = ['좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴', '내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스', '목적이 없는 독서는 산보일 뿐이다. — B. 리튼', '사람은 책을 만들고, 책은 사람을 만든다. — 신용호','기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨','책은 한 권 한 권이 하나의 세계다. — W. 워즈워스', '책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절'];
-         const footer_getQuote = Math.floor(Math.random() * footer_quotes.length);
-         footer_display.textContent =footer_quotes[footer_getQuote];
-      }
-   </script>
+
+	<script src="js/notice/notice.js" defer>
+		// Get the current year for the copyright
+		$('#year').text(new Date().getFullYear());
+
+		window.onload = function() {
+			//푸터 명언
+			const footer_display = document.getElementById('footer-display');
+			const footer_quotes = [
+					'좋은 책은 인류에게 불멸의 정신이다. — J. 밀턴',
+					'내가 인생을 알게 된 것은 사람과 접촉해서가 아니라 책과 접하였기 때문이다. — A. 프 랜스',
+					'목적이 없는 독서는 산보일 뿐이다. — B. 리튼',
+					'사람은 책을 만들고, 책은 사람을 만든다. — 신용호',
+					'기회를 기다리는 것은 바보짓이다. 독서의 시간이라는 것은 지금 이 시간이지 결코 이제부터가 아니다. 오늘 읽을 수 있는 책을 내일로 넘기지 말라. — H. 잭슨',
+					'책은 한 권 한 권이 하나의 세계다. — W. 워즈워스',
+					'책을 한 권 읽으면 한 권의 이익이 있고, 책을 하루 읽으면 하루의 이익이 있다. — 괴문절' ];
+			const footer_getQuote = Math.floor(Math.random()
+					* footer_quotes.length);
+			footer_display.textContent = footer_quotes[footer_getQuote];
+		}
+	</script>
 </body>
 </html>

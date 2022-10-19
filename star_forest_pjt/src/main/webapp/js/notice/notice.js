@@ -90,9 +90,10 @@ $("#ccc").on('click', function(e){
 				method:'POST',
 				data: param,
 				success:function(jsonResult){
+					
+					console.log(jsonResult);
 					if(jsonResult.code==1){
-				$('#ddd').trigger('click');
-				Swal.fire({
+							Swal.fire({
                     title: '',  text: jsonResult.msg,
                     icon: 'success',
                     showCancelButton: false,
@@ -101,13 +102,11 @@ $("#ccc").on('click', function(e){
                     confirmButtonText: '확인'
                   }).then((result) => {
                     if (result.isConfirmed) {
+						location.href="notice_list;"
                     }
                   })
-			}
-					console.log(jsonResult);
-					if(jsonResult.code==1){
-						$('#btn_request_list').trigger('click');
-						location.href='notice_list';
+						//$('#btn_request_list').trigger('click');
+						//location.href='notice_list';
 					}else if(code==2){
 						Swal.fire({
                     title: '',  text: jsonResult.msg,
@@ -161,7 +160,18 @@ $("#asd").on("click", function(){
 			var item = jsonResult.data;
 					if(jsonResult.code==1){
 					var param = 'notice_no='+$("#notice_modify_from input[name='notice_no']").val();
+						Swal.fire({
+                    title: '',  text: jsonResult.msg,
+                    icon: 'success',
+                    showCancelButton: false,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '확인'
+                  }).then((result) => {
+                    if (result.isConfirmed) {
 					location.href = `notice_detail?notice_no=${item}&pageno=1`;
+                    }
+                  })
 					}else if(jsonResult.code==2){
 						Swal.fire({
                     title: '',  text: jsonResult.msg,
@@ -228,7 +238,7 @@ $("#fff").on("click", function(){
 			//e.preventDefault();
 			 
 			if(jsonResult.code==1){
-				$('#ddd').trigger('click');
+				//$('#ddd').trigger('click');
 				Swal.fire({
                     title: '',  text: jsonResult.msg,
                     icon: 'success',
@@ -238,6 +248,7 @@ $("#fff").on("click", function(){
                     confirmButtonText: '확인'
                   }).then((result) => {
                     if (result.isConfirmed) {
+							location.href="notice_list;"
                     }
                   })
 			}

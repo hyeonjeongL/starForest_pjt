@@ -34,10 +34,11 @@ $(function(){
 	
 	const category_no=900;
 	const pageNum=1;
-	const amount=10;
+	const amount=8;
 	$("#page_form[name='pageNum']").val(pageNum);
 	$("#page_form[name='category_no']").val(category_no);
 	$("#page_form[name='amount']").val(amount);
+	
 	const param = 'category_no='+category_no+'&pageNum='+pageNum+'&amount='+amount;
 	
 	$.ajax({
@@ -56,14 +57,14 @@ $(function(){
 	$(document).on('click', '#side_book a , .btn_category_search,.page_btn a,.page_btn_next a , .page_btn_prev a', function(e) {
 		let category_no=900;
 		let pageNum=1;
-		let amount=10;
+		let amount=8;
 		let param = 'category_no='+category_no+'&pageNum='+pageNum+'&amount='+amount;
 		
 		if(e.target.tagName=='BUTTON'){
 			category_no = $(e.target).val();
 			
 			pageNum=1;
-			amount=10;
+			amount=8;
 			
 			$("#page_form[name='pageNum']").val(pageNum);
 			$("#page_form[name='category_no']").val(category_no);
@@ -75,7 +76,7 @@ $(function(){
 			
 			category_no = $(e.target).attr('category_no');
 			pageNum =  $(e.target).attr('pagenum');
-			amount=10;
+			amount=8;
 			
 			$("#page_form[name='pageNum']").val(pageNum);
 			$("#page_form[name='category_no']").val(category_no);

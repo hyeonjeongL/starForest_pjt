@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.itwill.domain.Search;
 import com.itwill.util.Criteria;
+import com.itwill.util.SCriteria;
 
 
 
@@ -17,7 +18,7 @@ public interface SearchDao {
 	int categoryCount(int category_no)throws Exception;
 	
 	//페이지에 있는 게시물 시작번호 / 끝번호
-	List<Search> listAll(int startNo,int endNum,Criteria cri,int category_no)throws Exception;
+	List<Search> listAll(int startNo,int endNum,SCriteria cri,int category_no)throws Exception;
 	
 	//검색기능 
 	List<Search> searchList(Search search) throws Exception;

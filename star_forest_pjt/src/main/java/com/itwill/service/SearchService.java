@@ -5,6 +5,7 @@ import java.util.List;
 import com.itwill.domain.Search;
 import com.itwill.domain.SearchListPageMaker;
 import com.itwill.util.Criteria;
+import com.itwill.util.SCriteria;
 
 //검색기능
 public interface SearchService {
@@ -16,7 +17,7 @@ public interface SearchService {
 	
 	
 	//페이지에 있는 게시물 시작번호 / 끝번호
-	public SearchListPageMaker listAll(Criteria cri,int category_no) throws Exception;
+	public SearchListPageMaker listAll(SCriteria cri,int category_no) throws Exception;
 
 	//검색기능 
 	List<Search> searchList(Search search) throws Exception;

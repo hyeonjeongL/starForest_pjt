@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.itwill.domain.Search;
 import com.itwill.mapper.SearchMapper;
 import com.itwill.util.Criteria;
+import com.itwill.util.SCriteria;
 
 
 @Repository
@@ -46,7 +47,7 @@ public class SearchDaoImpl implements SearchDao {
 
 
 	@Override
-	public List<Search> listAll(int pageBegin, int pageEnd, Criteria cri,int category_no) throws Exception {
+	public List<Search> listAll(int pageBegin, int pageEnd, SCriteria cri,int category_no) throws Exception {
 		System.out.println("3.Dao-->"+cri);
 		Map map=new HashMap();
 		map.put("pageBegin",pageBegin);

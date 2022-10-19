@@ -11,6 +11,8 @@ import com.itwill.domain.SearchListPageMaker;
 import com.itwill.repository.SearchDao;
 import com.itwill.util.Criteria;
 import com.itwill.util.PageMaker;
+import com.itwill.util.SCriteria;
+import com.itwill.util.SPageMaker;
 
 //검색기능
 @Service
@@ -43,12 +45,12 @@ public class SearchServiceImpl  implements SearchService{
 
 
 	@Override
-	public SearchListPageMaker listAll(Criteria cri,int category_no) throws Exception {
+	public SearchListPageMaker listAll(SCriteria cri,int category_no) throws Exception {
 		
 		SearchListPageMaker bookListPageMaker=new SearchListPageMaker();
 		int totCount=searchDao.categoryCount(category_no);
 		System.out.println("1. Service totCount==>"+totCount);
-		PageMaker pageMaker=new PageMaker(cri, totCount);
+		SPageMaker pageMaker=new SPageMaker(cri, totCount);
 		System.out.println("2. pageMaker ==>"+pageMaker);
 		List<Search> bookList=searchDao.listAll(pageMaker.getPageBegin(),pageMaker.getPageEnd(),cri,category_no);
 		System.out.println("3. category_no ==>"+category_no);

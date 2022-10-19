@@ -22,6 +22,8 @@ import com.itwill.domain.SearchListPageMaker;
 import com.itwill.service.SearchService;
 import com.itwill.util.Criteria;
 import com.itwill.util.PageMaker;
+import com.itwill.util.SCriteria;
+import com.itwill.util.SPageMaker;
 
 //검색기능
 @RestController
@@ -32,15 +34,16 @@ public class SearchRestController {
 	
 	//페이징
 	@RequestMapping(value="/search_list_json", produces = "application/json;charset=UTF-8")
-	public Map search_list_json(Criteria cri,@RequestParam int category_no,Model model) {
+	public Map search_list_json(SCriteria cri,@RequestParam int category_no,Model model) {
 		Map resultMap = new HashMap();
 		int code=1;
 		String url="";
 		String msg="";
         System.out.println("Controller:"+cri);
         SearchListPageMaker listPageMaker=null;
-        List<PageMaker> pageMakerList =null;
+        List<SPageMaker> pageMakerList =null;
         try {
+        	cri.setAmount(8);
         	listPageMaker=searchService.listAll(cri,category_no);
         	pageMakerList = new ArrayList<>();
 			pageMakerList.add(listPageMaker.pageMaker);

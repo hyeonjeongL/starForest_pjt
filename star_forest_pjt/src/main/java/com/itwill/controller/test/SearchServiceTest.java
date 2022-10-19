@@ -35,7 +35,7 @@ public class SearchServiceTest {
 		//System.out.println("분야>>"+searchService.cateList(700));
 		Criteria cri1=new Criteria(2, 10);
 		Criteria cri2=new Criteria(1, 10);
-		searchService.listAll(cri1,100);
+		//searchService.listAll(cri1,100);
 		//searchService.listAll(cri2,200);
 		
 		//제목 검색

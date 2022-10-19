@@ -1,5 +1,7 @@
 package com.itwill.mapper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +19,22 @@ import com.itwill.domain.BookCategory;
 @Mapper
 public interface RequestBoardMapper {
 	
+	public class simpleDateFormatEx {
+
+		   public static void main(String[] args) {
+		      Date nowDate = new Date();
+		      System.out.println("포맷 지정 전 : " + nowDate);
+		      
+		        
+		      SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+		           //원하는 데이터 포맷 지정
+		      String strNowDate = simpleDateFormat.format(nowDate); 
+		           //지정한 포맷으로 변환 
+		      System.out.println("포맷 지정 후 : " + strNowDate);
+		      
+		   }
+
+		}
 	//게시물생성
 	@Insert("insert into request_board values(#{board_no},#{board_title},\r\n"
 			+ "									 sysdate,#{board_content},0,'신청접수',1,0,1,\r\n"

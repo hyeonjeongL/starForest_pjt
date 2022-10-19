@@ -5,14 +5,14 @@ import java.util.Date;
 public class Notice {
 	private int notice_no;
 	private String notice_title;
-	private String notice_date;
+	private Date notice_date;
 	private String notice_content;
 	private int notice_readcount;
 	
 	public Notice() {
 	}
-	
-	public Notice(int notice_no, String notice_title, String notice_date, String notice_content, int notice_readcount) {
+
+	public Notice(int notice_no, String notice_title, Date notice_date, String notice_content, int notice_readcount) {
 		super();
 		this.notice_no = notice_no;
 		this.notice_title = notice_title;
@@ -37,11 +37,11 @@ public class Notice {
 		this.notice_title = notice_title;
 	}
 
-	public String getNotice_date() {
+	public Date getNotice_date() {
 		return notice_date;
 	}
 
-	public void setNotice_date(String notice_date) {
+	public void setNotice_date(Date notice_date) {
 		this.notice_date = notice_date;
 	}
 

@@ -1,4 +1,4 @@
-<%@page import="com.itwill.domain.RequestBoard" %>
+<%@page import="com.itwill.domain.Notice" %>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -139,7 +139,7 @@ $(function(){
 	                <th>
 	                	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">${notice.notice_title}</a>
 	                </th>
-	                <th>${notice.notice_date}</th>
+	                <th style="width:300px !important;"><fmt:formatDate pattern="yyyy-MM-dd" value="${notice.notice_date}"/> </th>
 	                <th>${notice.notice_readcount}</th>
 	                </tr>
                    </c:forEach>

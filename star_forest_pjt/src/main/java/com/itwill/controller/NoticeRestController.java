@@ -167,6 +167,7 @@ public class NoticeRestController {
 			System.out.println(notice);
 			if(rowCount==1) {
 				System.out.println("code111");
+				System.out.println(rowCount);
 				code=1;
 				msg="등록이 완료되었습니다.";
 			}else {

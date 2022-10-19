@@ -47,6 +47,7 @@ public class RequestBoardServiceTestController {
 		      RequestBoardListPageMaker bp  = requestBoardService.list(cri);
 		      
 		      System.out.println(bp.totRecordCount);
+		      System.out.println(requestBoardService.selectOne(4));
 	}
 
 }

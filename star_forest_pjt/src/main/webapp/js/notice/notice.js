@@ -27,7 +27,7 @@ function changeQnaList(pageno){
 	                                <th><a href="notice_detail?notice_no=${notice.notice_no}&pageno=${data.pageMaker.curPage}">${notice.notice_title}</a>`;
 	                
                     htmlBuffer += `</th>
-	                                    <th>${notice.notice_date}</th>
+	                                    <th>${notice.notice_date.substring(0,10)}</th>
 	                                    <th>${notice.notice_readcount}</th>
 	                                     `
 	                                   

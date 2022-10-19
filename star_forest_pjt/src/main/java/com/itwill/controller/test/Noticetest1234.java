@@ -33,7 +33,7 @@ public class Noticetest1234 {
       NoticeDao noticeDao=(NoticeDao)context.getBean(NoticeDao.class);
      // System.out.println(noticeDao.create(new Notice()));
      // System.out.println(noticeDao.update(new Notice(2,"8월 휴관안내",null,"휴관","1",1)));
-      //System.out.println(noticeDao.selectAll());
+      System.out.println(noticeDao.selectAll(1, 2));
    }
 
 }

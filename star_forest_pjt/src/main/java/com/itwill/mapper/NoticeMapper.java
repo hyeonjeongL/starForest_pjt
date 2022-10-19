@@ -1,5 +1,7 @@
 package com.itwill.mapper;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -13,10 +15,25 @@ import com.itwill.domain.Notice;
 
 @Mapper
 public interface NoticeMapper {
-	 
+	public class simpleDateFormatEx {
+
+		   public static void main(String[] args) {
+		      Date sysdate = new Date();
+		      System.out.println("포맷 지정 전 : " + sysdate);
+		      
+		        
+		      SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd"); 
+		           //원하는 데이터 포맷 지정
+		      String strNowDate = simpleDateFormat.format(sysdate); 
+		           //지정한 포맷으로 변환 
+		      System.out.println("포맷 지정 후 : " + strNowDate);
+		      
+		   }
+
+		}
 	public List<Notice> selectAll(int pageStart, int pageEnd) throws Exception;
 	
-	@Insert("insert into notice(notice_no,notice_date,notice_readcount,notice_title,notice_content) values(SEQ_notice_notice_no.nextval,sysdate,1,#{notice_title},#{notice_content})")
+	@Insert("insert into notice values(SEQ_notice_notice_no.nextval,#{notice_title},sysdate,#{notice_content},1)")
 	public int create(Notice notice) throws Exception;
 	
 	@Update("update notice set notice_title=#{notice_title},notice_content=#{notice_content} "

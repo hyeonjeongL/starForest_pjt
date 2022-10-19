@@ -124,7 +124,7 @@ $(function(){
                   <tr id="table1" align="center" >
                   <thead >
                      <tr>
-                        <th style="width:100px">번호</th>
+                        <th style="width:100px"></th>
                         <th style="width:500px">제목</th>
                         <th style="width:250px">작성일</th>
                         <th style="width:200px">조회수</th>
@@ -135,7 +135,7 @@ $(function(){
                   <!-- board start -->
                   <c:forEach var="notice" items="${noticeList.itemList}">
 	              	<tr>
-	                <th>${notice.notice_no}</th>
+	                <th><img src="img/notice.png"></th>
 	                <th>
 	                	<a href="notice_detail?notice_no=${notice.notice_no}&pageno=${noticeList.pageMaker.curPage}">${notice.notice_title}</a>
 	                </th>

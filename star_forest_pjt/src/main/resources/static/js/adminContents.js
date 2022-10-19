@@ -65,7 +65,7 @@ adminContents.admin_user_now_rental_list_content = function(rentalArray) {
 			
 			</div>
 					<table class="table" >
-						<thead id=tablehead>
+						<thead>
 							<tr>
 								<th scope="row">No.</th>
 								<th scope="row">제목</th>
@@ -111,7 +111,7 @@ adminContents.admin_user_list_content = function(userArray) {
 			
 			</div>
 					<table class="table" align="center" >
-						<thead>
+						<thead >
 							<tr>
 								<th scope="row">번호</th>
 								<th scope="row">이름</th>
